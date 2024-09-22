@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package battlemasterEntry;
+service BattlemasterEntryService {
+ rpc createBattlemasterEntry (BattlemasterEntryCreateInput) returns (BattlemasterEntry) {}
+rpc battlemasterEntries (findManyParams) returns (stream BattlemasterEntry) {}
+rpc battlemasterEntry (BattlemasterEntryWhereUniqueInput) returns (BattlemasterEntry) {}
+rpc updateBattlemasterEntry (BattlemasterEntryUpdateInput) returns (BattlemasterEntry) {}
+rpc deleteBattlemasterEntry (BattlemasterEntryWhereUniqueInput) returns (BattlemasterEntry) {} 
+ }
+message BattlemasterEntryCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message BattlemasterEntry {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message BattlemasterEntryWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message BattlemasterEntryUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};
