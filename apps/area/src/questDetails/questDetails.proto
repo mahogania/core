@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questDetails;
+service QuestDetailsService {
+ rpc createQuestDetails (QuestDetailsCreateInput) returns (QuestDetails) {}
+rpc questDetailsItems (findManyParams) returns (stream QuestDetails) {}
+rpc questDetails (QuestDetailsWhereUniqueInput) returns (QuestDetails) {}
+rpc updateQuestDetails (QuestDetailsUpdateInput) returns (QuestDetails) {}
+rpc deleteQuestDetails (QuestDetailsWhereUniqueInput) returns (QuestDetails) {} 
+ }
+message QuestDetailsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestDetails {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestDetailsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestDetailsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

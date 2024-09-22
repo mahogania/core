@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questMailSender;
+service QuestMailSenderService {
+ rpc createQuestMailSender (QuestMailSenderCreateInput) returns (QuestMailSender) {}
+rpc questMailSenders (findManyParams) returns (stream QuestMailSender) {}
+rpc questMailSender (QuestMailSenderWhereUniqueInput) returns (QuestMailSender) {}
+rpc updateQuestMailSender (QuestMailSenderUpdateInput) returns (QuestMailSender) {}
+rpc deleteQuestMailSender (QuestMailSenderWhereUniqueInput) returns (QuestMailSender) {} 
+ }
+message QuestMailSenderCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestMailSender {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestMailSenderWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestMailSenderUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

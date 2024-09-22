@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package scriptSplineChainWaypoints;
+service ScriptSplineChainWaypointsService {
+ rpc createScriptSplineChainWaypoints (ScriptSplineChainWaypointsCreateInput) returns (ScriptSplineChainWaypoints) {}
+rpc scriptSplineChainWaypointsItems (findManyParams) returns (stream ScriptSplineChainWaypoints) {}
+rpc scriptSplineChainWaypoints (ScriptSplineChainWaypointsWhereUniqueInput) returns (ScriptSplineChainWaypoints) {}
+rpc updateScriptSplineChainWaypoints (ScriptSplineChainWaypointsUpdateInput) returns (ScriptSplineChainWaypoints) {}
+rpc deleteScriptSplineChainWaypoints (ScriptSplineChainWaypointsWhereUniqueInput) returns (ScriptSplineChainWaypoints) {} 
+ }
+message ScriptSplineChainWaypointsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScriptSplineChainWaypoints {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScriptSplineChainWaypointsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScriptSplineChainWaypointsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

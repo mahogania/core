@@ -1,0 +1,33 @@
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+
+export type AreaTriggerCreatePropertyWhereInput = {
+  animId?: IntNullableFilter;
+  animKitId?: IntNullableFilter;
+  areaTriggerId?: IntNullableFilter;
+  decalPropertiesId?: IntNullableFilter;
+  facingCurveId?: IntNullableFilter;
+  flags?: IntNullableFilter;
+  id?: StringFilter;
+  isAreatriggerCustom?: BooleanNullableFilter;
+  isCustom?: BooleanNullableFilter;
+  morphCurveId?: IntNullableFilter;
+  moveCurveId?: IntNullableFilter;
+  scaleCurveId?: IntNullableFilter;
+  scriptName?: StringNullableFilter;
+  shape?: IntNullableFilter;
+  shapeData0?: FloatNullableFilter;
+  shapeData1?: FloatNullableFilter;
+  shapeData2?: FloatNullableFilter;
+  shapeData3?: FloatNullableFilter;
+  shapeData4?: FloatNullableFilter;
+  shapeData5?: FloatNullableFilter;
+  shapeData6?: FloatNullableFilter;
+  shapeData7?: FloatNullableFilter;
+  timeToTarget?: IntNullableFilter;
+  timeToTargetScale?: IntNullableFilter;
+  verifiedBuild?: IntNullableFilter;
+};

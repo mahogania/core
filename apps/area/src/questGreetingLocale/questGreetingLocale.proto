@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questGreetingLocale;
+service QuestGreetingLocaleService {
+ rpc createQuestGreetingLocale (QuestGreetingLocaleCreateInput) returns (QuestGreetingLocale) {}
+rpc questGreetingLocales (findManyParams) returns (stream QuestGreetingLocale) {}
+rpc questGreetingLocale (QuestGreetingLocaleWhereUniqueInput) returns (QuestGreetingLocale) {}
+rpc updateQuestGreetingLocale (QuestGreetingLocaleUpdateInput) returns (QuestGreetingLocale) {}
+rpc deleteQuestGreetingLocale (QuestGreetingLocaleWhereUniqueInput) returns (QuestGreetingLocale) {} 
+ }
+message QuestGreetingLocaleCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestGreetingLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestGreetingLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestGreetingLocaleUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

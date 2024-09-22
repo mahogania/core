@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+                 package areaTriggerInvolvedRelation;
+service AreaTriggerInvolvedRelationService {
+ rpc createAreaTriggerInvolvedRelation (AreaTriggerInvolvedRelationCreateInput) returns (AreaTriggerInvolvedRelation) {}
+rpc areaTriggerInvolvedRelations (findManyParams) returns (stream AreaTriggerInvolvedRelation) {}
+rpc areaTriggerInvolvedRelation (AreaTriggerInvolvedRelationWhereUniqueInput) returns (AreaTriggerInvolvedRelation) {}
+rpc updateAreaTriggerInvolvedRelation (AreaTriggerInvolvedRelationUpdateInput) returns (AreaTriggerInvolvedRelation) {}
+rpc deleteAreaTriggerInvolvedRelation (AreaTriggerInvolvedRelationWhereUniqueInput) returns (AreaTriggerInvolvedRelation) {} 
+ }
+message AreaTriggerInvolvedRelationCreateInput {
+string createdAt = 1;
+string id = 2;
+int32 quest = 3;
+string updatedAt = 4;
+};
+message AreaTriggerInvolvedRelation {
+string createdAt = 1;
+string id = 2;
+int32 quest = 3;
+string updatedAt = 4;
+};
+message AreaTriggerInvolvedRelationWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+int32 quest = 3;
+string updatedAt = 4;
+};
+message AreaTriggerInvolvedRelationUpdateInput {
+string createdAt = 1;
+string id = 2;
+int32 quest = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package scriptSplineChainMeta;
+service ScriptSplineChainMetaService {
+ rpc createScriptSplineChainMeta (ScriptSplineChainMetaCreateInput) returns (ScriptSplineChainMeta) {}
+rpc scriptSplineChainMetas (findManyParams) returns (stream ScriptSplineChainMeta) {}
+rpc scriptSplineChainMeta (ScriptSplineChainMetaWhereUniqueInput) returns (ScriptSplineChainMeta) {}
+rpc updateScriptSplineChainMeta (ScriptSplineChainMetaUpdateInput) returns (ScriptSplineChainMeta) {}
+rpc deleteScriptSplineChainMeta (ScriptSplineChainMetaWhereUniqueInput) returns (ScriptSplineChainMeta) {} 
+ }
+message ScriptSplineChainMetaCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScriptSplineChainMeta {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScriptSplineChainMetaWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScriptSplineChainMetaUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questOfferRewardConditional;
+service QuestOfferRewardConditionalService {
+ rpc createQuestOfferRewardConditional (QuestOfferRewardConditionalCreateInput) returns (QuestOfferRewardConditional) {}
+rpc questOfferRewardConditionals (findManyParams) returns (stream QuestOfferRewardConditional) {}
+rpc questOfferRewardConditional (QuestOfferRewardConditionalWhereUniqueInput) returns (QuestOfferRewardConditional) {}
+rpc updateQuestOfferRewardConditional (QuestOfferRewardConditionalUpdateInput) returns (QuestOfferRewardConditional) {}
+rpc deleteQuestOfferRewardConditional (QuestOfferRewardConditionalWhereUniqueInput) returns (QuestOfferRewardConditional) {} 
+ }
+message QuestOfferRewardConditionalCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardConditional {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardConditionalWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardConditionalUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

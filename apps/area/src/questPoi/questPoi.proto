@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questPoi;
+service QuestPoiService {
+ rpc createQuestPoi (QuestPoiCreateInput) returns (QuestPoi) {}
+rpc questPois (findManyParams) returns (stream QuestPoi) {}
+rpc questPoi (QuestPoiWhereUniqueInput) returns (QuestPoi) {}
+rpc updateQuestPoi (QuestPoiUpdateInput) returns (QuestPoi) {}
+rpc deleteQuestPoi (QuestPoiWhereUniqueInput) returns (QuestPoi) {} 
+ }
+message QuestPoiCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoi {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoiWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoiUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

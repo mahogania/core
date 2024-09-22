@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questRewardChoiceItems;
+service QuestRewardChoiceItemsService {
+ rpc createQuestRewardChoiceItems (QuestRewardChoiceItemsCreateInput) returns (QuestRewardChoiceItems) {}
+rpc questRewardChoiceItemsItems (findManyParams) returns (stream QuestRewardChoiceItems) {}
+rpc questRewardChoiceItems (QuestRewardChoiceItemsWhereUniqueInput) returns (QuestRewardChoiceItems) {}
+rpc updateQuestRewardChoiceItems (QuestRewardChoiceItemsUpdateInput) returns (QuestRewardChoiceItems) {}
+rpc deleteQuestRewardChoiceItems (QuestRewardChoiceItemsWhereUniqueInput) returns (QuestRewardChoiceItems) {} 
+ }
+message QuestRewardChoiceItemsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRewardChoiceItems {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRewardChoiceItemsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRewardChoiceItemsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

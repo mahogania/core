@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questRewardDisplaySpell;
+service QuestRewardDisplaySpellService {
+ rpc createQuestRewardDisplaySpell (QuestRewardDisplaySpellCreateInput) returns (QuestRewardDisplaySpell) {}
+rpc questRewardDisplaySpells (findManyParams) returns (stream QuestRewardDisplaySpell) {}
+rpc questRewardDisplaySpell (QuestRewardDisplaySpellWhereUniqueInput) returns (QuestRewardDisplaySpell) {}
+rpc updateQuestRewardDisplaySpell (QuestRewardDisplaySpellUpdateInput) returns (QuestRewardDisplaySpell) {}
+rpc deleteQuestRewardDisplaySpell (QuestRewardDisplaySpellWhereUniqueInput) returns (QuestRewardDisplaySpell) {} 
+ }
+message QuestRewardDisplaySpellCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRewardDisplaySpell {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRewardDisplaySpellWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRewardDisplaySpellUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

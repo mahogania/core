@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package scenarioPoi;
+service ScenarioPoiService {
+ rpc createScenarioPoi (ScenarioPoiCreateInput) returns (ScenarioPoi) {}
+rpc scenarioPois (findManyParams) returns (stream ScenarioPoi) {}
+rpc scenarioPoi (ScenarioPoiWhereUniqueInput) returns (ScenarioPoi) {}
+rpc updateScenarioPoi (ScenarioPoiUpdateInput) returns (ScenarioPoi) {}
+rpc deleteScenarioPoi (ScenarioPoiWhereUniqueInput) returns (ScenarioPoi) {} 
+ }
+message ScenarioPoiCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScenarioPoi {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScenarioPoiWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScenarioPoiUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

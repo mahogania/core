@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questObjectivesLocale;
+service QuestObjectivesLocaleService {
+ rpc createQuestObjectivesLocale (QuestObjectivesLocaleCreateInput) returns (QuestObjectivesLocale) {}
+rpc questObjectivesLocales (findManyParams) returns (stream QuestObjectivesLocale) {}
+rpc questObjectivesLocale (QuestObjectivesLocaleWhereUniqueInput) returns (QuestObjectivesLocale) {}
+rpc updateQuestObjectivesLocale (QuestObjectivesLocaleUpdateInput) returns (QuestObjectivesLocale) {}
+rpc deleteQuestObjectivesLocale (QuestObjectivesLocaleWhereUniqueInput) returns (QuestObjectivesLocale) {} 
+ }
+message QuestObjectivesLocaleCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestObjectivesLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestObjectivesLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestObjectivesLocaleUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

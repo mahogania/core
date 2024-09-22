@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package scenarios;
+service ScenariosService {
+ rpc createScenarios (ScenariosCreateInput) returns (Scenarios) {}
+rpc scenariosItems (findManyParams) returns (stream Scenarios) {}
+rpc scenarios (ScenariosWhereUniqueInput) returns (Scenarios) {}
+rpc updateScenarios (ScenariosUpdateInput) returns (Scenarios) {}
+rpc deleteScenarios (ScenariosWhereUniqueInput) returns (Scenarios) {} 
+ }
+message ScenariosCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Scenarios {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScenariosWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScenariosUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

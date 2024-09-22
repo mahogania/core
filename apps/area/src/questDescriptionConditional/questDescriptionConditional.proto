@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questDescriptionConditional;
+service QuestDescriptionConditionalService {
+ rpc createQuestDescriptionConditional (QuestDescriptionConditionalCreateInput) returns (QuestDescriptionConditional) {}
+rpc questDescriptionConditionals (findManyParams) returns (stream QuestDescriptionConditional) {}
+rpc questDescriptionConditional (QuestDescriptionConditionalWhereUniqueInput) returns (QuestDescriptionConditional) {}
+rpc updateQuestDescriptionConditional (QuestDescriptionConditionalUpdateInput) returns (QuestDescriptionConditional) {}
+rpc deleteQuestDescriptionConditional (QuestDescriptionConditionalWhereUniqueInput) returns (QuestDescriptionConditional) {} 
+ }
+message QuestDescriptionConditionalCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestDescriptionConditional {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestDescriptionConditionalWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestDescriptionConditionalUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

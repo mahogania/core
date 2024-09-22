@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questRequestItems;
+service QuestRequestItemsService {
+ rpc createQuestRequestItems (QuestRequestItemsCreateInput) returns (QuestRequestItems) {}
+rpc questRequestItemsItems (findManyParams) returns (stream QuestRequestItems) {}
+rpc questRequestItems (QuestRequestItemsWhereUniqueInput) returns (QuestRequestItems) {}
+rpc updateQuestRequestItems (QuestRequestItemsUpdateInput) returns (QuestRequestItems) {}
+rpc deleteQuestRequestItems (QuestRequestItemsWhereUniqueInput) returns (QuestRequestItems) {} 
+ }
+message QuestRequestItemsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRequestItems {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRequestItemsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRequestItemsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

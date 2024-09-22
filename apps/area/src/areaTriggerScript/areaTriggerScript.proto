@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package areaTriggerScript;
+service AreaTriggerScriptService {
+ rpc createAreaTriggerScript (AreaTriggerScriptCreateInput) returns (AreaTriggerScript) {}
+rpc areaTriggerScripts (findManyParams) returns (stream AreaTriggerScript) {}
+rpc areaTriggerScript (AreaTriggerScriptWhereUniqueInput) returns (AreaTriggerScript) {}
+rpc updateAreaTriggerScript (AreaTriggerScriptUpdateInput) returns (AreaTriggerScript) {}
+rpc deleteAreaTriggerScript (AreaTriggerScriptWhereUniqueInput) returns (AreaTriggerScript) {} 
+ }
+message AreaTriggerScriptCreateInput {
+string createdAt = 1;
+int32 entry = 2;
+string id = 3;
+string scriptName = 4;
+string updatedAt = 5;
+};
+message AreaTriggerScript {
+string createdAt = 1;
+int32 entry = 2;
+string id = 3;
+string scriptName = 4;
+string updatedAt = 5;
+};
+message AreaTriggerScriptWhereUniqueInput {
+string createdAt = 1;
+int32 entry = 2;
+string id = 3;
+string scriptName = 4;
+string updatedAt = 5;
+};
+message AreaTriggerScriptUpdateInput {
+string createdAt = 1;
+int32 entry = 2;
+string id = 3;
+string scriptName = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

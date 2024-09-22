@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questCompletionLogConditional;
+service QuestCompletionLogConditionalService {
+ rpc createQuestCompletionLogConditional (QuestCompletionLogConditionalCreateInput) returns (QuestCompletionLogConditional) {}
+rpc questCompletionLogConditionals (findManyParams) returns (stream QuestCompletionLogConditional) {}
+rpc questCompletionLogConditional (QuestCompletionLogConditionalWhereUniqueInput) returns (QuestCompletionLogConditional) {}
+rpc updateQuestCompletionLogConditional (QuestCompletionLogConditionalUpdateInput) returns (QuestCompletionLogConditional) {}
+rpc deleteQuestCompletionLogConditional (QuestCompletionLogConditionalWhereUniqueInput) returns (QuestCompletionLogConditional) {} 
+ }
+message QuestCompletionLogConditionalCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestCompletionLogConditional {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestCompletionLogConditionalWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestCompletionLogConditionalUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

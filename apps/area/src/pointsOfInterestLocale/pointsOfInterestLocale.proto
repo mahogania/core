@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package pointsOfInterestLocale;
+service PointsOfInterestLocaleService {
+ rpc createPointsOfInterestLocale (PointsOfInterestLocaleCreateInput) returns (PointsOfInterestLocale) {}
+rpc pointsOfInterestLocales (findManyParams) returns (stream PointsOfInterestLocale) {}
+rpc pointsOfInterestLocale (PointsOfInterestLocaleWhereUniqueInput) returns (PointsOfInterestLocale) {}
+rpc updatePointsOfInterestLocale (PointsOfInterestLocaleUpdateInput) returns (PointsOfInterestLocale) {}
+rpc deletePointsOfInterestLocale (PointsOfInterestLocaleWhereUniqueInput) returns (PointsOfInterestLocale) {} 
+ }
+message PointsOfInterestLocaleCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PointsOfInterestLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PointsOfInterestLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PointsOfInterestLocaleUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

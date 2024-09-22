@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package sceneTemplate;
+service SceneTemplateService {
+ rpc createSceneTemplate (SceneTemplateCreateInput) returns (SceneTemplate) {}
+rpc sceneTemplates (findManyParams) returns (stream SceneTemplate) {}
+rpc sceneTemplate (SceneTemplateWhereUniqueInput) returns (SceneTemplate) {}
+rpc updateSceneTemplate (SceneTemplateUpdateInput) returns (SceneTemplate) {}
+rpc deleteSceneTemplate (SceneTemplateWhereUniqueInput) returns (SceneTemplate) {} 
+ }
+message SceneTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SceneTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SceneTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SceneTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questRequestItemsConditional;
+service QuestRequestItemsConditionalService {
+ rpc createQuestRequestItemsConditional (QuestRequestItemsConditionalCreateInput) returns (QuestRequestItemsConditional) {}
+rpc questRequestItemsConditionals (findManyParams) returns (stream QuestRequestItemsConditional) {}
+rpc questRequestItemsConditional (QuestRequestItemsConditionalWhereUniqueInput) returns (QuestRequestItemsConditional) {}
+rpc updateQuestRequestItemsConditional (QuestRequestItemsConditionalUpdateInput) returns (QuestRequestItemsConditional) {}
+rpc deleteQuestRequestItemsConditional (QuestRequestItemsConditionalWhereUniqueInput) returns (QuestRequestItemsConditional) {} 
+ }
+message QuestRequestItemsConditionalCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRequestItemsConditional {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRequestItemsConditionalWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRequestItemsConditionalUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};
