@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package battlefieldTemplate;
+service BattlefieldTemplateService {
+ rpc createBattlefieldTemplate (BattlefieldTemplateCreateInput) returns (BattlefieldTemplate) {}
+rpc battlefieldTemplates (findManyParams) returns (stream BattlefieldTemplate) {}
+rpc battlefieldTemplate (BattlefieldTemplateWhereUniqueInput) returns (BattlefieldTemplate) {}
+rpc updateBattlefieldTemplate (BattlefieldTemplateUpdateInput) returns (BattlefieldTemplate) {}
+rpc deleteBattlefieldTemplate (BattlefieldTemplateWhereUniqueInput) returns (BattlefieldTemplate) {} 
+ }
+message BattlefieldTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message BattlefieldTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message BattlefieldTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message BattlefieldTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};
