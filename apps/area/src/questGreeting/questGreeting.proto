@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questGreeting;
+service QuestGreetingService {
+ rpc createQuestGreeting (QuestGreetingCreateInput) returns (QuestGreeting) {}
+rpc questGreetings (findManyParams) returns (stream QuestGreeting) {}
+rpc questGreeting (QuestGreetingWhereUniqueInput) returns (QuestGreeting) {}
+rpc updateQuestGreeting (QuestGreetingUpdateInput) returns (QuestGreeting) {}
+rpc deleteQuestGreeting (QuestGreetingWhereUniqueInput) returns (QuestGreeting) {} 
+ }
+message QuestGreetingCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestGreeting {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestGreetingWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestGreetingUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,26 @@
+export type AreaTriggerCreatePropertyCreateInput = {
+  animId?: number | null;
+  animKitId?: number | null;
+  areaTriggerId?: number | null;
+  decalPropertiesId?: number | null;
+  facingCurveId?: number | null;
+  flags?: number | null;
+  isAreatriggerCustom?: boolean | null;
+  isCustom?: boolean | null;
+  morphCurveId?: number | null;
+  moveCurveId?: number | null;
+  scaleCurveId?: number | null;
+  scriptName?: string | null;
+  shape?: number | null;
+  shapeData0?: number | null;
+  shapeData1?: number | null;
+  shapeData2?: number | null;
+  shapeData3?: number | null;
+  shapeData4?: number | null;
+  shapeData5?: number | null;
+  shapeData6?: number | null;
+  shapeData7?: number | null;
+  timeToTarget?: number | null;
+  timeToTargetScale?: number | null;
+  verifiedBuild?: number | null;
+};
