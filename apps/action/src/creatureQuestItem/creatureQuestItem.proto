@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package creatureQuestItem;
+service CreatureQuestItemService {
+ rpc createCreatureQuestItem (CreatureQuestItemCreateInput) returns (CreatureQuestItem) {}
+rpc creatureQuestItems (findManyParams) returns (stream CreatureQuestItem) {}
+rpc creatureQuestItem (CreatureQuestItemWhereUniqueInput) returns (CreatureQuestItem) {}
+rpc updateCreatureQuestItem (CreatureQuestItemUpdateInput) returns (CreatureQuestItem) {}
+rpc deleteCreatureQuestItem (CreatureQuestItemWhereUniqueInput) returns (CreatureQuestItem) {} 
+ }
+message CreatureQuestItemCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureQuestItem {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureQuestItemWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureQuestItemUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

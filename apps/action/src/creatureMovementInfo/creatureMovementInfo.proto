@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+                 package creatureMovementInfo;
+service CreatureMovementInfoService {
+ rpc createCreatureMovementInfo (CreatureMovementInfoCreateInput) returns (CreatureMovementInfo) {}
+rpc creatureMovementInfos (findManyParams) returns (stream CreatureMovementInfo) {}
+rpc creatureMovementInfo (CreatureMovementInfoWhereUniqueInput) returns (CreatureMovementInfo) {}
+rpc updateCreatureMovementInfo (CreatureMovementInfoUpdateInput) returns (CreatureMovementInfo) {}
+rpc deleteCreatureMovementInfo (CreatureMovementInfoWhereUniqueInput) returns (CreatureMovementInfo) {} 
+ }
+message CreatureMovementInfoCreateInput {
+string createdAt = 1;
+string id = 2;
+int32 movementId = 3;
+int32 runSpeed = 4;
+string updatedAt = 5;
+int32 walkSpeed = 6;
+};
+message CreatureMovementInfo {
+string createdAt = 1;
+string id = 2;
+int32 movementId = 3;
+int32 runSpeed = 4;
+string updatedAt = 5;
+int32 walkSpeed = 6;
+};
+message CreatureMovementInfoWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+int32 movementId = 3;
+int32 runSpeed = 4;
+string updatedAt = 5;
+int32 walkSpeed = 6;
+};
+message CreatureMovementInfoUpdateInput {
+string createdAt = 1;
+string id = 2;
+int32 movementId = 3;
+int32 runSpeed = 4;
+string updatedAt = 5;
+int32 walkSpeed = 6;
+};
+message findManyParams {
+
+};

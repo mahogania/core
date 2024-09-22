@@ -1,0 +1,20 @@
+export type CreatureAddon = {
+  aiAnimKit: number | null;
+  animTier: number | null;
+  auras: string | null;
+  createdAt: Date;
+  emote: number | null;
+  guid: number | null;
+  id: string;
+  meleeAnimKit: number | null;
+  mount: number | null;
+  mountCreatureId: number | null;
+  movementAnimKit: number | null;
+  pathId: number | null;
+  pvPFlags: number | null;
+  sheathState: number | null;
+  standState: number | null;
+  updatedAt: Date;
+  visFlags: number | null;
+  visibilityDistanceType: number | null;
+};
