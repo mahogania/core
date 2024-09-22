@@ -1,0 +1,28 @@
+export type GameObject = {
+  animprogress: number | null;
+  areaId: number | null;
+  createdAt: Date;
+  guid: number | null;
+  id: string;
+  map: number | null;
+  orientation: number | null;
+  phaseGroup: number | null;
+  phaseId: number | null;
+  phaseUseFlags: number | null;
+  positionX: number | null;
+  positionY: number | null;
+  positionZ: number | null;
+  rotation0: number | null;
+  rotation1: number | null;
+  rotation2: number | null;
+  rotation3: number | null;
+  scriptName: string | null;
+  spawnDifficulties: string | null;
+  spawntimesecs: number | null;
+  state: number | null;
+  stringId: string | null;
+  terrainSwapMap: number | null;
+  updatedAt: Date;
+  verifiedBuild: number | null;
+  zoneId: number | null;
+};

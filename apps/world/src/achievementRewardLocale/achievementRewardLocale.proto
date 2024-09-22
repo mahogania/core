@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+                 package achievementRewardLocale;
+service AchievementRewardLocaleService {
+ rpc createAchievementRewardLocale (AchievementRewardLocaleCreateInput) returns (AchievementRewardLocale) {}
+rpc achievementRewardLocales (findManyParams) returns (stream AchievementRewardLocale) {}
+rpc achievementRewardLocale (AchievementRewardLocaleWhereUniqueInput) returns (AchievementRewardLocale) {}
+rpc updateAchievementRewardLocale (AchievementRewardLocaleUpdateInput) returns (AchievementRewardLocale) {}
+rpc deleteAchievementRewardLocale (AchievementRewardLocaleWhereUniqueInput) returns (AchievementRewardLocale) {} 
+ }
+message AchievementRewardLocaleCreateInput {
+string body = 1;
+string createdAt = 2;
+string id = 3;
+string locale = 4;
+string subject = 5;
+string updatedAt = 6;
+};
+message AchievementRewardLocale {
+string body = 1;
+string createdAt = 2;
+string id = 3;
+string locale = 4;
+string subject = 5;
+string updatedAt = 6;
+};
+message AchievementRewardLocaleWhereUniqueInput {
+string body = 1;
+string createdAt = 2;
+string id = 3;
+string locale = 4;
+string subject = 5;
+string updatedAt = 6;
+};
+message AchievementRewardLocaleUpdateInput {
+string body = 1;
+string createdAt = 2;
+string id = 3;
+string locale = 4;
+string subject = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};

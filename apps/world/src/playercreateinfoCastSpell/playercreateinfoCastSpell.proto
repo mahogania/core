@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playercreateinfoCastSpell;
+service PlayercreateinfoCastSpellService {
+ rpc createPlayercreateinfoCastSpell (PlayercreateinfoCastSpellCreateInput) returns (PlayercreateinfoCastSpell) {}
+rpc playercreateinfoCastSpells (findManyParams) returns (stream PlayercreateinfoCastSpell) {}
+rpc playercreateinfoCastSpell (PlayercreateinfoCastSpellWhereUniqueInput) returns (PlayercreateinfoCastSpell) {}
+rpc updatePlayercreateinfoCastSpell (PlayercreateinfoCastSpellUpdateInput) returns (PlayercreateinfoCastSpell) {}
+rpc deletePlayercreateinfoCastSpell (PlayercreateinfoCastSpellWhereUniqueInput) returns (PlayercreateinfoCastSpell) {} 
+ }
+message PlayercreateinfoCastSpellCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayercreateinfoCastSpell {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayercreateinfoCastSpellWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayercreateinfoCastSpellUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

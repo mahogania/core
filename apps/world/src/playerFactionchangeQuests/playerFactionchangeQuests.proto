@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerFactionchangeQuests;
+service PlayerFactionchangeQuestsService {
+ rpc createPlayerFactionchangeQuests (PlayerFactionchangeQuestsCreateInput) returns (PlayerFactionchangeQuests) {}
+rpc playerFactionchangeQuestsItems (findManyParams) returns (stream PlayerFactionchangeQuests) {}
+rpc playerFactionchangeQuests (PlayerFactionchangeQuestsWhereUniqueInput) returns (PlayerFactionchangeQuests) {}
+rpc updatePlayerFactionchangeQuests (PlayerFactionchangeQuestsUpdateInput) returns (PlayerFactionchangeQuests) {}
+rpc deletePlayerFactionchangeQuests (PlayerFactionchangeQuestsWhereUniqueInput) returns (PlayerFactionchangeQuests) {} 
+ }
+message PlayerFactionchangeQuestsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionchangeQuests {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionchangeQuestsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionchangeQuestsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

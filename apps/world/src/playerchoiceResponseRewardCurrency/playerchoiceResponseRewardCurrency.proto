@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerchoiceResponseRewardCurrency;
+service PlayerchoiceResponseRewardCurrencyService {
+ rpc createPlayerchoiceResponseRewardCurrency (PlayerchoiceResponseRewardCurrencyCreateInput) returns (PlayerchoiceResponseRewardCurrency) {}
+rpc playerchoiceResponseRewardCurrencies (findManyParams) returns (stream PlayerchoiceResponseRewardCurrency) {}
+rpc playerchoiceResponseRewardCurrency (PlayerchoiceResponseRewardCurrencyWhereUniqueInput) returns (PlayerchoiceResponseRewardCurrency) {}
+rpc updatePlayerchoiceResponseRewardCurrency (PlayerchoiceResponseRewardCurrencyUpdateInput) returns (PlayerchoiceResponseRewardCurrency) {}
+rpc deletePlayerchoiceResponseRewardCurrency (PlayerchoiceResponseRewardCurrencyWhereUniqueInput) returns (PlayerchoiceResponseRewardCurrency) {} 
+ }
+message PlayerchoiceResponseRewardCurrencyCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceResponseRewardCurrency {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceResponseRewardCurrencyWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceResponseRewardCurrencyUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

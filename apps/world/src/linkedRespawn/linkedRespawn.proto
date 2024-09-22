@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package linkedRespawn;
+service LinkedRespawnService {
+ rpc createLinkedRespawn (LinkedRespawnCreateInput) returns (LinkedRespawn) {}
+rpc linkedRespawns (findManyParams) returns (stream LinkedRespawn) {}
+rpc linkedRespawn (LinkedRespawnWhereUniqueInput) returns (LinkedRespawn) {}
+rpc updateLinkedRespawn (LinkedRespawnUpdateInput) returns (LinkedRespawn) {}
+rpc deleteLinkedRespawn (LinkedRespawnWhereUniqueInput) returns (LinkedRespawn) {} 
+ }
+message LinkedRespawnCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LinkedRespawn {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LinkedRespawnWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LinkedRespawnUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

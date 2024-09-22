@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package gameEventArenaSeasons;
+service GameEventArenaSeasonsService {
+ rpc createGameEventArenaSeasons (GameEventArenaSeasonsCreateInput) returns (GameEventArenaSeasons) {}
+rpc gameEventArenaSeasonsItems (findManyParams) returns (stream GameEventArenaSeasons) {}
+rpc gameEventArenaSeasons (GameEventArenaSeasonsWhereUniqueInput) returns (GameEventArenaSeasons) {}
+rpc updateGameEventArenaSeasons (GameEventArenaSeasonsUpdateInput) returns (GameEventArenaSeasons) {}
+rpc deleteGameEventArenaSeasons (GameEventArenaSeasonsWhereUniqueInput) returns (GameEventArenaSeasons) {} 
+ }
+message GameEventArenaSeasonsCreateInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+string id = 3;
+int32 season = 4;
+string updatedAt = 5;
+};
+message GameEventArenaSeasons {
+string createdAt = 1;
+int32 eventEntry = 2;
+string id = 3;
+int32 season = 4;
+string updatedAt = 5;
+};
+message GameEventArenaSeasonsWhereUniqueInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+string id = 3;
+int32 season = 4;
+string updatedAt = 5;
+};
+message GameEventArenaSeasonsUpdateInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+string id = 3;
+int32 season = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

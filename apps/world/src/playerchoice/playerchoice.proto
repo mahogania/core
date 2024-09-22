@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerchoice;
+service PlayerchoiceService {
+ rpc createPlayerchoice (PlayerchoiceCreateInput) returns (Playerchoice) {}
+rpc playerchoices (findManyParams) returns (stream Playerchoice) {}
+rpc playerchoice (PlayerchoiceWhereUniqueInput) returns (Playerchoice) {}
+rpc updatePlayerchoice (PlayerchoiceUpdateInput) returns (Playerchoice) {}
+rpc deletePlayerchoice (PlayerchoiceWhereUniqueInput) returns (Playerchoice) {} 
+ }
+message PlayerchoiceCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Playerchoice {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

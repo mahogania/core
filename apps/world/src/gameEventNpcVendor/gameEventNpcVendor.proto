@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+                 package gameEventNpcVendor;
+service GameEventNpcVendorService {
+ rpc createGameEventNpcVendor (GameEventNpcVendorCreateInput) returns (GameEventNpcVendor) {}
+rpc gameEventNpcVendors (findManyParams) returns (stream GameEventNpcVendor) {}
+rpc gameEventNpcVendor (GameEventNpcVendorWhereUniqueInput) returns (GameEventNpcVendor) {}
+rpc updateGameEventNpcVendor (GameEventNpcVendorUpdateInput) returns (GameEventNpcVendor) {}
+rpc deleteGameEventNpcVendor (GameEventNpcVendorWhereUniqueInput) returns (GameEventNpcVendor) {} 
+ }
+message GameEventNpcVendorCreateInput {
+string bonusListIDs = 1;
+string createdAt = 2;
+int32 eventEntry = 3;
+int32 extendedCost = 4;
+int32 guid = 5;
+string id = 6;
+int32 ignoreFiltering = 7;
+int32 incrtime = 8;
+int32 item = 9;
+int32 maxcount = 10;
+int32 playerConditionId = 11;
+int32 slot = 12;
+int32 typeField = 13;
+string updatedAt = 14;
+};
+message GameEventNpcVendor {
+string bonusListIDs = 1;
+string createdAt = 2;
+int32 eventEntry = 3;
+int32 extendedCost = 4;
+int32 guid = 5;
+string id = 6;
+int32 ignoreFiltering = 7;
+int32 incrtime = 8;
+int32 item = 9;
+int32 maxcount = 10;
+int32 playerConditionId = 11;
+int32 slot = 12;
+int32 typeField = 13;
+string updatedAt = 14;
+};
+message GameEventNpcVendorWhereUniqueInput {
+string bonusListIDs = 1;
+string createdAt = 2;
+int32 eventEntry = 3;
+int32 extendedCost = 4;
+int32 guid = 5;
+string id = 6;
+int32 ignoreFiltering = 7;
+int32 incrtime = 8;
+int32 item = 9;
+int32 maxcount = 10;
+int32 playerConditionId = 11;
+int32 slot = 12;
+int32 typeField = 13;
+string updatedAt = 14;
+};
+message GameEventNpcVendorUpdateInput {
+string bonusListIDs = 1;
+string createdAt = 2;
+int32 eventEntry = 3;
+int32 extendedCost = 4;
+int32 guid = 5;
+string id = 6;
+int32 ignoreFiltering = 7;
+int32 incrtime = 8;
+int32 item = 9;
+int32 maxcount = 10;
+int32 playerConditionId = 11;
+int32 slot = 12;
+int32 typeField = 13;
+string updatedAt = 14;
+};
+message findManyParams {
+
+};

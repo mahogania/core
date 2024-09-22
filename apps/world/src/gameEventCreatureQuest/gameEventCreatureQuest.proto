@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package gameEventCreatureQuest;
+service GameEventCreatureQuestService {
+ rpc createGameEventCreatureQuest (GameEventCreatureQuestCreateInput) returns (GameEventCreatureQuest) {}
+rpc gameEventCreatureQuests (findManyParams) returns (stream GameEventCreatureQuest) {}
+rpc gameEventCreatureQuest (GameEventCreatureQuestWhereUniqueInput) returns (GameEventCreatureQuest) {}
+rpc updateGameEventCreatureQuest (GameEventCreatureQuestUpdateInput) returns (GameEventCreatureQuest) {}
+rpc deleteGameEventCreatureQuest (GameEventCreatureQuestWhereUniqueInput) returns (GameEventCreatureQuest) {} 
+ }
+message GameEventCreatureQuestCreateInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+string id = 3;
+int32 quest = 4;
+string updatedAt = 5;
+};
+message GameEventCreatureQuest {
+string createdAt = 1;
+int32 eventEntry = 2;
+string id = 3;
+int32 quest = 4;
+string updatedAt = 5;
+};
+message GameEventCreatureQuestWhereUniqueInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+string id = 3;
+int32 quest = 4;
+string updatedAt = 5;
+};
+message GameEventCreatureQuestUpdateInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+string id = 3;
+int32 quest = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

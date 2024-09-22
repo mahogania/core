@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package achievementScripts;
+service AchievementScriptsService {
+ rpc createAchievementScripts (AchievementScriptsCreateInput) returns (AchievementScripts) {}
+rpc achievementScriptsItems (findManyParams) returns (stream AchievementScripts) {}
+rpc achievementScripts (AchievementScriptsWhereUniqueInput) returns (AchievementScripts) {}
+rpc updateAchievementScripts (AchievementScriptsUpdateInput) returns (AchievementScripts) {}
+rpc deleteAchievementScripts (AchievementScriptsWhereUniqueInput) returns (AchievementScripts) {} 
+ }
+message AchievementScriptsCreateInput {
+int32 achievementId = 1;
+string createdAt = 2;
+string id = 3;
+string scriptName = 4;
+string updatedAt = 5;
+};
+message AchievementScripts {
+int32 achievementId = 1;
+string createdAt = 2;
+string id = 3;
+string scriptName = 4;
+string updatedAt = 5;
+};
+message AchievementScriptsWhereUniqueInput {
+int32 achievementId = 1;
+string createdAt = 2;
+string id = 3;
+string scriptName = 4;
+string updatedAt = 5;
+};
+message AchievementScriptsUpdateInput {
+int32 achievementId = 1;
+string createdAt = 2;
+string id = 3;
+string scriptName = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package gameEventGameObject;
+service GameEventGameObjectService {
+ rpc createGameEventGameObject (GameEventGameObjectCreateInput) returns (GameEventGameObject) {}
+rpc gameEventGameObjects (findManyParams) returns (stream GameEventGameObject) {}
+rpc gameEventGameObject (GameEventGameObjectWhereUniqueInput) returns (GameEventGameObject) {}
+rpc updateGameEventGameObject (GameEventGameObjectUpdateInput) returns (GameEventGameObject) {}
+rpc deleteGameEventGameObject (GameEventGameObjectWhereUniqueInput) returns (GameEventGameObject) {} 
+ }
+message GameEventGameObjectCreateInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+int32 guid = 3;
+string id = 4;
+string updatedAt = 5;
+};
+message GameEventGameObject {
+string createdAt = 1;
+int32 eventEntry = 2;
+int32 guid = 3;
+string id = 4;
+string updatedAt = 5;
+};
+message GameEventGameObjectWhereUniqueInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+int32 guid = 3;
+string id = 4;
+string updatedAt = 5;
+};
+message GameEventGameObjectUpdateInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+int32 guid = 3;
+string id = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package gossipMenuOptionLocale;
+service GossipMenuOptionLocaleService {
+ rpc createGossipMenuOptionLocale (GossipMenuOptionLocaleCreateInput) returns (GossipMenuOptionLocale) {}
+rpc gossipMenuOptionLocales (findManyParams) returns (stream GossipMenuOptionLocale) {}
+rpc gossipMenuOptionLocale (GossipMenuOptionLocaleWhereUniqueInput) returns (GossipMenuOptionLocale) {}
+rpc updateGossipMenuOptionLocale (GossipMenuOptionLocaleUpdateInput) returns (GossipMenuOptionLocale) {}
+rpc deleteGossipMenuOptionLocale (GossipMenuOptionLocaleWhereUniqueInput) returns (GossipMenuOptionLocale) {} 
+ }
+message GossipMenuOptionLocaleCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GossipMenuOptionLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GossipMenuOptionLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GossipMenuOptionLocaleUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

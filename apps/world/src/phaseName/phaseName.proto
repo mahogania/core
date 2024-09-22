@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package phaseName;
+service PhaseNameService {
+ rpc createPhaseName (PhaseNameCreateInput) returns (PhaseName) {}
+rpc phaseNames (findManyParams) returns (stream PhaseName) {}
+rpc phaseName (PhaseNameWhereUniqueInput) returns (PhaseName) {}
+rpc updatePhaseName (PhaseNameUpdateInput) returns (PhaseName) {}
+rpc deletePhaseName (PhaseNameWhereUniqueInput) returns (PhaseName) {} 
+ }
+message PhaseNameCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PhaseName {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PhaseNameWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PhaseNameUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

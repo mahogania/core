@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package pageText;
+service PageTextService {
+ rpc createPageText (PageTextCreateInput) returns (PageText) {}
+rpc pageTexts (findManyParams) returns (stream PageText) {}
+rpc pageText (PageTextWhereUniqueInput) returns (PageText) {}
+rpc updatePageText (PageTextUpdateInput) returns (PageText) {}
+rpc deletePageText (PageTextWhereUniqueInput) returns (PageText) {} 
+ }
+message PageTextCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PageText {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PageTextWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PageTextUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

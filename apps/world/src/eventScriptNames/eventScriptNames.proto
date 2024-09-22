@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+                 package eventScriptNames;
+service EventScriptNamesService {
+ rpc createEventScriptNames (EventScriptNamesCreateInput) returns (EventScriptNames) {}
+rpc eventScriptNamesItems (findManyParams) returns (stream EventScriptNames) {}
+rpc eventScriptNames (EventScriptNamesWhereUniqueInput) returns (EventScriptNames) {}
+rpc updateEventScriptNames (EventScriptNamesUpdateInput) returns (EventScriptNames) {}
+rpc deleteEventScriptNames (EventScriptNamesWhereUniqueInput) returns (EventScriptNames) {} 
+ }
+message EventScriptNamesCreateInput {
+string createdAt = 1;
+string id = 2;
+string scriptName = 3;
+string updatedAt = 4;
+};
+message EventScriptNames {
+string createdAt = 1;
+string id = 2;
+string scriptName = 3;
+string updatedAt = 4;
+};
+message EventScriptNamesWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string scriptName = 3;
+string updatedAt = 4;
+};
+message EventScriptNamesUpdateInput {
+string createdAt = 1;
+string id = 2;
+string scriptName = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};

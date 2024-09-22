@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package guildRewards;
+service GuildRewardsService {
+ rpc createGuildRewards (GuildRewardsCreateInput) returns (GuildRewards) {}
+rpc guildRewardsItems (findManyParams) returns (stream GuildRewards) {}
+rpc guildRewards (GuildRewardsWhereUniqueInput) returns (GuildRewards) {}
+rpc updateGuildRewards (GuildRewardsUpdateInput) returns (GuildRewards) {}
+rpc deleteGuildRewards (GuildRewardsWhereUniqueInput) returns (GuildRewards) {} 
+ }
+message GuildRewardsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GuildRewards {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GuildRewardsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GuildRewardsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

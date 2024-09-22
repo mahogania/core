@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playercreateinfoAction;
+service PlayercreateinfoActionService {
+ rpc createPlayercreateinfoAction (PlayercreateinfoActionCreateInput) returns (PlayercreateinfoAction) {}
+rpc playercreateinfoActions (findManyParams) returns (stream PlayercreateinfoAction) {}
+rpc playercreateinfoAction (PlayercreateinfoActionWhereUniqueInput) returns (PlayercreateinfoAction) {}
+rpc updatePlayercreateinfoAction (PlayercreateinfoActionUpdateInput) returns (PlayercreateinfoAction) {}
+rpc deletePlayercreateinfoAction (PlayercreateinfoActionWhereUniqueInput) returns (PlayercreateinfoAction) {} 
+ }
+message PlayercreateinfoActionCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayercreateinfoAction {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayercreateinfoActionWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayercreateinfoActionUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

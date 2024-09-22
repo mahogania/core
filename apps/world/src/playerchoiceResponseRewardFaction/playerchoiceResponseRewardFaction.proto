@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerchoiceResponseRewardFaction;
+service PlayerchoiceResponseRewardFactionService {
+ rpc createPlayerchoiceResponseRewardFaction (PlayerchoiceResponseRewardFactionCreateInput) returns (PlayerchoiceResponseRewardFaction) {}
+rpc playerchoiceResponseRewardFactions (findManyParams) returns (stream PlayerchoiceResponseRewardFaction) {}
+rpc playerchoiceResponseRewardFaction (PlayerchoiceResponseRewardFactionWhereUniqueInput) returns (PlayerchoiceResponseRewardFaction) {}
+rpc updatePlayerchoiceResponseRewardFaction (PlayerchoiceResponseRewardFactionUpdateInput) returns (PlayerchoiceResponseRewardFaction) {}
+rpc deletePlayerchoiceResponseRewardFaction (PlayerchoiceResponseRewardFactionWhereUniqueInput) returns (PlayerchoiceResponseRewardFaction) {} 
+ }
+message PlayerchoiceResponseRewardFactionCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceResponseRewardFaction {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceResponseRewardFactionWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceResponseRewardFactionUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

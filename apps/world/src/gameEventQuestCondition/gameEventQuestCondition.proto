@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+                 package gameEventQuestCondition;
+service GameEventQuestConditionService {
+ rpc createGameEventQuestCondition (GameEventQuestConditionCreateInput) returns (GameEventQuestCondition) {}
+rpc gameEventQuestConditions (findManyParams) returns (stream GameEventQuestCondition) {}
+rpc gameEventQuestCondition (GameEventQuestConditionWhereUniqueInput) returns (GameEventQuestCondition) {}
+rpc updateGameEventQuestCondition (GameEventQuestConditionUpdateInput) returns (GameEventQuestCondition) {}
+rpc deleteGameEventQuestCondition (GameEventQuestConditionWhereUniqueInput) returns (GameEventQuestCondition) {} 
+ }
+message GameEventQuestConditionCreateInput {
+int32 conditionId = 1;
+string createdAt = 2;
+int32 eventEntry = 3;
+string id = 4;
+int32 num = 5;
+int32 quest = 6;
+string updatedAt = 7;
+};
+message GameEventQuestCondition {
+int32 conditionId = 1;
+string createdAt = 2;
+int32 eventEntry = 3;
+string id = 4;
+int32 num = 5;
+int32 quest = 6;
+string updatedAt = 7;
+};
+message GameEventQuestConditionWhereUniqueInput {
+int32 conditionId = 1;
+string createdAt = 2;
+int32 eventEntry = 3;
+string id = 4;
+int32 num = 5;
+int32 quest = 6;
+string updatedAt = 7;
+};
+message GameEventQuestConditionUpdateInput {
+int32 conditionId = 1;
+string createdAt = 2;
+int32 eventEntry = 3;
+string id = 4;
+int32 num = 5;
+int32 quest = 6;
+string updatedAt = 7;
+};
+message findManyParams {
+
+};

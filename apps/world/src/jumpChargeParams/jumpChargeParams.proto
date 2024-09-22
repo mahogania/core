@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package jumpChargeParams;
+service JumpChargeParamsService {
+ rpc createJumpChargeParams (JumpChargeParamsCreateInput) returns (JumpChargeParams) {}
+rpc jumpChargeParamsItems (findManyParams) returns (stream JumpChargeParams) {}
+rpc jumpChargeParams (JumpChargeParamsWhereUniqueInput) returns (JumpChargeParams) {}
+rpc updateJumpChargeParams (JumpChargeParamsUpdateInput) returns (JumpChargeParams) {}
+rpc deleteJumpChargeParams (JumpChargeParamsWhereUniqueInput) returns (JumpChargeParams) {} 
+ }
+message JumpChargeParamsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message JumpChargeParams {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message JumpChargeParamsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message JumpChargeParamsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

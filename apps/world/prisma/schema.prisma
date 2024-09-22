@@ -1,0 +1,724 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime @default(now())
+  email     String?  @unique
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+model Achievement {
+  count           Int?
+  createdAt       DateTime @default(now())
+  flags           Int?
+  id              String   @id @default(cuid())
+  map             Int?
+  points          Int?
+  refAchievement  Int?
+  requiredFaction Int?
+  updatedAt       DateTime @updatedAt
+}
+
+model AccessRequirement {
+  comment              String?
+  completedAchievement Int?
+  createdAt            DateTime @default(now())
+  difficulty           Int?
+  failureText          String?
+  id                   String   @id @default(cuid())
+  item                 Int?
+  levelMax             Int?
+  levelMin             Int?
+  mapId                Int?
+  questDone            Int?
+  updatedAt            DateTime @updatedAt
+}
+
+model AchievementReward {
+  body           String?
+  createdAt      DateTime @default(now())
+  id             String   @id @default(cuid())
+  itemId         Int?
+  mailTemplateId Int?
+  sender         Int?
+  subject        String?
+  titleA         Int?
+  titleH         Int?
+  updatedAt      DateTime @updatedAt
+}
+
+model AchievementRewardLocale {
+  body      String?
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  locale    String?
+  subject   String?
+  updatedAt DateTime @updatedAt
+}
+
+model AchievementScripts {
+  achievementId Int?
+  createdAt     DateTime @default(now())
+  id            String   @id @default(cuid())
+  scriptName    String?
+  updatedAt     DateTime @updatedAt
+}
+
+model DisenchantLootTemplate {
+  chance        Float?
+  comment       String?
+  createdAt     DateTime @default(now())
+  entry         Int?
+  groupId       Int?
+  id            String   @id @default(cuid())
+  item          Int?
+  lootMode      Int?
+  maxCount      Int?
+  minCount      Int?
+  questRequired Boolean?
+  reference     Int?
+  updatedAt     DateTime @updatedAt
+}
+
+model EventScriptNames {
+  createdAt  DateTime @default(now())
+  id         String   @id @default(cuid())
+  scriptName String?
+  updatedAt  DateTime @updatedAt
+}
+
+model GameEvent {
+  announce     Int?
+  createdAt    DateTime  @default(now())
+  description  String?
+  endTime      DateTime?
+  eventEntry   Int?
+  holiday      Int?
+  holidayStage Int?
+  id           String    @id @default(cuid())
+  length       Int?
+  occurence    Int?
+  startTime    DateTime?
+  updatedAt    DateTime  @updatedAt
+  worldEvent   Int?
+}
+
+model ExplorationBasexp {
+  basexp    Int?
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  level     Int?
+  updatedAt DateTime @updatedAt
+}
+
+model EventScripts {
+  command   Int?
+  comment   String?
+  createdAt DateTime @default(now())
+  dataint   Int?
+  datalong  Int?
+  datalong2 Int?
+  delay     Int?
+  id        String   @id @default(cuid())
+  o         Float?
+  updatedAt DateTime @updatedAt
+  x         Float?
+  y         Float?
+  z         Float?
+}
+
+model GameObjectQuestItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model GameObjectTemplate {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model GameObject {
+  animprogress      Int?
+  areaId            Int?
+  createdAt         DateTime @default(now())
+  guid              Int?
+  id                String   @id @default(cuid())
+  map               Int?
+  orientation       Float?
+  phaseGroup        Int?
+  phaseId           Int?
+  phaseUseFlags     Int?
+  positionX         Float?
+  positionY         Float?
+  positionZ         Float?
+  rotation0         Float?
+  rotation1         Float?
+  rotation2         Float?
+  rotation3         Float?
+  scriptName        String?
+  spawnDifficulties String?
+  spawntimesecs     Int?
+  state             Int?
+  stringId          String?
+  terrainSwapMap    Int?
+  updatedAt         DateTime @updatedAt
+  verifiedBuild     Int?
+  zoneId            Int?
+}
+
+model GameEventQuestCondition {
+  conditionId Int?
+  createdAt   DateTime @default(now())
+  eventEntry  Int?
+  id          String   @id @default(cuid())
+  num         Float?
+  quest       Int?
+  updatedAt   DateTime @updatedAt
+}
+
+model GameObjectTemplateAddon {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model GameObjectQuestStarter {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model GameEventSeasonalQuestRelation {
+  createdAt  DateTime @default(now())
+  eventEntry Int?
+  id         String   @id @default(cuid())
+  questId    Int?
+  updatedAt  DateTime @updatedAt
+}
+
+model FishingLootTemplate {
+  chance        Float?
+  comment       String?
+  createdAt     DateTime @default(now())
+  entry         Int?
+  groupId       Int?
+  id            String   @id @default(cuid())
+  item          Int?
+  lootMode      Int?
+  maxCount      Int?
+  minCount      Int?
+  questRequired Boolean?
+  reference     Int?
+  updatedAt     DateTime @updatedAt
+}
+
+model GameObjectAddon {
+  aiAnimKitId       Int?
+  createdAt         DateTime @default(now())
+  guid              Int?
+  id                String   @id @default(cuid())
+  invisibilityType  Int?
+  invisibilityValue Int?
+  parentRotation0   Float?
+  parentRotation1   Float?
+  parentRotation2   Float?
+  parentRotation3   Float?
+  updatedAt         DateTime @updatedAt
+  worldEffectId     Int?
+}
+
+model GameTele {
+  createdAt   DateTime @default(now())
+  id          String   @id @default(cuid())
+  map         Int?
+  name        String?
+  orientation Float?
+  positionX   Float?
+  positionY   Float?
+  positionZ   Float?
+  updatedAt   DateTime @updatedAt
+}
+
+model GameWeather {
+  createdAt         DateTime @default(now())
+  fallRainChance    Int?
+  fallSnowChance    Int?
+  fallStormChance   Int?
+  id                String   @id @default(cuid())
+  scriptName        String?
+  springRainChance  Int?
+  springSnowChance  Int?
+  springStormChance Int?
+  summerRainChance  Int?
+  summerSnowChance  Int?
+  summerStormChance Int?
+  updatedAt         DateTime @updatedAt
+  winterRainChance  Int?
+  winterSnowChance  Int?
+  winterStormChance Int?
+  zone              Int?
+}
+
+model GameEventCreature {
+  createdAt  DateTime @default(now())
+  eventEntry Int?
+  guid       Int?
+  id         String   @id @default(cuid())
+  updatedAt  DateTime @updatedAt
+}
+
+model GameEventGameObject {
+  createdAt  DateTime @default(now())
+  eventEntry Int?
+  guid       Int?
+  id         String   @id @default(cuid())
+  updatedAt  DateTime @updatedAt
+}
+
+model GameEventPrerequisite {
+  createdAt         DateTime @default(now())
+  eventEntry        Int?
+  id                String   @id @default(cuid())
+  prerequisiteEvent Int?
+  updatedAt         DateTime @updatedAt
+}
+
+model GameEventCondition {
+  conditionId         Int?
+  createdAt           DateTime @default(now())
+  description         String?
+  doneWorldStateField Int?
+  eventEntry          Int?
+  id                  String   @id @default(cuid())
+  maxWorldStateField  Int?
+  reqNum              Float?
+  updatedAt           DateTime @updatedAt
+}
+
+model GameEventPool {
+  createdAt  DateTime @default(now())
+  eventEntry Int?
+  id         String   @id @default(cuid())
+  poolEntry  Int?
+  updatedAt  DateTime @updatedAt
+}
+
+model GameEventCreatureQuest {
+  createdAt  DateTime @default(now())
+  eventEntry Int?
+  id         String   @id @default(cuid())
+  quest      Int?
+  updatedAt  DateTime @updatedAt
+}
+
+model GameEventNpcVendor {
+  bonusListIDs      String?
+  createdAt         DateTime @default(now())
+  eventEntry        Int?
+  extendedCost      Int?
+  guid              Int?
+  id                String   @id @default(cuid())
+  ignoreFiltering   Int?
+  incrtime          Int?
+  item              Int?
+  maxcount          Int?
+  playerConditionId Int?
+  slot              Int?
+  typeField         Int?
+  updatedAt         DateTime @updatedAt
+}
+
+model GameObjectLootTemplate {
+  chance        Float?
+  comment       String?
+  createdAt     DateTime @default(now())
+  entry         Int?
+  groupId       Int?
+  id            String   @id @default(cuid())
+  item          Int?
+  lootMode      Int?
+  maxCount      Int?
+  minCount      Int?
+  questRequired Boolean?
+  reference     Int?
+  updatedAt     DateTime @updatedAt
+}
+
+model GameEventArenaSeasons {
+  createdAt  DateTime @default(now())
+  eventEntry Int?
+  id         String   @id @default(cuid())
+  season     Int?
+  updatedAt  DateTime @updatedAt
+}
+
+model GameObjectOverrides {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model GameEventNpcFlag {
+  createdAt  DateTime @default(now())
+  eventEntry Int?
+  guid       Int?
+  id         String   @id @default(cuid())
+  npcflag    Int?
+  updatedAt  DateTime @updatedAt
+}
+
+model GameObjectTemplateLocale {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model GameEventModelEquip {
+  createdAt   DateTime @default(now())
+  equipmentId Int?
+  eventEntry  Int?
+  guid        Int?
+  id          String   @id @default(cuid())
+  modelid     Int?
+  updatedAt   DateTime @updatedAt
+}
+
+model GameObjectQuestEnder {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model GameEventGameObjectQuest {
+  createdAt  DateTime @default(now())
+  eventEntry Int?
+  id         String   @id @default(cuid())
+  quest      Int?
+  updatedAt  DateTime @updatedAt
+}
+
+model GossipMenuOptionLocale {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model GossipMenuOption {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model GuildRewards {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model LfgDungeonRewards {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model MailLootTemplate {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model MillingLootTemplate {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model GraveyardZone {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model LfgDungeonTemplate {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model GuildRewardsReqAchievements {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model MailLevelReward {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model JumpChargeParams {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model InstanceTemplate {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model ItemTemplateAddon {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model ItemRandomBonusListTemplate {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model ItemLootTemplate {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model LinkedRespawn {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model MountDefinitions {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model InstanceSpawnGroups {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model ItemScriptNames {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model NpcText {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model NpcSpellclickSpells {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PageTextLocale {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model NpcVendor {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PhaseName {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model OutdoorpvpTemplate {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PhaseArea {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PetNameGeneration {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PageText {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PetLevelstats {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerClasslevelstats {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerFactionchangeAchievement {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerchoiceResponseReward {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerFactionchangeQuests {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerFactionchangeSpells {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayercreateinfoAction {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerFactionchangeReputations {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayercreateinfoCastSpell {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayercreateinfoItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerXpForLevel {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Playerchoice {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerchoiceResponseRewardItemChoice {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerchoiceLocale {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerchoiceResponseRewardFaction {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerchoiceResponseLocale {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayercreateinfoSpellCustom {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerchoiceResponseRewardItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerRacestats {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerFactionchangeTitles {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerchoiceResponse {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerchoiceResponseRewardCurrency {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerchoiceResponseMawPower {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Playercreateinfo {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerClasslevelstats;
+service PlayerClasslevelstatsService {
+ rpc createPlayerClasslevelstats (PlayerClasslevelstatsCreateInput) returns (PlayerClasslevelstats) {}
+rpc playerClasslevelstatsItems (findManyParams) returns (stream PlayerClasslevelstats) {}
+rpc playerClasslevelstats (PlayerClasslevelstatsWhereUniqueInput) returns (PlayerClasslevelstats) {}
+rpc updatePlayerClasslevelstats (PlayerClasslevelstatsUpdateInput) returns (PlayerClasslevelstats) {}
+rpc deletePlayerClasslevelstats (PlayerClasslevelstatsWhereUniqueInput) returns (PlayerClasslevelstats) {} 
+ }
+message PlayerClasslevelstatsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerClasslevelstats {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerClasslevelstatsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerClasslevelstatsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

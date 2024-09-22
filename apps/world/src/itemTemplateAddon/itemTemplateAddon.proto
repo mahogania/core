@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package itemTemplateAddon;
+service ItemTemplateAddonService {
+ rpc createItemTemplateAddon (ItemTemplateAddonCreateInput) returns (ItemTemplateAddon) {}
+rpc itemTemplateAddons (findManyParams) returns (stream ItemTemplateAddon) {}
+rpc itemTemplateAddon (ItemTemplateAddonWhereUniqueInput) returns (ItemTemplateAddon) {}
+rpc updateItemTemplateAddon (ItemTemplateAddonUpdateInput) returns (ItemTemplateAddon) {}
+rpc deleteItemTemplateAddon (ItemTemplateAddonWhereUniqueInput) returns (ItemTemplateAddon) {} 
+ }
+message ItemTemplateAddonCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemTemplateAddon {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemTemplateAddonWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemTemplateAddonUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package npcVendor;
+service NpcVendorService {
+ rpc createNpcVendor (NpcVendorCreateInput) returns (NpcVendor) {}
+rpc npcVendors (findManyParams) returns (stream NpcVendor) {}
+rpc npcVendor (NpcVendorWhereUniqueInput) returns (NpcVendor) {}
+rpc updateNpcVendor (NpcVendorUpdateInput) returns (NpcVendor) {}
+rpc deleteNpcVendor (NpcVendorWhereUniqueInput) returns (NpcVendor) {} 
+ }
+message NpcVendorCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message NpcVendor {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message NpcVendorWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message NpcVendorUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+                 package gameObjectAddon;
+service GameObjectAddonService {
+ rpc createGameObjectAddon (GameObjectAddonCreateInput) returns (GameObjectAddon) {}
+rpc gameObjectAddons (findManyParams) returns (stream GameObjectAddon) {}
+rpc gameObjectAddon (GameObjectAddonWhereUniqueInput) returns (GameObjectAddon) {}
+rpc updateGameObjectAddon (GameObjectAddonUpdateInput) returns (GameObjectAddon) {}
+rpc deleteGameObjectAddon (GameObjectAddonWhereUniqueInput) returns (GameObjectAddon) {} 
+ }
+message GameObjectAddonCreateInput {
+int32 aiAnimKitId = 1;
+string createdAt = 2;
+int32 guid = 3;
+string id = 4;
+int32 invisibilityType = 5;
+int32 invisibilityValue = 6;
+int32 parentRotation0 = 7;
+int32 parentRotation1 = 8;
+int32 parentRotation2 = 9;
+int32 parentRotation3 = 10;
+string updatedAt = 11;
+int32 worldEffectId = 12;
+};
+message GameObjectAddon {
+int32 aiAnimKitId = 1;
+string createdAt = 2;
+int32 guid = 3;
+string id = 4;
+int32 invisibilityType = 5;
+int32 invisibilityValue = 6;
+int32 parentRotation0 = 7;
+int32 parentRotation1 = 8;
+int32 parentRotation2 = 9;
+int32 parentRotation3 = 10;
+string updatedAt = 11;
+int32 worldEffectId = 12;
+};
+message GameObjectAddonWhereUniqueInput {
+int32 aiAnimKitId = 1;
+string createdAt = 2;
+int32 guid = 3;
+string id = 4;
+int32 invisibilityType = 5;
+int32 invisibilityValue = 6;
+int32 parentRotation0 = 7;
+int32 parentRotation1 = 8;
+int32 parentRotation2 = 9;
+int32 parentRotation3 = 10;
+string updatedAt = 11;
+int32 worldEffectId = 12;
+};
+message GameObjectAddonUpdateInput {
+int32 aiAnimKitId = 1;
+string createdAt = 2;
+int32 guid = 3;
+string id = 4;
+int32 invisibilityType = 5;
+int32 invisibilityValue = 6;
+int32 parentRotation0 = 7;
+int32 parentRotation1 = 8;
+int32 parentRotation2 = 9;
+int32 parentRotation3 = 10;
+string updatedAt = 11;
+int32 worldEffectId = 12;
+};
+message findManyParams {
+
+};

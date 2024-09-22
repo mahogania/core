@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerFactionchangeReputations;
+service PlayerFactionchangeReputationsService {
+ rpc createPlayerFactionchangeReputations (PlayerFactionchangeReputationsCreateInput) returns (PlayerFactionchangeReputations) {}
+rpc playerFactionchangeReputationsItems (findManyParams) returns (stream PlayerFactionchangeReputations) {}
+rpc playerFactionchangeReputations (PlayerFactionchangeReputationsWhereUniqueInput) returns (PlayerFactionchangeReputations) {}
+rpc updatePlayerFactionchangeReputations (PlayerFactionchangeReputationsUpdateInput) returns (PlayerFactionchangeReputations) {}
+rpc deletePlayerFactionchangeReputations (PlayerFactionchangeReputationsWhereUniqueInput) returns (PlayerFactionchangeReputations) {} 
+ }
+message PlayerFactionchangeReputationsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionchangeReputations {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionchangeReputationsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionchangeReputationsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

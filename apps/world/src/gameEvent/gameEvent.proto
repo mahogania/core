@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+                 package gameEvent;
+service GameEventService {
+ rpc createGameEvent (GameEventCreateInput) returns (GameEvent) {}
+rpc gameEvents (findManyParams) returns (stream GameEvent) {}
+rpc gameEvent (GameEventWhereUniqueInput) returns (GameEvent) {}
+rpc updateGameEvent (GameEventUpdateInput) returns (GameEvent) {}
+rpc deleteGameEvent (GameEventWhereUniqueInput) returns (GameEvent) {} 
+ }
+message GameEventCreateInput {
+int32 announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+int32 eventEntry = 5;
+int32 holiday = 6;
+int32 holidayStage = 7;
+string id = 8;
+int32 length = 9;
+int32 occurence = 10;
+string startTime = 11;
+string updatedAt = 12;
+int32 worldEvent = 13;
+};
+message GameEvent {
+int32 announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+int32 eventEntry = 5;
+int32 holiday = 6;
+int32 holidayStage = 7;
+string id = 8;
+int32 length = 9;
+int32 occurence = 10;
+string startTime = 11;
+string updatedAt = 12;
+int32 worldEvent = 13;
+};
+message GameEventWhereUniqueInput {
+int32 announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+int32 eventEntry = 5;
+int32 holiday = 6;
+int32 holidayStage = 7;
+string id = 8;
+int32 length = 9;
+int32 occurence = 10;
+string startTime = 11;
+string updatedAt = 12;
+int32 worldEvent = 13;
+};
+message GameEventUpdateInput {
+int32 announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+int32 eventEntry = 5;
+int32 holiday = 6;
+int32 holidayStage = 7;
+string id = 8;
+int32 length = 9;
+int32 occurence = 10;
+string startTime = 11;
+string updatedAt = 12;
+int32 worldEvent = 13;
+};
+message findManyParams {
+
+};

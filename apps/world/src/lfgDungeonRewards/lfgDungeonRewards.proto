@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package lfgDungeonRewards;
+service LfgDungeonRewardsService {
+ rpc createLfgDungeonRewards (LfgDungeonRewardsCreateInput) returns (LfgDungeonRewards) {}
+rpc lfgDungeonRewardsItems (findManyParams) returns (stream LfgDungeonRewards) {}
+rpc lfgDungeonRewards (LfgDungeonRewardsWhereUniqueInput) returns (LfgDungeonRewards) {}
+rpc updateLfgDungeonRewards (LfgDungeonRewardsUpdateInput) returns (LfgDungeonRewards) {}
+rpc deleteLfgDungeonRewards (LfgDungeonRewardsWhereUniqueInput) returns (LfgDungeonRewards) {} 
+ }
+message LfgDungeonRewardsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LfgDungeonRewards {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LfgDungeonRewardsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LfgDungeonRewardsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};
