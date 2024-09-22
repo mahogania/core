@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package petLevelstats;
+service PetLevelstatsService {
+ rpc createPetLevelstats (PetLevelstatsCreateInput) returns (PetLevelstats) {}
+rpc petLevelstatsItems (findManyParams) returns (stream PetLevelstats) {}
+rpc petLevelstats (PetLevelstatsWhereUniqueInput) returns (PetLevelstats) {}
+rpc updatePetLevelstats (PetLevelstatsUpdateInput) returns (PetLevelstats) {}
+rpc deletePetLevelstats (PetLevelstatsWhereUniqueInput) returns (PetLevelstats) {} 
+ }
+message PetLevelstatsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PetLevelstats {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PetLevelstatsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PetLevelstatsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

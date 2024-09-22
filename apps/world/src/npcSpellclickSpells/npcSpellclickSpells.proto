@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package npcSpellclickSpells;
+service NpcSpellclickSpellsService {
+ rpc createNpcSpellclickSpells (NpcSpellclickSpellsCreateInput) returns (NpcSpellclickSpells) {}
+rpc npcSpellclickSpellsItems (findManyParams) returns (stream NpcSpellclickSpells) {}
+rpc npcSpellclickSpells (NpcSpellclickSpellsWhereUniqueInput) returns (NpcSpellclickSpells) {}
+rpc updateNpcSpellclickSpells (NpcSpellclickSpellsUpdateInput) returns (NpcSpellclickSpells) {}
+rpc deleteNpcSpellclickSpells (NpcSpellclickSpellsWhereUniqueInput) returns (NpcSpellclickSpells) {} 
+ }
+message NpcSpellclickSpellsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message NpcSpellclickSpells {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message NpcSpellclickSpellsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message NpcSpellclickSpellsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

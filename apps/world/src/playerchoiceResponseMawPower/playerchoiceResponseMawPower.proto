@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerchoiceResponseMawPower;
+service PlayerchoiceResponseMawPowerService {
+ rpc createPlayerchoiceResponseMawPower (PlayerchoiceResponseMawPowerCreateInput) returns (PlayerchoiceResponseMawPower) {}
+rpc playerchoiceResponseMawPowers (findManyParams) returns (stream PlayerchoiceResponseMawPower) {}
+rpc playerchoiceResponseMawPower (PlayerchoiceResponseMawPowerWhereUniqueInput) returns (PlayerchoiceResponseMawPower) {}
+rpc updatePlayerchoiceResponseMawPower (PlayerchoiceResponseMawPowerUpdateInput) returns (PlayerchoiceResponseMawPower) {}
+rpc deletePlayerchoiceResponseMawPower (PlayerchoiceResponseMawPowerWhereUniqueInput) returns (PlayerchoiceResponseMawPower) {} 
+ }
+message PlayerchoiceResponseMawPowerCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceResponseMawPower {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceResponseMawPowerWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceResponseMawPowerUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

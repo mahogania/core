@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package pageTextLocale;
+service PageTextLocaleService {
+ rpc createPageTextLocale (PageTextLocaleCreateInput) returns (PageTextLocale) {}
+rpc pageTextLocales (findManyParams) returns (stream PageTextLocale) {}
+rpc pageTextLocale (PageTextLocaleWhereUniqueInput) returns (PageTextLocale) {}
+rpc updatePageTextLocale (PageTextLocaleUpdateInput) returns (PageTextLocale) {}
+rpc deletePageTextLocale (PageTextLocaleWhereUniqueInput) returns (PageTextLocale) {} 
+ }
+message PageTextLocaleCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PageTextLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PageTextLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PageTextLocaleUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

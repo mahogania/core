@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+                 package achievementReward;
+service AchievementRewardService {
+ rpc createAchievementReward (AchievementRewardCreateInput) returns (AchievementReward) {}
+rpc achievementRewards (findManyParams) returns (stream AchievementReward) {}
+rpc achievementReward (AchievementRewardWhereUniqueInput) returns (AchievementReward) {}
+rpc updateAchievementReward (AchievementRewardUpdateInput) returns (AchievementReward) {}
+rpc deleteAchievementReward (AchievementRewardWhereUniqueInput) returns (AchievementReward) {} 
+ }
+message AchievementRewardCreateInput {
+string body = 1;
+string createdAt = 2;
+string id = 3;
+int32 itemId = 4;
+int32 mailTemplateId = 5;
+int32 sender = 6;
+string subject = 7;
+int32 titleA = 8;
+int32 titleH = 9;
+string updatedAt = 10;
+};
+message AchievementReward {
+string body = 1;
+string createdAt = 2;
+string id = 3;
+int32 itemId = 4;
+int32 mailTemplateId = 5;
+int32 sender = 6;
+string subject = 7;
+int32 titleA = 8;
+int32 titleH = 9;
+string updatedAt = 10;
+};
+message AchievementRewardWhereUniqueInput {
+string body = 1;
+string createdAt = 2;
+string id = 3;
+int32 itemId = 4;
+int32 mailTemplateId = 5;
+int32 sender = 6;
+string subject = 7;
+int32 titleA = 8;
+int32 titleH = 9;
+string updatedAt = 10;
+};
+message AchievementRewardUpdateInput {
+string body = 1;
+string createdAt = 2;
+string id = 3;
+int32 itemId = 4;
+int32 mailTemplateId = 5;
+int32 sender = 6;
+string subject = 7;
+int32 titleA = 8;
+int32 titleH = 9;
+string updatedAt = 10;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package gameEventPool;
+service GameEventPoolService {
+ rpc createGameEventPool (GameEventPoolCreateInput) returns (GameEventPool) {}
+rpc gameEventPools (findManyParams) returns (stream GameEventPool) {}
+rpc gameEventPool (GameEventPoolWhereUniqueInput) returns (GameEventPool) {}
+rpc updateGameEventPool (GameEventPoolUpdateInput) returns (GameEventPool) {}
+rpc deleteGameEventPool (GameEventPoolWhereUniqueInput) returns (GameEventPool) {} 
+ }
+message GameEventPoolCreateInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+string id = 3;
+int32 poolEntry = 4;
+string updatedAt = 5;
+};
+message GameEventPool {
+string createdAt = 1;
+int32 eventEntry = 2;
+string id = 3;
+int32 poolEntry = 4;
+string updatedAt = 5;
+};
+message GameEventPoolWhereUniqueInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+string id = 3;
+int32 poolEntry = 4;
+string updatedAt = 5;
+};
+message GameEventPoolUpdateInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+string id = 3;
+int32 poolEntry = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

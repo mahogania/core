@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package gameObjectOverrides;
+service GameObjectOverridesService {
+ rpc createGameObjectOverrides (GameObjectOverridesCreateInput) returns (GameObjectOverrides) {}
+rpc gameObjectOverridesItems (findManyParams) returns (stream GameObjectOverrides) {}
+rpc gameObjectOverrides (GameObjectOverridesWhereUniqueInput) returns (GameObjectOverrides) {}
+rpc updateGameObjectOverrides (GameObjectOverridesUpdateInput) returns (GameObjectOverrides) {}
+rpc deleteGameObjectOverrides (GameObjectOverridesWhereUniqueInput) returns (GameObjectOverrides) {} 
+ }
+message GameObjectOverridesCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectOverrides {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectOverridesWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectOverridesUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

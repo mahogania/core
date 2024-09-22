@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package gameObjectTemplate;
+service GameObjectTemplateService {
+ rpc createGameObjectTemplate (GameObjectTemplateCreateInput) returns (GameObjectTemplate) {}
+rpc gameObjectTemplates (findManyParams) returns (stream GameObjectTemplate) {}
+rpc gameObjectTemplate (GameObjectTemplateWhereUniqueInput) returns (GameObjectTemplate) {}
+rpc updateGameObjectTemplate (GameObjectTemplateUpdateInput) returns (GameObjectTemplate) {}
+rpc deleteGameObjectTemplate (GameObjectTemplateWhereUniqueInput) returns (GameObjectTemplate) {} 
+ }
+message GameObjectTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

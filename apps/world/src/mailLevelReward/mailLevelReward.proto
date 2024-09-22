@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package mailLevelReward;
+service MailLevelRewardService {
+ rpc createMailLevelReward (MailLevelRewardCreateInput) returns (MailLevelReward) {}
+rpc mailLevelRewards (findManyParams) returns (stream MailLevelReward) {}
+rpc mailLevelReward (MailLevelRewardWhereUniqueInput) returns (MailLevelReward) {}
+rpc updateMailLevelReward (MailLevelRewardUpdateInput) returns (MailLevelReward) {}
+rpc deleteMailLevelReward (MailLevelRewardWhereUniqueInput) returns (MailLevelReward) {} 
+ }
+message MailLevelRewardCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message MailLevelReward {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message MailLevelRewardWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message MailLevelRewardUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

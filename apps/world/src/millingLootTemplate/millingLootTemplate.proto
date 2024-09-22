@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package millingLootTemplate;
+service MillingLootTemplateService {
+ rpc createMillingLootTemplate (MillingLootTemplateCreateInput) returns (MillingLootTemplate) {}
+rpc millingLootTemplates (findManyParams) returns (stream MillingLootTemplate) {}
+rpc millingLootTemplate (MillingLootTemplateWhereUniqueInput) returns (MillingLootTemplate) {}
+rpc updateMillingLootTemplate (MillingLootTemplateUpdateInput) returns (MillingLootTemplate) {}
+rpc deleteMillingLootTemplate (MillingLootTemplateWhereUniqueInput) returns (MillingLootTemplate) {} 
+ }
+message MillingLootTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message MillingLootTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message MillingLootTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message MillingLootTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

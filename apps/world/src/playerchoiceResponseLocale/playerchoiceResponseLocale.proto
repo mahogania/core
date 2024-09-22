@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerchoiceResponseLocale;
+service PlayerchoiceResponseLocaleService {
+ rpc createPlayerchoiceResponseLocale (PlayerchoiceResponseLocaleCreateInput) returns (PlayerchoiceResponseLocale) {}
+rpc playerchoiceResponseLocales (findManyParams) returns (stream PlayerchoiceResponseLocale) {}
+rpc playerchoiceResponseLocale (PlayerchoiceResponseLocaleWhereUniqueInput) returns (PlayerchoiceResponseLocale) {}
+rpc updatePlayerchoiceResponseLocale (PlayerchoiceResponseLocaleUpdateInput) returns (PlayerchoiceResponseLocale) {}
+rpc deletePlayerchoiceResponseLocale (PlayerchoiceResponseLocaleWhereUniqueInput) returns (PlayerchoiceResponseLocale) {} 
+ }
+message PlayerchoiceResponseLocaleCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceResponseLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceResponseLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerchoiceResponseLocaleUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerRacestats;
+service PlayerRacestatsService {
+ rpc createPlayerRacestats (PlayerRacestatsCreateInput) returns (PlayerRacestats) {}
+rpc playerRacestatsItems (findManyParams) returns (stream PlayerRacestats) {}
+rpc playerRacestats (PlayerRacestatsWhereUniqueInput) returns (PlayerRacestats) {}
+rpc updatePlayerRacestats (PlayerRacestatsUpdateInput) returns (PlayerRacestats) {}
+rpc deletePlayerRacestats (PlayerRacestatsWhereUniqueInput) returns (PlayerRacestats) {} 
+ }
+message PlayerRacestatsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerRacestats {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerRacestatsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerRacestatsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

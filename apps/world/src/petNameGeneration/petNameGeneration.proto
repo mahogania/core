@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package petNameGeneration;
+service PetNameGenerationService {
+ rpc createPetNameGeneration (PetNameGenerationCreateInput) returns (PetNameGeneration) {}
+rpc petNameGenerations (findManyParams) returns (stream PetNameGeneration) {}
+rpc petNameGeneration (PetNameGenerationWhereUniqueInput) returns (PetNameGeneration) {}
+rpc updatePetNameGeneration (PetNameGenerationUpdateInput) returns (PetNameGeneration) {}
+rpc deletePetNameGeneration (PetNameGenerationWhereUniqueInput) returns (PetNameGeneration) {} 
+ }
+message PetNameGenerationCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PetNameGeneration {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PetNameGenerationWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PetNameGenerationUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

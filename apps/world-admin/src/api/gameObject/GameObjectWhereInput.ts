@@ -1,0 +1,31 @@
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+
+export type GameObjectWhereInput = {
+  animprogress?: IntNullableFilter;
+  areaId?: IntNullableFilter;
+  guid?: IntNullableFilter;
+  id?: StringFilter;
+  map?: IntNullableFilter;
+  orientation?: FloatNullableFilter;
+  phaseGroup?: IntNullableFilter;
+  phaseId?: IntNullableFilter;
+  phaseUseFlags?: IntNullableFilter;
+  positionX?: FloatNullableFilter;
+  positionY?: FloatNullableFilter;
+  positionZ?: FloatNullableFilter;
+  rotation0?: FloatNullableFilter;
+  rotation1?: FloatNullableFilter;
+  rotation2?: FloatNullableFilter;
+  rotation3?: FloatNullableFilter;
+  scriptName?: StringNullableFilter;
+  spawnDifficulties?: StringNullableFilter;
+  spawntimesecs?: IntNullableFilter;
+  state?: IntNullableFilter;
+  stringId?: StringNullableFilter;
+  terrainSwapMap?: IntNullableFilter;
+  verifiedBuild?: IntNullableFilter;
+  zoneId?: IntNullableFilter;
+};

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package instanceTemplate;
+service InstanceTemplateService {
+ rpc createInstanceTemplate (InstanceTemplateCreateInput) returns (InstanceTemplate) {}
+rpc instanceTemplates (findManyParams) returns (stream InstanceTemplate) {}
+rpc instanceTemplate (InstanceTemplateWhereUniqueInput) returns (InstanceTemplate) {}
+rpc updateInstanceTemplate (InstanceTemplateUpdateInput) returns (InstanceTemplate) {}
+rpc deleteInstanceTemplate (InstanceTemplateWhereUniqueInput) returns (InstanceTemplate) {} 
+ }
+message InstanceTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message InstanceTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message InstanceTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message InstanceTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

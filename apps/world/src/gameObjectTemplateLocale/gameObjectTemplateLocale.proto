@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package gameObjectTemplateLocale;
+service GameObjectTemplateLocaleService {
+ rpc createGameObjectTemplateLocale (GameObjectTemplateLocaleCreateInput) returns (GameObjectTemplateLocale) {}
+rpc gameObjectTemplateLocales (findManyParams) returns (stream GameObjectTemplateLocale) {}
+rpc gameObjectTemplateLocale (GameObjectTemplateLocaleWhereUniqueInput) returns (GameObjectTemplateLocale) {}
+rpc updateGameObjectTemplateLocale (GameObjectTemplateLocaleUpdateInput) returns (GameObjectTemplateLocale) {}
+rpc deleteGameObjectTemplateLocale (GameObjectTemplateLocaleWhereUniqueInput) returns (GameObjectTemplateLocale) {} 
+ }
+message GameObjectTemplateLocaleCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectTemplateLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectTemplateLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectTemplateLocaleUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

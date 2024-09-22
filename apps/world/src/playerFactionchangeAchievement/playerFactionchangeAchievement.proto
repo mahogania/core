@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerFactionchangeAchievement;
+service PlayerFactionchangeAchievementService {
+ rpc createPlayerFactionchangeAchievement (PlayerFactionchangeAchievementCreateInput) returns (PlayerFactionchangeAchievement) {}
+rpc playerFactionchangeAchievements (findManyParams) returns (stream PlayerFactionchangeAchievement) {}
+rpc playerFactionchangeAchievement (PlayerFactionchangeAchievementWhereUniqueInput) returns (PlayerFactionchangeAchievement) {}
+rpc updatePlayerFactionchangeAchievement (PlayerFactionchangeAchievementUpdateInput) returns (PlayerFactionchangeAchievement) {}
+rpc deletePlayerFactionchangeAchievement (PlayerFactionchangeAchievementWhereUniqueInput) returns (PlayerFactionchangeAchievement) {} 
+ }
+message PlayerFactionchangeAchievementCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionchangeAchievement {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionchangeAchievementWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionchangeAchievementUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

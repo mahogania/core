@@ -1,0 +1,125 @@
+syntax = "proto3";
+
+                 package gameObject;
+service GameObjectService {
+ rpc createGameObject (GameObjectCreateInput) returns (GameObject) {}
+rpc gameObjects (findManyParams) returns (stream GameObject) {}
+rpc gameObject (GameObjectWhereUniqueInput) returns (GameObject) {}
+rpc updateGameObject (GameObjectUpdateInput) returns (GameObject) {}
+rpc deleteGameObject (GameObjectWhereUniqueInput) returns (GameObject) {} 
+ }
+message GameObjectCreateInput {
+int32 animprogress = 1;
+int32 areaId = 2;
+string createdAt = 3;
+int32 guid = 4;
+string id = 5;
+int32 map = 6;
+int32 orientation = 7;
+int32 phaseGroup = 8;
+int32 phaseId = 9;
+int32 phaseUseFlags = 10;
+int32 positionX = 11;
+int32 positionY = 12;
+int32 positionZ = 13;
+int32 rotation0 = 14;
+int32 rotation1 = 15;
+int32 rotation2 = 16;
+int32 rotation3 = 17;
+string scriptName = 18;
+string spawnDifficulties = 19;
+int32 spawntimesecs = 20;
+int32 state = 21;
+string stringId = 22;
+int32 terrainSwapMap = 23;
+string updatedAt = 24;
+int32 verifiedBuild = 25;
+int32 zoneId = 26;
+};
+message GameObject {
+int32 animprogress = 1;
+int32 areaId = 2;
+string createdAt = 3;
+int32 guid = 4;
+string id = 5;
+int32 map = 6;
+int32 orientation = 7;
+int32 phaseGroup = 8;
+int32 phaseId = 9;
+int32 phaseUseFlags = 10;
+int32 positionX = 11;
+int32 positionY = 12;
+int32 positionZ = 13;
+int32 rotation0 = 14;
+int32 rotation1 = 15;
+int32 rotation2 = 16;
+int32 rotation3 = 17;
+string scriptName = 18;
+string spawnDifficulties = 19;
+int32 spawntimesecs = 20;
+int32 state = 21;
+string stringId = 22;
+int32 terrainSwapMap = 23;
+string updatedAt = 24;
+int32 verifiedBuild = 25;
+int32 zoneId = 26;
+};
+message GameObjectWhereUniqueInput {
+int32 animprogress = 1;
+int32 areaId = 2;
+string createdAt = 3;
+int32 guid = 4;
+string id = 5;
+int32 map = 6;
+int32 orientation = 7;
+int32 phaseGroup = 8;
+int32 phaseId = 9;
+int32 phaseUseFlags = 10;
+int32 positionX = 11;
+int32 positionY = 12;
+int32 positionZ = 13;
+int32 rotation0 = 14;
+int32 rotation1 = 15;
+int32 rotation2 = 16;
+int32 rotation3 = 17;
+string scriptName = 18;
+string spawnDifficulties = 19;
+int32 spawntimesecs = 20;
+int32 state = 21;
+string stringId = 22;
+int32 terrainSwapMap = 23;
+string updatedAt = 24;
+int32 verifiedBuild = 25;
+int32 zoneId = 26;
+};
+message GameObjectUpdateInput {
+int32 animprogress = 1;
+int32 areaId = 2;
+string createdAt = 3;
+int32 guid = 4;
+string id = 5;
+int32 map = 6;
+int32 orientation = 7;
+int32 phaseGroup = 8;
+int32 phaseId = 9;
+int32 phaseUseFlags = 10;
+int32 positionX = 11;
+int32 positionY = 12;
+int32 positionZ = 13;
+int32 rotation0 = 14;
+int32 rotation1 = 15;
+int32 rotation2 = 16;
+int32 rotation3 = 17;
+string scriptName = 18;
+string spawnDifficulties = 19;
+int32 spawntimesecs = 20;
+int32 state = 21;
+string stringId = 22;
+int32 terrainSwapMap = 23;
+string updatedAt = 24;
+int32 verifiedBuild = 25;
+int32 zoneId = 26;
+};
+message findManyParams {
+
+};

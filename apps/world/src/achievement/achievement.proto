@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+                 package achievement;
+service AchievementService {
+ rpc createAchievement (AchievementCreateInput) returns (Achievement) {}
+rpc achievements (findManyParams) returns (stream Achievement) {}
+rpc achievement (AchievementWhereUniqueInput) returns (Achievement) {}
+rpc updateAchievement (AchievementUpdateInput) returns (Achievement) {}
+rpc deleteAchievement (AchievementWhereUniqueInput) returns (Achievement) {} 
+ }
+message AchievementCreateInput {
+int32 count = 1;
+string createdAt = 2;
+int32 flags = 3;
+string id = 4;
+int32 map = 5;
+int32 points = 6;
+int32 refAchievement = 7;
+int32 requiredFaction = 8;
+string updatedAt = 9;
+};
+message Achievement {
+int32 count = 1;
+string createdAt = 2;
+int32 flags = 3;
+string id = 4;
+int32 map = 5;
+int32 points = 6;
+int32 refAchievement = 7;
+int32 requiredFaction = 8;
+string updatedAt = 9;
+};
+message AchievementWhereUniqueInput {
+int32 count = 1;
+string createdAt = 2;
+int32 flags = 3;
+string id = 4;
+int32 map = 5;
+int32 points = 6;
+int32 refAchievement = 7;
+int32 requiredFaction = 8;
+string updatedAt = 9;
+};
+message AchievementUpdateInput {
+int32 count = 1;
+string createdAt = 2;
+int32 flags = 3;
+string id = 4;
+int32 map = 5;
+int32 points = 6;
+int32 refAchievement = 7;
+int32 requiredFaction = 8;
+string updatedAt = 9;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package phaseArea;
+service PhaseAreaService {
+ rpc createPhaseArea (PhaseAreaCreateInput) returns (PhaseArea) {}
+rpc phaseAreas (findManyParams) returns (stream PhaseArea) {}
+rpc phaseArea (PhaseAreaWhereUniqueInput) returns (PhaseArea) {}
+rpc updatePhaseArea (PhaseAreaUpdateInput) returns (PhaseArea) {}
+rpc deletePhaseArea (PhaseAreaWhereUniqueInput) returns (PhaseArea) {} 
+ }
+message PhaseAreaCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PhaseArea {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PhaseAreaWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PhaseAreaUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

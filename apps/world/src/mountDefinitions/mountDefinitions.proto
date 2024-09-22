@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package mountDefinitions;
+service MountDefinitionsService {
+ rpc createMountDefinitions (MountDefinitionsCreateInput) returns (MountDefinitions) {}
+rpc mountDefinitionsItems (findManyParams) returns (stream MountDefinitions) {}
+rpc mountDefinitions (MountDefinitionsWhereUniqueInput) returns (MountDefinitions) {}
+rpc updateMountDefinitions (MountDefinitionsUpdateInput) returns (MountDefinitions) {}
+rpc deleteMountDefinitions (MountDefinitionsWhereUniqueInput) returns (MountDefinitions) {} 
+ }
+message MountDefinitionsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message MountDefinitions {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message MountDefinitionsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message MountDefinitionsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

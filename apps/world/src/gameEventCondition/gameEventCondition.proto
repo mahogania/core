@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+                 package gameEventCondition;
+service GameEventConditionService {
+ rpc createGameEventCondition (GameEventConditionCreateInput) returns (GameEventCondition) {}
+rpc gameEventConditions (findManyParams) returns (stream GameEventCondition) {}
+rpc gameEventCondition (GameEventConditionWhereUniqueInput) returns (GameEventCondition) {}
+rpc updateGameEventCondition (GameEventConditionUpdateInput) returns (GameEventCondition) {}
+rpc deleteGameEventCondition (GameEventConditionWhereUniqueInput) returns (GameEventCondition) {} 
+ }
+message GameEventConditionCreateInput {
+int32 conditionId = 1;
+string createdAt = 2;
+string description = 3;
+int32 doneWorldStateField = 4;
+int32 eventEntry = 5;
+string id = 6;
+int32 maxWorldStateField = 7;
+int32 reqNum = 8;
+string updatedAt = 9;
+};
+message GameEventCondition {
+int32 conditionId = 1;
+string createdAt = 2;
+string description = 3;
+int32 doneWorldStateField = 4;
+int32 eventEntry = 5;
+string id = 6;
+int32 maxWorldStateField = 7;
+int32 reqNum = 8;
+string updatedAt = 9;
+};
+message GameEventConditionWhereUniqueInput {
+int32 conditionId = 1;
+string createdAt = 2;
+string description = 3;
+int32 doneWorldStateField = 4;
+int32 eventEntry = 5;
+string id = 6;
+int32 maxWorldStateField = 7;
+int32 reqNum = 8;
+string updatedAt = 9;
+};
+message GameEventConditionUpdateInput {
+int32 conditionId = 1;
+string createdAt = 2;
+string description = 3;
+int32 doneWorldStateField = 4;
+int32 eventEntry = 5;
+string id = 6;
+int32 maxWorldStateField = 7;
+int32 reqNum = 8;
+string updatedAt = 9;
+};
+message findManyParams {
+
+};

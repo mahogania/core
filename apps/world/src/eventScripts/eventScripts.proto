@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+                 package eventScripts;
+service EventScriptsService {
+ rpc createEventScripts (EventScriptsCreateInput) returns (EventScripts) {}
+rpc eventScriptsItems (findManyParams) returns (stream EventScripts) {}
+rpc eventScripts (EventScriptsWhereUniqueInput) returns (EventScripts) {}
+rpc updateEventScripts (EventScriptsUpdateInput) returns (EventScripts) {}
+rpc deleteEventScripts (EventScriptsWhereUniqueInput) returns (EventScripts) {} 
+ }
+message EventScriptsCreateInput {
+int32 command = 1;
+string comment = 2;
+string createdAt = 3;
+int32 dataint = 4;
+int32 datalong = 5;
+int32 datalong2 = 6;
+int32 delay = 7;
+string id = 8;
+int32 o = 9;
+string updatedAt = 10;
+int32 x = 11;
+int32 y = 12;
+int32 z = 13;
+};
+message EventScripts {
+int32 command = 1;
+string comment = 2;
+string createdAt = 3;
+int32 dataint = 4;
+int32 datalong = 5;
+int32 datalong2 = 6;
+int32 delay = 7;
+string id = 8;
+int32 o = 9;
+string updatedAt = 10;
+int32 x = 11;
+int32 y = 12;
+int32 z = 13;
+};
+message EventScriptsWhereUniqueInput {
+int32 command = 1;
+string comment = 2;
+string createdAt = 3;
+int32 dataint = 4;
+int32 datalong = 5;
+int32 datalong2 = 6;
+int32 delay = 7;
+string id = 8;
+int32 o = 9;
+string updatedAt = 10;
+int32 x = 11;
+int32 y = 12;
+int32 z = 13;
+};
+message EventScriptsUpdateInput {
+int32 command = 1;
+string comment = 2;
+string createdAt = 3;
+int32 dataint = 4;
+int32 datalong = 5;
+int32 datalong2 = 6;
+int32 delay = 7;
+string id = 8;
+int32 o = 9;
+string updatedAt = 10;
+int32 x = 11;
+int32 y = 12;
+int32 z = 13;
+};
+message findManyParams {
+
+};

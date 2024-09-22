@@ -1,0 +1,30 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type GameObjectOrderByInput = {
+  animprogress?: SortOrder;
+  areaId?: SortOrder;
+  createdAt?: SortOrder;
+  guid?: SortOrder;
+  id?: SortOrder;
+  map?: SortOrder;
+  orientation?: SortOrder;
+  phaseGroup?: SortOrder;
+  phaseId?: SortOrder;
+  phaseUseFlags?: SortOrder;
+  positionX?: SortOrder;
+  positionY?: SortOrder;
+  positionZ?: SortOrder;
+  rotation0?: SortOrder;
+  rotation1?: SortOrder;
+  rotation2?: SortOrder;
+  rotation3?: SortOrder;
+  scriptName?: SortOrder;
+  spawnDifficulties?: SortOrder;
+  spawntimesecs?: SortOrder;
+  state?: SortOrder;
+  stringId?: SortOrder;
+  terrainSwapMap?: SortOrder;
+  updatedAt?: SortOrder;
+  verifiedBuild?: SortOrder;
+  zoneId?: SortOrder;
+};

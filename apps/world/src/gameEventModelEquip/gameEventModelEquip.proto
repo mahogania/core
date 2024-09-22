@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+                 package gameEventModelEquip;
+service GameEventModelEquipService {
+ rpc createGameEventModelEquip (GameEventModelEquipCreateInput) returns (GameEventModelEquip) {}
+rpc gameEventModelEquips (findManyParams) returns (stream GameEventModelEquip) {}
+rpc gameEventModelEquip (GameEventModelEquipWhereUniqueInput) returns (GameEventModelEquip) {}
+rpc updateGameEventModelEquip (GameEventModelEquipUpdateInput) returns (GameEventModelEquip) {}
+rpc deleteGameEventModelEquip (GameEventModelEquipWhereUniqueInput) returns (GameEventModelEquip) {} 
+ }
+message GameEventModelEquipCreateInput {
+string createdAt = 1;
+int32 equipmentId = 2;
+int32 eventEntry = 3;
+int32 guid = 4;
+string id = 5;
+int32 modelid = 6;
+string updatedAt = 7;
+};
+message GameEventModelEquip {
+string createdAt = 1;
+int32 equipmentId = 2;
+int32 eventEntry = 3;
+int32 guid = 4;
+string id = 5;
+int32 modelid = 6;
+string updatedAt = 7;
+};
+message GameEventModelEquipWhereUniqueInput {
+string createdAt = 1;
+int32 equipmentId = 2;
+int32 eventEntry = 3;
+int32 guid = 4;
+string id = 5;
+int32 modelid = 6;
+string updatedAt = 7;
+};
+message GameEventModelEquipUpdateInput {
+string createdAt = 1;
+int32 equipmentId = 2;
+int32 eventEntry = 3;
+int32 guid = 4;
+string id = 5;
+int32 modelid = 6;
+string updatedAt = 7;
+};
+message findManyParams {
+
+};

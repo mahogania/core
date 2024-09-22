@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerFactionchangeSpells;
+service PlayerFactionchangeSpellsService {
+ rpc createPlayerFactionchangeSpells (PlayerFactionchangeSpellsCreateInput) returns (PlayerFactionchangeSpells) {}
+rpc playerFactionchangeSpellsItems (findManyParams) returns (stream PlayerFactionchangeSpells) {}
+rpc playerFactionchangeSpells (PlayerFactionchangeSpellsWhereUniqueInput) returns (PlayerFactionchangeSpells) {}
+rpc updatePlayerFactionchangeSpells (PlayerFactionchangeSpellsUpdateInput) returns (PlayerFactionchangeSpells) {}
+rpc deletePlayerFactionchangeSpells (PlayerFactionchangeSpellsWhereUniqueInput) returns (PlayerFactionchangeSpells) {} 
+ }
+message PlayerFactionchangeSpellsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionchangeSpells {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionchangeSpellsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionchangeSpellsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

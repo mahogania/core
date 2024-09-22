@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package npcText;
+service NpcTextService {
+ rpc createNpcText (NpcTextCreateInput) returns (NpcText) {}
+rpc npcTexts (findManyParams) returns (stream NpcText) {}
+rpc npcText (NpcTextWhereUniqueInput) returns (NpcText) {}
+rpc updateNpcText (NpcTextUpdateInput) returns (NpcText) {}
+rpc deleteNpcText (NpcTextWhereUniqueInput) returns (NpcText) {} 
+ }
+message NpcTextCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message NpcText {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message NpcTextWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message NpcTextUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};
