@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package spellEffect;
+service SpellEffectService {
+ rpc createSpellEffect (SpellEffectCreateInput) returns (SpellEffect) {}
+rpc spellEffects (findManyParams) returns (stream SpellEffect) {}
+rpc spellEffect (SpellEffectWhereUniqueInput) returns (SpellEffect) {}
+rpc updateSpellEffect (SpellEffectUpdateInput) returns (SpellEffect) {}
+rpc deleteSpellEffect (SpellEffectWhereUniqueInput) returns (SpellEffect) {} 
+ }
+message SpellEffectCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpellEffect {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpellEffectWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpellEffectUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

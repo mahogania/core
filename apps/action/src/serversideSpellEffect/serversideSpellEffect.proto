@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package serversideSpellEffect;
+service ServersideSpellEffectService {
+ rpc createServersideSpellEffect (ServersideSpellEffectCreateInput) returns (ServersideSpellEffect) {}
+rpc serversideSpellEffects (findManyParams) returns (stream ServersideSpellEffect) {}
+rpc serversideSpellEffect (ServersideSpellEffectWhereUniqueInput) returns (ServersideSpellEffect) {}
+rpc updateServersideSpellEffect (ServersideSpellEffectUpdateInput) returns (ServersideSpellEffect) {}
+rpc deleteServersideSpellEffect (ServersideSpellEffectWhereUniqueInput) returns (ServersideSpellEffect) {} 
+ }
+message ServersideSpellEffectCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ServersideSpellEffect {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ServersideSpellEffectWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ServersideSpellEffectUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

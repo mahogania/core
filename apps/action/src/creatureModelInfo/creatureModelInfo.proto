@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+                 package creatureModelInfo;
+service CreatureModelInfoService {
+ rpc createCreatureModelInfo (CreatureModelInfoCreateInput) returns (CreatureModelInfo) {}
+rpc creatureModelInfos (findManyParams) returns (stream CreatureModelInfo) {}
+rpc creatureModelInfo (CreatureModelInfoWhereUniqueInput) returns (CreatureModelInfo) {}
+rpc updateCreatureModelInfo (CreatureModelInfoUpdateInput) returns (CreatureModelInfo) {}
+rpc deleteCreatureModelInfo (CreatureModelInfoWhereUniqueInput) returns (CreatureModelInfo) {} 
+ }
+message CreatureModelInfoCreateInput {
+int32 boundingRadius = 1;
+int32 combatReach = 2;
+string createdAt = 3;
+int32 displayId = 4;
+int32 displayIdOtherGender = 5;
+string id = 6;
+string updatedAt = 7;
+int32 verifiedBuild = 8;
+};
+message CreatureModelInfo {
+int32 boundingRadius = 1;
+int32 combatReach = 2;
+string createdAt = 3;
+int32 displayId = 4;
+int32 displayIdOtherGender = 5;
+string id = 6;
+string updatedAt = 7;
+int32 verifiedBuild = 8;
+};
+message CreatureModelInfoWhereUniqueInput {
+int32 boundingRadius = 1;
+int32 combatReach = 2;
+string createdAt = 3;
+int32 displayId = 4;
+int32 displayIdOtherGender = 5;
+string id = 6;
+string updatedAt = 7;
+int32 verifiedBuild = 8;
+};
+message CreatureModelInfoUpdateInput {
+int32 boundingRadius = 1;
+int32 combatReach = 2;
+string createdAt = 3;
+int32 displayId = 4;
+int32 displayIdOtherGender = 5;
+string id = 6;
+string updatedAt = 7;
+int32 verifiedBuild = 8;
+};
+message findManyParams {
+
+};

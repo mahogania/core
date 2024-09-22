@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+                 package conversationTemplate;
+service ConversationTemplateService {
+ rpc createConversationTemplate (ConversationTemplateCreateInput) returns (ConversationTemplate) {}
+rpc conversationTemplates (findManyParams) returns (stream ConversationTemplate) {}
+rpc conversationTemplate (ConversationTemplateWhereUniqueInput) returns (ConversationTemplate) {}
+rpc updateConversationTemplate (ConversationTemplateUpdateInput) returns (ConversationTemplate) {}
+rpc deleteConversationTemplate (ConversationTemplateWhereUniqueInput) returns (ConversationTemplate) {} 
+ }
+message ConversationTemplateCreateInput {
+string createdAt = 1;
+int32 firstLineId = 2;
+int32 flags = 3;
+string id = 4;
+string scriptName = 5;
+int32 textureKitId = 6;
+string updatedAt = 7;
+int32 verifiedBuild = 8;
+};
+message ConversationTemplate {
+string createdAt = 1;
+int32 firstLineId = 2;
+int32 flags = 3;
+string id = 4;
+string scriptName = 5;
+int32 textureKitId = 6;
+string updatedAt = 7;
+int32 verifiedBuild = 8;
+};
+message ConversationTemplateWhereUniqueInput {
+string createdAt = 1;
+int32 firstLineId = 2;
+int32 flags = 3;
+string id = 4;
+string scriptName = 5;
+int32 textureKitId = 6;
+string updatedAt = 7;
+int32 verifiedBuild = 8;
+};
+message ConversationTemplateUpdateInput {
+string createdAt = 1;
+int32 firstLineId = 2;
+int32 flags = 3;
+string id = 4;
+string scriptName = 5;
+int32 textureKitId = 6;
+string updatedAt = 7;
+int32 verifiedBuild = 8;
+};
+message findManyParams {
+
+};

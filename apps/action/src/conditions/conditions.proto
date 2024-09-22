@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+                 package conditions;
+service ConditionsService {
+ rpc createConditions (ConditionsCreateInput) returns (Conditions) {}
+rpc conditionsItems (findManyParams) returns (stream Conditions) {}
+rpc conditions (ConditionsWhereUniqueInput) returns (Conditions) {}
+rpc updateConditions (ConditionsUpdateInput) returns (Conditions) {}
+rpc deleteConditions (ConditionsWhereUniqueInput) returns (Conditions) {} 
+ }
+message ConditionsCreateInput {
+string comment = 1;
+string conditionStringValue1 = 2;
+int32 conditionTarget = 3;
+int32 conditionTypeOrReference = 4;
+int32 conditionValue1 = 5;
+int32 conditionValue2 = 6;
+int32 conditionValue3 = 7;
+string createdAt = 8;
+int32 elseGroup = 9;
+int32 errorTextId = 10;
+int32 errorType = 11;
+string id = 12;
+int32 negativeCondition = 13;
+string scriptName = 14;
+int32 sourceEntry = 15;
+int32 sourceGroup = 16;
+int32 sourceId = 17;
+int32 sourceTypeOrReferenceId = 18;
+string updatedAt = 19;
+};
+message Conditions {
+string comment = 1;
+string conditionStringValue1 = 2;
+int32 conditionTarget = 3;
+int32 conditionTypeOrReference = 4;
+int32 conditionValue1 = 5;
+int32 conditionValue2 = 6;
+int32 conditionValue3 = 7;
+string createdAt = 8;
+int32 elseGroup = 9;
+int32 errorTextId = 10;
+int32 errorType = 11;
+string id = 12;
+int32 negativeCondition = 13;
+string scriptName = 14;
+int32 sourceEntry = 15;
+int32 sourceGroup = 16;
+int32 sourceId = 17;
+int32 sourceTypeOrReferenceId = 18;
+string updatedAt = 19;
+};
+message ConditionsWhereUniqueInput {
+string comment = 1;
+string conditionStringValue1 = 2;
+int32 conditionTarget = 3;
+int32 conditionTypeOrReference = 4;
+int32 conditionValue1 = 5;
+int32 conditionValue2 = 6;
+int32 conditionValue3 = 7;
+string createdAt = 8;
+int32 elseGroup = 9;
+int32 errorTextId = 10;
+int32 errorType = 11;
+string id = 12;
+int32 negativeCondition = 13;
+string scriptName = 14;
+int32 sourceEntry = 15;
+int32 sourceGroup = 16;
+int32 sourceId = 17;
+int32 sourceTypeOrReferenceId = 18;
+string updatedAt = 19;
+};
+message ConditionsUpdateInput {
+string comment = 1;
+string conditionStringValue1 = 2;
+int32 conditionTarget = 3;
+int32 conditionTypeOrReference = 4;
+int32 conditionValue1 = 5;
+int32 conditionValue2 = 6;
+int32 conditionValue3 = 7;
+string createdAt = 8;
+int32 elseGroup = 9;
+int32 errorTextId = 10;
+int32 errorType = 11;
+string id = 12;
+int32 negativeCondition = 13;
+string scriptName = 14;
+int32 sourceEntry = 15;
+int32 sourceGroup = 16;
+int32 sourceId = 17;
+int32 sourceTypeOrReferenceId = 18;
+string updatedAt = 19;
+};
+message findManyParams {
+
+};

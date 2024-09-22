@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package spawnGroup;
+service SpawnGroupService {
+ rpc createSpawnGroup (SpawnGroupCreateInput) returns (SpawnGroup) {}
+rpc spawnGroups (findManyParams) returns (stream SpawnGroup) {}
+rpc spawnGroup (SpawnGroupWhereUniqueInput) returns (SpawnGroup) {}
+rpc updateSpawnGroup (SpawnGroupUpdateInput) returns (SpawnGroup) {}
+rpc deleteSpawnGroup (SpawnGroupWhereUniqueInput) returns (SpawnGroup) {} 
+ }
+message SpawnGroupCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpawnGroup {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpawnGroupWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpawnGroupUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

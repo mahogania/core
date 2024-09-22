@@ -1,0 +1,36 @@
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+
+export type CreatureWhereInput = {
+  areaId?: IntNullableFilter;
+  curhealth?: IntNullableFilter;
+  curmana?: IntNullableFilter;
+  currentwaypoint?: IntNullableFilter;
+  equipmentId?: IntNullableFilter;
+  guid?: FloatNullableFilter;
+  id?: StringFilter;
+  map?: IntNullableFilter;
+  modelid?: IntNullableFilter;
+  movementType?: IntNullableFilter;
+  npcflag?: FloatNullableFilter;
+  orientation?: FloatNullableFilter;
+  phaseGroup?: IntNullableFilter;
+  phaseId?: IntNullableFilter;
+  phaseUseFlags?: IntNullableFilter;
+  positionX?: FloatNullableFilter;
+  positionY?: FloatNullableFilter;
+  positionZ?: FloatNullableFilter;
+  scriptName?: StringNullableFilter;
+  spawnDifficulties?: StringNullableFilter;
+  spawntimesecs?: IntNullableFilter;
+  stringId?: StringNullableFilter;
+  terrainSwapMap?: IntNullableFilter;
+  unitFlags?: IntNullableFilter;
+  unitFlags2?: IntNullableFilter;
+  unitFlags3?: IntNullableFilter;
+  verifiedBuild?: IntNullableFilter;
+  wanderDistance?: FloatNullableFilter;
+  zoneId?: IntNullableFilter;
+};

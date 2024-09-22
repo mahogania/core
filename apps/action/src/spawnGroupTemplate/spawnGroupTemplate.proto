@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package spawnGroupTemplate;
+service SpawnGroupTemplateService {
+ rpc createSpawnGroupTemplate (SpawnGroupTemplateCreateInput) returns (SpawnGroupTemplate) {}
+rpc spawnGroupTemplates (findManyParams) returns (stream SpawnGroupTemplate) {}
+rpc spawnGroupTemplate (SpawnGroupTemplateWhereUniqueInput) returns (SpawnGroupTemplate) {}
+rpc updateSpawnGroupTemplate (SpawnGroupTemplateUpdateInput) returns (SpawnGroupTemplate) {}
+rpc deleteSpawnGroupTemplate (SpawnGroupTemplateWhereUniqueInput) returns (SpawnGroupTemplate) {} 
+ }
+message SpawnGroupTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpawnGroupTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpawnGroupTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpawnGroupTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

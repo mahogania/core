@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package skillPerfectItemTemplate;
+service SkillPerfectItemTemplateService {
+ rpc createSkillPerfectItemTemplate (SkillPerfectItemTemplateCreateInput) returns (SkillPerfectItemTemplate) {}
+rpc skillPerfectItemTemplates (findManyParams) returns (stream SkillPerfectItemTemplate) {}
+rpc skillPerfectItemTemplate (SkillPerfectItemTemplateWhereUniqueInput) returns (SkillPerfectItemTemplate) {}
+rpc updateSkillPerfectItemTemplate (SkillPerfectItemTemplateUpdateInput) returns (SkillPerfectItemTemplate) {}
+rpc deleteSkillPerfectItemTemplate (SkillPerfectItemTemplateWhereUniqueInput) returns (SkillPerfectItemTemplate) {} 
+ }
+message SkillPerfectItemTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillPerfectItemTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillPerfectItemTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillPerfectItemTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

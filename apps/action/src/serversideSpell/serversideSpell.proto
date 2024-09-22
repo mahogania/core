@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package serversideSpell;
+service ServersideSpellService {
+ rpc createServersideSpell (ServersideSpellCreateInput) returns (ServersideSpell) {}
+rpc serversideSpells (findManyParams) returns (stream ServersideSpell) {}
+rpc serversideSpell (ServersideSpellWhereUniqueInput) returns (ServersideSpell) {}
+rpc updateServersideSpell (ServersideSpellUpdateInput) returns (ServersideSpell) {}
+rpc deleteServersideSpell (ServersideSpellWhereUniqueInput) returns (ServersideSpell) {} 
+ }
+message ServersideSpellCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ServersideSpell {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ServersideSpellWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ServersideSpellUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

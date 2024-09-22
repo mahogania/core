@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package spellArea;
+service SpellAreaService {
+ rpc createSpellArea (SpellAreaCreateInput) returns (SpellArea) {}
+rpc spellAreas (findManyParams) returns (stream SpellArea) {}
+rpc spellArea (SpellAreaWhereUniqueInput) returns (SpellArea) {}
+rpc updateSpellArea (SpellAreaUpdateInput) returns (SpellArea) {}
+rpc deleteSpellArea (SpellAreaWhereUniqueInput) returns (SpellArea) {} 
+ }
+message SpellAreaCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpellArea {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpellAreaWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpellAreaUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package creatureQuestEnder;
+service CreatureQuestEnderService {
+ rpc createCreatureQuestEnder (CreatureQuestEnderCreateInput) returns (CreatureQuestEnder) {}
+rpc creatureQuestEnders (findManyParams) returns (stream CreatureQuestEnder) {}
+rpc creatureQuestEnder (CreatureQuestEnderWhereUniqueInput) returns (CreatureQuestEnder) {}
+rpc updateCreatureQuestEnder (CreatureQuestEnderUpdateInput) returns (CreatureQuestEnder) {}
+rpc deleteCreatureQuestEnder (CreatureQuestEnderWhereUniqueInput) returns (CreatureQuestEnder) {} 
+ }
+message CreatureQuestEnderCreateInput {
+string createdAt = 1;
+string id = 2;
+int32 quest = 3;
+string updatedAt = 4;
+int32 verifiedBuild = 5;
+};
+message CreatureQuestEnder {
+string createdAt = 1;
+string id = 2;
+int32 quest = 3;
+string updatedAt = 4;
+int32 verifiedBuild = 5;
+};
+message CreatureQuestEnderWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+int32 quest = 3;
+string updatedAt = 4;
+int32 verifiedBuild = 5;
+};
+message CreatureQuestEnderUpdateInput {
+string createdAt = 1;
+string id = 2;
+int32 quest = 3;
+string updatedAt = 4;
+int32 verifiedBuild = 5;
+};
+message findManyParams {
+
+};

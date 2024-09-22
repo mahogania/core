@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package creatureSummonedData;
+service CreatureSummonedDataService {
+ rpc createCreatureSummonedData (CreatureSummonedDataCreateInput) returns (CreatureSummonedData) {}
+rpc creatureSummonedDataItems (findManyParams) returns (stream CreatureSummonedData) {}
+rpc creatureSummonedData (CreatureSummonedDataWhereUniqueInput) returns (CreatureSummonedData) {}
+rpc updateCreatureSummonedData (CreatureSummonedDataUpdateInput) returns (CreatureSummonedData) {}
+rpc deleteCreatureSummonedData (CreatureSummonedDataWhereUniqueInput) returns (CreatureSummonedData) {} 
+ }
+message CreatureSummonedDataCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureSummonedData {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureSummonedDataWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureSummonedDataUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

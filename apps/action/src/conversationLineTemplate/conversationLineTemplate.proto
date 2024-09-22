@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+                 package conversationLineTemplate;
+service ConversationLineTemplateService {
+ rpc createConversationLineTemplate (ConversationLineTemplateCreateInput) returns (ConversationLineTemplate) {}
+rpc conversationLineTemplates (findManyParams) returns (stream ConversationLineTemplate) {}
+rpc conversationLineTemplate (ConversationLineTemplateWhereUniqueInput) returns (ConversationLineTemplate) {}
+rpc updateConversationLineTemplate (ConversationLineTemplateUpdateInput) returns (ConversationLineTemplate) {}
+rpc deleteConversationLineTemplate (ConversationLineTemplateWhereUniqueInput) returns (ConversationLineTemplate) {} 
+ }
+message ConversationLineTemplateCreateInput {
+int32 actorIdx = 1;
+int32 chatType = 2;
+string createdAt = 3;
+int32 flags = 4;
+string id = 5;
+int32 uiCameraId = 6;
+string updatedAt = 7;
+int32 verifiedBuild = 8;
+};
+message ConversationLineTemplate {
+int32 actorIdx = 1;
+int32 chatType = 2;
+string createdAt = 3;
+int32 flags = 4;
+string id = 5;
+int32 uiCameraId = 6;
+string updatedAt = 7;
+int32 verifiedBuild = 8;
+};
+message ConversationLineTemplateWhereUniqueInput {
+int32 actorIdx = 1;
+int32 chatType = 2;
+string createdAt = 3;
+int32 flags = 4;
+string id = 5;
+int32 uiCameraId = 6;
+string updatedAt = 7;
+int32 verifiedBuild = 8;
+};
+message ConversationLineTemplateUpdateInput {
+int32 actorIdx = 1;
+int32 chatType = 2;
+string createdAt = 3;
+int32 flags = 4;
+string id = 5;
+int32 uiCameraId = 6;
+string updatedAt = 7;
+int32 verifiedBuild = 8;
+};
+message findManyParams {
+
+};

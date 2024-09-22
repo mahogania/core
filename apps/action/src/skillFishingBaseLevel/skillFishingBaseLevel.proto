@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package skillFishingBaseLevel;
+service SkillFishingBaseLevelService {
+ rpc createSkillFishingBaseLevel (SkillFishingBaseLevelCreateInput) returns (SkillFishingBaseLevel) {}
+rpc skillFishingBaseLevels (findManyParams) returns (stream SkillFishingBaseLevel) {}
+rpc skillFishingBaseLevel (SkillFishingBaseLevelWhereUniqueInput) returns (SkillFishingBaseLevel) {}
+rpc updateSkillFishingBaseLevel (SkillFishingBaseLevelUpdateInput) returns (SkillFishingBaseLevel) {}
+rpc deleteSkillFishingBaseLevel (SkillFishingBaseLevelWhereUniqueInput) returns (SkillFishingBaseLevel) {} 
+ }
+message SkillFishingBaseLevelCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillFishingBaseLevel {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillFishingBaseLevelWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillFishingBaseLevelUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

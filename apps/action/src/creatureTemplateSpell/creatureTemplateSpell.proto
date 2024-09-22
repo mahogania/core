@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package creatureTemplateSpell;
+service CreatureTemplateSpellService {
+ rpc createCreatureTemplateSpell (CreatureTemplateSpellCreateInput) returns (CreatureTemplateSpell) {}
+rpc creatureTemplateSpells (findManyParams) returns (stream CreatureTemplateSpell) {}
+rpc creatureTemplateSpell (CreatureTemplateSpellWhereUniqueInput) returns (CreatureTemplateSpell) {}
+rpc updateCreatureTemplateSpell (CreatureTemplateSpellUpdateInput) returns (CreatureTemplateSpell) {}
+rpc deleteCreatureTemplateSpell (CreatureTemplateSpellWhereUniqueInput) returns (CreatureTemplateSpell) {} 
+ }
+message CreatureTemplateSpellCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateSpell {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateSpellWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateSpellUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package creatureSummonGroups;
+service CreatureSummonGroupsService {
+ rpc createCreatureSummonGroups (CreatureSummonGroupsCreateInput) returns (CreatureSummonGroups) {}
+rpc creatureSummonGroupsItems (findManyParams) returns (stream CreatureSummonGroups) {}
+rpc creatureSummonGroups (CreatureSummonGroupsWhereUniqueInput) returns (CreatureSummonGroups) {}
+rpc updateCreatureSummonGroups (CreatureSummonGroupsUpdateInput) returns (CreatureSummonGroups) {}
+rpc deleteCreatureSummonGroups (CreatureSummonGroupsWhereUniqueInput) returns (CreatureSummonGroups) {} 
+ }
+message CreatureSummonGroupsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureSummonGroups {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureSummonGroupsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureSummonGroupsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

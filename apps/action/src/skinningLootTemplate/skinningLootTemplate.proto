@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package skinningLootTemplate;
+service SkinningLootTemplateService {
+ rpc createSkinningLootTemplate (SkinningLootTemplateCreateInput) returns (SkinningLootTemplate) {}
+rpc skinningLootTemplates (findManyParams) returns (stream SkinningLootTemplate) {}
+rpc skinningLootTemplate (SkinningLootTemplateWhereUniqueInput) returns (SkinningLootTemplate) {}
+rpc updateSkinningLootTemplate (SkinningLootTemplateUpdateInput) returns (SkinningLootTemplate) {}
+rpc deleteSkinningLootTemplate (SkinningLootTemplateWhereUniqueInput) returns (SkinningLootTemplate) {} 
+ }
+message SkinningLootTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkinningLootTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkinningLootTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkinningLootTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

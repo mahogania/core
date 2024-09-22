@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package creatureTemplateAddon;
+service CreatureTemplateAddonService {
+ rpc createCreatureTemplateAddon (CreatureTemplateAddonCreateInput) returns (CreatureTemplateAddon) {}
+rpc creatureTemplateAddons (findManyParams) returns (stream CreatureTemplateAddon) {}
+rpc creatureTemplateAddon (CreatureTemplateAddonWhereUniqueInput) returns (CreatureTemplateAddon) {}
+rpc updateCreatureTemplateAddon (CreatureTemplateAddonUpdateInput) returns (CreatureTemplateAddon) {}
+rpc deleteCreatureTemplateAddon (CreatureTemplateAddonWhereUniqueInput) returns (CreatureTemplateAddon) {} 
+ }
+message CreatureTemplateAddonCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateAddon {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateAddonWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateAddonUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

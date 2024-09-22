@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+                 package creatureQuestCurrency;
+service CreatureQuestCurrencyService {
+ rpc createCreatureQuestCurrency (CreatureQuestCurrencyCreateInput) returns (CreatureQuestCurrency) {}
+rpc creatureQuestCurrencies (findManyParams) returns (stream CreatureQuestCurrency) {}
+rpc creatureQuestCurrency (CreatureQuestCurrencyWhereUniqueInput) returns (CreatureQuestCurrency) {}
+rpc updateCreatureQuestCurrency (CreatureQuestCurrencyUpdateInput) returns (CreatureQuestCurrency) {}
+rpc deleteCreatureQuestCurrency (CreatureQuestCurrencyWhereUniqueInput) returns (CreatureQuestCurrency) {} 
+ }
+message CreatureQuestCurrencyCreateInput {
+string createdAt = 1;
+int32 creatureId = 2;
+int32 currencyId = 3;
+string id = 4;
+string updatedAt = 5;
+int32 verifiedBuild = 6;
+};
+message CreatureQuestCurrency {
+string createdAt = 1;
+int32 creatureId = 2;
+int32 currencyId = 3;
+string id = 4;
+string updatedAt = 5;
+int32 verifiedBuild = 6;
+};
+message CreatureQuestCurrencyWhereUniqueInput {
+string createdAt = 1;
+int32 creatureId = 2;
+int32 currencyId = 3;
+string id = 4;
+string updatedAt = 5;
+int32 verifiedBuild = 6;
+};
+message CreatureQuestCurrencyUpdateInput {
+string createdAt = 1;
+int32 creatureId = 2;
+int32 currencyId = 3;
+string id = 4;
+string updatedAt = 5;
+int32 verifiedBuild = 6;
+};
+message findManyParams {
+
+};

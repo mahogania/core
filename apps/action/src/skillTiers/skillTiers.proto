@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package skillTiers;
+service SkillTiersService {
+ rpc createSkillTiers (SkillTiersCreateInput) returns (SkillTiers) {}
+rpc skillTiersItems (findManyParams) returns (stream SkillTiers) {}
+rpc skillTiers (SkillTiersWhereUniqueInput) returns (SkillTiers) {}
+rpc updateSkillTiers (SkillTiersUpdateInput) returns (SkillTiers) {}
+rpc deleteSkillTiers (SkillTiersWhereUniqueInput) returns (SkillTiers) {} 
+ }
+message SkillTiersCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillTiers {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillTiersWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillTiersUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

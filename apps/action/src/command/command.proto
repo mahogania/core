@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package command;
+service CommandService {
+ rpc createCommand (CommandCreateInput) returns (Command) {}
+rpc commands (findManyParams) returns (stream Command) {}
+rpc command (CommandWhereUniqueInput) returns (Command) {}
+rpc updateCommand (CommandUpdateInput) returns (Command) {}
+rpc deleteCommand (CommandWhereUniqueInput) returns (Command) {} 
+ }
+message CommandCreateInput {
+string createdAt = 1;
+string help = 2;
+string id = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message Command {
+string createdAt = 1;
+string help = 2;
+string id = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message CommandWhereUniqueInput {
+string createdAt = 1;
+string help = 2;
+string id = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message CommandUpdateInput {
+string createdAt = 1;
+string help = 2;
+string id = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

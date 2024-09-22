@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+                 package conversationActors;
+service ConversationActorsService {
+ rpc createConversationActors (ConversationActorsCreateInput) returns (ConversationActors) {}
+rpc conversationActorsItems (findManyParams) returns (stream ConversationActors) {}
+rpc conversationActors (ConversationActorsWhereUniqueInput) returns (ConversationActors) {}
+rpc updateConversationActors (ConversationActorsUpdateInput) returns (ConversationActors) {}
+rpc deleteConversationActors (ConversationActorsWhereUniqueInput) returns (ConversationActors) {} 
+ }
+message ConversationActorsCreateInput {
+int32 activePlayerObject = 1;
+int32 conversationActorGuid = 2;
+int32 conversationActorId = 3;
+int32 conversationId = 4;
+string createdAt = 5;
+int32 creatureDisplayInfoId = 6;
+int32 creatureId = 7;
+string id = 8;
+int32 idx = 9;
+int32 noActorObject = 10;
+string updatedAt = 11;
+int32 verifiedBuild = 12;
+};
+message ConversationActors {
+int32 activePlayerObject = 1;
+int32 conversationActorGuid = 2;
+int32 conversationActorId = 3;
+int32 conversationId = 4;
+string createdAt = 5;
+int32 creatureDisplayInfoId = 6;
+int32 creatureId = 7;
+string id = 8;
+int32 idx = 9;
+int32 noActorObject = 10;
+string updatedAt = 11;
+int32 verifiedBuild = 12;
+};
+message ConversationActorsWhereUniqueInput {
+int32 activePlayerObject = 1;
+int32 conversationActorGuid = 2;
+int32 conversationActorId = 3;
+int32 conversationId = 4;
+string createdAt = 5;
+int32 creatureDisplayInfoId = 6;
+int32 creatureId = 7;
+string id = 8;
+int32 idx = 9;
+int32 noActorObject = 10;
+string updatedAt = 11;
+int32 verifiedBuild = 12;
+};
+message ConversationActorsUpdateInput {
+int32 activePlayerObject = 1;
+int32 conversationActorGuid = 2;
+int32 conversationActorId = 3;
+int32 conversationId = 4;
+string createdAt = 5;
+int32 creatureDisplayInfoId = 6;
+int32 creatureId = 7;
+string id = 8;
+int32 idx = 9;
+int32 noActorObject = 10;
+string updatedAt = 11;
+int32 verifiedBuild = 12;
+};
+message findManyParams {
+
+};

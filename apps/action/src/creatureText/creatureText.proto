@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package creatureText;
+service CreatureTextService {
+ rpc createCreatureText (CreatureTextCreateInput) returns (CreatureText) {}
+rpc creatureTexts (findManyParams) returns (stream CreatureText) {}
+rpc creatureText (CreatureTextWhereUniqueInput) returns (CreatureText) {}
+rpc updateCreatureText (CreatureTextUpdateInput) returns (CreatureText) {}
+rpc deleteCreatureText (CreatureTextWhereUniqueInput) returns (CreatureText) {} 
+ }
+message CreatureTextCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureText {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTextWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTextUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

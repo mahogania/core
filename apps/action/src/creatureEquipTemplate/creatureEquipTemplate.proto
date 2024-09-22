@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+                 package creatureEquipTemplate;
+service CreatureEquipTemplateService {
+ rpc createCreatureEquipTemplate (CreatureEquipTemplateCreateInput) returns (CreatureEquipTemplate) {}
+rpc creatureEquipTemplates (findManyParams) returns (stream CreatureEquipTemplate) {}
+rpc creatureEquipTemplate (CreatureEquipTemplateWhereUniqueInput) returns (CreatureEquipTemplate) {}
+rpc updateCreatureEquipTemplate (CreatureEquipTemplateUpdateInput) returns (CreatureEquipTemplate) {}
+rpc deleteCreatureEquipTemplate (CreatureEquipTemplateWhereUniqueInput) returns (CreatureEquipTemplate) {} 
+ }
+message CreatureEquipTemplateCreateInput {
+int32 appearanceModId1 = 1;
+int32 appearanceModId2 = 2;
+int32 appearanceModId3 = 3;
+string createdAt = 4;
+int32 creatureId = 5;
+string id = 6;
+int32 itemId1 = 7;
+int32 itemId2 = 8;
+int32 itemId3 = 9;
+int32 itemVisual1 = 10;
+int32 itemVisual2 = 11;
+int32 itemVisual3 = 12;
+string updatedAt = 13;
+int32 verifiedBuild = 14;
+};
+message CreatureEquipTemplate {
+int32 appearanceModId1 = 1;
+int32 appearanceModId2 = 2;
+int32 appearanceModId3 = 3;
+string createdAt = 4;
+int32 creatureId = 5;
+string id = 6;
+int32 itemId1 = 7;
+int32 itemId2 = 8;
+int32 itemId3 = 9;
+int32 itemVisual1 = 10;
+int32 itemVisual2 = 11;
+int32 itemVisual3 = 12;
+string updatedAt = 13;
+int32 verifiedBuild = 14;
+};
+message CreatureEquipTemplateWhereUniqueInput {
+int32 appearanceModId1 = 1;
+int32 appearanceModId2 = 2;
+int32 appearanceModId3 = 3;
+string createdAt = 4;
+int32 creatureId = 5;
+string id = 6;
+int32 itemId1 = 7;
+int32 itemId2 = 8;
+int32 itemId3 = 9;
+int32 itemVisual1 = 10;
+int32 itemVisual2 = 11;
+int32 itemVisual3 = 12;
+string updatedAt = 13;
+int32 verifiedBuild = 14;
+};
+message CreatureEquipTemplateUpdateInput {
+int32 appearanceModId1 = 1;
+int32 appearanceModId2 = 2;
+int32 appearanceModId3 = 3;
+string createdAt = 4;
+int32 creatureId = 5;
+string id = 6;
+int32 itemId1 = 7;
+int32 itemId2 = 8;
+int32 itemId3 = 9;
+int32 itemVisual1 = 10;
+int32 itemVisual2 = 11;
+int32 itemVisual3 = 12;
+string updatedAt = 13;
+int32 verifiedBuild = 14;
+};
+message findManyParams {
+
+};

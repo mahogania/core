@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package spell;
+service SpellService {
+ rpc createSpell (SpellCreateInput) returns (Spell) {}
+rpc spells (findManyParams) returns (stream Spell) {}
+rpc spell (SpellWhereUniqueInput) returns (Spell) {}
+rpc updateSpell (SpellUpdateInput) returns (Spell) {}
+rpc deleteSpell (SpellWhereUniqueInput) returns (Spell) {} 
+ }
+message SpellCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Spell {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpellWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SpellUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

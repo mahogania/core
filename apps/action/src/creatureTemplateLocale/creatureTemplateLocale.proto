@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package creatureTemplateLocale;
+service CreatureTemplateLocaleService {
+ rpc createCreatureTemplateLocale (CreatureTemplateLocaleCreateInput) returns (CreatureTemplateLocale) {}
+rpc creatureTemplateLocales (findManyParams) returns (stream CreatureTemplateLocale) {}
+rpc creatureTemplateLocale (CreatureTemplateLocaleWhereUniqueInput) returns (CreatureTemplateLocale) {}
+rpc updateCreatureTemplateLocale (CreatureTemplateLocaleUpdateInput) returns (CreatureTemplateLocale) {}
+rpc deleteCreatureTemplateLocale (CreatureTemplateLocaleWhereUniqueInput) returns (CreatureTemplateLocale) {} 
+ }
+message CreatureTemplateLocaleCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateLocaleUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};
