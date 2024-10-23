@@ -1,0 +1,136 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Entity {
+  createdAt            DateTime      @default(now())
+  description          String?
+  displayName          String?
+  id                   String        @id @default(cuid())
+  incomingAssociations Association[] @relation(name: "ascendant")
+  name                 String?
+  outgoingAssociations Association[] @relation(name: "descendant")
+  owner                User?         @relation(fields: [ownerId], references: [id])
+  ownerId              String?
+  template             Template?     @relation(fields: [templateId], references: [id])
+  templateId           String?
+  updatedAt            DateTime      @updatedAt
+  version              String?
+}
+
+model Association {
+  ascendant    Entity?  @relation(name: "ascendant", fields: [ascendantId], references: [id])
+  ascendantId  String?
+  createdAt    DateTime @default(now())
+  descendant   Entity?  @relation(name: "descendant", fields: [descendantId], references: [id])
+  descendantId String?
+  description  String?
+  displayName  String?
+  id           String   @id @default(cuid())
+  name         String?
+  updatedAt    DateTime @updatedAt
+}
+
+model Trait {
+  commands   Command[]
+  createdAt  DateTime   @default(now())
+  fragments  Fragment[]
+  id         String     @id @default(cuid())
+  template   Template?  @relation(fields: [templateId], references: [id])
+  templateId String?
+  updatedAt  DateTime   @updatedAt
+}
+
+model Processor {
+  commands  Command[]
+  createdAt DateTime  @default(now())
+  id        String    @id @default(cuid())
+  updatedAt DateTime  @updatedAt
+  views     View[]
+}
+
+model Template {
+  createdAt DateTime @default(now())
+  entities  Entity[]
+  id        String   @id @default(cuid())
+  traits    Trait[]
+  updatedAt DateTime @updatedAt
+}
+
+model Command {
+  createdAt   DateTime   @default(now())
+  id          String     @id @default(cuid())
+  processor   Processor? @relation(fields: [processorId], references: [id])
+  processorId String?
+  trait       Trait?     @relation(fields: [traitId], references: [id])
+  traitId     String?
+  updatedAt   DateTime   @updatedAt
+}
+
+model Fragment {
+  attributes  Attribute[]
+  createdAt   DateTime    @default(now())
+  description String?
+  displayName String?
+  id          String      @id @default(cuid())
+  name        String?
+  trait       Trait?      @relation(fields: [traitId], references: [id])
+  traitId     String?
+  updatedAt   DateTime    @updatedAt
+  views       View[]
+}
+
+model View {
+  createdAt   DateTime   @default(now())
+  fragment    Fragment?  @relation(fields: [fragmentId], references: [id])
+  fragmentId  String?
+  id          String     @id @default(cuid())
+  processor   Processor? @relation(fields: [processorId], references: [id])
+  processorId String?
+  updatedAt   DateTime   @updatedAt
+}
+
+model Realm {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+  users     User[]
+  world     World?   @relation(fields: [worldId], references: [id])
+  worldId   String?
+}
+
+model World {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  realms    Realm[]
+  updatedAt DateTime @updatedAt
+}
+
+model Attribute {
+  createdAt  DateTime  @default(now())
+  fragment   Fragment? @relation(fields: [fragmentId], references: [id])
+  fragmentId String?
+  id         String    @id @default(cuid())
+  updatedAt  DateTime  @updatedAt
+}
+
+model User {
+  createdAt     DateTime @default(now())
+  email         String?  @unique
+  entities      Entity[]
+  firstName     String?
+  id            String   @id @default(cuid())
+  lastName      String?
+  password      String
+  realms        Realm[]
+  roles         Json
+  sessionId     String?
+  supertokensId String?
+  updatedAt     DateTime @updatedAt
+  username      String   @unique
+}
