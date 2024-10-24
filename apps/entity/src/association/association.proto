@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+                 package association;
+service AssociationService {
+ rpc createAssociation (AssociationCreateInput) returns (Association) {}
+rpc associations (findManyParams) returns (stream Association) {}
+rpc association (AssociationWhereUniqueInput) returns (Association) {}
+rpc updateAssociation (AssociationUpdateInput) returns (Association) {}
+rpc deleteAssociation (AssociationWhereUniqueInput) returns (Association) {} 
+ }
+message AssociationCreateInput {
+string createdAt = 1;
+string description = 2;
+string displayName = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message Association {
+string createdAt = 1;
+string description = 2;
+string displayName = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message AssociationWhereUniqueInput {
+string createdAt = 1;
+string description = 2;
+string displayName = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message AssociationUpdateInput {
+string createdAt = 1;
+string description = 2;
+string displayName = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};

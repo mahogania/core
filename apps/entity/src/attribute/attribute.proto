@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package attribute;
+service AttributeService {
+ rpc createAttribute (AttributeCreateInput) returns (Attribute) {}
+rpc attributes (findManyParams) returns (stream Attribute) {}
+rpc attribute (AttributeWhereUniqueInput) returns (Attribute) {}
+rpc updateAttribute (AttributeUpdateInput) returns (Attribute) {}
+rpc deleteAttribute (AttributeWhereUniqueInput) returns (Attribute) {} 
+ }
+message AttributeCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Attribute {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AttributeWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AttributeUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

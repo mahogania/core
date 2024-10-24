@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+                 package entity;
+service EntityService {
+ rpc createEntity (EntityCreateInput) returns (Entity) {}
+rpc entities (findManyParams) returns (stream Entity) {}
+rpc entity (EntityWhereUniqueInput) returns (Entity) {}
+rpc updateEntity (EntityUpdateInput) returns (Entity) {}
+rpc deleteEntity (EntityWhereUniqueInput) returns (Entity) {}
+rpc findManyAscendant (EntityWhereUniqueInput) returns (stream Association) {}
+rpc updateAscendant (AssociationParams) returns (stream Association) {}
+rpc connectAscendant (AssociationParams) returns (Association) {}
+rpc disconnectAscendant (AssociationParams) returns (Association) {}
+rpc findManyDescendant (EntityWhereUniqueInput) returns (stream Association) {}
+rpc updateDescendant (AssociationParams) returns (stream Association) {}
+rpc connectDescendant (AssociationParams) returns (Association) {}
+rpc disconnectDescendant (AssociationParams) returns (Association) {} 
+ }
+message EntityCreateInput {
+repeated Association PredecessorAssociations = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
+string name = 6;
+repeated Association successorAssociations = 7;
+string updatedAt = 8;
+string version = 9;
+};
+message Entity {
+repeated Association PredecessorAssociations = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
+string name = 6;
+repeated Association successorAssociations = 7;
+string updatedAt = 8;
+string version = 9;
+};
+message EntityWhereUniqueInput {
+repeated Association PredecessorAssociations = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
+string name = 6;
+repeated Association successorAssociations = 7;
+string updatedAt = 8;
+string version = 9;
+};
+message EntityUpdateInput {
+repeated Association PredecessorAssociations = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
+string name = 6;
+repeated Association successorAssociations = 7;
+string updatedAt = 8;
+string version = 9;
+};
+message findManyParams {
+
+};
+message Association {
+string createdAt = 1;
+string description = 2;
+string displayName = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message AssociationWhereUniqueInput {
+string createdAt = 1;
+string description = 2;
+string displayName = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message AssociationParams {
+EntityWhereUniqueInput entityWhereUniqueInput = 1;
+AssociationWhereUniqueInput associationWhereUniqueInput = 2;
+};

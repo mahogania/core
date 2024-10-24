@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+                 package processor;
+service ProcessorService {
+ rpc createProcessor (ProcessorCreateInput) returns (Processor) {}
+rpc processors (findManyParams) returns (stream Processor) {}
+rpc processor (ProcessorWhereUniqueInput) returns (Processor) {}
+rpc updateProcessor (ProcessorUpdateInput) returns (Processor) {}
+rpc deleteProcessor (ProcessorWhereUniqueInput) returns (Processor) {}
+rpc findManyProcessor (ProcessorWhereUniqueInput) returns (stream Command) {}
+rpc updateProcessor (CommandParams) returns (stream Command) {}
+rpc connectProcessor (CommandParams) returns (Command) {}
+rpc disconnectProcessor (CommandParams) returns (Command) {}
+rpc findManyProcessor (ProcessorWhereUniqueInput) returns (stream View) {}
+rpc updateProcessor (ViewParams) returns (stream View) {}
+rpc connectProcessor (ViewParams) returns (View) {}
+rpc disconnectProcessor (ViewParams) returns (View) {} 
+ }
+message ProcessorCreateInput {
+repeated Command commands = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+repeated View views = 5;
+};
+message Processor {
+repeated Command commands = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+repeated View views = 5;
+};
+message ProcessorWhereUniqueInput {
+repeated Command commands = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+repeated View views = 5;
+};
+message ProcessorUpdateInput {
+repeated Command commands = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+repeated View views = 5;
+};
+message findManyParams {
+
+};
+message Command {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CommandWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CommandParams {
+ProcessorWhereUniqueInput processorWhereUniqueInput = 1;
+CommandWhereUniqueInput commandWhereUniqueInput = 2;
+};
+message View {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ViewWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ViewParams {
+ProcessorWhereUniqueInput processorWhereUniqueInput = 1;
+ViewWhereUniqueInput viewWhereUniqueInput = 2;
+};

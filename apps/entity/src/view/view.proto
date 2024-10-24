@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package view;
+service ViewService {
+ rpc createView (ViewCreateInput) returns (View) {}
+rpc views (findManyParams) returns (stream View) {}
+rpc view (ViewWhereUniqueInput) returns (View) {}
+rpc updateView (ViewUpdateInput) returns (View) {}
+rpc deleteView (ViewWhereUniqueInput) returns (View) {} 
+ }
+message ViewCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message View {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ViewWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ViewUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};
