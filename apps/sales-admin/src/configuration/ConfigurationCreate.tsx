@@ -25,7 +25,7 @@ export const ConfigurationCreate = (props: CreateProps): React.ReactElement => {
         <ReferenceInput source="catalog.id" reference="Catalog" label="Catalog">
           <SelectInput optionText={CatalogTitle} />
         </ReferenceInput>
-        <ReferenceArrayInput source="lineItems" reference="Item">
+        <ReferenceArrayInput source="items" reference="Item">
           <SelectArrayInput
             optionText={ItemTitle}
             parse={(value: any) => value && value.map((v: any) => ({ id: v }))}

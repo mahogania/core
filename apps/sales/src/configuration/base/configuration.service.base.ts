@@ -55,7 +55,7 @@ export class ConfigurationServiceBase {
     return this.prisma.configuration.delete(args);
   }
 
-  async findLineItems(
+  async findItems(
     parentId: string,
     args: Prisma.ItemFindManyArgs
   ): Promise<PrismaItem[]> {
@@ -63,7 +63,7 @@ export class ConfigurationServiceBase {
       .findUniqueOrThrow({
         where: { id: parentId },
       })
-      .lineItems(args);
+      .items(args);
   }
 
   async getBundle(parentId: string): Promise<PrismaBundle | null> {

@@ -267,14 +267,14 @@ export class ConfigurationControllerBase {
     }
   }
 
-  @common.Get("/:id/lineItems")
+  @common.Get("/:id/items")
   @ApiNestedQuery(ItemFindManyArgs)
-  async findLineItems(
+  async findItems(
     @common.Req() request: Request,
     @common.Param() params: ConfigurationWhereUniqueInput
   ): Promise<Item[]> {
     const query = plainToClass(ItemFindManyArgs, request.query);
-    const results = await this.service.findLineItems(params.id, {
+    const results = await this.service.findItems(params.id, {
       ...query,
       select: {
         configuration: {
@@ -303,13 +303,13 @@ export class ConfigurationControllerBase {
     return results;
   }
 
-  @common.Post("/:id/lineItems")
-  async connectLineItems(
+  @common.Post("/:id/items")
+  async connectItems(
     @common.Param() params: ConfigurationWhereUniqueInput,
     @common.Body() body: ItemWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      lineItems: {
+      items: {
         connect: body,
       },
     };
@@ -320,13 +320,13 @@ export class ConfigurationControllerBase {
     });
   }
 
-  @common.Patch("/:id/lineItems")
-  async updateLineItems(
+  @common.Patch("/:id/items")
+  async updateItems(
     @common.Param() params: ConfigurationWhereUniqueInput,
     @common.Body() body: ItemWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      lineItems: {
+      items: {
         set: body,
       },
     };
@@ -337,13 +337,13 @@ export class ConfigurationControllerBase {
     });
   }
 
-  @common.Delete("/:id/lineItems")
-  async disconnectLineItems(
+  @common.Delete("/:id/items")
+  async disconnectItems(
     @common.Param() params: ConfigurationWhereUniqueInput,
     @common.Body() body: ItemWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      lineItems: {
+      items: {
         disconnect: body,
       },
     };

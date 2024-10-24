@@ -151,7 +151,7 @@ model Configuration {
   catalogId  String?
   createdAt  DateTime @default(now())
   id         String   @id @default(cuid())
-  lineItems  Item[]
+  items      Item[]
   pipeline   Pipeline @relation(fields: [pipelineId], references: [id])
   pipelineId String
   updatedAt  DateTime @updatedAt

@@ -16,28 +16,28 @@ message ConfigurationCreateInput {
 Bundle bundle = 1;
 string createdAt = 2;
 string id = 3;
-repeated Item lineItems = 4;
+repeated Item items = 4;
 string updatedAt = 5;
 };
 message Configuration {
 Bundle bundle = 1;
 string createdAt = 2;
 string id = 3;
-repeated Item lineItems = 4;
+repeated Item items = 4;
 string updatedAt = 5;
 };
 message ConfigurationWhereUniqueInput {
 Bundle bundle = 1;
 string createdAt = 2;
 string id = 3;
-repeated Item lineItems = 4;
+repeated Item items = 4;
 string updatedAt = 5;
 };
 message ConfigurationUpdateInput {
 Bundle bundle = 1;
 string createdAt = 2;
 string id = 3;
-repeated Item lineItems = 4;
+repeated Item items = 4;
 string updatedAt = 5;
 };
 message findManyParams {

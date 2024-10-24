@@ -6,6 +6,6 @@ import { PipelineWhereUniqueInput } from "../pipeline/PipelineWhereUniqueInput";
 export type ConfigurationCreateInput = {
   bundle: BundleWhereUniqueInput | null;
   catalog?: CatalogWhereUniqueInput | null;
-  lineItems?: ItemCreateNestedManyWithoutConfigurationsInput;
+  items?: ItemCreateNestedManyWithoutConfigurationsInput;
   pipeline: PipelineWhereUniqueInput;
 };

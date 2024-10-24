@@ -66,7 +66,7 @@ class ConfigurationWhereInput {
   @Field(() => ItemListRelationFilter, {
     nullable: true,
   })
-  lineItems?: ItemListRelationFilter;
+  items?: ItemListRelationFilter;
 
   @ApiProperty({
     required: false,

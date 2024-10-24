@@ -60,7 +60,7 @@ class Configuration {
   @ValidateNested()
   @Type(() => Item)
   @IsOptional()
-  lineItems?: Array<Item>;
+  items?: Array<Item>;
 
   @ApiProperty({
     required: true,

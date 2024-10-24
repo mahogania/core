@@ -8,7 +8,7 @@ export type Configuration = {
   catalog?: Catalog | null;
   createdAt: Date;
   id: string;
-  lineItems?: Array<Item>;
+  items?: Array<Item>;
   pipeline?: Pipeline;
   updatedAt: Date;
 };

@@ -134,12 +134,12 @@ export class ConfigurationResolverBase {
     }
   }
 
-  @graphql.ResolveField(() => [Item], { name: "lineItems" })
-  async findLineItems(
+  @graphql.ResolveField(() => [Item], { name: "items" })
+  async findItems(
     @graphql.Parent() parent: Configuration,
     @graphql.Args() args: ItemFindManyArgs
   ): Promise<Item[]> {
-    const results = await this.service.findLineItems(parent.id, args);
+    const results = await this.service.findItems(parent.id, args);
 
     if (!results) {
       return [];

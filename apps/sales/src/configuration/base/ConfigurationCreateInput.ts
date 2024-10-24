@@ -51,7 +51,7 @@ class ConfigurationCreateInput {
   @Field(() => ItemCreateNestedManyWithoutConfigurationsInput, {
     nullable: true,
   })
-  lineItems?: ItemCreateNestedManyWithoutConfigurationsInput;
+  items?: ItemCreateNestedManyWithoutConfigurationsInput;
 
   @ApiProperty({
     required: true,

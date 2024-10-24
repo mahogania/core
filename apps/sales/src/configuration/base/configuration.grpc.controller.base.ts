@@ -268,15 +268,15 @@ export class ConfigurationGrpcControllerBase {
     }
   }
 
-  @common.Get("/:id/lineItems")
+  @common.Get("/:id/items")
   @ApiNestedQuery(ItemFindManyArgs)
-  @GrpcMethod("ConfigurationService", "findManyLineItems")
-  async findManyLineItems(
+  @GrpcMethod("ConfigurationService", "findManyItems")
+  async findManyItems(
     @common.Req() request: Request,
     @common.Param() params: ConfigurationWhereUniqueInput
   ): Promise<Item[]> {
     const query = plainToClass(ItemFindManyArgs, request.query);
-    const results = await this.service.findLineItems(params.id, {
+    const results = await this.service.findItems(params.id, {
       ...query,
       select: {
         configuration: {
@@ -305,14 +305,14 @@ export class ConfigurationGrpcControllerBase {
     return results;
   }
 
-  @common.Post("/:id/lineItems")
-  @GrpcMethod("ConfigurationService", "connectLineItems")
-  async connectLineItems(
+  @common.Post("/:id/items")
+  @GrpcMethod("ConfigurationService", "connectItems")
+  async connectItems(
     @common.Param() params: ConfigurationWhereUniqueInput,
     @common.Body() body: ItemWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      lineItems: {
+      items: {
         connect: body,
       },
     };
@@ -323,14 +323,14 @@ export class ConfigurationGrpcControllerBase {
     });
   }
 
-  @common.Patch("/:id/lineItems")
-  @GrpcMethod("ConfigurationService", "updateLineItems")
-  async updateLineItems(
+  @common.Patch("/:id/items")
+  @GrpcMethod("ConfigurationService", "updateItems")
+  async updateItems(
     @common.Param() params: ConfigurationWhereUniqueInput,
     @common.Body() body: ItemWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      lineItems: {
+      items: {
         set: body,
       },
     };
@@ -341,14 +341,14 @@ export class ConfigurationGrpcControllerBase {
     });
   }
 
-  @common.Delete("/:id/lineItems")
-  @GrpcMethod("ConfigurationService", "disconnectLineItems")
-  async disconnectLineItems(
+  @common.Delete("/:id/items")
+  @GrpcMethod("ConfigurationService", "disconnectItems")
+  async disconnectItems(
     @common.Param() params: ConfigurationWhereUniqueInput,
     @common.Body() body: ItemWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      lineItems: {
+      items: {
         disconnect: body,
       },
     };

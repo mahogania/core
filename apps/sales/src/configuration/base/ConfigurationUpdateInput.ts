@@ -54,7 +54,7 @@ class ConfigurationUpdateInput {
   @Field(() => ItemUpdateManyWithoutConfigurationsInput, {
     nullable: true,
   })
-  lineItems?: ItemUpdateManyWithoutConfigurationsInput;
+  items?: ItemUpdateManyWithoutConfigurationsInput;
 
   @ApiProperty({
     required: false,

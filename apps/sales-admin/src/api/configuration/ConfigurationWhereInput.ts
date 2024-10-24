@@ -8,6 +8,6 @@ export type ConfigurationWhereInput = {
   bundle?: BundleWhereUniqueInput;
   catalog?: CatalogWhereUniqueInput;
   id?: StringFilter;
-  lineItems?: ItemListRelationFilter;
+  items?: ItemListRelationFilter;
   pipeline?: PipelineWhereUniqueInput;
 };
