@@ -24,6 +24,7 @@ import { BundleWhereUniqueInput } from "./BundleWhereUniqueInput";
 import { BundleFindManyArgs } from "./BundleFindManyArgs";
 import { BundleUpdateInput } from "./BundleUpdateInput";
 import { Bundle } from "./Bundle";
+import { Configuration } from "../../configuration/base/Configuration";
 import { FeatureFindManyArgs } from "../../feature/base/FeatureFindManyArgs";
 import { Feature } from "../../feature/base/Feature";
 import { FeatureWhereUniqueInput } from "../../feature/base/FeatureWhereUniqueInput";
@@ -38,22 +39,19 @@ export class BundleGrpcControllerBase {
       data: {
         ...data,
 
-        lineItemConfiguration: data.lineItemConfiguration
-          ? {
-              connect: data.lineItemConfiguration,
-            }
-          : undefined,
+        Configuration: {
+          connect: data.Configuration,
+        },
       },
       select: {
-        createdAt: true,
-        id: true,
-
-        lineItemConfiguration: {
+        Configuration: {
           select: {
             id: true,
           },
         },
 
+        createdAt: true,
+        id: true,
         updatedAt: true,
       },
     });
@@ -68,15 +66,14 @@ export class BundleGrpcControllerBase {
     return this.service.bundles({
       ...args,
       select: {
-        createdAt: true,
-        id: true,
-
-        lineItemConfiguration: {
+        Configuration: {
           select: {
             id: true,
           },
         },
 
+        createdAt: true,
+        id: true,
         updatedAt: true,
       },
     });
@@ -92,15 +89,14 @@ export class BundleGrpcControllerBase {
     const result = await this.service.bundle({
       where: params,
       select: {
-        createdAt: true,
-        id: true,
-
-        lineItemConfiguration: {
+        Configuration: {
           select: {
             id: true,
           },
         },
 
+        createdAt: true,
+        id: true,
         updatedAt: true,
       },
     });
@@ -126,22 +122,19 @@ export class BundleGrpcControllerBase {
         data: {
           ...data,
 
-          lineItemConfiguration: data.lineItemConfiguration
-            ? {
-                connect: data.lineItemConfiguration,
-              }
-            : undefined,
+          Configuration: {
+            connect: data.Configuration,
+          },
         },
         select: {
-          createdAt: true,
-          id: true,
-
-          lineItemConfiguration: {
+          Configuration: {
             select: {
               id: true,
             },
           },
 
+          createdAt: true,
+          id: true,
           updatedAt: true,
         },
       });
@@ -166,15 +159,14 @@ export class BundleGrpcControllerBase {
       return await this.service.deleteBundle({
         where: params,
         select: {
-          createdAt: true,
-          id: true,
-
-          lineItemConfiguration: {
+          Configuration: {
             select: {
               id: true,
             },
           },
 
+          createdAt: true,
+          id: true,
           updatedAt: true,
         },
       });
@@ -209,20 +201,7 @@ export class BundleGrpcControllerBase {
         displayName: true,
         id: true,
         name: true,
-
-        strength: {
-          select: {
-            id: true,
-          },
-        },
-
         updatedAt: true,
-
-        weakness: {
-          select: {
-            id: true,
-          },
-        },
       },
     });
     if (results === null) {

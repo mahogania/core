@@ -19,7 +19,6 @@ import {
   MaxLength,
 } from "class-validator";
 import { Type } from "class-transformer";
-import { ConstraintWhereUniqueInput } from "../../constraint/base/ConstraintWhereUniqueInput";
 
 @InputType()
 class ProductCreateInput {
@@ -34,30 +33,6 @@ class ProductCreateInput {
     nullable: true,
   })
   options?: OptionCreateNestedManyWithoutProductsInput;
-
-  @ApiProperty({
-    required: false,
-    type: () => ConstraintWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ConstraintWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ConstraintWhereUniqueInput, {
-    nullable: true,
-  })
-  predecessorProductPaths?: ConstraintWhereUniqueInput | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => ConstraintWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ConstraintWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ConstraintWhereUniqueInput, {
-    nullable: true,
-  })
-  successorProductPaths?: ConstraintWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

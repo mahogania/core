@@ -73,13 +73,11 @@ model Unit {
 }
 
 model Product {
-  createdAt               DateTime    @default(now())
-  id                      String      @id @default(cuid())
-  options                 Option[]
-  predecessorProductPaths Constraint? @relation(name: "descendantProduct")
-  successorProductPaths   Constraint? @relation(name: "ascendantProduct")
-  updatedAt               DateTime    @updatedAt
-  version                 String?
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  options   Option[]
+  updatedAt DateTime @updatedAt
+  version   String?
 }
 
 model Discount {
@@ -160,26 +158,20 @@ model Configuration {
 }
 
 model Constraint {
-  ascendantProduct    Product?            @relation(name: "ascendantProduct", fields: [ascendantProductId], references: [id])
-  ascendantProductId  String?             @unique
-  createdAt           DateTime            @default(now())
-  depth               Int?
-  descendantProduct   Product?            @relation(name: "descendantProduct", fields: [descendantProductId], references: [id])
-  descendantProductId String?             @unique
-  id                  String              @id @default(cuid())
-  kind                EnumConstraintKind?
-  option              Option?             @relation(fields: [optionId], references: [id])
-  optionId            String?
-  updatedAt           DateTime            @updatedAt
+  createdAt DateTime            @default(now())
+  depth     Int?
+  id        String              @id @default(cuid())
+  kind      EnumConstraintKind?
+  updatedAt DateTime            @updatedAt
 }
 
 model Bundle {
-  createdAt               DateTime       @default(now())
-  features                Feature[]
-  id                      String         @id @default(cuid())
-  lineItemConfiguration   Configuration? @relation(fields: [lineItemConfigurationId], references: [id])
-  lineItemConfigurationId String?        @unique
-  updatedAt               DateTime       @updatedAt
+  Configuration   Configuration @relation(fields: [ConfigurationId], references: [id])
+  ConfigurationId String        @unique
+  createdAt       DateTime      @default(now())
+  features        Feature[]
+  id              String        @id @default(cuid())
+  updatedAt       DateTime      @updatedAt
 }
 
 model Process {
@@ -219,33 +211,30 @@ model Contract {
 }
 
 model Feature {
-  bundle      Bundle?   @relation(fields: [bundleId], references: [id])
+  bundle      Bundle?    @relation(fields: [bundleId], references: [id])
   bundleId    String?
-  createdAt   DateTime  @default(now())
+  createdAt   DateTime   @default(now())
   displayName String?
-  id          String    @id @default(cuid())
+  id          String     @id @default(cuid())
   name        String?
   options     Option[]
-  strength    Strength? @relation(fields: [strengthId], references: [id])
-  strengthId  String?
-  updatedAt   DateTime  @updatedAt
-  weakness    Weakness? @relation(fields: [weaknessId], references: [id])
-  weaknessId  String?
+  strength    Strength[]
+  updatedAt   DateTime   @updatedAt
+  weaknesses  Weakness[]
 }
 
 model Option {
-  constraintPaths Constraint[]
-  createdAt       DateTime     @default(now())
-  discount        Discount?    @relation(fields: [discountId], references: [id])
-  discountId      String?
-  feature         Feature?     @relation(fields: [featureId], references: [id])
-  featureId       String?
-  id              String       @id @default(cuid())
-  price           Price?       @relation(fields: [priceId], references: [id])
-  priceId         String?      @unique
-  product         Product?     @relation(fields: [productId], references: [id])
-  productId       String?
-  updatedAt       DateTime     @updatedAt
+  createdAt  DateTime  @default(now())
+  discount   Discount? @relation(fields: [discountId], references: [id])
+  discountId String?
+  feature    Feature?  @relation(fields: [featureId], references: [id])
+  featureId  String?
+  id         String    @id @default(cuid())
+  price      Price?    @relation(fields: [priceId], references: [id])
+  priceId    String?   @unique
+  product    Product?  @relation(fields: [productId], references: [id])
+  productId  String?
+  updatedAt  DateTime  @updatedAt
 }
 
 model Template {
@@ -333,6 +322,7 @@ model Catalog {
 enum EnumConstraintKind {
   Allow
   Forbid
+  Force
 }
 
 enum EnumRelationKind {

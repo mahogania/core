@@ -11,13 +11,21 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, ValidateNested, IsOptional, IsString } from "class-validator";
+import { Configuration } from "../../configuration/base/Configuration";
+import { ValidateNested, IsDate, IsOptional, IsString } from "class-validator";
 import { Type } from "class-transformer";
 import { Feature } from "../../feature/base/Feature";
-import { Configuration } from "../../configuration/base/Configuration";
 
 @ObjectType()
 class Bundle {
+  @ApiProperty({
+    required: true,
+    type: () => Configuration,
+  })
+  @ValidateNested()
+  @Type(() => Configuration)
+  Configuration?: Configuration;
+
   @ApiProperty({
     required: true,
   })
@@ -42,15 +50,6 @@ class Bundle {
   @IsString()
   @Field(() => String)
   id!: string;
-
-  @ApiProperty({
-    required: false,
-    type: () => Configuration,
-  })
-  @ValidateNested()
-  @Type(() => Configuration)
-  @IsOptional()
-  lineItemConfiguration?: Configuration | null;
 
   @ApiProperty({
     required: true,

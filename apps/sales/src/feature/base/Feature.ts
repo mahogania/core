@@ -86,12 +86,12 @@ class Feature {
 
   @ApiProperty({
     required: false,
-    type: () => Strength,
+    type: () => [Strength],
   })
   @ValidateNested()
   @Type(() => Strength)
   @IsOptional()
-  strength?: Strength | null;
+  strength?: Array<Strength>;
 
   @ApiProperty({
     required: true,
@@ -103,12 +103,12 @@ class Feature {
 
   @ApiProperty({
     required: false,
-    type: () => Weakness,
+    type: () => [Weakness],
   })
   @ValidateNested()
   @Type(() => Weakness)
   @IsOptional()
-  weakness?: Weakness | null;
+  weaknesses?: Array<Weakness>;
 }
 
 export { Feature as Feature };

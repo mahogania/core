@@ -17,8 +17,8 @@ import { Type } from "class-transformer";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { OptionListRelationFilter } from "../../option/base/OptionListRelationFilter";
-import { StrengthWhereUniqueInput } from "../../strength/base/StrengthWhereUniqueInput";
-import { WeaknessWhereUniqueInput } from "../../weakness/base/WeaknessWhereUniqueInput";
+import { StrengthListRelationFilter } from "../../strength/base/StrengthListRelationFilter";
+import { WeaknessListRelationFilter } from "../../weakness/base/WeaknessListRelationFilter";
 
 @InputType()
 class FeatureWhereInput {
@@ -81,27 +81,27 @@ class FeatureWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => StrengthWhereUniqueInput,
+    type: () => StrengthListRelationFilter,
   })
   @ValidateNested()
-  @Type(() => StrengthWhereUniqueInput)
+  @Type(() => StrengthListRelationFilter)
   @IsOptional()
-  @Field(() => StrengthWhereUniqueInput, {
+  @Field(() => StrengthListRelationFilter, {
     nullable: true,
   })
-  strength?: StrengthWhereUniqueInput;
+  strength?: StrengthListRelationFilter;
 
   @ApiProperty({
     required: false,
-    type: () => WeaknessWhereUniqueInput,
+    type: () => WeaknessListRelationFilter,
   })
   @ValidateNested()
-  @Type(() => WeaknessWhereUniqueInput)
+  @Type(() => WeaknessListRelationFilter)
   @IsOptional()
-  @Field(() => WeaknessWhereUniqueInput, {
+  @Field(() => WeaknessListRelationFilter, {
     nullable: true,
   })
-  weakness?: WeaknessWhereUniqueInput;
+  weaknesses?: WeaknessListRelationFilter;
 }
 
 export { FeatureWhereInput as FeatureWhereInput };

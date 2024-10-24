@@ -10,19 +10,19 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { InputType, Field } from "@nestjs/graphql";
-import { ConstraintWhereUniqueInput } from "../../constraint/base/ConstraintWhereUniqueInput";
+import { WeaknessWhereUniqueInput } from "../../weakness/base/WeaknessWhereUniqueInput";
 import { ApiProperty } from "@nestjs/swagger";
 
 @InputType()
-class ConstraintCreateNestedManyWithoutOptionsInput {
-  @Field(() => [ConstraintWhereUniqueInput], {
+class WeaknessCreateNestedManyWithoutFeaturesInput {
+  @Field(() => [WeaknessWhereUniqueInput], {
     nullable: true,
   })
   @ApiProperty({
     required: false,
-    type: () => [ConstraintWhereUniqueInput],
+    type: () => [WeaknessWhereUniqueInput],
   })
-  connect?: Array<ConstraintWhereUniqueInput>;
+  connect?: Array<WeaknessWhereUniqueInput>;
 }
 
-export { ConstraintCreateNestedManyWithoutOptionsInput as ConstraintCreateNestedManyWithoutOptionsInput };
+export { WeaknessCreateNestedManyWithoutFeaturesInput as WeaknessCreateNestedManyWithoutFeaturesInput };

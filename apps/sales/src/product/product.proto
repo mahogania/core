@@ -16,37 +16,29 @@ message ProductCreateInput {
 string createdAt = 1;
 string id = 2;
 repeated Option options = 3;
-Constraint predecessorProductPaths = 4;
-Constraint successorProductPaths = 5;
-string updatedAt = 6;
-string version = 7;
+string updatedAt = 4;
+string version = 5;
 };
 message Product {
 string createdAt = 1;
 string id = 2;
 repeated Option options = 3;
-Constraint predecessorProductPaths = 4;
-Constraint successorProductPaths = 5;
-string updatedAt = 6;
-string version = 7;
+string updatedAt = 4;
+string version = 5;
 };
 message ProductWhereUniqueInput {
 string createdAt = 1;
 string id = 2;
 repeated Option options = 3;
-Constraint predecessorProductPaths = 4;
-Constraint successorProductPaths = 5;
-string updatedAt = 6;
-string version = 7;
+string updatedAt = 4;
+string version = 5;
 };
 message ProductUpdateInput {
 string createdAt = 1;
 string id = 2;
 repeated Option options = 3;
-Constraint predecessorProductPaths = 4;
-Constraint successorProductPaths = 5;
-string updatedAt = 6;
-string version = 7;
+string updatedAt = 4;
+string version = 5;
 };
 message findManyParams {
 

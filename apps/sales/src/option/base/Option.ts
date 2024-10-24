@@ -11,8 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { Constraint } from "../../constraint/base/Constraint";
-import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
+import { IsDate, ValidateNested, IsOptional, IsString } from "class-validator";
 import { Type } from "class-transformer";
 import { Discount } from "../../discount/base/Discount";
 import { Feature } from "../../feature/base/Feature";
@@ -21,15 +20,6 @@ import { Product } from "../../product/base/Product";
 
 @ObjectType()
 class Option {
-  @ApiProperty({
-    required: false,
-    type: () => [Constraint],
-  })
-  @ValidateNested()
-  @Type(() => Constraint)
-  @IsOptional()
-  constraintPaths?: Array<Constraint>;
-
   @ApiProperty({
     required: true,
   })

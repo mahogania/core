@@ -34,52 +34,12 @@ export class ConstraintControllerBase {
     @common.Body() data: ConstraintCreateInput
   ): Promise<Constraint> {
     return await this.service.createConstraint({
-      data: {
-        ...data,
-
-        ascendantProduct: data.ascendantProduct
-          ? {
-              connect: data.ascendantProduct,
-            }
-          : undefined,
-
-        descendantProduct: data.descendantProduct
-          ? {
-              connect: data.descendantProduct,
-            }
-          : undefined,
-
-        option: data.option
-          ? {
-              connect: data.option,
-            }
-          : undefined,
-      },
+      data: data,
       select: {
-        ascendantProduct: {
-          select: {
-            id: true,
-          },
-        },
-
         createdAt: true,
         depth: true,
-
-        descendantProduct: {
-          select: {
-            id: true,
-          },
-        },
-
         id: true,
         kind: true,
-
-        option: {
-          select: {
-            id: true,
-          },
-        },
-
         updatedAt: true,
       },
     });
@@ -93,30 +53,10 @@ export class ConstraintControllerBase {
     return this.service.constraints({
       ...args,
       select: {
-        ascendantProduct: {
-          select: {
-            id: true,
-          },
-        },
-
         createdAt: true,
         depth: true,
-
-        descendantProduct: {
-          select: {
-            id: true,
-          },
-        },
-
         id: true,
         kind: true,
-
-        option: {
-          select: {
-            id: true,
-          },
-        },
-
         updatedAt: true,
       },
     });
@@ -131,30 +71,10 @@ export class ConstraintControllerBase {
     const result = await this.service.constraint({
       where: params,
       select: {
-        ascendantProduct: {
-          select: {
-            id: true,
-          },
-        },
-
         createdAt: true,
         depth: true,
-
-        descendantProduct: {
-          select: {
-            id: true,
-          },
-        },
-
         id: true,
         kind: true,
-
-        option: {
-          select: {
-            id: true,
-          },
-        },
-
         updatedAt: true,
       },
     });
@@ -179,52 +99,12 @@ export class ConstraintControllerBase {
     try {
       return await this.service.updateConstraint({
         where: params,
-        data: {
-          ...data,
-
-          ascendantProduct: data.ascendantProduct
-            ? {
-                connect: data.ascendantProduct,
-              }
-            : undefined,
-
-          descendantProduct: data.descendantProduct
-            ? {
-                connect: data.descendantProduct,
-              }
-            : undefined,
-
-          option: data.option
-            ? {
-                connect: data.option,
-              }
-            : undefined,
-        },
+        data: data,
         select: {
-          ascendantProduct: {
-            select: {
-              id: true,
-            },
-          },
-
           createdAt: true,
           depth: true,
-
-          descendantProduct: {
-            select: {
-              id: true,
-            },
-          },
-
           id: true,
           kind: true,
-
-          option: {
-            select: {
-              id: true,
-            },
-          },
-
           updatedAt: true,
         },
       });
@@ -248,30 +128,10 @@ export class ConstraintControllerBase {
       return await this.service.deleteConstraint({
         where: params,
         select: {
-          ascendantProduct: {
-            select: {
-              id: true,
-            },
-          },
-
           createdAt: true,
           depth: true,
-
-          descendantProduct: {
-            select: {
-              id: true,
-            },
-          },
-
           id: true,
           kind: true,
-
-          option: {
-            select: {
-              id: true,
-            },
-          },
-
           updatedAt: true,
         },
       });

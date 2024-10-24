@@ -20,7 +20,6 @@ import {
 } from "class-validator";
 import { Type } from "class-transformer";
 import { Option } from "../../option/base/Option";
-import { Constraint } from "../../constraint/base/Constraint";
 
 @ObjectType()
 class Product {
@@ -48,24 +47,6 @@ class Product {
   @Type(() => Option)
   @IsOptional()
   options?: Array<Option>;
-
-  @ApiProperty({
-    required: false,
-    type: () => Constraint,
-  })
-  @ValidateNested()
-  @Type(() => Constraint)
-  @IsOptional()
-  predecessorProductPaths?: Constraint | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => Constraint,
-  })
-  @ValidateNested()
-  @Type(() => Constraint)
-  @IsOptional()
-  successorProductPaths?: Constraint | null;
 
   @ApiProperty({
     required: true,

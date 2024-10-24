@@ -18,6 +18,8 @@ import {
   Configuration as PrismaConfiguration,
 } from "@prisma/client";
 
+import { Configuration } from "../../configuration/base/Configuration";
+
 export class BundleServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
 
@@ -54,13 +56,13 @@ export class BundleServiceBase {
       .features(args);
   }
 
-  async getLineItemConfiguration(
+  async getConfiguration(
     parentId: string
   ): Promise<PrismaConfiguration | null> {
     return this.prisma.bundle
       .findUnique({
         where: { id: parentId },
       })
-      .lineItemConfiguration();
+      .Configuration();
   }
 }

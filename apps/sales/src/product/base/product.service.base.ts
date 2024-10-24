@@ -10,12 +10,10 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-
 import {
   Prisma,
   Product as PrismaProduct,
   Option as PrismaOption,
-  Constraint as PrismaConstraint,
 } from "@prisma/client";
 
 export class ProductServiceBase {
@@ -52,25 +50,5 @@ export class ProductServiceBase {
         where: { id: parentId },
       })
       .options(args);
-  }
-
-  async getPredecessorProductPaths(
-    parentId: string
-  ): Promise<PrismaConstraint | null> {
-    return this.prisma.product
-      .findUnique({
-        where: { id: parentId },
-      })
-      .predecessorProductPaths();
-  }
-
-  async getSuccessorProductPaths(
-    parentId: string
-  ): Promise<PrismaConstraint | null> {
-    return this.prisma.product
-      .findUnique({
-        where: { id: parentId },
-      })
-      .successorProductPaths();
   }
 }

@@ -6,54 +6,28 @@ service OptionService {
 rpc options (findManyParams) returns (stream Option) {}
 rpc option (OptionWhereUniqueInput) returns (Option) {}
 rpc updateOption (OptionUpdateInput) returns (Option) {}
-rpc deleteOption (OptionWhereUniqueInput) returns (Option) {}
-rpc findManyOption (OptionWhereUniqueInput) returns (stream Constraint) {}
-rpc updateOption (ConstraintParams) returns (stream Constraint) {}
-rpc connectOption (ConstraintParams) returns (Constraint) {}
-rpc disconnectOption (ConstraintParams) returns (Constraint) {} 
+rpc deleteOption (OptionWhereUniqueInput) returns (Option) {} 
  }
 message OptionCreateInput {
-repeated Constraint constraintPaths = 1;
-string createdAt = 2;
-string id = 3;
-string updatedAt = 4;
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
 };
 message Option {
-repeated Constraint constraintPaths = 1;
-string createdAt = 2;
-string id = 3;
-string updatedAt = 4;
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
 };
 message OptionWhereUniqueInput {
-repeated Constraint constraintPaths = 1;
-string createdAt = 2;
-string id = 3;
-string updatedAt = 4;
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
 };
 message OptionUpdateInput {
-repeated Constraint constraintPaths = 1;
-string createdAt = 2;
-string id = 3;
-string updatedAt = 4;
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
 };
 message findManyParams {
 
-};
-message Constraint {
-string createdAt = 1;
-int32 depth = 2;
-string id = 3;
-repeated string kind = 4;
-string updatedAt = 5;
-};
-message ConstraintWhereUniqueInput {
-string createdAt = 1;
-int32 depth = 2;
-string id = 3;
-repeated string kind = 4;
-string updatedAt = 5;
-};
-message ConstraintParams {
-OptionWhereUniqueInput optionWhereUniqueInput = 1;
-ConstraintWhereUniqueInput constraintWhereUniqueInput = 2;
 };

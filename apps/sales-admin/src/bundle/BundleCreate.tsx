@@ -4,19 +4,26 @@ import {
   Create,
   SimpleForm,
   CreateProps,
-  ReferenceArrayInput,
-  SelectArrayInput,
   ReferenceInput,
   SelectInput,
+  ReferenceArrayInput,
+  SelectArrayInput,
 } from "react-admin";
 
-import { FeatureTitle } from "../feature/FeatureTitle";
 import { ConfigurationTitle } from "../configuration/ConfigurationTitle";
+import { FeatureTitle } from "../feature/FeatureTitle";
 
 export const BundleCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
+        <ReferenceInput
+          source="Configuration.id"
+          reference="Configuration"
+          label="Configuration"
+        >
+          <SelectInput optionText={ConfigurationTitle} />
+        </ReferenceInput>
         <ReferenceArrayInput source="features" reference="Feature">
           <SelectArrayInput
             optionText={FeatureTitle}
@@ -24,13 +31,6 @@ export const BundleCreate = (props: CreateProps): React.ReactElement => {
             format={(value: any) => value && value.map((v: any) => v.id)}
           />
         </ReferenceArrayInput>
-        <ReferenceInput
-          source="lineItemConfiguration.id"
-          reference="Configuration"
-          label="Line Item Configuration"
-        >
-          <SelectInput optionText={ConfigurationTitle} />
-        </ReferenceInput>
       </SimpleForm>
     </Create>
   );

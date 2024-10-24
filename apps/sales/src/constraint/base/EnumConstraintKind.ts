@@ -14,6 +14,7 @@ import { registerEnumType } from "@nestjs/graphql";
 export enum EnumConstraintKind {
   Allow = "Allow",
   Forbid = "Forbid",
+  Force = "Force",
 }
 
 registerEnumType(EnumConstraintKind, {

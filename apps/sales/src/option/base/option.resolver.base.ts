@@ -20,8 +20,6 @@ import { OptionFindUniqueArgs } from "./OptionFindUniqueArgs";
 import { CreateOptionArgs } from "./CreateOptionArgs";
 import { UpdateOptionArgs } from "./UpdateOptionArgs";
 import { DeleteOptionArgs } from "./DeleteOptionArgs";
-import { ConstraintFindManyArgs } from "../../constraint/base/ConstraintFindManyArgs";
-import { Constraint } from "../../constraint/base/Constraint";
 import { Discount } from "../../discount/base/Discount";
 import { Feature } from "../../feature/base/Feature";
 import { Price } from "../../price/base/Price";
@@ -149,20 +147,6 @@ export class OptionResolverBase {
       }
       throw error;
     }
-  }
-
-  @graphql.ResolveField(() => [Constraint], { name: "constraintPaths" })
-  async findConstraintPaths(
-    @graphql.Parent() parent: Option,
-    @graphql.Args() args: ConstraintFindManyArgs
-  ): Promise<Constraint[]> {
-    const results = await this.service.findConstraintPaths(parent.id, args);
-
-    if (!results) {
-      return [];
-    }
-
-    return results;
   }
 
   @graphql.ResolveField(() => Discount, {

@@ -11,28 +11,15 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { ConstraintCreateNestedManyWithoutOptionsInput } from "./ConstraintCreateNestedManyWithoutOptionsInput";
+import { DiscountWhereUniqueInput } from "../../discount/base/DiscountWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { DiscountWhereUniqueInput } from "../../discount/base/DiscountWhereUniqueInput";
 import { FeatureWhereUniqueInput } from "../../feature/base/FeatureWhereUniqueInput";
 import { PriceWhereUniqueInput } from "../../price/base/PriceWhereUniqueInput";
 import { ProductWhereUniqueInput } from "../../product/base/ProductWhereUniqueInput";
 
 @InputType()
 class OptionCreateInput {
-  @ApiProperty({
-    required: false,
-    type: () => ConstraintCreateNestedManyWithoutOptionsInput,
-  })
-  @ValidateNested()
-  @Type(() => ConstraintCreateNestedManyWithoutOptionsInput)
-  @IsOptional()
-  @Field(() => ConstraintCreateNestedManyWithoutOptionsInput, {
-    nullable: true,
-  })
-  constraintPaths?: ConstraintCreateNestedManyWithoutOptionsInput;
-
   @ApiProperty({
     required: false,
     type: () => DiscountWhereUniqueInput,

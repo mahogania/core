@@ -7,10 +7,10 @@ rpc weaknesses (findManyParams) returns (stream Weakness) {}
 rpc weakness (WeaknessWhereUniqueInput) returns (Weakness) {}
 rpc updateWeakness (WeaknessUpdateInput) returns (Weakness) {}
 rpc deleteWeakness (WeaknessWhereUniqueInput) returns (Weakness) {}
-rpc findManyWeakness (WeaknessWhereUniqueInput) returns (stream Feature) {}
-rpc updateWeakness (FeatureParams) returns (stream Feature) {}
-rpc connectWeakness (FeatureParams) returns (Feature) {}
-rpc disconnectWeakness (FeatureParams) returns (Feature) {} 
+rpc findManyWeaknesses (WeaknessWhereUniqueInput) returns (stream Feature) {}
+rpc updateWeaknesses (FeatureParams) returns (stream Feature) {}
+rpc connectWeaknesses (FeatureParams) returns (Feature) {}
+rpc disconnectWeaknesses (FeatureParams) returns (Feature) {} 
  }
 message WeaknessCreateInput {
 string createdAt = 1;

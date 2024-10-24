@@ -15,9 +15,9 @@ import {
   Prisma,
   Feature as PrismaFeature,
   Option as PrismaOption,
-  Bundle as PrismaBundle,
   Strength as PrismaStrength,
   Weakness as PrismaWeakness,
+  Bundle as PrismaBundle,
 } from "@prisma/client";
 
 export class FeatureServiceBase {
@@ -56,27 +56,33 @@ export class FeatureServiceBase {
       .options(args);
   }
 
+  async findStrength(
+    parentId: string,
+    args: Prisma.StrengthFindManyArgs
+  ): Promise<PrismaStrength[]> {
+    return this.prisma.feature
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .strength(args);
+  }
+
+  async findWeaknesses(
+    parentId: string,
+    args: Prisma.WeaknessFindManyArgs
+  ): Promise<PrismaWeakness[]> {
+    return this.prisma.feature
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .weaknesses(args);
+  }
+
   async getBundle(parentId: string): Promise<PrismaBundle | null> {
     return this.prisma.feature
       .findUnique({
         where: { id: parentId },
       })
       .bundle();
-  }
-
-  async getStrength(parentId: string): Promise<PrismaStrength | null> {
-    return this.prisma.feature
-      .findUnique({
-        where: { id: parentId },
-      })
-      .strength();
-  }
-
-  async getWeakness(parentId: string): Promise<PrismaWeakness | null> {
-    return this.prisma.feature
-      .findUnique({
-        where: { id: parentId },
-      })
-      .weakness();
   }
 }

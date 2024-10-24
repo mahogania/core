@@ -11,32 +11,11 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { ProductWhereUniqueInput } from "../../product/base/ProductWhereUniqueInput";
-import {
-  ValidateNested,
-  IsOptional,
-  IsInt,
-  Max,
-  IsEnum,
-} from "class-validator";
-import { Type } from "class-transformer";
+import { IsInt, Max, IsOptional, IsEnum } from "class-validator";
 import { EnumConstraintKind } from "./EnumConstraintKind";
-import { OptionWhereUniqueInput } from "../../option/base/OptionWhereUniqueInput";
 
 @InputType()
 class ConstraintCreateInput {
-  @ApiProperty({
-    required: false,
-    type: () => ProductWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ProductWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ProductWhereUniqueInput, {
-    nullable: true,
-  })
-  ascendantProduct?: ProductWhereUniqueInput | null;
-
   @ApiProperty({
     required: false,
     type: Number,
@@ -51,18 +30,6 @@ class ConstraintCreateInput {
 
   @ApiProperty({
     required: false,
-    type: () => ProductWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ProductWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ProductWhereUniqueInput, {
-    nullable: true,
-  })
-  descendantProduct?: ProductWhereUniqueInput | null;
-
-  @ApiProperty({
-    required: false,
     enum: EnumConstraintKind,
   })
   @IsEnum(EnumConstraintKind)
@@ -70,19 +37,7 @@ class ConstraintCreateInput {
   @Field(() => EnumConstraintKind, {
     nullable: true,
   })
-  kind?: "Allow" | "Forbid" | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => OptionWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => OptionWhereUniqueInput)
-  @IsOptional()
-  @Field(() => OptionWhereUniqueInput, {
-    nullable: true,
-  })
-  option?: OptionWhereUniqueInput | null;
+  kind?: "Allow" | "Forbid" | "Force" | null;
 }
 
 export { ConstraintCreateInput as ConstraintCreateInput };

@@ -11,28 +11,14 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { ProductWhereUniqueInput } from "../../product/base/ProductWhereUniqueInput";
-import { ValidateNested, IsOptional, IsEnum } from "class-validator";
-import { Type } from "class-transformer";
 import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { Type } from "class-transformer";
+import { IsOptional, IsEnum } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
 import { EnumConstraintKind } from "./EnumConstraintKind";
-import { OptionWhereUniqueInput } from "../../option/base/OptionWhereUniqueInput";
 
 @InputType()
 class ConstraintWhereInput {
-  @ApiProperty({
-    required: false,
-    type: () => ProductWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ProductWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ProductWhereUniqueInput, {
-    nullable: true,
-  })
-  ascendantProduct?: ProductWhereUniqueInput;
-
   @ApiProperty({
     required: false,
     type: IntNullableFilter,
@@ -43,18 +29,6 @@ class ConstraintWhereInput {
     nullable: true,
   })
   depth?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => ProductWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ProductWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ProductWhereUniqueInput, {
-    nullable: true,
-  })
-  descendantProduct?: ProductWhereUniqueInput;
 
   @ApiProperty({
     required: false,
@@ -76,19 +50,7 @@ class ConstraintWhereInput {
   @Field(() => EnumConstraintKind, {
     nullable: true,
   })
-  kind?: "Allow" | "Forbid";
-
-  @ApiProperty({
-    required: false,
-    type: () => OptionWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => OptionWhereUniqueInput)
-  @IsOptional()
-  @Field(() => OptionWhereUniqueInput, {
-    nullable: true,
-  })
-  option?: OptionWhereUniqueInput;
+  kind?: "Allow" | "Forbid" | "Force";
 }
 
 export { ConstraintWhereInput as ConstraintWhereInput };

@@ -15,7 +15,6 @@ import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
 import { OptionListRelationFilter } from "../../option/base/OptionListRelationFilter";
-import { ConstraintWhereUniqueInput } from "../../constraint/base/ConstraintWhereUniqueInput";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 
 @InputType()
@@ -42,30 +41,6 @@ class ProductWhereInput {
     nullable: true,
   })
   options?: OptionListRelationFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => ConstraintWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ConstraintWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ConstraintWhereUniqueInput, {
-    nullable: true,
-  })
-  predecessorProductPaths?: ConstraintWhereUniqueInput;
-
-  @ApiProperty({
-    required: false,
-    type: () => ConstraintWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ConstraintWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ConstraintWhereUniqueInput, {
-    nullable: true,
-  })
-  successorProductPaths?: ConstraintWhereUniqueInput;
 
   @ApiProperty({
     required: false,

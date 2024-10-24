@@ -10,37 +10,37 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { InputType, Field } from "@nestjs/graphql";
-import { ConstraintWhereUniqueInput } from "../../constraint/base/ConstraintWhereUniqueInput";
+import { WeaknessWhereUniqueInput } from "../../weakness/base/WeaknessWhereUniqueInput";
 import { ApiProperty } from "@nestjs/swagger";
 
 @InputType()
-class ConstraintUpdateManyWithoutOptionsInput {
-  @Field(() => [ConstraintWhereUniqueInput], {
+class WeaknessUpdateManyWithoutFeaturesInput {
+  @Field(() => [WeaknessWhereUniqueInput], {
     nullable: true,
   })
   @ApiProperty({
     required: false,
-    type: () => [ConstraintWhereUniqueInput],
+    type: () => [WeaknessWhereUniqueInput],
   })
-  connect?: Array<ConstraintWhereUniqueInput>;
+  connect?: Array<WeaknessWhereUniqueInput>;
 
-  @Field(() => [ConstraintWhereUniqueInput], {
+  @Field(() => [WeaknessWhereUniqueInput], {
     nullable: true,
   })
   @ApiProperty({
     required: false,
-    type: () => [ConstraintWhereUniqueInput],
+    type: () => [WeaknessWhereUniqueInput],
   })
-  disconnect?: Array<ConstraintWhereUniqueInput>;
+  disconnect?: Array<WeaknessWhereUniqueInput>;
 
-  @Field(() => [ConstraintWhereUniqueInput], {
+  @Field(() => [WeaknessWhereUniqueInput], {
     nullable: true,
   })
   @ApiProperty({
     required: false,
-    type: () => [ConstraintWhereUniqueInput],
+    type: () => [WeaknessWhereUniqueInput],
   })
-  set?: Array<ConstraintWhereUniqueInput>;
+  set?: Array<WeaknessWhereUniqueInput>;
 }
 
-export { ConstraintUpdateManyWithoutOptionsInput as ConstraintUpdateManyWithoutOptionsInput };
+export { WeaknessUpdateManyWithoutFeaturesInput as WeaknessUpdateManyWithoutFeaturesInput };

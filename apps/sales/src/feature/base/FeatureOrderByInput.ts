@@ -83,29 +83,7 @@ class FeatureOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  strengthId?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
   updatedAt?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  weaknessId?: SortOrder;
 }
 
 export { FeatureOrderByInput as FeatureOrderByInput };

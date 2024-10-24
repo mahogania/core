@@ -24,9 +24,6 @@ import { OptionWhereUniqueInput } from "./OptionWhereUniqueInput";
 import { OptionFindManyArgs } from "./OptionFindManyArgs";
 import { OptionUpdateInput } from "./OptionUpdateInput";
 import { Option } from "./Option";
-import { ConstraintFindManyArgs } from "../../constraint/base/ConstraintFindManyArgs";
-import { Constraint } from "../../constraint/base/Constraint";
-import { ConstraintWhereUniqueInput } from "../../constraint/base/ConstraintWhereUniqueInput";
 
 export class OptionGrpcControllerBase {
   constructor(protected readonly service: OptionService) {}
@@ -317,105 +314,5 @@ export class OptionGrpcControllerBase {
       }
       throw error;
     }
-  }
-
-  @common.Get("/:id/constraintPaths")
-  @ApiNestedQuery(ConstraintFindManyArgs)
-  @GrpcMethod("OptionService", "findManyConstraintPaths")
-  async findManyConstraintPaths(
-    @common.Req() request: Request,
-    @common.Param() params: OptionWhereUniqueInput
-  ): Promise<Constraint[]> {
-    const query = plainToClass(ConstraintFindManyArgs, request.query);
-    const results = await this.service.findConstraintPaths(params.id, {
-      ...query,
-      select: {
-        ascendantProduct: {
-          select: {
-            id: true,
-          },
-        },
-
-        createdAt: true,
-        depth: true,
-
-        descendantProduct: {
-          select: {
-            id: true,
-          },
-        },
-
-        id: true,
-        kind: true,
-
-        option: {
-          select: {
-            id: true,
-          },
-        },
-
-        updatedAt: true,
-      },
-    });
-    if (results === null) {
-      throw new errors.NotFoundException(
-        `No resource was found for ${JSON.stringify(params)}`
-      );
-    }
-    return results;
-  }
-
-  @common.Post("/:id/constraintPaths")
-  @GrpcMethod("OptionService", "connectConstraintPaths")
-  async connectConstraintPaths(
-    @common.Param() params: OptionWhereUniqueInput,
-    @common.Body() body: ConstraintWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      constraintPaths: {
-        connect: body,
-      },
-    };
-    await this.service.updateOption({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Patch("/:id/constraintPaths")
-  @GrpcMethod("OptionService", "updateConstraintPaths")
-  async updateConstraintPaths(
-    @common.Param() params: OptionWhereUniqueInput,
-    @common.Body() body: ConstraintWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      constraintPaths: {
-        set: body,
-      },
-    };
-    await this.service.updateOption({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Delete("/:id/constraintPaths")
-  @GrpcMethod("OptionService", "disconnectConstraintPaths")
-  async disconnectConstraintPaths(
-    @common.Param() params: OptionWhereUniqueInput,
-    @common.Body() body: ConstraintWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      constraintPaths: {
-        disconnect: body,
-      },
-    };
-    await this.service.updateOption({
-      where: params,
-      data,
-      select: { id: true },
-    });
   }
 }

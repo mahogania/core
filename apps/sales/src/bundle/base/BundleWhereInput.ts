@@ -11,14 +11,27 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { FeatureListRelationFilter } from "../../feature/base/FeatureListRelationFilter";
+import { ConfigurationWhereUniqueInput } from "../../configuration/base/ConfigurationWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { Configuration } from "../../configuration/base/Configuration";
+import { FeatureListRelationFilter } from "../../feature/base/FeatureListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
-import { ConfigurationWhereUniqueInput } from "../../configuration/base/ConfigurationWhereUniqueInput";
 
 @InputType()
 class BundleWhereInput {
+  @ApiProperty({
+    required: false,
+    type: () => ConfigurationWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => ConfigurationWhereUniqueInput)
+  @IsOptional()
+  @Field(() => ConfigurationWhereUniqueInput, {
+    nullable: true,
+  })
+  Configuration?: ConfigurationWhereUniqueInput;
+
   @ApiProperty({
     required: false,
     type: () => FeatureListRelationFilter,
@@ -41,18 +54,6 @@ class BundleWhereInput {
     nullable: true,
   })
   id?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => ConfigurationWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ConfigurationWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ConfigurationWhereUniqueInput, {
-    nullable: true,
-  })
-  lineItemConfiguration?: ConfigurationWhereUniqueInput;
 }
 
 export { BundleWhereInput as BundleWhereInput };

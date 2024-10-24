@@ -6,7 +6,5 @@ export type FeatureOrderByInput = {
   displayName?: SortOrder;
   id?: SortOrder;
   name?: SortOrder;
-  strengthId?: SortOrder;
   updatedAt?: SortOrder;
-  weaknessId?: SortOrder;
 };

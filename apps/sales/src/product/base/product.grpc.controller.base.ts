@@ -37,37 +37,10 @@ export class ProductGrpcControllerBase {
     @common.Body() data: ProductCreateInput
   ): Promise<Product> {
     return await this.service.createProduct({
-      data: {
-        ...data,
-
-        predecessorProductPaths: data.predecessorProductPaths
-          ? {
-              connect: data.predecessorProductPaths,
-            }
-          : undefined,
-
-        successorProductPaths: data.successorProductPaths
-          ? {
-              connect: data.successorProductPaths,
-            }
-          : undefined,
-      },
+      data: data,
       select: {
         createdAt: true,
         id: true,
-
-        predecessorProductPaths: {
-          select: {
-            id: true,
-          },
-        },
-
-        successorProductPaths: {
-          select: {
-            id: true,
-          },
-        },
-
         updatedAt: true,
         version: true,
       },
@@ -85,19 +58,6 @@ export class ProductGrpcControllerBase {
       select: {
         createdAt: true,
         id: true,
-
-        predecessorProductPaths: {
-          select: {
-            id: true,
-          },
-        },
-
-        successorProductPaths: {
-          select: {
-            id: true,
-          },
-        },
-
         updatedAt: true,
         version: true,
       },
@@ -116,19 +76,6 @@ export class ProductGrpcControllerBase {
       select: {
         createdAt: true,
         id: true,
-
-        predecessorProductPaths: {
-          select: {
-            id: true,
-          },
-        },
-
-        successorProductPaths: {
-          select: {
-            id: true,
-          },
-        },
-
         updatedAt: true,
         version: true,
       },
@@ -152,37 +99,10 @@ export class ProductGrpcControllerBase {
     try {
       return await this.service.updateProduct({
         where: params,
-        data: {
-          ...data,
-
-          predecessorProductPaths: data.predecessorProductPaths
-            ? {
-                connect: data.predecessorProductPaths,
-              }
-            : undefined,
-
-          successorProductPaths: data.successorProductPaths
-            ? {
-                connect: data.successorProductPaths,
-              }
-            : undefined,
-        },
+        data: data,
         select: {
           createdAt: true,
           id: true,
-
-          predecessorProductPaths: {
-            select: {
-              id: true,
-            },
-          },
-
-          successorProductPaths: {
-            select: {
-              id: true,
-            },
-          },
-
           updatedAt: true,
           version: true,
         },
@@ -210,19 +130,6 @@ export class ProductGrpcControllerBase {
         select: {
           createdAt: true,
           id: true,
-
-          predecessorProductPaths: {
-            select: {
-              id: true,
-            },
-          },
-
-          successorProductPaths: {
-            select: {
-              id: true,
-            },
-          },
-
           updatedAt: true,
           version: true,
         },

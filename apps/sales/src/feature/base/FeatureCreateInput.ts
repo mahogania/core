@@ -20,8 +20,8 @@ import {
 } from "class-validator";
 import { Type } from "class-transformer";
 import { OptionCreateNestedManyWithoutFeaturesInput } from "./OptionCreateNestedManyWithoutFeaturesInput";
-import { StrengthWhereUniqueInput } from "../../strength/base/StrengthWhereUniqueInput";
-import { WeaknessWhereUniqueInput } from "../../weakness/base/WeaknessWhereUniqueInput";
+import { StrengthCreateNestedManyWithoutFeaturesInput } from "./StrengthCreateNestedManyWithoutFeaturesInput";
+import { WeaknessCreateNestedManyWithoutFeaturesInput } from "./WeaknessCreateNestedManyWithoutFeaturesInput";
 
 @InputType()
 class FeatureCreateInput {
@@ -75,27 +75,27 @@ class FeatureCreateInput {
 
   @ApiProperty({
     required: false,
-    type: () => StrengthWhereUniqueInput,
+    type: () => StrengthCreateNestedManyWithoutFeaturesInput,
   })
   @ValidateNested()
-  @Type(() => StrengthWhereUniqueInput)
+  @Type(() => StrengthCreateNestedManyWithoutFeaturesInput)
   @IsOptional()
-  @Field(() => StrengthWhereUniqueInput, {
+  @Field(() => StrengthCreateNestedManyWithoutFeaturesInput, {
     nullable: true,
   })
-  strength?: StrengthWhereUniqueInput | null;
+  strength?: StrengthCreateNestedManyWithoutFeaturesInput;
 
   @ApiProperty({
     required: false,
-    type: () => WeaknessWhereUniqueInput,
+    type: () => WeaknessCreateNestedManyWithoutFeaturesInput,
   })
   @ValidateNested()
-  @Type(() => WeaknessWhereUniqueInput)
+  @Type(() => WeaknessCreateNestedManyWithoutFeaturesInput)
   @IsOptional()
-  @Field(() => WeaknessWhereUniqueInput, {
+  @Field(() => WeaknessCreateNestedManyWithoutFeaturesInput, {
     nullable: true,
   })
-  weakness?: WeaknessWhereUniqueInput | null;
+  weaknesses?: WeaknessCreateNestedManyWithoutFeaturesInput;
 }
 
 export { FeatureCreateInput as FeatureCreateInput };

@@ -25,6 +25,12 @@ import { FeatureUpdateInput } from "./FeatureUpdateInput";
 import { OptionFindManyArgs } from "../../option/base/OptionFindManyArgs";
 import { Option } from "../../option/base/Option";
 import { OptionWhereUniqueInput } from "../../option/base/OptionWhereUniqueInput";
+import { StrengthFindManyArgs } from "../../strength/base/StrengthFindManyArgs";
+import { Strength } from "../../strength/base/Strength";
+import { StrengthWhereUniqueInput } from "../../strength/base/StrengthWhereUniqueInput";
+import { WeaknessFindManyArgs } from "../../weakness/base/WeaknessFindManyArgs";
+import { Weakness } from "../../weakness/base/Weakness";
+import { WeaknessWhereUniqueInput } from "../../weakness/base/WeaknessWhereUniqueInput";
 
 export class FeatureControllerBase {
   constructor(protected readonly service: FeatureService) {}
@@ -45,18 +51,6 @@ export class FeatureControllerBase {
               connect: data.bundle,
             }
           : undefined,
-
-        strength: data.strength
-          ? {
-              connect: data.strength,
-            }
-          : undefined,
-
-        weakness: data.weakness
-          ? {
-              connect: data.weakness,
-            }
-          : undefined,
       },
       select: {
         bundle: {
@@ -69,20 +63,7 @@ export class FeatureControllerBase {
         displayName: true,
         id: true,
         name: true,
-
-        strength: {
-          select: {
-            id: true,
-          },
-        },
-
         updatedAt: true,
-
-        weakness: {
-          select: {
-            id: true,
-          },
-        },
       },
     });
   }
@@ -105,20 +86,7 @@ export class FeatureControllerBase {
         displayName: true,
         id: true,
         name: true,
-
-        strength: {
-          select: {
-            id: true,
-          },
-        },
-
         updatedAt: true,
-
-        weakness: {
-          select: {
-            id: true,
-          },
-        },
       },
     });
   }
@@ -142,20 +110,7 @@ export class FeatureControllerBase {
         displayName: true,
         id: true,
         name: true,
-
-        strength: {
-          select: {
-            id: true,
-          },
-        },
-
         updatedAt: true,
-
-        weakness: {
-          select: {
-            id: true,
-          },
-        },
       },
     });
     if (result === null) {
@@ -187,18 +142,6 @@ export class FeatureControllerBase {
                 connect: data.bundle,
               }
             : undefined,
-
-          strength: data.strength
-            ? {
-                connect: data.strength,
-              }
-            : undefined,
-
-          weakness: data.weakness
-            ? {
-                connect: data.weakness,
-              }
-            : undefined,
         },
         select: {
           bundle: {
@@ -211,20 +154,7 @@ export class FeatureControllerBase {
           displayName: true,
           id: true,
           name: true,
-
-          strength: {
-            select: {
-              id: true,
-            },
-          },
-
           updatedAt: true,
-
-          weakness: {
-            select: {
-              id: true,
-            },
-          },
         },
       });
     } catch (error) {
@@ -257,20 +187,7 @@ export class FeatureControllerBase {
           displayName: true,
           id: true,
           name: true,
-
-          strength: {
-            select: {
-              id: true,
-            },
-          },
-
           updatedAt: true,
-
-          weakness: {
-            select: {
-              id: true,
-            },
-          },
         },
       });
     } catch (error) {
@@ -373,6 +290,166 @@ export class FeatureControllerBase {
   ): Promise<void> {
     const data = {
       options: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateFeature({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Get("/:id/strength")
+  @ApiNestedQuery(StrengthFindManyArgs)
+  async findStrength(
+    @common.Req() request: Request,
+    @common.Param() params: FeatureWhereUniqueInput
+  ): Promise<Strength[]> {
+    const query = plainToClass(StrengthFindManyArgs, request.query);
+    const results = await this.service.findStrength(params.id, {
+      ...query,
+      select: {
+        competitor: {
+          select: {
+            id: true,
+          },
+        },
+
+        createdAt: true,
+        id: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/strength")
+  async connectStrength(
+    @common.Param() params: FeatureWhereUniqueInput,
+    @common.Body() body: StrengthWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      strength: {
+        connect: body,
+      },
+    };
+    await this.service.updateFeature({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/strength")
+  async updateStrength(
+    @common.Param() params: FeatureWhereUniqueInput,
+    @common.Body() body: StrengthWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      strength: {
+        set: body,
+      },
+    };
+    await this.service.updateFeature({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/strength")
+  async disconnectStrength(
+    @common.Param() params: FeatureWhereUniqueInput,
+    @common.Body() body: StrengthWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      strength: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateFeature({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Get("/:id/weaknesses")
+  @ApiNestedQuery(WeaknessFindManyArgs)
+  async findWeaknesses(
+    @common.Req() request: Request,
+    @common.Param() params: FeatureWhereUniqueInput
+  ): Promise<Weakness[]> {
+    const query = plainToClass(WeaknessFindManyArgs, request.query);
+    const results = await this.service.findWeaknesses(params.id, {
+      ...query,
+      select: {
+        competitor: {
+          select: {
+            id: true,
+          },
+        },
+
+        createdAt: true,
+        id: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/weaknesses")
+  async connectWeaknesses(
+    @common.Param() params: FeatureWhereUniqueInput,
+    @common.Body() body: WeaknessWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      weaknesses: {
+        connect: body,
+      },
+    };
+    await this.service.updateFeature({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/weaknesses")
+  async updateWeaknesses(
+    @common.Param() params: FeatureWhereUniqueInput,
+    @common.Body() body: WeaknessWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      weaknesses: {
+        set: body,
+      },
+    };
+    await this.service.updateFeature({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/weaknesses")
+  async disconnectWeaknesses(
+    @common.Param() params: FeatureWhereUniqueInput,
+    @common.Body() body: WeaknessWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      weaknesses: {
         disconnect: body,
       },
     };

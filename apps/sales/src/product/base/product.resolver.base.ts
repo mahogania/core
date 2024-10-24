@@ -22,7 +22,6 @@ import { UpdateProductArgs } from "./UpdateProductArgs";
 import { DeleteProductArgs } from "./DeleteProductArgs";
 import { OptionFindManyArgs } from "../../option/base/OptionFindManyArgs";
 import { Option } from "../../option/base/Option";
-import { Constraint } from "../../constraint/base/Constraint";
 import { ProductService } from "../product.service";
 @graphql.Resolver(() => Product)
 export class ProductResolverBase {
@@ -61,21 +60,7 @@ export class ProductResolverBase {
   ): Promise<Product> {
     return await this.service.createProduct({
       ...args,
-      data: {
-        ...args.data,
-
-        predecessorProductPaths: args.data.predecessorProductPaths
-          ? {
-              connect: args.data.predecessorProductPaths,
-            }
-          : undefined,
-
-        successorProductPaths: args.data.successorProductPaths
-          ? {
-              connect: args.data.successorProductPaths,
-            }
-          : undefined,
-      },
+      data: args.data,
     });
   }
 
@@ -86,21 +71,7 @@ export class ProductResolverBase {
     try {
       return await this.service.updateProduct({
         ...args,
-        data: {
-          ...args.data,
-
-          predecessorProductPaths: args.data.predecessorProductPaths
-            ? {
-                connect: args.data.predecessorProductPaths,
-              }
-            : undefined,
-
-          successorProductPaths: args.data.successorProductPaths
-            ? {
-                connect: args.data.successorProductPaths,
-              }
-            : undefined,
-        },
+        data: args.data,
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -140,35 +111,5 @@ export class ProductResolverBase {
     }
 
     return results;
-  }
-
-  @graphql.ResolveField(() => Constraint, {
-    nullable: true,
-    name: "predecessorProductPaths",
-  })
-  async getPredecessorProductPaths(
-    @graphql.Parent() parent: Product
-  ): Promise<Constraint | null> {
-    const result = await this.service.getPredecessorProductPaths(parent.id);
-
-    if (!result) {
-      return null;
-    }
-    return result;
-  }
-
-  @graphql.ResolveField(() => Constraint, {
-    nullable: true,
-    name: "successorProductPaths",
-  })
-  async getSuccessorProductPaths(
-    @graphql.Parent() parent: Product
-  ): Promise<Constraint | null> {
-    const result = await this.service.getSuccessorProductPaths(parent.id);
-
-    if (!result) {
-      return null;
-    }
-    return result;
   }
 }

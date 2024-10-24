@@ -11,10 +11,9 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { ConstraintListRelationFilter } from "../../constraint/base/ConstraintListRelationFilter";
+import { DiscountWhereUniqueInput } from "../../discount/base/DiscountWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { DiscountWhereUniqueInput } from "../../discount/base/DiscountWhereUniqueInput";
 import { FeatureWhereUniqueInput } from "../../feature/base/FeatureWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
 import { PriceWhereUniqueInput } from "../../price/base/PriceWhereUniqueInput";
@@ -22,18 +21,6 @@ import { ProductWhereUniqueInput } from "../../product/base/ProductWhereUniqueIn
 
 @InputType()
 class OptionWhereInput {
-  @ApiProperty({
-    required: false,
-    type: () => ConstraintListRelationFilter,
-  })
-  @ValidateNested()
-  @Type(() => ConstraintListRelationFilter)
-  @IsOptional()
-  @Field(() => ConstraintListRelationFilter, {
-    nullable: true,
-  })
-  constraintPaths?: ConstraintListRelationFilter;
-
   @ApiProperty({
     required: false,
     type: () => DiscountWhereUniqueInput,

@@ -22,9 +22,6 @@ import { Option } from "./Option";
 import { OptionFindManyArgs } from "./OptionFindManyArgs";
 import { OptionWhereUniqueInput } from "./OptionWhereUniqueInput";
 import { OptionUpdateInput } from "./OptionUpdateInput";
-import { ConstraintFindManyArgs } from "../../constraint/base/ConstraintFindManyArgs";
-import { Constraint } from "../../constraint/base/Constraint";
-import { ConstraintWhereUniqueInput } from "../../constraint/base/ConstraintWhereUniqueInput";
 
 export class OptionControllerBase {
   constructor(protected readonly service: OptionService) {}
@@ -316,101 +313,5 @@ export class OptionControllerBase {
       }
       throw error;
     }
-  }
-
-  @common.Get("/:id/constraintPaths")
-  @ApiNestedQuery(ConstraintFindManyArgs)
-  async findConstraintPaths(
-    @common.Req() request: Request,
-    @common.Param() params: OptionWhereUniqueInput
-  ): Promise<Constraint[]> {
-    const query = plainToClass(ConstraintFindManyArgs, request.query);
-    const results = await this.service.findConstraintPaths(params.id, {
-      ...query,
-      select: {
-        ascendantProduct: {
-          select: {
-            id: true,
-          },
-        },
-
-        createdAt: true,
-        depth: true,
-
-        descendantProduct: {
-          select: {
-            id: true,
-          },
-        },
-
-        id: true,
-        kind: true,
-
-        option: {
-          select: {
-            id: true,
-          },
-        },
-
-        updatedAt: true,
-      },
-    });
-    if (results === null) {
-      throw new errors.NotFoundException(
-        `No resource was found for ${JSON.stringify(params)}`
-      );
-    }
-    return results;
-  }
-
-  @common.Post("/:id/constraintPaths")
-  async connectConstraintPaths(
-    @common.Param() params: OptionWhereUniqueInput,
-    @common.Body() body: ConstraintWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      constraintPaths: {
-        connect: body,
-      },
-    };
-    await this.service.updateOption({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Patch("/:id/constraintPaths")
-  async updateConstraintPaths(
-    @common.Param() params: OptionWhereUniqueInput,
-    @common.Body() body: ConstraintWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      constraintPaths: {
-        set: body,
-      },
-    };
-    await this.service.updateOption({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Delete("/:id/constraintPaths")
-  async disconnectConstraintPaths(
-    @common.Param() params: OptionWhereUniqueInput,
-    @common.Body() body: ConstraintWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      constraintPaths: {
-        disconnect: body,
-      },
-    };
-    await this.service.updateOption({
-      where: params,
-      data,
-      select: { id: true },
-    });
   }
 }

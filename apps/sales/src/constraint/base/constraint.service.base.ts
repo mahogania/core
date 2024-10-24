@@ -10,13 +10,7 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-
-import {
-  Prisma,
-  Constraint as PrismaConstraint,
-  Product as PrismaProduct,
-  Option as PrismaOption,
-} from "@prisma/client";
+import { Prisma, Constraint as PrismaConstraint } from "@prisma/client";
 
 export class ConstraintServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -51,29 +45,5 @@ export class ConstraintServiceBase {
     args: Prisma.ConstraintDeleteArgs
   ): Promise<PrismaConstraint> {
     return this.prisma.constraint.delete(args);
-  }
-
-  async getAscendantProduct(parentId: string): Promise<PrismaProduct | null> {
-    return this.prisma.constraint
-      .findUnique({
-        where: { id: parentId },
-      })
-      .ascendantProduct();
-  }
-
-  async getDescendantProduct(parentId: string): Promise<PrismaProduct | null> {
-    return this.prisma.constraint
-      .findUnique({
-        where: { id: parentId },
-      })
-      .descendantProduct();
-  }
-
-  async getOption(parentId: string): Promise<PrismaOption | null> {
-    return this.prisma.constraint
-      .findUnique({
-        where: { id: parentId },
-      })
-      .option();
   }
 }

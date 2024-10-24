@@ -14,7 +14,6 @@ import { PrismaService } from "../../prisma/prisma.service";
 import {
   Prisma,
   Option as PrismaOption,
-  Constraint as PrismaConstraint,
   Discount as PrismaDiscount,
   Feature as PrismaFeature,
   Price as PrismaPrice,
@@ -44,17 +43,6 @@ export class OptionServiceBase {
   }
   async deleteOption(args: Prisma.OptionDeleteArgs): Promise<PrismaOption> {
     return this.prisma.option.delete(args);
-  }
-
-  async findConstraintPaths(
-    parentId: string,
-    args: Prisma.ConstraintFindManyArgs
-  ): Promise<PrismaConstraint[]> {
-    return this.prisma.option
-      .findUniqueOrThrow({
-        where: { id: parentId },
-      })
-      .constraintPaths(args);
   }
 
   async getDiscount(parentId: string): Promise<PrismaDiscount | null> {

@@ -6,16 +6,15 @@ import {
   ShowProps,
   DateField,
   TextField,
-  ReferenceField,
   ReferenceManyField,
   Datagrid,
+  ReferenceField,
 } from "react-admin";
 
 import { DISCOUNT_TITLE_FIELD } from "../discount/DiscountTitle";
 import { FEATURE_TITLE_FIELD } from "../feature/FeatureTitle";
 import { PRICE_TITLE_FIELD } from "../price/PriceTitle";
 import { PRODUCT_TITLE_FIELD } from "./ProductTitle";
-import { CONSTRAINT_TITLE_FIELD } from "../constraint/ConstraintTitle";
 
 export const ProductShow = (props: ShowProps): React.ReactElement => {
   return (
@@ -23,20 +22,6 @@ export const ProductShow = (props: ShowProps): React.ReactElement => {
       <SimpleShowLayout>
         <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
-        <ReferenceField
-          label="Predecessor Product Paths"
-          source="constraint.id"
-          reference="Constraint"
-        >
-          <TextField source={CONSTRAINT_TITLE_FIELD} />
-        </ReferenceField>
-        <ReferenceField
-          label="Successor Product Paths"
-          source="constraint.id"
-          reference="Constraint"
-        >
-          <TextField source={CONSTRAINT_TITLE_FIELD} />
-        </ReferenceField>
         <DateField source="updatedAt" label="Updated At" />
         <TextField label="Version" source="version" />
         <ReferenceManyField

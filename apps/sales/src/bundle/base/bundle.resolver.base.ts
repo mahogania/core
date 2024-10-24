@@ -18,11 +18,11 @@ import { BundleCountArgs } from "./BundleCountArgs";
 import { BundleFindManyArgs } from "./BundleFindManyArgs";
 import { BundleFindUniqueArgs } from "./BundleFindUniqueArgs";
 import { CreateBundleArgs } from "./CreateBundleArgs";
+import { Configuration } from "../../configuration/base/Configuration";
 import { UpdateBundleArgs } from "./UpdateBundleArgs";
 import { DeleteBundleArgs } from "./DeleteBundleArgs";
 import { FeatureFindManyArgs } from "../../feature/base/FeatureFindManyArgs";
 import { Feature } from "../../feature/base/Feature";
-import { Configuration } from "../../configuration/base/Configuration";
 import { BundleService } from "../bundle.service";
 @graphql.Resolver(() => Bundle)
 export class BundleResolverBase {
@@ -60,11 +60,9 @@ export class BundleResolverBase {
       data: {
         ...args.data,
 
-        lineItemConfiguration: args.data.lineItemConfiguration
-          ? {
-              connect: args.data.lineItemConfiguration,
-            }
-          : undefined,
+        Configuration: {
+          connect: args.data.Configuration,
+        },
       },
     });
   }
@@ -79,11 +77,9 @@ export class BundleResolverBase {
         data: {
           ...args.data,
 
-          lineItemConfiguration: args.data.lineItemConfiguration
-            ? {
-                connect: args.data.lineItemConfiguration,
-              }
-            : undefined,
+          Configuration: {
+            connect: args.data.Configuration,
+          },
         },
       });
     } catch (error) {
@@ -128,12 +124,12 @@ export class BundleResolverBase {
 
   @graphql.ResolveField(() => Configuration, {
     nullable: true,
-    name: "lineItemConfiguration",
+    name: "configuration",
   })
-  async getLineItemConfiguration(
+  async getConfiguration(
     @graphql.Parent() parent: Bundle
   ): Promise<Configuration | null> {
-    const result = await this.service.getLineItemConfiguration(parent.id);
+    const result = await this.service.getConfiguration(parent.id);
 
     if (!result) {
       return null;

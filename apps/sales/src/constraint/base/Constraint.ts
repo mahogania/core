@@ -11,31 +11,19 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { Product } from "../../product/base/Product";
 import {
-  ValidateNested,
-  IsOptional,
   IsDate,
   IsInt,
   Max,
+  IsOptional,
   IsString,
   IsEnum,
 } from "class-validator";
 import { Type } from "class-transformer";
 import { EnumConstraintKind } from "./EnumConstraintKind";
-import { Option } from "../../option/base/Option";
 
 @ObjectType()
 class Constraint {
-  @ApiProperty({
-    required: false,
-    type: () => Product,
-  })
-  @ValidateNested()
-  @Type(() => Product)
-  @IsOptional()
-  ascendantProduct?: Product | null;
-
   @ApiProperty({
     required: true,
   })
@@ -57,15 +45,6 @@ class Constraint {
   depth!: number | null;
 
   @ApiProperty({
-    required: false,
-    type: () => Product,
-  })
-  @ValidateNested()
-  @Type(() => Product)
-  @IsOptional()
-  descendantProduct?: Product | null;
-
-  @ApiProperty({
     required: true,
     type: String,
   })
@@ -82,16 +61,7 @@ class Constraint {
   @Field(() => EnumConstraintKind, {
     nullable: true,
   })
-  kind?: "Allow" | "Forbid" | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => Option,
-  })
-  @ValidateNested()
-  @Type(() => Option)
-  @IsOptional()
-  option?: Option | null;
+  kind?: "Allow" | "Forbid" | "Force" | null;
 
   @ApiProperty({
     required: true,

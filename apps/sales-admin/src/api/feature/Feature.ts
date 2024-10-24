@@ -10,7 +10,7 @@ export type Feature = {
   id: string;
   name: string | null;
   options?: Array<Option>;
-  strength?: Strength | null;
+  strength?: Array<Strength>;
   updatedAt: Date;
-  weakness?: Weakness | null;
+  weaknesses?: Array<Weakness>;
 };

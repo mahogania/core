@@ -10,34 +10,19 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { InputType, Field } from "@nestjs/graphql";
+import { StrengthWhereUniqueInput } from "../../strength/base/StrengthWhereUniqueInput";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsInt, Max, IsOptional, IsEnum } from "class-validator";
-import { EnumConstraintKind } from "./EnumConstraintKind";
 
 @InputType()
-class ConstraintUpdateInput {
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Max(99999999999)
-  @IsOptional()
-  @Field(() => Number, {
+class StrengthCreateNestedManyWithoutFeaturesInput {
+  @Field(() => [StrengthWhereUniqueInput], {
     nullable: true,
   })
-  depth?: number | null;
-
   @ApiProperty({
     required: false,
-    enum: EnumConstraintKind,
+    type: () => [StrengthWhereUniqueInput],
   })
-  @IsEnum(EnumConstraintKind)
-  @IsOptional()
-  @Field(() => EnumConstraintKind, {
-    nullable: true,
-  })
-  kind?: "Allow" | "Forbid" | "Force" | null;
+  connect?: Array<StrengthWhereUniqueInput>;
 }
 
-export { ConstraintUpdateInput as ConstraintUpdateInput };
+export { StrengthCreateNestedManyWithoutFeaturesInput as StrengthCreateNestedManyWithoutFeaturesInput };

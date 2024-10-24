@@ -206,20 +206,7 @@ export class WeaknessGrpcControllerBase {
         displayName: true,
         id: true,
         name: true,
-
-        strength: {
-          select: {
-            id: true,
-          },
-        },
-
         updatedAt: true,
-
-        weakness: {
-          select: {
-            id: true,
-          },
-        },
       },
     });
     if (results === null) {

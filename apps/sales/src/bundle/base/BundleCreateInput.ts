@@ -11,13 +11,23 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { FeatureCreateNestedManyWithoutBundlesInput } from "./FeatureCreateNestedManyWithoutBundlesInput";
+import { ConfigurationWhereUniqueInput } from "../../configuration/base/ConfigurationWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { ConfigurationWhereUniqueInput } from "../../configuration/base/ConfigurationWhereUniqueInput";
+import { Configuration } from "../../configuration/base/Configuration";
+import { FeatureCreateNestedManyWithoutBundlesInput } from "./FeatureCreateNestedManyWithoutBundlesInput";
 
 @InputType()
 class BundleCreateInput {
+  @ApiProperty({
+    required: true,
+    type: () => ConfigurationWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => ConfigurationWhereUniqueInput)
+  @Field(() => ConfigurationWhereUniqueInput)
+  Configuration!: ConfigurationWhereUniqueInput;
+
   @ApiProperty({
     required: false,
     type: () => FeatureCreateNestedManyWithoutBundlesInput,
@@ -29,18 +39,6 @@ class BundleCreateInput {
     nullable: true,
   })
   features?: FeatureCreateNestedManyWithoutBundlesInput;
-
-  @ApiProperty({
-    required: false,
-    type: () => ConfigurationWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ConfigurationWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ConfigurationWhereUniqueInput, {
-    nullable: true,
-  })
-  lineItemConfiguration?: ConfigurationWhereUniqueInput | null;
 }
 
 export { BundleCreateInput as BundleCreateInput };

@@ -28,6 +28,17 @@ class BundleOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  ConfigurationId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   createdAt?: SortOrder;
 
   @ApiProperty({
@@ -40,17 +51,6 @@ class BundleOrderByInput {
     nullable: true,
   })
   id?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  lineItemConfigurationId?: SortOrder;
 
   @ApiProperty({
     required: false,

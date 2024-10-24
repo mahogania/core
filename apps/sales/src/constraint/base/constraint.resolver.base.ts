@@ -20,8 +20,6 @@ import { ConstraintFindUniqueArgs } from "./ConstraintFindUniqueArgs";
 import { CreateConstraintArgs } from "./CreateConstraintArgs";
 import { UpdateConstraintArgs } from "./UpdateConstraintArgs";
 import { DeleteConstraintArgs } from "./DeleteConstraintArgs";
-import { Product } from "../../product/base/Product";
-import { Option } from "../../option/base/Option";
 import { ConstraintService } from "../constraint.service";
 @graphql.Resolver(() => Constraint)
 export class ConstraintResolverBase {
@@ -60,27 +58,7 @@ export class ConstraintResolverBase {
   ): Promise<Constraint> {
     return await this.service.createConstraint({
       ...args,
-      data: {
-        ...args.data,
-
-        ascendantProduct: args.data.ascendantProduct
-          ? {
-              connect: args.data.ascendantProduct,
-            }
-          : undefined,
-
-        descendantProduct: args.data.descendantProduct
-          ? {
-              connect: args.data.descendantProduct,
-            }
-          : undefined,
-
-        option: args.data.option
-          ? {
-              connect: args.data.option,
-            }
-          : undefined,
-      },
+      data: args.data,
     });
   }
 
@@ -91,27 +69,7 @@ export class ConstraintResolverBase {
     try {
       return await this.service.updateConstraint({
         ...args,
-        data: {
-          ...args.data,
-
-          ascendantProduct: args.data.ascendantProduct
-            ? {
-                connect: args.data.ascendantProduct,
-              }
-            : undefined,
-
-          descendantProduct: args.data.descendantProduct
-            ? {
-                connect: args.data.descendantProduct,
-              }
-            : undefined,
-
-          option: args.data.option
-            ? {
-                connect: args.data.option,
-              }
-            : undefined,
-        },
+        data: args.data,
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -137,50 +95,5 @@ export class ConstraintResolverBase {
       }
       throw error;
     }
-  }
-
-  @graphql.ResolveField(() => Product, {
-    nullable: true,
-    name: "ascendantProduct",
-  })
-  async getAscendantProduct(
-    @graphql.Parent() parent: Constraint
-  ): Promise<Product | null> {
-    const result = await this.service.getAscendantProduct(parent.id);
-
-    if (!result) {
-      return null;
-    }
-    return result;
-  }
-
-  @graphql.ResolveField(() => Product, {
-    nullable: true,
-    name: "descendantProduct",
-  })
-  async getDescendantProduct(
-    @graphql.Parent() parent: Constraint
-  ): Promise<Product | null> {
-    const result = await this.service.getDescendantProduct(parent.id);
-
-    if (!result) {
-      return null;
-    }
-    return result;
-  }
-
-  @graphql.ResolveField(() => Option, {
-    nullable: true,
-    name: "option",
-  })
-  async getOption(
-    @graphql.Parent() parent: Constraint
-  ): Promise<Option | null> {
-    const result = await this.service.getOption(parent.id);
-
-    if (!result) {
-      return null;
-    }
-    return result;
   }
 }

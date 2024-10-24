@@ -22,9 +22,11 @@ import { UpdateFeatureArgs } from "./UpdateFeatureArgs";
 import { DeleteFeatureArgs } from "./DeleteFeatureArgs";
 import { OptionFindManyArgs } from "../../option/base/OptionFindManyArgs";
 import { Option } from "../../option/base/Option";
-import { Bundle } from "../../bundle/base/Bundle";
+import { StrengthFindManyArgs } from "../../strength/base/StrengthFindManyArgs";
 import { Strength } from "../../strength/base/Strength";
+import { WeaknessFindManyArgs } from "../../weakness/base/WeaknessFindManyArgs";
 import { Weakness } from "../../weakness/base/Weakness";
+import { Bundle } from "../../bundle/base/Bundle";
 import { FeatureService } from "../feature.service";
 @graphql.Resolver(() => Feature)
 export class FeatureResolverBase {
@@ -71,18 +73,6 @@ export class FeatureResolverBase {
               connect: args.data.bundle,
             }
           : undefined,
-
-        strength: args.data.strength
-          ? {
-              connect: args.data.strength,
-            }
-          : undefined,
-
-        weakness: args.data.weakness
-          ? {
-              connect: args.data.weakness,
-            }
-          : undefined,
       },
     });
   }
@@ -100,18 +90,6 @@ export class FeatureResolverBase {
           bundle: args.data.bundle
             ? {
                 connect: args.data.bundle,
-              }
-            : undefined,
-
-          strength: args.data.strength
-            ? {
-                connect: args.data.strength,
-              }
-            : undefined,
-
-          weakness: args.data.weakness
-            ? {
-                connect: args.data.weakness,
               }
             : undefined,
         },
@@ -156,42 +134,40 @@ export class FeatureResolverBase {
     return results;
   }
 
+  @graphql.ResolveField(() => [Strength], { name: "strength" })
+  async findStrength(
+    @graphql.Parent() parent: Feature,
+    @graphql.Args() args: StrengthFindManyArgs
+  ): Promise<Strength[]> {
+    const results = await this.service.findStrength(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @graphql.ResolveField(() => [Weakness], { name: "weaknesses" })
+  async findWeaknesses(
+    @graphql.Parent() parent: Feature,
+    @graphql.Args() args: WeaknessFindManyArgs
+  ): Promise<Weakness[]> {
+    const results = await this.service.findWeaknesses(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
   @graphql.ResolveField(() => Bundle, {
     nullable: true,
     name: "bundle",
   })
   async getBundle(@graphql.Parent() parent: Feature): Promise<Bundle | null> {
     const result = await this.service.getBundle(parent.id);
-
-    if (!result) {
-      return null;
-    }
-    return result;
-  }
-
-  @graphql.ResolveField(() => Strength, {
-    nullable: true,
-    name: "strength",
-  })
-  async getStrength(
-    @graphql.Parent() parent: Feature
-  ): Promise<Strength | null> {
-    const result = await this.service.getStrength(parent.id);
-
-    if (!result) {
-      return null;
-    }
-    return result;
-  }
-
-  @graphql.ResolveField(() => Weakness, {
-    nullable: true,
-    name: "weakness",
-  })
-  async getWeakness(
-    @graphql.Parent() parent: Feature
-  ): Promise<Weakness | null> {
-    const result = await this.service.getWeakness(parent.id);
 
     if (!result) {
       return null;

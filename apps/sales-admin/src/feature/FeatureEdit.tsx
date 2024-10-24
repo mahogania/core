@@ -32,20 +32,20 @@ export const FeatureEdit = (props: EditProps): React.ReactElement => {
             format={(value: any) => value && value.map((v: any) => v.id)}
           />
         </ReferenceArrayInput>
-        <ReferenceInput
-          source="strength.id"
-          reference="Strength"
-          label="Strength"
-        >
-          <SelectInput optionText={StrengthTitle} />
-        </ReferenceInput>
-        <ReferenceInput
-          source="weakness.id"
-          reference="Weakness"
-          label="Weakness"
-        >
-          <SelectInput optionText={WeaknessTitle} />
-        </ReferenceInput>
+        <ReferenceArrayInput source="strength" reference="Strength">
+          <SelectArrayInput
+            optionText={StrengthTitle}
+            parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+            format={(value: any) => value && value.map((v: any) => v.id)}
+          />
+        </ReferenceArrayInput>
+        <ReferenceArrayInput source="weaknesses" reference="Weakness">
+          <SelectArrayInput
+            optionText={WeaknessTitle}
+            parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+            format={(value: any) => value && value.map((v: any) => v.id)}
+          />
+        </ReferenceArrayInput>
       </SimpleForm>
     </Edit>
   );
