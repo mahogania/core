@@ -38,9 +38,21 @@ export class EntityControllerBase {
       data: {
         ...data,
 
+        agent: data.agent
+          ? {
+              connect: data.agent,
+            }
+          : undefined,
+
         owner: data.owner
           ? {
               connect: data.owner,
+            }
+          : undefined,
+
+        representation: data.representation
+          ? {
+              connect: data.representation,
             }
           : undefined,
 
@@ -51,6 +63,12 @@ export class EntityControllerBase {
           : undefined,
       },
       select: {
+        agent: {
+          select: {
+            id: true,
+          },
+        },
+
         createdAt: true,
         description: true,
         displayName: true,
@@ -58,6 +76,12 @@ export class EntityControllerBase {
         name: true,
 
         owner: {
+          select: {
+            id: true,
+          },
+        },
+
+        representation: {
           select: {
             id: true,
           },
@@ -83,6 +107,12 @@ export class EntityControllerBase {
     return this.service.entities({
       ...args,
       select: {
+        agent: {
+          select: {
+            id: true,
+          },
+        },
+
         createdAt: true,
         description: true,
         displayName: true,
@@ -90,6 +120,12 @@ export class EntityControllerBase {
         name: true,
 
         owner: {
+          select: {
+            id: true,
+          },
+        },
+
+        representation: {
           select: {
             id: true,
           },
@@ -116,6 +152,12 @@ export class EntityControllerBase {
     const result = await this.service.entity({
       where: params,
       select: {
+        agent: {
+          select: {
+            id: true,
+          },
+        },
+
         createdAt: true,
         description: true,
         displayName: true,
@@ -123,6 +165,12 @@ export class EntityControllerBase {
         name: true,
 
         owner: {
+          select: {
+            id: true,
+          },
+        },
+
+        representation: {
           select: {
             id: true,
           },
@@ -162,9 +210,21 @@ export class EntityControllerBase {
         data: {
           ...data,
 
+          agent: data.agent
+            ? {
+                connect: data.agent,
+              }
+            : undefined,
+
           owner: data.owner
             ? {
                 connect: data.owner,
+              }
+            : undefined,
+
+          representation: data.representation
+            ? {
+                connect: data.representation,
               }
             : undefined,
 
@@ -175,6 +235,12 @@ export class EntityControllerBase {
             : undefined,
         },
         select: {
+          agent: {
+            select: {
+              id: true,
+            },
+          },
+
           createdAt: true,
           description: true,
           displayName: true,
@@ -182,6 +248,12 @@ export class EntityControllerBase {
           name: true,
 
           owner: {
+            select: {
+              id: true,
+            },
+          },
+
+          representation: {
             select: {
               id: true,
             },
@@ -217,6 +289,12 @@ export class EntityControllerBase {
       return await this.service.deleteEntity({
         where: params,
         select: {
+          agent: {
+            select: {
+              id: true,
+            },
+          },
+
           createdAt: true,
           description: true,
           displayName: true,
@@ -224,6 +302,12 @@ export class EntityControllerBase {
           name: true,
 
           owner: {
+            select: {
+              id: true,
+            },
+          },
+
+          representation: {
             select: {
               id: true,
             },
@@ -249,14 +333,14 @@ export class EntityControllerBase {
     }
   }
 
-  @common.Get("/:id/incomingAssociations")
+  @common.Get("/:id/PredecessorAssociations")
   @ApiNestedQuery(AssociationFindManyArgs)
-  async findIncomingAssociations(
+  async findPredecessorAssociations(
     @common.Req() request: Request,
     @common.Param() params: EntityWhereUniqueInput
   ): Promise<Association[]> {
     const query = plainToClass(AssociationFindManyArgs, request.query);
-    const results = await this.service.findIncomingAssociations(params.id, {
+    const results = await this.service.findPredecessorAssociations(params.id, {
       ...query,
       select: {
         ascendant: {
@@ -288,13 +372,13 @@ export class EntityControllerBase {
     return results;
   }
 
-  @common.Post("/:id/incomingAssociations")
-  async connectIncomingAssociations(
+  @common.Post("/:id/PredecessorAssociations")
+  async connectPredecessorAssociations(
     @common.Param() params: EntityWhereUniqueInput,
     @common.Body() body: AssociationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      incomingAssociations: {
+      PredecessorAssociations: {
         connect: body,
       },
     };
@@ -305,13 +389,13 @@ export class EntityControllerBase {
     });
   }
 
-  @common.Patch("/:id/incomingAssociations")
-  async updateIncomingAssociations(
+  @common.Patch("/:id/PredecessorAssociations")
+  async updatePredecessorAssociations(
     @common.Param() params: EntityWhereUniqueInput,
     @common.Body() body: AssociationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      incomingAssociations: {
+      PredecessorAssociations: {
         set: body,
       },
     };
@@ -322,13 +406,13 @@ export class EntityControllerBase {
     });
   }
 
-  @common.Delete("/:id/incomingAssociations")
-  async disconnectIncomingAssociations(
+  @common.Delete("/:id/PredecessorAssociations")
+  async disconnectPredecessorAssociations(
     @common.Param() params: EntityWhereUniqueInput,
     @common.Body() body: AssociationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      incomingAssociations: {
+      PredecessorAssociations: {
         disconnect: body,
       },
     };
@@ -339,14 +423,14 @@ export class EntityControllerBase {
     });
   }
 
-  @common.Get("/:id/outgoingAssociations")
+  @common.Get("/:id/successorAssociations")
   @ApiNestedQuery(AssociationFindManyArgs)
-  async findOutgoingAssociations(
+  async findSuccessorAssociations(
     @common.Req() request: Request,
     @common.Param() params: EntityWhereUniqueInput
   ): Promise<Association[]> {
     const query = plainToClass(AssociationFindManyArgs, request.query);
-    const results = await this.service.findOutgoingAssociations(params.id, {
+    const results = await this.service.findSuccessorAssociations(params.id, {
       ...query,
       select: {
         ascendant: {
@@ -378,13 +462,13 @@ export class EntityControllerBase {
     return results;
   }
 
-  @common.Post("/:id/outgoingAssociations")
-  async connectOutgoingAssociations(
+  @common.Post("/:id/successorAssociations")
+  async connectSuccessorAssociations(
     @common.Param() params: EntityWhereUniqueInput,
     @common.Body() body: AssociationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      outgoingAssociations: {
+      successorAssociations: {
         connect: body,
       },
     };
@@ -395,13 +479,13 @@ export class EntityControllerBase {
     });
   }
 
-  @common.Patch("/:id/outgoingAssociations")
-  async updateOutgoingAssociations(
+  @common.Patch("/:id/successorAssociations")
+  async updateSuccessorAssociations(
     @common.Param() params: EntityWhereUniqueInput,
     @common.Body() body: AssociationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      outgoingAssociations: {
+      successorAssociations: {
         set: body,
       },
     };
@@ -412,13 +496,13 @@ export class EntityControllerBase {
     });
   }
 
-  @common.Delete("/:id/outgoingAssociations")
-  async disconnectOutgoingAssociations(
+  @common.Delete("/:id/successorAssociations")
+  async disconnectSuccessorAssociations(
     @common.Param() params: EntityWhereUniqueInput,
     @common.Body() body: AssociationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      outgoingAssociations: {
+      successorAssociations: {
         disconnect: body,
       },
     };

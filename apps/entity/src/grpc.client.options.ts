@@ -18,7 +18,9 @@ export const grpcClientOptions: ClientOptions = {
       "realm",
       "world",
       "attribute",
-      "user"
+      "user",
+      "representation",
+      "agent"
     ],
     protoPath: [
       "src/entity/entity.proto",
@@ -32,7 +34,9 @@ export const grpcClientOptions: ClientOptions = {
       "src/realm/realm.proto",
       "src/world/world.proto",
       "src/attribute/attribute.proto",
-      "src/user/user.proto"
+      "src/user/user.proto",
+      "src/representation/representation.proto",
+      "src/agent/agent.proto"
     ],
     url: configService.get<string>("GRPC_CLIENT_URL_PATH"),
   },

@@ -153,6 +153,12 @@ export class TemplateGrpcControllerBase {
     const results = await this.service.findEntities(params.id, {
       ...query,
       select: {
+        agent: {
+          select: {
+            id: true,
+          },
+        },
+
         createdAt: true,
         description: true,
         displayName: true,
@@ -160,6 +166,12 @@ export class TemplateGrpcControllerBase {
         name: true,
 
         owner: {
+          select: {
+            id: true,
+          },
+        },
+
+        representation: {
           select: {
             id: true,
           },

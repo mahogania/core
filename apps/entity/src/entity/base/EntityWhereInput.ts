@@ -11,16 +11,42 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
-import { Type } from "class-transformer";
-import { IsOptional, ValidateNested } from "class-validator";
-import { StringFilter } from "../../util/StringFilter";
 import { AssociationListRelationFilter } from "../../association/base/AssociationListRelationFilter";
+import { ValidateNested, IsOptional } from "class-validator";
+import { Type } from "class-transformer";
+import { AgentWhereUniqueInput } from "../../agent/base/AgentWhereUniqueInput";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
 import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
+import { RepresentationWhereUniqueInput } from "../../representation/base/RepresentationWhereUniqueInput";
 import { TemplateWhereUniqueInput } from "../../template/base/TemplateWhereUniqueInput";
 
 @InputType()
 class EntityWhereInput {
+  @ApiProperty({
+    required: false,
+    type: () => AssociationListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => AssociationListRelationFilter)
+  @IsOptional()
+  @Field(() => AssociationListRelationFilter, {
+    nullable: true,
+  })
+  PredecessorAssociations?: AssociationListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => AgentWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => AgentWhereUniqueInput)
+  @IsOptional()
+  @Field(() => AgentWhereUniqueInput, {
+    nullable: true,
+  })
+  agent?: AgentWhereUniqueInput;
+
   @ApiProperty({
     required: false,
     type: StringNullableFilter,
@@ -56,18 +82,6 @@ class EntityWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => AssociationListRelationFilter,
-  })
-  @ValidateNested()
-  @Type(() => AssociationListRelationFilter)
-  @IsOptional()
-  @Field(() => AssociationListRelationFilter, {
-    nullable: true,
-  })
-  incomingAssociations?: AssociationListRelationFilter;
-
-  @ApiProperty({
-    required: false,
     type: StringNullableFilter,
   })
   @Type(() => StringNullableFilter)
@@ -76,18 +90,6 @@ class EntityWhereInput {
     nullable: true,
   })
   name?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => AssociationListRelationFilter,
-  })
-  @ValidateNested()
-  @Type(() => AssociationListRelationFilter)
-  @IsOptional()
-  @Field(() => AssociationListRelationFilter, {
-    nullable: true,
-  })
-  outgoingAssociations?: AssociationListRelationFilter;
 
   @ApiProperty({
     required: false,
@@ -100,6 +102,30 @@ class EntityWhereInput {
     nullable: true,
   })
   owner?: UserWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => RepresentationWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => RepresentationWhereUniqueInput)
+  @IsOptional()
+  @Field(() => RepresentationWhereUniqueInput, {
+    nullable: true,
+  })
+  representation?: RepresentationWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => AssociationListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => AssociationListRelationFilter)
+  @IsOptional()
+  @Field(() => AssociationListRelationFilter, {
+    nullable: true,
+  })
+  successorAssociations?: AssociationListRelationFilter;
 
   @ApiProperty({
     required: false,

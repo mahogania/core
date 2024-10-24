@@ -22,7 +22,9 @@ import { UpdateEntityArgs } from "./UpdateEntityArgs";
 import { DeleteEntityArgs } from "./DeleteEntityArgs";
 import { AssociationFindManyArgs } from "../../association/base/AssociationFindManyArgs";
 import { Association } from "../../association/base/Association";
+import { Agent } from "../../agent/base/Agent";
 import { User } from "../../user/base/User";
+import { Representation } from "../../representation/base/Representation";
 import { Template } from "../../template/base/Template";
 import { EntityService } from "../entity.service";
 @graphql.Resolver(() => Entity)
@@ -61,9 +63,21 @@ export class EntityResolverBase {
       data: {
         ...args.data,
 
+        agent: args.data.agent
+          ? {
+              connect: args.data.agent,
+            }
+          : undefined,
+
         owner: args.data.owner
           ? {
               connect: args.data.owner,
+            }
+          : undefined,
+
+        representation: args.data.representation
+          ? {
+              connect: args.data.representation,
             }
           : undefined,
 
@@ -86,9 +100,21 @@ export class EntityResolverBase {
         data: {
           ...args.data,
 
+          agent: args.data.agent
+            ? {
+                connect: args.data.agent,
+              }
+            : undefined,
+
           owner: args.data.owner
             ? {
                 connect: args.data.owner,
+              }
+            : undefined,
+
+          representation: args.data.representation
+            ? {
+                connect: args.data.representation,
               }
             : undefined,
 
@@ -125,12 +151,14 @@ export class EntityResolverBase {
     }
   }
 
-  @graphql.ResolveField(() => [Association], { name: "incomingAssociations" })
-  async findIncomingAssociations(
+  @graphql.ResolveField(() => [Association], {
+    name: "predecessorAssociations",
+  })
+  async findPredecessorAssociations(
     @graphql.Parent() parent: Entity,
     @graphql.Args() args: AssociationFindManyArgs
   ): Promise<Association[]> {
-    const results = await this.service.findIncomingAssociations(
+    const results = await this.service.findPredecessorAssociations(
       parent.id,
       args
     );
@@ -142,12 +170,12 @@ export class EntityResolverBase {
     return results;
   }
 
-  @graphql.ResolveField(() => [Association], { name: "outgoingAssociations" })
-  async findOutgoingAssociations(
+  @graphql.ResolveField(() => [Association], { name: "successorAssociations" })
+  async findSuccessorAssociations(
     @graphql.Parent() parent: Entity,
     @graphql.Args() args: AssociationFindManyArgs
   ): Promise<Association[]> {
-    const results = await this.service.findOutgoingAssociations(
+    const results = await this.service.findSuccessorAssociations(
       parent.id,
       args
     );
@@ -157,6 +185,19 @@ export class EntityResolverBase {
     }
 
     return results;
+  }
+
+  @graphql.ResolveField(() => Agent, {
+    nullable: true,
+    name: "agent",
+  })
+  async getAgent(@graphql.Parent() parent: Entity): Promise<Agent | null> {
+    const result = await this.service.getAgent(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 
   @graphql.ResolveField(() => User, {
@@ -165,6 +206,21 @@ export class EntityResolverBase {
   })
   async getOwner(@graphql.Parent() parent: Entity): Promise<User | null> {
     const result = await this.service.getOwner(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
+  }
+
+  @graphql.ResolveField(() => Representation, {
+    nullable: true,
+    name: "representation",
+  })
+  async getRepresentation(
+    @graphql.Parent() parent: Entity
+  ): Promise<Representation | null> {
+    const result = await this.service.getRepresentation(parent.id);
 
     if (!result) {
       return null;

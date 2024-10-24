@@ -17,46 +17,46 @@ rpc connectDescendant (AssociationParams) returns (Association) {}
 rpc disconnectDescendant (AssociationParams) returns (Association) {} 
  }
 message EntityCreateInput {
-string createdAt = 1;
-string description = 2;
-string displayName = 3;
-string id = 4;
-repeated Association incomingAssociations = 5;
+repeated Association PredecessorAssociations = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
 string name = 6;
-repeated Association outgoingAssociations = 7;
+repeated Association successorAssociations = 7;
 string updatedAt = 8;
 string version = 9;
 };
 message Entity {
-string createdAt = 1;
-string description = 2;
-string displayName = 3;
-string id = 4;
-repeated Association incomingAssociations = 5;
+repeated Association PredecessorAssociations = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
 string name = 6;
-repeated Association outgoingAssociations = 7;
+repeated Association successorAssociations = 7;
 string updatedAt = 8;
 string version = 9;
 };
 message EntityWhereUniqueInput {
-string createdAt = 1;
-string description = 2;
-string displayName = 3;
-string id = 4;
-repeated Association incomingAssociations = 5;
+repeated Association PredecessorAssociations = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
 string name = 6;
-repeated Association outgoingAssociations = 7;
+repeated Association successorAssociations = 7;
 string updatedAt = 8;
 string version = 9;
 };
 message EntityUpdateInput {
-string createdAt = 1;
-string description = 2;
-string displayName = 3;
-string id = 4;
-repeated Association incomingAssociations = 5;
+repeated Association PredecessorAssociations = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
 string name = 6;
-repeated Association outgoingAssociations = 7;
+repeated Association successorAssociations = 7;
 string updatedAt = 8;
 string version = 9;
 };

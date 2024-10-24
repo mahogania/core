@@ -38,9 +38,21 @@ export class EntityGrpcControllerBase {
       data: {
         ...data,
 
+        agent: data.agent
+          ? {
+              connect: data.agent,
+            }
+          : undefined,
+
         owner: data.owner
           ? {
               connect: data.owner,
+            }
+          : undefined,
+
+        representation: data.representation
+          ? {
+              connect: data.representation,
             }
           : undefined,
 
@@ -51,6 +63,12 @@ export class EntityGrpcControllerBase {
           : undefined,
       },
       select: {
+        agent: {
+          select: {
+            id: true,
+          },
+        },
+
         createdAt: true,
         description: true,
         displayName: true,
@@ -58,6 +76,12 @@ export class EntityGrpcControllerBase {
         name: true,
 
         owner: {
+          select: {
+            id: true,
+          },
+        },
+
+        representation: {
           select: {
             id: true,
           },
@@ -84,6 +108,12 @@ export class EntityGrpcControllerBase {
     return this.service.entities({
       ...args,
       select: {
+        agent: {
+          select: {
+            id: true,
+          },
+        },
+
         createdAt: true,
         description: true,
         displayName: true,
@@ -91,6 +121,12 @@ export class EntityGrpcControllerBase {
         name: true,
 
         owner: {
+          select: {
+            id: true,
+          },
+        },
+
+        representation: {
           select: {
             id: true,
           },
@@ -118,6 +154,12 @@ export class EntityGrpcControllerBase {
     const result = await this.service.entity({
       where: params,
       select: {
+        agent: {
+          select: {
+            id: true,
+          },
+        },
+
         createdAt: true,
         description: true,
         displayName: true,
@@ -125,6 +167,12 @@ export class EntityGrpcControllerBase {
         name: true,
 
         owner: {
+          select: {
+            id: true,
+          },
+        },
+
+        representation: {
           select: {
             id: true,
           },
@@ -162,9 +210,21 @@ export class EntityGrpcControllerBase {
         data: {
           ...data,
 
+          agent: data.agent
+            ? {
+                connect: data.agent,
+              }
+            : undefined,
+
           owner: data.owner
             ? {
                 connect: data.owner,
+              }
+            : undefined,
+
+          representation: data.representation
+            ? {
+                connect: data.representation,
               }
             : undefined,
 
@@ -175,6 +235,12 @@ export class EntityGrpcControllerBase {
             : undefined,
         },
         select: {
+          agent: {
+            select: {
+              id: true,
+            },
+          },
+
           createdAt: true,
           description: true,
           displayName: true,
@@ -182,6 +248,12 @@ export class EntityGrpcControllerBase {
           name: true,
 
           owner: {
+            select: {
+              id: true,
+            },
+          },
+
+          representation: {
             select: {
               id: true,
             },
@@ -218,6 +290,12 @@ export class EntityGrpcControllerBase {
       return await this.service.deleteEntity({
         where: params,
         select: {
+          agent: {
+            select: {
+              id: true,
+            },
+          },
+
           createdAt: true,
           description: true,
           displayName: true,
@@ -225,6 +303,12 @@ export class EntityGrpcControllerBase {
           name: true,
 
           owner: {
+            select: {
+              id: true,
+            },
+          },
+
+          representation: {
             select: {
               id: true,
             },
@@ -250,15 +334,15 @@ export class EntityGrpcControllerBase {
     }
   }
 
-  @common.Get("/:id/incomingAssociations")
+  @common.Get("/:id/PredecessorAssociations")
   @ApiNestedQuery(AssociationFindManyArgs)
-  @GrpcMethod("EntityService", "findManyIncomingAssociations")
-  async findManyIncomingAssociations(
+  @GrpcMethod("EntityService", "findManyPredecessorAssociations")
+  async findManyPredecessorAssociations(
     @common.Req() request: Request,
     @common.Param() params: EntityWhereUniqueInput
   ): Promise<Association[]> {
     const query = plainToClass(AssociationFindManyArgs, request.query);
-    const results = await this.service.findIncomingAssociations(params.id, {
+    const results = await this.service.findPredecessorAssociations(params.id, {
       ...query,
       select: {
         ascendant: {
@@ -290,14 +374,14 @@ export class EntityGrpcControllerBase {
     return results;
   }
 
-  @common.Post("/:id/incomingAssociations")
-  @GrpcMethod("EntityService", "connectIncomingAssociations")
-  async connectIncomingAssociations(
+  @common.Post("/:id/PredecessorAssociations")
+  @GrpcMethod("EntityService", "connectPredecessorAssociations")
+  async connectPredecessorAssociations(
     @common.Param() params: EntityWhereUniqueInput,
     @common.Body() body: AssociationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      incomingAssociations: {
+      PredecessorAssociations: {
         connect: body,
       },
     };
@@ -308,14 +392,14 @@ export class EntityGrpcControllerBase {
     });
   }
 
-  @common.Patch("/:id/incomingAssociations")
-  @GrpcMethod("EntityService", "updateIncomingAssociations")
-  async updateIncomingAssociations(
+  @common.Patch("/:id/PredecessorAssociations")
+  @GrpcMethod("EntityService", "updatePredecessorAssociations")
+  async updatePredecessorAssociations(
     @common.Param() params: EntityWhereUniqueInput,
     @common.Body() body: AssociationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      incomingAssociations: {
+      PredecessorAssociations: {
         set: body,
       },
     };
@@ -326,14 +410,14 @@ export class EntityGrpcControllerBase {
     });
   }
 
-  @common.Delete("/:id/incomingAssociations")
-  @GrpcMethod("EntityService", "disconnectIncomingAssociations")
-  async disconnectIncomingAssociations(
+  @common.Delete("/:id/PredecessorAssociations")
+  @GrpcMethod("EntityService", "disconnectPredecessorAssociations")
+  async disconnectPredecessorAssociations(
     @common.Param() params: EntityWhereUniqueInput,
     @common.Body() body: AssociationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      incomingAssociations: {
+      PredecessorAssociations: {
         disconnect: body,
       },
     };
@@ -344,15 +428,15 @@ export class EntityGrpcControllerBase {
     });
   }
 
-  @common.Get("/:id/outgoingAssociations")
+  @common.Get("/:id/successorAssociations")
   @ApiNestedQuery(AssociationFindManyArgs)
-  @GrpcMethod("EntityService", "findManyOutgoingAssociations")
-  async findManyOutgoingAssociations(
+  @GrpcMethod("EntityService", "findManySuccessorAssociations")
+  async findManySuccessorAssociations(
     @common.Req() request: Request,
     @common.Param() params: EntityWhereUniqueInput
   ): Promise<Association[]> {
     const query = plainToClass(AssociationFindManyArgs, request.query);
-    const results = await this.service.findOutgoingAssociations(params.id, {
+    const results = await this.service.findSuccessorAssociations(params.id, {
       ...query,
       select: {
         ascendant: {
@@ -384,14 +468,14 @@ export class EntityGrpcControllerBase {
     return results;
   }
 
-  @common.Post("/:id/outgoingAssociations")
-  @GrpcMethod("EntityService", "connectOutgoingAssociations")
-  async connectOutgoingAssociations(
+  @common.Post("/:id/successorAssociations")
+  @GrpcMethod("EntityService", "connectSuccessorAssociations")
+  async connectSuccessorAssociations(
     @common.Param() params: EntityWhereUniqueInput,
     @common.Body() body: AssociationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      outgoingAssociations: {
+      successorAssociations: {
         connect: body,
       },
     };
@@ -402,14 +486,14 @@ export class EntityGrpcControllerBase {
     });
   }
 
-  @common.Patch("/:id/outgoingAssociations")
-  @GrpcMethod("EntityService", "updateOutgoingAssociations")
-  async updateOutgoingAssociations(
+  @common.Patch("/:id/successorAssociations")
+  @GrpcMethod("EntityService", "updateSuccessorAssociations")
+  async updateSuccessorAssociations(
     @common.Param() params: EntityWhereUniqueInput,
     @common.Body() body: AssociationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      outgoingAssociations: {
+      successorAssociations: {
         set: body,
       },
     };
@@ -420,14 +504,14 @@ export class EntityGrpcControllerBase {
     });
   }
 
-  @common.Delete("/:id/outgoingAssociations")
-  @GrpcMethod("EntityService", "disconnectOutgoingAssociations")
-  async disconnectOutgoingAssociations(
+  @common.Delete("/:id/successorAssociations")
+  @GrpcMethod("EntityService", "disconnectSuccessorAssociations")
+  async disconnectSuccessorAssociations(
     @common.Param() params: EntityWhereUniqueInput,
     @common.Body() body: AssociationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      outgoingAssociations: {
+      successorAssociations: {
         disconnect: body,
       },
     };

@@ -53,6 +53,14 @@ import { UserList } from "./user/UserList";
 import { UserCreate } from "./user/UserCreate";
 import { UserEdit } from "./user/UserEdit";
 import { UserShow } from "./user/UserShow";
+import { RepresentationList } from "./representation/RepresentationList";
+import { RepresentationCreate } from "./representation/RepresentationCreate";
+import { RepresentationEdit } from "./representation/RepresentationEdit";
+import { RepresentationShow } from "./representation/RepresentationShow";
+import { AgentList } from "./agent/AgentList";
+import { AgentCreate } from "./agent/AgentCreate";
+import { AgentEdit } from "./agent/AgentEdit";
+import { AgentShow } from "./agent/AgentShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -149,6 +157,20 @@ const App = (): React.ReactElement => {
           edit={UserEdit}
           create={UserCreate}
           show={UserShow}
+        />
+        <Resource
+          name="Representation"
+          list={RepresentationList}
+          edit={RepresentationEdit}
+          create={RepresentationCreate}
+          show={RepresentationShow}
+        />
+        <Resource
+          name="Agent"
+          list={AgentList}
+          edit={AgentEdit}
+          create={AgentCreate}
+          show={AgentShow}
         />
       </Admin>
     </div>

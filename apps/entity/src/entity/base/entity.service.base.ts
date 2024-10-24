@@ -15,7 +15,9 @@ import {
   Prisma,
   Entity as PrismaEntity,
   Association as PrismaAssociation,
+  Agent as PrismaAgent,
   User as PrismaUser,
+  Representation as PrismaRepresentation,
   Template as PrismaTemplate,
 } from "@prisma/client";
 
@@ -44,7 +46,7 @@ export class EntityServiceBase {
     return this.prisma.entity.delete(args);
   }
 
-  async findIncomingAssociations(
+  async findPredecessorAssociations(
     parentId: string,
     args: Prisma.AssociationFindManyArgs
   ): Promise<PrismaAssociation[]> {
@@ -52,10 +54,10 @@ export class EntityServiceBase {
       .findUniqueOrThrow({
         where: { id: parentId },
       })
-      .incomingAssociations(args);
+      .PredecessorAssociations(args);
   }
 
-  async findOutgoingAssociations(
+  async findSuccessorAssociations(
     parentId: string,
     args: Prisma.AssociationFindManyArgs
   ): Promise<PrismaAssociation[]> {
@@ -63,7 +65,15 @@ export class EntityServiceBase {
       .findUniqueOrThrow({
         where: { id: parentId },
       })
-      .outgoingAssociations(args);
+      .successorAssociations(args);
+  }
+
+  async getAgent(parentId: string): Promise<PrismaAgent | null> {
+    return this.prisma.entity
+      .findUnique({
+        where: { id: parentId },
+      })
+      .agent();
   }
 
   async getOwner(parentId: string): Promise<PrismaUser | null> {
@@ -72,6 +82,16 @@ export class EntityServiceBase {
         where: { id: parentId },
       })
       .owner();
+  }
+
+  async getRepresentation(
+    parentId: string
+  ): Promise<PrismaRepresentation | null> {
+    return this.prisma.entity
+      .findUnique({
+        where: { id: parentId },
+      })
+      .representation();
   }
 
   async getTemplate(parentId: string): Promise<PrismaTemplate | null> {

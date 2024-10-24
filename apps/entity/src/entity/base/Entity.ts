@@ -11,20 +11,40 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+import { Association } from "../../association/base/Association";
 import {
+  ValidateNested,
+  IsOptional,
   IsDate,
   IsString,
   MaxLength,
-  IsOptional,
-  ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
-import { Association } from "../../association/base/Association";
+import { Agent } from "../../agent/base/Agent";
 import { User } from "../../user/base/User";
+import { Representation } from "../../representation/base/Representation";
 import { Template } from "../../template/base/Template";
 
 @ObjectType()
 class Entity {
+  @ApiProperty({
+    required: false,
+    type: () => [Association],
+  })
+  @ValidateNested()
+  @Type(() => Association)
+  @IsOptional()
+  PredecessorAssociations?: Array<Association>;
+
+  @ApiProperty({
+    required: false,
+    type: () => Agent,
+  })
+  @ValidateNested()
+  @Type(() => Agent)
+  @IsOptional()
+  agent?: Agent | null;
+
   @ApiProperty({
     required: true,
   })
@@ -67,15 +87,6 @@ class Entity {
 
   @ApiProperty({
     required: false,
-    type: () => [Association],
-  })
-  @ValidateNested()
-  @Type(() => Association)
-  @IsOptional()
-  incomingAssociations?: Array<Association>;
-
-  @ApiProperty({
-    required: false,
     type: String,
   })
   @IsString()
@@ -88,21 +99,30 @@ class Entity {
 
   @ApiProperty({
     required: false,
-    type: () => [Association],
-  })
-  @ValidateNested()
-  @Type(() => Association)
-  @IsOptional()
-  outgoingAssociations?: Array<Association>;
-
-  @ApiProperty({
-    required: false,
     type: () => User,
   })
   @ValidateNested()
   @Type(() => User)
   @IsOptional()
   owner?: User | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => Representation,
+  })
+  @ValidateNested()
+  @Type(() => Representation)
+  @IsOptional()
+  representation?: Representation | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => [Association],
+  })
+  @ValidateNested()
+  @Type(() => Association)
+  @IsOptional()
+  successorAssociations?: Array<Association>;
 
   @ApiProperty({
     required: false,

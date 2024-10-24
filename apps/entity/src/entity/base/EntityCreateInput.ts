@@ -11,19 +11,45 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+import { AssociationCreateNestedManyWithoutEntitiesInput } from "./AssociationCreateNestedManyWithoutEntitiesInput";
 import {
+  ValidateNested,
+  IsOptional,
   IsString,
   MaxLength,
-  IsOptional,
-  ValidateNested,
 } from "class-validator";
-import { AssociationCreateNestedManyWithoutEntitiesInput } from "./AssociationCreateNestedManyWithoutEntitiesInput";
 import { Type } from "class-transformer";
+import { AgentWhereUniqueInput } from "../../agent/base/AgentWhereUniqueInput";
 import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
+import { RepresentationWhereUniqueInput } from "../../representation/base/RepresentationWhereUniqueInput";
 import { TemplateWhereUniqueInput } from "../../template/base/TemplateWhereUniqueInput";
 
 @InputType()
 class EntityCreateInput {
+  @ApiProperty({
+    required: false,
+    type: () => AssociationCreateNestedManyWithoutEntitiesInput,
+  })
+  @ValidateNested()
+  @Type(() => AssociationCreateNestedManyWithoutEntitiesInput)
+  @IsOptional()
+  @Field(() => AssociationCreateNestedManyWithoutEntitiesInput, {
+    nullable: true,
+  })
+  PredecessorAssociations?: AssociationCreateNestedManyWithoutEntitiesInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => AgentWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => AgentWhereUniqueInput)
+  @IsOptional()
+  @Field(() => AgentWhereUniqueInput, {
+    nullable: true,
+  })
+  agent?: AgentWhereUniqueInput | null;
+
   @ApiProperty({
     required: false,
     type: String,
@@ -50,18 +76,6 @@ class EntityCreateInput {
 
   @ApiProperty({
     required: false,
-    type: () => AssociationCreateNestedManyWithoutEntitiesInput,
-  })
-  @ValidateNested()
-  @Type(() => AssociationCreateNestedManyWithoutEntitiesInput)
-  @IsOptional()
-  @Field(() => AssociationCreateNestedManyWithoutEntitiesInput, {
-    nullable: true,
-  })
-  incomingAssociations?: AssociationCreateNestedManyWithoutEntitiesInput;
-
-  @ApiProperty({
-    required: false,
     type: String,
   })
   @IsString()
@@ -74,18 +88,6 @@ class EntityCreateInput {
 
   @ApiProperty({
     required: false,
-    type: () => AssociationCreateNestedManyWithoutEntitiesInput,
-  })
-  @ValidateNested()
-  @Type(() => AssociationCreateNestedManyWithoutEntitiesInput)
-  @IsOptional()
-  @Field(() => AssociationCreateNestedManyWithoutEntitiesInput, {
-    nullable: true,
-  })
-  outgoingAssociations?: AssociationCreateNestedManyWithoutEntitiesInput;
-
-  @ApiProperty({
-    required: false,
     type: () => UserWhereUniqueInput,
   })
   @ValidateNested()
@@ -95,6 +97,30 @@ class EntityCreateInput {
     nullable: true,
   })
   owner?: UserWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => RepresentationWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => RepresentationWhereUniqueInput)
+  @IsOptional()
+  @Field(() => RepresentationWhereUniqueInput, {
+    nullable: true,
+  })
+  representation?: RepresentationWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => AssociationCreateNestedManyWithoutEntitiesInput,
+  })
+  @ValidateNested()
+  @Type(() => AssociationCreateNestedManyWithoutEntitiesInput)
+  @IsOptional()
+  @Field(() => AssociationCreateNestedManyWithoutEntitiesInput, {
+    nullable: true,
+  })
+  successorAssociations?: AssociationCreateNestedManyWithoutEntitiesInput;
 
   @ApiProperty({
     required: false,

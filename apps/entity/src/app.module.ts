@@ -11,6 +11,8 @@ import { RealmModule } from "./realm/realm.module";
 import { WorldModule } from "./world/world.module";
 import { AttributeModule } from "./attribute/attribute.module";
 import { UserModule } from "./user/user.module";
+import { RepresentationModule } from "./representation/representation.module";
+import { AgentModule } from "./agent/agent.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -39,6 +41,8 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     WorldModule,
     AttributeModule,
     UserModule,
+    RepresentationModule,
+    AgentModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
