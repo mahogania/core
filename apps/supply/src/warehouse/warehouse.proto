@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package warehouse;
+service WarehouseService {
+ rpc createWarehouse (WarehouseCreateInput) returns (Warehouse) {}
+rpc warehouses (findManyParams) returns (stream Warehouse) {}
+rpc warehouse (WarehouseWhereUniqueInput) returns (Warehouse) {}
+rpc updateWarehouse (WarehouseUpdateInput) returns (Warehouse) {}
+rpc deleteWarehouse (WarehouseWhereUniqueInput) returns (Warehouse) {} 
+ }
+message WarehouseCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Warehouse {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message WarehouseWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message WarehouseUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};
