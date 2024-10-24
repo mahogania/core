@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+                 package process;
+service ProcessService {
+ rpc createProcess (ProcessCreateInput) returns (Process) {}
+rpc processes (findManyParams) returns (stream Process) {}
+rpc process (ProcessWhereUniqueInput) returns (Process) {}
+rpc updateProcess (ProcessUpdateInput) returns (Process) {}
+rpc deleteProcess (ProcessWhereUniqueInput) returns (Process) {}
+rpc findManyProcess (ProcessWhereUniqueInput) returns (stream Form) {}
+rpc updateProcess (FormParams) returns (stream Form) {}
+rpc connectProcess (FormParams) returns (Form) {}
+rpc disconnectProcess (FormParams) returns (Form) {} 
+ }
+message ProcessCreateInput {
+string createdAt = 1;
+repeated Form forms = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message Process {
+string createdAt = 1;
+repeated Form forms = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message ProcessWhereUniqueInput {
+string createdAt = 1;
+repeated Form forms = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message ProcessUpdateInput {
+string createdAt = 1;
+repeated Form forms = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Form {
+string createdAt = 1;
+string id = 2;
+string schema = 3;
+string updatedAt = 4;
+};
+message FormWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string schema = 3;
+string updatedAt = 4;
+};
+message FormParams {
+ProcessWhereUniqueInput processWhereUniqueInput = 1;
+FormWhereUniqueInput formWhereUniqueInput = 2;
+};

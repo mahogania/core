@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package unit;
+service UnitService {
+ rpc createUnit (UnitCreateInput) returns (Unit) {}
+rpc units (findManyParams) returns (stream Unit) {}
+rpc unit (UnitWhereUniqueInput) returns (Unit) {}
+rpc updateUnit (UnitUpdateInput) returns (Unit) {}
+rpc deleteUnit (UnitWhereUniqueInput) returns (Unit) {} 
+ }
+message UnitCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Unit {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message UnitWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message UnitUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

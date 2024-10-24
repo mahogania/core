@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package contact;
+service ContactService {
+ rpc createContact (ContactCreateInput) returns (Contact) {}
+rpc contacts (findManyParams) returns (stream Contact) {}
+rpc contact (ContactWhereUniqueInput) returns (Contact) {}
+rpc updateContact (ContactUpdateInput) returns (Contact) {}
+rpc deleteContact (ContactWhereUniqueInput) returns (Contact) {}
+rpc findManyContact (ContactWhereUniqueInput) returns (stream Opportunity) {}
+rpc updateContact (OpportunityParams) returns (stream Opportunity) {}
+rpc connectContact (OpportunityParams) returns (Opportunity) {}
+rpc disconnectContact (OpportunityParams) returns (Opportunity) {} 
+ }
+message ContactCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Opportunity opportunities = 3;
+string updatedAt = 4;
+};
+message Contact {
+string createdAt = 1;
+string id = 2;
+repeated Opportunity opportunities = 3;
+string updatedAt = 4;
+};
+message ContactWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Opportunity opportunities = 3;
+string updatedAt = 4;
+};
+message ContactUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Opportunity opportunities = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Opportunity {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OpportunityWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OpportunityParams {
+ContactWhereUniqueInput contactWhereUniqueInput = 1;
+OpportunityWhereUniqueInput opportunityWhereUniqueInput = 2;
+};

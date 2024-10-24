@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package threat;
+service ThreatService {
+ rpc createThreat (ThreatCreateInput) returns (Threat) {}
+rpc threats (findManyParams) returns (stream Threat) {}
+rpc threat (ThreatWhereUniqueInput) returns (Threat) {}
+rpc updateThreat (ThreatUpdateInput) returns (Threat) {}
+rpc deleteThreat (ThreatWhereUniqueInput) returns (Threat) {}
+rpc findManyThreat (ThreatWhereUniqueInput) returns (stream Proposal) {}
+rpc updateThreat (ProposalParams) returns (stream Proposal) {}
+rpc connectThreat (ProposalParams) returns (Proposal) {}
+rpc disconnectThreat (ProposalParams) returns (Proposal) {} 
+ }
+message ThreatCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Proposal proposals = 3;
+string updatedAt = 4;
+};
+message Threat {
+string createdAt = 1;
+string id = 2;
+repeated Proposal proposals = 3;
+string updatedAt = 4;
+};
+message ThreatWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Proposal proposals = 3;
+string updatedAt = 4;
+};
+message ThreatUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Proposal proposals = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Proposal {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ProposalWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ProposalParams {
+ThreatWhereUniqueInput threatWhereUniqueInput = 1;
+ProposalWhereUniqueInput proposalWhereUniqueInput = 2;
+};

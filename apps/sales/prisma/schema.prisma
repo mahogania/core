@@ -1,0 +1,283 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Business {
+  businessUnits Unit[]
+  createdAt     DateTime      @default(now())
+  id            String        @id @default(cuid())
+  name          String?
+  opportunities Opportunity[]
+  strengths     Strength[]
+  threats       Threat[]
+  updatedAt     DateTime      @updatedAt
+  weaknesses    Weakness[]
+}
+
+model Strength {
+  competitor   Business? @relation(fields: [competitorId], references: [id])
+  competitorId String?
+  createdAt    DateTime  @default(now())
+  features     Feature[]
+  id           String    @id @default(cuid())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Weakness {
+  competitor   Business? @relation(fields: [competitorId], references: [id])
+  competitorId String?
+  createdAt    DateTime  @default(now())
+  features     Feature[]
+  id           String    @id @default(cuid())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Opportunity {
+  competitor Business[]
+  contact    Contact?   @relation(fields: [contactId], references: [id])
+  contactId  String?
+  createdAt  DateTime   @default(now())
+  id         String     @id @default(cuid())
+  orders     Order[]
+  proposals  Proposal[]
+  updatedAt  DateTime   @updatedAt
+}
+
+model Threat {
+  competitor   Business?  @relation(fields: [competitorId], references: [id])
+  competitorId String?
+  createdAt    DateTime   @default(now())
+  id           String     @id @default(cuid())
+  proposals    Proposal[]
+  updatedAt    DateTime   @updatedAt
+}
+
+model Unit {
+  address      Address?  @relation(fields: [addressId], references: [id])
+  addressId    String?
+  competitor   Business? @relation(fields: [competitorId], references: [id])
+  competitorId String?
+  createdAt    DateTime  @default(now())
+  id           String    @id @default(cuid())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Product {
+  createdAt               DateTime    @default(now())
+  id                      String      @id @default(cuid())
+  options                 Option[]
+  predecessorProductPaths Constraint? @relation(name: "descendantProduct")
+  successorProductPaths   Constraint? @relation(name: "ascendantProduct")
+  updatedAt               DateTime    @updatedAt
+  version                 String?
+}
+
+model Discount {
+  createdAt       DateTime  @default(now())
+  currency        Currency? @relation(fields: [currencyId], references: [id])
+  currencyId      String?
+  discountRuleUrl String?
+  id              String    @id @default(cuid())
+  options         Option[]
+  updatedAt       DateTime  @updatedAt
+}
+
+model Invoice {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  order     Order?   @relation(fields: [orderId], references: [id])
+  orderId   String?
+  updatedAt DateTime @updatedAt
+}
+
+model Item {
+  configuration   Configuration? @relation(fields: [configurationId], references: [id])
+  configurationId String?
+  createdAt       DateTime       @default(now())
+  id              String         @id @default(cuid())
+  quote           Quote?         @relation(fields: [quoteId], references: [id])
+  quoteId         String?
+  updatedAt       DateTime       @updatedAt
+}
+
+model Quote {
+  createdAt  DateTime  @default(now())
+  id         String    @id @default(cuid())
+  lineItems  Item[]
+  proposal   Proposal? @relation(fields: [proposalId], references: [id])
+  proposalId String?
+  updatedAt  DateTime  @updatedAt
+}
+
+model Address {
+  competitorBusinessUnits Unit[]
+  createdAt               DateTime @default(now())
+  id                      String   @id @default(cuid())
+  updatedAt               DateTime @updatedAt
+}
+
+model Order {
+  contracts     Contract[]
+  createdAt     DateTime     @default(now())
+  id            String       @id @default(cuid())
+  invoices      Invoice[]
+  opportunity   Opportunity? @relation(fields: [opportunityId], references: [id])
+  opportunityId String?
+  updatedAt     DateTime     @updatedAt
+}
+
+model Proposal {
+  createdAt     DateTime     @default(now())
+  id            String       @id @default(cuid())
+  opportunity   Opportunity? @relation(fields: [opportunityId], references: [id])
+  opportunityId String?
+  quotes        Quote[]
+  threat        Threat?      @relation(fields: [threatId], references: [id])
+  threatId      String?
+  updatedAt     DateTime     @updatedAt
+}
+
+model Configuration {
+  createdAt              DateTime  @default(now())
+  id                     String    @id @default(cuid())
+  lineItems              Item[]
+  processConfiguration   Pipeline? @relation(fields: [processConfigurationId], references: [id])
+  processConfigurationId String?
+  productConfiguration   Bundle?
+  updatedAt              DateTime  @updatedAt
+}
+
+model Constraint {
+  ascendantProduct    Product?            @relation(name: "ascendantProduct", fields: [ascendantProductId], references: [id])
+  ascendantProductId  String?             @unique
+  createdAt           DateTime            @default(now())
+  depth               Int?
+  descendantProduct   Product?            @relation(name: "descendantProduct", fields: [descendantProductId], references: [id])
+  descendantProductId String?             @unique
+  id                  String              @id @default(cuid())
+  kind                EnumConstraintKind?
+  option              Option?             @relation(fields: [optionId], references: [id])
+  optionId            String?
+  updatedAt           DateTime            @updatedAt
+}
+
+model Bundle {
+  createdAt               DateTime       @default(now())
+  features                Feature[]
+  id                      String         @id @default(cuid())
+  lineItemConfiguration   Configuration? @relation(fields: [lineItemConfigurationId], references: [id])
+  lineItemConfigurationId String?        @unique
+  updatedAt               DateTime       @updatedAt
+}
+
+model Process {
+  Pipeline   Pipeline? @relation(fields: [PipelineId], references: [id])
+  PipelineId String?
+  createdAt  DateTime  @default(now())
+  forms      Form[]
+  id         String    @id @default(cuid())
+  updatedAt  DateTime  @updatedAt
+}
+
+model Price {
+  createdAt    DateTime  @default(now())
+  currency     Currency? @relation(fields: [currencyId], references: [id])
+  currencyId   String?
+  id           String    @id @default(cuid())
+  options      Option?
+  priceRuleUrl String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model Pipeline {
+  Configurations Configuration[]
+  createdAt      DateTime        @default(now())
+  id             String          @id @default(cuid())
+  processes      Process[]
+  updatedAt      DateTime        @updatedAt
+}
+
+model Contact {
+  createdAt     DateTime      @default(now())
+  id            String        @id @default(cuid())
+  opportunities Opportunity[]
+  updatedAt     DateTime      @updatedAt
+}
+
+model Contract {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  order     Order?   @relation(fields: [orderId], references: [id])
+  orderId   String?
+  updatedAt DateTime @updatedAt
+}
+
+model Feature {
+  bundle      Bundle?   @relation(fields: [bundleId], references: [id])
+  bundleId    String?
+  createdAt   DateTime  @default(now())
+  displayName String?
+  id          String    @id @default(cuid())
+  name        String?
+  options     Option[]
+  strength    Strength? @relation(fields: [strengthId], references: [id])
+  strengthId  String?
+  updatedAt   DateTime  @updatedAt
+  weakness    Weakness? @relation(fields: [weaknessId], references: [id])
+  weaknessId  String?
+}
+
+model Option {
+  constraintPaths Constraint[]
+  createdAt       DateTime     @default(now())
+  discount        Discount?    @relation(fields: [discountId], references: [id])
+  discountId      String?
+  feature         Feature?     @relation(fields: [featureId], references: [id])
+  featureId       String?
+  id              String       @id @default(cuid())
+  price           Price?       @relation(fields: [priceId], references: [id])
+  priceId         String?      @unique
+  product         Product?     @relation(fields: [productId], references: [id])
+  productId       String?
+  updatedAt       DateTime     @updatedAt
+}
+
+model Template {
+  createdAt DateTime @default(now())
+  fields    Json?
+  form      Form?    @relation(fields: [formId], references: [id])
+  formId    String?
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+  url       String?
+}
+
+model Form {
+  createdAt DateTime   @default(now())
+  id        String     @id @default(cuid())
+  process   Process?   @relation(fields: [processId], references: [id])
+  processId String?
+  schema    Json?
+  templates Template[]
+  updatedAt DateTime   @updatedAt
+}
+
+model Currency {
+  createdAt   DateTime   @default(now())
+  discounts   Discount[]
+  id          String     @id @default(cuid())
+  precision   Int?
+  prices      Price[]
+  symbolField String?
+  updatedAt   DateTime   @updatedAt
+}
+
+enum EnumConstraintKind {
+  Allow
+  Forbid
+}
