@@ -3,13 +3,14 @@ import {
   List,
   Datagrid,
   ListProps,
-  DateField,
-  TextField,
   ReferenceField,
+  TextField,
+  DateField,
 } from "react-admin";
 import Pagination from "../Components/Pagination";
-import { PIPELINE_TITLE_FIELD } from "../pipeline/PipelineTitle";
 import { BUNDLE_TITLE_FIELD } from "../bundle/BundleTitle";
+import { CATALOG_TITLE_FIELD } from "../catalog/CatalogTitle";
+import { PIPELINE_TITLE_FIELD } from "../pipeline/PipelineTitle";
 
 export const ConfigurationList = (props: ListProps): React.ReactElement => {
   return (
@@ -20,21 +21,20 @@ export const ConfigurationList = (props: ListProps): React.ReactElement => {
       pagination={<Pagination />}
     >
       <Datagrid rowClick="show" bulkActionButtons={false}>
+        <ReferenceField label="Bundle" source="bundle.id" reference="Bundle">
+          <TextField source={BUNDLE_TITLE_FIELD} />
+        </ReferenceField>
+        <ReferenceField label="Catalog" source="catalog.id" reference="Catalog">
+          <TextField source={CATALOG_TITLE_FIELD} />
+        </ReferenceField>
         <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
         <ReferenceField
-          label="Process Configuration"
+          label="Pipeline"
           source="pipeline.id"
           reference="Pipeline"
         >
           <TextField source={PIPELINE_TITLE_FIELD} />
-        </ReferenceField>
-        <ReferenceField
-          label="Product Configuration"
-          source="bundle.id"
-          reference="Bundle"
-        >
-          <TextField source={BUNDLE_TITLE_FIELD} />
         </ReferenceField>
         <DateField source="updatedAt" label="Updated At" />{" "}
       </Datagrid>

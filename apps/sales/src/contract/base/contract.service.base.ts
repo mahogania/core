@@ -13,7 +13,7 @@ import { PrismaService } from "../../prisma/prisma.service";
 import {
   Prisma,
   Contract as PrismaContract,
-  Order as PrismaOrder,
+  Deal as PrismaDeal,
 } from "@prisma/client";
 
 export class ContractServiceBase {
@@ -49,11 +49,11 @@ export class ContractServiceBase {
     return this.prisma.contract.delete(args);
   }
 
-  async getOrder(parentId: string): Promise<PrismaOrder | null> {
+  async getDeal(parentId: string): Promise<PrismaDeal | null> {
     return this.prisma.contract
       .findUnique({
         where: { id: parentId },
       })
-      .order();
+      .deal();
   }
 }

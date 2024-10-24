@@ -11,13 +11,25 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { StringFilter } from "../../util/StringFilter";
+import { DealWhereUniqueInput } from "../../deal/base/DealWhereUniqueInput";
+import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { IsOptional, ValidateNested } from "class-validator";
-import { OrderWhereUniqueInput } from "../../order/base/OrderWhereUniqueInput";
+import { StringFilter } from "../../util/StringFilter";
 
 @InputType()
 class InvoiceWhereInput {
+  @ApiProperty({
+    required: false,
+    type: () => DealWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => DealWhereUniqueInput)
+  @IsOptional()
+  @Field(() => DealWhereUniqueInput, {
+    nullable: true,
+  })
+  deal?: DealWhereUniqueInput;
+
   @ApiProperty({
     required: false,
     type: StringFilter,
@@ -28,18 +40,6 @@ class InvoiceWhereInput {
     nullable: true,
   })
   id?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => OrderWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => OrderWhereUniqueInput)
-  @IsOptional()
-  @Field(() => OrderWhereUniqueInput, {
-    nullable: true,
-  })
-  order?: OrderWhereUniqueInput;
 }
 
 export { InvoiceWhereInput as InvoiceWhereInput };

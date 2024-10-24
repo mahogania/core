@@ -1,9 +1,11 @@
+import { BundleWhereUniqueInput } from "../bundle/BundleWhereUniqueInput";
+import { CatalogWhereUniqueInput } from "../catalog/CatalogWhereUniqueInput";
 import { ItemCreateNestedManyWithoutConfigurationsInput } from "./ItemCreateNestedManyWithoutConfigurationsInput";
 import { PipelineWhereUniqueInput } from "../pipeline/PipelineWhereUniqueInput";
-import { BundleWhereUniqueInput } from "../bundle/BundleWhereUniqueInput";
 
 export type ConfigurationCreateInput = {
+  bundle: BundleWhereUniqueInput | null;
+  catalog?: CatalogWhereUniqueInput | null;
   lineItems?: ItemCreateNestedManyWithoutConfigurationsInput;
-  processConfiguration?: PipelineWhereUniqueInput | null;
-  productConfiguration?: BundleWhereUniqueInput | null;
+  pipeline: PipelineWhereUniqueInput;
 };

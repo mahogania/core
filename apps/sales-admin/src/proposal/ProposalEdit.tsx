@@ -10,14 +10,21 @@ import {
   SelectArrayInput,
 } from "react-admin";
 
+import { CustomerTitle } from "../customer/CustomerTitle";
 import { OpportunityTitle } from "../opportunity/OpportunityTitle";
 import { QuoteTitle } from "../quote/QuoteTitle";
-import { ThreatTitle } from "../threat/ThreatTitle";
 
 export const ProposalEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
+        <ReferenceInput
+          source="customer.id"
+          reference="Customer"
+          label="Customer"
+        >
+          <SelectInput optionText={CustomerTitle} />
+        </ReferenceInput>
         <ReferenceInput
           source="opportunity.id"
           reference="Opportunity"
@@ -32,9 +39,6 @@ export const ProposalEdit = (props: EditProps): React.ReactElement => {
             format={(value: any) => value && value.map((v: any) => v.id)}
           />
         </ReferenceArrayInput>
-        <ReferenceInput source="threat.id" reference="Threat" label="Threat">
-          <SelectInput optionText={ThreatTitle} />
-        </ReferenceInput>
       </SimpleForm>
     </Edit>
   );

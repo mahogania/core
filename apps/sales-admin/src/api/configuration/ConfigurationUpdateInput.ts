@@ -1,9 +1,11 @@
+import { BundleWhereUniqueInput } from "../bundle/BundleWhereUniqueInput";
+import { CatalogWhereUniqueInput } from "../catalog/CatalogWhereUniqueInput";
 import { ItemUpdateManyWithoutConfigurationsInput } from "./ItemUpdateManyWithoutConfigurationsInput";
 import { PipelineWhereUniqueInput } from "../pipeline/PipelineWhereUniqueInput";
-import { BundleWhereUniqueInput } from "../bundle/BundleWhereUniqueInput";
 
 export type ConfigurationUpdateInput = {
+  bundle?: BundleWhereUniqueInput | null;
+  catalog?: CatalogWhereUniqueInput | null;
   lineItems?: ItemUpdateManyWithoutConfigurationsInput;
-  processConfiguration?: PipelineWhereUniqueInput | null;
-  productConfiguration?: BundleWhereUniqueInput | null;
+  pipeline?: PipelineWhereUniqueInput;
 };

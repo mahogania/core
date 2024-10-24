@@ -4,20 +4,27 @@ import {
   Edit,
   SimpleForm,
   EditProps,
-  ReferenceArrayInput,
-  SelectArrayInput,
   ReferenceInput,
   SelectInput,
+  ReferenceArrayInput,
+  SelectArrayInput,
 } from "react-admin";
 
+import { BundleTitle } from "../bundle/BundleTitle";
+import { CatalogTitle } from "../catalog/CatalogTitle";
 import { ItemTitle } from "../item/ItemTitle";
 import { PipelineTitle } from "../pipeline/PipelineTitle";
-import { BundleTitle } from "../bundle/BundleTitle";
 
 export const ConfigurationEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
+        <ReferenceInput source="bundle.id" reference="Bundle" label="Bundle">
+          <SelectInput optionText={BundleTitle} />
+        </ReferenceInput>
+        <ReferenceInput source="catalog.id" reference="Catalog" label="Catalog">
+          <SelectInput optionText={CatalogTitle} />
+        </ReferenceInput>
         <ReferenceArrayInput source="lineItems" reference="Item">
           <SelectArrayInput
             optionText={ItemTitle}
@@ -26,18 +33,11 @@ export const ConfigurationEdit = (props: EditProps): React.ReactElement => {
           />
         </ReferenceArrayInput>
         <ReferenceInput
-          source="processConfiguration.id"
+          source="pipeline.id"
           reference="Pipeline"
-          label="Process Configuration"
+          label="Pipeline"
         >
           <SelectInput optionText={PipelineTitle} />
-        </ReferenceInput>
-        <ReferenceInput
-          source="productConfiguration.id"
-          reference="Bundle"
-          label="Product Configuration"
-        >
-          <SelectInput optionText={BundleTitle} />
         </ReferenceInput>
       </SimpleForm>
     </Edit>

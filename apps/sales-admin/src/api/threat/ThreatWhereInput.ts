@@ -1,9 +1,9 @@
-import { BusinessWhereUniqueInput } from "../business/BusinessWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
-import { ProposalListRelationFilter } from "../proposal/ProposalListRelationFilter";
+import { ProcessWhereUniqueInput } from "../process/ProcessWhereUniqueInput";
+import { UnitWhereUniqueInput } from "../unit/UnitWhereUniqueInput";
 
 export type ThreatWhereInput = {
-  competitor?: BusinessWhereUniqueInput;
   id?: StringFilter;
-  proposals?: ProposalListRelationFilter;
+  process?: ProcessWhereUniqueInput;
+  unit?: UnitWhereUniqueInput;
 };

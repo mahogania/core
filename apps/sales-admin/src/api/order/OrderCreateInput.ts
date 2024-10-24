@@ -1,9 +1,5 @@
-import { ContractCreateNestedManyWithoutOrdersInput } from "./ContractCreateNestedManyWithoutOrdersInput";
-import { InvoiceCreateNestedManyWithoutOrdersInput } from "./InvoiceCreateNestedManyWithoutOrdersInput";
-import { OpportunityWhereUniqueInput } from "../opportunity/OpportunityWhereUniqueInput";
+import { DealWhereUniqueInput } from "../deal/DealWhereUniqueInput";
 
 export type OrderCreateInput = {
-  contracts?: ContractCreateNestedManyWithoutOrdersInput;
-  invoices?: InvoiceCreateNestedManyWithoutOrdersInput;
-  opportunity?: OpportunityWhereUniqueInput | null;
+  deal?: DealWhereUniqueInput | null;
 };

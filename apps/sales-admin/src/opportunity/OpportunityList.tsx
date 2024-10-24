@@ -3,12 +3,12 @@ import {
   List,
   Datagrid,
   ListProps,
-  ReferenceField,
-  TextField,
   DateField,
+  TextField,
+  ReferenceField,
 } from "react-admin";
 import Pagination from "../Components/Pagination";
-import { CONTACT_TITLE_FIELD } from "../contact/ContactTitle";
+import { UNIT_TITLE_FIELD } from "../unit/UnitTitle";
 
 export const OpportunityList = (props: ListProps): React.ReactElement => {
   return (
@@ -19,11 +19,11 @@ export const OpportunityList = (props: ListProps): React.ReactElement => {
       pagination={<Pagination />}
     >
       <Datagrid rowClick="show" bulkActionButtons={false}>
-        <ReferenceField label="Contact" source="contact.id" reference="Contact">
-          <TextField source={CONTACT_TITLE_FIELD} />
-        </ReferenceField>
         <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
+        <ReferenceField label="Unit" source="unit.id" reference="Unit">
+          <TextField source={UNIT_TITLE_FIELD} />
+        </ReferenceField>
         <DateField source="updatedAt" label="Updated At" />{" "}
       </Datagrid>
     </List>

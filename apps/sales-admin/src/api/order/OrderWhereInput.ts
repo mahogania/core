@@ -1,11 +1,7 @@
-import { ContractListRelationFilter } from "../contract/ContractListRelationFilter";
+import { DealWhereUniqueInput } from "../deal/DealWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
-import { InvoiceListRelationFilter } from "../invoice/InvoiceListRelationFilter";
-import { OpportunityWhereUniqueInput } from "../opportunity/OpportunityWhereUniqueInput";
 
 export type OrderWhereInput = {
-  contracts?: ContractListRelationFilter;
+  deal?: DealWhereUniqueInput;
   id?: StringFilter;
-  invoices?: InvoiceListRelationFilter;
-  opportunity?: OpportunityWhereUniqueInput;
 };

@@ -14,8 +14,12 @@ import { ApiProperty } from "@nestjs/swagger";
 import { AddressWhereUniqueInput } from "../../address/base/AddressWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { CatalogListRelationFilter } from "../../catalog/base/CatalogListRelationFilter";
 import { BusinessWhereUniqueInput } from "../../business/base/BusinessWhereUniqueInput";
+import { DealListRelationFilter } from "../../deal/base/DealListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { OpportunityListRelationFilter } from "../../opportunity/base/OpportunityListRelationFilter";
+import { ThreatListRelationFilter } from "../../threat/base/ThreatListRelationFilter";
 
 @InputType()
 class UnitWhereInput {
@@ -33,6 +37,18 @@ class UnitWhereInput {
 
   @ApiProperty({
     required: false,
+    type: () => CatalogListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => CatalogListRelationFilter)
+  @IsOptional()
+  @Field(() => CatalogListRelationFilter, {
+    nullable: true,
+  })
+  catalogs?: CatalogListRelationFilter;
+
+  @ApiProperty({
+    required: false,
     type: () => BusinessWhereUniqueInput,
   })
   @ValidateNested()
@@ -45,6 +61,18 @@ class UnitWhereInput {
 
   @ApiProperty({
     required: false,
+    type: () => DealListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => DealListRelationFilter)
+  @IsOptional()
+  @Field(() => DealListRelationFilter, {
+    nullable: true,
+  })
+  deals?: DealListRelationFilter;
+
+  @ApiProperty({
+    required: false,
     type: StringFilter,
   })
   @Type(() => StringFilter)
@@ -53,6 +81,30 @@ class UnitWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => OpportunityListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => OpportunityListRelationFilter)
+  @IsOptional()
+  @Field(() => OpportunityListRelationFilter, {
+    nullable: true,
+  })
+  opportunities?: OpportunityListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => ThreatListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => ThreatListRelationFilter)
+  @IsOptional()
+  @Field(() => ThreatListRelationFilter, {
+    nullable: true,
+  })
+  threats?: ThreatListRelationFilter;
 }
 
 export { UnitWhereInput as UnitWhereInput };

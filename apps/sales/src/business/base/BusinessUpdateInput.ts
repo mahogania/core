@@ -19,9 +19,10 @@ import {
   MaxLength,
 } from "class-validator";
 import { Type } from "class-transformer";
-import { OpportunityUpdateManyWithoutBusinessesInput } from "./OpportunityUpdateManyWithoutBusinessesInput";
+import { IndustryWhereUniqueInput } from "../../industry/base/IndustryWhereUniqueInput";
+import { RelationUpdateManyWithoutBusinessesInput } from "./RelationUpdateManyWithoutBusinessesInput";
 import { StrengthUpdateManyWithoutBusinessesInput } from "./StrengthUpdateManyWithoutBusinessesInput";
-import { ThreatUpdateManyWithoutBusinessesInput } from "./ThreatUpdateManyWithoutBusinessesInput";
+import { RelationWhereUniqueInput } from "../../relation/base/RelationWhereUniqueInput";
 import { WeaknessUpdateManyWithoutBusinessesInput } from "./WeaknessUpdateManyWithoutBusinessesInput";
 
 @InputType()
@@ -40,6 +41,18 @@ class BusinessUpdateInput {
 
   @ApiProperty({
     required: false,
+    type: () => IndustryWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => IndustryWhereUniqueInput)
+  @IsOptional()
+  @Field(() => IndustryWhereUniqueInput, {
+    nullable: true,
+  })
+  industry?: IndustryWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
     type: String,
   })
   @IsString()
@@ -52,15 +65,15 @@ class BusinessUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: () => OpportunityUpdateManyWithoutBusinessesInput,
+    type: () => RelationUpdateManyWithoutBusinessesInput,
   })
   @ValidateNested()
-  @Type(() => OpportunityUpdateManyWithoutBusinessesInput)
+  @Type(() => RelationUpdateManyWithoutBusinessesInput)
   @IsOptional()
-  @Field(() => OpportunityUpdateManyWithoutBusinessesInput, {
+  @Field(() => RelationUpdateManyWithoutBusinessesInput, {
     nullable: true,
   })
-  opportunities?: OpportunityUpdateManyWithoutBusinessesInput;
+  predecessorRelations?: RelationUpdateManyWithoutBusinessesInput;
 
   @ApiProperty({
     required: false,
@@ -76,15 +89,15 @@ class BusinessUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: () => ThreatUpdateManyWithoutBusinessesInput,
+    type: () => RelationWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => ThreatUpdateManyWithoutBusinessesInput)
+  @Type(() => RelationWhereUniqueInput)
   @IsOptional()
-  @Field(() => ThreatUpdateManyWithoutBusinessesInput, {
+  @Field(() => RelationWhereUniqueInput, {
     nullable: true,
   })
-  threats?: ThreatUpdateManyWithoutBusinessesInput;
+  succesorRelations?: RelationWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

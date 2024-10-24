@@ -15,6 +15,7 @@ import {
   Prisma,
   Process as PrismaProcess,
   Form as PrismaForm,
+  Threat as PrismaThreat,
   Pipeline as PrismaPipeline,
 } from "@prisma/client";
 
@@ -54,6 +55,17 @@ export class ProcessServiceBase {
         where: { id: parentId },
       })
       .forms(args);
+  }
+
+  async findThreats(
+    parentId: string,
+    args: Prisma.ThreatFindManyArgs
+  ): Promise<PrismaThreat[]> {
+    return this.prisma.process
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .threats(args);
   }
 
   async getPipeline(parentId: string): Promise<PrismaPipeline | null> {

@@ -6,14 +6,14 @@ import {
   ReferenceInput,
   SelectInput,
 } from "react-admin";
-import { OrderTitle } from "../order/OrderTitle";
+import { DealTitle } from "../deal/DealTitle";
 
 export const ContractCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
-        <ReferenceInput source="order.id" reference="Order" label="Order">
-          <SelectInput optionText={OrderTitle} />
+        <ReferenceInput source="deal.id" reference="Deal" label="Deal">
+          <SelectInput optionText={DealTitle} />
         </ReferenceInput>
       </SimpleForm>
     </Create>

@@ -11,7 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { OrderWhereUniqueInput } from "../../order/base/OrderWhereUniqueInput";
+import { DealWhereUniqueInput } from "../../deal/base/DealWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 
@@ -19,15 +19,15 @@ import { Type } from "class-transformer";
 class InvoiceCreateInput {
   @ApiProperty({
     required: false,
-    type: () => OrderWhereUniqueInput,
+    type: () => DealWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => OrderWhereUniqueInput)
+  @Type(() => DealWhereUniqueInput)
   @IsOptional()
-  @Field(() => OrderWhereUniqueInput, {
+  @Field(() => DealWhereUniqueInput, {
     nullable: true,
   })
-  order?: OrderWhereUniqueInput | null;
+  deal?: DealWhereUniqueInput | null;
 }
 
 export { InvoiceCreateInput as InvoiceCreateInput };

@@ -11,14 +11,39 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { ItemUpdateManyWithoutConfigurationsInput } from "./ItemUpdateManyWithoutConfigurationsInput";
+import { BundleWhereUniqueInput } from "../../bundle/base/BundleWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { CatalogWhereUniqueInput } from "../../catalog/base/CatalogWhereUniqueInput";
+import { ItemUpdateManyWithoutConfigurationsInput } from "./ItemUpdateManyWithoutConfigurationsInput";
 import { PipelineWhereUniqueInput } from "../../pipeline/base/PipelineWhereUniqueInput";
-import { BundleWhereUniqueInput } from "../../bundle/base/BundleWhereUniqueInput";
 
 @InputType()
 class ConfigurationUpdateInput {
+  @ApiProperty({
+    required: false,
+    type: () => BundleWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => BundleWhereUniqueInput)
+  @IsOptional()
+  @Field(() => BundleWhereUniqueInput, {
+    nullable: true,
+  })
+  bundle?: BundleWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => CatalogWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CatalogWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CatalogWhereUniqueInput, {
+    nullable: true,
+  })
+  catalog?: CatalogWhereUniqueInput | null;
+
   @ApiProperty({
     required: false,
     type: () => ItemUpdateManyWithoutConfigurationsInput,
@@ -41,19 +66,7 @@ class ConfigurationUpdateInput {
   @Field(() => PipelineWhereUniqueInput, {
     nullable: true,
   })
-  processConfiguration?: PipelineWhereUniqueInput | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => BundleWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => BundleWhereUniqueInput)
-  @IsOptional()
-  @Field(() => BundleWhereUniqueInput, {
-    nullable: true,
-  })
-  productConfiguration?: BundleWhereUniqueInput | null;
+  pipeline?: PipelineWhereUniqueInput;
 }
 
 export { ConfigurationUpdateInput as ConfigurationUpdateInput };

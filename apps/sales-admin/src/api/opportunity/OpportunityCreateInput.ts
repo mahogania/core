@@ -1,11 +1,7 @@
-import { BusinessCreateNestedManyWithoutOpportunitiesInput } from "./BusinessCreateNestedManyWithoutOpportunitiesInput";
-import { ContactWhereUniqueInput } from "../contact/ContactWhereUniqueInput";
-import { OrderCreateNestedManyWithoutOpportunitiesInput } from "./OrderCreateNestedManyWithoutOpportunitiesInput";
 import { ProposalCreateNestedManyWithoutOpportunitiesInput } from "./ProposalCreateNestedManyWithoutOpportunitiesInput";
+import { UnitWhereUniqueInput } from "../unit/UnitWhereUniqueInput";
 
 export type OpportunityCreateInput = {
-  competitor?: BusinessCreateNestedManyWithoutOpportunitiesInput;
-  contact?: ContactWhereUniqueInput | null;
-  orders?: OrderCreateNestedManyWithoutOpportunitiesInput;
   proposals?: ProposalCreateNestedManyWithoutOpportunitiesInput;
+  unit?: UnitWhereUniqueInput | null;
 };

@@ -10,31 +10,39 @@ rpc deleteProcess (ProcessWhereUniqueInput) returns (Process) {}
 rpc findManyProcess (ProcessWhereUniqueInput) returns (stream Form) {}
 rpc updateProcess (FormParams) returns (stream Form) {}
 rpc connectProcess (FormParams) returns (Form) {}
-rpc disconnectProcess (FormParams) returns (Form) {} 
+rpc disconnectProcess (FormParams) returns (Form) {}
+rpc findManyProcess (ProcessWhereUniqueInput) returns (stream Threat) {}
+rpc updateProcess (ThreatParams) returns (stream Threat) {}
+rpc connectProcess (ThreatParams) returns (Threat) {}
+rpc disconnectProcess (ThreatParams) returns (Threat) {} 
  }
 message ProcessCreateInput {
 string createdAt = 1;
 repeated Form forms = 2;
 string id = 3;
-string updatedAt = 4;
+repeated Threat threats = 4;
+string updatedAt = 5;
 };
 message Process {
 string createdAt = 1;
 repeated Form forms = 2;
 string id = 3;
-string updatedAt = 4;
+repeated Threat threats = 4;
+string updatedAt = 5;
 };
 message ProcessWhereUniqueInput {
 string createdAt = 1;
 repeated Form forms = 2;
 string id = 3;
-string updatedAt = 4;
+repeated Threat threats = 4;
+string updatedAt = 5;
 };
 message ProcessUpdateInput {
 string createdAt = 1;
 repeated Form forms = 2;
 string id = 3;
-string updatedAt = 4;
+repeated Threat threats = 4;
+string updatedAt = 5;
 };
 message findManyParams {
 
@@ -54,4 +62,18 @@ string updatedAt = 4;
 message FormParams {
 ProcessWhereUniqueInput processWhereUniqueInput = 1;
 FormWhereUniqueInput formWhereUniqueInput = 2;
+};
+message Threat {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ThreatWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ThreatParams {
+ProcessWhereUniqueInput processWhereUniqueInput = 1;
+ThreatWhereUniqueInput threatWhereUniqueInput = 2;
 };

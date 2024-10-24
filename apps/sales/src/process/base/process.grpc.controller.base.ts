@@ -28,6 +28,9 @@ import { Pipeline } from "../../pipeline/base/Pipeline";
 import { FormFindManyArgs } from "../../form/base/FormFindManyArgs";
 import { Form } from "../../form/base/Form";
 import { FormWhereUniqueInput } from "../../form/base/FormWhereUniqueInput";
+import { ThreatFindManyArgs } from "../../threat/base/ThreatFindManyArgs";
+import { Threat } from "../../threat/base/Threat";
+import { ThreatWhereUniqueInput } from "../../threat/base/ThreatWhereUniqueInput";
 
 export class ProcessGrpcControllerBase {
   constructor(protected readonly service: ProcessService) {}
@@ -262,6 +265,97 @@ export class ProcessGrpcControllerBase {
   ): Promise<void> {
     const data = {
       forms: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateProcess({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Get("/:id/threats")
+  @ApiNestedQuery(ThreatFindManyArgs)
+  @GrpcMethod("ProcessService", "findManyThreats")
+  async findManyThreats(
+    @common.Req() request: Request,
+    @common.Param() params: ProcessWhereUniqueInput
+  ): Promise<Threat[]> {
+    const query = plainToClass(ThreatFindManyArgs, request.query);
+    const results = await this.service.findThreats(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+
+        process: {
+          select: {
+            id: true,
+          },
+        },
+
+        unit: {
+          select: {
+            id: true,
+          },
+        },
+
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/threats")
+  @GrpcMethod("ProcessService", "connectThreats")
+  async connectThreats(
+    @common.Param() params: ProcessWhereUniqueInput,
+    @common.Body() body: ThreatWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      threats: {
+        connect: body,
+      },
+    };
+    await this.service.updateProcess({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/threats")
+  @GrpcMethod("ProcessService", "updateThreats")
+  async updateThreats(
+    @common.Param() params: ProcessWhereUniqueInput,
+    @common.Body() body: ThreatWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      threats: {
+        set: body,
+      },
+    };
+    await this.service.updateProcess({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/threats")
+  @GrpcMethod("ProcessService", "disconnectThreats")
+  async disconnectThreats(
+    @common.Param() params: ProcessWhereUniqueInput,
+    @common.Body() body: ThreatWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      threats: {
         disconnect: body,
       },
     };

@@ -85,10 +85,6 @@ import { PipelineList } from "./pipeline/PipelineList";
 import { PipelineCreate } from "./pipeline/PipelineCreate";
 import { PipelineEdit } from "./pipeline/PipelineEdit";
 import { PipelineShow } from "./pipeline/PipelineShow";
-import { ContactList } from "./contact/ContactList";
-import { ContactCreate } from "./contact/ContactCreate";
-import { ContactEdit } from "./contact/ContactEdit";
-import { ContactShow } from "./contact/ContactShow";
 import { ContractList } from "./contract/ContractList";
 import { ContractCreate } from "./contract/ContractCreate";
 import { ContractEdit } from "./contract/ContractEdit";
@@ -113,6 +109,26 @@ import { CurrencyList } from "./currency/CurrencyList";
 import { CurrencyCreate } from "./currency/CurrencyCreate";
 import { CurrencyEdit } from "./currency/CurrencyEdit";
 import { CurrencyShow } from "./currency/CurrencyShow";
+import { IndustryList } from "./industry/IndustryList";
+import { IndustryCreate } from "./industry/IndustryCreate";
+import { IndustryEdit } from "./industry/IndustryEdit";
+import { IndustryShow } from "./industry/IndustryShow";
+import { RelationList } from "./relation/RelationList";
+import { RelationCreate } from "./relation/RelationCreate";
+import { RelationEdit } from "./relation/RelationEdit";
+import { RelationShow } from "./relation/RelationShow";
+import { CustomerList } from "./customer/CustomerList";
+import { CustomerCreate } from "./customer/CustomerCreate";
+import { CustomerEdit } from "./customer/CustomerEdit";
+import { CustomerShow } from "./customer/CustomerShow";
+import { DealList } from "./deal/DealList";
+import { DealCreate } from "./deal/DealCreate";
+import { DealEdit } from "./deal/DealEdit";
+import { DealShow } from "./deal/DealShow";
+import { CatalogList } from "./catalog/CatalogList";
+import { CatalogCreate } from "./catalog/CatalogCreate";
+import { CatalogEdit } from "./catalog/CatalogEdit";
+import { CatalogShow } from "./catalog/CatalogShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -267,13 +283,6 @@ const App = (): React.ReactElement => {
           show={PipelineShow}
         />
         <Resource
-          name="Contact"
-          list={ContactList}
-          edit={ContactEdit}
-          create={ContactCreate}
-          show={ContactShow}
-        />
-        <Resource
           name="Contract"
           list={ContractList}
           edit={ContractEdit}
@@ -314,6 +323,41 @@ const App = (): React.ReactElement => {
           edit={CurrencyEdit}
           create={CurrencyCreate}
           show={CurrencyShow}
+        />
+        <Resource
+          name="Industry"
+          list={IndustryList}
+          edit={IndustryEdit}
+          create={IndustryCreate}
+          show={IndustryShow}
+        />
+        <Resource
+          name="Relation"
+          list={RelationList}
+          edit={RelationEdit}
+          create={RelationCreate}
+          show={RelationShow}
+        />
+        <Resource
+          name="Customer"
+          list={CustomerList}
+          edit={CustomerEdit}
+          create={CustomerCreate}
+          show={CustomerShow}
+        />
+        <Resource
+          name="Deal"
+          list={DealList}
+          edit={DealEdit}
+          create={DealCreate}
+          show={DealShow}
+        />
+        <Resource
+          name="Catalog"
+          list={CatalogList}
+          edit={CatalogEdit}
+          create={CatalogCreate}
+          show={CatalogShow}
         />
       </Admin>
     </div>

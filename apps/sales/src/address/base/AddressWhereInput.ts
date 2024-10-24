@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { UnitListRelationFilter } from "../../unit/base/UnitListRelationFilter";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { CustomerWhereUniqueInput } from "../../customer/base/CustomerWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
 
 @InputType()
@@ -29,6 +30,18 @@ class AddressWhereInput {
     nullable: true,
   })
   competitorBusinessUnits?: UnitListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => CustomerWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CustomerWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CustomerWhereUniqueInput, {
+    nullable: true,
+  })
+  customer?: CustomerWhereUniqueInput;
 
   @ApiProperty({
     required: false,

@@ -24,12 +24,6 @@ import { OpportunityWhereUniqueInput } from "./OpportunityWhereUniqueInput";
 import { OpportunityFindManyArgs } from "./OpportunityFindManyArgs";
 import { OpportunityUpdateInput } from "./OpportunityUpdateInput";
 import { Opportunity } from "./Opportunity";
-import { BusinessFindManyArgs } from "../../business/base/BusinessFindManyArgs";
-import { Business } from "../../business/base/Business";
-import { BusinessWhereUniqueInput } from "../../business/base/BusinessWhereUniqueInput";
-import { OrderFindManyArgs } from "../../order/base/OrderFindManyArgs";
-import { Order } from "../../order/base/Order";
-import { OrderWhereUniqueInput } from "../../order/base/OrderWhereUniqueInput";
 import { ProposalFindManyArgs } from "../../proposal/base/ProposalFindManyArgs";
 import { Proposal } from "../../proposal/base/Proposal";
 import { ProposalWhereUniqueInput } from "../../proposal/base/ProposalWhereUniqueInput";
@@ -46,21 +40,22 @@ export class OpportunityGrpcControllerBase {
       data: {
         ...data,
 
-        contact: data.contact
+        unit: data.unit
           ? {
-              connect: data.contact,
+              connect: data.unit,
             }
           : undefined,
       },
       select: {
-        contact: {
+        createdAt: true,
+        id: true,
+
+        unit: {
           select: {
             id: true,
           },
         },
 
-        createdAt: true,
-        id: true,
         updatedAt: true,
       },
     });
@@ -75,14 +70,15 @@ export class OpportunityGrpcControllerBase {
     return this.service.opportunities({
       ...args,
       select: {
-        contact: {
+        createdAt: true,
+        id: true,
+
+        unit: {
           select: {
             id: true,
           },
         },
 
-        createdAt: true,
-        id: true,
         updatedAt: true,
       },
     });
@@ -98,14 +94,15 @@ export class OpportunityGrpcControllerBase {
     const result = await this.service.opportunity({
       where: params,
       select: {
-        contact: {
+        createdAt: true,
+        id: true,
+
+        unit: {
           select: {
             id: true,
           },
         },
 
-        createdAt: true,
-        id: true,
         updatedAt: true,
       },
     });
@@ -131,21 +128,22 @@ export class OpportunityGrpcControllerBase {
         data: {
           ...data,
 
-          contact: data.contact
+          unit: data.unit
             ? {
-                connect: data.contact,
+                connect: data.unit,
               }
             : undefined,
         },
         select: {
-          contact: {
+          createdAt: true,
+          id: true,
+
+          unit: {
             select: {
               id: true,
             },
           },
 
-          createdAt: true,
-          id: true,
           updatedAt: true,
         },
       });
@@ -170,14 +168,15 @@ export class OpportunityGrpcControllerBase {
       return await this.service.deleteOpportunity({
         where: params,
         select: {
-          contact: {
+          createdAt: true,
+          id: true,
+
+          unit: {
             select: {
               id: true,
             },
           },
 
-          createdAt: true,
-          id: true,
           updatedAt: true,
         },
       });
@@ -189,170 +188,6 @@ export class OpportunityGrpcControllerBase {
       }
       throw error;
     }
-  }
-
-  @common.Get("/:id/competitor")
-  @ApiNestedQuery(BusinessFindManyArgs)
-  @GrpcMethod("OpportunityService", "findManyCompetitor")
-  async findManyCompetitor(
-    @common.Req() request: Request,
-    @common.Param() params: OpportunityWhereUniqueInput
-  ): Promise<Business[]> {
-    const query = plainToClass(BusinessFindManyArgs, request.query);
-    const results = await this.service.findCompetitor(params.id, {
-      ...query,
-      select: {
-        createdAt: true,
-        id: true,
-        name: true,
-        updatedAt: true,
-      },
-    });
-    if (results === null) {
-      throw new errors.NotFoundException(
-        `No resource was found for ${JSON.stringify(params)}`
-      );
-    }
-    return results;
-  }
-
-  @common.Post("/:id/competitor")
-  @GrpcMethod("OpportunityService", "connectCompetitor")
-  async connectCompetitor(
-    @common.Param() params: OpportunityWhereUniqueInput,
-    @common.Body() body: BusinessWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      competitor: {
-        connect: body,
-      },
-    };
-    await this.service.updateOpportunity({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Patch("/:id/competitor")
-  @GrpcMethod("OpportunityService", "updateCompetitor")
-  async updateCompetitor(
-    @common.Param() params: OpportunityWhereUniqueInput,
-    @common.Body() body: BusinessWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      competitor: {
-        set: body,
-      },
-    };
-    await this.service.updateOpportunity({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Delete("/:id/competitor")
-  @GrpcMethod("OpportunityService", "disconnectCompetitor")
-  async disconnectCompetitor(
-    @common.Param() params: OpportunityWhereUniqueInput,
-    @common.Body() body: BusinessWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      competitor: {
-        disconnect: body,
-      },
-    };
-    await this.service.updateOpportunity({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Get("/:id/orders")
-  @ApiNestedQuery(OrderFindManyArgs)
-  @GrpcMethod("OpportunityService", "findManyOrders")
-  async findManyOrders(
-    @common.Req() request: Request,
-    @common.Param() params: OpportunityWhereUniqueInput
-  ): Promise<Order[]> {
-    const query = plainToClass(OrderFindManyArgs, request.query);
-    const results = await this.service.findOrders(params.id, {
-      ...query,
-      select: {
-        createdAt: true,
-        id: true,
-
-        opportunity: {
-          select: {
-            id: true,
-          },
-        },
-
-        updatedAt: true,
-      },
-    });
-    if (results === null) {
-      throw new errors.NotFoundException(
-        `No resource was found for ${JSON.stringify(params)}`
-      );
-    }
-    return results;
-  }
-
-  @common.Post("/:id/orders")
-  @GrpcMethod("OpportunityService", "connectOrders")
-  async connectOrders(
-    @common.Param() params: OpportunityWhereUniqueInput,
-    @common.Body() body: OrderWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      orders: {
-        connect: body,
-      },
-    };
-    await this.service.updateOpportunity({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Patch("/:id/orders")
-  @GrpcMethod("OpportunityService", "updateOrders")
-  async updateOrders(
-    @common.Param() params: OpportunityWhereUniqueInput,
-    @common.Body() body: OrderWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      orders: {
-        set: body,
-      },
-    };
-    await this.service.updateOpportunity({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Delete("/:id/orders")
-  @GrpcMethod("OpportunityService", "disconnectOrders")
-  async disconnectOrders(
-    @common.Param() params: OpportunityWhereUniqueInput,
-    @common.Body() body: OrderWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      orders: {
-        disconnect: body,
-      },
-    };
-    await this.service.updateOpportunity({
-      where: params,
-      data,
-      select: { id: true },
-    });
   }
 
   @common.Get("/:id/proposals")
@@ -367,15 +202,16 @@ export class OpportunityGrpcControllerBase {
       ...query,
       select: {
         createdAt: true,
-        id: true,
 
-        opportunity: {
+        customer: {
           select: {
             id: true,
           },
         },
 
-        threat: {
+        id: true,
+
+        opportunity: {
           select: {
             id: true,
           },

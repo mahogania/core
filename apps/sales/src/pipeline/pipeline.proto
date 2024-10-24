@@ -7,10 +7,10 @@ rpc pipelines (findManyParams) returns (stream Pipeline) {}
 rpc pipeline (PipelineWhereUniqueInput) returns (Pipeline) {}
 rpc updatePipeline (PipelineUpdateInput) returns (Pipeline) {}
 rpc deletePipeline (PipelineWhereUniqueInput) returns (Pipeline) {}
-rpc findManyProcessConfiguration (PipelineWhereUniqueInput) returns (stream Configuration) {}
-rpc updateProcessConfiguration (ConfigurationParams) returns (stream Configuration) {}
-rpc connectProcessConfiguration (ConfigurationParams) returns (Configuration) {}
-rpc disconnectProcessConfiguration (ConfigurationParams) returns (Configuration) {}
+rpc findManyPipeline (PipelineWhereUniqueInput) returns (stream Configuration) {}
+rpc updatePipeline (ConfigurationParams) returns (stream Configuration) {}
+rpc connectPipeline (ConfigurationParams) returns (Configuration) {}
+rpc disconnectPipeline (ConfigurationParams) returns (Configuration) {}
 rpc findManyPipeline (PipelineWhereUniqueInput) returns (stream Process) {}
 rpc updatePipeline (ProcessParams) returns (stream Process) {}
 rpc connectPipeline (ProcessParams) returns (Process) {}

@@ -20,7 +20,7 @@ import { ContractFindUniqueArgs } from "./ContractFindUniqueArgs";
 import { CreateContractArgs } from "./CreateContractArgs";
 import { UpdateContractArgs } from "./UpdateContractArgs";
 import { DeleteContractArgs } from "./DeleteContractArgs";
-import { Order } from "../../order/base/Order";
+import { Deal } from "../../deal/base/Deal";
 import { ContractService } from "../contract.service";
 @graphql.Resolver(() => Contract)
 export class ContractResolverBase {
@@ -62,9 +62,9 @@ export class ContractResolverBase {
       data: {
         ...args.data,
 
-        order: args.data.order
+        deal: args.data.deal
           ? {
-              connect: args.data.order,
+              connect: args.data.deal,
             }
           : undefined,
       },
@@ -81,9 +81,9 @@ export class ContractResolverBase {
         data: {
           ...args.data,
 
-          order: args.data.order
+          deal: args.data.deal
             ? {
-                connect: args.data.order,
+                connect: args.data.deal,
               }
             : undefined,
         },
@@ -114,12 +114,12 @@ export class ContractResolverBase {
     }
   }
 
-  @graphql.ResolveField(() => Order, {
+  @graphql.ResolveField(() => Deal, {
     nullable: true,
-    name: "order",
+    name: "deal",
   })
-  async getOrder(@graphql.Parent() parent: Contract): Promise<Order | null> {
-    const result = await this.service.getOrder(parent.id);
+  async getDeal(@graphql.Parent() parent: Contract): Promise<Deal | null> {
+    const result = await this.service.getDeal(parent.id);
 
     if (!result) {
       return null;

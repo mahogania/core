@@ -20,9 +20,8 @@ import { ThreatFindUniqueArgs } from "./ThreatFindUniqueArgs";
 import { CreateThreatArgs } from "./CreateThreatArgs";
 import { UpdateThreatArgs } from "./UpdateThreatArgs";
 import { DeleteThreatArgs } from "./DeleteThreatArgs";
-import { ProposalFindManyArgs } from "../../proposal/base/ProposalFindManyArgs";
-import { Proposal } from "../../proposal/base/Proposal";
-import { Business } from "../../business/base/Business";
+import { Process } from "../../process/base/Process";
+import { Unit } from "../../unit/base/Unit";
 import { ThreatService } from "../threat.service";
 @graphql.Resolver(() => Threat)
 export class ThreatResolverBase {
@@ -60,9 +59,15 @@ export class ThreatResolverBase {
       data: {
         ...args.data,
 
-        competitor: args.data.competitor
+        process: args.data.process
           ? {
-              connect: args.data.competitor,
+              connect: args.data.process,
+            }
+          : undefined,
+
+        unit: args.data.unit
+          ? {
+              connect: args.data.unit,
             }
           : undefined,
       },
@@ -79,9 +84,15 @@ export class ThreatResolverBase {
         data: {
           ...args.data,
 
-          competitor: args.data.competitor
+          process: args.data.process
             ? {
-                connect: args.data.competitor,
+                connect: args.data.process,
+              }
+            : undefined,
+
+          unit: args.data.unit
+            ? {
+                connect: args.data.unit,
               }
             : undefined,
         },
@@ -112,28 +123,25 @@ export class ThreatResolverBase {
     }
   }
 
-  @graphql.ResolveField(() => [Proposal], { name: "proposals" })
-  async findProposals(
-    @graphql.Parent() parent: Threat,
-    @graphql.Args() args: ProposalFindManyArgs
-  ): Promise<Proposal[]> {
-    const results = await this.service.findProposals(parent.id, args);
+  @graphql.ResolveField(() => Process, {
+    nullable: true,
+    name: "process",
+  })
+  async getProcess(@graphql.Parent() parent: Threat): Promise<Process | null> {
+    const result = await this.service.getProcess(parent.id);
 
-    if (!results) {
-      return [];
+    if (!result) {
+      return null;
     }
-
-    return results;
+    return result;
   }
 
-  @graphql.ResolveField(() => Business, {
+  @graphql.ResolveField(() => Unit, {
     nullable: true,
-    name: "competitor",
+    name: "unit",
   })
-  async getCompetitor(
-    @graphql.Parent() parent: Threat
-  ): Promise<Business | null> {
-    const result = await this.service.getCompetitor(parent.id);
+  async getUnit(@graphql.Parent() parent: Threat): Promise<Unit | null> {
+    const result = await this.service.getUnit(parent.id);
 
     if (!result) {
       return null;

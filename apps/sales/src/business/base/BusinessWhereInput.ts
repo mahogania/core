@@ -15,10 +15,11 @@ import { UnitListRelationFilter } from "../../unit/base/UnitListRelationFilter";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 import { StringFilter } from "../../util/StringFilter";
+import { IndustryWhereUniqueInput } from "../../industry/base/IndustryWhereUniqueInput";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
-import { OpportunityListRelationFilter } from "../../opportunity/base/OpportunityListRelationFilter";
+import { RelationListRelationFilter } from "../../relation/base/RelationListRelationFilter";
 import { StrengthListRelationFilter } from "../../strength/base/StrengthListRelationFilter";
-import { ThreatListRelationFilter } from "../../threat/base/ThreatListRelationFilter";
+import { RelationWhereUniqueInput } from "../../relation/base/RelationWhereUniqueInput";
 import { WeaknessListRelationFilter } from "../../weakness/base/WeaknessListRelationFilter";
 
 @InputType()
@@ -48,6 +49,18 @@ class BusinessWhereInput {
 
   @ApiProperty({
     required: false,
+    type: () => IndustryWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => IndustryWhereUniqueInput)
+  @IsOptional()
+  @Field(() => IndustryWhereUniqueInput, {
+    nullable: true,
+  })
+  industry?: IndustryWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
     type: StringNullableFilter,
   })
   @Type(() => StringNullableFilter)
@@ -59,15 +72,15 @@ class BusinessWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => OpportunityListRelationFilter,
+    type: () => RelationListRelationFilter,
   })
   @ValidateNested()
-  @Type(() => OpportunityListRelationFilter)
+  @Type(() => RelationListRelationFilter)
   @IsOptional()
-  @Field(() => OpportunityListRelationFilter, {
+  @Field(() => RelationListRelationFilter, {
     nullable: true,
   })
-  opportunities?: OpportunityListRelationFilter;
+  predecessorRelations?: RelationListRelationFilter;
 
   @ApiProperty({
     required: false,
@@ -83,15 +96,15 @@ class BusinessWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => ThreatListRelationFilter,
+    type: () => RelationWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => ThreatListRelationFilter)
+  @Type(() => RelationWhereUniqueInput)
   @IsOptional()
-  @Field(() => ThreatListRelationFilter, {
+  @Field(() => RelationWhereUniqueInput, {
     nullable: true,
   })
-  threats?: ThreatListRelationFilter;
+  succesorRelations?: RelationWhereUniqueInput;
 
   @ApiProperty({
     required: false,

@@ -11,15 +11,40 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { StringFilter } from "../../util/StringFilter";
+import { BundleWhereUniqueInput } from "../../bundle/base/BundleWhereUniqueInput";
+import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { IsOptional, ValidateNested } from "class-validator";
+import { CatalogWhereUniqueInput } from "../../catalog/base/CatalogWhereUniqueInput";
+import { StringFilter } from "../../util/StringFilter";
 import { ItemListRelationFilter } from "../../item/base/ItemListRelationFilter";
 import { PipelineWhereUniqueInput } from "../../pipeline/base/PipelineWhereUniqueInput";
-import { BundleWhereUniqueInput } from "../../bundle/base/BundleWhereUniqueInput";
 
 @InputType()
 class ConfigurationWhereInput {
+  @ApiProperty({
+    required: false,
+    type: () => BundleWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => BundleWhereUniqueInput)
+  @IsOptional()
+  @Field(() => BundleWhereUniqueInput, {
+    nullable: true,
+  })
+  bundle?: BundleWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => CatalogWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CatalogWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CatalogWhereUniqueInput, {
+    nullable: true,
+  })
+  catalog?: CatalogWhereUniqueInput;
+
   @ApiProperty({
     required: false,
     type: StringFilter,
@@ -53,19 +78,7 @@ class ConfigurationWhereInput {
   @Field(() => PipelineWhereUniqueInput, {
     nullable: true,
   })
-  processConfiguration?: PipelineWhereUniqueInput;
-
-  @ApiProperty({
-    required: false,
-    type: () => BundleWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => BundleWhereUniqueInput)
-  @IsOptional()
-  @Field(() => BundleWhereUniqueInput, {
-    nullable: true,
-  })
-  productConfiguration?: BundleWhereUniqueInput;
+  pipeline?: PipelineWhereUniqueInput;
 }
 
 export { ConfigurationWhereInput as ConfigurationWhereInput };

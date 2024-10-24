@@ -11,40 +11,14 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { BusinessListRelationFilter } from "../../business/base/BusinessListRelationFilter";
-import { ValidateNested, IsOptional } from "class-validator";
-import { Type } from "class-transformer";
-import { ContactWhereUniqueInput } from "../../contact/base/ContactWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
-import { OrderListRelationFilter } from "../../order/base/OrderListRelationFilter";
+import { Type } from "class-transformer";
+import { IsOptional, ValidateNested } from "class-validator";
 import { ProposalListRelationFilter } from "../../proposal/base/ProposalListRelationFilter";
+import { UnitWhereUniqueInput } from "../../unit/base/UnitWhereUniqueInput";
 
 @InputType()
 class OpportunityWhereInput {
-  @ApiProperty({
-    required: false,
-    type: () => BusinessListRelationFilter,
-  })
-  @ValidateNested()
-  @Type(() => BusinessListRelationFilter)
-  @IsOptional()
-  @Field(() => BusinessListRelationFilter, {
-    nullable: true,
-  })
-  competitor?: BusinessListRelationFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => ContactWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ContactWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ContactWhereUniqueInput, {
-    nullable: true,
-  })
-  contact?: ContactWhereUniqueInput;
-
   @ApiProperty({
     required: false,
     type: StringFilter,
@@ -58,18 +32,6 @@ class OpportunityWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => OrderListRelationFilter,
-  })
-  @ValidateNested()
-  @Type(() => OrderListRelationFilter)
-  @IsOptional()
-  @Field(() => OrderListRelationFilter, {
-    nullable: true,
-  })
-  orders?: OrderListRelationFilter;
-
-  @ApiProperty({
-    required: false,
     type: () => ProposalListRelationFilter,
   })
   @ValidateNested()
@@ -79,6 +41,18 @@ class OpportunityWhereInput {
     nullable: true,
   })
   proposals?: ProposalListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => UnitWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => UnitWhereUniqueInput)
+  @IsOptional()
+  @Field(() => UnitWhereUniqueInput, {
+    nullable: true,
+  })
+  unit?: UnitWhereUniqueInput;
 }
 
 export { OpportunityWhereInput as OpportunityWhereInput };

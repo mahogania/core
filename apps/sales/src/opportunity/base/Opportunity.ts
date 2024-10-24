@@ -11,33 +11,13 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { Business } from "../../business/base/Business";
-import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
+import { IsDate, IsString, ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { Contact } from "../../contact/base/Contact";
-import { Order } from "../../order/base/Order";
 import { Proposal } from "../../proposal/base/Proposal";
+import { Unit } from "../../unit/base/Unit";
 
 @ObjectType()
 class Opportunity {
-  @ApiProperty({
-    required: false,
-    type: () => [Business],
-  })
-  @ValidateNested()
-  @Type(() => Business)
-  @IsOptional()
-  competitor?: Array<Business>;
-
-  @ApiProperty({
-    required: false,
-    type: () => Contact,
-  })
-  @ValidateNested()
-  @Type(() => Contact)
-  @IsOptional()
-  contact?: Contact | null;
-
   @ApiProperty({
     required: true,
   })
@@ -56,21 +36,21 @@ class Opportunity {
 
   @ApiProperty({
     required: false,
-    type: () => [Order],
-  })
-  @ValidateNested()
-  @Type(() => Order)
-  @IsOptional()
-  orders?: Array<Order>;
-
-  @ApiProperty({
-    required: false,
     type: () => [Proposal],
   })
   @ValidateNested()
   @Type(() => Proposal)
   @IsOptional()
   proposals?: Array<Proposal>;
+
+  @ApiProperty({
+    required: false,
+    type: () => Unit,
+  })
+  @ValidateNested()
+  @Type(() => Unit)
+  @IsOptional()
+  unit?: Unit | null;
 
   @ApiProperty({
     required: true,

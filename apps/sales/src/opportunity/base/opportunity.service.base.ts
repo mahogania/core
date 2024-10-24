@@ -14,10 +14,8 @@ import { PrismaService } from "../../prisma/prisma.service";
 import {
   Prisma,
   Opportunity as PrismaOpportunity,
-  Business as PrismaBusiness,
-  Order as PrismaOrder,
   Proposal as PrismaProposal,
-  Contact as PrismaContact,
+  Unit as PrismaUnit,
 } from "@prisma/client";
 
 export class OpportunityServiceBase {
@@ -55,28 +53,6 @@ export class OpportunityServiceBase {
     return this.prisma.opportunity.delete(args);
   }
 
-  async findCompetitor(
-    parentId: string,
-    args: Prisma.BusinessFindManyArgs
-  ): Promise<PrismaBusiness[]> {
-    return this.prisma.opportunity
-      .findUniqueOrThrow({
-        where: { id: parentId },
-      })
-      .competitor(args);
-  }
-
-  async findOrders(
-    parentId: string,
-    args: Prisma.OrderFindManyArgs
-  ): Promise<PrismaOrder[]> {
-    return this.prisma.opportunity
-      .findUniqueOrThrow({
-        where: { id: parentId },
-      })
-      .orders(args);
-  }
-
   async findProposals(
     parentId: string,
     args: Prisma.ProposalFindManyArgs
@@ -88,11 +64,11 @@ export class OpportunityServiceBase {
       .proposals(args);
   }
 
-  async getContact(parentId: string): Promise<PrismaContact | null> {
+  async getUnit(parentId: string): Promise<PrismaUnit | null> {
     return this.prisma.opportunity
       .findUnique({
         where: { id: parentId },
       })
-      .contact();
+      .unit();
   }
 }

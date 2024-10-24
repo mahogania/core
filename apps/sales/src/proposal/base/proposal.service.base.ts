@@ -15,8 +15,8 @@ import {
   Prisma,
   Proposal as PrismaProposal,
   Quote as PrismaQuote,
+  Customer as PrismaCustomer,
   Opportunity as PrismaOpportunity,
-  Threat as PrismaThreat,
 } from "@prisma/client";
 
 export class ProposalServiceBase {
@@ -63,19 +63,19 @@ export class ProposalServiceBase {
       .quotes(args);
   }
 
+  async getCustomer(parentId: string): Promise<PrismaCustomer | null> {
+    return this.prisma.proposal
+      .findUnique({
+        where: { id: parentId },
+      })
+      .customer();
+  }
+
   async getOpportunity(parentId: string): Promise<PrismaOpportunity | null> {
     return this.prisma.proposal
       .findUnique({
         where: { id: parentId },
       })
       .opportunity();
-  }
-
-  async getThreat(parentId: string): Promise<PrismaThreat | null> {
-    return this.prisma.proposal
-      .findUnique({
-        where: { id: parentId },
-      })
-      .threat();
   }
 }

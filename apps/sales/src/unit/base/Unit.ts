@@ -14,7 +14,11 @@ import { ApiProperty } from "@nestjs/swagger";
 import { Address } from "../../address/base/Address";
 import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
 import { Type } from "class-transformer";
+import { Catalog } from "../../catalog/base/Catalog";
 import { Business } from "../../business/base/Business";
+import { Deal } from "../../deal/base/Deal";
+import { Opportunity } from "../../opportunity/base/Opportunity";
+import { Threat } from "../../threat/base/Threat";
 
 @ObjectType()
 class Unit {
@@ -26,6 +30,15 @@ class Unit {
   @Type(() => Address)
   @IsOptional()
   address?: Address | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => [Catalog],
+  })
+  @ValidateNested()
+  @Type(() => Catalog)
+  @IsOptional()
+  catalogs?: Array<Catalog>;
 
   @ApiProperty({
     required: false,
@@ -45,12 +58,39 @@ class Unit {
   createdAt!: Date;
 
   @ApiProperty({
+    required: false,
+    type: () => [Deal],
+  })
+  @ValidateNested()
+  @Type(() => Deal)
+  @IsOptional()
+  deals?: Array<Deal>;
+
+  @ApiProperty({
     required: true,
     type: String,
   })
   @IsString()
   @Field(() => String)
   id!: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => [Opportunity],
+  })
+  @ValidateNested()
+  @Type(() => Opportunity)
+  @IsOptional()
+  opportunities?: Array<Opportunity>;
+
+  @ApiProperty({
+    required: false,
+    type: () => [Threat],
+  })
+  @ValidateNested()
+  @Type(() => Threat)
+  @IsOptional()
+  threats?: Array<Threat>;
 
   @ApiProperty({
     required: true,

@@ -6,13 +6,15 @@ import {
   EditProps,
   ReferenceArrayInput,
   SelectArrayInput,
+  ReferenceInput,
+  SelectInput,
   TextInput,
 } from "react-admin";
 
 import { UnitTitle } from "../unit/UnitTitle";
-import { OpportunityTitle } from "../opportunity/OpportunityTitle";
+import { IndustryTitle } from "../industry/IndustryTitle";
+import { RelationTitle } from "../relation/RelationTitle";
 import { StrengthTitle } from "../strength/StrengthTitle";
-import { ThreatTitle } from "../threat/ThreatTitle";
 import { WeaknessTitle } from "../weakness/WeaknessTitle";
 
 export const BusinessEdit = (props: EditProps): React.ReactElement => {
@@ -26,10 +28,17 @@ export const BusinessEdit = (props: EditProps): React.ReactElement => {
             format={(value: any) => value && value.map((v: any) => v.id)}
           />
         </ReferenceArrayInput>
+        <ReferenceInput
+          source="industry.id"
+          reference="Industry"
+          label="Industry"
+        >
+          <SelectInput optionText={IndustryTitle} />
+        </ReferenceInput>
         <TextInput label="Name" source="name" />
-        <ReferenceArrayInput source="opportunities" reference="Opportunity">
+        <ReferenceArrayInput source="predecessorRelations" reference="Relation">
           <SelectArrayInput
-            optionText={OpportunityTitle}
+            optionText={RelationTitle}
             parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
             format={(value: any) => value && value.map((v: any) => v.id)}
           />
@@ -41,13 +50,13 @@ export const BusinessEdit = (props: EditProps): React.ReactElement => {
             format={(value: any) => value && value.map((v: any) => v.id)}
           />
         </ReferenceArrayInput>
-        <ReferenceArrayInput source="threats" reference="Threat">
-          <SelectArrayInput
-            optionText={ThreatTitle}
-            parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
-            format={(value: any) => value && value.map((v: any) => v.id)}
-          />
-        </ReferenceArrayInput>
+        <ReferenceInput
+          source="succesorRelations.id"
+          reference="Relation"
+          label="Succesor relations"
+        >
+          <SelectInput optionText={RelationTitle} />
+        </ReferenceInput>
         <ReferenceArrayInput source="weaknesses" reference="Weakness">
           <SelectArrayInput
             optionText={WeaknessTitle}

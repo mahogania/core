@@ -11,14 +11,32 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString, ValidateNested, IsOptional } from "class-validator";
+import { Bundle } from "../../bundle/base/Bundle";
+import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
 import { Type } from "class-transformer";
+import { Catalog } from "../../catalog/base/Catalog";
 import { Item } from "../../item/base/Item";
 import { Pipeline } from "../../pipeline/base/Pipeline";
-import { Bundle } from "../../bundle/base/Bundle";
 
 @ObjectType()
 class Configuration {
+  @ApiProperty({
+    required: true,
+    type: () => Bundle,
+  })
+  @ValidateNested()
+  @Type(() => Bundle)
+  bundle?: Bundle | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => Catalog,
+  })
+  @ValidateNested()
+  @Type(() => Catalog)
+  @IsOptional()
+  catalog?: Catalog | null;
+
   @ApiProperty({
     required: true,
   })
@@ -45,22 +63,12 @@ class Configuration {
   lineItems?: Array<Item>;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: () => Pipeline,
   })
   @ValidateNested()
   @Type(() => Pipeline)
-  @IsOptional()
-  processConfiguration?: Pipeline | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => Bundle,
-  })
-  @ValidateNested()
-  @Type(() => Bundle)
-  @IsOptional()
-  productConfiguration?: Bundle | null;
+  pipeline?: Pipeline;
 
   @ApiProperty({
     required: true,

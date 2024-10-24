@@ -10,13 +10,10 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-
 import {
   Prisma,
   Order as PrismaOrder,
-  Contract as PrismaContract,
-  Invoice as PrismaInvoice,
-  Opportunity as PrismaOpportunity,
+  Deal as PrismaDeal,
 } from "@prisma/client";
 
 export class OrderServiceBase {
@@ -42,33 +39,11 @@ export class OrderServiceBase {
     return this.prisma.order.delete(args);
   }
 
-  async findContracts(
-    parentId: string,
-    args: Prisma.ContractFindManyArgs
-  ): Promise<PrismaContract[]> {
-    return this.prisma.order
-      .findUniqueOrThrow({
-        where: { id: parentId },
-      })
-      .contracts(args);
-  }
-
-  async findInvoices(
-    parentId: string,
-    args: Prisma.InvoiceFindManyArgs
-  ): Promise<PrismaInvoice[]> {
-    return this.prisma.order
-      .findUniqueOrThrow({
-        where: { id: parentId },
-      })
-      .invoices(args);
-  }
-
-  async getOpportunity(parentId: string): Promise<PrismaOpportunity | null> {
+  async getDeal(parentId: string): Promise<PrismaDeal | null> {
     return this.prisma.order
       .findUnique({
         where: { id: parentId },
       })
-      .opportunity();
+      .deal();
   }
 }

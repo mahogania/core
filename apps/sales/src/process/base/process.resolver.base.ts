@@ -23,6 +23,8 @@ import { UpdateProcessArgs } from "./UpdateProcessArgs";
 import { DeleteProcessArgs } from "./DeleteProcessArgs";
 import { FormFindManyArgs } from "../../form/base/FormFindManyArgs";
 import { Form } from "../../form/base/Form";
+import { ThreatFindManyArgs } from "../../threat/base/ThreatFindManyArgs";
+import { Threat } from "../../threat/base/Threat";
 import { ProcessService } from "../process.service";
 @graphql.Resolver(() => Process)
 export class ProcessResolverBase {
@@ -122,6 +124,20 @@ export class ProcessResolverBase {
     @graphql.Args() args: FormFindManyArgs
   ): Promise<Form[]> {
     const results = await this.service.findForms(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @graphql.ResolveField(() => [Threat], { name: "threats" })
+  async findThreats(
+    @graphql.Parent() parent: Process,
+    @graphql.Args() args: ThreatFindManyArgs
+  ): Promise<Threat[]> {
+    const results = await this.service.findThreats(parent.id, args);
 
     if (!results) {
       return [];

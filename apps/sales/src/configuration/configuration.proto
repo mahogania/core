@@ -13,31 +13,31 @@ rpc connectConfiguration (ItemParams) returns (Item) {}
 rpc disconnectConfiguration (ItemParams) returns (Item) {} 
  }
 message ConfigurationCreateInput {
-string createdAt = 1;
-string id = 2;
-repeated Item lineItems = 3;
-Bundle productConfiguration = 4;
+Bundle bundle = 1;
+string createdAt = 2;
+string id = 3;
+repeated Item lineItems = 4;
 string updatedAt = 5;
 };
 message Configuration {
-string createdAt = 1;
-string id = 2;
-repeated Item lineItems = 3;
-Bundle productConfiguration = 4;
+Bundle bundle = 1;
+string createdAt = 2;
+string id = 3;
+repeated Item lineItems = 4;
 string updatedAt = 5;
 };
 message ConfigurationWhereUniqueInput {
-string createdAt = 1;
-string id = 2;
-repeated Item lineItems = 3;
-Bundle productConfiguration = 4;
+Bundle bundle = 1;
+string createdAt = 2;
+string id = 3;
+repeated Item lineItems = 4;
 string updatedAt = 5;
 };
 message ConfigurationUpdateInput {
-string createdAt = 1;
-string id = 2;
-repeated Item lineItems = 3;
-Bundle productConfiguration = 4;
+Bundle bundle = 1;
+string createdAt = 2;
+string id = 3;
+repeated Item lineItems = 4;
 string updatedAt = 5;
 };
 message findManyParams {

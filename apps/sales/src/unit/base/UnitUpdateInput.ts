@@ -14,7 +14,11 @@ import { ApiProperty } from "@nestjs/swagger";
 import { AddressWhereUniqueInput } from "../../address/base/AddressWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { CatalogUpdateManyWithoutUnitsInput } from "./CatalogUpdateManyWithoutUnitsInput";
 import { BusinessWhereUniqueInput } from "../../business/base/BusinessWhereUniqueInput";
+import { DealUpdateManyWithoutUnitsInput } from "./DealUpdateManyWithoutUnitsInput";
+import { OpportunityUpdateManyWithoutUnitsInput } from "./OpportunityUpdateManyWithoutUnitsInput";
+import { ThreatUpdateManyWithoutUnitsInput } from "./ThreatUpdateManyWithoutUnitsInput";
 
 @InputType()
 class UnitUpdateInput {
@@ -32,6 +36,18 @@ class UnitUpdateInput {
 
   @ApiProperty({
     required: false,
+    type: () => CatalogUpdateManyWithoutUnitsInput,
+  })
+  @ValidateNested()
+  @Type(() => CatalogUpdateManyWithoutUnitsInput)
+  @IsOptional()
+  @Field(() => CatalogUpdateManyWithoutUnitsInput, {
+    nullable: true,
+  })
+  catalogs?: CatalogUpdateManyWithoutUnitsInput;
+
+  @ApiProperty({
+    required: false,
     type: () => BusinessWhereUniqueInput,
   })
   @ValidateNested()
@@ -41,6 +57,42 @@ class UnitUpdateInput {
     nullable: true,
   })
   competitor?: BusinessWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => DealUpdateManyWithoutUnitsInput,
+  })
+  @ValidateNested()
+  @Type(() => DealUpdateManyWithoutUnitsInput)
+  @IsOptional()
+  @Field(() => DealUpdateManyWithoutUnitsInput, {
+    nullable: true,
+  })
+  deals?: DealUpdateManyWithoutUnitsInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => OpportunityUpdateManyWithoutUnitsInput,
+  })
+  @ValidateNested()
+  @Type(() => OpportunityUpdateManyWithoutUnitsInput)
+  @IsOptional()
+  @Field(() => OpportunityUpdateManyWithoutUnitsInput, {
+    nullable: true,
+  })
+  opportunities?: OpportunityUpdateManyWithoutUnitsInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => ThreatUpdateManyWithoutUnitsInput,
+  })
+  @ValidateNested()
+  @Type(() => ThreatUpdateManyWithoutUnitsInput)
+  @IsOptional()
+  @Field(() => ThreatUpdateManyWithoutUnitsInput, {
+    nullable: true,
+  })
+  threats?: ThreatUpdateManyWithoutUnitsInput;
 }
 
 export { UnitUpdateInput as UnitUpdateInput };

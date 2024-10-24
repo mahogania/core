@@ -11,11 +11,11 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString, ValidateNested, IsOptional } from "class-validator";
+import { IsDate, ValidateNested, IsOptional, IsString } from "class-validator";
 import { Type } from "class-transformer";
+import { Customer } from "../../customer/base/Customer";
 import { Opportunity } from "../../opportunity/base/Opportunity";
 import { Quote } from "../../quote/base/Quote";
-import { Threat } from "../../threat/base/Threat";
 
 @ObjectType()
 class Proposal {
@@ -26,6 +26,15 @@ class Proposal {
   @Type(() => Date)
   @Field(() => Date)
   createdAt!: Date;
+
+  @ApiProperty({
+    required: false,
+    type: () => Customer,
+  })
+  @ValidateNested()
+  @Type(() => Customer)
+  @IsOptional()
+  customer?: Customer | null;
 
   @ApiProperty({
     required: true,
@@ -52,15 +61,6 @@ class Proposal {
   @Type(() => Quote)
   @IsOptional()
   quotes?: Array<Quote>;
-
-  @ApiProperty({
-    required: false,
-    type: () => Threat,
-  })
-  @ValidateNested()
-  @Type(() => Threat)
-  @IsOptional()
-  threat?: Threat | null;
 
   @ApiProperty({
     required: true,

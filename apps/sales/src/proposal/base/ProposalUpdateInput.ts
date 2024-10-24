@@ -11,14 +11,26 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { OpportunityWhereUniqueInput } from "../../opportunity/base/OpportunityWhereUniqueInput";
+import { CustomerWhereUniqueInput } from "../../customer/base/CustomerWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { OpportunityWhereUniqueInput } from "../../opportunity/base/OpportunityWhereUniqueInput";
 import { QuoteUpdateManyWithoutProposalsInput } from "./QuoteUpdateManyWithoutProposalsInput";
-import { ThreatWhereUniqueInput } from "../../threat/base/ThreatWhereUniqueInput";
 
 @InputType()
 class ProposalUpdateInput {
+  @ApiProperty({
+    required: false,
+    type: () => CustomerWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CustomerWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CustomerWhereUniqueInput, {
+    nullable: true,
+  })
+  customer?: CustomerWhereUniqueInput | null;
+
   @ApiProperty({
     required: false,
     type: () => OpportunityWhereUniqueInput,
@@ -42,18 +54,6 @@ class ProposalUpdateInput {
     nullable: true,
   })
   quotes?: QuoteUpdateManyWithoutProposalsInput;
-
-  @ApiProperty({
-    required: false,
-    type: () => ThreatWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ThreatWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ThreatWhereUniqueInput, {
-    nullable: true,
-  })
-  threat?: ThreatWhereUniqueInput | null;
 }
 
 export { ProposalUpdateInput as ProposalUpdateInput };

@@ -40,29 +40,37 @@ export class ConfigurationGrpcControllerBase {
       data: {
         ...data,
 
-        processConfiguration: data.processConfiguration
+        bundle: {
+          connect: data.bundle,
+        },
+
+        catalog: data.catalog
           ? {
-              connect: data.processConfiguration,
+              connect: data.catalog,
             }
           : undefined,
 
-        productConfiguration: data.productConfiguration
-          ? {
-              connect: data.productConfiguration,
-            }
-          : undefined,
+        pipeline: {
+          connect: data.pipeline,
+        },
       },
       select: {
-        createdAt: true,
-        id: true,
-
-        processConfiguration: {
+        bundle: {
           select: {
             id: true,
           },
         },
 
-        productConfiguration: {
+        catalog: {
+          select: {
+            id: true,
+          },
+        },
+
+        createdAt: true,
+        id: true,
+
+        pipeline: {
           select: {
             id: true,
           },
@@ -84,16 +92,22 @@ export class ConfigurationGrpcControllerBase {
     return this.service.configurations({
       ...args,
       select: {
-        createdAt: true,
-        id: true,
-
-        processConfiguration: {
+        bundle: {
           select: {
             id: true,
           },
         },
 
-        productConfiguration: {
+        catalog: {
+          select: {
+            id: true,
+          },
+        },
+
+        createdAt: true,
+        id: true,
+
+        pipeline: {
           select: {
             id: true,
           },
@@ -114,16 +128,22 @@ export class ConfigurationGrpcControllerBase {
     const result = await this.service.configuration({
       where: params,
       select: {
-        createdAt: true,
-        id: true,
-
-        processConfiguration: {
+        bundle: {
           select: {
             id: true,
           },
         },
 
-        productConfiguration: {
+        catalog: {
+          select: {
+            id: true,
+          },
+        },
+
+        createdAt: true,
+        id: true,
+
+        pipeline: {
           select: {
             id: true,
           },
@@ -154,29 +174,37 @@ export class ConfigurationGrpcControllerBase {
         data: {
           ...data,
 
-          processConfiguration: data.processConfiguration
+          bundle: {
+            connect: data.bundle,
+          },
+
+          catalog: data.catalog
             ? {
-                connect: data.processConfiguration,
+                connect: data.catalog,
               }
             : undefined,
 
-          productConfiguration: data.productConfiguration
-            ? {
-                connect: data.productConfiguration,
-              }
-            : undefined,
+          pipeline: {
+            connect: data.pipeline,
+          },
         },
         select: {
-          createdAt: true,
-          id: true,
-
-          processConfiguration: {
+          bundle: {
             select: {
               id: true,
             },
           },
 
-          productConfiguration: {
+          catalog: {
+            select: {
+              id: true,
+            },
+          },
+
+          createdAt: true,
+          id: true,
+
+          pipeline: {
             select: {
               id: true,
             },
@@ -206,16 +234,22 @@ export class ConfigurationGrpcControllerBase {
       return await this.service.deleteConfiguration({
         where: params,
         select: {
-          createdAt: true,
-          id: true,
-
-          processConfiguration: {
+          bundle: {
             select: {
               id: true,
             },
           },
 
-          productConfiguration: {
+          catalog: {
+            select: {
+              id: true,
+            },
+          },
+
+          createdAt: true,
+          id: true,
+
+          pipeline: {
             select: {
               id: true,
             },

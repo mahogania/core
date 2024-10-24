@@ -7,83 +7,37 @@ rpc opportunities (findManyParams) returns (stream Opportunity) {}
 rpc opportunity (OpportunityWhereUniqueInput) returns (Opportunity) {}
 rpc updateOpportunity (OpportunityUpdateInput) returns (Opportunity) {}
 rpc deleteOpportunity (OpportunityWhereUniqueInput) returns (Opportunity) {}
-rpc findManyOpportunities (OpportunityWhereUniqueInput) returns (stream Business) {}
-rpc updateOpportunities (BusinessParams) returns (stream Business) {}
-rpc connectOpportunities (BusinessParams) returns (Business) {}
-rpc disconnectOpportunities (BusinessParams) returns (Business) {}
-rpc findManyOpportunity (OpportunityWhereUniqueInput) returns (stream Order) {}
-rpc updateOpportunity (OrderParams) returns (stream Order) {}
-rpc connectOpportunity (OrderParams) returns (Order) {}
-rpc disconnectOpportunity (OrderParams) returns (Order) {}
 rpc findManyOpportunity (OpportunityWhereUniqueInput) returns (stream Proposal) {}
 rpc updateOpportunity (ProposalParams) returns (stream Proposal) {}
 rpc connectOpportunity (ProposalParams) returns (Proposal) {}
 rpc disconnectOpportunity (ProposalParams) returns (Proposal) {} 
  }
 message OpportunityCreateInput {
-repeated Business competitor = 1;
-string createdAt = 2;
-string id = 3;
-repeated Order orders = 4;
-repeated Proposal proposals = 5;
-string updatedAt = 6;
+string createdAt = 1;
+string id = 2;
+repeated Proposal proposals = 3;
+string updatedAt = 4;
 };
 message Opportunity {
-repeated Business competitor = 1;
-string createdAt = 2;
-string id = 3;
-repeated Order orders = 4;
-repeated Proposal proposals = 5;
-string updatedAt = 6;
+string createdAt = 1;
+string id = 2;
+repeated Proposal proposals = 3;
+string updatedAt = 4;
 };
 message OpportunityWhereUniqueInput {
-repeated Business competitor = 1;
-string createdAt = 2;
-string id = 3;
-repeated Order orders = 4;
-repeated Proposal proposals = 5;
-string updatedAt = 6;
+string createdAt = 1;
+string id = 2;
+repeated Proposal proposals = 3;
+string updatedAt = 4;
 };
 message OpportunityUpdateInput {
-repeated Business competitor = 1;
-string createdAt = 2;
-string id = 3;
-repeated Order orders = 4;
-repeated Proposal proposals = 5;
-string updatedAt = 6;
+string createdAt = 1;
+string id = 2;
+repeated Proposal proposals = 3;
+string updatedAt = 4;
 };
 message findManyParams {
 
-};
-message Business {
-string createdAt = 1;
-string id = 2;
-string name = 3;
-string updatedAt = 4;
-};
-message BusinessWhereUniqueInput {
-string createdAt = 1;
-string id = 2;
-string name = 3;
-string updatedAt = 4;
-};
-message BusinessParams {
-OpportunityWhereUniqueInput opportunityWhereUniqueInput = 1;
-BusinessWhereUniqueInput businessWhereUniqueInput = 2;
-};
-message Order {
-string createdAt = 1;
-string id = 2;
-string updatedAt = 3;
-};
-message OrderWhereUniqueInput {
-string createdAt = 1;
-string id = 2;
-string updatedAt = 3;
-};
-message OrderParams {
-OpportunityWhereUniqueInput opportunityWhereUniqueInput = 1;
-OrderWhereUniqueInput orderWhereUniqueInput = 2;
 };
 message Proposal {
 string createdAt = 1;

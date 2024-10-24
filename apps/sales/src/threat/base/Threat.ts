@@ -11,22 +11,13 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { Business } from "../../business/base/Business";
-import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
+import { IsDate, IsString, ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { Proposal } from "../../proposal/base/Proposal";
+import { Process } from "../../process/base/Process";
+import { Unit } from "../../unit/base/Unit";
 
 @ObjectType()
 class Threat {
-  @ApiProperty({
-    required: false,
-    type: () => Business,
-  })
-  @ValidateNested()
-  @Type(() => Business)
-  @IsOptional()
-  competitor?: Business | null;
-
   @ApiProperty({
     required: true,
   })
@@ -45,12 +36,21 @@ class Threat {
 
   @ApiProperty({
     required: false,
-    type: () => [Proposal],
+    type: () => Process,
   })
   @ValidateNested()
-  @Type(() => Proposal)
+  @Type(() => Process)
   @IsOptional()
-  proposals?: Array<Proposal>;
+  process?: Process | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => Unit,
+  })
+  @ValidateNested()
+  @Type(() => Unit)
+  @IsOptional()
+  unit?: Unit | null;
 
   @ApiProperty({
     required: true,

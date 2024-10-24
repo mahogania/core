@@ -14,6 +14,10 @@ import { PrismaService } from "../../prisma/prisma.service";
 import {
   Prisma,
   Unit as PrismaUnit,
+  Catalog as PrismaCatalog,
+  Deal as PrismaDeal,
+  Opportunity as PrismaOpportunity,
+  Threat as PrismaThreat,
   Address as PrismaAddress,
   Business as PrismaBusiness,
 } from "@prisma/client";
@@ -39,6 +43,50 @@ export class UnitServiceBase {
   }
   async deleteUnit(args: Prisma.UnitDeleteArgs): Promise<PrismaUnit> {
     return this.prisma.unit.delete(args);
+  }
+
+  async findCatalogs(
+    parentId: string,
+    args: Prisma.CatalogFindManyArgs
+  ): Promise<PrismaCatalog[]> {
+    return this.prisma.unit
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .catalogs(args);
+  }
+
+  async findDeals(
+    parentId: string,
+    args: Prisma.DealFindManyArgs
+  ): Promise<PrismaDeal[]> {
+    return this.prisma.unit
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .deals(args);
+  }
+
+  async findOpportunities(
+    parentId: string,
+    args: Prisma.OpportunityFindManyArgs
+  ): Promise<PrismaOpportunity[]> {
+    return this.prisma.unit
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .opportunities(args);
+  }
+
+  async findThreats(
+    parentId: string,
+    args: Prisma.ThreatFindManyArgs
+  ): Promise<PrismaThreat[]> {
+    return this.prisma.unit
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .threats(args);
   }
 
   async getAddress(parentId: string): Promise<PrismaAddress | null> {

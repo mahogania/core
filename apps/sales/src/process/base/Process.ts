@@ -15,6 +15,7 @@ import { Pipeline } from "../../pipeline/base/Pipeline";
 import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
 import { Type } from "class-transformer";
 import { Form } from "../../form/base/Form";
+import { Threat } from "../../threat/base/Threat";
 
 @ObjectType()
 class Process {
@@ -51,6 +52,15 @@ class Process {
   @IsString()
   @Field(() => String)
   id!: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => [Threat],
+  })
+  @ValidateNested()
+  @Type(() => Threat)
+  @IsOptional()
+  threats?: Array<Threat>;
 
   @ApiProperty({
     required: true,

@@ -37,22 +37,22 @@ export class ContractControllerBase {
       data: {
         ...data,
 
-        order: data.order
+        deal: data.deal
           ? {
-              connect: data.order,
+              connect: data.deal,
             }
           : undefined,
       },
       select: {
         createdAt: true,
-        id: true,
 
-        order: {
+        deal: {
           select: {
             id: true,
           },
         },
 
+        id: true,
         updatedAt: true,
       },
     });
@@ -67,14 +67,14 @@ export class ContractControllerBase {
       ...args,
       select: {
         createdAt: true,
-        id: true,
 
-        order: {
+        deal: {
           select: {
             id: true,
           },
         },
 
+        id: true,
         updatedAt: true,
       },
     });
@@ -90,14 +90,14 @@ export class ContractControllerBase {
       where: params,
       select: {
         createdAt: true,
-        id: true,
 
-        order: {
+        deal: {
           select: {
             id: true,
           },
         },
 
+        id: true,
         updatedAt: true,
       },
     });
@@ -125,22 +125,22 @@ export class ContractControllerBase {
         data: {
           ...data,
 
-          order: data.order
+          deal: data.deal
             ? {
-                connect: data.order,
+                connect: data.deal,
               }
             : undefined,
         },
         select: {
           createdAt: true,
-          id: true,
 
-          order: {
+          deal: {
             select: {
               id: true,
             },
           },
 
+          id: true,
           updatedAt: true,
         },
       });
@@ -165,14 +165,14 @@ export class ContractControllerBase {
         where: params,
         select: {
           createdAt: true,
-          id: true,
 
-          order: {
+          deal: {
             select: {
               id: true,
             },
           },
 
+          id: true,
           updatedAt: true,
         },
       });

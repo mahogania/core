@@ -6,28 +6,122 @@ service UnitService {
 rpc units (findManyParams) returns (stream Unit) {}
 rpc unit (UnitWhereUniqueInput) returns (Unit) {}
 rpc updateUnit (UnitUpdateInput) returns (Unit) {}
-rpc deleteUnit (UnitWhereUniqueInput) returns (Unit) {} 
+rpc deleteUnit (UnitWhereUniqueInput) returns (Unit) {}
+rpc findManyUnit (UnitWhereUniqueInput) returns (stream Catalog) {}
+rpc updateUnit (CatalogParams) returns (stream Catalog) {}
+rpc connectUnit (CatalogParams) returns (Catalog) {}
+rpc disconnectUnit (CatalogParams) returns (Catalog) {}
+rpc findManyUnit (UnitWhereUniqueInput) returns (stream Deal) {}
+rpc updateUnit (DealParams) returns (stream Deal) {}
+rpc connectUnit (DealParams) returns (Deal) {}
+rpc disconnectUnit (DealParams) returns (Deal) {}
+rpc findManyUnit (UnitWhereUniqueInput) returns (stream Opportunity) {}
+rpc updateUnit (OpportunityParams) returns (stream Opportunity) {}
+rpc connectUnit (OpportunityParams) returns (Opportunity) {}
+rpc disconnectUnit (OpportunityParams) returns (Opportunity) {}
+rpc findManyUnit (UnitWhereUniqueInput) returns (stream Threat) {}
+rpc updateUnit (ThreatParams) returns (stream Threat) {}
+rpc connectUnit (ThreatParams) returns (Threat) {}
+rpc disconnectUnit (ThreatParams) returns (Threat) {} 
  }
 message UnitCreateInput {
-string createdAt = 1;
-string id = 2;
-string updatedAt = 3;
+repeated Catalog catalogs = 1;
+string createdAt = 2;
+repeated Deal deals = 3;
+string id = 4;
+repeated Opportunity opportunities = 5;
+repeated Threat threats = 6;
+string updatedAt = 7;
 };
 message Unit {
-string createdAt = 1;
-string id = 2;
-string updatedAt = 3;
+repeated Catalog catalogs = 1;
+string createdAt = 2;
+repeated Deal deals = 3;
+string id = 4;
+repeated Opportunity opportunities = 5;
+repeated Threat threats = 6;
+string updatedAt = 7;
 };
 message UnitWhereUniqueInput {
-string createdAt = 1;
-string id = 2;
-string updatedAt = 3;
+repeated Catalog catalogs = 1;
+string createdAt = 2;
+repeated Deal deals = 3;
+string id = 4;
+repeated Opportunity opportunities = 5;
+repeated Threat threats = 6;
+string updatedAt = 7;
 };
 message UnitUpdateInput {
-string createdAt = 1;
-string id = 2;
-string updatedAt = 3;
+repeated Catalog catalogs = 1;
+string createdAt = 2;
+repeated Deal deals = 3;
+string id = 4;
+repeated Opportunity opportunities = 5;
+repeated Threat threats = 6;
+string updatedAt = 7;
 };
 message findManyParams {
 
+};
+message Catalog {
+string createdAt = 1;
+string description = 2;
+string displayName = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message CatalogWhereUniqueInput {
+string createdAt = 1;
+string description = 2;
+string displayName = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message CatalogParams {
+UnitWhereUniqueInput unitWhereUniqueInput = 1;
+CatalogWhereUniqueInput catalogWhereUniqueInput = 2;
+};
+message Deal {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message DealWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message DealParams {
+UnitWhereUniqueInput unitWhereUniqueInput = 1;
+DealWhereUniqueInput dealWhereUniqueInput = 2;
+};
+message Opportunity {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OpportunityWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OpportunityParams {
+UnitWhereUniqueInput unitWhereUniqueInput = 1;
+OpportunityWhereUniqueInput opportunityWhereUniqueInput = 2;
+};
+message Threat {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ThreatWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ThreatParams {
+UnitWhereUniqueInput unitWhereUniqueInput = 1;
+ThreatWhereUniqueInput threatWhereUniqueInput = 2;
 };

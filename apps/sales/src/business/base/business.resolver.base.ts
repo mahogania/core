@@ -22,14 +22,13 @@ import { UpdateBusinessArgs } from "./UpdateBusinessArgs";
 import { DeleteBusinessArgs } from "./DeleteBusinessArgs";
 import { UnitFindManyArgs } from "../../unit/base/UnitFindManyArgs";
 import { Unit } from "../../unit/base/Unit";
-import { OpportunityFindManyArgs } from "../../opportunity/base/OpportunityFindManyArgs";
-import { Opportunity } from "../../opportunity/base/Opportunity";
+import { RelationFindManyArgs } from "../../relation/base/RelationFindManyArgs";
+import { Relation } from "../../relation/base/Relation";
 import { StrengthFindManyArgs } from "../../strength/base/StrengthFindManyArgs";
 import { Strength } from "../../strength/base/Strength";
-import { ThreatFindManyArgs } from "../../threat/base/ThreatFindManyArgs";
-import { Threat } from "../../threat/base/Threat";
 import { WeaknessFindManyArgs } from "../../weakness/base/WeaknessFindManyArgs";
 import { Weakness } from "../../weakness/base/Weakness";
+import { Industry } from "../../industry/base/Industry";
 import { BusinessService } from "../business.service";
 @graphql.Resolver(() => Business)
 export class BusinessResolverBase {
@@ -68,7 +67,21 @@ export class BusinessResolverBase {
   ): Promise<Business> {
     return await this.service.createBusiness({
       ...args,
-      data: args.data,
+      data: {
+        ...args.data,
+
+        industry: args.data.industry
+          ? {
+              connect: args.data.industry,
+            }
+          : undefined,
+
+        succesorRelations: args.data.succesorRelations
+          ? {
+              connect: args.data.succesorRelations,
+            }
+          : undefined,
+      },
     });
   }
 
@@ -79,7 +92,21 @@ export class BusinessResolverBase {
     try {
       return await this.service.updateBusiness({
         ...args,
-        data: args.data,
+        data: {
+          ...args.data,
+
+          industry: args.data.industry
+            ? {
+                connect: args.data.industry,
+              }
+            : undefined,
+
+          succesorRelations: args.data.succesorRelations
+            ? {
+                connect: args.data.succesorRelations,
+              }
+            : undefined,
+        },
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -121,12 +148,15 @@ export class BusinessResolverBase {
     return results;
   }
 
-  @graphql.ResolveField(() => [Opportunity], { name: "opportunities" })
-  async findOpportunities(
+  @graphql.ResolveField(() => [Relation], { name: "predecessorRelations" })
+  async findPredecessorRelations(
     @graphql.Parent() parent: Business,
-    @graphql.Args() args: OpportunityFindManyArgs
-  ): Promise<Opportunity[]> {
-    const results = await this.service.findOpportunities(parent.id, args);
+    @graphql.Args() args: RelationFindManyArgs
+  ): Promise<Relation[]> {
+    const results = await this.service.findPredecessorRelations(
+      parent.id,
+      args
+    );
 
     if (!results) {
       return [];
@@ -149,20 +179,6 @@ export class BusinessResolverBase {
     return results;
   }
 
-  @graphql.ResolveField(() => [Threat], { name: "threats" })
-  async findThreats(
-    @graphql.Parent() parent: Business,
-    @graphql.Args() args: ThreatFindManyArgs
-  ): Promise<Threat[]> {
-    const results = await this.service.findThreats(parent.id, args);
-
-    if (!results) {
-      return [];
-    }
-
-    return results;
-  }
-
   @graphql.ResolveField(() => [Weakness], { name: "weaknesses" })
   async findWeaknesses(
     @graphql.Parent() parent: Business,
@@ -175,5 +191,35 @@ export class BusinessResolverBase {
     }
 
     return results;
+  }
+
+  @graphql.ResolveField(() => Industry, {
+    nullable: true,
+    name: "industry",
+  })
+  async getIndustry(
+    @graphql.Parent() parent: Business
+  ): Promise<Industry | null> {
+    const result = await this.service.getIndustry(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
+  }
+
+  @graphql.ResolveField(() => Relation, {
+    nullable: true,
+    name: "succesorRelations",
+  })
+  async getSuccesorRelations(
+    @graphql.Parent() parent: Business
+  ): Promise<Relation | null> {
+    const result = await this.service.getSuccesorRelations(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

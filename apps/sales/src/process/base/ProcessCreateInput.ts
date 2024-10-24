@@ -16,6 +16,7 @@ import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 import { Pipeline } from "../../pipeline/base/Pipeline";
 import { FormCreateNestedManyWithoutProcessesInput } from "./FormCreateNestedManyWithoutProcessesInput";
+import { ThreatCreateNestedManyWithoutProcessesInput } from "./ThreatCreateNestedManyWithoutProcessesInput";
 
 @InputType()
 class ProcessCreateInput {
@@ -42,6 +43,18 @@ class ProcessCreateInput {
     nullable: true,
   })
   forms?: FormCreateNestedManyWithoutProcessesInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => ThreatCreateNestedManyWithoutProcessesInput,
+  })
+  @ValidateNested()
+  @Type(() => ThreatCreateNestedManyWithoutProcessesInput)
+  @IsOptional()
+  @Field(() => ThreatCreateNestedManyWithoutProcessesInput, {
+    nullable: true,
+  })
+  threats?: ThreatCreateNestedManyWithoutProcessesInput;
 }
 
 export { ProcessCreateInput as ProcessCreateInput };

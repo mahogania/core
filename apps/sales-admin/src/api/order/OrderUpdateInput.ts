@@ -1,9 +1,5 @@
-import { ContractUpdateManyWithoutOrdersInput } from "./ContractUpdateManyWithoutOrdersInput";
-import { InvoiceUpdateManyWithoutOrdersInput } from "./InvoiceUpdateManyWithoutOrdersInput";
-import { OpportunityWhereUniqueInput } from "../opportunity/OpportunityWhereUniqueInput";
+import { DealWhereUniqueInput } from "../deal/DealWhereUniqueInput";
 
 export type OrderUpdateInput = {
-  contracts?: ContractUpdateManyWithoutOrdersInput;
-  invoices?: InvoiceUpdateManyWithoutOrdersInput;
-  opportunity?: OpportunityWhereUniqueInput | null;
+  deal?: DealWhereUniqueInput | null;
 };

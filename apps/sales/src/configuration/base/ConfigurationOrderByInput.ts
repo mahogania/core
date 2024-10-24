@@ -28,6 +28,28 @@ class ConfigurationOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  bundleId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  catalogId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   createdAt?: SortOrder;
 
   @ApiProperty({
@@ -50,18 +72,7 @@ class ConfigurationOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  processConfigurationId?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  productConfigurationId?: SortOrder;
+  pipelineId?: SortOrder;
 
   @ApiProperty({
     required: false,

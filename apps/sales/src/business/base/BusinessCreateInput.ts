@@ -19,9 +19,10 @@ import {
   MaxLength,
 } from "class-validator";
 import { Type } from "class-transformer";
-import { OpportunityCreateNestedManyWithoutBusinessesInput } from "./OpportunityCreateNestedManyWithoutBusinessesInput";
+import { IndustryWhereUniqueInput } from "../../industry/base/IndustryWhereUniqueInput";
+import { RelationCreateNestedManyWithoutBusinessesInput } from "./RelationCreateNestedManyWithoutBusinessesInput";
 import { StrengthCreateNestedManyWithoutBusinessesInput } from "./StrengthCreateNestedManyWithoutBusinessesInput";
-import { ThreatCreateNestedManyWithoutBusinessesInput } from "./ThreatCreateNestedManyWithoutBusinessesInput";
+import { RelationWhereUniqueInput } from "../../relation/base/RelationWhereUniqueInput";
 import { WeaknessCreateNestedManyWithoutBusinessesInput } from "./WeaknessCreateNestedManyWithoutBusinessesInput";
 
 @InputType()
@@ -40,6 +41,18 @@ class BusinessCreateInput {
 
   @ApiProperty({
     required: false,
+    type: () => IndustryWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => IndustryWhereUniqueInput)
+  @IsOptional()
+  @Field(() => IndustryWhereUniqueInput, {
+    nullable: true,
+  })
+  industry?: IndustryWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
     type: String,
   })
   @IsString()
@@ -52,15 +65,15 @@ class BusinessCreateInput {
 
   @ApiProperty({
     required: false,
-    type: () => OpportunityCreateNestedManyWithoutBusinessesInput,
+    type: () => RelationCreateNestedManyWithoutBusinessesInput,
   })
   @ValidateNested()
-  @Type(() => OpportunityCreateNestedManyWithoutBusinessesInput)
+  @Type(() => RelationCreateNestedManyWithoutBusinessesInput)
   @IsOptional()
-  @Field(() => OpportunityCreateNestedManyWithoutBusinessesInput, {
+  @Field(() => RelationCreateNestedManyWithoutBusinessesInput, {
     nullable: true,
   })
-  opportunities?: OpportunityCreateNestedManyWithoutBusinessesInput;
+  predecessorRelations?: RelationCreateNestedManyWithoutBusinessesInput;
 
   @ApiProperty({
     required: false,
@@ -76,15 +89,15 @@ class BusinessCreateInput {
 
   @ApiProperty({
     required: false,
-    type: () => ThreatCreateNestedManyWithoutBusinessesInput,
+    type: () => RelationWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => ThreatCreateNestedManyWithoutBusinessesInput)
+  @Type(() => RelationWhereUniqueInput)
   @IsOptional()
-  @Field(() => ThreatCreateNestedManyWithoutBusinessesInput, {
+  @Field(() => RelationWhereUniqueInput, {
     nullable: true,
   })
-  threats?: ThreatCreateNestedManyWithoutBusinessesInput;
+  succesorRelations?: RelationWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

@@ -20,11 +20,7 @@ import { OrderFindUniqueArgs } from "./OrderFindUniqueArgs";
 import { CreateOrderArgs } from "./CreateOrderArgs";
 import { UpdateOrderArgs } from "./UpdateOrderArgs";
 import { DeleteOrderArgs } from "./DeleteOrderArgs";
-import { ContractFindManyArgs } from "../../contract/base/ContractFindManyArgs";
-import { Contract } from "../../contract/base/Contract";
-import { InvoiceFindManyArgs } from "../../invoice/base/InvoiceFindManyArgs";
-import { Invoice } from "../../invoice/base/Invoice";
-import { Opportunity } from "../../opportunity/base/Opportunity";
+import { Deal } from "../../deal/base/Deal";
 import { OrderService } from "../order.service";
 @graphql.Resolver(() => Order)
 export class OrderResolverBase {
@@ -62,9 +58,9 @@ export class OrderResolverBase {
       data: {
         ...args.data,
 
-        opportunity: args.data.opportunity
+        deal: args.data.deal
           ? {
-              connect: args.data.opportunity,
+              connect: args.data.deal,
             }
           : undefined,
       },
@@ -81,9 +77,9 @@ export class OrderResolverBase {
         data: {
           ...args.data,
 
-          opportunity: args.data.opportunity
+          deal: args.data.deal
             ? {
-                connect: args.data.opportunity,
+                connect: args.data.deal,
               }
             : undefined,
         },
@@ -114,42 +110,12 @@ export class OrderResolverBase {
     }
   }
 
-  @graphql.ResolveField(() => [Contract], { name: "contracts" })
-  async findContracts(
-    @graphql.Parent() parent: Order,
-    @graphql.Args() args: ContractFindManyArgs
-  ): Promise<Contract[]> {
-    const results = await this.service.findContracts(parent.id, args);
-
-    if (!results) {
-      return [];
-    }
-
-    return results;
-  }
-
-  @graphql.ResolveField(() => [Invoice], { name: "invoices" })
-  async findInvoices(
-    @graphql.Parent() parent: Order,
-    @graphql.Args() args: InvoiceFindManyArgs
-  ): Promise<Invoice[]> {
-    const results = await this.service.findInvoices(parent.id, args);
-
-    if (!results) {
-      return [];
-    }
-
-    return results;
-  }
-
-  @graphql.ResolveField(() => Opportunity, {
+  @graphql.ResolveField(() => Deal, {
     nullable: true,
-    name: "opportunity",
+    name: "deal",
   })
-  async getOpportunity(
-    @graphql.Parent() parent: Order
-  ): Promise<Opportunity | null> {
-    const result = await this.service.getOpportunity(parent.id);
+  async getDeal(@graphql.Parent() parent: Order): Promise<Deal | null> {
+    const result = await this.service.getDeal(parent.id);
 
     if (!result) {
       return null;

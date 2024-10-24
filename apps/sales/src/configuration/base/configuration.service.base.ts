@@ -15,8 +15,9 @@ import {
   Prisma,
   Configuration as PrismaConfiguration,
   Item as PrismaItem,
-  Pipeline as PrismaPipeline,
   Bundle as PrismaBundle,
+  Catalog as PrismaCatalog,
+  Pipeline as PrismaPipeline,
 } from "@prisma/client";
 
 export class ConfigurationServiceBase {
@@ -65,23 +66,27 @@ export class ConfigurationServiceBase {
       .lineItems(args);
   }
 
-  async getProcessConfiguration(
-    parentId: string
-  ): Promise<PrismaPipeline | null> {
+  async getBundle(parentId: string): Promise<PrismaBundle | null> {
     return this.prisma.configuration
       .findUnique({
         where: { id: parentId },
       })
-      .processConfiguration();
+      .bundle();
   }
 
-  async getProductConfiguration(
-    parentId: string
-  ): Promise<PrismaBundle | null> {
+  async getCatalog(parentId: string): Promise<PrismaCatalog | null> {
     return this.prisma.configuration
       .findUnique({
         where: { id: parentId },
       })
-      .productConfiguration();
+      .catalog();
+  }
+
+  async getPipeline(parentId: string): Promise<PrismaPipeline | null> {
+    return this.prisma.configuration
+      .findUnique({
+        where: { id: parentId },
+      })
+      .pipeline();
   }
 }

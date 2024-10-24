@@ -22,8 +22,9 @@ import { UpdateConfigurationArgs } from "./UpdateConfigurationArgs";
 import { DeleteConfigurationArgs } from "./DeleteConfigurationArgs";
 import { ItemFindManyArgs } from "../../item/base/ItemFindManyArgs";
 import { Item } from "../../item/base/Item";
-import { Pipeline } from "../../pipeline/base/Pipeline";
 import { Bundle } from "../../bundle/base/Bundle";
+import { Catalog } from "../../catalog/base/Catalog";
+import { Pipeline } from "../../pipeline/base/Pipeline";
 import { ConfigurationService } from "../configuration.service";
 @graphql.Resolver(() => Configuration)
 export class ConfigurationResolverBase {
@@ -65,17 +66,19 @@ export class ConfigurationResolverBase {
       data: {
         ...args.data,
 
-        processConfiguration: args.data.processConfiguration
+        bundle: {
+          connect: args.data.bundle,
+        },
+
+        catalog: args.data.catalog
           ? {
-              connect: args.data.processConfiguration,
+              connect: args.data.catalog,
             }
           : undefined,
 
-        productConfiguration: args.data.productConfiguration
-          ? {
-              connect: args.data.productConfiguration,
-            }
-          : undefined,
+        pipeline: {
+          connect: args.data.pipeline,
+        },
       },
     });
   }
@@ -90,17 +93,19 @@ export class ConfigurationResolverBase {
         data: {
           ...args.data,
 
-          processConfiguration: args.data.processConfiguration
+          bundle: {
+            connect: args.data.bundle,
+          },
+
+          catalog: args.data.catalog
             ? {
-                connect: args.data.processConfiguration,
+                connect: args.data.catalog,
               }
             : undefined,
 
-          productConfiguration: args.data.productConfiguration
-            ? {
-                connect: args.data.productConfiguration,
-              }
-            : undefined,
+          pipeline: {
+            connect: args.data.pipeline,
+          },
         },
       });
     } catch (error) {
@@ -143,14 +148,14 @@ export class ConfigurationResolverBase {
     return results;
   }
 
-  @graphql.ResolveField(() => Pipeline, {
+  @graphql.ResolveField(() => Bundle, {
     nullable: true,
-    name: "processConfiguration",
+    name: "bundle",
   })
-  async getProcessConfiguration(
+  async getBundle(
     @graphql.Parent() parent: Configuration
-  ): Promise<Pipeline | null> {
-    const result = await this.service.getProcessConfiguration(parent.id);
+  ): Promise<Bundle | null> {
+    const result = await this.service.getBundle(parent.id);
 
     if (!result) {
       return null;
@@ -158,14 +163,29 @@ export class ConfigurationResolverBase {
     return result;
   }
 
-  @graphql.ResolveField(() => Bundle, {
+  @graphql.ResolveField(() => Catalog, {
     nullable: true,
-    name: "productConfiguration",
+    name: "catalog",
   })
-  async getProductConfiguration(
+  async getCatalog(
     @graphql.Parent() parent: Configuration
-  ): Promise<Bundle | null> {
-    const result = await this.service.getProductConfiguration(parent.id);
+  ): Promise<Catalog | null> {
+    const result = await this.service.getCatalog(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
+  }
+
+  @graphql.ResolveField(() => Pipeline, {
+    nullable: true,
+    name: "pipeline",
+  })
+  async getPipeline(
+    @graphql.Parent() parent: Configuration
+  ): Promise<Pipeline | null> {
+    const result = await this.service.getPipeline(parent.id);
 
     if (!result) {
       return null;

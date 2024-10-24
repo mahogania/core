@@ -1,7 +1,7 @@
+import { DealWhereUniqueInput } from "../deal/DealWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
-import { OrderWhereUniqueInput } from "../order/OrderWhereUniqueInput";
 
 export type ContractWhereInput = {
+  deal?: DealWhereUniqueInput;
   id?: StringFilter;
-  order?: OrderWhereUniqueInput;
 };

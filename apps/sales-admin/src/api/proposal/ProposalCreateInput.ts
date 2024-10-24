@@ -1,9 +1,9 @@
+import { CustomerWhereUniqueInput } from "../customer/CustomerWhereUniqueInput";
 import { OpportunityWhereUniqueInput } from "../opportunity/OpportunityWhereUniqueInput";
 import { QuoteCreateNestedManyWithoutProposalsInput } from "./QuoteCreateNestedManyWithoutProposalsInput";
-import { ThreatWhereUniqueInput } from "../threat/ThreatWhereUniqueInput";
 
 export type ProposalCreateInput = {
+  customer?: CustomerWhereUniqueInput | null;
   opportunity?: OpportunityWhereUniqueInput | null;
   quotes?: QuoteCreateNestedManyWithoutProposalsInput;
-  threat?: ThreatWhereUniqueInput | null;
 };

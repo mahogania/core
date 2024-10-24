@@ -1,7 +1,7 @@
-import { BusinessWhereUniqueInput } from "../business/BusinessWhereUniqueInput";
-import { ProposalUpdateManyWithoutThreatsInput } from "./ProposalUpdateManyWithoutThreatsInput";
+import { ProcessWhereUniqueInput } from "../process/ProcessWhereUniqueInput";
+import { UnitWhereUniqueInput } from "../unit/UnitWhereUniqueInput";
 
 export type ThreatUpdateInput = {
-  competitor?: BusinessWhereUniqueInput | null;
-  proposals?: ProposalUpdateManyWithoutThreatsInput;
+  process?: ProcessWhereUniqueInput | null;
+  unit?: UnitWhereUniqueInput | null;
 };

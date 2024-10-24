@@ -1,10 +1,10 @@
-import { Business } from "../business/Business";
-import { Proposal } from "../proposal/Proposal";
+import { Process } from "../process/Process";
+import { Unit } from "../unit/Unit";
 
 export type Threat = {
-  competitor?: Business | null;
   createdAt: Date;
   id: string;
-  proposals?: Array<Proposal>;
+  process?: Process | null;
+  unit?: Unit | null;
   updatedAt: Date;
 };

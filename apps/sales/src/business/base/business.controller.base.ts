@@ -25,15 +25,12 @@ import { BusinessUpdateInput } from "./BusinessUpdateInput";
 import { UnitFindManyArgs } from "../../unit/base/UnitFindManyArgs";
 import { Unit } from "../../unit/base/Unit";
 import { UnitWhereUniqueInput } from "../../unit/base/UnitWhereUniqueInput";
-import { OpportunityFindManyArgs } from "../../opportunity/base/OpportunityFindManyArgs";
-import { Opportunity } from "../../opportunity/base/Opportunity";
-import { OpportunityWhereUniqueInput } from "../../opportunity/base/OpportunityWhereUniqueInput";
+import { RelationFindManyArgs } from "../../relation/base/RelationFindManyArgs";
+import { Relation } from "../../relation/base/Relation";
+import { RelationWhereUniqueInput } from "../../relation/base/RelationWhereUniqueInput";
 import { StrengthFindManyArgs } from "../../strength/base/StrengthFindManyArgs";
 import { Strength } from "../../strength/base/Strength";
 import { StrengthWhereUniqueInput } from "../../strength/base/StrengthWhereUniqueInput";
-import { ThreatFindManyArgs } from "../../threat/base/ThreatFindManyArgs";
-import { Threat } from "../../threat/base/Threat";
-import { ThreatWhereUniqueInput } from "../../threat/base/ThreatWhereUniqueInput";
 import { WeaknessFindManyArgs } from "../../weakness/base/WeaknessFindManyArgs";
 import { Weakness } from "../../weakness/base/Weakness";
 import { WeaknessWhereUniqueInput } from "../../weakness/base/WeaknessWhereUniqueInput";
@@ -49,11 +46,39 @@ export class BusinessControllerBase {
     @common.Body() data: BusinessCreateInput
   ): Promise<Business> {
     return await this.service.createBusiness({
-      data: data,
+      data: {
+        ...data,
+
+        industry: data.industry
+          ? {
+              connect: data.industry,
+            }
+          : undefined,
+
+        succesorRelations: data.succesorRelations
+          ? {
+              connect: data.succesorRelations,
+            }
+          : undefined,
+      },
       select: {
         createdAt: true,
         id: true,
+
+        industry: {
+          select: {
+            id: true,
+          },
+        },
+
         name: true,
+
+        succesorRelations: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -69,7 +94,21 @@ export class BusinessControllerBase {
       select: {
         createdAt: true,
         id: true,
+
+        industry: {
+          select: {
+            id: true,
+          },
+        },
+
         name: true,
+
+        succesorRelations: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -86,7 +125,21 @@ export class BusinessControllerBase {
       select: {
         createdAt: true,
         id: true,
+
+        industry: {
+          select: {
+            id: true,
+          },
+        },
+
         name: true,
+
+        succesorRelations: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -111,11 +164,39 @@ export class BusinessControllerBase {
     try {
       return await this.service.updateBusiness({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          industry: data.industry
+            ? {
+                connect: data.industry,
+              }
+            : undefined,
+
+          succesorRelations: data.succesorRelations
+            ? {
+                connect: data.succesorRelations,
+              }
+            : undefined,
+        },
         select: {
           createdAt: true,
           id: true,
+
+          industry: {
+            select: {
+              id: true,
+            },
+          },
+
           name: true,
+
+          succesorRelations: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });
@@ -141,7 +222,21 @@ export class BusinessControllerBase {
         select: {
           createdAt: true,
           id: true,
+
+          industry: {
+            select: {
+              id: true,
+            },
+          },
+
           name: true,
+
+          succesorRelations: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });
@@ -241,24 +336,39 @@ export class BusinessControllerBase {
     });
   }
 
-  @common.Get("/:id/opportunities")
-  @ApiNestedQuery(OpportunityFindManyArgs)
-  async findOpportunities(
+  @common.Get("/:id/predecessorRelations")
+  @ApiNestedQuery(RelationFindManyArgs)
+  async findPredecessorRelations(
     @common.Req() request: Request,
     @common.Param() params: BusinessWhereUniqueInput
-  ): Promise<Opportunity[]> {
-    const query = plainToClass(OpportunityFindManyArgs, request.query);
-    const results = await this.service.findOpportunities(params.id, {
+  ): Promise<Relation[]> {
+    const query = plainToClass(RelationFindManyArgs, request.query);
+    const results = await this.service.findPredecessorRelations(params.id, {
       ...query,
       select: {
-        contact: {
+        ascendantBusiness: {
           select: {
             id: true,
           },
         },
 
         createdAt: true,
+
+        descendantBusiness: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
+
+        industry: {
+          select: {
+            id: true,
+          },
+        },
+
+        kind: true,
         updatedAt: true,
       },
     });
@@ -270,13 +380,13 @@ export class BusinessControllerBase {
     return results;
   }
 
-  @common.Post("/:id/opportunities")
-  async connectOpportunities(
+  @common.Post("/:id/predecessorRelations")
+  async connectPredecessorRelations(
     @common.Param() params: BusinessWhereUniqueInput,
-    @common.Body() body: OpportunityWhereUniqueInput[]
+    @common.Body() body: RelationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      opportunities: {
+      predecessorRelations: {
         connect: body,
       },
     };
@@ -287,13 +397,13 @@ export class BusinessControllerBase {
     });
   }
 
-  @common.Patch("/:id/opportunities")
-  async updateOpportunities(
+  @common.Patch("/:id/predecessorRelations")
+  async updatePredecessorRelations(
     @common.Param() params: BusinessWhereUniqueInput,
-    @common.Body() body: OpportunityWhereUniqueInput[]
+    @common.Body() body: RelationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      opportunities: {
+      predecessorRelations: {
         set: body,
       },
     };
@@ -304,13 +414,13 @@ export class BusinessControllerBase {
     });
   }
 
-  @common.Delete("/:id/opportunities")
-  async disconnectOpportunities(
+  @common.Delete("/:id/predecessorRelations")
+  async disconnectPredecessorRelations(
     @common.Param() params: BusinessWhereUniqueInput,
-    @common.Body() body: OpportunityWhereUniqueInput[]
+    @common.Body() body: RelationWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      opportunities: {
+      predecessorRelations: {
         disconnect: body,
       },
     };
@@ -391,86 +501,6 @@ export class BusinessControllerBase {
   ): Promise<void> {
     const data = {
       strengths: {
-        disconnect: body,
-      },
-    };
-    await this.service.updateBusiness({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Get("/:id/threats")
-  @ApiNestedQuery(ThreatFindManyArgs)
-  async findThreats(
-    @common.Req() request: Request,
-    @common.Param() params: BusinessWhereUniqueInput
-  ): Promise<Threat[]> {
-    const query = plainToClass(ThreatFindManyArgs, request.query);
-    const results = await this.service.findThreats(params.id, {
-      ...query,
-      select: {
-        competitor: {
-          select: {
-            id: true,
-          },
-        },
-
-        createdAt: true,
-        id: true,
-        updatedAt: true,
-      },
-    });
-    if (results === null) {
-      throw new errors.NotFoundException(
-        `No resource was found for ${JSON.stringify(params)}`
-      );
-    }
-    return results;
-  }
-
-  @common.Post("/:id/threats")
-  async connectThreats(
-    @common.Param() params: BusinessWhereUniqueInput,
-    @common.Body() body: ThreatWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      threats: {
-        connect: body,
-      },
-    };
-    await this.service.updateBusiness({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Patch("/:id/threats")
-  async updateThreats(
-    @common.Param() params: BusinessWhereUniqueInput,
-    @common.Body() body: ThreatWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      threats: {
-        set: body,
-      },
-    };
-    await this.service.updateBusiness({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Delete("/:id/threats")
-  async disconnectThreats(
-    @common.Param() params: BusinessWhereUniqueInput,
-    @common.Body() body: ThreatWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      threats: {
         disconnect: body,
       },
     };

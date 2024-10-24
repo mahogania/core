@@ -37,9 +37,24 @@ export class AddressGrpcControllerBase {
     @common.Body() data: AddressCreateInput
   ): Promise<Address> {
     return await this.service.createAddress({
-      data: data,
+      data: {
+        ...data,
+
+        customer: data.customer
+          ? {
+              connect: data.customer,
+            }
+          : undefined,
+      },
       select: {
         createdAt: true,
+
+        customer: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
         updatedAt: true,
       },
@@ -56,6 +71,13 @@ export class AddressGrpcControllerBase {
       ...args,
       select: {
         createdAt: true,
+
+        customer: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
         updatedAt: true,
       },
@@ -73,6 +95,13 @@ export class AddressGrpcControllerBase {
       where: params,
       select: {
         createdAt: true,
+
+        customer: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
         updatedAt: true,
       },
@@ -96,9 +125,24 @@ export class AddressGrpcControllerBase {
     try {
       return await this.service.updateAddress({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          customer: data.customer
+            ? {
+                connect: data.customer,
+              }
+            : undefined,
+        },
         select: {
           createdAt: true,
+
+          customer: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
           updatedAt: true,
         },
@@ -125,6 +169,13 @@ export class AddressGrpcControllerBase {
         where: params,
         select: {
           createdAt: true,
+
+          customer: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
           updatedAt: true,
         },

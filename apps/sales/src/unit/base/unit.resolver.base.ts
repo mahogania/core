@@ -20,6 +20,14 @@ import { UnitFindUniqueArgs } from "./UnitFindUniqueArgs";
 import { CreateUnitArgs } from "./CreateUnitArgs";
 import { UpdateUnitArgs } from "./UpdateUnitArgs";
 import { DeleteUnitArgs } from "./DeleteUnitArgs";
+import { CatalogFindManyArgs } from "../../catalog/base/CatalogFindManyArgs";
+import { Catalog } from "../../catalog/base/Catalog";
+import { DealFindManyArgs } from "../../deal/base/DealFindManyArgs";
+import { Deal } from "../../deal/base/Deal";
+import { OpportunityFindManyArgs } from "../../opportunity/base/OpportunityFindManyArgs";
+import { Opportunity } from "../../opportunity/base/Opportunity";
+import { ThreatFindManyArgs } from "../../threat/base/ThreatFindManyArgs";
+import { Threat } from "../../threat/base/Threat";
 import { Address } from "../../address/base/Address";
 import { Business } from "../../business/base/Business";
 import { UnitService } from "../unit.service";
@@ -115,6 +123,62 @@ export class UnitResolverBase {
       }
       throw error;
     }
+  }
+
+  @graphql.ResolveField(() => [Catalog], { name: "catalogs" })
+  async findCatalogs(
+    @graphql.Parent() parent: Unit,
+    @graphql.Args() args: CatalogFindManyArgs
+  ): Promise<Catalog[]> {
+    const results = await this.service.findCatalogs(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @graphql.ResolveField(() => [Deal], { name: "deals" })
+  async findDeals(
+    @graphql.Parent() parent: Unit,
+    @graphql.Args() args: DealFindManyArgs
+  ): Promise<Deal[]> {
+    const results = await this.service.findDeals(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @graphql.ResolveField(() => [Opportunity], { name: "opportunities" })
+  async findOpportunities(
+    @graphql.Parent() parent: Unit,
+    @graphql.Args() args: OpportunityFindManyArgs
+  ): Promise<Opportunity[]> {
+    const results = await this.service.findOpportunities(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @graphql.ResolveField(() => [Threat], { name: "threats" })
+  async findThreats(
+    @graphql.Parent() parent: Unit,
+    @graphql.Args() args: ThreatFindManyArgs
+  ): Promise<Threat[]> {
+    const results = await this.service.findThreats(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
   }
 
   @graphql.ResolveField(() => Address, {

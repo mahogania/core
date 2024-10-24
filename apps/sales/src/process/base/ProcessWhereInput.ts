@@ -17,6 +17,7 @@ import { Type } from "class-transformer";
 import { Pipeline } from "../../pipeline/base/Pipeline";
 import { FormListRelationFilter } from "../../form/base/FormListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { ThreatListRelationFilter } from "../../threat/base/ThreatListRelationFilter";
 
 @InputType()
 class ProcessWhereInput {
@@ -54,6 +55,18 @@ class ProcessWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => ThreatListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => ThreatListRelationFilter)
+  @IsOptional()
+  @Field(() => ThreatListRelationFilter, {
+    nullable: true,
+  })
+  threats?: ThreatListRelationFilter;
 }
 
 export { ProcessWhereInput as ProcessWhereInput };

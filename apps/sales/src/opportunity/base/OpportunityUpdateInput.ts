@@ -11,51 +11,13 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { BusinessUpdateManyWithoutOpportunitiesInput } from "./BusinessUpdateManyWithoutOpportunitiesInput";
+import { ProposalUpdateManyWithoutOpportunitiesInput } from "./ProposalUpdateManyWithoutOpportunitiesInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { ContactWhereUniqueInput } from "../../contact/base/ContactWhereUniqueInput";
-import { OrderUpdateManyWithoutOpportunitiesInput } from "./OrderUpdateManyWithoutOpportunitiesInput";
-import { ProposalUpdateManyWithoutOpportunitiesInput } from "./ProposalUpdateManyWithoutOpportunitiesInput";
+import { UnitWhereUniqueInput } from "../../unit/base/UnitWhereUniqueInput";
 
 @InputType()
 class OpportunityUpdateInput {
-  @ApiProperty({
-    required: false,
-    type: () => BusinessUpdateManyWithoutOpportunitiesInput,
-  })
-  @ValidateNested()
-  @Type(() => BusinessUpdateManyWithoutOpportunitiesInput)
-  @IsOptional()
-  @Field(() => BusinessUpdateManyWithoutOpportunitiesInput, {
-    nullable: true,
-  })
-  competitor?: BusinessUpdateManyWithoutOpportunitiesInput;
-
-  @ApiProperty({
-    required: false,
-    type: () => ContactWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ContactWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ContactWhereUniqueInput, {
-    nullable: true,
-  })
-  contact?: ContactWhereUniqueInput | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => OrderUpdateManyWithoutOpportunitiesInput,
-  })
-  @ValidateNested()
-  @Type(() => OrderUpdateManyWithoutOpportunitiesInput)
-  @IsOptional()
-  @Field(() => OrderUpdateManyWithoutOpportunitiesInput, {
-    nullable: true,
-  })
-  orders?: OrderUpdateManyWithoutOpportunitiesInput;
-
   @ApiProperty({
     required: false,
     type: () => ProposalUpdateManyWithoutOpportunitiesInput,
@@ -67,6 +29,18 @@ class OpportunityUpdateInput {
     nullable: true,
   })
   proposals?: ProposalUpdateManyWithoutOpportunitiesInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => UnitWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => UnitWhereUniqueInput)
+  @IsOptional()
+  @Field(() => UnitWhereUniqueInput, {
+    nullable: true,
+  })
+  unit?: UnitWhereUniqueInput | null;
 }
 
 export { OpportunityUpdateInput as OpportunityUpdateInput };

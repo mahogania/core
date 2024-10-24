@@ -22,8 +22,8 @@ import { UpdateProposalArgs } from "./UpdateProposalArgs";
 import { DeleteProposalArgs } from "./DeleteProposalArgs";
 import { QuoteFindManyArgs } from "../../quote/base/QuoteFindManyArgs";
 import { Quote } from "../../quote/base/Quote";
+import { Customer } from "../../customer/base/Customer";
 import { Opportunity } from "../../opportunity/base/Opportunity";
-import { Threat } from "../../threat/base/Threat";
 import { ProposalService } from "../proposal.service";
 @graphql.Resolver(() => Proposal)
 export class ProposalResolverBase {
@@ -65,15 +65,15 @@ export class ProposalResolverBase {
       data: {
         ...args.data,
 
-        opportunity: args.data.opportunity
+        customer: args.data.customer
           ? {
-              connect: args.data.opportunity,
+              connect: args.data.customer,
             }
           : undefined,
 
-        threat: args.data.threat
+        opportunity: args.data.opportunity
           ? {
-              connect: args.data.threat,
+              connect: args.data.opportunity,
             }
           : undefined,
       },
@@ -90,15 +90,15 @@ export class ProposalResolverBase {
         data: {
           ...args.data,
 
-          opportunity: args.data.opportunity
+          customer: args.data.customer
             ? {
-                connect: args.data.opportunity,
+                connect: args.data.customer,
               }
             : undefined,
 
-          threat: args.data.threat
+          opportunity: args.data.opportunity
             ? {
-                connect: args.data.threat,
+                connect: args.data.opportunity,
               }
             : undefined,
         },
@@ -143,6 +143,21 @@ export class ProposalResolverBase {
     return results;
   }
 
+  @graphql.ResolveField(() => Customer, {
+    nullable: true,
+    name: "customer",
+  })
+  async getCustomer(
+    @graphql.Parent() parent: Proposal
+  ): Promise<Customer | null> {
+    const result = await this.service.getCustomer(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
+  }
+
   @graphql.ResolveField(() => Opportunity, {
     nullable: true,
     name: "opportunity",
@@ -151,19 +166,6 @@ export class ProposalResolverBase {
     @graphql.Parent() parent: Proposal
   ): Promise<Opportunity | null> {
     const result = await this.service.getOpportunity(parent.id);
-
-    if (!result) {
-      return null;
-    }
-    return result;
-  }
-
-  @graphql.ResolveField(() => Threat, {
-    nullable: true,
-    name: "threat",
-  })
-  async getThreat(@graphql.Parent() parent: Proposal): Promise<Threat | null> {
-    const result = await this.service.getThreat(parent.id);
 
     if (!result) {
       return null;

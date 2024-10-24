@@ -22,12 +22,6 @@ import { Order } from "./Order";
 import { OrderFindManyArgs } from "./OrderFindManyArgs";
 import { OrderWhereUniqueInput } from "./OrderWhereUniqueInput";
 import { OrderUpdateInput } from "./OrderUpdateInput";
-import { ContractFindManyArgs } from "../../contract/base/ContractFindManyArgs";
-import { Contract } from "../../contract/base/Contract";
-import { ContractWhereUniqueInput } from "../../contract/base/ContractWhereUniqueInput";
-import { InvoiceFindManyArgs } from "../../invoice/base/InvoiceFindManyArgs";
-import { Invoice } from "../../invoice/base/Invoice";
-import { InvoiceWhereUniqueInput } from "../../invoice/base/InvoiceWhereUniqueInput";
 
 export class OrderControllerBase {
   constructor(protected readonly service: OrderService) {}
@@ -41,22 +35,22 @@ export class OrderControllerBase {
       data: {
         ...data,
 
-        opportunity: data.opportunity
+        deal: data.deal
           ? {
-              connect: data.opportunity,
+              connect: data.deal,
             }
           : undefined,
       },
       select: {
         createdAt: true,
-        id: true,
 
-        opportunity: {
+        deal: {
           select: {
             id: true,
           },
         },
 
+        id: true,
         updatedAt: true,
       },
     });
@@ -71,14 +65,14 @@ export class OrderControllerBase {
       ...args,
       select: {
         createdAt: true,
-        id: true,
 
-        opportunity: {
+        deal: {
           select: {
             id: true,
           },
         },
 
+        id: true,
         updatedAt: true,
       },
     });
@@ -94,14 +88,14 @@ export class OrderControllerBase {
       where: params,
       select: {
         createdAt: true,
-        id: true,
 
-        opportunity: {
+        deal: {
           select: {
             id: true,
           },
         },
 
+        id: true,
         updatedAt: true,
       },
     });
@@ -129,22 +123,22 @@ export class OrderControllerBase {
         data: {
           ...data,
 
-          opportunity: data.opportunity
+          deal: data.deal
             ? {
-                connect: data.opportunity,
+                connect: data.deal,
               }
             : undefined,
         },
         select: {
           createdAt: true,
-          id: true,
 
-          opportunity: {
+          deal: {
             select: {
               id: true,
             },
           },
 
+          id: true,
           updatedAt: true,
         },
       });
@@ -169,14 +163,14 @@ export class OrderControllerBase {
         where: params,
         select: {
           createdAt: true,
-          id: true,
 
-          opportunity: {
+          deal: {
             select: {
               id: true,
             },
           },
 
+          id: true,
           updatedAt: true,
         },
       });
@@ -188,167 +182,5 @@ export class OrderControllerBase {
       }
       throw error;
     }
-  }
-
-  @common.Get("/:id/contracts")
-  @ApiNestedQuery(ContractFindManyArgs)
-  async findContracts(
-    @common.Req() request: Request,
-    @common.Param() params: OrderWhereUniqueInput
-  ): Promise<Contract[]> {
-    const query = plainToClass(ContractFindManyArgs, request.query);
-    const results = await this.service.findContracts(params.id, {
-      ...query,
-      select: {
-        createdAt: true,
-        id: true,
-
-        order: {
-          select: {
-            id: true,
-          },
-        },
-
-        updatedAt: true,
-      },
-    });
-    if (results === null) {
-      throw new errors.NotFoundException(
-        `No resource was found for ${JSON.stringify(params)}`
-      );
-    }
-    return results;
-  }
-
-  @common.Post("/:id/contracts")
-  async connectContracts(
-    @common.Param() params: OrderWhereUniqueInput,
-    @common.Body() body: ContractWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      contracts: {
-        connect: body,
-      },
-    };
-    await this.service.updateOrder({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Patch("/:id/contracts")
-  async updateContracts(
-    @common.Param() params: OrderWhereUniqueInput,
-    @common.Body() body: ContractWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      contracts: {
-        set: body,
-      },
-    };
-    await this.service.updateOrder({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Delete("/:id/contracts")
-  async disconnectContracts(
-    @common.Param() params: OrderWhereUniqueInput,
-    @common.Body() body: ContractWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      contracts: {
-        disconnect: body,
-      },
-    };
-    await this.service.updateOrder({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Get("/:id/invoices")
-  @ApiNestedQuery(InvoiceFindManyArgs)
-  async findInvoices(
-    @common.Req() request: Request,
-    @common.Param() params: OrderWhereUniqueInput
-  ): Promise<Invoice[]> {
-    const query = plainToClass(InvoiceFindManyArgs, request.query);
-    const results = await this.service.findInvoices(params.id, {
-      ...query,
-      select: {
-        createdAt: true,
-        id: true,
-
-        order: {
-          select: {
-            id: true,
-          },
-        },
-
-        updatedAt: true,
-      },
-    });
-    if (results === null) {
-      throw new errors.NotFoundException(
-        `No resource was found for ${JSON.stringify(params)}`
-      );
-    }
-    return results;
-  }
-
-  @common.Post("/:id/invoices")
-  async connectInvoices(
-    @common.Param() params: OrderWhereUniqueInput,
-    @common.Body() body: InvoiceWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      invoices: {
-        connect: body,
-      },
-    };
-    await this.service.updateOrder({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Patch("/:id/invoices")
-  async updateInvoices(
-    @common.Param() params: OrderWhereUniqueInput,
-    @common.Body() body: InvoiceWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      invoices: {
-        set: body,
-      },
-    };
-    await this.service.updateOrder({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Delete("/:id/invoices")
-  async disconnectInvoices(
-    @common.Param() params: OrderWhereUniqueInput,
-    @common.Body() body: InvoiceWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      invoices: {
-        disconnect: body,
-      },
-    };
-    await this.service.updateOrder({
-      where: params,
-      data,
-      select: { id: true },
-    });
   }
 }

@@ -11,26 +11,24 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { ContractListRelationFilter } from "../../contract/base/ContractListRelationFilter";
+import { DealWhereUniqueInput } from "../../deal/base/DealWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 import { StringFilter } from "../../util/StringFilter";
-import { InvoiceListRelationFilter } from "../../invoice/base/InvoiceListRelationFilter";
-import { OpportunityWhereUniqueInput } from "../../opportunity/base/OpportunityWhereUniqueInput";
 
 @InputType()
 class OrderWhereInput {
   @ApiProperty({
     required: false,
-    type: () => ContractListRelationFilter,
+    type: () => DealWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => ContractListRelationFilter)
+  @Type(() => DealWhereUniqueInput)
   @IsOptional()
-  @Field(() => ContractListRelationFilter, {
+  @Field(() => DealWhereUniqueInput, {
     nullable: true,
   })
-  contracts?: ContractListRelationFilter;
+  deal?: DealWhereUniqueInput;
 
   @ApiProperty({
     required: false,
@@ -42,30 +40,6 @@ class OrderWhereInput {
     nullable: true,
   })
   id?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => InvoiceListRelationFilter,
-  })
-  @ValidateNested()
-  @Type(() => InvoiceListRelationFilter)
-  @IsOptional()
-  @Field(() => InvoiceListRelationFilter, {
-    nullable: true,
-  })
-  invoices?: InvoiceListRelationFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => OpportunityWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => OpportunityWhereUniqueInput)
-  @IsOptional()
-  @Field(() => OpportunityWhereUniqueInput, {
-    nullable: true,
-  })
-  opportunity?: OpportunityWhereUniqueInput;
 }
 
 export { OrderWhereInput as OrderWhereInput };

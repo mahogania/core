@@ -6,72 +6,28 @@ service OrderService {
 rpc orders (findManyParams) returns (stream Order) {}
 rpc order (OrderWhereUniqueInput) returns (Order) {}
 rpc updateOrder (OrderUpdateInput) returns (Order) {}
-rpc deleteOrder (OrderWhereUniqueInput) returns (Order) {}
-rpc findManyOrder (OrderWhereUniqueInput) returns (stream Contract) {}
-rpc updateOrder (ContractParams) returns (stream Contract) {}
-rpc connectOrder (ContractParams) returns (Contract) {}
-rpc disconnectOrder (ContractParams) returns (Contract) {}
-rpc findManyOrder (OrderWhereUniqueInput) returns (stream Invoice) {}
-rpc updateOrder (InvoiceParams) returns (stream Invoice) {}
-rpc connectOrder (InvoiceParams) returns (Invoice) {}
-rpc disconnectOrder (InvoiceParams) returns (Invoice) {} 
+rpc deleteOrder (OrderWhereUniqueInput) returns (Order) {} 
  }
 message OrderCreateInput {
-repeated Contract contracts = 1;
-string createdAt = 2;
-string id = 3;
-repeated Invoice invoices = 4;
-string updatedAt = 5;
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
 };
 message Order {
-repeated Contract contracts = 1;
-string createdAt = 2;
-string id = 3;
-repeated Invoice invoices = 4;
-string updatedAt = 5;
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
 };
 message OrderWhereUniqueInput {
-repeated Contract contracts = 1;
-string createdAt = 2;
-string id = 3;
-repeated Invoice invoices = 4;
-string updatedAt = 5;
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
 };
 message OrderUpdateInput {
-repeated Contract contracts = 1;
-string createdAt = 2;
-string id = 3;
-repeated Invoice invoices = 4;
-string updatedAt = 5;
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
 };
 message findManyParams {
 
-};
-message Contract {
-string createdAt = 1;
-string id = 2;
-string updatedAt = 3;
-};
-message ContractWhereUniqueInput {
-string createdAt = 1;
-string id = 2;
-string updatedAt = 3;
-};
-message ContractParams {
-OrderWhereUniqueInput orderWhereUniqueInput = 1;
-ContractWhereUniqueInput contractWhereUniqueInput = 2;
-};
-message Invoice {
-string createdAt = 1;
-string id = 2;
-string updatedAt = 3;
-};
-message InvoiceWhereUniqueInput {
-string createdAt = 1;
-string id = 2;
-string updatedAt = 3;
-};
-message InvoiceParams {
-OrderWhereUniqueInput orderWhereUniqueInput = 1;
-InvoiceWhereUniqueInput invoiceWhereUniqueInput = 2;
 };

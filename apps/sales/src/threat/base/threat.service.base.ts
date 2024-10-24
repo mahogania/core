@@ -14,8 +14,8 @@ import { PrismaService } from "../../prisma/prisma.service";
 import {
   Prisma,
   Threat as PrismaThreat,
-  Proposal as PrismaProposal,
-  Business as PrismaBusiness,
+  Process as PrismaProcess,
+  Unit as PrismaUnit,
 } from "@prisma/client";
 
 export class ThreatServiceBase {
@@ -43,22 +43,19 @@ export class ThreatServiceBase {
     return this.prisma.threat.delete(args);
   }
 
-  async findProposals(
-    parentId: string,
-    args: Prisma.ProposalFindManyArgs
-  ): Promise<PrismaProposal[]> {
-    return this.prisma.threat
-      .findUniqueOrThrow({
-        where: { id: parentId },
-      })
-      .proposals(args);
-  }
-
-  async getCompetitor(parentId: string): Promise<PrismaBusiness | null> {
+  async getProcess(parentId: string): Promise<PrismaProcess | null> {
     return this.prisma.threat
       .findUnique({
         where: { id: parentId },
       })
-      .competitor();
+      .process();
+  }
+
+  async getUnit(parentId: string): Promise<PrismaUnit | null> {
+    return this.prisma.threat
+      .findUnique({
+        where: { id: parentId },
+      })
+      .unit();
   }
 }

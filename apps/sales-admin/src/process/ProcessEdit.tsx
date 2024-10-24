@@ -12,6 +12,7 @@ import {
 
 import { PipelineTitle } from "../pipeline/PipelineTitle";
 import { FormTitle } from "../form/FormTitle";
+import { ThreatTitle } from "../threat/ThreatTitle";
 
 export const ProcessEdit = (props: EditProps): React.ReactElement => {
   return (
@@ -27,6 +28,13 @@ export const ProcessEdit = (props: EditProps): React.ReactElement => {
         <ReferenceArrayInput source="forms" reference="Form">
           <SelectArrayInput
             optionText={FormTitle}
+            parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+            format={(value: any) => value && value.map((v: any) => v.id)}
+          />
+        </ReferenceArrayInput>
+        <ReferenceArrayInput source="threats" reference="Threat">
+          <SelectArrayInput
+            optionText={ThreatTitle}
             parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
             format={(value: any) => value && value.map((v: any) => v.id)}
           />

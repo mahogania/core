@@ -40,29 +40,30 @@ export class ProposalControllerBase {
       data: {
         ...data,
 
+        customer: data.customer
+          ? {
+              connect: data.customer,
+            }
+          : undefined,
+
         opportunity: data.opportunity
           ? {
               connect: data.opportunity,
             }
           : undefined,
-
-        threat: data.threat
-          ? {
-              connect: data.threat,
-            }
-          : undefined,
       },
       select: {
         createdAt: true,
-        id: true,
 
-        opportunity: {
+        customer: {
           select: {
             id: true,
           },
         },
 
-        threat: {
+        id: true,
+
+        opportunity: {
           select: {
             id: true,
           },
@@ -82,15 +83,16 @@ export class ProposalControllerBase {
       ...args,
       select: {
         createdAt: true,
-        id: true,
 
-        opportunity: {
+        customer: {
           select: {
             id: true,
           },
         },
 
-        threat: {
+        id: true,
+
+        opportunity: {
           select: {
             id: true,
           },
@@ -111,15 +113,16 @@ export class ProposalControllerBase {
       where: params,
       select: {
         createdAt: true,
-        id: true,
 
-        opportunity: {
+        customer: {
           select: {
             id: true,
           },
         },
 
-        threat: {
+        id: true,
+
+        opportunity: {
           select: {
             id: true,
           },
@@ -152,29 +155,30 @@ export class ProposalControllerBase {
         data: {
           ...data,
 
+          customer: data.customer
+            ? {
+                connect: data.customer,
+              }
+            : undefined,
+
           opportunity: data.opportunity
             ? {
                 connect: data.opportunity,
               }
             : undefined,
-
-          threat: data.threat
-            ? {
-                connect: data.threat,
-              }
-            : undefined,
         },
         select: {
           createdAt: true,
-          id: true,
 
-          opportunity: {
+          customer: {
             select: {
               id: true,
             },
           },
 
-          threat: {
+          id: true,
+
+          opportunity: {
             select: {
               id: true,
             },
@@ -204,15 +208,16 @@ export class ProposalControllerBase {
         where: params,
         select: {
           createdAt: true,
-          id: true,
 
-          opportunity: {
+          customer: {
             select: {
               id: true,
             },
           },
 
-          threat: {
+          id: true,
+
+          opportunity: {
             select: {
               id: true,
             },

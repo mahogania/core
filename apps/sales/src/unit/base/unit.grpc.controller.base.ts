@@ -24,6 +24,18 @@ import { UnitWhereUniqueInput } from "./UnitWhereUniqueInput";
 import { UnitFindManyArgs } from "./UnitFindManyArgs";
 import { UnitUpdateInput } from "./UnitUpdateInput";
 import { Unit } from "./Unit";
+import { CatalogFindManyArgs } from "../../catalog/base/CatalogFindManyArgs";
+import { Catalog } from "../../catalog/base/Catalog";
+import { CatalogWhereUniqueInput } from "../../catalog/base/CatalogWhereUniqueInput";
+import { DealFindManyArgs } from "../../deal/base/DealFindManyArgs";
+import { Deal } from "../../deal/base/Deal";
+import { DealWhereUniqueInput } from "../../deal/base/DealWhereUniqueInput";
+import { OpportunityFindManyArgs } from "../../opportunity/base/OpportunityFindManyArgs";
+import { Opportunity } from "../../opportunity/base/Opportunity";
+import { OpportunityWhereUniqueInput } from "../../opportunity/base/OpportunityWhereUniqueInput";
+import { ThreatFindManyArgs } from "../../threat/base/ThreatFindManyArgs";
+import { Threat } from "../../threat/base/Threat";
+import { ThreatWhereUniqueInput } from "../../threat/base/ThreatWhereUniqueInput";
 
 export class UnitGrpcControllerBase {
   constructor(protected readonly service: UnitService) {}
@@ -220,5 +232,354 @@ export class UnitGrpcControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Get("/:id/catalogs")
+  @ApiNestedQuery(CatalogFindManyArgs)
+  @GrpcMethod("UnitService", "findManyCatalogs")
+  async findManyCatalogs(
+    @common.Req() request: Request,
+    @common.Param() params: UnitWhereUniqueInput
+  ): Promise<Catalog[]> {
+    const query = plainToClass(CatalogFindManyArgs, request.query);
+    const results = await this.service.findCatalogs(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        description: true,
+        displayName: true,
+        id: true,
+        name: true,
+
+        unit: {
+          select: {
+            id: true,
+          },
+        },
+
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/catalogs")
+  @GrpcMethod("UnitService", "connectCatalogs")
+  async connectCatalogs(
+    @common.Param() params: UnitWhereUniqueInput,
+    @common.Body() body: CatalogWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      catalogs: {
+        connect: body,
+      },
+    };
+    await this.service.updateUnit({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/catalogs")
+  @GrpcMethod("UnitService", "updateCatalogs")
+  async updateCatalogs(
+    @common.Param() params: UnitWhereUniqueInput,
+    @common.Body() body: CatalogWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      catalogs: {
+        set: body,
+      },
+    };
+    await this.service.updateUnit({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/catalogs")
+  @GrpcMethod("UnitService", "disconnectCatalogs")
+  async disconnectCatalogs(
+    @common.Param() params: UnitWhereUniqueInput,
+    @common.Body() body: CatalogWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      catalogs: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateUnit({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Get("/:id/deals")
+  @ApiNestedQuery(DealFindManyArgs)
+  @GrpcMethod("UnitService", "findManyDeals")
+  async findManyDeals(
+    @common.Req() request: Request,
+    @common.Param() params: UnitWhereUniqueInput
+  ): Promise<Deal[]> {
+    const query = plainToClass(DealFindManyArgs, request.query);
+    const results = await this.service.findDeals(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+
+        unit: {
+          select: {
+            id: true,
+          },
+        },
+
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/deals")
+  @GrpcMethod("UnitService", "connectDeals")
+  async connectDeals(
+    @common.Param() params: UnitWhereUniqueInput,
+    @common.Body() body: DealWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      deals: {
+        connect: body,
+      },
+    };
+    await this.service.updateUnit({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/deals")
+  @GrpcMethod("UnitService", "updateDeals")
+  async updateDeals(
+    @common.Param() params: UnitWhereUniqueInput,
+    @common.Body() body: DealWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      deals: {
+        set: body,
+      },
+    };
+    await this.service.updateUnit({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/deals")
+  @GrpcMethod("UnitService", "disconnectDeals")
+  async disconnectDeals(
+    @common.Param() params: UnitWhereUniqueInput,
+    @common.Body() body: DealWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      deals: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateUnit({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Get("/:id/opportunities")
+  @ApiNestedQuery(OpportunityFindManyArgs)
+  @GrpcMethod("UnitService", "findManyOpportunities")
+  async findManyOpportunities(
+    @common.Req() request: Request,
+    @common.Param() params: UnitWhereUniqueInput
+  ): Promise<Opportunity[]> {
+    const query = plainToClass(OpportunityFindManyArgs, request.query);
+    const results = await this.service.findOpportunities(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+
+        unit: {
+          select: {
+            id: true,
+          },
+        },
+
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/opportunities")
+  @GrpcMethod("UnitService", "connectOpportunities")
+  async connectOpportunities(
+    @common.Param() params: UnitWhereUniqueInput,
+    @common.Body() body: OpportunityWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      opportunities: {
+        connect: body,
+      },
+    };
+    await this.service.updateUnit({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/opportunities")
+  @GrpcMethod("UnitService", "updateOpportunities")
+  async updateOpportunities(
+    @common.Param() params: UnitWhereUniqueInput,
+    @common.Body() body: OpportunityWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      opportunities: {
+        set: body,
+      },
+    };
+    await this.service.updateUnit({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/opportunities")
+  @GrpcMethod("UnitService", "disconnectOpportunities")
+  async disconnectOpportunities(
+    @common.Param() params: UnitWhereUniqueInput,
+    @common.Body() body: OpportunityWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      opportunities: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateUnit({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Get("/:id/threats")
+  @ApiNestedQuery(ThreatFindManyArgs)
+  @GrpcMethod("UnitService", "findManyThreats")
+  async findManyThreats(
+    @common.Req() request: Request,
+    @common.Param() params: UnitWhereUniqueInput
+  ): Promise<Threat[]> {
+    const query = plainToClass(ThreatFindManyArgs, request.query);
+    const results = await this.service.findThreats(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+
+        process: {
+          select: {
+            id: true,
+          },
+        },
+
+        unit: {
+          select: {
+            id: true,
+          },
+        },
+
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/threats")
+  @GrpcMethod("UnitService", "connectThreats")
+  async connectThreats(
+    @common.Param() params: UnitWhereUniqueInput,
+    @common.Body() body: ThreatWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      threats: {
+        connect: body,
+      },
+    };
+    await this.service.updateUnit({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/threats")
+  @GrpcMethod("UnitService", "updateThreats")
+  async updateThreats(
+    @common.Param() params: UnitWhereUniqueInput,
+    @common.Body() body: ThreatWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      threats: {
+        set: body,
+      },
+    };
+    await this.service.updateUnit({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/threats")
+  @GrpcMethod("UnitService", "disconnectThreats")
+  async disconnectThreats(
+    @common.Param() params: UnitWhereUniqueInput,
+    @common.Body() body: ThreatWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      threats: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateUnit({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

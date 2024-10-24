@@ -20,13 +20,9 @@ import { OpportunityFindUniqueArgs } from "./OpportunityFindUniqueArgs";
 import { CreateOpportunityArgs } from "./CreateOpportunityArgs";
 import { UpdateOpportunityArgs } from "./UpdateOpportunityArgs";
 import { DeleteOpportunityArgs } from "./DeleteOpportunityArgs";
-import { BusinessFindManyArgs } from "../../business/base/BusinessFindManyArgs";
-import { Business } from "../../business/base/Business";
-import { OrderFindManyArgs } from "../../order/base/OrderFindManyArgs";
-import { Order } from "../../order/base/Order";
 import { ProposalFindManyArgs } from "../../proposal/base/ProposalFindManyArgs";
 import { Proposal } from "../../proposal/base/Proposal";
-import { Contact } from "../../contact/base/Contact";
+import { Unit } from "../../unit/base/Unit";
 import { OpportunityService } from "../opportunity.service";
 @graphql.Resolver(() => Opportunity)
 export class OpportunityResolverBase {
@@ -68,9 +64,9 @@ export class OpportunityResolverBase {
       data: {
         ...args.data,
 
-        contact: args.data.contact
+        unit: args.data.unit
           ? {
-              connect: args.data.contact,
+              connect: args.data.unit,
             }
           : undefined,
       },
@@ -87,9 +83,9 @@ export class OpportunityResolverBase {
         data: {
           ...args.data,
 
-          contact: args.data.contact
+          unit: args.data.unit
             ? {
-                connect: args.data.contact,
+                connect: args.data.unit,
               }
             : undefined,
         },
@@ -120,34 +116,6 @@ export class OpportunityResolverBase {
     }
   }
 
-  @graphql.ResolveField(() => [Business], { name: "competitor" })
-  async findCompetitor(
-    @graphql.Parent() parent: Opportunity,
-    @graphql.Args() args: BusinessFindManyArgs
-  ): Promise<Business[]> {
-    const results = await this.service.findCompetitor(parent.id, args);
-
-    if (!results) {
-      return [];
-    }
-
-    return results;
-  }
-
-  @graphql.ResolveField(() => [Order], { name: "orders" })
-  async findOrders(
-    @graphql.Parent() parent: Opportunity,
-    @graphql.Args() args: OrderFindManyArgs
-  ): Promise<Order[]> {
-    const results = await this.service.findOrders(parent.id, args);
-
-    if (!results) {
-      return [];
-    }
-
-    return results;
-  }
-
   @graphql.ResolveField(() => [Proposal], { name: "proposals" })
   async findProposals(
     @graphql.Parent() parent: Opportunity,
@@ -162,14 +130,12 @@ export class OpportunityResolverBase {
     return results;
   }
 
-  @graphql.ResolveField(() => Contact, {
+  @graphql.ResolveField(() => Unit, {
     nullable: true,
-    name: "contact",
+    name: "unit",
   })
-  async getContact(
-    @graphql.Parent() parent: Opportunity
-  ): Promise<Contact | null> {
-    const result = await this.service.getContact(parent.id);
+  async getUnit(@graphql.Parent() parent: Opportunity): Promise<Unit | null> {
+    const result = await this.service.getUnit(parent.id);
 
     if (!result) {
       return null;

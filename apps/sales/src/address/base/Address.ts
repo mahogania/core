@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { Unit } from "../../unit/base/Unit";
 import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
 import { Type } from "class-transformer";
+import { Customer } from "../../customer/base/Customer";
 
 @ObjectType()
 class Address {
@@ -33,6 +34,15 @@ class Address {
   @Type(() => Date)
   @Field(() => Date)
   createdAt!: Date;
+
+  @ApiProperty({
+    required: false,
+    type: () => Customer,
+  })
+  @ValidateNested()
+  @Type(() => Customer)
+  @IsOptional()
+  customer?: Customer | null;
 
   @ApiProperty({
     required: true,

@@ -11,49 +11,23 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { ContractUpdateManyWithoutOrdersInput } from "./ContractUpdateManyWithoutOrdersInput";
+import { DealWhereUniqueInput } from "../../deal/base/DealWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { InvoiceUpdateManyWithoutOrdersInput } from "./InvoiceUpdateManyWithoutOrdersInput";
-import { OpportunityWhereUniqueInput } from "../../opportunity/base/OpportunityWhereUniqueInput";
 
 @InputType()
 class OrderUpdateInput {
   @ApiProperty({
     required: false,
-    type: () => ContractUpdateManyWithoutOrdersInput,
+    type: () => DealWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => ContractUpdateManyWithoutOrdersInput)
+  @Type(() => DealWhereUniqueInput)
   @IsOptional()
-  @Field(() => ContractUpdateManyWithoutOrdersInput, {
+  @Field(() => DealWhereUniqueInput, {
     nullable: true,
   })
-  contracts?: ContractUpdateManyWithoutOrdersInput;
-
-  @ApiProperty({
-    required: false,
-    type: () => InvoiceUpdateManyWithoutOrdersInput,
-  })
-  @ValidateNested()
-  @Type(() => InvoiceUpdateManyWithoutOrdersInput)
-  @IsOptional()
-  @Field(() => InvoiceUpdateManyWithoutOrdersInput, {
-    nullable: true,
-  })
-  invoices?: InvoiceUpdateManyWithoutOrdersInput;
-
-  @ApiProperty({
-    required: false,
-    type: () => OpportunityWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => OpportunityWhereUniqueInput)
-  @IsOptional()
-  @Field(() => OpportunityWhereUniqueInput, {
-    nullable: true,
-  })
-  opportunity?: OpportunityWhereUniqueInput | null;
+  deal?: DealWhereUniqueInput | null;
 }
 
 export { OrderUpdateInput as OrderUpdateInput };

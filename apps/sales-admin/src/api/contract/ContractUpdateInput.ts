@@ -1,5 +1,5 @@
-import { OrderWhereUniqueInput } from "../order/OrderWhereUniqueInput";
+import { DealWhereUniqueInput } from "../deal/DealWhereUniqueInput";
 
 export type ContractUpdateInput = {
-  order?: OrderWhereUniqueInput | null;
+  deal?: DealWhereUniqueInput | null;
 };

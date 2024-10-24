@@ -10,10 +10,12 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
+
 import {
   Prisma,
   Address as PrismaAddress,
   Unit as PrismaUnit,
+  Customer as PrismaCustomer,
 } from "@prisma/client";
 
 export class AddressServiceBase {
@@ -50,5 +52,13 @@ export class AddressServiceBase {
         where: { id: parentId },
       })
       .competitorBusinessUnits(args);
+  }
+
+  async getCustomer(parentId: string): Promise<PrismaCustomer | null> {
+    return this.prisma.address
+      .findUnique({
+        where: { id: parentId },
+      })
+      .customer();
   }
 }

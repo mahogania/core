@@ -20,7 +20,7 @@ import { InvoiceFindUniqueArgs } from "./InvoiceFindUniqueArgs";
 import { CreateInvoiceArgs } from "./CreateInvoiceArgs";
 import { UpdateInvoiceArgs } from "./UpdateInvoiceArgs";
 import { DeleteInvoiceArgs } from "./DeleteInvoiceArgs";
-import { Order } from "../../order/base/Order";
+import { Deal } from "../../deal/base/Deal";
 import { InvoiceService } from "../invoice.service";
 @graphql.Resolver(() => Invoice)
 export class InvoiceResolverBase {
@@ -62,9 +62,9 @@ export class InvoiceResolverBase {
       data: {
         ...args.data,
 
-        order: args.data.order
+        deal: args.data.deal
           ? {
-              connect: args.data.order,
+              connect: args.data.deal,
             }
           : undefined,
       },
@@ -81,9 +81,9 @@ export class InvoiceResolverBase {
         data: {
           ...args.data,
 
-          order: args.data.order
+          deal: args.data.deal
             ? {
-                connect: args.data.order,
+                connect: args.data.deal,
               }
             : undefined,
         },
@@ -114,12 +114,12 @@ export class InvoiceResolverBase {
     }
   }
 
-  @graphql.ResolveField(() => Order, {
+  @graphql.ResolveField(() => Deal, {
     nullable: true,
-    name: "order",
+    name: "deal",
   })
-  async getOrder(@graphql.Parent() parent: Invoice): Promise<Order | null> {
-    const result = await this.service.getOrder(parent.id);
+  async getDeal(@graphql.Parent() parent: Invoice): Promise<Deal | null> {
+    const result = await this.service.getDeal(parent.id);
 
     if (!result) {
       return null;

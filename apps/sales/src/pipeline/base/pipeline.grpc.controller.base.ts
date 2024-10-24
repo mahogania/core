@@ -153,16 +153,22 @@ export class PipelineGrpcControllerBase {
     const results = await this.service.findConfigurations(params.id, {
       ...query,
       select: {
-        createdAt: true,
-        id: true,
-
-        processConfiguration: {
+        bundle: {
           select: {
             id: true,
           },
         },
 
-        productConfiguration: {
+        catalog: {
+          select: {
+            id: true,
+          },
+        },
+
+        createdAt: true,
+        id: true,
+
+        pipeline: {
           select: {
             id: true,
           },

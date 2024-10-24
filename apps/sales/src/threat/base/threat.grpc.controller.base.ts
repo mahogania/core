@@ -24,9 +24,6 @@ import { ThreatWhereUniqueInput } from "./ThreatWhereUniqueInput";
 import { ThreatFindManyArgs } from "./ThreatFindManyArgs";
 import { ThreatUpdateInput } from "./ThreatUpdateInput";
 import { Threat } from "./Threat";
-import { ProposalFindManyArgs } from "../../proposal/base/ProposalFindManyArgs";
-import { Proposal } from "../../proposal/base/Proposal";
-import { ProposalWhereUniqueInput } from "../../proposal/base/ProposalWhereUniqueInput";
 
 export class ThreatGrpcControllerBase {
   constructor(protected readonly service: ThreatService) {}
@@ -38,21 +35,34 @@ export class ThreatGrpcControllerBase {
       data: {
         ...data,
 
-        competitor: data.competitor
+        process: data.process
           ? {
-              connect: data.competitor,
+              connect: data.process,
+            }
+          : undefined,
+
+        unit: data.unit
+          ? {
+              connect: data.unit,
             }
           : undefined,
       },
       select: {
-        competitor: {
+        createdAt: true,
+        id: true,
+
+        process: {
           select: {
             id: true,
           },
         },
 
-        createdAt: true,
-        id: true,
+        unit: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -67,14 +77,21 @@ export class ThreatGrpcControllerBase {
     return this.service.threats({
       ...args,
       select: {
-        competitor: {
+        createdAt: true,
+        id: true,
+
+        process: {
           select: {
             id: true,
           },
         },
 
-        createdAt: true,
-        id: true,
+        unit: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -90,14 +107,21 @@ export class ThreatGrpcControllerBase {
     const result = await this.service.threat({
       where: params,
       select: {
-        competitor: {
+        createdAt: true,
+        id: true,
+
+        process: {
           select: {
             id: true,
           },
         },
 
-        createdAt: true,
-        id: true,
+        unit: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -123,21 +147,34 @@ export class ThreatGrpcControllerBase {
         data: {
           ...data,
 
-          competitor: data.competitor
+          process: data.process
             ? {
-                connect: data.competitor,
+                connect: data.process,
+              }
+            : undefined,
+
+          unit: data.unit
+            ? {
+                connect: data.unit,
               }
             : undefined,
         },
         select: {
-          competitor: {
+          createdAt: true,
+          id: true,
+
+          process: {
             select: {
               id: true,
             },
           },
 
-          createdAt: true,
-          id: true,
+          unit: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });
@@ -162,14 +199,21 @@ export class ThreatGrpcControllerBase {
       return await this.service.deleteThreat({
         where: params,
         select: {
-          competitor: {
+          createdAt: true,
+          id: true,
+
+          process: {
             select: {
               id: true,
             },
           },
 
-          createdAt: true,
-          id: true,
+          unit: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });
@@ -181,96 +225,5 @@ export class ThreatGrpcControllerBase {
       }
       throw error;
     }
-  }
-
-  @common.Get("/:id/proposals")
-  @ApiNestedQuery(ProposalFindManyArgs)
-  @GrpcMethod("ThreatService", "findManyProposals")
-  async findManyProposals(
-    @common.Req() request: Request,
-    @common.Param() params: ThreatWhereUniqueInput
-  ): Promise<Proposal[]> {
-    const query = plainToClass(ProposalFindManyArgs, request.query);
-    const results = await this.service.findProposals(params.id, {
-      ...query,
-      select: {
-        createdAt: true,
-        id: true,
-
-        opportunity: {
-          select: {
-            id: true,
-          },
-        },
-
-        threat: {
-          select: {
-            id: true,
-          },
-        },
-
-        updatedAt: true,
-      },
-    });
-    if (results === null) {
-      throw new errors.NotFoundException(
-        `No resource was found for ${JSON.stringify(params)}`
-      );
-    }
-    return results;
-  }
-
-  @common.Post("/:id/proposals")
-  @GrpcMethod("ThreatService", "connectProposals")
-  async connectProposals(
-    @common.Param() params: ThreatWhereUniqueInput,
-    @common.Body() body: ProposalWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      proposals: {
-        connect: body,
-      },
-    };
-    await this.service.updateThreat({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Patch("/:id/proposals")
-  @GrpcMethod("ThreatService", "updateProposals")
-  async updateProposals(
-    @common.Param() params: ThreatWhereUniqueInput,
-    @common.Body() body: ProposalWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      proposals: {
-        set: body,
-      },
-    };
-    await this.service.updateThreat({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Delete("/:id/proposals")
-  @GrpcMethod("ThreatService", "disconnectProposals")
-  async disconnectProposals(
-    @common.Param() params: ThreatWhereUniqueInput,
-    @common.Body() body: ProposalWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      proposals: {
-        disconnect: body,
-      },
-    };
-    await this.service.updateThreat({
-      where: params,
-      data,
-      select: { id: true },
-    });
   }
 }

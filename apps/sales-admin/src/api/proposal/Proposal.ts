@@ -1,12 +1,12 @@
+import { Customer } from "../customer/Customer";
 import { Opportunity } from "../opportunity/Opportunity";
 import { Quote } from "../quote/Quote";
-import { Threat } from "../threat/Threat";
 
 export type Proposal = {
   createdAt: Date;
+  customer?: Customer | null;
   id: string;
   opportunity?: Opportunity | null;
   quotes?: Array<Quote>;
-  threat?: Threat | null;
   updatedAt: Date;
 };

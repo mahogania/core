@@ -1,14 +1,10 @@
-import { Business } from "../business/Business";
-import { Contact } from "../contact/Contact";
-import { Order } from "../order/Order";
 import { Proposal } from "../proposal/Proposal";
+import { Unit } from "../unit/Unit";
 
 export type Opportunity = {
-  competitor?: Array<Business>;
-  contact?: Contact | null;
   createdAt: Date;
   id: string;
-  orders?: Array<Order>;
   proposals?: Array<Proposal>;
+  unit?: Unit | null;
   updatedAt: Date;
 };

@@ -15,10 +15,10 @@ import {
   Prisma,
   Business as PrismaBusiness,
   Unit as PrismaUnit,
-  Opportunity as PrismaOpportunity,
+  Relation as PrismaRelation,
   Strength as PrismaStrength,
-  Threat as PrismaThreat,
   Weakness as PrismaWeakness,
+  Industry as PrismaIndustry,
 } from "@prisma/client";
 
 export class BusinessServiceBase {
@@ -65,15 +65,15 @@ export class BusinessServiceBase {
       .businessUnits(args);
   }
 
-  async findOpportunities(
+  async findPredecessorRelations(
     parentId: string,
-    args: Prisma.OpportunityFindManyArgs
-  ): Promise<PrismaOpportunity[]> {
+    args: Prisma.RelationFindManyArgs
+  ): Promise<PrismaRelation[]> {
     return this.prisma.business
       .findUniqueOrThrow({
         where: { id: parentId },
       })
-      .opportunities(args);
+      .predecessorRelations(args);
   }
 
   async findStrengths(
@@ -87,17 +87,6 @@ export class BusinessServiceBase {
       .strengths(args);
   }
 
-  async findThreats(
-    parentId: string,
-    args: Prisma.ThreatFindManyArgs
-  ): Promise<PrismaThreat[]> {
-    return this.prisma.business
-      .findUniqueOrThrow({
-        where: { id: parentId },
-      })
-      .threats(args);
-  }
-
   async findWeaknesses(
     parentId: string,
     args: Prisma.WeaknessFindManyArgs
@@ -107,5 +96,21 @@ export class BusinessServiceBase {
         where: { id: parentId },
       })
       .weaknesses(args);
+  }
+
+  async getIndustry(parentId: string): Promise<PrismaIndustry | null> {
+    return this.prisma.business
+      .findUnique({
+        where: { id: parentId },
+      })
+      .industry();
+  }
+
+  async getSuccesorRelations(parentId: string): Promise<PrismaRelation | null> {
+    return this.prisma.business
+      .findUnique({
+        where: { id: parentId },
+      })
+      .succesorRelations();
   }
 }

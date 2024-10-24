@@ -1,17 +1,18 @@
 import { Unit } from "../unit/Unit";
-import { Opportunity } from "../opportunity/Opportunity";
+import { Industry } from "../industry/Industry";
+import { Relation } from "../relation/Relation";
 import { Strength } from "../strength/Strength";
-import { Threat } from "../threat/Threat";
 import { Weakness } from "../weakness/Weakness";
 
 export type Business = {
   businessUnits?: Array<Unit>;
   createdAt: Date;
   id: string;
+  industry?: Industry | null;
   name: string | null;
-  opportunities?: Array<Opportunity>;
+  predecessorRelations?: Array<Relation>;
   strengths?: Array<Strength>;
-  threats?: Array<Threat>;
+  succesorRelations?: Relation | null;
   updatedAt: Date;
   weaknesses?: Array<Weakness>;
 };

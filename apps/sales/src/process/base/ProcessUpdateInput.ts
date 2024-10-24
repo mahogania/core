@@ -16,6 +16,7 @@ import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 import { Pipeline } from "../../pipeline/base/Pipeline";
 import { FormUpdateManyWithoutProcessesInput } from "./FormUpdateManyWithoutProcessesInput";
+import { ThreatUpdateManyWithoutProcessesInput } from "./ThreatUpdateManyWithoutProcessesInput";
 
 @InputType()
 class ProcessUpdateInput {
@@ -42,6 +43,18 @@ class ProcessUpdateInput {
     nullable: true,
   })
   forms?: FormUpdateManyWithoutProcessesInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => ThreatUpdateManyWithoutProcessesInput,
+  })
+  @ValidateNested()
+  @Type(() => ThreatUpdateManyWithoutProcessesInput)
+  @IsOptional()
+  @Field(() => ThreatUpdateManyWithoutProcessesInput, {
+    nullable: true,
+  })
+  threats?: ThreatUpdateManyWithoutProcessesInput;
 }
 
 export { ProcessUpdateInput as ProcessUpdateInput };

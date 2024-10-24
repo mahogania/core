@@ -11,26 +11,14 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { BusinessWhereUniqueInput } from "../../business/base/BusinessWhereUniqueInput";
-import { ValidateNested, IsOptional } from "class-validator";
-import { Type } from "class-transformer";
 import { StringFilter } from "../../util/StringFilter";
-import { ProposalListRelationFilter } from "../../proposal/base/ProposalListRelationFilter";
+import { Type } from "class-transformer";
+import { IsOptional, ValidateNested } from "class-validator";
+import { ProcessWhereUniqueInput } from "../../process/base/ProcessWhereUniqueInput";
+import { UnitWhereUniqueInput } from "../../unit/base/UnitWhereUniqueInput";
 
 @InputType()
 class ThreatWhereInput {
-  @ApiProperty({
-    required: false,
-    type: () => BusinessWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => BusinessWhereUniqueInput)
-  @IsOptional()
-  @Field(() => BusinessWhereUniqueInput, {
-    nullable: true,
-  })
-  competitor?: BusinessWhereUniqueInput;
-
   @ApiProperty({
     required: false,
     type: StringFilter,
@@ -44,15 +32,27 @@ class ThreatWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => ProposalListRelationFilter,
+    type: () => ProcessWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => ProposalListRelationFilter)
+  @Type(() => ProcessWhereUniqueInput)
   @IsOptional()
-  @Field(() => ProposalListRelationFilter, {
+  @Field(() => ProcessWhereUniqueInput, {
     nullable: true,
   })
-  proposals?: ProposalListRelationFilter;
+  process?: ProcessWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => UnitWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => UnitWhereUniqueInput)
+  @IsOptional()
+  @Field(() => UnitWhereUniqueInput, {
+    nullable: true,
+  })
+  unit?: UnitWhereUniqueInput;
 }
 
 export { ThreatWhereInput as ThreatWhereInput };

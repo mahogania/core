@@ -37,22 +37,22 @@ export class InvoiceGrpcControllerBase {
       data: {
         ...data,
 
-        order: data.order
+        deal: data.deal
           ? {
-              connect: data.order,
+              connect: data.deal,
             }
           : undefined,
       },
       select: {
         createdAt: true,
-        id: true,
 
-        order: {
+        deal: {
           select: {
             id: true,
           },
         },
 
+        id: true,
         updatedAt: true,
       },
     });
@@ -68,14 +68,14 @@ export class InvoiceGrpcControllerBase {
       ...args,
       select: {
         createdAt: true,
-        id: true,
 
-        order: {
+        deal: {
           select: {
             id: true,
           },
         },
 
+        id: true,
         updatedAt: true,
       },
     });
@@ -92,14 +92,14 @@ export class InvoiceGrpcControllerBase {
       where: params,
       select: {
         createdAt: true,
-        id: true,
 
-        order: {
+        deal: {
           select: {
             id: true,
           },
         },
 
+        id: true,
         updatedAt: true,
       },
     });
@@ -125,22 +125,22 @@ export class InvoiceGrpcControllerBase {
         data: {
           ...data,
 
-          order: data.order
+          deal: data.deal
             ? {
-                connect: data.order,
+                connect: data.deal,
               }
             : undefined,
         },
         select: {
           createdAt: true,
-          id: true,
 
-          order: {
+          deal: {
             select: {
               id: true,
             },
           },
 
+          id: true,
           updatedAt: true,
         },
       });
@@ -166,14 +166,14 @@ export class InvoiceGrpcControllerBase {
         where: params,
         select: {
           createdAt: true,
-          id: true,
 
-          order: {
+          deal: {
             select: {
               id: true,
             },
           },
 
+          id: true,
           updatedAt: true,
         },
       });

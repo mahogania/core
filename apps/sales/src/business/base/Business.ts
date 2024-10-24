@@ -20,9 +20,9 @@ import {
   MaxLength,
 } from "class-validator";
 import { Type } from "class-transformer";
-import { Opportunity } from "../../opportunity/base/Opportunity";
+import { Industry } from "../../industry/base/Industry";
+import { Relation } from "../../relation/base/Relation";
 import { Strength } from "../../strength/base/Strength";
-import { Threat } from "../../threat/base/Threat";
 import { Weakness } from "../../weakness/base/Weakness";
 
 @ObjectType()
@@ -54,6 +54,15 @@ class Business {
 
   @ApiProperty({
     required: false,
+    type: () => Industry,
+  })
+  @ValidateNested()
+  @Type(() => Industry)
+  @IsOptional()
+  industry?: Industry | null;
+
+  @ApiProperty({
+    required: false,
     type: String,
   })
   @IsString()
@@ -66,12 +75,12 @@ class Business {
 
   @ApiProperty({
     required: false,
-    type: () => [Opportunity],
+    type: () => [Relation],
   })
   @ValidateNested()
-  @Type(() => Opportunity)
+  @Type(() => Relation)
   @IsOptional()
-  opportunities?: Array<Opportunity>;
+  predecessorRelations?: Array<Relation>;
 
   @ApiProperty({
     required: false,
@@ -84,12 +93,12 @@ class Business {
 
   @ApiProperty({
     required: false,
-    type: () => [Threat],
+    type: () => Relation,
   })
   @ValidateNested()
-  @Type(() => Threat)
+  @Type(() => Relation)
   @IsOptional()
-  threats?: Array<Threat>;
+  succesorRelations?: Relation | null;
 
   @ApiProperty({
     required: true,

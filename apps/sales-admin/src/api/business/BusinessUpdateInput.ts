@@ -1,14 +1,16 @@
 import { UnitUpdateManyWithoutBusinessesInput } from "./UnitUpdateManyWithoutBusinessesInput";
-import { OpportunityUpdateManyWithoutBusinessesInput } from "./OpportunityUpdateManyWithoutBusinessesInput";
+import { IndustryWhereUniqueInput } from "../industry/IndustryWhereUniqueInput";
+import { RelationUpdateManyWithoutBusinessesInput } from "./RelationUpdateManyWithoutBusinessesInput";
 import { StrengthUpdateManyWithoutBusinessesInput } from "./StrengthUpdateManyWithoutBusinessesInput";
-import { ThreatUpdateManyWithoutBusinessesInput } from "./ThreatUpdateManyWithoutBusinessesInput";
+import { RelationWhereUniqueInput } from "../relation/RelationWhereUniqueInput";
 import { WeaknessUpdateManyWithoutBusinessesInput } from "./WeaknessUpdateManyWithoutBusinessesInput";
 
 export type BusinessUpdateInput = {
   businessUnits?: UnitUpdateManyWithoutBusinessesInput;
+  industry?: IndustryWhereUniqueInput | null;
   name?: string | null;
-  opportunities?: OpportunityUpdateManyWithoutBusinessesInput;
+  predecessorRelations?: RelationUpdateManyWithoutBusinessesInput;
   strengths?: StrengthUpdateManyWithoutBusinessesInput;
-  threats?: ThreatUpdateManyWithoutBusinessesInput;
+  succesorRelations?: RelationWhereUniqueInput | null;
   weaknesses?: WeaknessUpdateManyWithoutBusinessesInput;
 };

@@ -11,36 +11,36 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { BusinessWhereUniqueInput } from "../../business/base/BusinessWhereUniqueInput";
+import { ProcessWhereUniqueInput } from "../../process/base/ProcessWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { ProposalCreateNestedManyWithoutThreatsInput } from "./ProposalCreateNestedManyWithoutThreatsInput";
+import { UnitWhereUniqueInput } from "../../unit/base/UnitWhereUniqueInput";
 
 @InputType()
 class ThreatCreateInput {
   @ApiProperty({
     required: false,
-    type: () => BusinessWhereUniqueInput,
+    type: () => ProcessWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => BusinessWhereUniqueInput)
+  @Type(() => ProcessWhereUniqueInput)
   @IsOptional()
-  @Field(() => BusinessWhereUniqueInput, {
+  @Field(() => ProcessWhereUniqueInput, {
     nullable: true,
   })
-  competitor?: BusinessWhereUniqueInput | null;
+  process?: ProcessWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
-    type: () => ProposalCreateNestedManyWithoutThreatsInput,
+    type: () => UnitWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => ProposalCreateNestedManyWithoutThreatsInput)
+  @Type(() => UnitWhereUniqueInput)
   @IsOptional()
-  @Field(() => ProposalCreateNestedManyWithoutThreatsInput, {
+  @Field(() => UnitWhereUniqueInput, {
     nullable: true,
   })
-  proposals?: ProposalCreateNestedManyWithoutThreatsInput;
+  unit?: UnitWhereUniqueInput | null;
 }
 
 export { ThreatCreateInput as ThreatCreateInput };

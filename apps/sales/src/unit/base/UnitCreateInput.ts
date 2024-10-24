@@ -14,7 +14,11 @@ import { ApiProperty } from "@nestjs/swagger";
 import { AddressWhereUniqueInput } from "../../address/base/AddressWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { CatalogCreateNestedManyWithoutUnitsInput } from "./CatalogCreateNestedManyWithoutUnitsInput";
 import { BusinessWhereUniqueInput } from "../../business/base/BusinessWhereUniqueInput";
+import { DealCreateNestedManyWithoutUnitsInput } from "./DealCreateNestedManyWithoutUnitsInput";
+import { OpportunityCreateNestedManyWithoutUnitsInput } from "./OpportunityCreateNestedManyWithoutUnitsInput";
+import { ThreatCreateNestedManyWithoutUnitsInput } from "./ThreatCreateNestedManyWithoutUnitsInput";
 
 @InputType()
 class UnitCreateInput {
@@ -32,6 +36,18 @@ class UnitCreateInput {
 
   @ApiProperty({
     required: false,
+    type: () => CatalogCreateNestedManyWithoutUnitsInput,
+  })
+  @ValidateNested()
+  @Type(() => CatalogCreateNestedManyWithoutUnitsInput)
+  @IsOptional()
+  @Field(() => CatalogCreateNestedManyWithoutUnitsInput, {
+    nullable: true,
+  })
+  catalogs?: CatalogCreateNestedManyWithoutUnitsInput;
+
+  @ApiProperty({
+    required: false,
     type: () => BusinessWhereUniqueInput,
   })
   @ValidateNested()
@@ -41,6 +57,42 @@ class UnitCreateInput {
     nullable: true,
   })
   competitor?: BusinessWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => DealCreateNestedManyWithoutUnitsInput,
+  })
+  @ValidateNested()
+  @Type(() => DealCreateNestedManyWithoutUnitsInput)
+  @IsOptional()
+  @Field(() => DealCreateNestedManyWithoutUnitsInput, {
+    nullable: true,
+  })
+  deals?: DealCreateNestedManyWithoutUnitsInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => OpportunityCreateNestedManyWithoutUnitsInput,
+  })
+  @ValidateNested()
+  @Type(() => OpportunityCreateNestedManyWithoutUnitsInput)
+  @IsOptional()
+  @Field(() => OpportunityCreateNestedManyWithoutUnitsInput, {
+    nullable: true,
+  })
+  opportunities?: OpportunityCreateNestedManyWithoutUnitsInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => ThreatCreateNestedManyWithoutUnitsInput,
+  })
+  @ValidateNested()
+  @Type(() => ThreatCreateNestedManyWithoutUnitsInput)
+  @IsOptional()
+  @Field(() => ThreatCreateNestedManyWithoutUnitsInput, {
+    nullable: true,
+  })
+  threats?: ThreatCreateNestedManyWithoutUnitsInput;
 }
 
 export { UnitCreateInput as UnitCreateInput };

@@ -24,12 +24,6 @@ import { OrderWhereUniqueInput } from "./OrderWhereUniqueInput";
 import { OrderFindManyArgs } from "./OrderFindManyArgs";
 import { OrderUpdateInput } from "./OrderUpdateInput";
 import { Order } from "./Order";
-import { ContractFindManyArgs } from "../../contract/base/ContractFindManyArgs";
-import { Contract } from "../../contract/base/Contract";
-import { ContractWhereUniqueInput } from "../../contract/base/ContractWhereUniqueInput";
-import { InvoiceFindManyArgs } from "../../invoice/base/InvoiceFindManyArgs";
-import { Invoice } from "../../invoice/base/Invoice";
-import { InvoiceWhereUniqueInput } from "../../invoice/base/InvoiceWhereUniqueInput";
 
 export class OrderGrpcControllerBase {
   constructor(protected readonly service: OrderService) {}
@@ -41,22 +35,22 @@ export class OrderGrpcControllerBase {
       data: {
         ...data,
 
-        opportunity: data.opportunity
+        deal: data.deal
           ? {
-              connect: data.opportunity,
+              connect: data.deal,
             }
           : undefined,
       },
       select: {
         createdAt: true,
-        id: true,
 
-        opportunity: {
+        deal: {
           select: {
             id: true,
           },
         },
 
+        id: true,
         updatedAt: true,
       },
     });
@@ -72,14 +66,14 @@ export class OrderGrpcControllerBase {
       ...args,
       select: {
         createdAt: true,
-        id: true,
 
-        opportunity: {
+        deal: {
           select: {
             id: true,
           },
         },
 
+        id: true,
         updatedAt: true,
       },
     });
@@ -96,14 +90,14 @@ export class OrderGrpcControllerBase {
       where: params,
       select: {
         createdAt: true,
-        id: true,
 
-        opportunity: {
+        deal: {
           select: {
             id: true,
           },
         },
 
+        id: true,
         updatedAt: true,
       },
     });
@@ -129,22 +123,22 @@ export class OrderGrpcControllerBase {
         data: {
           ...data,
 
-          opportunity: data.opportunity
+          deal: data.deal
             ? {
-                connect: data.opportunity,
+                connect: data.deal,
               }
             : undefined,
         },
         select: {
           createdAt: true,
-          id: true,
 
-          opportunity: {
+          deal: {
             select: {
               id: true,
             },
           },
 
+          id: true,
           updatedAt: true,
         },
       });
@@ -170,14 +164,14 @@ export class OrderGrpcControllerBase {
         where: params,
         select: {
           createdAt: true,
-          id: true,
 
-          opportunity: {
+          deal: {
             select: {
               id: true,
             },
           },
 
+          id: true,
           updatedAt: true,
         },
       });
@@ -189,175 +183,5 @@ export class OrderGrpcControllerBase {
       }
       throw error;
     }
-  }
-
-  @common.Get("/:id/contracts")
-  @ApiNestedQuery(ContractFindManyArgs)
-  @GrpcMethod("OrderService", "findManyContracts")
-  async findManyContracts(
-    @common.Req() request: Request,
-    @common.Param() params: OrderWhereUniqueInput
-  ): Promise<Contract[]> {
-    const query = plainToClass(ContractFindManyArgs, request.query);
-    const results = await this.service.findContracts(params.id, {
-      ...query,
-      select: {
-        createdAt: true,
-        id: true,
-
-        order: {
-          select: {
-            id: true,
-          },
-        },
-
-        updatedAt: true,
-      },
-    });
-    if (results === null) {
-      throw new errors.NotFoundException(
-        `No resource was found for ${JSON.stringify(params)}`
-      );
-    }
-    return results;
-  }
-
-  @common.Post("/:id/contracts")
-  @GrpcMethod("OrderService", "connectContracts")
-  async connectContracts(
-    @common.Param() params: OrderWhereUniqueInput,
-    @common.Body() body: ContractWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      contracts: {
-        connect: body,
-      },
-    };
-    await this.service.updateOrder({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Patch("/:id/contracts")
-  @GrpcMethod("OrderService", "updateContracts")
-  async updateContracts(
-    @common.Param() params: OrderWhereUniqueInput,
-    @common.Body() body: ContractWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      contracts: {
-        set: body,
-      },
-    };
-    await this.service.updateOrder({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Delete("/:id/contracts")
-  @GrpcMethod("OrderService", "disconnectContracts")
-  async disconnectContracts(
-    @common.Param() params: OrderWhereUniqueInput,
-    @common.Body() body: ContractWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      contracts: {
-        disconnect: body,
-      },
-    };
-    await this.service.updateOrder({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Get("/:id/invoices")
-  @ApiNestedQuery(InvoiceFindManyArgs)
-  @GrpcMethod("OrderService", "findManyInvoices")
-  async findManyInvoices(
-    @common.Req() request: Request,
-    @common.Param() params: OrderWhereUniqueInput
-  ): Promise<Invoice[]> {
-    const query = plainToClass(InvoiceFindManyArgs, request.query);
-    const results = await this.service.findInvoices(params.id, {
-      ...query,
-      select: {
-        createdAt: true,
-        id: true,
-
-        order: {
-          select: {
-            id: true,
-          },
-        },
-
-        updatedAt: true,
-      },
-    });
-    if (results === null) {
-      throw new errors.NotFoundException(
-        `No resource was found for ${JSON.stringify(params)}`
-      );
-    }
-    return results;
-  }
-
-  @common.Post("/:id/invoices")
-  @GrpcMethod("OrderService", "connectInvoices")
-  async connectInvoices(
-    @common.Param() params: OrderWhereUniqueInput,
-    @common.Body() body: InvoiceWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      invoices: {
-        connect: body,
-      },
-    };
-    await this.service.updateOrder({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Patch("/:id/invoices")
-  @GrpcMethod("OrderService", "updateInvoices")
-  async updateInvoices(
-    @common.Param() params: OrderWhereUniqueInput,
-    @common.Body() body: InvoiceWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      invoices: {
-        set: body,
-      },
-    };
-    await this.service.updateOrder({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Delete("/:id/invoices")
-  @GrpcMethod("OrderService", "disconnectInvoices")
-  async disconnectInvoices(
-    @common.Param() params: OrderWhereUniqueInput,
-    @common.Body() body: InvoiceWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      invoices: {
-        disconnect: body,
-      },
-    };
-    await this.service.updateOrder({
-      where: params,
-      data,
-      select: { id: true },
-    });
   }
 }

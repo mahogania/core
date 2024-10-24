@@ -11,51 +11,13 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { BusinessCreateNestedManyWithoutOpportunitiesInput } from "./BusinessCreateNestedManyWithoutOpportunitiesInput";
+import { ProposalCreateNestedManyWithoutOpportunitiesInput } from "./ProposalCreateNestedManyWithoutOpportunitiesInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { ContactWhereUniqueInput } from "../../contact/base/ContactWhereUniqueInput";
-import { OrderCreateNestedManyWithoutOpportunitiesInput } from "./OrderCreateNestedManyWithoutOpportunitiesInput";
-import { ProposalCreateNestedManyWithoutOpportunitiesInput } from "./ProposalCreateNestedManyWithoutOpportunitiesInput";
+import { UnitWhereUniqueInput } from "../../unit/base/UnitWhereUniqueInput";
 
 @InputType()
 class OpportunityCreateInput {
-  @ApiProperty({
-    required: false,
-    type: () => BusinessCreateNestedManyWithoutOpportunitiesInput,
-  })
-  @ValidateNested()
-  @Type(() => BusinessCreateNestedManyWithoutOpportunitiesInput)
-  @IsOptional()
-  @Field(() => BusinessCreateNestedManyWithoutOpportunitiesInput, {
-    nullable: true,
-  })
-  competitor?: BusinessCreateNestedManyWithoutOpportunitiesInput;
-
-  @ApiProperty({
-    required: false,
-    type: () => ContactWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ContactWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ContactWhereUniqueInput, {
-    nullable: true,
-  })
-  contact?: ContactWhereUniqueInput | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => OrderCreateNestedManyWithoutOpportunitiesInput,
-  })
-  @ValidateNested()
-  @Type(() => OrderCreateNestedManyWithoutOpportunitiesInput)
-  @IsOptional()
-  @Field(() => OrderCreateNestedManyWithoutOpportunitiesInput, {
-    nullable: true,
-  })
-  orders?: OrderCreateNestedManyWithoutOpportunitiesInput;
-
   @ApiProperty({
     required: false,
     type: () => ProposalCreateNestedManyWithoutOpportunitiesInput,
@@ -67,6 +29,18 @@ class OpportunityCreateInput {
     nullable: true,
   })
   proposals?: ProposalCreateNestedManyWithoutOpportunitiesInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => UnitWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => UnitWhereUniqueInput)
+  @IsOptional()
+  @Field(() => UnitWhereUniqueInput, {
+    nullable: true,
+  })
+  unit?: UnitWhereUniqueInput | null;
 }
 
 export { OpportunityCreateInput as OpportunityCreateInput };

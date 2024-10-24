@@ -8,15 +8,17 @@ generator client {
 }
 
 model Business {
-  businessUnits Unit[]
-  createdAt     DateTime      @default(now())
-  id            String        @id @default(cuid())
-  name          String?
-  opportunities Opportunity[]
-  strengths     Strength[]
-  threats       Threat[]
-  updatedAt     DateTime      @updatedAt
-  weaknesses    Weakness[]
+  businessUnits        Unit[]
+  createdAt            DateTime   @default(now())
+  id                   String     @id @default(cuid())
+  industry             Industry?  @relation(fields: [industryId], references: [id])
+  industryId           String?
+  name                 String?
+  predecessorRelations Relation[] @relation(name: "ascendantBusiness")
+  strengths            Strength[]
+  succesorRelations    Relation?  @relation(name: "descendantBusiness")
+  updatedAt            DateTime   @updatedAt
+  weaknesses           Weakness[]
 }
 
 model Strength {
@@ -38,33 +40,36 @@ model Weakness {
 }
 
 model Opportunity {
-  competitor Business[]
-  contact    Contact?   @relation(fields: [contactId], references: [id])
-  contactId  String?
-  createdAt  DateTime   @default(now())
-  id         String     @id @default(cuid())
-  orders     Order[]
-  proposals  Proposal[]
-  updatedAt  DateTime   @updatedAt
+  createdAt DateTime   @default(now())
+  id        String     @id @default(cuid())
+  proposals Proposal[]
+  unit      Unit?      @relation(fields: [unitId], references: [id])
+  unitId    String?
+  updatedAt DateTime   @updatedAt
 }
 
 model Threat {
-  competitor   Business?  @relation(fields: [competitorId], references: [id])
-  competitorId String?
-  createdAt    DateTime   @default(now())
-  id           String     @id @default(cuid())
-  proposals    Proposal[]
-  updatedAt    DateTime   @updatedAt
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  process   Process? @relation(fields: [processId], references: [id])
+  processId String?
+  unit      Unit?    @relation(fields: [unitId], references: [id])
+  unitId    String?
+  updatedAt DateTime @updatedAt
 }
 
 model Unit {
-  address      Address?  @relation(fields: [addressId], references: [id])
-  addressId    String?
-  competitor   Business? @relation(fields: [competitorId], references: [id])
-  competitorId String?
-  createdAt    DateTime  @default(now())
-  id           String    @id @default(cuid())
-  updatedAt    DateTime  @updatedAt
+  address       Address?      @relation(fields: [addressId], references: [id])
+  addressId     String?
+  catalogs      Catalog[]
+  competitor    Business?     @relation(fields: [competitorId], references: [id])
+  competitorId  String?
+  createdAt     DateTime      @default(now())
+  deals         Deal[]
+  id            String        @id @default(cuid())
+  opportunities Opportunity[]
+  threats       Threat[]
+  updatedAt     DateTime      @updatedAt
 }
 
 model Product {
@@ -89,9 +94,9 @@ model Discount {
 
 model Invoice {
   createdAt DateTime @default(now())
+  deal      Deal?    @relation(fields: [dealId], references: [id])
+  dealId    String?
   id        String   @id @default(cuid())
-  order     Order?   @relation(fields: [orderId], references: [id])
-  orderId   String?
   updatedAt DateTime @updatedAt
 }
 
@@ -116,40 +121,42 @@ model Quote {
 
 model Address {
   competitorBusinessUnits Unit[]
-  createdAt               DateTime @default(now())
-  id                      String   @id @default(cuid())
-  updatedAt               DateTime @updatedAt
+  createdAt               DateTime  @default(now())
+  customer                Customer? @relation(fields: [customerId], references: [id])
+  customerId              String?
+  id                      String    @id @default(cuid())
+  updatedAt               DateTime  @updatedAt
 }
 
 model Order {
-  contracts     Contract[]
-  createdAt     DateTime     @default(now())
-  id            String       @id @default(cuid())
-  invoices      Invoice[]
-  opportunity   Opportunity? @relation(fields: [opportunityId], references: [id])
-  opportunityId String?
-  updatedAt     DateTime     @updatedAt
+  createdAt DateTime @default(now())
+  deal      Deal?    @relation(fields: [dealId], references: [id])
+  dealId    String?
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
 }
 
 model Proposal {
   createdAt     DateTime     @default(now())
+  customer      Customer?    @relation(fields: [customerId], references: [id])
+  customerId    String?
   id            String       @id @default(cuid())
   opportunity   Opportunity? @relation(fields: [opportunityId], references: [id])
   opportunityId String?
   quotes        Quote[]
-  threat        Threat?      @relation(fields: [threatId], references: [id])
-  threatId      String?
   updatedAt     DateTime     @updatedAt
 }
 
 model Configuration {
-  createdAt              DateTime  @default(now())
-  id                     String    @id @default(cuid())
-  lineItems              Item[]
-  processConfiguration   Pipeline? @relation(fields: [processConfigurationId], references: [id])
-  processConfigurationId String?
-  productConfiguration   Bundle?
-  updatedAt              DateTime  @updatedAt
+  bundle     Bundle?
+  catalog    Catalog? @relation(fields: [catalogId], references: [id])
+  catalogId  String?
+  createdAt  DateTime @default(now())
+  id         String   @id @default(cuid())
+  lineItems  Item[]
+  pipeline   Pipeline @relation(fields: [pipelineId], references: [id])
+  pipelineId String
+  updatedAt  DateTime @updatedAt
 }
 
 model Constraint {
@@ -181,6 +188,7 @@ model Process {
   createdAt  DateTime  @default(now())
   forms      Form[]
   id         String    @id @default(cuid())
+  threats    Threat[]
   updatedAt  DateTime  @updatedAt
 }
 
@@ -202,18 +210,11 @@ model Pipeline {
   updatedAt      DateTime        @updatedAt
 }
 
-model Contact {
-  createdAt     DateTime      @default(now())
-  id            String        @id @default(cuid())
-  opportunities Opportunity[]
-  updatedAt     DateTime      @updatedAt
-}
-
 model Contract {
   createdAt DateTime @default(now())
+  deal      Deal?    @relation(fields: [dealId], references: [id])
+  dealId    String?
   id        String   @id @default(cuid())
-  order     Order?   @relation(fields: [orderId], references: [id])
-  orderId   String?
   updatedAt DateTime @updatedAt
 }
 
@@ -277,7 +278,64 @@ model Currency {
   updatedAt   DateTime   @updatedAt
 }
 
+model Industry {
+  businesses Business[]
+  createdAt  DateTime   @default(now())
+  id         String     @id @default(cuid())
+  relations  Relation[]
+  updatedAt  DateTime   @updatedAt
+}
+
+model Relation {
+  ascendantBusiness    Business?         @relation(name: "ascendantBusiness", fields: [ascendantBusinessId], references: [id])
+  ascendantBusinessId  String?
+  createdAt            DateTime          @default(now())
+  descendantBusiness   Business?         @relation(name: "descendantBusiness", fields: [descendantBusinessId], references: [id])
+  descendantBusinessId String?           @unique
+  id                   String            @id @default(cuid())
+  industry             Industry?         @relation(fields: [industryId], references: [id])
+  industryId           String?
+  kind                 EnumRelationKind?
+  updatedAt            DateTime          @updatedAt
+}
+
+model Customer {
+  addresses Address[]
+  createdAt DateTime   @default(now())
+  id        String     @id @default(cuid())
+  proposals Proposal[]
+  updatedAt DateTime   @updatedAt
+}
+
+model Deal {
+  contracts Contract[]
+  createdAt DateTime   @default(now())
+  id        String     @id @default(cuid())
+  invoices  Invoice[]
+  orders    Order[]
+  unit      Unit?      @relation(fields: [unitId], references: [id])
+  unitId    String?
+  updatedAt DateTime   @updatedAt
+}
+
+model Catalog {
+  configurations Configuration[]
+  createdAt      DateTime        @default(now())
+  description    String?
+  displayName    String?
+  id             String          @id @default(cuid())
+  name           String?
+  unit           Unit?           @relation(fields: [unitId], references: [id])
+  unitId         String?
+  updatedAt      DateTime        @updatedAt
+}
+
 enum EnumConstraintKind {
   Allow
   Forbid
+}
+
+enum EnumRelationKind {
+  Cooperation
+  Competition
 }

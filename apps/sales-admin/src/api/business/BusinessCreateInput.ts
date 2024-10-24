@@ -1,14 +1,16 @@
 import { UnitCreateNestedManyWithoutBusinessesInput } from "./UnitCreateNestedManyWithoutBusinessesInput";
-import { OpportunityCreateNestedManyWithoutBusinessesInput } from "./OpportunityCreateNestedManyWithoutBusinessesInput";
+import { IndustryWhereUniqueInput } from "../industry/IndustryWhereUniqueInput";
+import { RelationCreateNestedManyWithoutBusinessesInput } from "./RelationCreateNestedManyWithoutBusinessesInput";
 import { StrengthCreateNestedManyWithoutBusinessesInput } from "./StrengthCreateNestedManyWithoutBusinessesInput";
-import { ThreatCreateNestedManyWithoutBusinessesInput } from "./ThreatCreateNestedManyWithoutBusinessesInput";
+import { RelationWhereUniqueInput } from "../relation/RelationWhereUniqueInput";
 import { WeaknessCreateNestedManyWithoutBusinessesInput } from "./WeaknessCreateNestedManyWithoutBusinessesInput";
 
 export type BusinessCreateInput = {
   businessUnits?: UnitCreateNestedManyWithoutBusinessesInput;
+  industry?: IndustryWhereUniqueInput | null;
   name?: string | null;
-  opportunities?: OpportunityCreateNestedManyWithoutBusinessesInput;
+  predecessorRelations?: RelationCreateNestedManyWithoutBusinessesInput;
   strengths?: StrengthCreateNestedManyWithoutBusinessesInput;
-  threats?: ThreatCreateNestedManyWithoutBusinessesInput;
+  succesorRelations?: RelationWhereUniqueInput | null;
   weaknesses?: WeaknessCreateNestedManyWithoutBusinessesInput;
 };

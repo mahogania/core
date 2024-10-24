@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { UnitCreateNestedManyWithoutAddressesInput } from "./UnitCreateNestedManyWithoutAddressesInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { CustomerWhereUniqueInput } from "../../customer/base/CustomerWhereUniqueInput";
 
 @InputType()
 class AddressCreateInput {
@@ -28,6 +29,18 @@ class AddressCreateInput {
     nullable: true,
   })
   competitorBusinessUnits?: UnitCreateNestedManyWithoutAddressesInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => CustomerWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CustomerWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CustomerWhereUniqueInput, {
+    nullable: true,
+  })
+  customer?: CustomerWhereUniqueInput | null;
 }
 
 export { AddressCreateInput as AddressCreateInput };

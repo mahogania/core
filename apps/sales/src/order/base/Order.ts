@@ -11,23 +11,12 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { Contract } from "../../contract/base/Contract";
-import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
+import { IsDate, ValidateNested, IsOptional, IsString } from "class-validator";
 import { Type } from "class-transformer";
-import { Invoice } from "../../invoice/base/Invoice";
-import { Opportunity } from "../../opportunity/base/Opportunity";
+import { Deal } from "../../deal/base/Deal";
 
 @ObjectType()
 class Order {
-  @ApiProperty({
-    required: false,
-    type: () => [Contract],
-  })
-  @ValidateNested()
-  @Type(() => Contract)
-  @IsOptional()
-  contracts?: Array<Contract>;
-
   @ApiProperty({
     required: true,
   })
@@ -37,30 +26,21 @@ class Order {
   createdAt!: Date;
 
   @ApiProperty({
+    required: false,
+    type: () => Deal,
+  })
+  @ValidateNested()
+  @Type(() => Deal)
+  @IsOptional()
+  deal?: Deal | null;
+
+  @ApiProperty({
     required: true,
     type: String,
   })
   @IsString()
   @Field(() => String)
   id!: string;
-
-  @ApiProperty({
-    required: false,
-    type: () => [Invoice],
-  })
-  @ValidateNested()
-  @Type(() => Invoice)
-  @IsOptional()
-  invoices?: Array<Invoice>;
-
-  @ApiProperty({
-    required: false,
-    type: () => Opportunity,
-  })
-  @ValidateNested()
-  @Type(() => Opportunity)
-  @IsOptional()
-  opportunity?: Opportunity | null;
 
   @ApiProperty({
     required: true,
