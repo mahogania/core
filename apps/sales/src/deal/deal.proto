@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+                 package deal;
+service DealService {
+ rpc createDeal (DealCreateInput) returns (Deal) {}
+rpc deals (findManyParams) returns (stream Deal) {}
+rpc deal (DealWhereUniqueInput) returns (Deal) {}
+rpc updateDeal (DealUpdateInput) returns (Deal) {}
+rpc deleteDeal (DealWhereUniqueInput) returns (Deal) {}
+rpc findManyDeal (DealWhereUniqueInput) returns (stream Contract) {}
+rpc updateDeal (ContractParams) returns (stream Contract) {}
+rpc connectDeal (ContractParams) returns (Contract) {}
+rpc disconnectDeal (ContractParams) returns (Contract) {}
+rpc findManyDeal (DealWhereUniqueInput) returns (stream Invoice) {}
+rpc updateDeal (InvoiceParams) returns (stream Invoice) {}
+rpc connectDeal (InvoiceParams) returns (Invoice) {}
+rpc disconnectDeal (InvoiceParams) returns (Invoice) {}
+rpc findManyDeal (DealWhereUniqueInput) returns (stream Order) {}
+rpc updateDeal (OrderParams) returns (stream Order) {}
+rpc connectDeal (OrderParams) returns (Order) {}
+rpc disconnectDeal (OrderParams) returns (Order) {} 
+ }
+message DealCreateInput {
+repeated Contract contracts = 1;
+string createdAt = 2;
+string id = 3;
+repeated Invoice invoices = 4;
+repeated Order orders = 5;
+string updatedAt = 6;
+};
+message Deal {
+repeated Contract contracts = 1;
+string createdAt = 2;
+string id = 3;
+repeated Invoice invoices = 4;
+repeated Order orders = 5;
+string updatedAt = 6;
+};
+message DealWhereUniqueInput {
+repeated Contract contracts = 1;
+string createdAt = 2;
+string id = 3;
+repeated Invoice invoices = 4;
+repeated Order orders = 5;
+string updatedAt = 6;
+};
+message DealUpdateInput {
+repeated Contract contracts = 1;
+string createdAt = 2;
+string id = 3;
+repeated Invoice invoices = 4;
+repeated Order orders = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message Contract {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ContractWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ContractParams {
+DealWhereUniqueInput dealWhereUniqueInput = 1;
+ContractWhereUniqueInput contractWhereUniqueInput = 2;
+};
+message Invoice {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message InvoiceWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message InvoiceParams {
+DealWhereUniqueInput dealWhereUniqueInput = 1;
+InvoiceWhereUniqueInput invoiceWhereUniqueInput = 2;
+};
+message Order {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OrderWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OrderParams {
+DealWhereUniqueInput dealWhereUniqueInput = 1;
+OrderWhereUniqueInput orderWhereUniqueInput = 2;
+};

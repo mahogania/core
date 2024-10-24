@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package threat;
+service ThreatService {
+ rpc createThreat (ThreatCreateInput) returns (Threat) {}
+rpc threats (findManyParams) returns (stream Threat) {}
+rpc threat (ThreatWhereUniqueInput) returns (Threat) {}
+rpc updateThreat (ThreatUpdateInput) returns (Threat) {}
+rpc deleteThreat (ThreatWhereUniqueInput) returns (Threat) {} 
+ }
+message ThreatCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Threat {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ThreatWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ThreatUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

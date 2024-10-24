@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+                 package catalog;
+service CatalogService {
+ rpc createCatalog (CatalogCreateInput) returns (Catalog) {}
+rpc catalogs (findManyParams) returns (stream Catalog) {}
+rpc catalog (CatalogWhereUniqueInput) returns (Catalog) {}
+rpc updateCatalog (CatalogUpdateInput) returns (Catalog) {}
+rpc deleteCatalog (CatalogWhereUniqueInput) returns (Catalog) {}
+rpc findManyCatalog (CatalogWhereUniqueInput) returns (stream Configuration) {}
+rpc updateCatalog (ConfigurationParams) returns (stream Configuration) {}
+rpc connectCatalog (ConfigurationParams) returns (Configuration) {}
+rpc disconnectCatalog (ConfigurationParams) returns (Configuration) {} 
+ }
+message CatalogCreateInput {
+repeated Configuration configurations = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
+string name = 6;
+string updatedAt = 7;
+};
+message Catalog {
+repeated Configuration configurations = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
+string name = 6;
+string updatedAt = 7;
+};
+message CatalogWhereUniqueInput {
+repeated Configuration configurations = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
+string name = 6;
+string updatedAt = 7;
+};
+message CatalogUpdateInput {
+repeated Configuration configurations = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
+string name = 6;
+string updatedAt = 7;
+};
+message findManyParams {
+
+};
+message Configuration {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ConfigurationWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ConfigurationParams {
+CatalogWhereUniqueInput catalogWhereUniqueInput = 1;
+ConfigurationWhereUniqueInput configurationWhereUniqueInput = 2;
+};

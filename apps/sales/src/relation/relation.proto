@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+                 package relation;
+service RelationService {
+ rpc createRelation (RelationCreateInput) returns (Relation) {}
+rpc relations (findManyParams) returns (stream Relation) {}
+rpc relation (RelationWhereUniqueInput) returns (Relation) {}
+rpc updateRelation (RelationUpdateInput) returns (Relation) {}
+rpc deleteRelation (RelationWhereUniqueInput) returns (Relation) {} 
+ }
+message RelationCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated string kind = 3;
+string updatedAt = 4;
+};
+message Relation {
+string createdAt = 1;
+string id = 2;
+repeated string kind = 3;
+string updatedAt = 4;
+};
+message RelationWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated string kind = 3;
+string updatedAt = 4;
+};
+message RelationUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated string kind = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+                 package industry;
+service IndustryService {
+ rpc createIndustry (IndustryCreateInput) returns (Industry) {}
+rpc industries (findManyParams) returns (stream Industry) {}
+rpc industry (IndustryWhereUniqueInput) returns (Industry) {}
+rpc updateIndustry (IndustryUpdateInput) returns (Industry) {}
+rpc deleteIndustry (IndustryWhereUniqueInput) returns (Industry) {}
+rpc findManyIndustry (IndustryWhereUniqueInput) returns (stream Business) {}
+rpc updateIndustry (BusinessParams) returns (stream Business) {}
+rpc connectIndustry (BusinessParams) returns (Business) {}
+rpc disconnectIndustry (BusinessParams) returns (Business) {}
+rpc findManyIndustry (IndustryWhereUniqueInput) returns (stream Relation) {}
+rpc updateIndustry (RelationParams) returns (stream Relation) {}
+rpc connectIndustry (RelationParams) returns (Relation) {}
+rpc disconnectIndustry (RelationParams) returns (Relation) {} 
+ }
+message IndustryCreateInput {
+repeated Business businesses = 1;
+string createdAt = 2;
+string id = 3;
+repeated Relation relations = 4;
+string updatedAt = 5;
+};
+message Industry {
+repeated Business businesses = 1;
+string createdAt = 2;
+string id = 3;
+repeated Relation relations = 4;
+string updatedAt = 5;
+};
+message IndustryWhereUniqueInput {
+repeated Business businesses = 1;
+string createdAt = 2;
+string id = 3;
+repeated Relation relations = 4;
+string updatedAt = 5;
+};
+message IndustryUpdateInput {
+repeated Business businesses = 1;
+string createdAt = 2;
+string id = 3;
+repeated Relation relations = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
+message Business {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message BusinessWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message BusinessParams {
+IndustryWhereUniqueInput industryWhereUniqueInput = 1;
+BusinessWhereUniqueInput businessWhereUniqueInput = 2;
+};
+message Relation {
+string createdAt = 1;
+string id = 2;
+repeated string kind = 3;
+string updatedAt = 4;
+};
+message RelationWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated string kind = 3;
+string updatedAt = 4;
+};
+message RelationParams {
+IndustryWhereUniqueInput industryWhereUniqueInput = 1;
+RelationWhereUniqueInput relationWhereUniqueInput = 2;
+};

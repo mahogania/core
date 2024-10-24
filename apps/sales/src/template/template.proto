@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package template;
+service TemplateService {
+ rpc createTemplate (TemplateCreateInput) returns (Template) {}
+rpc templates (findManyParams) returns (stream Template) {}
+rpc template (TemplateWhereUniqueInput) returns (Template) {}
+rpc updateTemplate (TemplateUpdateInput) returns (Template) {}
+rpc deleteTemplate (TemplateWhereUniqueInput) returns (Template) {} 
+ }
+message TemplateCreateInput {
+string createdAt = 1;
+string fields = 2;
+string id = 3;
+string updatedAt = 4;
+string url = 5;
+};
+message Template {
+string createdAt = 1;
+string fields = 2;
+string id = 3;
+string updatedAt = 4;
+string url = 5;
+};
+message TemplateWhereUniqueInput {
+string createdAt = 1;
+string fields = 2;
+string id = 3;
+string updatedAt = 4;
+string url = 5;
+};
+message TemplateUpdateInput {
+string createdAt = 1;
+string fields = 2;
+string id = 3;
+string updatedAt = 4;
+string url = 5;
+};
+message findManyParams {
+
+};

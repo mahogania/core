@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+                 package form;
+service FormService {
+ rpc createForm (FormCreateInput) returns (Form) {}
+rpc forms (findManyParams) returns (stream Form) {}
+rpc form (FormWhereUniqueInput) returns (Form) {}
+rpc updateForm (FormUpdateInput) returns (Form) {}
+rpc deleteForm (FormWhereUniqueInput) returns (Form) {}
+rpc findManyForm (FormWhereUniqueInput) returns (stream Template) {}
+rpc updateForm (TemplateParams) returns (stream Template) {}
+rpc connectForm (TemplateParams) returns (Template) {}
+rpc disconnectForm (TemplateParams) returns (Template) {} 
+ }
+message FormCreateInput {
+string createdAt = 1;
+string id = 2;
+string schema = 3;
+repeated Template templates = 4;
+string updatedAt = 5;
+};
+message Form {
+string createdAt = 1;
+string id = 2;
+string schema = 3;
+repeated Template templates = 4;
+string updatedAt = 5;
+};
+message FormWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string schema = 3;
+repeated Template templates = 4;
+string updatedAt = 5;
+};
+message FormUpdateInput {
+string createdAt = 1;
+string id = 2;
+string schema = 3;
+repeated Template templates = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
+message Template {
+string createdAt = 1;
+string fields = 2;
+string id = 3;
+string updatedAt = 4;
+string url = 5;
+};
+message TemplateWhereUniqueInput {
+string createdAt = 1;
+string fields = 2;
+string id = 3;
+string updatedAt = 4;
+string url = 5;
+};
+message TemplateParams {
+FormWhereUniqueInput formWhereUniqueInput = 1;
+TemplateWhereUniqueInput templateWhereUniqueInput = 2;
+};

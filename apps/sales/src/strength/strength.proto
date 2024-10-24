@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+                 package strength;
+service StrengthService {
+ rpc createStrength (StrengthCreateInput) returns (Strength) {}
+rpc strengths (findManyParams) returns (stream Strength) {}
+rpc strength (StrengthWhereUniqueInput) returns (Strength) {}
+rpc updateStrength (StrengthUpdateInput) returns (Strength) {}
+rpc deleteStrength (StrengthWhereUniqueInput) returns (Strength) {}
+rpc findManyStrength (StrengthWhereUniqueInput) returns (stream Feature) {}
+rpc updateStrength (FeatureParams) returns (stream Feature) {}
+rpc connectStrength (FeatureParams) returns (Feature) {}
+rpc disconnectStrength (FeatureParams) returns (Feature) {} 
+ }
+message StrengthCreateInput {
+string createdAt = 1;
+repeated Feature features = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message Strength {
+string createdAt = 1;
+repeated Feature features = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message StrengthWhereUniqueInput {
+string createdAt = 1;
+repeated Feature features = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message StrengthUpdateInput {
+string createdAt = 1;
+repeated Feature features = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Feature {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message FeatureWhereUniqueInput {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message FeatureParams {
+StrengthWhereUniqueInput strengthWhereUniqueInput = 1;
+FeatureWhereUniqueInput featureWhereUniqueInput = 2;
+};

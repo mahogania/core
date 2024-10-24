@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package proposal;
+service ProposalService {
+ rpc createProposal (ProposalCreateInput) returns (Proposal) {}
+rpc proposals (findManyParams) returns (stream Proposal) {}
+rpc proposal (ProposalWhereUniqueInput) returns (Proposal) {}
+rpc updateProposal (ProposalUpdateInput) returns (Proposal) {}
+rpc deleteProposal (ProposalWhereUniqueInput) returns (Proposal) {}
+rpc findManyProposal (ProposalWhereUniqueInput) returns (stream Quote) {}
+rpc updateProposal (QuoteParams) returns (stream Quote) {}
+rpc connectProposal (QuoteParams) returns (Quote) {}
+rpc disconnectProposal (QuoteParams) returns (Quote) {} 
+ }
+message ProposalCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Quote quotes = 3;
+string updatedAt = 4;
+};
+message Proposal {
+string createdAt = 1;
+string id = 2;
+repeated Quote quotes = 3;
+string updatedAt = 4;
+};
+message ProposalWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Quote quotes = 3;
+string updatedAt = 4;
+};
+message ProposalUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Quote quotes = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Quote {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuoteWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuoteParams {
+ProposalWhereUniqueInput proposalWhereUniqueInput = 1;
+QuoteWhereUniqueInput quoteWhereUniqueInput = 2;
+};

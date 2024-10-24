@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+                 package customer;
+service CustomerService {
+ rpc createCustomer (CustomerCreateInput) returns (Customer) {}
+rpc customers (findManyParams) returns (stream Customer) {}
+rpc customer (CustomerWhereUniqueInput) returns (Customer) {}
+rpc updateCustomer (CustomerUpdateInput) returns (Customer) {}
+rpc deleteCustomer (CustomerWhereUniqueInput) returns (Customer) {}
+rpc findManyCustomer (CustomerWhereUniqueInput) returns (stream Address) {}
+rpc updateCustomer (AddressParams) returns (stream Address) {}
+rpc connectCustomer (AddressParams) returns (Address) {}
+rpc disconnectCustomer (AddressParams) returns (Address) {}
+rpc findManyCustomer (CustomerWhereUniqueInput) returns (stream Proposal) {}
+rpc updateCustomer (ProposalParams) returns (stream Proposal) {}
+rpc connectCustomer (ProposalParams) returns (Proposal) {}
+rpc disconnectCustomer (ProposalParams) returns (Proposal) {} 
+ }
+message CustomerCreateInput {
+repeated Address addresses = 1;
+string createdAt = 2;
+string id = 3;
+repeated Proposal proposals = 4;
+string updatedAt = 5;
+};
+message Customer {
+repeated Address addresses = 1;
+string createdAt = 2;
+string id = 3;
+repeated Proposal proposals = 4;
+string updatedAt = 5;
+};
+message CustomerWhereUniqueInput {
+repeated Address addresses = 1;
+string createdAt = 2;
+string id = 3;
+repeated Proposal proposals = 4;
+string updatedAt = 5;
+};
+message CustomerUpdateInput {
+repeated Address addresses = 1;
+string createdAt = 2;
+string id = 3;
+repeated Proposal proposals = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
+message Address {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AddressWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AddressParams {
+CustomerWhereUniqueInput customerWhereUniqueInput = 1;
+AddressWhereUniqueInput addressWhereUniqueInput = 2;
+};
+message Proposal {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ProposalWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ProposalParams {
+CustomerWhereUniqueInput customerWhereUniqueInput = 1;
+ProposalWhereUniqueInput proposalWhereUniqueInput = 2;
+};

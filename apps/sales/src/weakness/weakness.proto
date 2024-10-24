@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+                 package weakness;
+service WeaknessService {
+ rpc createWeakness (WeaknessCreateInput) returns (Weakness) {}
+rpc weaknesses (findManyParams) returns (stream Weakness) {}
+rpc weakness (WeaknessWhereUniqueInput) returns (Weakness) {}
+rpc updateWeakness (WeaknessUpdateInput) returns (Weakness) {}
+rpc deleteWeakness (WeaknessWhereUniqueInput) returns (Weakness) {}
+rpc findManyWeakness (WeaknessWhereUniqueInput) returns (stream Feature) {}
+rpc updateWeakness (FeatureParams) returns (stream Feature) {}
+rpc connectWeakness (FeatureParams) returns (Feature) {}
+rpc disconnectWeakness (FeatureParams) returns (Feature) {} 
+ }
+message WeaknessCreateInput {
+string createdAt = 1;
+repeated Feature features = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message Weakness {
+string createdAt = 1;
+repeated Feature features = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message WeaknessWhereUniqueInput {
+string createdAt = 1;
+repeated Feature features = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message WeaknessUpdateInput {
+string createdAt = 1;
+repeated Feature features = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Feature {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message FeatureWhereUniqueInput {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message FeatureParams {
+WeaknessWhereUniqueInput weaknessWhereUniqueInput = 1;
+FeatureWhereUniqueInput featureWhereUniqueInput = 2;
+};

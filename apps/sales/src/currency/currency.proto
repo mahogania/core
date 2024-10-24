@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+                 package currency;
+service CurrencyService {
+ rpc createCurrency (CurrencyCreateInput) returns (Currency) {}
+rpc currencies (findManyParams) returns (stream Currency) {}
+rpc currency (CurrencyWhereUniqueInput) returns (Currency) {}
+rpc updateCurrency (CurrencyUpdateInput) returns (Currency) {}
+rpc deleteCurrency (CurrencyWhereUniqueInput) returns (Currency) {}
+rpc findManyCurrency (CurrencyWhereUniqueInput) returns (stream Discount) {}
+rpc updateCurrency (DiscountParams) returns (stream Discount) {}
+rpc connectCurrency (DiscountParams) returns (Discount) {}
+rpc disconnectCurrency (DiscountParams) returns (Discount) {}
+rpc findManyCurrency (CurrencyWhereUniqueInput) returns (stream Price) {}
+rpc updateCurrency (PriceParams) returns (stream Price) {}
+rpc connectCurrency (PriceParams) returns (Price) {}
+rpc disconnectCurrency (PriceParams) returns (Price) {} 
+ }
+message CurrencyCreateInput {
+string createdAt = 1;
+repeated Discount discounts = 2;
+string id = 3;
+int32 precision = 4;
+repeated Price prices = 5;
+string symbolField = 6;
+string updatedAt = 7;
+};
+message Currency {
+string createdAt = 1;
+repeated Discount discounts = 2;
+string id = 3;
+int32 precision = 4;
+repeated Price prices = 5;
+string symbolField = 6;
+string updatedAt = 7;
+};
+message CurrencyWhereUniqueInput {
+string createdAt = 1;
+repeated Discount discounts = 2;
+string id = 3;
+int32 precision = 4;
+repeated Price prices = 5;
+string symbolField = 6;
+string updatedAt = 7;
+};
+message CurrencyUpdateInput {
+string createdAt = 1;
+repeated Discount discounts = 2;
+string id = 3;
+int32 precision = 4;
+repeated Price prices = 5;
+string symbolField = 6;
+string updatedAt = 7;
+};
+message findManyParams {
+
+};
+message Discount {
+string createdAt = 1;
+string discountRuleUrl = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message DiscountWhereUniqueInput {
+string createdAt = 1;
+string discountRuleUrl = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message DiscountParams {
+CurrencyWhereUniqueInput currencyWhereUniqueInput = 1;
+DiscountWhereUniqueInput discountWhereUniqueInput = 2;
+};
+message Price {
+string createdAt = 1;
+string id = 2;
+string priceRuleUrl = 3;
+string updatedAt = 4;
+};
+message PriceWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string priceRuleUrl = 3;
+string updatedAt = 4;
+};
+message PriceParams {
+CurrencyWhereUniqueInput currencyWhereUniqueInput = 1;
+PriceWhereUniqueInput priceWhereUniqueInput = 2;
+};

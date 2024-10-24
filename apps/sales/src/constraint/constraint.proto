@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package constraint;
+service ConstraintService {
+ rpc createConstraint (ConstraintCreateInput) returns (Constraint) {}
+rpc constraints (findManyParams) returns (stream Constraint) {}
+rpc constraint (ConstraintWhereUniqueInput) returns (Constraint) {}
+rpc updateConstraint (ConstraintUpdateInput) returns (Constraint) {}
+rpc deleteConstraint (ConstraintWhereUniqueInput) returns (Constraint) {} 
+ }
+message ConstraintCreateInput {
+string createdAt = 1;
+int32 depth = 2;
+string id = 3;
+repeated string kind = 4;
+string updatedAt = 5;
+};
+message Constraint {
+string createdAt = 1;
+int32 depth = 2;
+string id = 3;
+repeated string kind = 4;
+string updatedAt = 5;
+};
+message ConstraintWhereUniqueInput {
+string createdAt = 1;
+int32 depth = 2;
+string id = 3;
+repeated string kind = 4;
+string updatedAt = 5;
+};
+message ConstraintUpdateInput {
+string createdAt = 1;
+int32 depth = 2;
+string id = 3;
+repeated string kind = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

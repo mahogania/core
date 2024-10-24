@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+                 package product;
+service ProductService {
+ rpc createProduct (ProductCreateInput) returns (Product) {}
+rpc products (findManyParams) returns (stream Product) {}
+rpc product (ProductWhereUniqueInput) returns (Product) {}
+rpc updateProduct (ProductUpdateInput) returns (Product) {}
+rpc deleteProduct (ProductWhereUniqueInput) returns (Product) {}
+rpc findManyProduct (ProductWhereUniqueInput) returns (stream Option) {}
+rpc updateProduct (OptionParams) returns (stream Option) {}
+rpc connectProduct (OptionParams) returns (Option) {}
+rpc disconnectProduct (OptionParams) returns (Option) {} 
+ }
+message ProductCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Option options = 3;
+Constraint predecessorProductPaths = 4;
+Constraint successorProductPaths = 5;
+string updatedAt = 6;
+string version = 7;
+};
+message Product {
+string createdAt = 1;
+string id = 2;
+repeated Option options = 3;
+Constraint predecessorProductPaths = 4;
+Constraint successorProductPaths = 5;
+string updatedAt = 6;
+string version = 7;
+};
+message ProductWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Option options = 3;
+Constraint predecessorProductPaths = 4;
+Constraint successorProductPaths = 5;
+string updatedAt = 6;
+string version = 7;
+};
+message ProductUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Option options = 3;
+Constraint predecessorProductPaths = 4;
+Constraint successorProductPaths = 5;
+string updatedAt = 6;
+string version = 7;
+};
+message findManyParams {
+
+};
+message Option {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OptionWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OptionParams {
+ProductWhereUniqueInput productWhereUniqueInput = 1;
+OptionWhereUniqueInput optionWhereUniqueInput = 2;
+};

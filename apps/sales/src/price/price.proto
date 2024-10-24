@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package price;
+service PriceService {
+ rpc createPrice (PriceCreateInput) returns (Price) {}
+rpc prices (findManyParams) returns (stream Price) {}
+rpc price (PriceWhereUniqueInput) returns (Price) {}
+rpc updatePrice (PriceUpdateInput) returns (Price) {}
+rpc deletePrice (PriceWhereUniqueInput) returns (Price) {} 
+ }
+message PriceCreateInput {
+string createdAt = 1;
+string id = 2;
+Option options = 3;
+string priceRuleUrl = 4;
+string updatedAt = 5;
+};
+message Price {
+string createdAt = 1;
+string id = 2;
+Option options = 3;
+string priceRuleUrl = 4;
+string updatedAt = 5;
+};
+message PriceWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+Option options = 3;
+string priceRuleUrl = 4;
+string updatedAt = 5;
+};
+message PriceUpdateInput {
+string createdAt = 1;
+string id = 2;
+Option options = 3;
+string priceRuleUrl = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

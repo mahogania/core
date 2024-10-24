@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+                 package feature;
+service FeatureService {
+ rpc createFeature (FeatureCreateInput) returns (Feature) {}
+rpc features (findManyParams) returns (stream Feature) {}
+rpc feature (FeatureWhereUniqueInput) returns (Feature) {}
+rpc updateFeature (FeatureUpdateInput) returns (Feature) {}
+rpc deleteFeature (FeatureWhereUniqueInput) returns (Feature) {}
+rpc findManyFeature (FeatureWhereUniqueInput) returns (stream Option) {}
+rpc updateFeature (OptionParams) returns (stream Option) {}
+rpc connectFeature (OptionParams) returns (Option) {}
+rpc disconnectFeature (OptionParams) returns (Option) {} 
+ }
+message FeatureCreateInput {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+repeated Option options = 5;
+string updatedAt = 6;
+};
+message Feature {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+repeated Option options = 5;
+string updatedAt = 6;
+};
+message FeatureWhereUniqueInput {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+repeated Option options = 5;
+string updatedAt = 6;
+};
+message FeatureUpdateInput {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+repeated Option options = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message Option {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OptionWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OptionParams {
+FeatureWhereUniqueInput featureWhereUniqueInput = 1;
+OptionWhereUniqueInput optionWhereUniqueInput = 2;
+};

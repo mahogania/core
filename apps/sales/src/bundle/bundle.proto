@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+                 package bundle;
+service BundleService {
+ rpc createBundle (BundleCreateInput) returns (Bundle) {}
+rpc bundles (findManyParams) returns (stream Bundle) {}
+rpc bundle (BundleWhereUniqueInput) returns (Bundle) {}
+rpc updateBundle (BundleUpdateInput) returns (Bundle) {}
+rpc deleteBundle (BundleWhereUniqueInput) returns (Bundle) {}
+rpc findManyBundle (BundleWhereUniqueInput) returns (stream Feature) {}
+rpc updateBundle (FeatureParams) returns (stream Feature) {}
+rpc connectBundle (FeatureParams) returns (Feature) {}
+rpc disconnectBundle (FeatureParams) returns (Feature) {} 
+ }
+message BundleCreateInput {
+string createdAt = 1;
+repeated Feature features = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message Bundle {
+string createdAt = 1;
+repeated Feature features = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message BundleWhereUniqueInput {
+string createdAt = 1;
+repeated Feature features = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message BundleUpdateInput {
+string createdAt = 1;
+repeated Feature features = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Feature {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message FeatureWhereUniqueInput {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+string updatedAt = 5;
+};
+message FeatureParams {
+BundleWhereUniqueInput bundleWhereUniqueInput = 1;
+FeatureWhereUniqueInput featureWhereUniqueInput = 2;
+};
