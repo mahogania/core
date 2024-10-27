@@ -28,17 +28,6 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  animprogress?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
   areaId?: SortOrder;
 
   @ApiProperty({
@@ -61,17 +50,6 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  guid?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
   id?: SortOrder;
 
   @ApiProperty({
@@ -83,7 +61,7 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  map?: SortOrder;
+  mapId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -94,18 +72,7 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  orientation?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  phaseGroup?: SortOrder;
+  phaseGroupId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -117,17 +84,6 @@ class GameObjectOrderByInput {
     nullable: true,
   })
   phaseId?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  phaseUseFlags?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -171,7 +127,7 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  rotation0?: SortOrder;
+  rotationW?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -182,7 +138,7 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  rotation1?: SortOrder;
+  rotationX?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -193,7 +149,7 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  rotation2?: SortOrder;
+  rotationY?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -204,7 +160,7 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  rotation3?: SortOrder;
+  rotationZ?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -215,7 +171,7 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  scriptName?: SortOrder;
+  script?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -226,18 +182,7 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  spawnDifficulties?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  spawntimesecs?: SortOrder;
+  spawnTime?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -270,17 +215,6 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  terrainSwapMap?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
   updatedAt?: SortOrder;
 
   @ApiProperty({
@@ -292,7 +226,7 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  verifiedBuild?: SortOrder;
+  version?: SortOrder;
 
   @ApiProperty({
     required: false,

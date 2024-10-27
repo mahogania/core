@@ -24,11 +24,12 @@ import { AchievementScriptsModule } from "./achievementScripts/achievementScript
 import { DisenchantLootTemplateModule } from "./disenchantLootTemplate/disenchantLootTemplate.module";
 import { EventScriptNamesModule } from "./eventScriptNames/eventScriptNames.module";
 import { GameEventModule } from "./gameEvent/gameEvent.module";
+import { GameWeatherModule } from "./gameWeather/gameWeather.module";
+import { GameObjectModule } from "./gameObject/gameObject.module";
 import { ExplorationBasexpModule } from "./explorationBasexp/explorationBasexp.module";
 import { EventScriptsModule } from "./eventScripts/eventScripts.module";
 import { GameObjectQuestItemModule } from "./gameObjectQuestItem/gameObjectQuestItem.module";
 import { GameObjectTemplateModule } from "./gameObjectTemplate/gameObjectTemplate.module";
-import { GameObjectModule } from "./gameObject/gameObject.module";
 import { GameEventQuestConditionModule } from "./gameEventQuestCondition/gameEventQuestCondition.module";
 import { GameObjectTemplateAddonModule } from "./gameObjectTemplateAddon/gameObjectTemplateAddon.module";
 import { GameObjectQuestStarterModule } from "./gameObjectQuestStarter/gameObjectQuestStarter.module";
@@ -36,15 +37,14 @@ import { GameEventSeasonalQuestRelationModule } from "./gameEventSeasonalQuestRe
 import { FishingLootTemplateModule } from "./fishingLootTemplate/fishingLootTemplate.module";
 import { GameObjectAddonModule } from "./gameObjectAddon/gameObjectAddon.module";
 import { GameTeleModule } from "./gameTele/gameTele.module";
-import { GameWeatherModule } from "./gameWeather/gameWeather.module";
 import { GameEventCreatureModule } from "./gameEventCreature/gameEventCreature.module";
 import { GameEventGameObjectModule } from "./gameEventGameObject/gameEventGameObject.module";
 import { GameEventPrerequisiteModule } from "./gameEventPrerequisite/gameEventPrerequisite.module";
 import { GameEventConditionModule } from "./gameEventCondition/gameEventCondition.module";
+import { GameObjectLootTemplateModule } from "./gameObjectLootTemplate/gameObjectLootTemplate.module";
 import { GameEventPoolModule } from "./gameEventPool/gameEventPool.module";
 import { GameEventCreatureQuestModule } from "./gameEventCreatureQuest/gameEventCreatureQuest.module";
 import { GameEventNpcVendorModule } from "./gameEventNpcVendor/gameEventNpcVendor.module";
-import { GameObjectLootTemplateModule } from "./gameObjectLootTemplate/gameObjectLootTemplate.module";
 import { GameEventArenaSeasonsModule } from "./gameEventArenaSeasons/gameEventArenaSeasons.module";
 import { GameObjectOverridesModule } from "./gameObjectOverrides/gameObjectOverrides.module";
 import { GameEventNpcFlagModule } from "./gameEventNpcFlag/gameEventNpcFlag.module";
@@ -104,6 +104,8 @@ import { PlayerchoiceResponseModule } from "./playerchoiceResponse/playerchoiceR
 import { PlayerchoiceResponseRewardCurrencyModule } from "./playerchoiceResponseRewardCurrency/playerchoiceResponseRewardCurrency.module";
 import { PlayerchoiceResponseMawPowerModule } from "./playerchoiceResponseMawPower/playerchoiceResponseMawPower.module";
 import { PlayercreateinfoModule } from "./playercreateinfo/playercreateinfo.module";
+import { ZoneModule } from "./zone/zone.module";
+import { MapModule } from "./map/map.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -137,11 +139,12 @@ import { LoggerModule } from "./logger/logger.module";
     DisenchantLootTemplateModule,
     EventScriptNamesModule,
     GameEventModule,
+    GameWeatherModule,
+    GameObjectModule,
     ExplorationBasexpModule,
     EventScriptsModule,
     GameObjectQuestItemModule,
     GameObjectTemplateModule,
-    GameObjectModule,
     GameEventQuestConditionModule,
     GameObjectTemplateAddonModule,
     GameObjectQuestStarterModule,
@@ -149,15 +152,14 @@ import { LoggerModule } from "./logger/logger.module";
     FishingLootTemplateModule,
     GameObjectAddonModule,
     GameTeleModule,
-    GameWeatherModule,
     GameEventCreatureModule,
     GameEventGameObjectModule,
     GameEventPrerequisiteModule,
     GameEventConditionModule,
+    GameObjectLootTemplateModule,
     GameEventPoolModule,
     GameEventCreatureQuestModule,
     GameEventNpcVendorModule,
-    GameObjectLootTemplateModule,
     GameEventArenaSeasonsModule,
     GameObjectOverridesModule,
     GameEventNpcFlagModule,
@@ -217,6 +219,8 @@ import { LoggerModule } from "./logger/logger.module";
     PlayerchoiceResponseRewardCurrencyModule,
     PlayerchoiceResponseMawPowerModule,
     PlayercreateinfoModule,
+    ZoneModule,
+    MapModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

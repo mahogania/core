@@ -46,6 +46,14 @@ import { GameEventList } from "./gameEvent/GameEventList";
 import { GameEventCreate } from "./gameEvent/GameEventCreate";
 import { GameEventEdit } from "./gameEvent/GameEventEdit";
 import { GameEventShow } from "./gameEvent/GameEventShow";
+import { GameWeatherList } from "./gameWeather/GameWeatherList";
+import { GameWeatherCreate } from "./gameWeather/GameWeatherCreate";
+import { GameWeatherEdit } from "./gameWeather/GameWeatherEdit";
+import { GameWeatherShow } from "./gameWeather/GameWeatherShow";
+import { GameObjectList } from "./gameObject/GameObjectList";
+import { GameObjectCreate } from "./gameObject/GameObjectCreate";
+import { GameObjectEdit } from "./gameObject/GameObjectEdit";
+import { GameObjectShow } from "./gameObject/GameObjectShow";
 import { ExplorationBasexpList } from "./explorationBasexp/ExplorationBasexpList";
 import { ExplorationBasexpCreate } from "./explorationBasexp/ExplorationBasexpCreate";
 import { ExplorationBasexpEdit } from "./explorationBasexp/ExplorationBasexpEdit";
@@ -62,10 +70,6 @@ import { GameObjectTemplateList } from "./gameObjectTemplate/GameObjectTemplateL
 import { GameObjectTemplateCreate } from "./gameObjectTemplate/GameObjectTemplateCreate";
 import { GameObjectTemplateEdit } from "./gameObjectTemplate/GameObjectTemplateEdit";
 import { GameObjectTemplateShow } from "./gameObjectTemplate/GameObjectTemplateShow";
-import { GameObjectList } from "./gameObject/GameObjectList";
-import { GameObjectCreate } from "./gameObject/GameObjectCreate";
-import { GameObjectEdit } from "./gameObject/GameObjectEdit";
-import { GameObjectShow } from "./gameObject/GameObjectShow";
 import { GameEventQuestConditionList } from "./gameEventQuestCondition/GameEventQuestConditionList";
 import { GameEventQuestConditionCreate } from "./gameEventQuestCondition/GameEventQuestConditionCreate";
 import { GameEventQuestConditionEdit } from "./gameEventQuestCondition/GameEventQuestConditionEdit";
@@ -94,10 +98,6 @@ import { GameTeleList } from "./gameTele/GameTeleList";
 import { GameTeleCreate } from "./gameTele/GameTeleCreate";
 import { GameTeleEdit } from "./gameTele/GameTeleEdit";
 import { GameTeleShow } from "./gameTele/GameTeleShow";
-import { GameWeatherList } from "./gameWeather/GameWeatherList";
-import { GameWeatherCreate } from "./gameWeather/GameWeatherCreate";
-import { GameWeatherEdit } from "./gameWeather/GameWeatherEdit";
-import { GameWeatherShow } from "./gameWeather/GameWeatherShow";
 import { GameEventCreatureList } from "./gameEventCreature/GameEventCreatureList";
 import { GameEventCreatureCreate } from "./gameEventCreature/GameEventCreatureCreate";
 import { GameEventCreatureEdit } from "./gameEventCreature/GameEventCreatureEdit";
@@ -114,6 +114,10 @@ import { GameEventConditionList } from "./gameEventCondition/GameEventConditionL
 import { GameEventConditionCreate } from "./gameEventCondition/GameEventConditionCreate";
 import { GameEventConditionEdit } from "./gameEventCondition/GameEventConditionEdit";
 import { GameEventConditionShow } from "./gameEventCondition/GameEventConditionShow";
+import { GameObjectLootTemplateList } from "./gameObjectLootTemplate/GameObjectLootTemplateList";
+import { GameObjectLootTemplateCreate } from "./gameObjectLootTemplate/GameObjectLootTemplateCreate";
+import { GameObjectLootTemplateEdit } from "./gameObjectLootTemplate/GameObjectLootTemplateEdit";
+import { GameObjectLootTemplateShow } from "./gameObjectLootTemplate/GameObjectLootTemplateShow";
 import { GameEventPoolList } from "./gameEventPool/GameEventPoolList";
 import { GameEventPoolCreate } from "./gameEventPool/GameEventPoolCreate";
 import { GameEventPoolEdit } from "./gameEventPool/GameEventPoolEdit";
@@ -126,10 +130,6 @@ import { GameEventNpcVendorList } from "./gameEventNpcVendor/GameEventNpcVendorL
 import { GameEventNpcVendorCreate } from "./gameEventNpcVendor/GameEventNpcVendorCreate";
 import { GameEventNpcVendorEdit } from "./gameEventNpcVendor/GameEventNpcVendorEdit";
 import { GameEventNpcVendorShow } from "./gameEventNpcVendor/GameEventNpcVendorShow";
-import { GameObjectLootTemplateList } from "./gameObjectLootTemplate/GameObjectLootTemplateList";
-import { GameObjectLootTemplateCreate } from "./gameObjectLootTemplate/GameObjectLootTemplateCreate";
-import { GameObjectLootTemplateEdit } from "./gameObjectLootTemplate/GameObjectLootTemplateEdit";
-import { GameObjectLootTemplateShow } from "./gameObjectLootTemplate/GameObjectLootTemplateShow";
 import { GameEventArenaSeasonsList } from "./gameEventArenaSeasons/GameEventArenaSeasonsList";
 import { GameEventArenaSeasonsCreate } from "./gameEventArenaSeasons/GameEventArenaSeasonsCreate";
 import { GameEventArenaSeasonsEdit } from "./gameEventArenaSeasons/GameEventArenaSeasonsEdit";
@@ -366,6 +366,14 @@ import { PlayercreateinfoList } from "./playercreateinfo/PlayercreateinfoList";
 import { PlayercreateinfoCreate } from "./playercreateinfo/PlayercreateinfoCreate";
 import { PlayercreateinfoEdit } from "./playercreateinfo/PlayercreateinfoEdit";
 import { PlayercreateinfoShow } from "./playercreateinfo/PlayercreateinfoShow";
+import { ZoneList } from "./zone/ZoneList";
+import { ZoneCreate } from "./zone/ZoneCreate";
+import { ZoneEdit } from "./zone/ZoneEdit";
+import { ZoneShow } from "./zone/ZoneShow";
+import { MapList } from "./map/MapList";
+import { MapCreate } from "./map/MapCreate";
+import { MapEdit } from "./map/MapEdit";
+import { MapShow } from "./map/MapShow";
 
 const App = (): React.ReactElement => {
   const [dataProvider, setDataProvider] = useState<DataProvider | null>(null);
@@ -473,6 +481,20 @@ const App = (): React.ReactElement => {
           show={GameEventShow}
         />
         <Resource
+          name="GameWeather"
+          list={GameWeatherList}
+          edit={GameWeatherEdit}
+          create={GameWeatherCreate}
+          show={GameWeatherShow}
+        />
+        <Resource
+          name="GameObject"
+          list={GameObjectList}
+          edit={GameObjectEdit}
+          create={GameObjectCreate}
+          show={GameObjectShow}
+        />
+        <Resource
           name="ExplorationBasexp"
           list={ExplorationBasexpList}
           edit={ExplorationBasexpEdit}
@@ -499,13 +521,6 @@ const App = (): React.ReactElement => {
           edit={GameObjectTemplateEdit}
           create={GameObjectTemplateCreate}
           show={GameObjectTemplateShow}
-        />
-        <Resource
-          name="GameObject"
-          list={GameObjectList}
-          edit={GameObjectEdit}
-          create={GameObjectCreate}
-          show={GameObjectShow}
         />
         <Resource
           name="GameEventQuestCondition"
@@ -557,13 +572,6 @@ const App = (): React.ReactElement => {
           show={GameTeleShow}
         />
         <Resource
-          name="GameWeather"
-          list={GameWeatherList}
-          edit={GameWeatherEdit}
-          create={GameWeatherCreate}
-          show={GameWeatherShow}
-        />
-        <Resource
           name="GameEventCreature"
           list={GameEventCreatureList}
           edit={GameEventCreatureEdit}
@@ -592,6 +600,13 @@ const App = (): React.ReactElement => {
           show={GameEventConditionShow}
         />
         <Resource
+          name="GameObjectLootTemplate"
+          list={GameObjectLootTemplateList}
+          edit={GameObjectLootTemplateEdit}
+          create={GameObjectLootTemplateCreate}
+          show={GameObjectLootTemplateShow}
+        />
+        <Resource
           name="GameEventPool"
           list={GameEventPoolList}
           edit={GameEventPoolEdit}
@@ -611,13 +626,6 @@ const App = (): React.ReactElement => {
           edit={GameEventNpcVendorEdit}
           create={GameEventNpcVendorCreate}
           show={GameEventNpcVendorShow}
-        />
-        <Resource
-          name="GameObjectLootTemplate"
-          list={GameObjectLootTemplateList}
-          edit={GameObjectLootTemplateEdit}
-          create={GameObjectLootTemplateCreate}
-          show={GameObjectLootTemplateShow}
         />
         <Resource
           name="GameEventArenaSeasons"
@@ -1031,6 +1039,20 @@ const App = (): React.ReactElement => {
           edit={PlayercreateinfoEdit}
           create={PlayercreateinfoCreate}
           show={PlayercreateinfoShow}
+        />
+        <Resource
+          name="Zone"
+          list={ZoneList}
+          edit={ZoneEdit}
+          create={ZoneCreate}
+          show={ZoneShow}
+        />
+        <Resource
+          name="Map"
+          list={MapList}
+          edit={MapEdit}
+          create={MapCreate}
+          show={MapShow}
         />
       </Admin>
     </div>

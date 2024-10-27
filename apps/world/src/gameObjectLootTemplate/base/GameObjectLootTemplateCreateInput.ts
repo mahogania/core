@@ -19,8 +19,8 @@ import {
   IsString,
   MaxLength,
   IsInt,
-  IsBoolean,
 } from "class-validator";
+import { GraphQLBigInt } from "../../util/GraphQLBigInt";
 
 @InputType()
 class GameObjectLootTemplateCreateInput {
@@ -57,10 +57,10 @@ class GameObjectLootTemplateCreateInput {
   @Min(-999999999)
   @Max(999999999)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GraphQLBigInt, {
     nullable: true,
   })
-  entry?: number | null;
+  entry?: bigint | null;
 
   @ApiProperty({
     required: false,
@@ -70,10 +70,10 @@ class GameObjectLootTemplateCreateInput {
   @Min(-999999999)
   @Max(999999999)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GraphQLBigInt, {
     nullable: true,
   })
-  groupId?: number | null;
+  groupId?: bigint | null;
 
   @ApiProperty({
     required: false,
@@ -83,10 +83,10 @@ class GameObjectLootTemplateCreateInput {
   @Min(-999999999)
   @Max(999999999)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GraphQLBigInt, {
     nullable: true,
   })
-  item?: number | null;
+  itemId?: bigint | null;
 
   @ApiProperty({
     required: false,
@@ -129,14 +129,15 @@ class GameObjectLootTemplateCreateInput {
 
   @ApiProperty({
     required: false,
-    type: Boolean,
+    type: Number,
   })
-  @IsBoolean()
+  @IsInt()
+  @Max(99999999999)
   @IsOptional()
-  @Field(() => Boolean, {
+  @Field(() => GraphQLBigInt, {
     nullable: true,
   })
-  questRequired?: boolean | null;
+  questId?: bigint | null;
 
   @ApiProperty({
     required: false,
@@ -146,10 +147,10 @@ class GameObjectLootTemplateCreateInput {
   @Min(-999999999)
   @Max(999999999)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GraphQLBigInt, {
     nullable: true,
   })
-  reference?: number | null;
+  referenceId?: bigint | null;
 }
 
 export { GameObjectLootTemplateCreateInput as GameObjectLootTemplateCreateInput };

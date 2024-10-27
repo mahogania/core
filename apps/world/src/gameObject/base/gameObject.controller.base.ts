@@ -13,11 +13,12 @@ import * as common from "@nestjs/common";
 import * as swagger from "@nestjs/swagger";
 import { isRecordNotFoundError } from "../../prisma.util";
 import * as errors from "../../errors";
-import { Request } from "express";
+import { Request, Response } from "express";
 import { plainToClass } from "class-transformer";
 import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import * as nestAccessControl from "nest-access-control";
 import * as defaultAuthGuard from "../../auth/defaultAuth.guard";
+import { FileInterceptor } from "@nestjs/platform-express";
 import { GameObjectService } from "../gameObject.service";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
@@ -54,31 +55,25 @@ export class GameObjectControllerBase {
     return await this.service.createGameObject({
       data: data,
       select: {
-        animprogress: true,
         areaId: true,
         createdAt: true,
-        guid: true,
         id: true,
-        map: true,
-        orientation: true,
-        phaseGroup: true,
+        mapId: true,
+        phaseGroupId: true,
         phaseId: true,
-        phaseUseFlags: true,
         positionX: true,
         positionY: true,
         positionZ: true,
-        rotation0: true,
-        rotation1: true,
-        rotation2: true,
-        rotation3: true,
-        scriptName: true,
-        spawnDifficulties: true,
-        spawntimesecs: true,
+        rotationW: true,
+        rotationX: true,
+        rotationY: true,
+        rotationZ: true,
+        script: true,
+        spawnTime: true,
         state: true,
         stringId: true,
-        terrainSwapMap: true,
         updatedAt: true,
-        verifiedBuild: true,
+        version: true,
         zoneId: true,
       },
     });
@@ -101,31 +96,25 @@ export class GameObjectControllerBase {
     return this.service.gameObjects({
       ...args,
       select: {
-        animprogress: true,
         areaId: true,
         createdAt: true,
-        guid: true,
         id: true,
-        map: true,
-        orientation: true,
-        phaseGroup: true,
+        mapId: true,
+        phaseGroupId: true,
         phaseId: true,
-        phaseUseFlags: true,
         positionX: true,
         positionY: true,
         positionZ: true,
-        rotation0: true,
-        rotation1: true,
-        rotation2: true,
-        rotation3: true,
-        scriptName: true,
-        spawnDifficulties: true,
-        spawntimesecs: true,
+        rotationW: true,
+        rotationX: true,
+        rotationY: true,
+        rotationZ: true,
+        script: true,
+        spawnTime: true,
         state: true,
         stringId: true,
-        terrainSwapMap: true,
         updatedAt: true,
-        verifiedBuild: true,
+        version: true,
         zoneId: true,
       },
     });
@@ -149,31 +138,25 @@ export class GameObjectControllerBase {
     const result = await this.service.gameObject({
       where: params,
       select: {
-        animprogress: true,
         areaId: true,
         createdAt: true,
-        guid: true,
         id: true,
-        map: true,
-        orientation: true,
-        phaseGroup: true,
+        mapId: true,
+        phaseGroupId: true,
         phaseId: true,
-        phaseUseFlags: true,
         positionX: true,
         positionY: true,
         positionZ: true,
-        rotation0: true,
-        rotation1: true,
-        rotation2: true,
-        rotation3: true,
-        scriptName: true,
-        spawnDifficulties: true,
-        spawntimesecs: true,
+        rotationW: true,
+        rotationX: true,
+        rotationY: true,
+        rotationZ: true,
+        script: true,
+        spawnTime: true,
         state: true,
         stringId: true,
-        terrainSwapMap: true,
         updatedAt: true,
-        verifiedBuild: true,
+        version: true,
         zoneId: true,
       },
     });
@@ -209,31 +192,25 @@ export class GameObjectControllerBase {
         where: params,
         data: data,
         select: {
-          animprogress: true,
           areaId: true,
           createdAt: true,
-          guid: true,
           id: true,
-          map: true,
-          orientation: true,
-          phaseGroup: true,
+          mapId: true,
+          phaseGroupId: true,
           phaseId: true,
-          phaseUseFlags: true,
           positionX: true,
           positionY: true,
           positionZ: true,
-          rotation0: true,
-          rotation1: true,
-          rotation2: true,
-          rotation3: true,
-          scriptName: true,
-          spawnDifficulties: true,
-          spawntimesecs: true,
+          rotationW: true,
+          rotationX: true,
+          rotationY: true,
+          rotationZ: true,
+          script: true,
+          spawnTime: true,
           state: true,
           stringId: true,
-          terrainSwapMap: true,
           updatedAt: true,
-          verifiedBuild: true,
+          version: true,
           zoneId: true,
         },
       });
@@ -265,31 +242,25 @@ export class GameObjectControllerBase {
       return await this.service.deleteGameObject({
         where: params,
         select: {
-          animprogress: true,
           areaId: true,
           createdAt: true,
-          guid: true,
           id: true,
-          map: true,
-          orientation: true,
-          phaseGroup: true,
+          mapId: true,
+          phaseGroupId: true,
           phaseId: true,
-          phaseUseFlags: true,
           positionX: true,
           positionY: true,
           positionZ: true,
-          rotation0: true,
-          rotation1: true,
-          rotation2: true,
-          rotation3: true,
-          scriptName: true,
-          spawnDifficulties: true,
-          spawntimesecs: true,
+          rotationW: true,
+          rotationX: true,
+          rotationY: true,
+          rotationZ: true,
+          script: true,
+          spawnTime: true,
           state: true,
           stringId: true,
-          terrainSwapMap: true,
           updatedAt: true,
-          verifiedBuild: true,
+          version: true,
           zoneId: true,
         },
       });
@@ -301,5 +272,103 @@ export class GameObjectControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Put(":id/script")
+  @common.UseInterceptors(FileInterceptor("file"))
+  @swagger.ApiConsumes("multipart/form-data")
+  @swagger.ApiBody({
+    schema: {
+      type: "object",
+
+      properties: {
+        file: {
+          type: "string",
+          format: "binary",
+        },
+      },
+    },
+  })
+  @swagger.ApiParam({
+    name: "id",
+    type: "string",
+    required: true,
+  })
+  @swagger.ApiCreatedResponse({
+    type: GameObject,
+    status: "2XX",
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  async uploadScript(
+    @common.Param()
+    params: GameObjectWhereUniqueInput,
+    @common.UploadedFile()
+    file: Express.Multer.File
+  ): Promise<GameObject> {
+    return this.service.uploadScript(
+      {
+        where: params,
+      },
+      Object.assign(file, {
+        filename: file.originalname,
+      })
+    );
+  }
+
+  @common.Get(":id/script")
+  @swagger.ApiParam({
+    name: "id",
+    type: "string",
+    required: true,
+  })
+  @swagger.ApiOkResponse({
+    type: common.StreamableFile,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  async downloadScript(
+    @common.Param()
+    params: GameObjectWhereUniqueInput,
+    @common.Res({
+      passthrough: true,
+    })
+    res: Response
+  ): Promise<common.StreamableFile> {
+    const result = await this.service.downloadScript({
+      where: params,
+    });
+
+    if (result === null) {
+      throw new errors.NotFoundException(
+        "No resource was found for ",
+        JSON.stringify(params)
+      );
+    }
+
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename=${result.filename}`
+    );
+    res.setHeader("Content-Type", result.mimetype);
+    return result.stream;
+  }
+
+  @common.Delete(":id/script")
+  @swagger.ApiOkResponse({
+    type: GameObject,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  async deleteScript(
+    @common.Param()
+    params: GameObjectWhereUniqueInput
+  ): Promise<GameObject> {
+    return this.service.deleteScript({
+      where: params,
+    });
   }
 }

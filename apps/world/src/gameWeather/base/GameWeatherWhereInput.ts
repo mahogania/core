@@ -15,7 +15,7 @@ import { IntNullableFilter } from "../../util/IntNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { JsonFilter } from "../../util/JsonFilter";
 
 @InputType()
 class GameWeatherWhereInput {
@@ -28,29 +28,7 @@ class GameWeatherWhereInput {
   @Field(() => IntNullableFilter, {
     nullable: true,
   })
-  fallRainChance?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  fallSnowChance?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  fallStormChance?: IntNullableFilter;
+  chance?: IntNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -65,14 +43,25 @@ class GameWeatherWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: IntNullableFilter,
   })
-  @Type(() => StringNullableFilter)
+  @Type(() => IntNullableFilter)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => IntNullableFilter, {
     nullable: true,
   })
-  scriptName?: StringNullableFilter;
+  kind?: IntNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: JsonFilter,
+  })
+  @Type(() => JsonFilter)
+  @IsOptional()
+  @Field(() => JsonFilter, {
+    nullable: true,
+  })
+  script?: JsonFilter;
 
   @ApiProperty({
     required: false,
@@ -83,95 +72,7 @@ class GameWeatherWhereInput {
   @Field(() => IntNullableFilter, {
     nullable: true,
   })
-  springRainChance?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  springSnowChance?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  springStormChance?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  summerRainChance?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  summerSnowChance?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  summerStormChance?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  winterRainChance?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  winterSnowChance?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  winterStormChance?: IntNullableFilter;
+  season?: IntNullableFilter;
 
   @ApiProperty({
     required: false,

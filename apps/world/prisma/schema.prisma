@@ -115,6 +115,40 @@ model GameEvent {
   worldEvent   Int?
 }
 
+model GameWeather {
+  chance    Int?
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  kind      Int?
+  script    Json?
+  season    Int?
+  updatedAt DateTime @updatedAt
+  zone      Int?
+}
+
+model GameObject {
+  areaId       Int?
+  createdAt    DateTime  @default(now())
+  id           String    @id @default(uuid())
+  mapId        Int?
+  phaseGroupId Int?
+  phaseId      Int?
+  positionX    String?
+  positionY    String?
+  positionZ    String?
+  rotationW    String?
+  rotationX    String?
+  rotationY    String?
+  rotationZ    String?
+  script       Json?
+  spawnTime    DateTime?
+  state        Int?
+  stringId     String?
+  updatedAt    DateTime  @updatedAt
+  version      Int?
+  zoneId       Int?
+}
+
 model ExplorationBasexp {
   basexp    Int?
   createdAt DateTime @default(now())
@@ -149,35 +183,6 @@ model GameObjectTemplate {
   createdAt DateTime @default(now())
   id        String   @id @default(cuid())
   updatedAt DateTime @updatedAt
-}
-
-model GameObject {
-  animprogress      Int?
-  areaId            Int?
-  createdAt         DateTime @default(now())
-  guid              Int?
-  id                String   @id @default(cuid())
-  map               Int?
-  orientation       Float?
-  phaseGroup        Int?
-  phaseId           Int?
-  phaseUseFlags     Int?
-  positionX         Float?
-  positionY         Float?
-  positionZ         Float?
-  rotation0         Float?
-  rotation1         Float?
-  rotation2         Float?
-  rotation3         Float?
-  scriptName        String?
-  spawnDifficulties String?
-  spawntimesecs     Int?
-  state             Int?
-  stringId          String?
-  terrainSwapMap    Int?
-  updatedAt         DateTime @updatedAt
-  verifiedBuild     Int?
-  zoneId            Int?
 }
 
 model GameEventQuestCondition {
@@ -253,26 +258,6 @@ model GameTele {
   updatedAt   DateTime @updatedAt
 }
 
-model GameWeather {
-  createdAt         DateTime @default(now())
-  fallRainChance    Int?
-  fallSnowChance    Int?
-  fallStormChance   Int?
-  id                String   @id @default(cuid())
-  scriptName        String?
-  springRainChance  Int?
-  springSnowChance  Int?
-  springStormChance Int?
-  summerRainChance  Int?
-  summerSnowChance  Int?
-  summerStormChance Int?
-  updatedAt         DateTime @updatedAt
-  winterRainChance  Int?
-  winterSnowChance  Int?
-  winterStormChance Int?
-  zone              Int?
-}
-
 model GameEventCreature {
   createdAt  DateTime @default(now())
   eventEntry Int?
@@ -309,6 +294,22 @@ model GameEventCondition {
   updatedAt           DateTime @updatedAt
 }
 
+model GameObjectLootTemplate {
+  chance      Float?
+  comment     String?
+  createdAt   DateTime @default(now())
+  entry       BigInt?
+  groupId     BigInt?
+  id          BigInt   @id @default(autoincrement())
+  itemId      BigInt?
+  lootMode    Int?
+  maxCount    Int?
+  minCount    Int?
+  questId     BigInt?
+  referenceId BigInt?
+  updatedAt   DateTime @updatedAt
+}
+
 model GameEventPool {
   createdAt  DateTime @default(now())
   eventEntry Int?
@@ -340,22 +341,6 @@ model GameEventNpcVendor {
   slot              Int?
   typeField         Int?
   updatedAt         DateTime @updatedAt
-}
-
-model GameObjectLootTemplate {
-  chance        Float?
-  comment       String?
-  createdAt     DateTime @default(now())
-  entry         Int?
-  groupId       Int?
-  id            String   @id @default(cuid())
-  item          Int?
-  lootMode      Int?
-  maxCount      Int?
-  minCount      Int?
-  questRequired Boolean?
-  reference     Int?
-  updatedAt     DateTime @updatedAt
 }
 
 model GameEventArenaSeasons {
@@ -718,6 +703,18 @@ model PlayerchoiceResponseMawPower {
 }
 
 model Playercreateinfo {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Zone {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Map {
   createdAt DateTime @default(now())
   id        String   @id @default(cuid())
   updatedAt DateTime @updatedAt

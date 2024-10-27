@@ -1,19 +1,19 @@
 import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { BigIntNullableFilter } from "../../util/BigIntNullableFilter";
+import { BigIntFilter } from "../../util/BigIntFilter";
 import { IntNullableFilter } from "../../util/IntNullableFilter";
-import { StringFilter } from "../../util/StringFilter";
-import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
 
 export type GameObjectLootTemplateWhereInput = {
   chance?: FloatNullableFilter;
   comment?: StringNullableFilter;
-  entry?: IntNullableFilter;
-  groupId?: IntNullableFilter;
-  id?: StringFilter;
-  item?: IntNullableFilter;
+  entry?: BigIntNullableFilter;
+  groupId?: BigIntNullableFilter;
+  id?: BigIntFilter;
+  itemId?: BigIntNullableFilter;
   lootMode?: IntNullableFilter;
   maxCount?: IntNullableFilter;
   minCount?: IntNullableFilter;
-  questRequired?: BooleanNullableFilter;
-  reference?: IntNullableFilter;
+  questId?: BigIntNullableFilter;
+  referenceId?: BigIntNullableFilter;
 };

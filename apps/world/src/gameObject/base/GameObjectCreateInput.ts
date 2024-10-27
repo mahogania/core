@@ -16,26 +16,17 @@ import {
   Min,
   Max,
   IsOptional,
-  IsNumber,
   IsString,
   MaxLength,
+  IsDate,
 } from "class-validator";
+import { IsJSONValue } from "../../validators";
+import { GraphQLJSON } from "graphql-type-json";
+import { InputJsonValue } from "../../types";
+import { Type } from "class-transformer";
 
 @InputType()
 class GameObjectCreateInput {
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  animprogress?: number | null;
-
   @ApiProperty({
     required: false,
     type: Number,
@@ -54,13 +45,12 @@ class GameObjectCreateInput {
     type: Number,
   })
   @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @Max(99999999999)
   @IsOptional()
   @Field(() => Number, {
     nullable: true,
   })
-  guid?: number | null;
+  mapId?: number | null;
 
   @ApiProperty({
     required: false,
@@ -73,33 +63,7 @@ class GameObjectCreateInput {
   @Field(() => Number, {
     nullable: true,
   })
-  map?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  orientation?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  phaseGroup?: number | null;
+  phaseGroupId?: number | null;
 
   @ApiProperty({
     required: false,
@@ -116,107 +80,15 @@ class GameObjectCreateInput {
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @IsString()
+  @MaxLength(1000)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => String, {
     nullable: true,
   })
-  phaseUseFlags?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  positionX?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  positionY?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  positionZ?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  rotation0?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  rotation1?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  rotation2?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  rotation3?: number | null;
+  positionX?: string | null;
 
   @ApiProperty({
     required: false,
@@ -228,7 +100,7 @@ class GameObjectCreateInput {
   @Field(() => String, {
     nullable: true,
   })
-  scriptName?: string | null;
+  positionY?: string | null;
 
   @ApiProperty({
     required: false,
@@ -240,20 +112,76 @@ class GameObjectCreateInput {
   @Field(() => String, {
     nullable: true,
   })
-  spawnDifficulties?: string | null;
+  positionZ?: string | null;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @IsString()
+  @MaxLength(1000)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => String, {
     nullable: true,
   })
-  spawntimesecs?: number | null;
+  rotationW?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  rotationX?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  rotationY?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  rotationZ?: string | null;
+
+  @ApiProperty({
+    required: false,
+  })
+  @IsJSONValue()
+  @IsOptional()
+  @Field(() => GraphQLJSON, {
+    nullable: true,
+  })
+  script?: InputJsonValue;
+
+  @ApiProperty({
+    required: false,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @IsOptional()
+  @Field(() => Date, {
+    nullable: true,
+  })
+  spawnTime?: Date | null;
 
   @ApiProperty({
     required: false,
@@ -291,20 +219,7 @@ class GameObjectCreateInput {
   @Field(() => Number, {
     nullable: true,
   })
-  terrainSwapMap?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  verifiedBuild?: number | null;
+  version?: number | null;
 
   @ApiProperty({
     required: false,

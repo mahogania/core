@@ -94,7 +94,7 @@ class GameObjectLootTemplateOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  item?: SortOrder;
+  itemId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -138,7 +138,7 @@ class GameObjectLootTemplateOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  questRequired?: SortOrder;
+  questId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -149,7 +149,7 @@ class GameObjectLootTemplateOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  reference?: SortOrder;
+  referenceId?: SortOrder;
 
   @ApiProperty({
     required: false,

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package map;
+service MapService {
+ rpc createMap (MapCreateInput) returns (Map) {}
+rpc maps (findManyParams) returns (stream Map) {}
+rpc map (MapWhereUniqueInput) returns (Map) {}
+rpc updateMap (MapUpdateInput) returns (Map) {}
+rpc deleteMap (MapWhereUniqueInput) returns (Map) {} 
+ }
+message MapCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Map {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message MapWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message MapUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

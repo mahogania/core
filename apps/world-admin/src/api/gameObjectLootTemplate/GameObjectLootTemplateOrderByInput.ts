@@ -7,11 +7,11 @@ export type GameObjectLootTemplateOrderByInput = {
   entry?: SortOrder;
   groupId?: SortOrder;
   id?: SortOrder;
-  item?: SortOrder;
+  itemId?: SortOrder;
   lootMode?: SortOrder;
   maxCount?: SortOrder;
   minCount?: SortOrder;
-  questRequired?: SortOrder;
-  reference?: SortOrder;
+  questId?: SortOrder;
+  referenceId?: SortOrder;
   updatedAt?: SortOrder;
 };

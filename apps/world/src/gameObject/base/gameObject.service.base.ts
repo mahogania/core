@@ -11,9 +11,16 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { PrismaService } from "../../prisma/prisma.service";
 import { Prisma, GameObject as PrismaGameObject } from "@prisma/client";
+import { LocalStorageService } from "src/storage/providers/local/local.storage.service";
+import { InputJsonValue } from "src/types";
+import { FileDownload, FileUpload } from "src/storage/base/storage.types";
+import { LocalStorageFile } from "src/storage/providers/local/local.storage.types";
 
 export class GameObjectServiceBase {
-  constructor(protected readonly prisma: PrismaService) {}
+  constructor(
+    protected readonly prisma: PrismaService,
+    protected readonly localStorageService: LocalStorageService
+  ) {}
 
   async count(
     args: Omit<Prisma.GameObjectCountArgs, "select">
@@ -45,5 +52,61 @@ export class GameObjectServiceBase {
     args: Prisma.GameObjectDeleteArgs
   ): Promise<PrismaGameObject> {
     return this.prisma.gameObject.delete(args);
+  }
+
+  async uploadScript<T extends Prisma.GameObjectFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.GameObjectFindUniqueArgs>,
+    file: FileUpload
+  ): Promise<PrismaGameObject> {
+    file.filename = `profilePicture-${args.where.id}.${file.filename
+      .split(".")
+      .pop()}`;
+    const containerPath = "/";
+    const script = await this.localStorageService.uploadFile(
+      file,
+      [],
+      1000000,
+      containerPath
+    );
+
+    return await this.prisma.gameObject.update({
+      where: args.where,
+
+      data: {
+        script: script as InputJsonValue,
+      },
+    });
+  }
+
+  async downloadScript<T extends Prisma.GameObjectFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.GameObjectFindUniqueArgs>
+  ): Promise<FileDownload> {
+    const { script } = await this.prisma.gameObject.findUniqueOrThrow({
+      where: args.where,
+    });
+
+    return await this.localStorageService.downloadFile(
+      script as unknown as LocalStorageFile
+    );
+  }
+
+  async deleteScript<T extends Prisma.GameObjectFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.GameObjectFindUniqueArgs>
+  ): Promise<PrismaGameObject> {
+    const { script } = await this.prisma.gameObject.findUniqueOrThrow({
+      where: args.where,
+    });
+
+    await this.localStorageService.deleteFile(
+      script as unknown as LocalStorageFile
+    );
+
+    return await this.prisma.gameObject.update({
+      where: args.where,
+
+      data: {
+        script: Prisma.DbNull,
+      },
+    });
   }
 }

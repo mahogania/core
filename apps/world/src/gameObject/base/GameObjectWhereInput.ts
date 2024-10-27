@@ -15,8 +15,9 @@ import { IntNullableFilter } from "../../util/IntNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
-import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { JsonFilter } from "../../util/JsonFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 
 @InputType()
 class GameObjectWhereInput {
@@ -29,29 +30,7 @@ class GameObjectWhereInput {
   @Field(() => IntNullableFilter, {
     nullable: true,
   })
-  animprogress?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
   areaId?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  guid?: IntNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -73,18 +52,7 @@ class GameObjectWhereInput {
   @Field(() => IntNullableFilter, {
     nullable: true,
   })
-  map?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  orientation?: FloatNullableFilter;
+  mapId?: IntNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -95,7 +63,7 @@ class GameObjectWhereInput {
   @Field(() => IntNullableFilter, {
     nullable: true,
   })
-  phaseGroup?: IntNullableFilter;
+  phaseGroupId?: IntNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -110,91 +78,14 @@ class GameObjectWhereInput {
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: StringNullableFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => StringNullableFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  phaseUseFlags?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  positionX?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  positionY?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  positionZ?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  rotation0?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  rotation1?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  rotation2?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  rotation3?: FloatNullableFilter;
+  positionX?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -205,7 +96,7 @@ class GameObjectWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  scriptName?: StringNullableFilter;
+  positionY?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -216,18 +107,73 @@ class GameObjectWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  spawnDifficulties?: StringNullableFilter;
+  positionZ?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: StringNullableFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => StringNullableFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  spawntimesecs?: IntNullableFilter;
+  rotationW?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  rotationX?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  rotationY?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  rotationZ?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: JsonFilter,
+  })
+  @Type(() => JsonFilter)
+  @IsOptional()
+  @Field(() => JsonFilter, {
+    nullable: true,
+  })
+  script?: JsonFilter;
+
+  @ApiProperty({
+    required: false,
+    type: DateTimeNullableFilter,
+  })
+  @Type(() => DateTimeNullableFilter)
+  @IsOptional()
+  @Field(() => DateTimeNullableFilter, {
+    nullable: true,
+  })
+  spawnTime?: DateTimeNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -260,18 +206,7 @@ class GameObjectWhereInput {
   @Field(() => IntNullableFilter, {
     nullable: true,
   })
-  terrainSwapMap?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  verifiedBuild?: IntNullableFilter;
+  version?: IntNullableFilter;
 
   @ApiProperty({
     required: false,

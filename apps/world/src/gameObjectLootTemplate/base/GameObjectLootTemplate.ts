@@ -11,7 +11,6 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-
 import {
   IsNumber,
   Min,
@@ -21,10 +20,9 @@ import {
   MaxLength,
   IsDate,
   IsInt,
-  IsBoolean,
 } from "class-validator";
-
 import { Type } from "class-transformer";
+import { GraphQLBigInt } from "../../util/GraphQLBigInt";
 
 @ObjectType()
 class GameObjectLootTemplate {
@@ -69,10 +67,10 @@ class GameObjectLootTemplate {
   @Min(-999999999)
   @Max(999999999)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GraphQLBigInt, {
     nullable: true,
   })
-  entry!: number | null;
+  entry!: bigint | null;
 
   @ApiProperty({
     required: false,
@@ -82,18 +80,18 @@ class GameObjectLootTemplate {
   @Min(-999999999)
   @Max(999999999)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GraphQLBigInt, {
     nullable: true,
   })
-  groupId!: number | null;
+  groupId!: bigint | null;
 
   @ApiProperty({
     required: true,
-    type: String,
+    type: Number,
   })
-  @IsString()
-  @Field(() => String)
-  id!: string;
+  @IsInt()
+  @Field(() => GraphQLBigInt)
+  id!: bigint;
 
   @ApiProperty({
     required: false,
@@ -103,10 +101,10 @@ class GameObjectLootTemplate {
   @Min(-999999999)
   @Max(999999999)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GraphQLBigInt, {
     nullable: true,
   })
-  item!: number | null;
+  itemId!: bigint | null;
 
   @ApiProperty({
     required: false,
@@ -149,14 +147,15 @@ class GameObjectLootTemplate {
 
   @ApiProperty({
     required: false,
-    type: Boolean,
+    type: Number,
   })
-  @IsBoolean()
+  @IsInt()
+  @Max(99999999999)
   @IsOptional()
-  @Field(() => Boolean, {
+  @Field(() => GraphQLBigInt, {
     nullable: true,
   })
-  questRequired!: boolean | null;
+  questId!: bigint | null;
 
   @ApiProperty({
     required: false,
@@ -166,10 +165,10 @@ class GameObjectLootTemplate {
   @Min(-999999999)
   @Max(999999999)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GraphQLBigInt, {
     nullable: true,
   })
-  reference!: number | null;
+  referenceId!: bigint | null;
 
   @ApiProperty({
     required: true,

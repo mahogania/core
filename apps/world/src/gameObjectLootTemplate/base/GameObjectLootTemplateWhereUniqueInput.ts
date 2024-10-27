@@ -11,17 +11,18 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString } from "class-validator";
+import { IsInt } from "class-validator";
+import { GraphQLBigInt } from "../../util/GraphQLBigInt";
 
 @InputType()
 class GameObjectLootTemplateWhereUniqueInput {
   @ApiProperty({
     required: true,
-    type: String,
+    type: Number,
   })
-  @IsString()
-  @Field(() => String)
-  id!: string;
+  @IsInt()
+  @Field(() => GraphQLBigInt)
+  id!: bigint;
 }
 
 export { GameObjectLootTemplateWhereUniqueInput as GameObjectLootTemplateWhereUniqueInput };

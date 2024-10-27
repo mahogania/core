@@ -15,9 +15,9 @@ import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional } from "class-validator";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { BigIntNullableFilter } from "../../util/BigIntNullableFilter";
+import { BigIntFilter } from "../../util/BigIntFilter";
 import { IntNullableFilter } from "../../util/IntNullableFilter";
-import { StringFilter } from "../../util/StringFilter";
-import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
 
 @InputType()
 class GameObjectLootTemplateWhereInput {
@@ -45,47 +45,47 @@ class GameObjectLootTemplateWhereInput {
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: BigIntNullableFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => BigIntNullableFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => BigIntNullableFilter, {
     nullable: true,
   })
-  entry?: IntNullableFilter;
+  entry?: BigIntNullableFilter;
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: BigIntNullableFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => BigIntNullableFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => BigIntNullableFilter, {
     nullable: true,
   })
-  groupId?: IntNullableFilter;
+  groupId?: BigIntNullableFilter;
 
   @ApiProperty({
     required: false,
-    type: StringFilter,
+    type: BigIntFilter,
   })
-  @Type(() => StringFilter)
+  @Type(() => BigIntFilter)
   @IsOptional()
-  @Field(() => StringFilter, {
+  @Field(() => BigIntFilter, {
     nullable: true,
   })
-  id?: StringFilter;
+  id?: BigIntFilter;
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: BigIntNullableFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => BigIntNullableFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => BigIntNullableFilter, {
     nullable: true,
   })
-  item?: IntNullableFilter;
+  itemId?: BigIntNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -122,25 +122,25 @@ class GameObjectLootTemplateWhereInput {
 
   @ApiProperty({
     required: false,
-    type: BooleanNullableFilter,
+    type: BigIntNullableFilter,
   })
-  @Type(() => BooleanNullableFilter)
+  @Type(() => BigIntNullableFilter)
   @IsOptional()
-  @Field(() => BooleanNullableFilter, {
+  @Field(() => BigIntNullableFilter, {
     nullable: true,
   })
-  questRequired?: BooleanNullableFilter;
+  questId?: BigIntNullableFilter;
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: BigIntNullableFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => BigIntNullableFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => BigIntNullableFilter, {
     nullable: true,
   })
-  reference?: IntNullableFilter;
+  referenceId?: BigIntNullableFilter;
 }
 
 export { GameObjectLootTemplateWhereInput as GameObjectLootTemplateWhereInput };

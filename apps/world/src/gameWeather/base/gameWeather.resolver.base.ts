@@ -17,6 +17,8 @@ import * as nestAccessControl from "nest-access-control";
 import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
 import * as common from "@nestjs/common";
+import { GraphQLUpload } from "graphql-upload";
+import { FileUpload } from "src/storage/base/storage.types";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { GameWeather } from "./GameWeather";
@@ -140,5 +142,26 @@ export class GameWeatherResolverBase {
       }
       throw error;
     }
+  }
+
+  @graphql.Mutation(() => GameWeather)
+  async uploadScript(
+    @graphql.Args({
+      name: "file",
+      type: () => GraphQLUpload,
+    })
+    file: FileUpload,
+    @graphql.Args()
+    args: GameWeatherFindUniqueArgs
+  ): Promise<GameWeather> {
+    return await this.service.uploadScript(args, file);
+  }
+
+  @graphql.Mutation(() => GameWeather)
+  async deleteScript(
+    @graphql.Args()
+    args: GameWeatherFindUniqueArgs
+  ): Promise<GameWeather> {
+    return await this.service.deleteScript(args);
   }
 }

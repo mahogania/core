@@ -1,3 +1,3 @@
 export type GameObjectLootTemplateWhereUniqueInput = {
-  id: string;
+  id: bigint;
 };

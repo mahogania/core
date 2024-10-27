@@ -1,21 +1,12 @@
 import { IntNullableFilter } from "../../util/IntNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { JsonFilter } from "../../util/JsonFilter";
 
 export type GameWeatherWhereInput = {
-  fallRainChance?: IntNullableFilter;
-  fallSnowChance?: IntNullableFilter;
-  fallStormChance?: IntNullableFilter;
+  chance?: IntNullableFilter;
   id?: StringFilter;
-  scriptName?: StringNullableFilter;
-  springRainChance?: IntNullableFilter;
-  springSnowChance?: IntNullableFilter;
-  springStormChance?: IntNullableFilter;
-  summerRainChance?: IntNullableFilter;
-  summerSnowChance?: IntNullableFilter;
-  summerStormChance?: IntNullableFilter;
-  winterRainChance?: IntNullableFilter;
-  winterSnowChance?: IntNullableFilter;
-  winterStormChance?: IntNullableFilter;
+  kind?: IntNullableFilter;
+  script?: JsonFilter;
+  season?: IntNullableFilter;
   zone?: IntNullableFilter;
 };

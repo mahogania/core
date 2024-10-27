@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package zone;
+service ZoneService {
+ rpc createZone (ZoneCreateInput) returns (Zone) {}
+rpc zones (findManyParams) returns (stream Zone) {}
+rpc zone (ZoneWhereUniqueInput) returns (Zone) {}
+rpc updateZone (ZoneUpdateInput) returns (Zone) {}
+rpc deleteZone (ZoneWhereUniqueInput) returns (Zone) {} 
+ }
+message ZoneCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Zone {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ZoneWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ZoneUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};
