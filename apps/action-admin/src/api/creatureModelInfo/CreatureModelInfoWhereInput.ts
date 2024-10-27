@@ -1,12 +1,11 @@
-import { FloatNullableFilter } from "../../util/FloatNullableFilter";
-import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { FloatFilter } from "../../util/FloatFilter";
+import { CreatureListRelationFilter } from "../creature/CreatureListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 
 export type CreatureModelInfoWhereInput = {
-  boundingRadius?: FloatNullableFilter;
-  combatReach?: FloatNullableFilter;
-  displayId?: IntNullableFilter;
-  displayIdOtherGender?: IntNullableFilter;
+  boundRadius?: FloatFilter;
+  combatRadius?: FloatFilter;
+  creatures?: CreatureListRelationFilter;
+  displayId?: StringFilter;
   id?: StringFilter;
-  verifiedBuild?: IntNullableFilter;
 };

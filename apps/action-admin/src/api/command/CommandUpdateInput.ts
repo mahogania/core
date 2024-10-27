@@ -1,4 +1,4 @@
 export type CommandUpdateInput = {
-  help?: string | null;
-  name?: string | null;
+  help?: string;
+  name?: string;
 };

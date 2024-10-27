@@ -1,7 +1,8 @@
+import { CreatureCreateNestedManyWithoutCreatureModelInfosInput } from "./CreatureCreateNestedManyWithoutCreatureModelInfosInput";
+
 export type CreatureModelInfoCreateInput = {
-  boundingRadius?: number | null;
-  combatReach?: number | null;
-  displayId?: number | null;
-  displayIdOtherGender?: number | null;
-  verifiedBuild?: number | null;
+  boundRadius: number;
+  combatRadius: number;
+  creatures?: CreatureCreateNestedManyWithoutCreatureModelInfosInput;
+  displayId: string;
 };

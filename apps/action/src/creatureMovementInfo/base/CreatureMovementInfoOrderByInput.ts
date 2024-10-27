@@ -61,7 +61,7 @@ class CreatureMovementInfoOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  runSpeed?: SortOrder;
+  speed?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -73,17 +73,6 @@ class CreatureMovementInfoOrderByInput {
     nullable: true,
   })
   updatedAt?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  walkSpeed?: SortOrder;
 }
 
 export { CreatureMovementInfoOrderByInput as CreatureMovementInfoOrderByInput };

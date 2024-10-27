@@ -26,6 +26,8 @@ import { CreatureModelInfoFindUniqueArgs } from "./CreatureModelInfoFindUniqueAr
 import { CreateCreatureModelInfoArgs } from "./CreateCreatureModelInfoArgs";
 import { UpdateCreatureModelInfoArgs } from "./UpdateCreatureModelInfoArgs";
 import { DeleteCreatureModelInfoArgs } from "./DeleteCreatureModelInfoArgs";
+import { CreatureFindManyArgs } from "../../creature/base/CreatureFindManyArgs";
+import { Creature } from "../../creature/base/Creature";
 import { CreatureModelInfoService } from "../creatureModelInfo.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => CreatureModelInfo)
@@ -140,5 +142,25 @@ export class CreatureModelInfoResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [Creature], { name: "creatures" })
+  @nestAccessControl.UseRoles({
+    resource: "Creature",
+    action: "read",
+    possession: "any",
+  })
+  async findCreatures(
+    @graphql.Parent() parent: CreatureModelInfo,
+    @graphql.Args() args: CreatureFindManyArgs
+  ): Promise<Creature[]> {
+    const results = await this.service.findCreatures(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
   }
 }

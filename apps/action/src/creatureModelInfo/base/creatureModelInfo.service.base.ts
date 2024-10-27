@@ -10,9 +10,11 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
+
 import {
   Prisma,
   CreatureModelInfo as PrismaCreatureModelInfo,
+  Creature as PrismaCreature,
 } from "@prisma/client";
 
 export class CreatureModelInfoServiceBase {
@@ -48,5 +50,16 @@ export class CreatureModelInfoServiceBase {
     args: Prisma.CreatureModelInfoDeleteArgs
   ): Promise<PrismaCreatureModelInfo> {
     return this.prisma.creatureModelInfo.delete(args);
+  }
+
+  async findCreatures(
+    parentId: string,
+    args: Prisma.CreatureFindManyArgs
+  ): Promise<PrismaCreature[]> {
+    return this.prisma.creatureModelInfo
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .creatures(args);
   }
 }

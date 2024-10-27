@@ -1,10 +1,10 @@
+import { CreatureListRelationFilter } from "../creature/CreatureListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
-import { IntNullableFilter } from "../../util/IntNullableFilter";
 import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 
 export type CreatureMovementInfoWhereInput = {
+  creatures?: CreatureListRelationFilter;
   id?: StringFilter;
-  movementId?: IntNullableFilter;
-  runSpeed?: FloatNullableFilter;
-  walkSpeed?: FloatNullableFilter;
+  movementId?: StringFilter;
+  speed?: FloatNullableFilter;
 };

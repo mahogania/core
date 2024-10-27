@@ -5,43 +5,80 @@ import {
   ShowProps,
   TextField,
   DateField,
+  ReferenceField,
 } from "react-admin";
+import { CREATUREEQUIPMENT_TITLE_FIELD } from "../creatureEquipment/CreatureEquipmentTitle";
+import { CREATUREFORMATION_TITLE_FIELD } from "../creatureFormation/CreatureFormationTitle";
+import { CREATUREIMMUNITY_TITLE_FIELD } from "../creatureImmunity/CreatureImmunityTitle";
+import { CREATURELEVELSTAT_TITLE_FIELD } from "../creatureLevelStat/CreatureLevelStatTitle";
+import { CREATURELOOT_TITLE_FIELD } from "../creatureLoot/CreatureLootTitle";
+import { CREATUREMODELINFO_TITLE_FIELD } from "../creatureModelInfo/CreatureModelInfoTitle";
+import { CREATUREMOVEMENTINFO_TITLE_FIELD } from "../creatureMovementInfo/CreatureMovementInfoTitle";
 
 export const CreatureShow = (props: ShowProps): React.ReactElement => {
   return (
     <Show {...props}>
       <SimpleShowLayout>
-        <TextField label="areaId" source="areaId" />
+        <TextField label="Area Id" source="areaId" />
+        <TextField label="Behaviour Name" source="behaviourName" />
         <DateField source="createdAt" label="Created At" />
-        <TextField label="curhealth" source="curhealth" />
-        <TextField label="curmana" source="curmana" />
-        <TextField label="currentwaypoint" source="currentwaypoint" />
-        <TextField label="equipment_id" source="equipmentId" />
-        <TextField label="guid" source="guid" />
+        <ReferenceField
+          label="Creature Equipments"
+          source="creatureequipment.id"
+          reference="CreatureEquipment"
+        >
+          <TextField source={CREATUREEQUIPMENT_TITLE_FIELD} />
+        </ReferenceField>
+        <ReferenceField
+          label="Creature Formations"
+          source="creatureformation.id"
+          reference="CreatureFormation"
+        >
+          <TextField source={CREATUREFORMATION_TITLE_FIELD} />
+        </ReferenceField>
+        <ReferenceField
+          label="Creature Immunities"
+          source="creatureimmunity.id"
+          reference="CreatureImmunity"
+        >
+          <TextField source={CREATUREIMMUNITY_TITLE_FIELD} />
+        </ReferenceField>
+        <ReferenceField
+          label="Creature Level Stats"
+          source="creaturelevelstat.id"
+          reference="CreatureLevelStat"
+        >
+          <TextField source={CREATURELEVELSTAT_TITLE_FIELD} />
+        </ReferenceField>
+        <ReferenceField
+          label="Creature Loots"
+          source="creatureloot.id"
+          reference="CreatureLoot"
+        >
+          <TextField source={CREATURELOOT_TITLE_FIELD} />
+        </ReferenceField>
+        <ReferenceField
+          label="Creature Model Info"
+          source="creaturemodelinfo.id"
+          reference="CreatureModelInfo"
+        >
+          <TextField source={CREATUREMODELINFO_TITLE_FIELD} />
+        </ReferenceField>
+        <ReferenceField
+          label="Creature Movement Infos"
+          source="creaturemovementinfo.id"
+          reference="CreatureMovementInfo"
+        >
+          <TextField source={CREATUREMOVEMENTINFO_TITLE_FIELD} />
+        </ReferenceField>
         <TextField label="ID" source="id" />
-        <TextField label="map" source="map" />
-        <TextField label="modelid" source="modelid" />
-        <TextField label="MovementType" source="movementType" />
-        <TextField label="npcflag" source="npcflag" />
-        <TextField label="orientation" source="orientation" />
-        <TextField label="PhaseGroup" source="phaseGroup" />
-        <TextField label="PhaseId" source="phaseId" />
-        <TextField label="phaseUseFlags" source="phaseUseFlags" />
-        <TextField label="position_x" source="positionX" />
-        <TextField label="position_y" source="positionY" />
-        <TextField label="position_z" source="positionZ" />
-        <TextField label="ScriptName" source="scriptName" />
-        <TextField label="spawnDifficulties" source="spawnDifficulties" />
-        <TextField label="spawntimesecs" source="spawntimesecs" />
-        <TextField label="StringId" source="stringId" />
-        <TextField label="terrainSwapMap" source="terrainSwapMap" />
-        <TextField label="unit_flags" source="unitFlags" />
-        <TextField label="unit_flags2" source="unitFlags2" />
-        <TextField label="unit_flags3" source="unitFlags3" />
+        <TextField label="Map ID" source="mapId" />
+        <TextField label="Model Id" source="modelId" />
+        <TextField label="Name" source="name" />
+        <TextField label="Realm Id" source="realmId" />
+        <TextField label="Transform Id" source="transformId" />
         <DateField source="updatedAt" label="Updated At" />
-        <TextField label="VerifiedBuild" source="verifiedBuild" />
-        <TextField label="wander_distance" source="wanderDistance" />
-        <TextField label="zoneId" source="zoneId" />
+        <TextField label="Zone Id" source="zoneId" />
       </SimpleShowLayout>
     </Show>
   );

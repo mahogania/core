@@ -11,44 +11,41 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+
 import {
   IsNumber,
-  Min,
   Max,
-  IsOptional,
+  Min,
   IsDate,
-  IsInt,
+  ValidateNested,
+  IsOptional,
   IsString,
+  MaxLength,
 } from "class-validator";
+
 import { Type } from "class-transformer";
+import { Creature } from "../../creature/base/Creature";
 
 @ObjectType()
 class CreatureModelInfo {
   @ApiProperty({
-    required: false,
+    required: true,
     type: Number,
   })
   @IsNumber()
-  @Min(-999999999)
   @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  boundingRadius!: number | null;
+  @Field(() => Number)
+  boundRadius!: number;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: Number,
   })
   @IsNumber()
   @Min(-999999999)
   @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  combatReach!: number | null;
+  @Field(() => Number)
+  combatRadius!: number;
 
   @ApiProperty({
     required: true,
@@ -60,29 +57,21 @@ class CreatureModelInfo {
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => [Creature],
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => Creature)
   @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  displayId!: number | null;
+  creatures?: Array<Creature>;
 
   @ApiProperty({
-    required: false,
-    type: Number,
+    required: true,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  displayIdOtherGender!: number | null;
+  @IsString()
+  @MaxLength(256)
+  @Field(() => String)
+  displayId!: string;
 
   @ApiProperty({
     required: true,
@@ -99,19 +88,6 @@ class CreatureModelInfo {
   @Type(() => Date)
   @Field(() => Date)
   updatedAt!: Date;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  verifiedBuild!: number | null;
 }
 
 export { CreatureModelInfo as CreatureModelInfo };

@@ -1,5 +1,16 @@
 import * as React from "react";
-import { Create, SimpleForm, CreateProps, NumberInput } from "react-admin";
+
+import {
+  Create,
+  SimpleForm,
+  CreateProps,
+  NumberInput,
+  ReferenceArrayInput,
+  SelectArrayInput,
+  TextInput,
+} from "react-admin";
+
+import { CreatureTitle } from "../creature/CreatureTitle";
 
 export const CreatureModelInfoCreate = (
   props: CreateProps
@@ -7,15 +18,16 @@ export const CreatureModelInfoCreate = (
   return (
     <Create {...props}>
       <SimpleForm>
-        <NumberInput label="BoundingRadius" source="boundingRadius" />
-        <NumberInput label="CombatReach" source="combatReach" />
-        <NumberInput step={1} label="DisplayID" source="displayId" />
-        <NumberInput
-          step={1}
-          label="DisplayID_Other_Gender"
-          source="displayIdOtherGender"
-        />
-        <NumberInput step={1} label="VerifiedBuild" source="verifiedBuild" />
+        <NumberInput label="Bound Radius" source="boundRadius" />
+        <NumberInput label="Combat Radius" source="combatRadius" />
+        <ReferenceArrayInput source="creatures" reference="Creature">
+          <SelectArrayInput
+            optionText={CreatureTitle}
+            parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+            format={(value: any) => value && value.map((v: any) => v.id)}
+          />
+        </ReferenceArrayInput>
+        <TextInput label="Display ID" source="displayId" />
       </SimpleForm>
     </Create>
   );

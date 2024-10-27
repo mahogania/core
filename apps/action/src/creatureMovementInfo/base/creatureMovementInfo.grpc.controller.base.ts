@@ -24,6 +24,9 @@ import { CreatureMovementInfoWhereUniqueInput } from "./CreatureMovementInfoWher
 import { CreatureMovementInfoFindManyArgs } from "./CreatureMovementInfoFindManyArgs";
 import { CreatureMovementInfoUpdateInput } from "./CreatureMovementInfoUpdateInput";
 import { CreatureMovementInfo } from "./CreatureMovementInfo";
+import { CreatureFindManyArgs } from "../../creature/base/CreatureFindManyArgs";
+import { Creature } from "../../creature/base/Creature";
+import { CreatureWhereUniqueInput } from "../../creature/base/CreatureWhereUniqueInput";
 
 export class CreatureMovementInfoGrpcControllerBase {
   constructor(protected readonly service: CreatureMovementInfoService) {}
@@ -39,9 +42,8 @@ export class CreatureMovementInfoGrpcControllerBase {
         createdAt: true,
         id: true,
         movementId: true,
-        runSpeed: true,
+        speed: true,
         updatedAt: true,
-        walkSpeed: true,
       },
     });
   }
@@ -60,9 +62,8 @@ export class CreatureMovementInfoGrpcControllerBase {
         createdAt: true,
         id: true,
         movementId: true,
-        runSpeed: true,
+        speed: true,
         updatedAt: true,
-        walkSpeed: true,
       },
     });
   }
@@ -80,9 +81,8 @@ export class CreatureMovementInfoGrpcControllerBase {
         createdAt: true,
         id: true,
         movementId: true,
-        runSpeed: true,
+        speed: true,
         updatedAt: true,
-        walkSpeed: true,
       },
     });
     if (result === null) {
@@ -109,9 +109,8 @@ export class CreatureMovementInfoGrpcControllerBase {
           createdAt: true,
           id: true,
           movementId: true,
-          runSpeed: true,
+          speed: true,
           updatedAt: true,
-          walkSpeed: true,
         },
       });
     } catch (error) {
@@ -138,9 +137,8 @@ export class CreatureMovementInfoGrpcControllerBase {
           createdAt: true,
           id: true,
           movementId: true,
-          runSpeed: true,
+          speed: true,
           updatedAt: true,
-          walkSpeed: true,
         },
       });
     } catch (error) {
@@ -151,5 +149,134 @@ export class CreatureMovementInfoGrpcControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Get("/:id/creatures")
+  @ApiNestedQuery(CreatureFindManyArgs)
+  @GrpcMethod("CreatureMovementInfoService", "findManyCreatures")
+  async findManyCreatures(
+    @common.Req() request: Request,
+    @common.Param() params: CreatureMovementInfoWhereUniqueInput
+  ): Promise<Creature[]> {
+    const query = plainToClass(CreatureFindManyArgs, request.query);
+    const results = await this.service.findCreatures(params.id, {
+      ...query,
+      select: {
+        areaId: true,
+        behaviourName: true,
+        createdAt: true,
+
+        creatureEquipments: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureFormations: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureImmunities: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureLevelStats: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureLoots: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureModelInfo: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureMovementInfos: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        mapId: true,
+        modelId: true,
+        name: true,
+        realmId: true,
+        transformId: true,
+        updatedAt: true,
+        zoneId: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/creatures")
+  @GrpcMethod("CreatureMovementInfoService", "connectCreatures")
+  async connectCreatures(
+    @common.Param() params: CreatureMovementInfoWhereUniqueInput,
+    @common.Body() body: CreatureWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      creatures: {
+        connect: body,
+      },
+    };
+    await this.service.updateCreatureMovementInfo({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/creatures")
+  @GrpcMethod("CreatureMovementInfoService", "updateCreatures")
+  async updateCreatures(
+    @common.Param() params: CreatureMovementInfoWhereUniqueInput,
+    @common.Body() body: CreatureWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      creatures: {
+        set: body,
+      },
+    };
+    await this.service.updateCreatureMovementInfo({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/creatures")
+  @GrpcMethod("CreatureMovementInfoService", "disconnectCreatures")
+  async disconnectCreatures(
+    @common.Param() params: CreatureMovementInfoWhereUniqueInput,
+    @common.Body() body: CreatureWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      creatures: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateCreatureMovementInfo({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

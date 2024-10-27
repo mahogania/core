@@ -11,33 +11,27 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, MaxLength, IsOptional } from "class-validator";
+import { IsString, MaxLength } from "class-validator";
 
 @InputType()
 class CommandCreateInput {
   @ApiProperty({
-    required: false,
+    required: true,
     type: String,
   })
   @IsString()
   @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  help?: string | null;
+  @Field(() => String)
+  help!: string;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: String,
   })
   @IsString()
   @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  name?: string | null;
+  @Field(() => String)
+  name!: string;
 }
 
 export { CommandCreateInput as CommandCreateInput };

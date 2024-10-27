@@ -11,57 +11,58 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { FloatFilter } from "../../util/FloatFilter";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
-import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { IsOptional, ValidateNested } from "class-validator";
+import { CreatureListRelationFilter } from "../../creature/base/CreatureListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 
 @InputType()
 class CreatureModelInfoWhereInput {
   @ApiProperty({
     required: false,
-    type: FloatNullableFilter,
+    type: FloatFilter,
   })
-  @Type(() => FloatNullableFilter)
+  @Type(() => FloatFilter)
   @IsOptional()
-  @Field(() => FloatNullableFilter, {
+  @Field(() => FloatFilter, {
     nullable: true,
   })
-  boundingRadius?: FloatNullableFilter;
+  boundRadius?: FloatFilter;
 
   @ApiProperty({
     required: false,
-    type: FloatNullableFilter,
+    type: FloatFilter,
   })
-  @Type(() => FloatNullableFilter)
+  @Type(() => FloatFilter)
   @IsOptional()
-  @Field(() => FloatNullableFilter, {
+  @Field(() => FloatFilter, {
     nullable: true,
   })
-  combatReach?: FloatNullableFilter;
+  combatRadius?: FloatFilter;
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: () => CreatureListRelationFilter,
   })
-  @Type(() => IntNullableFilter)
+  @ValidateNested()
+  @Type(() => CreatureListRelationFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => CreatureListRelationFilter, {
     nullable: true,
   })
-  displayId?: IntNullableFilter;
+  creatures?: CreatureListRelationFilter;
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  displayIdOtherGender?: IntNullableFilter;
+  displayId?: StringFilter;
 
   @ApiProperty({
     required: false,
@@ -73,17 +74,6 @@ class CreatureModelInfoWhereInput {
     nullable: true,
   })
   id?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  verifiedBuild?: IntNullableFilter;
 }
 
 export { CreatureModelInfoWhereInput as CreatureModelInfoWhereInput };

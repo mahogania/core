@@ -10,7 +10,18 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-import { Prisma, Creature as PrismaCreature } from "@prisma/client";
+
+import {
+  Prisma,
+  Creature as PrismaCreature,
+  CreatureEquipment as PrismaCreatureEquipment,
+  CreatureFormation as PrismaCreatureFormation,
+  CreatureImmunity as PrismaCreatureImmunity,
+  CreatureLevelStat as PrismaCreatureLevelStat,
+  CreatureLoot as PrismaCreatureLoot,
+  CreatureModelInfo as PrismaCreatureModelInfo,
+  CreatureMovementInfo as PrismaCreatureMovementInfo,
+} from "@prisma/client";
 
 export class CreatureServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -43,5 +54,73 @@ export class CreatureServiceBase {
     args: Prisma.CreatureDeleteArgs
   ): Promise<PrismaCreature> {
     return this.prisma.creature.delete(args);
+  }
+
+  async getCreatureEquipments(
+    parentId: string
+  ): Promise<PrismaCreatureEquipment | null> {
+    return this.prisma.creature
+      .findUnique({
+        where: { id: parentId },
+      })
+      .creatureEquipments();
+  }
+
+  async getCreatureFormations(
+    parentId: string
+  ): Promise<PrismaCreatureFormation | null> {
+    return this.prisma.creature
+      .findUnique({
+        where: { id: parentId },
+      })
+      .creatureFormations();
+  }
+
+  async getCreatureImmunities(
+    parentId: string
+  ): Promise<PrismaCreatureImmunity | null> {
+    return this.prisma.creature
+      .findUnique({
+        where: { id: parentId },
+      })
+      .creatureImmunities();
+  }
+
+  async getCreatureLevelStats(
+    parentId: string
+  ): Promise<PrismaCreatureLevelStat | null> {
+    return this.prisma.creature
+      .findUnique({
+        where: { id: parentId },
+      })
+      .creatureLevelStats();
+  }
+
+  async getCreatureLoots(parentId: string): Promise<PrismaCreatureLoot | null> {
+    return this.prisma.creature
+      .findUnique({
+        where: { id: parentId },
+      })
+      .creatureLoots();
+  }
+
+  async getCreatureModelInfo(
+    parentId: string
+  ): Promise<PrismaCreatureModelInfo | null> {
+    return this.prisma.creature
+      .findUnique({
+        where: { id: parentId },
+      })
+      .creatureModelInfo();
+  }
+
+  async getCreatureMovementInfos(
+    parentId: string
+  ): Promise<PrismaCreatureMovementInfo | null> {
+    return this.prisma.creature
+      .findUnique({
+        where: { id: parentId },
+      })
+      .creatureMovementInfos();
   }
 }

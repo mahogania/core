@@ -11,17 +11,12 @@ export const CreatureModelInfoList = (props: ListProps): React.ReactElement => {
       pagination={<Pagination />}
     >
       <Datagrid rowClick="show" bulkActionButtons={false}>
-        <TextField label="BoundingRadius" source="boundingRadius" />
-        <TextField label="CombatReach" source="combatReach" />
+        <TextField label="Bound Radius" source="boundRadius" />
+        <TextField label="Combat Radius" source="combatRadius" />
         <DateField source="createdAt" label="Created At" />
-        <TextField label="DisplayID" source="displayId" />
-        <TextField
-          label="DisplayID_Other_Gender"
-          source="displayIdOtherGender"
-        />
+        <TextField label="Display ID" source="displayId" />
         <TextField label="ID" source="id" />
-        <DateField source="updatedAt" label="Updated At" />
-        <TextField label="VerifiedBuild" source="verifiedBuild" />{" "}
+        <DateField source="updatedAt" label="Updated At" />{" "}
       </Datagrid>
     </List>
   );

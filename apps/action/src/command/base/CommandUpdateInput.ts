@@ -25,7 +25,7 @@ class CommandUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  help?: string | null;
+  help?: string;
 
   @ApiProperty({
     required: false,
@@ -37,7 +37,7 @@ class CommandUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  name?: string | null;
+  name?: string;
 }
 
 export { CommandUpdateInput as CommandUpdateInput };

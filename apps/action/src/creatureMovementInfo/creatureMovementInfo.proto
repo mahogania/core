@@ -6,40 +6,74 @@ service CreatureMovementInfoService {
 rpc creatureMovementInfos (findManyParams) returns (stream CreatureMovementInfo) {}
 rpc creatureMovementInfo (CreatureMovementInfoWhereUniqueInput) returns (CreatureMovementInfo) {}
 rpc updateCreatureMovementInfo (CreatureMovementInfoUpdateInput) returns (CreatureMovementInfo) {}
-rpc deleteCreatureMovementInfo (CreatureMovementInfoWhereUniqueInput) returns (CreatureMovementInfo) {} 
+rpc deleteCreatureMovementInfo (CreatureMovementInfoWhereUniqueInput) returns (CreatureMovementInfo) {}
+rpc findManyCreatureMovementInfos (CreatureMovementInfoWhereUniqueInput) returns (stream Creature) {}
+rpc updateCreatureMovementInfos (CreatureParams) returns (stream Creature) {}
+rpc connectCreatureMovementInfos (CreatureParams) returns (Creature) {}
+rpc disconnectCreatureMovementInfos (CreatureParams) returns (Creature) {} 
  }
 message CreatureMovementInfoCreateInput {
 string createdAt = 1;
-string id = 2;
-int32 movementId = 3;
-int32 runSpeed = 4;
-string updatedAt = 5;
-int32 walkSpeed = 6;
+repeated Creature creatures = 2;
+string id = 3;
+string movementId = 4;
+int32 speed = 5;
+string updatedAt = 6;
 };
 message CreatureMovementInfo {
 string createdAt = 1;
-string id = 2;
-int32 movementId = 3;
-int32 runSpeed = 4;
-string updatedAt = 5;
-int32 walkSpeed = 6;
+repeated Creature creatures = 2;
+string id = 3;
+string movementId = 4;
+int32 speed = 5;
+string updatedAt = 6;
 };
 message CreatureMovementInfoWhereUniqueInput {
 string createdAt = 1;
-string id = 2;
-int32 movementId = 3;
-int32 runSpeed = 4;
-string updatedAt = 5;
-int32 walkSpeed = 6;
+repeated Creature creatures = 2;
+string id = 3;
+string movementId = 4;
+int32 speed = 5;
+string updatedAt = 6;
 };
 message CreatureMovementInfoUpdateInput {
 string createdAt = 1;
-string id = 2;
-int32 movementId = 3;
-int32 runSpeed = 4;
-string updatedAt = 5;
-int32 walkSpeed = 6;
+repeated Creature creatures = 2;
+string id = 3;
+string movementId = 4;
+int32 speed = 5;
+string updatedAt = 6;
 };
 message findManyParams {
 
+};
+message Creature {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureWhereUniqueInput {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureParams {
+CreatureMovementInfoWhereUniqueInput creatureMovementInfoWhereUniqueInput = 1;
+CreatureWhereUniqueInput creatureWhereUniqueInput = 2;
 };

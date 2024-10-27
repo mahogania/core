@@ -26,6 +26,9 @@ import { CreatureModelInfo } from "./CreatureModelInfo";
 import { CreatureModelInfoFindManyArgs } from "./CreatureModelInfoFindManyArgs";
 import { CreatureModelInfoWhereUniqueInput } from "./CreatureModelInfoWhereUniqueInput";
 import { CreatureModelInfoUpdateInput } from "./CreatureModelInfoUpdateInput";
+import { CreatureFindManyArgs } from "../../creature/base/CreatureFindManyArgs";
+import { Creature } from "../../creature/base/Creature";
+import { CreatureWhereUniqueInput } from "../../creature/base/CreatureWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -54,14 +57,12 @@ export class CreatureModelInfoControllerBase {
     return await this.service.createCreatureModelInfo({
       data: data,
       select: {
-        boundingRadius: true,
-        combatReach: true,
+        boundRadius: true,
+        combatRadius: true,
         createdAt: true,
         displayId: true,
-        displayIdOtherGender: true,
         id: true,
         updatedAt: true,
-        verifiedBuild: true,
       },
     });
   }
@@ -85,14 +86,12 @@ export class CreatureModelInfoControllerBase {
     return this.service.creatureModelInfos({
       ...args,
       select: {
-        boundingRadius: true,
-        combatReach: true,
+        boundRadius: true,
+        combatRadius: true,
         createdAt: true,
         displayId: true,
-        displayIdOtherGender: true,
         id: true,
         updatedAt: true,
-        verifiedBuild: true,
       },
     });
   }
@@ -115,14 +114,12 @@ export class CreatureModelInfoControllerBase {
     const result = await this.service.creatureModelInfo({
       where: params,
       select: {
-        boundingRadius: true,
-        combatReach: true,
+        boundRadius: true,
+        combatRadius: true,
         createdAt: true,
         displayId: true,
-        displayIdOtherGender: true,
         id: true,
         updatedAt: true,
-        verifiedBuild: true,
       },
     });
     if (result === null) {
@@ -157,14 +154,12 @@ export class CreatureModelInfoControllerBase {
         where: params,
         data: data,
         select: {
-          boundingRadius: true,
-          combatReach: true,
+          boundRadius: true,
+          combatRadius: true,
           createdAt: true,
           displayId: true,
-          displayIdOtherGender: true,
           id: true,
           updatedAt: true,
-          verifiedBuild: true,
         },
       });
     } catch (error) {
@@ -195,14 +190,12 @@ export class CreatureModelInfoControllerBase {
       return await this.service.deleteCreatureModelInfo({
         where: params,
         select: {
-          boundingRadius: true,
-          combatReach: true,
+          boundRadius: true,
+          combatRadius: true,
           createdAt: true,
           displayId: true,
-          displayIdOtherGender: true,
           id: true,
           updatedAt: true,
-          verifiedBuild: true,
         },
       });
     } catch (error) {
@@ -213,5 +206,151 @@ export class CreatureModelInfoControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/creatures")
+  @ApiNestedQuery(CreatureFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "Creature",
+    action: "read",
+    possession: "any",
+  })
+  async findCreatures(
+    @common.Req() request: Request,
+    @common.Param() params: CreatureModelInfoWhereUniqueInput
+  ): Promise<Creature[]> {
+    const query = plainToClass(CreatureFindManyArgs, request.query);
+    const results = await this.service.findCreatures(params.id, {
+      ...query,
+      select: {
+        areaId: true,
+        behaviourName: true,
+        createdAt: true,
+
+        creatureEquipments: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureFormations: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureImmunities: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureLevelStats: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureLoots: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureModelInfo: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureMovementInfos: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        mapId: true,
+        modelId: true,
+        name: true,
+        realmId: true,
+        transformId: true,
+        updatedAt: true,
+        zoneId: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/creatures")
+  @nestAccessControl.UseRoles({
+    resource: "CreatureModelInfo",
+    action: "update",
+    possession: "any",
+  })
+  async connectCreatures(
+    @common.Param() params: CreatureModelInfoWhereUniqueInput,
+    @common.Body() body: CreatureWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      creatures: {
+        connect: body,
+      },
+    };
+    await this.service.updateCreatureModelInfo({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/creatures")
+  @nestAccessControl.UseRoles({
+    resource: "CreatureModelInfo",
+    action: "update",
+    possession: "any",
+  })
+  async updateCreatures(
+    @common.Param() params: CreatureModelInfoWhereUniqueInput,
+    @common.Body() body: CreatureWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      creatures: {
+        set: body,
+      },
+    };
+    await this.service.updateCreatureModelInfo({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/creatures")
+  @nestAccessControl.UseRoles({
+    resource: "CreatureModelInfo",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectCreatures(
+    @common.Param() params: CreatureModelInfoWhereUniqueInput,
+    @common.Body() body: CreatureWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      creatures: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateCreatureModelInfo({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

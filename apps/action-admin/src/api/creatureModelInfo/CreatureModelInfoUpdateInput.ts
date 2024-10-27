@@ -1,7 +1,8 @@
+import { CreatureUpdateManyWithoutCreatureModelInfosInput } from "./CreatureUpdateManyWithoutCreatureModelInfosInput";
+
 export type CreatureModelInfoUpdateInput = {
-  boundingRadius?: number | null;
-  combatReach?: number | null;
-  displayId?: number | null;
-  displayIdOtherGender?: number | null;
-  verifiedBuild?: number | null;
+  boundRadius?: number;
+  combatRadius?: number;
+  creatures?: CreatureUpdateManyWithoutCreatureModelInfosInput;
+  displayId?: string;
 };

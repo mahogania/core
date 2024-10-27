@@ -18,46 +18,38 @@ import { CreatureModelInfoService } from "../creatureModelInfo.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
-  boundingRadius: 42.42,
-  combatReach: 42.42,
+  boundRadius: 42.42,
+  combatRadius: 42.42,
   createdAt: new Date(),
-  displayId: 42,
-  displayIdOtherGender: 42,
+  displayId: "exampleDisplayId",
   id: "exampleId",
   updatedAt: new Date(),
-  verifiedBuild: 42,
 };
 const CREATE_RESULT = {
-  boundingRadius: 42.42,
-  combatReach: 42.42,
+  boundRadius: 42.42,
+  combatRadius: 42.42,
   createdAt: new Date(),
-  displayId: 42,
-  displayIdOtherGender: 42,
+  displayId: "exampleDisplayId",
   id: "exampleId",
   updatedAt: new Date(),
-  verifiedBuild: 42,
 };
 const FIND_MANY_RESULT = [
   {
-    boundingRadius: 42.42,
-    combatReach: 42.42,
+    boundRadius: 42.42,
+    combatRadius: 42.42,
     createdAt: new Date(),
-    displayId: 42,
-    displayIdOtherGender: 42,
+    displayId: "exampleDisplayId",
     id: "exampleId",
     updatedAt: new Date(),
-    verifiedBuild: 42,
   },
 ];
 const FIND_ONE_RESULT = {
-  boundingRadius: 42.42,
-  combatReach: 42.42,
+  boundRadius: 42.42,
+  combatRadius: 42.42,
   createdAt: new Date(),
-  displayId: 42,
-  displayIdOtherGender: 42,
+  displayId: "exampleDisplayId",
   id: "exampleId",
   updatedAt: new Date(),
-  verifiedBuild: 42,
 };
 
 const service = {

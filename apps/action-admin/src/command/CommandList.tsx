@@ -12,9 +12,9 @@ export const CommandList = (props: ListProps): React.ReactElement => {
     >
       <Datagrid rowClick="show" bulkActionButtons={false}>
         <DateField source="createdAt" label="Created At" />
-        <TextField label="help" source="help" />
+        <TextField label="Help" source="help" />
         <TextField label="ID" source="id" />
-        <TextField label="name" source="name" />
+        <TextField label="Name" source="name" />
         <DateField source="updatedAt" label="Updated At" />{" "}
       </Datagrid>
     </List>

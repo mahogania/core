@@ -1,48 +1,84 @@
 import * as React from "react";
+
 import {
   Edit,
   SimpleForm,
   EditProps,
   NumberInput,
   TextInput,
+  ReferenceInput,
+  SelectInput,
 } from "react-admin";
+
+import { CreatureEquipmentTitle } from "../creatureEquipment/CreatureEquipmentTitle";
+import { CreatureFormationTitle } from "../creatureFormation/CreatureFormationTitle";
+import { CreatureImmunityTitle } from "../creatureImmunity/CreatureImmunityTitle";
+import { CreatureLevelStatTitle } from "../creatureLevelStat/CreatureLevelStatTitle";
+import { CreatureLootTitle } from "../creatureLoot/CreatureLootTitle";
+import { CreatureModelInfoTitle } from "../creatureModelInfo/CreatureModelInfoTitle";
+import { CreatureMovementInfoTitle } from "../creatureMovementInfo/CreatureMovementInfoTitle";
 
 export const CreatureEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
-        <NumberInput step={1} label="areaId" source="areaId" />
-        <NumberInput step={1} label="curhealth" source="curhealth" />
-        <NumberInput step={1} label="curmana" source="curmana" />
-        <NumberInput
-          step={1}
-          label="currentwaypoint"
-          source="currentwaypoint"
-        />
-        <NumberInput step={1} label="equipment_id" source="equipmentId" />
-        <NumberInput label="guid" source="guid" />
-        <NumberInput step={1} label="map" source="map" />
-        <NumberInput step={1} label="modelid" source="modelid" />
-        <NumberInput step={1} label="MovementType" source="movementType" />
-        <NumberInput label="npcflag" source="npcflag" />
-        <NumberInput label="orientation" source="orientation" />
-        <NumberInput step={1} label="PhaseGroup" source="phaseGroup" />
-        <NumberInput step={1} label="PhaseId" source="phaseId" />
-        <NumberInput step={1} label="phaseUseFlags" source="phaseUseFlags" />
-        <NumberInput label="position_x" source="positionX" />
-        <NumberInput label="position_y" source="positionY" />
-        <NumberInput label="position_z" source="positionZ" />
-        <TextInput label="ScriptName" source="scriptName" />
-        <TextInput label="spawnDifficulties" source="spawnDifficulties" />
-        <NumberInput step={1} label="spawntimesecs" source="spawntimesecs" />
-        <TextInput label="StringId" source="stringId" />
-        <NumberInput step={1} label="terrainSwapMap" source="terrainSwapMap" />
-        <NumberInput step={1} label="unit_flags" source="unitFlags" />
-        <NumberInput step={1} label="unit_flags2" source="unitFlags2" />
-        <NumberInput step={1} label="unit_flags3" source="unitFlags3" />
-        <NumberInput step={1} label="VerifiedBuild" source="verifiedBuild" />
-        <NumberInput label="wander_distance" source="wanderDistance" />
-        <NumberInput step={1} label="zoneId" source="zoneId" />
+        <NumberInput step={1} label="Area Id" source="areaId" />
+        <TextInput label="Behaviour Name" source="behaviourName" />
+        <ReferenceInput
+          source="creatureEquipments.id"
+          reference="CreatureEquipment"
+          label="Creature Equipments"
+        >
+          <SelectInput optionText={CreatureEquipmentTitle} />
+        </ReferenceInput>
+        <ReferenceInput
+          source="creatureFormations.id"
+          reference="CreatureFormation"
+          label="Creature Formations"
+        >
+          <SelectInput optionText={CreatureFormationTitle} />
+        </ReferenceInput>
+        <ReferenceInput
+          source="creatureImmunities.id"
+          reference="CreatureImmunity"
+          label="Creature Immunities"
+        >
+          <SelectInput optionText={CreatureImmunityTitle} />
+        </ReferenceInput>
+        <ReferenceInput
+          source="creatureLevelStats.id"
+          reference="CreatureLevelStat"
+          label="Creature Level Stats"
+        >
+          <SelectInput optionText={CreatureLevelStatTitle} />
+        </ReferenceInput>
+        <ReferenceInput
+          source="creatureLoots.id"
+          reference="CreatureLoot"
+          label="Creature Loots"
+        >
+          <SelectInput optionText={CreatureLootTitle} />
+        </ReferenceInput>
+        <ReferenceInput
+          source="creatureModelInfo.id"
+          reference="CreatureModelInfo"
+          label="Creature Model Info"
+        >
+          <SelectInput optionText={CreatureModelInfoTitle} />
+        </ReferenceInput>
+        <ReferenceInput
+          source="creatureMovementInfos.id"
+          reference="CreatureMovementInfo"
+          label="Creature Movement Infos"
+        >
+          <SelectInput optionText={CreatureMovementInfoTitle} />
+        </ReferenceInput>
+        <NumberInput step={1} label="Map ID" source="mapId" />
+        <NumberInput step={1} label="Model Id" source="modelId" />
+        <TextInput label="Name" source="name" />
+        <NumberInput step={1} label="Realm Id" source="realmId" />
+        <TextInput label="Transform Id" source="transformId" />
+        <NumberInput step={1} label="Zone Id" source="zoneId" />
       </SimpleForm>
     </Edit>
   );

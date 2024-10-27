@@ -39,6 +39,17 @@ class CreatureOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  behaviourName?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   createdAt?: SortOrder;
 
   @ApiProperty({
@@ -50,7 +61,7 @@ class CreatureOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  curhealth?: SortOrder;
+  creatureEquipmentsId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -61,7 +72,7 @@ class CreatureOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  curmana?: SortOrder;
+  creatureFormationsId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -72,7 +83,7 @@ class CreatureOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  currentwaypoint?: SortOrder;
+  creatureImmunitiesId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -83,7 +94,7 @@ class CreatureOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  equipmentId?: SortOrder;
+  creatureLevelStatsId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -94,7 +105,29 @@ class CreatureOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  guid?: SortOrder;
+  creatureLootsId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  creatureModelInfoId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  creatureMovementInfosId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -116,7 +149,7 @@ class CreatureOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  map?: SortOrder;
+  mapId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -127,7 +160,7 @@ class CreatureOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  modelid?: SortOrder;
+  modelId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -138,7 +171,7 @@ class CreatureOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  movementType?: SortOrder;
+  name?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -149,7 +182,7 @@ class CreatureOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  npcflag?: SortOrder;
+  realmId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -160,161 +193,7 @@ class CreatureOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  orientation?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  phaseGroup?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  phaseId?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  phaseUseFlags?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  positionX?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  positionY?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  positionZ?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  scriptName?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  spawnDifficulties?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  spawntimesecs?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  stringId?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  terrainSwapMap?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  unitFlags?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  unitFlags2?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  unitFlags3?: SortOrder;
+  transformId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -326,28 +205,6 @@ class CreatureOrderByInput {
     nullable: true,
   })
   updatedAt?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  verifiedBuild?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  wanderDistance?: SortOrder;
 
   @ApiProperty({
     required: false,

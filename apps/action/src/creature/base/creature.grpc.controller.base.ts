@@ -34,38 +34,101 @@ export class CreatureGrpcControllerBase {
     @common.Body() data: CreatureCreateInput
   ): Promise<Creature> {
     return await this.service.createCreature({
-      data: data,
+      data: {
+        ...data,
+
+        creatureEquipments: data.creatureEquipments
+          ? {
+              connect: data.creatureEquipments,
+            }
+          : undefined,
+
+        creatureFormations: data.creatureFormations
+          ? {
+              connect: data.creatureFormations,
+            }
+          : undefined,
+
+        creatureImmunities: data.creatureImmunities
+          ? {
+              connect: data.creatureImmunities,
+            }
+          : undefined,
+
+        creatureLevelStats: data.creatureLevelStats
+          ? {
+              connect: data.creatureLevelStats,
+            }
+          : undefined,
+
+        creatureLoots: data.creatureLoots
+          ? {
+              connect: data.creatureLoots,
+            }
+          : undefined,
+
+        creatureModelInfo: {
+          connect: data.creatureModelInfo,
+        },
+
+        creatureMovementInfos: {
+          connect: data.creatureMovementInfos,
+        },
+      },
       select: {
         areaId: true,
+        behaviourName: true,
         createdAt: true,
-        curhealth: true,
-        curmana: true,
-        currentwaypoint: true,
-        equipmentId: true,
-        guid: true,
+
+        creatureEquipments: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureFormations: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureImmunities: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureLevelStats: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureLoots: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureModelInfo: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureMovementInfos: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
-        map: true,
-        modelid: true,
-        movementType: true,
-        npcflag: true,
-        orientation: true,
-        phaseGroup: true,
-        phaseId: true,
-        phaseUseFlags: true,
-        positionX: true,
-        positionY: true,
-        positionZ: true,
-        scriptName: true,
-        spawnDifficulties: true,
-        spawntimesecs: true,
-        stringId: true,
-        terrainSwapMap: true,
-        unitFlags: true,
-        unitFlags2: true,
-        unitFlags3: true,
+        mapId: true,
+        modelId: true,
+        name: true,
+        realmId: true,
+        transformId: true,
         updatedAt: true,
-        verifiedBuild: true,
-        wanderDistance: true,
         zoneId: true,
       },
     });
@@ -81,35 +144,58 @@ export class CreatureGrpcControllerBase {
       ...args,
       select: {
         areaId: true,
+        behaviourName: true,
         createdAt: true,
-        curhealth: true,
-        curmana: true,
-        currentwaypoint: true,
-        equipmentId: true,
-        guid: true,
+
+        creatureEquipments: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureFormations: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureImmunities: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureLevelStats: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureLoots: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureModelInfo: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureMovementInfos: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
-        map: true,
-        modelid: true,
-        movementType: true,
-        npcflag: true,
-        orientation: true,
-        phaseGroup: true,
-        phaseId: true,
-        phaseUseFlags: true,
-        positionX: true,
-        positionY: true,
-        positionZ: true,
-        scriptName: true,
-        spawnDifficulties: true,
-        spawntimesecs: true,
-        stringId: true,
-        terrainSwapMap: true,
-        unitFlags: true,
-        unitFlags2: true,
-        unitFlags3: true,
+        mapId: true,
+        modelId: true,
+        name: true,
+        realmId: true,
+        transformId: true,
         updatedAt: true,
-        verifiedBuild: true,
-        wanderDistance: true,
         zoneId: true,
       },
     });
@@ -126,35 +212,58 @@ export class CreatureGrpcControllerBase {
       where: params,
       select: {
         areaId: true,
+        behaviourName: true,
         createdAt: true,
-        curhealth: true,
-        curmana: true,
-        currentwaypoint: true,
-        equipmentId: true,
-        guid: true,
+
+        creatureEquipments: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureFormations: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureImmunities: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureLevelStats: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureLoots: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureModelInfo: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureMovementInfos: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
-        map: true,
-        modelid: true,
-        movementType: true,
-        npcflag: true,
-        orientation: true,
-        phaseGroup: true,
-        phaseId: true,
-        phaseUseFlags: true,
-        positionX: true,
-        positionY: true,
-        positionZ: true,
-        scriptName: true,
-        spawnDifficulties: true,
-        spawntimesecs: true,
-        stringId: true,
-        terrainSwapMap: true,
-        unitFlags: true,
-        unitFlags2: true,
-        unitFlags3: true,
+        mapId: true,
+        modelId: true,
+        name: true,
+        realmId: true,
+        transformId: true,
         updatedAt: true,
-        verifiedBuild: true,
-        wanderDistance: true,
         zoneId: true,
       },
     });
@@ -177,38 +286,101 @@ export class CreatureGrpcControllerBase {
     try {
       return await this.service.updateCreature({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          creatureEquipments: data.creatureEquipments
+            ? {
+                connect: data.creatureEquipments,
+              }
+            : undefined,
+
+          creatureFormations: data.creatureFormations
+            ? {
+                connect: data.creatureFormations,
+              }
+            : undefined,
+
+          creatureImmunities: data.creatureImmunities
+            ? {
+                connect: data.creatureImmunities,
+              }
+            : undefined,
+
+          creatureLevelStats: data.creatureLevelStats
+            ? {
+                connect: data.creatureLevelStats,
+              }
+            : undefined,
+
+          creatureLoots: data.creatureLoots
+            ? {
+                connect: data.creatureLoots,
+              }
+            : undefined,
+
+          creatureModelInfo: {
+            connect: data.creatureModelInfo,
+          },
+
+          creatureMovementInfos: {
+            connect: data.creatureMovementInfos,
+          },
+        },
         select: {
           areaId: true,
+          behaviourName: true,
           createdAt: true,
-          curhealth: true,
-          curmana: true,
-          currentwaypoint: true,
-          equipmentId: true,
-          guid: true,
+
+          creatureEquipments: {
+            select: {
+              id: true,
+            },
+          },
+
+          creatureFormations: {
+            select: {
+              id: true,
+            },
+          },
+
+          creatureImmunities: {
+            select: {
+              id: true,
+            },
+          },
+
+          creatureLevelStats: {
+            select: {
+              id: true,
+            },
+          },
+
+          creatureLoots: {
+            select: {
+              id: true,
+            },
+          },
+
+          creatureModelInfo: {
+            select: {
+              id: true,
+            },
+          },
+
+          creatureMovementInfos: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
-          map: true,
-          modelid: true,
-          movementType: true,
-          npcflag: true,
-          orientation: true,
-          phaseGroup: true,
-          phaseId: true,
-          phaseUseFlags: true,
-          positionX: true,
-          positionY: true,
-          positionZ: true,
-          scriptName: true,
-          spawnDifficulties: true,
-          spawntimesecs: true,
-          stringId: true,
-          terrainSwapMap: true,
-          unitFlags: true,
-          unitFlags2: true,
-          unitFlags3: true,
+          mapId: true,
+          modelId: true,
+          name: true,
+          realmId: true,
+          transformId: true,
           updatedAt: true,
-          verifiedBuild: true,
-          wanderDistance: true,
           zoneId: true,
         },
       });
@@ -234,35 +406,58 @@ export class CreatureGrpcControllerBase {
         where: params,
         select: {
           areaId: true,
+          behaviourName: true,
           createdAt: true,
-          curhealth: true,
-          curmana: true,
-          currentwaypoint: true,
-          equipmentId: true,
-          guid: true,
+
+          creatureEquipments: {
+            select: {
+              id: true,
+            },
+          },
+
+          creatureFormations: {
+            select: {
+              id: true,
+            },
+          },
+
+          creatureImmunities: {
+            select: {
+              id: true,
+            },
+          },
+
+          creatureLevelStats: {
+            select: {
+              id: true,
+            },
+          },
+
+          creatureLoots: {
+            select: {
+              id: true,
+            },
+          },
+
+          creatureModelInfo: {
+            select: {
+              id: true,
+            },
+          },
+
+          creatureMovementInfos: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
-          map: true,
-          modelid: true,
-          movementType: true,
-          npcflag: true,
-          orientation: true,
-          phaseGroup: true,
-          phaseId: true,
-          phaseUseFlags: true,
-          positionX: true,
-          positionY: true,
-          positionZ: true,
-          scriptName: true,
-          spawnDifficulties: true,
-          spawntimesecs: true,
-          stringId: true,
-          terrainSwapMap: true,
-          unitFlags: true,
-          unitFlags2: true,
-          unitFlags3: true,
+          mapId: true,
+          modelId: true,
+          name: true,
+          realmId: true,
+          transformId: true,
           updatedAt: true,
-          verifiedBuild: true,
-          wanderDistance: true,
           zoneId: true,
         },
       });

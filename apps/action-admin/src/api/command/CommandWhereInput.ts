@@ -1,8 +1,7 @@
-import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
 
 export type CommandWhereInput = {
-  help?: StringNullableFilter;
+  help?: StringFilter;
   id?: StringFilter;
-  name?: StringNullableFilter;
+  name?: StringFilter;
 };

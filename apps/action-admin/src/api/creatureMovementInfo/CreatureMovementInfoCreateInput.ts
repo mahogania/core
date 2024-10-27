@@ -1,5 +1,7 @@
+import { CreatureCreateNestedManyWithoutCreatureMovementInfosInput } from "./CreatureCreateNestedManyWithoutCreatureMovementInfosInput";
+
 export type CreatureMovementInfoCreateInput = {
-  movementId?: number | null;
-  runSpeed?: number | null;
-  walkSpeed?: number | null;
+  creatures?: CreatureCreateNestedManyWithoutCreatureMovementInfosInput;
+  movementId: string;
+  speed?: number | null;
 };

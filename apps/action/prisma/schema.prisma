@@ -19,6 +19,14 @@ model User {
   username  String   @unique
 }
 
+model Command {
+  createdAt DateTime @default(now())
+  help      String
+  id        String   @id @default(cuid())
+  name      String
+  updatedAt DateTime @updatedAt
+}
+
 model Conditions {
   comment                  String?
   conditionStringValue1    String?
@@ -41,14 +49,6 @@ model Conditions {
   updatedAt                DateTime @updatedAt
 }
 
-model Command {
-  createdAt DateTime @default(now())
-  help      String?
-  id        String   @id @default(cuid())
-  name      String?
-  updatedAt DateTime @updatedAt
-}
-
 model ConversationLineTemplate {
   actorIdx      Int?
   chatType      Int?
@@ -64,6 +64,29 @@ model CreatureQuestStarter {
   createdAt DateTime @default(now())
   id        String   @id @default(cuid())
   updatedAt DateTime @updatedAt
+}
+
+model ConversationTemplate {
+  createdAt     DateTime @default(now())
+  firstLineId   Int?
+  flags         Int?
+  id            String   @id @default(cuid())
+  scriptName    String?
+  textureKitId  Int?
+  updatedAt     DateTime @updatedAt
+  verifiedBuild Int?
+}
+
+model CreatureLevelStat {
+  Prana     Int?
+  comment   String?
+  createdAt DateTime   @default(now())
+  creatures Creature[]
+  id        String     @id @default(cuid())
+  kind      Int?
+  level     Int?
+  power     Int?
+  updatedAt DateTime   @updatedAt
 }
 
 model ConversationActors {
@@ -87,43 +110,19 @@ model CreatureTemplateGossip {
   updatedAt DateTime @updatedAt
 }
 
-model CreatureClassLevelStats {
-  attackpower       Int?
-  basemana          Int?
-  classField        Int?
-  comment           String?
-  createdAt         DateTime @default(now())
-  id                String   @id @default(cuid())
-  level             Int?
-  rangedattackpower Int?
-  updatedAt         DateTime @updatedAt
-}
-
 model CreatureTemplate {
   createdAt DateTime @default(now())
   id        String   @id @default(cuid())
   updatedAt DateTime @updatedAt
 }
 
-model CreatureAddon {
-  aiAnimKit              Int?
-  animTier               Int?
-  auras                  String?
-  createdAt              DateTime @default(now())
-  emote                  Int?
-  guid                   Float?
-  id                     String   @id @default(cuid())
-  meleeAnimKit           Int?
-  mount                  Int?
-  mountCreatureId        Int?
-  movementAnimKit        Int?
-  pathId                 Int?
-  pvPFlags               Int?
-  sheathState            Int?
-  standState             Int?
-  updatedAt              DateTime @updatedAt
-  visFlags               Int?
-  visibilityDistanceType Int?
+model CreatureEquipment {
+  appereance Json
+  createdAt  DateTime   @default(now())
+  creatures  Creature[]
+  id         String     @id @default(cuid())
+  updatedAt  DateTime   @updatedAt
+  visual     Json
 }
 
 model CreatureTemplateAddon {
@@ -139,37 +138,31 @@ model CreatureSummonedData {
 }
 
 model Creature {
-  areaId            Int?
-  createdAt         DateTime @default(now())
-  curhealth         Int?
-  curmana           Int?
-  currentwaypoint   Int?
-  equipmentId       Int?
-  guid              Float?
-  id                String   @id @default(cuid())
-  map               Int?
-  modelid           Int?
-  movementType      Int?
-  npcflag           Float?
-  orientation       Float?
-  phaseGroup        Int?
-  phaseId           Int?
-  phaseUseFlags     Int?
-  positionX         Float?
-  positionY         Float?
-  positionZ         Float?
-  scriptName        String?
-  spawnDifficulties String?
-  spawntimesecs     Int?
-  stringId          String?
-  terrainSwapMap    Int?
-  unitFlags         Int?
-  unitFlags2        Int?
-  unitFlags3        Int?
-  updatedAt         DateTime @updatedAt
-  verifiedBuild     Int?
-  wanderDistance    Float?
-  zoneId            Int?
+  areaId                  Int?
+  behaviourName           String
+  createdAt               DateTime             @default(now())
+  creatureEquipments      CreatureEquipment?   @relation(fields: [creatureEquipmentsId], references: [id])
+  creatureEquipmentsId    String?
+  creatureFormations      CreatureFormation?   @relation(fields: [creatureFormationsId], references: [id])
+  creatureFormationsId    String?
+  creatureImmunities      CreatureImmunity?    @relation(fields: [creatureImmunitiesId], references: [id])
+  creatureImmunitiesId    String?
+  creatureLevelStats      CreatureLevelStat?   @relation(fields: [creatureLevelStatsId], references: [id])
+  creatureLevelStatsId    String?
+  creatureLoots           CreatureLoot?        @relation(fields: [creatureLootsId], references: [id])
+  creatureLootsId         String?
+  creatureModelInfo       CreatureModelInfo    @relation(fields: [creatureModelInfoId], references: [id])
+  creatureModelInfoId     String
+  creatureMovementInfos   CreatureMovementInfo @relation(fields: [creatureMovementInfosId], references: [id])
+  creatureMovementInfosId String
+  id                      String               @id @default(cuid())
+  mapId                   Int?
+  modelId                 Int?
+  name                    String
+  realmId                 Int?
+  transformId             String
+  updatedAt               DateTime             @updatedAt
+  zoneId                  Int?
 }
 
 model CreatureSummonGroups {
@@ -202,32 +195,14 @@ model CreatureTemplateSparring {
   updatedAt DateTime @updatedAt
 }
 
-model CreatureEquipTemplate {
-  appearanceModId1 Int?
-  appearanceModId2 Int?
-  appearanceModId3 Int?
-  createdAt        DateTime @default(now())
-  creatureId       Int?
-  id               String   @id @default(cuid())
-  itemId1          Int?
-  itemId2          Int?
-  itemId3          Int?
-  itemVisual1      Int?
-  itemVisual2      Int?
-  itemVisual3      Int?
-  updatedAt        DateTime @updatedAt
-  verifiedBuild    Int?
-}
-
-model ConversationTemplate {
-  createdAt     DateTime @default(now())
-  firstLineId   Int?
-  flags         Int?
-  id            String   @id @default(cuid())
-  scriptName    String?
-  textureKitId  Int?
-  updatedAt     DateTime @updatedAt
-  verifiedBuild Int?
+model CreatureModelInfo {
+  boundRadius  Float
+  combatRadius Float
+  createdAt    DateTime   @default(now())
+  creatures    Creature[]
+  displayId    String
+  id           String     @id @default(cuid())
+  updatedAt    DateTime   @updatedAt
 }
 
 model CreatureOnKillReputation {
@@ -246,38 +221,30 @@ model CreatureOnKillReputation {
   updatedAt            DateTime @updatedAt
 }
 
-model CreatureMovementInfo {
-  createdAt  DateTime @default(now())
-  id         String   @id @default(cuid())
-  movementId Int?
-  runSpeed   Float?
-  updatedAt  DateTime @updatedAt
-  walkSpeed  Float?
+model CreatureFormation {
+  angle     Float?
+  boxId     String?
+  createdAt DateTime   @default(now())
+  creatures Creature[]
+  dist      Float?
+  groupId   String?
+  id        String     @id @default(cuid())
+  leaderId  String
+  memberId  String?
+  updatedAt DateTime   @updatedAt
 }
 
-model CreatureModelInfo {
-  boundingRadius       Float?
-  combatReach          Float?
-  createdAt            DateTime @default(now())
-  displayId            Int?
-  displayIdOtherGender Int?
-  id                   String   @id @default(cuid())
-  updatedAt            DateTime @updatedAt
-  verifiedBuild        Int?
-}
-
-model CreatureImmunities {
-  auras          String?
-  comment        String?
-  createdAt      DateTime @default(now())
-  dispelTypeMask Int?
-  effects        String?
-  id             String   @id @default(cuid())
-  immuneAoE      Int?
-  immuneChain    Int?
-  mechanicsMask  Float?
-  schoolMask     Int?
-  updatedAt      DateTime @updatedAt
+model CreatureLoot {
+  chance    Float
+  comment   String?
+  createdAt DateTime   @default(now())
+  creatures Creature[]
+  id        String     @id @default(cuid())
+  itemId    String
+  maxCount  Int
+  minCount  Int
+  questId   String?
+  updatedAt DateTime   @updatedAt
 }
 
 model CreatureQuestCurrency {
@@ -321,59 +288,38 @@ model CreatureQuestEnder {
   verifiedBuild Int?
 }
 
-model CreatureLootTemplate {
-  chance        Float?
-  comment       String?
-  createdAt     DateTime @default(now())
-  entry         Int?
-  groupId       Int?
-  id            String   @id @default(cuid())
-  item          Int?
-  lootMode      Int?
-  maxCount      Int?
-  minCount      Int?
-  questRequired Int?
-  reference     Int?
-  updatedAt     DateTime @updatedAt
-}
-
-model CreatureMovementOverride {
-  chase                 Int?
-  createdAt             DateTime @default(now())
-  flight                Int?
-  ground                Int?
-  id                    String   @id @default(cuid())
-  interactionPauseTimer Int?
-  random                Int?
-  rooted                Int?
-  spawnId               Float?
-  swim                  Int?
-  updatedAt             DateTime @updatedAt
-}
-
 model CreatureTemplateResistance {
   createdAt DateTime @default(now())
   id        String   @id @default(cuid())
   updatedAt DateTime @updatedAt
 }
 
-model CreatureFormations {
-  angle      Float?
-  createdAt  DateTime @default(now())
-  dist       Float?
-  groupAi    Int?
-  id         String   @id @default(cuid())
-  leaderGuid Float?
-  memberGuid Float?
-  point_1    Int?
-  point_2    Int?
-  updatedAt  DateTime @updatedAt
+model CreatureMovementInfo {
+  createdAt  DateTime   @default(now())
+  creatures  Creature[]
+  id         String     @id @default(cuid())
+  movementId String
+  speed      Float?
+  updatedAt  DateTime   @updatedAt
 }
 
 model CreatureText {
   createdAt DateTime @default(now())
   id        String   @id @default(cuid())
   updatedAt DateTime @updatedAt
+}
+
+model CreatureImmunity {
+  auras        String?
+  comment      String?
+  createdAt    DateTime   @default(now())
+  creatures    Creature[]
+  dispelMask   String
+  effects      String?
+  id           String     @id @default(cuid())
+  mechanicMask String
+  schoolMask   String
+  updatedAt    DateTime   @updatedAt
 }
 
 model Spell {
@@ -430,13 +376,13 @@ model SkinningLootTemplate {
   updatedAt DateTime @updatedAt
 }
 
-model ServersideSpell {
+model ServersideSpellEffect {
   createdAt DateTime @default(now())
   id        String   @id @default(cuid())
   updatedAt DateTime @updatedAt
 }
 
-model ServersideSpellEffect {
+model ServersideSpell {
   createdAt DateTime @default(now())
   id        String   @id @default(cuid())
   updatedAt DateTime @updatedAt

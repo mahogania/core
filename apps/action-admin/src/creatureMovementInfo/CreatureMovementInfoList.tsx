@@ -15,10 +15,9 @@ export const CreatureMovementInfoList = (
       <Datagrid rowClick="show" bulkActionButtons={false}>
         <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
-        <TextField label="MovementID" source="movementId" />
-        <TextField label="RunSpeed" source="runSpeed" />
-        <DateField source="updatedAt" label="Updated At" />
-        <TextField label="WalkSpeed" source="walkSpeed" />{" "}
+        <TextField label="Movement Id" source="movementId" />
+        <TextField label="Speed" source="speed" />
+        <DateField source="updatedAt" label="Updated At" />{" "}
       </Datagrid>
     </List>
   );

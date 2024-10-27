@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+                 package creatureEquipment;
+service CreatureEquipmentService {
+ rpc createCreatureEquipment (CreatureEquipmentCreateInput) returns (CreatureEquipment) {}
+rpc creatureEquipments (findManyParams) returns (stream CreatureEquipment) {}
+rpc creatureEquipment (CreatureEquipmentWhereUniqueInput) returns (CreatureEquipment) {}
+rpc updateCreatureEquipment (CreatureEquipmentUpdateInput) returns (CreatureEquipment) {}
+rpc deleteCreatureEquipment (CreatureEquipmentWhereUniqueInput) returns (CreatureEquipment) {}
+rpc findManyCreatureEquipments (CreatureEquipmentWhereUniqueInput) returns (stream Creature) {}
+rpc updateCreatureEquipments (CreatureParams) returns (stream Creature) {}
+rpc connectCreatureEquipments (CreatureParams) returns (Creature) {}
+rpc disconnectCreatureEquipments (CreatureParams) returns (Creature) {} 
+ }
+message CreatureEquipmentCreateInput {
+string appereance = 1;
+string createdAt = 2;
+repeated Creature creatures = 3;
+string id = 4;
+string updatedAt = 5;
+string visual = 6;
+};
+message CreatureEquipment {
+string appereance = 1;
+string createdAt = 2;
+repeated Creature creatures = 3;
+string id = 4;
+string updatedAt = 5;
+string visual = 6;
+};
+message CreatureEquipmentWhereUniqueInput {
+string appereance = 1;
+string createdAt = 2;
+repeated Creature creatures = 3;
+string id = 4;
+string updatedAt = 5;
+string visual = 6;
+};
+message CreatureEquipmentUpdateInput {
+string appereance = 1;
+string createdAt = 2;
+repeated Creature creatures = 3;
+string id = 4;
+string updatedAt = 5;
+string visual = 6;
+};
+message findManyParams {
+
+};
+message Creature {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureWhereUniqueInput {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureParams {
+CreatureEquipmentWhereUniqueInput creatureEquipmentWhereUniqueInput = 1;
+CreatureWhereUniqueInput creatureWhereUniqueInput = 2;
+};

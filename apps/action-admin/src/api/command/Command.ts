@@ -1,7 +1,7 @@
 export type Command = {
   createdAt: Date;
-  help: string | null;
+  help: string;
   id: string;
-  name: string | null;
+  name: string;
   updatedAt: Date;
 };

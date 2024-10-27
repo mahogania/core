@@ -4,7 +4,6 @@ export type CreatureMovementInfoOrderByInput = {
   createdAt?: SortOrder;
   id?: SortOrder;
   movementId?: SortOrder;
-  runSpeed?: SortOrder;
+  speed?: SortOrder;
   updatedAt?: SortOrder;
-  walkSpeed?: SortOrder;
 };

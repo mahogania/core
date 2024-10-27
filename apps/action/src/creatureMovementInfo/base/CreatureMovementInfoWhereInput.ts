@@ -11,14 +11,26 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { StringFilter } from "../../util/StringFilter";
+import { CreatureListRelationFilter } from "../../creature/base/CreatureListRelationFilter";
+import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
-import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
 import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 
 @InputType()
 class CreatureMovementInfoWhereInput {
+  @ApiProperty({
+    required: false,
+    type: () => CreatureListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => CreatureListRelationFilter)
+  @IsOptional()
+  @Field(() => CreatureListRelationFilter, {
+    nullable: true,
+  })
+  creatures?: CreatureListRelationFilter;
+
   @ApiProperty({
     required: false,
     type: StringFilter,
@@ -32,14 +44,14 @@ class CreatureMovementInfoWhereInput {
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  movementId?: IntNullableFilter;
+  movementId?: StringFilter;
 
   @ApiProperty({
     required: false,
@@ -50,18 +62,7 @@ class CreatureMovementInfoWhereInput {
   @Field(() => FloatNullableFilter, {
     nullable: true,
   })
-  runSpeed?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  walkSpeed?: FloatNullableFilter;
+  speed?: FloatNullableFilter;
 }
 
 export { CreatureMovementInfoWhereInput as CreatureMovementInfoWhereInput };

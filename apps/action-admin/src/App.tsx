@@ -14,14 +14,14 @@ import { UserList } from "./user/UserList";
 import { UserCreate } from "./user/UserCreate";
 import { UserEdit } from "./user/UserEdit";
 import { UserShow } from "./user/UserShow";
-import { ConditionsList } from "./conditions/ConditionsList";
-import { ConditionsCreate } from "./conditions/ConditionsCreate";
-import { ConditionsEdit } from "./conditions/ConditionsEdit";
-import { ConditionsShow } from "./conditions/ConditionsShow";
 import { CommandList } from "./command/CommandList";
 import { CommandCreate } from "./command/CommandCreate";
 import { CommandEdit } from "./command/CommandEdit";
 import { CommandShow } from "./command/CommandShow";
+import { ConditionsList } from "./conditions/ConditionsList";
+import { ConditionsCreate } from "./conditions/ConditionsCreate";
+import { ConditionsEdit } from "./conditions/ConditionsEdit";
+import { ConditionsShow } from "./conditions/ConditionsShow";
 import { ConversationLineTemplateList } from "./conversationLineTemplate/ConversationLineTemplateList";
 import { ConversationLineTemplateCreate } from "./conversationLineTemplate/ConversationLineTemplateCreate";
 import { ConversationLineTemplateEdit } from "./conversationLineTemplate/ConversationLineTemplateEdit";
@@ -30,6 +30,14 @@ import { CreatureQuestStarterList } from "./creatureQuestStarter/CreatureQuestSt
 import { CreatureQuestStarterCreate } from "./creatureQuestStarter/CreatureQuestStarterCreate";
 import { CreatureQuestStarterEdit } from "./creatureQuestStarter/CreatureQuestStarterEdit";
 import { CreatureQuestStarterShow } from "./creatureQuestStarter/CreatureQuestStarterShow";
+import { ConversationTemplateList } from "./conversationTemplate/ConversationTemplateList";
+import { ConversationTemplateCreate } from "./conversationTemplate/ConversationTemplateCreate";
+import { ConversationTemplateEdit } from "./conversationTemplate/ConversationTemplateEdit";
+import { ConversationTemplateShow } from "./conversationTemplate/ConversationTemplateShow";
+import { CreatureLevelStatList } from "./creatureLevelStat/CreatureLevelStatList";
+import { CreatureLevelStatCreate } from "./creatureLevelStat/CreatureLevelStatCreate";
+import { CreatureLevelStatEdit } from "./creatureLevelStat/CreatureLevelStatEdit";
+import { CreatureLevelStatShow } from "./creatureLevelStat/CreatureLevelStatShow";
 import { ConversationActorsList } from "./conversationActors/ConversationActorsList";
 import { ConversationActorsCreate } from "./conversationActors/ConversationActorsCreate";
 import { ConversationActorsEdit } from "./conversationActors/ConversationActorsEdit";
@@ -38,18 +46,14 @@ import { CreatureTemplateGossipList } from "./creatureTemplateGossip/CreatureTem
 import { CreatureTemplateGossipCreate } from "./creatureTemplateGossip/CreatureTemplateGossipCreate";
 import { CreatureTemplateGossipEdit } from "./creatureTemplateGossip/CreatureTemplateGossipEdit";
 import { CreatureTemplateGossipShow } from "./creatureTemplateGossip/CreatureTemplateGossipShow";
-import { CreatureClassLevelStatsList } from "./creatureClassLevelStats/CreatureClassLevelStatsList";
-import { CreatureClassLevelStatsCreate } from "./creatureClassLevelStats/CreatureClassLevelStatsCreate";
-import { CreatureClassLevelStatsEdit } from "./creatureClassLevelStats/CreatureClassLevelStatsEdit";
-import { CreatureClassLevelStatsShow } from "./creatureClassLevelStats/CreatureClassLevelStatsShow";
 import { CreatureTemplateList } from "./creatureTemplate/CreatureTemplateList";
 import { CreatureTemplateCreate } from "./creatureTemplate/CreatureTemplateCreate";
 import { CreatureTemplateEdit } from "./creatureTemplate/CreatureTemplateEdit";
 import { CreatureTemplateShow } from "./creatureTemplate/CreatureTemplateShow";
-import { CreatureAddonList } from "./creatureAddon/CreatureAddonList";
-import { CreatureAddonCreate } from "./creatureAddon/CreatureAddonCreate";
-import { CreatureAddonEdit } from "./creatureAddon/CreatureAddonEdit";
-import { CreatureAddonShow } from "./creatureAddon/CreatureAddonShow";
+import { CreatureEquipmentList } from "./creatureEquipment/CreatureEquipmentList";
+import { CreatureEquipmentCreate } from "./creatureEquipment/CreatureEquipmentCreate";
+import { CreatureEquipmentEdit } from "./creatureEquipment/CreatureEquipmentEdit";
+import { CreatureEquipmentShow } from "./creatureEquipment/CreatureEquipmentShow";
 import { CreatureTemplateAddonList } from "./creatureTemplateAddon/CreatureTemplateAddonList";
 import { CreatureTemplateAddonCreate } from "./creatureTemplateAddon/CreatureTemplateAddonCreate";
 import { CreatureTemplateAddonEdit } from "./creatureTemplateAddon/CreatureTemplateAddonEdit";
@@ -82,30 +86,22 @@ import { CreatureTemplateSparringList } from "./creatureTemplateSparring/Creatur
 import { CreatureTemplateSparringCreate } from "./creatureTemplateSparring/CreatureTemplateSparringCreate";
 import { CreatureTemplateSparringEdit } from "./creatureTemplateSparring/CreatureTemplateSparringEdit";
 import { CreatureTemplateSparringShow } from "./creatureTemplateSparring/CreatureTemplateSparringShow";
-import { CreatureEquipTemplateList } from "./creatureEquipTemplate/CreatureEquipTemplateList";
-import { CreatureEquipTemplateCreate } from "./creatureEquipTemplate/CreatureEquipTemplateCreate";
-import { CreatureEquipTemplateEdit } from "./creatureEquipTemplate/CreatureEquipTemplateEdit";
-import { CreatureEquipTemplateShow } from "./creatureEquipTemplate/CreatureEquipTemplateShow";
-import { ConversationTemplateList } from "./conversationTemplate/ConversationTemplateList";
-import { ConversationTemplateCreate } from "./conversationTemplate/ConversationTemplateCreate";
-import { ConversationTemplateEdit } from "./conversationTemplate/ConversationTemplateEdit";
-import { ConversationTemplateShow } from "./conversationTemplate/ConversationTemplateShow";
-import { CreatureOnKillReputationList } from "./creatureOnKillReputation/CreatureOnKillReputationList";
-import { CreatureOnKillReputationCreate } from "./creatureOnKillReputation/CreatureOnKillReputationCreate";
-import { CreatureOnKillReputationEdit } from "./creatureOnKillReputation/CreatureOnKillReputationEdit";
-import { CreatureOnKillReputationShow } from "./creatureOnKillReputation/CreatureOnKillReputationShow";
-import { CreatureMovementInfoList } from "./creatureMovementInfo/CreatureMovementInfoList";
-import { CreatureMovementInfoCreate } from "./creatureMovementInfo/CreatureMovementInfoCreate";
-import { CreatureMovementInfoEdit } from "./creatureMovementInfo/CreatureMovementInfoEdit";
-import { CreatureMovementInfoShow } from "./creatureMovementInfo/CreatureMovementInfoShow";
 import { CreatureModelInfoList } from "./creatureModelInfo/CreatureModelInfoList";
 import { CreatureModelInfoCreate } from "./creatureModelInfo/CreatureModelInfoCreate";
 import { CreatureModelInfoEdit } from "./creatureModelInfo/CreatureModelInfoEdit";
 import { CreatureModelInfoShow } from "./creatureModelInfo/CreatureModelInfoShow";
-import { CreatureImmunitiesList } from "./creatureImmunities/CreatureImmunitiesList";
-import { CreatureImmunitiesCreate } from "./creatureImmunities/CreatureImmunitiesCreate";
-import { CreatureImmunitiesEdit } from "./creatureImmunities/CreatureImmunitiesEdit";
-import { CreatureImmunitiesShow } from "./creatureImmunities/CreatureImmunitiesShow";
+import { CreatureOnKillReputationList } from "./creatureOnKillReputation/CreatureOnKillReputationList";
+import { CreatureOnKillReputationCreate } from "./creatureOnKillReputation/CreatureOnKillReputationCreate";
+import { CreatureOnKillReputationEdit } from "./creatureOnKillReputation/CreatureOnKillReputationEdit";
+import { CreatureOnKillReputationShow } from "./creatureOnKillReputation/CreatureOnKillReputationShow";
+import { CreatureFormationList } from "./creatureFormation/CreatureFormationList";
+import { CreatureFormationCreate } from "./creatureFormation/CreatureFormationCreate";
+import { CreatureFormationEdit } from "./creatureFormation/CreatureFormationEdit";
+import { CreatureFormationShow } from "./creatureFormation/CreatureFormationShow";
+import { CreatureLootList } from "./creatureLoot/CreatureLootList";
+import { CreatureLootCreate } from "./creatureLoot/CreatureLootCreate";
+import { CreatureLootEdit } from "./creatureLoot/CreatureLootEdit";
+import { CreatureLootShow } from "./creatureLoot/CreatureLootShow";
 import { CreatureQuestCurrencyList } from "./creatureQuestCurrency/CreatureQuestCurrencyList";
 import { CreatureQuestCurrencyCreate } from "./creatureQuestCurrency/CreatureQuestCurrencyCreate";
 import { CreatureQuestCurrencyEdit } from "./creatureQuestCurrency/CreatureQuestCurrencyEdit";
@@ -130,26 +126,22 @@ import { CreatureQuestEnderList } from "./creatureQuestEnder/CreatureQuestEnderL
 import { CreatureQuestEnderCreate } from "./creatureQuestEnder/CreatureQuestEnderCreate";
 import { CreatureQuestEnderEdit } from "./creatureQuestEnder/CreatureQuestEnderEdit";
 import { CreatureQuestEnderShow } from "./creatureQuestEnder/CreatureQuestEnderShow";
-import { CreatureLootTemplateList } from "./creatureLootTemplate/CreatureLootTemplateList";
-import { CreatureLootTemplateCreate } from "./creatureLootTemplate/CreatureLootTemplateCreate";
-import { CreatureLootTemplateEdit } from "./creatureLootTemplate/CreatureLootTemplateEdit";
-import { CreatureLootTemplateShow } from "./creatureLootTemplate/CreatureLootTemplateShow";
-import { CreatureMovementOverrideList } from "./creatureMovementOverride/CreatureMovementOverrideList";
-import { CreatureMovementOverrideCreate } from "./creatureMovementOverride/CreatureMovementOverrideCreate";
-import { CreatureMovementOverrideEdit } from "./creatureMovementOverride/CreatureMovementOverrideEdit";
-import { CreatureMovementOverrideShow } from "./creatureMovementOverride/CreatureMovementOverrideShow";
 import { CreatureTemplateResistanceList } from "./creatureTemplateResistance/CreatureTemplateResistanceList";
 import { CreatureTemplateResistanceCreate } from "./creatureTemplateResistance/CreatureTemplateResistanceCreate";
 import { CreatureTemplateResistanceEdit } from "./creatureTemplateResistance/CreatureTemplateResistanceEdit";
 import { CreatureTemplateResistanceShow } from "./creatureTemplateResistance/CreatureTemplateResistanceShow";
-import { CreatureFormationsList } from "./creatureFormations/CreatureFormationsList";
-import { CreatureFormationsCreate } from "./creatureFormations/CreatureFormationsCreate";
-import { CreatureFormationsEdit } from "./creatureFormations/CreatureFormationsEdit";
-import { CreatureFormationsShow } from "./creatureFormations/CreatureFormationsShow";
+import { CreatureMovementInfoList } from "./creatureMovementInfo/CreatureMovementInfoList";
+import { CreatureMovementInfoCreate } from "./creatureMovementInfo/CreatureMovementInfoCreate";
+import { CreatureMovementInfoEdit } from "./creatureMovementInfo/CreatureMovementInfoEdit";
+import { CreatureMovementInfoShow } from "./creatureMovementInfo/CreatureMovementInfoShow";
 import { CreatureTextList } from "./creatureText/CreatureTextList";
 import { CreatureTextCreate } from "./creatureText/CreatureTextCreate";
 import { CreatureTextEdit } from "./creatureText/CreatureTextEdit";
 import { CreatureTextShow } from "./creatureText/CreatureTextShow";
+import { CreatureImmunityList } from "./creatureImmunity/CreatureImmunityList";
+import { CreatureImmunityCreate } from "./creatureImmunity/CreatureImmunityCreate";
+import { CreatureImmunityEdit } from "./creatureImmunity/CreatureImmunityEdit";
+import { CreatureImmunityShow } from "./creatureImmunity/CreatureImmunityShow";
 import { SpellList } from "./spell/SpellList";
 import { SpellCreate } from "./spell/SpellCreate";
 import { SpellEdit } from "./spell/SpellEdit";
@@ -186,14 +178,14 @@ import { SkinningLootTemplateList } from "./skinningLootTemplate/SkinningLootTem
 import { SkinningLootTemplateCreate } from "./skinningLootTemplate/SkinningLootTemplateCreate";
 import { SkinningLootTemplateEdit } from "./skinningLootTemplate/SkinningLootTemplateEdit";
 import { SkinningLootTemplateShow } from "./skinningLootTemplate/SkinningLootTemplateShow";
-import { ServersideSpellList } from "./serversideSpell/ServersideSpellList";
-import { ServersideSpellCreate } from "./serversideSpell/ServersideSpellCreate";
-import { ServersideSpellEdit } from "./serversideSpell/ServersideSpellEdit";
-import { ServersideSpellShow } from "./serversideSpell/ServersideSpellShow";
 import { ServersideSpellEffectList } from "./serversideSpellEffect/ServersideSpellEffectList";
 import { ServersideSpellEffectCreate } from "./serversideSpellEffect/ServersideSpellEffectCreate";
 import { ServersideSpellEffectEdit } from "./serversideSpellEffect/ServersideSpellEffectEdit";
 import { ServersideSpellEffectShow } from "./serversideSpellEffect/ServersideSpellEffectShow";
+import { ServersideSpellList } from "./serversideSpell/ServersideSpellList";
+import { ServersideSpellCreate } from "./serversideSpell/ServersideSpellCreate";
+import { ServersideSpellEdit } from "./serversideSpell/ServersideSpellEdit";
+import { ServersideSpellShow } from "./serversideSpell/ServersideSpellShow";
 import { SpawnGroupList } from "./spawnGroup/SpawnGroupList";
 import { SpawnGroupCreate } from "./spawnGroup/SpawnGroupCreate";
 import { SpawnGroupEdit } from "./spawnGroup/SpawnGroupEdit";
@@ -257,18 +249,18 @@ const App = (): React.ReactElement => {
           show={UserShow}
         />
         <Resource
-          name="Conditions"
-          list={ConditionsList}
-          edit={ConditionsEdit}
-          create={ConditionsCreate}
-          show={ConditionsShow}
-        />
-        <Resource
           name="Command"
           list={CommandList}
           edit={CommandEdit}
           create={CommandCreate}
           show={CommandShow}
+        />
+        <Resource
+          name="Conditions"
+          list={ConditionsList}
+          edit={ConditionsEdit}
+          create={ConditionsCreate}
+          show={ConditionsShow}
         />
         <Resource
           name="ConversationLineTemplate"
@@ -285,6 +277,20 @@ const App = (): React.ReactElement => {
           show={CreatureQuestStarterShow}
         />
         <Resource
+          name="ConversationTemplate"
+          list={ConversationTemplateList}
+          edit={ConversationTemplateEdit}
+          create={ConversationTemplateCreate}
+          show={ConversationTemplateShow}
+        />
+        <Resource
+          name="CreatureLevelStat"
+          list={CreatureLevelStatList}
+          edit={CreatureLevelStatEdit}
+          create={CreatureLevelStatCreate}
+          show={CreatureLevelStatShow}
+        />
+        <Resource
           name="ConversationActors"
           list={ConversationActorsList}
           edit={ConversationActorsEdit}
@@ -299,13 +305,6 @@ const App = (): React.ReactElement => {
           show={CreatureTemplateGossipShow}
         />
         <Resource
-          name="CreatureClassLevelStats"
-          list={CreatureClassLevelStatsList}
-          edit={CreatureClassLevelStatsEdit}
-          create={CreatureClassLevelStatsCreate}
-          show={CreatureClassLevelStatsShow}
-        />
-        <Resource
           name="CreatureTemplate"
           list={CreatureTemplateList}
           edit={CreatureTemplateEdit}
@@ -313,11 +312,11 @@ const App = (): React.ReactElement => {
           show={CreatureTemplateShow}
         />
         <Resource
-          name="CreatureAddon"
-          list={CreatureAddonList}
-          edit={CreatureAddonEdit}
-          create={CreatureAddonCreate}
-          show={CreatureAddonShow}
+          name="CreatureEquipment"
+          list={CreatureEquipmentList}
+          edit={CreatureEquipmentEdit}
+          create={CreatureEquipmentCreate}
+          show={CreatureEquipmentShow}
         />
         <Resource
           name="CreatureTemplateAddon"
@@ -376,18 +375,11 @@ const App = (): React.ReactElement => {
           show={CreatureTemplateSparringShow}
         />
         <Resource
-          name="CreatureEquipTemplate"
-          list={CreatureEquipTemplateList}
-          edit={CreatureEquipTemplateEdit}
-          create={CreatureEquipTemplateCreate}
-          show={CreatureEquipTemplateShow}
-        />
-        <Resource
-          name="ConversationTemplate"
-          list={ConversationTemplateList}
-          edit={ConversationTemplateEdit}
-          create={ConversationTemplateCreate}
-          show={ConversationTemplateShow}
+          name="CreatureModelInfo"
+          list={CreatureModelInfoList}
+          edit={CreatureModelInfoEdit}
+          create={CreatureModelInfoCreate}
+          show={CreatureModelInfoShow}
         />
         <Resource
           name="CreatureOnKillReputation"
@@ -397,25 +389,18 @@ const App = (): React.ReactElement => {
           show={CreatureOnKillReputationShow}
         />
         <Resource
-          name="CreatureMovementInfo"
-          list={CreatureMovementInfoList}
-          edit={CreatureMovementInfoEdit}
-          create={CreatureMovementInfoCreate}
-          show={CreatureMovementInfoShow}
+          name="CreatureFormation"
+          list={CreatureFormationList}
+          edit={CreatureFormationEdit}
+          create={CreatureFormationCreate}
+          show={CreatureFormationShow}
         />
         <Resource
-          name="CreatureModelInfo"
-          list={CreatureModelInfoList}
-          edit={CreatureModelInfoEdit}
-          create={CreatureModelInfoCreate}
-          show={CreatureModelInfoShow}
-        />
-        <Resource
-          name="CreatureImmunities"
-          list={CreatureImmunitiesList}
-          edit={CreatureImmunitiesEdit}
-          create={CreatureImmunitiesCreate}
-          show={CreatureImmunitiesShow}
+          name="CreatureLoot"
+          list={CreatureLootList}
+          edit={CreatureLootEdit}
+          create={CreatureLootCreate}
+          show={CreatureLootShow}
         />
         <Resource
           name="CreatureQuestCurrency"
@@ -460,20 +445,6 @@ const App = (): React.ReactElement => {
           show={CreatureQuestEnderShow}
         />
         <Resource
-          name="CreatureLootTemplate"
-          list={CreatureLootTemplateList}
-          edit={CreatureLootTemplateEdit}
-          create={CreatureLootTemplateCreate}
-          show={CreatureLootTemplateShow}
-        />
-        <Resource
-          name="CreatureMovementOverride"
-          list={CreatureMovementOverrideList}
-          edit={CreatureMovementOverrideEdit}
-          create={CreatureMovementOverrideCreate}
-          show={CreatureMovementOverrideShow}
-        />
-        <Resource
           name="CreatureTemplateResistance"
           list={CreatureTemplateResistanceList}
           edit={CreatureTemplateResistanceEdit}
@@ -481,11 +452,11 @@ const App = (): React.ReactElement => {
           show={CreatureTemplateResistanceShow}
         />
         <Resource
-          name="CreatureFormations"
-          list={CreatureFormationsList}
-          edit={CreatureFormationsEdit}
-          create={CreatureFormationsCreate}
-          show={CreatureFormationsShow}
+          name="CreatureMovementInfo"
+          list={CreatureMovementInfoList}
+          edit={CreatureMovementInfoEdit}
+          create={CreatureMovementInfoCreate}
+          show={CreatureMovementInfoShow}
         />
         <Resource
           name="CreatureText"
@@ -493,6 +464,13 @@ const App = (): React.ReactElement => {
           edit={CreatureTextEdit}
           create={CreatureTextCreate}
           show={CreatureTextShow}
+        />
+        <Resource
+          name="CreatureImmunity"
+          list={CreatureImmunityList}
+          edit={CreatureImmunityEdit}
+          create={CreatureImmunityCreate}
+          show={CreatureImmunityShow}
         />
         <Resource
           name="Spell"
@@ -558,18 +536,18 @@ const App = (): React.ReactElement => {
           show={SkinningLootTemplateShow}
         />
         <Resource
-          name="ServersideSpell"
-          list={ServersideSpellList}
-          edit={ServersideSpellEdit}
-          create={ServersideSpellCreate}
-          show={ServersideSpellShow}
-        />
-        <Resource
           name="ServersideSpellEffect"
           list={ServersideSpellEffectList}
           edit={ServersideSpellEffectEdit}
           create={ServersideSpellEffectCreate}
           show={ServersideSpellEffectShow}
+        />
+        <Resource
+          name="ServersideSpell"
+          list={ServersideSpellList}
+          edit={ServersideSpellEdit}
+          create={ServersideSpellCreate}
+          show={ServersideSpellShow}
         />
         <Resource
           name="SpawnGroup"

@@ -13,10 +13,15 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { IntNullableFilter } from "../../util/IntNullableFilter";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
-import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { IsOptional, ValidateNested } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { CreatureEquipmentWhereUniqueInput } from "../../creatureEquipment/base/CreatureEquipmentWhereUniqueInput";
+import { CreatureFormationWhereUniqueInput } from "../../creatureFormation/base/CreatureFormationWhereUniqueInput";
+import { CreatureImmunityWhereUniqueInput } from "../../creatureImmunity/base/CreatureImmunityWhereUniqueInput";
+import { CreatureLevelStatWhereUniqueInput } from "../../creatureLevelStat/base/CreatureLevelStatWhereUniqueInput";
+import { CreatureLootWhereUniqueInput } from "../../creatureLoot/base/CreatureLootWhereUniqueInput";
+import { CreatureModelInfoWhereUniqueInput } from "../../creatureModelInfo/base/CreatureModelInfoWhereUniqueInput";
+import { CreatureMovementInfoWhereUniqueInput } from "../../creatureMovementInfo/base/CreatureMovementInfoWhereUniqueInput";
 
 @InputType()
 class CreatureWhereInput {
@@ -33,58 +38,98 @@ class CreatureWhereInput {
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  curhealth?: IntNullableFilter;
+  behaviourName?: StringFilter;
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: () => CreatureEquipmentWhereUniqueInput,
   })
-  @Type(() => IntNullableFilter)
+  @ValidateNested()
+  @Type(() => CreatureEquipmentWhereUniqueInput)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => CreatureEquipmentWhereUniqueInput, {
     nullable: true,
   })
-  curmana?: IntNullableFilter;
+  creatureEquipments?: CreatureEquipmentWhereUniqueInput;
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: () => CreatureFormationWhereUniqueInput,
   })
-  @Type(() => IntNullableFilter)
+  @ValidateNested()
+  @Type(() => CreatureFormationWhereUniqueInput)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => CreatureFormationWhereUniqueInput, {
     nullable: true,
   })
-  currentwaypoint?: IntNullableFilter;
+  creatureFormations?: CreatureFormationWhereUniqueInput;
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: () => CreatureImmunityWhereUniqueInput,
   })
-  @Type(() => IntNullableFilter)
+  @ValidateNested()
+  @Type(() => CreatureImmunityWhereUniqueInput)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => CreatureImmunityWhereUniqueInput, {
     nullable: true,
   })
-  equipmentId?: IntNullableFilter;
+  creatureImmunities?: CreatureImmunityWhereUniqueInput;
 
   @ApiProperty({
     required: false,
-    type: FloatNullableFilter,
+    type: () => CreatureLevelStatWhereUniqueInput,
   })
-  @Type(() => FloatNullableFilter)
+  @ValidateNested()
+  @Type(() => CreatureLevelStatWhereUniqueInput)
   @IsOptional()
-  @Field(() => FloatNullableFilter, {
+  @Field(() => CreatureLevelStatWhereUniqueInput, {
     nullable: true,
   })
-  guid?: FloatNullableFilter;
+  creatureLevelStats?: CreatureLevelStatWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => CreatureLootWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CreatureLootWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CreatureLootWhereUniqueInput, {
+    nullable: true,
+  })
+  creatureLoots?: CreatureLootWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => CreatureModelInfoWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CreatureModelInfoWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CreatureModelInfoWhereUniqueInput, {
+    nullable: true,
+  })
+  creatureModelInfo?: CreatureModelInfoWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => CreatureMovementInfoWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CreatureMovementInfoWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CreatureMovementInfoWhereUniqueInput, {
+    nullable: true,
+  })
+  creatureMovementInfos?: CreatureMovementInfoWhereUniqueInput;
 
   @ApiProperty({
     required: false,
@@ -106,7 +151,7 @@ class CreatureWhereInput {
   @Field(() => IntNullableFilter, {
     nullable: true,
   })
-  map?: IntNullableFilter;
+  mapId?: IntNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -117,7 +162,18 @@ class CreatureWhereInput {
   @Field(() => IntNullableFilter, {
     nullable: true,
   })
-  modelid?: IntNullableFilter;
+  modelId?: IntNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  name?: StringFilter;
 
   @ApiProperty({
     required: false,
@@ -128,205 +184,18 @@ class CreatureWhereInput {
   @Field(() => IntNullableFilter, {
     nullable: true,
   })
-  movementType?: IntNullableFilter;
+  realmId?: IntNullableFilter;
 
   @ApiProperty({
     required: false,
-    type: FloatNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => FloatNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => FloatNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  npcflag?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  orientation?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  phaseGroup?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  phaseId?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  phaseUseFlags?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  positionX?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  positionY?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  positionZ?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  scriptName?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  spawnDifficulties?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  spawntimesecs?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  stringId?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  terrainSwapMap?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  unitFlags?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  unitFlags2?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  unitFlags3?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  verifiedBuild?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  wanderDistance?: FloatNullableFilter;
+  transformId?: StringFilter;
 
   @ApiProperty({
     required: false,

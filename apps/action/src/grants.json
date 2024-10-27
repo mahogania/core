@@ -31,61 +31,61 @@
   },
   {
     "role": "user",
-    "resource": "Conditions",
+    "resource": "Command",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Conditions",
+    "resource": "Command",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Conditions",
+    "resource": "Command",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Conditions",
+    "resource": "Command",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Conditions",
+    "resource": "Command",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Command",
+    "resource": "Conditions",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Command",
+    "resource": "Conditions",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Command",
+    "resource": "Conditions",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Command",
+    "resource": "Conditions",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Command",
+    "resource": "Conditions",
     "action": "read:any",
     "attributes": "*"
   },
@@ -151,6 +151,66 @@
   },
   {
     "role": "user",
+    "resource": "ConversationTemplate",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ConversationTemplate",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ConversationTemplate",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ConversationTemplate",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ConversationTemplate",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "CreatureLevelStat",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "CreatureLevelStat",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "CreatureLevelStat",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "CreatureLevelStat",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "CreatureLevelStat",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
     "resource": "ConversationActors",
     "action": "read:own",
     "attributes": "*"
@@ -211,36 +271,6 @@
   },
   {
     "role": "user",
-    "resource": "CreatureClassLevelStats",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureClassLevelStats",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureClassLevelStats",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureClassLevelStats",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureClassLevelStats",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
     "resource": "CreatureTemplate",
     "action": "read:own",
     "attributes": "*"
@@ -271,31 +301,31 @@
   },
   {
     "role": "user",
-    "resource": "CreatureAddon",
+    "resource": "CreatureEquipment",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureAddon",
+    "resource": "CreatureEquipment",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureAddon",
+    "resource": "CreatureEquipment",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureAddon",
+    "resource": "CreatureEquipment",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureAddon",
+    "resource": "CreatureEquipment",
     "action": "read:any",
     "attributes": "*"
   },
@@ -541,61 +571,31 @@
   },
   {
     "role": "user",
-    "resource": "CreatureEquipTemplate",
+    "resource": "CreatureModelInfo",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureEquipTemplate",
+    "resource": "CreatureModelInfo",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureEquipTemplate",
+    "resource": "CreatureModelInfo",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureEquipTemplate",
+    "resource": "CreatureModelInfo",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureEquipTemplate",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ConversationTemplate",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ConversationTemplate",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ConversationTemplate",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ConversationTemplate",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ConversationTemplate",
+    "resource": "CreatureModelInfo",
     "action": "read:any",
     "attributes": "*"
   },
@@ -631,91 +631,61 @@
   },
   {
     "role": "user",
-    "resource": "CreatureMovementInfo",
+    "resource": "CreatureFormation",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureMovementInfo",
+    "resource": "CreatureFormation",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureMovementInfo",
+    "resource": "CreatureFormation",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureMovementInfo",
+    "resource": "CreatureFormation",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureMovementInfo",
+    "resource": "CreatureFormation",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureModelInfo",
+    "resource": "CreatureLoot",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureModelInfo",
+    "resource": "CreatureLoot",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureModelInfo",
+    "resource": "CreatureLoot",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureModelInfo",
+    "resource": "CreatureLoot",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureModelInfo",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureImmunities",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureImmunities",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureImmunities",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureImmunities",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureImmunities",
+    "resource": "CreatureLoot",
     "action": "read:any",
     "attributes": "*"
   },
@@ -901,66 +871,6 @@
   },
   {
     "role": "user",
-    "resource": "CreatureLootTemplate",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureLootTemplate",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureLootTemplate",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureLootTemplate",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureLootTemplate",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureMovementOverride",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureMovementOverride",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureMovementOverride",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureMovementOverride",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CreatureMovementOverride",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
     "resource": "CreatureTemplateResistance",
     "action": "read:own",
     "attributes": "*"
@@ -991,31 +901,31 @@
   },
   {
     "role": "user",
-    "resource": "CreatureFormations",
+    "resource": "CreatureMovementInfo",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureFormations",
+    "resource": "CreatureMovementInfo",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureFormations",
+    "resource": "CreatureMovementInfo",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureFormations",
+    "resource": "CreatureMovementInfo",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "CreatureFormations",
+    "resource": "CreatureMovementInfo",
     "action": "read:any",
     "attributes": "*"
   },
@@ -1046,6 +956,36 @@
   {
     "role": "user",
     "resource": "CreatureText",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "CreatureImmunity",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "CreatureImmunity",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "CreatureImmunity",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "CreatureImmunity",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "CreatureImmunity",
     "action": "read:any",
     "attributes": "*"
   },
@@ -1321,61 +1261,61 @@
   },
   {
     "role": "user",
-    "resource": "ServersideSpell",
+    "resource": "ServersideSpellEffect",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ServersideSpell",
+    "resource": "ServersideSpellEffect",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ServersideSpell",
+    "resource": "ServersideSpellEffect",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ServersideSpell",
+    "resource": "ServersideSpellEffect",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ServersideSpell",
+    "resource": "ServersideSpellEffect",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ServersideSpellEffect",
+    "resource": "ServersideSpell",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ServersideSpellEffect",
+    "resource": "ServersideSpell",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ServersideSpellEffect",
+    "resource": "ServersideSpell",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ServersideSpellEffect",
+    "resource": "ServersideSpell",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ServersideSpellEffect",
+    "resource": "ServersideSpell",
     "action": "read:any",
     "attributes": "*"
   },

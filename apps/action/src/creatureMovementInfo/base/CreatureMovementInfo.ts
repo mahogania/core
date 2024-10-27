@@ -11,16 +11,20 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+
 import {
   IsDate,
+  ValidateNested,
+  IsOptional,
   IsString,
-  IsInt,
+  MaxLength,
+  IsNumber,
   Min,
   Max,
-  IsOptional,
-  IsNumber,
 } from "class-validator";
+
 import { Type } from "class-transformer";
+import { Creature } from "../../creature/base/Creature";
 
 @ObjectType()
 class CreatureMovementInfo {
@@ -33,6 +37,15 @@ class CreatureMovementInfo {
   createdAt!: Date;
 
   @ApiProperty({
+    required: false,
+    type: () => [Creature],
+  })
+  @ValidateNested()
+  @Type(() => Creature)
+  @IsOptional()
+  creatures?: Array<Creature>;
+
+  @ApiProperty({
     required: true,
     type: String,
   })
@@ -41,17 +54,13 @@ class CreatureMovementInfo {
   id!: string;
 
   @ApiProperty({
-    required: false,
-    type: Number,
+    required: true,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  movementId!: number | null;
+  @IsString()
+  @MaxLength(1000)
+  @Field(() => String)
+  movementId!: string;
 
   @ApiProperty({
     required: false,
@@ -64,7 +73,7 @@ class CreatureMovementInfo {
   @Field(() => Number, {
     nullable: true,
   })
-  runSpeed!: number | null;
+  speed!: number | null;
 
   @ApiProperty({
     required: true,
@@ -73,19 +82,6 @@ class CreatureMovementInfo {
   @Type(() => Date)
   @Field(() => Date)
   updatedAt!: Date;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  walkSpeed!: number | null;
 }
 
 export { CreatureMovementInfo as CreatureMovementInfo };

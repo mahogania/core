@@ -26,6 +26,9 @@ import { CreatureMovementInfo } from "./CreatureMovementInfo";
 import { CreatureMovementInfoFindManyArgs } from "./CreatureMovementInfoFindManyArgs";
 import { CreatureMovementInfoWhereUniqueInput } from "./CreatureMovementInfoWhereUniqueInput";
 import { CreatureMovementInfoUpdateInput } from "./CreatureMovementInfoUpdateInput";
+import { CreatureFindManyArgs } from "../../creature/base/CreatureFindManyArgs";
+import { Creature } from "../../creature/base/Creature";
+import { CreatureWhereUniqueInput } from "../../creature/base/CreatureWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -57,9 +60,8 @@ export class CreatureMovementInfoControllerBase {
         createdAt: true,
         id: true,
         movementId: true,
-        runSpeed: true,
+        speed: true,
         updatedAt: true,
-        walkSpeed: true,
       },
     });
   }
@@ -86,9 +88,8 @@ export class CreatureMovementInfoControllerBase {
         createdAt: true,
         id: true,
         movementId: true,
-        runSpeed: true,
+        speed: true,
         updatedAt: true,
-        walkSpeed: true,
       },
     });
   }
@@ -114,9 +115,8 @@ export class CreatureMovementInfoControllerBase {
         createdAt: true,
         id: true,
         movementId: true,
-        runSpeed: true,
+        speed: true,
         updatedAt: true,
-        walkSpeed: true,
       },
     });
     if (result === null) {
@@ -154,9 +154,8 @@ export class CreatureMovementInfoControllerBase {
           createdAt: true,
           id: true,
           movementId: true,
-          runSpeed: true,
+          speed: true,
           updatedAt: true,
-          walkSpeed: true,
         },
       });
     } catch (error) {
@@ -190,9 +189,8 @@ export class CreatureMovementInfoControllerBase {
           createdAt: true,
           id: true,
           movementId: true,
-          runSpeed: true,
+          speed: true,
           updatedAt: true,
-          walkSpeed: true,
         },
       });
     } catch (error) {
@@ -203,5 +201,151 @@ export class CreatureMovementInfoControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/creatures")
+  @ApiNestedQuery(CreatureFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "Creature",
+    action: "read",
+    possession: "any",
+  })
+  async findCreatures(
+    @common.Req() request: Request,
+    @common.Param() params: CreatureMovementInfoWhereUniqueInput
+  ): Promise<Creature[]> {
+    const query = plainToClass(CreatureFindManyArgs, request.query);
+    const results = await this.service.findCreatures(params.id, {
+      ...query,
+      select: {
+        areaId: true,
+        behaviourName: true,
+        createdAt: true,
+
+        creatureEquipments: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureFormations: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureImmunities: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureLevelStats: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureLoots: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureModelInfo: {
+          select: {
+            id: true,
+          },
+        },
+
+        creatureMovementInfos: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        mapId: true,
+        modelId: true,
+        name: true,
+        realmId: true,
+        transformId: true,
+        updatedAt: true,
+        zoneId: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/creatures")
+  @nestAccessControl.UseRoles({
+    resource: "CreatureMovementInfo",
+    action: "update",
+    possession: "any",
+  })
+  async connectCreatures(
+    @common.Param() params: CreatureMovementInfoWhereUniqueInput,
+    @common.Body() body: CreatureWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      creatures: {
+        connect: body,
+      },
+    };
+    await this.service.updateCreatureMovementInfo({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/creatures")
+  @nestAccessControl.UseRoles({
+    resource: "CreatureMovementInfo",
+    action: "update",
+    possession: "any",
+  })
+  async updateCreatures(
+    @common.Param() params: CreatureMovementInfoWhereUniqueInput,
+    @common.Body() body: CreatureWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      creatures: {
+        set: body,
+      },
+    };
+    await this.service.updateCreatureMovementInfo({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/creatures")
+  @nestAccessControl.UseRoles({
+    resource: "CreatureMovementInfo",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectCreatures(
+    @common.Param() params: CreatureMovementInfoWhereUniqueInput,
+    @common.Body() body: CreatureWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      creatures: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateCreatureMovementInfo({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

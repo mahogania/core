@@ -11,7 +11,17 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNumber, Min, Max, IsOptional, IsInt } from "class-validator";
+import {
+  IsNumber,
+  Max,
+  IsOptional,
+  Min,
+  ValidateNested,
+  IsString,
+  MaxLength,
+} from "class-validator";
+import { CreatureUpdateManyWithoutCreatureModelInfosInput } from "./CreatureUpdateManyWithoutCreatureModelInfosInput";
+import { Type } from "class-transformer";
 
 @InputType()
 class CreatureModelInfoUpdateInput {
@@ -20,13 +30,12 @@ class CreatureModelInfoUpdateInput {
     type: Number,
   })
   @IsNumber()
-  @Min(-999999999)
   @Max(999999999)
   @IsOptional()
   @Field(() => Number, {
     nullable: true,
   })
-  boundingRadius?: number | null;
+  boundRadius?: number;
 
   @ApiProperty({
     required: false,
@@ -39,46 +48,31 @@ class CreatureModelInfoUpdateInput {
   @Field(() => Number, {
     nullable: true,
   })
-  combatReach?: number | null;
+  combatRadius?: number;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => CreatureUpdateManyWithoutCreatureModelInfosInput,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => CreatureUpdateManyWithoutCreatureModelInfosInput)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => CreatureUpdateManyWithoutCreatureModelInfosInput, {
     nullable: true,
   })
-  displayId?: number | null;
+  creatures?: CreatureUpdateManyWithoutCreatureModelInfosInput;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @IsString()
+  @MaxLength(256)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => String, {
     nullable: true,
   })
-  displayIdOtherGender?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  verifiedBuild?: number | null;
+  displayId?: string;
 }
 
 export { CreatureModelInfoUpdateInput as CreatureModelInfoUpdateInput };

@@ -5,8 +5,8 @@ export const CommandEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
-        <TextInput label="help" multiline source="help" />
-        <TextInput label="name" source="name" />
+        <TextInput label="Help" multiline source="help" />
+        <TextInput label="Name" source="name" />
       </SimpleForm>
     </Edit>
   );

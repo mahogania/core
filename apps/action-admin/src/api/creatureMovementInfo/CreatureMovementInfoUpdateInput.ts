@@ -1,5 +1,7 @@
+import { CreatureUpdateManyWithoutCreatureMovementInfosInput } from "./CreatureUpdateManyWithoutCreatureMovementInfosInput";
+
 export type CreatureMovementInfoUpdateInput = {
-  movementId?: number | null;
-  runSpeed?: number | null;
-  walkSpeed?: number | null;
+  creatures?: CreatureUpdateManyWithoutCreatureMovementInfosInput;
+  movementId?: string;
+  speed?: number | null;
 };

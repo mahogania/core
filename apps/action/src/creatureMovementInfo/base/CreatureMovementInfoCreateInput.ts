@@ -11,22 +11,40 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsInt, Min, Max, IsOptional, IsNumber } from "class-validator";
+import { CreatureCreateNestedManyWithoutCreatureMovementInfosInput } from "./CreatureCreateNestedManyWithoutCreatureMovementInfosInput";
+import {
+  ValidateNested,
+  IsOptional,
+  IsString,
+  MaxLength,
+  IsNumber,
+  Min,
+  Max,
+} from "class-validator";
+import { Type } from "class-transformer";
 
 @InputType()
 class CreatureMovementInfoCreateInput {
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => CreatureCreateNestedManyWithoutCreatureMovementInfosInput,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => CreatureCreateNestedManyWithoutCreatureMovementInfosInput)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => CreatureCreateNestedManyWithoutCreatureMovementInfosInput, {
     nullable: true,
   })
-  movementId?: number | null;
+  creatures?: CreatureCreateNestedManyWithoutCreatureMovementInfosInput;
+
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @Field(() => String)
+  movementId!: string;
 
   @ApiProperty({
     required: false,
@@ -39,20 +57,7 @@ class CreatureMovementInfoCreateInput {
   @Field(() => Number, {
     nullable: true,
   })
-  runSpeed?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  walkSpeed?: number | null;
+  speed?: number | null;
 }
 
 export { CreatureMovementInfoCreateInput as CreatureMovementInfoCreateInput };

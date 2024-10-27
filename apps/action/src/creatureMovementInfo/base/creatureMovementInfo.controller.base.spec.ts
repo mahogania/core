@@ -20,36 +20,32 @@ const existingId = "existingId";
 const CREATE_INPUT = {
   createdAt: new Date(),
   id: "exampleId",
-  movementId: 42,
-  runSpeed: 42.42,
+  movementId: "exampleMovementId",
+  speed: 42.42,
   updatedAt: new Date(),
-  walkSpeed: 42.42,
 };
 const CREATE_RESULT = {
   createdAt: new Date(),
   id: "exampleId",
-  movementId: 42,
-  runSpeed: 42.42,
+  movementId: "exampleMovementId",
+  speed: 42.42,
   updatedAt: new Date(),
-  walkSpeed: 42.42,
 };
 const FIND_MANY_RESULT = [
   {
     createdAt: new Date(),
     id: "exampleId",
-    movementId: 42,
-    runSpeed: 42.42,
+    movementId: "exampleMovementId",
+    speed: 42.42,
     updatedAt: new Date(),
-    walkSpeed: 42.42,
   },
 ];
 const FIND_ONE_RESULT = {
   createdAt: new Date(),
   id: "exampleId",
-  movementId: 42,
-  runSpeed: 42.42,
+  movementId: "exampleMovementId",
+  speed: 42.42,
   updatedAt: new Date(),
-  walkSpeed: 42.42,
 };
 
 const service = {

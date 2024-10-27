@@ -1,10 +1,11 @@
+import { Creature } from "../creature/Creature";
+
 export type CreatureModelInfo = {
-  boundingRadius: number | null;
-  combatReach: number | null;
+  boundRadius: number;
+  combatRadius: number;
   createdAt: Date;
-  displayId: number | null;
-  displayIdOtherGender: number | null;
+  creatures?: Array<Creature>;
+  displayId: string;
   id: string;
   updatedAt: Date;
-  verifiedBuild: number | null;
 };

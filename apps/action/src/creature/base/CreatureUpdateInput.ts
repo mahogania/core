@@ -16,10 +16,18 @@ import {
   Min,
   Max,
   IsOptional,
-  IsNumber,
   IsString,
   MaxLength,
+  ValidateNested,
 } from "class-validator";
+import { CreatureEquipmentWhereUniqueInput } from "../../creatureEquipment/base/CreatureEquipmentWhereUniqueInput";
+import { Type } from "class-transformer";
+import { CreatureFormationWhereUniqueInput } from "../../creatureFormation/base/CreatureFormationWhereUniqueInput";
+import { CreatureImmunityWhereUniqueInput } from "../../creatureImmunity/base/CreatureImmunityWhereUniqueInput";
+import { CreatureLevelStatWhereUniqueInput } from "../../creatureLevelStat/base/CreatureLevelStatWhereUniqueInput";
+import { CreatureLootWhereUniqueInput } from "../../creatureLoot/base/CreatureLootWhereUniqueInput";
+import { CreatureModelInfoWhereUniqueInput } from "../../creatureModelInfo/base/CreatureModelInfoWhereUniqueInput";
+import { CreatureMovementInfoWhereUniqueInput } from "../../creatureMovementInfo/base/CreatureMovementInfoWhereUniqueInput";
 
 @InputType()
 class CreatureUpdateInput {
@@ -38,16 +46,99 @@ class CreatureUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @IsString()
+  @MaxLength(1000)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => String, {
     nullable: true,
   })
-  curhealth?: number | null;
+  behaviourName?: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => CreatureEquipmentWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CreatureEquipmentWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CreatureEquipmentWhereUniqueInput, {
+    nullable: true,
+  })
+  creatureEquipments?: CreatureEquipmentWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => CreatureFormationWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CreatureFormationWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CreatureFormationWhereUniqueInput, {
+    nullable: true,
+  })
+  creatureFormations?: CreatureFormationWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => CreatureImmunityWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CreatureImmunityWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CreatureImmunityWhereUniqueInput, {
+    nullable: true,
+  })
+  creatureImmunities?: CreatureImmunityWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => CreatureLevelStatWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CreatureLevelStatWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CreatureLevelStatWhereUniqueInput, {
+    nullable: true,
+  })
+  creatureLevelStats?: CreatureLevelStatWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => CreatureLootWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CreatureLootWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CreatureLootWhereUniqueInput, {
+    nullable: true,
+  })
+  creatureLoots?: CreatureLootWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => CreatureModelInfoWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CreatureModelInfoWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CreatureModelInfoWhereUniqueInput, {
+    nullable: true,
+  })
+  creatureModelInfo?: CreatureModelInfoWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => CreatureMovementInfoWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CreatureMovementInfoWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CreatureMovementInfoWhereUniqueInput, {
+    nullable: true,
+  })
+  creatureMovementInfos?: CreatureMovementInfoWhereUniqueInput;
 
   @ApiProperty({
     required: false,
@@ -60,7 +151,7 @@ class CreatureUpdateInput {
   @Field(() => Number, {
     nullable: true,
   })
-  curmana?: number | null;
+  mapId?: number | null;
 
   @ApiProperty({
     required: false,
@@ -73,176 +164,7 @@ class CreatureUpdateInput {
   @Field(() => Number, {
     nullable: true,
   })
-  currentwaypoint?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  equipmentId?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  guid?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  map?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  modelid?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  movementType?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  npcflag?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  orientation?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  phaseGroup?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  phaseId?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  phaseUseFlags?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  positionX?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  positionY?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  positionZ?: number | null;
+  modelId?: number | null;
 
   @ApiProperty({
     required: false,
@@ -254,122 +176,32 @@ class CreatureUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  scriptName?: string | null;
+  name?: string;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsInt()
+  @Min(-999999999)
+  @Max(999999999)
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  realmId?: number | null;
 
   @ApiProperty({
     required: false,
     type: String,
   })
   @IsString()
-  @MaxLength(1000)
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
   })
-  spawnDifficulties?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  spawntimesecs?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  stringId?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  terrainSwapMap?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  unitFlags?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  unitFlags2?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  unitFlags3?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  verifiedBuild?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  wanderDistance?: number | null;
+  transformId?: string;
 
   @ApiProperty({
     required: false,

@@ -16,15 +16,16 @@ import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { OTLPTraceExporter } from "@opentelemetry/exporter-trace-otlp-grpc";
 import { BatchSpanProcessor } from "@opentelemetry/sdk-trace-node";
 import { UserModule } from "./user/user.module";
-import { ConditionsModule } from "./conditions/conditions.module";
 import { CommandModule } from "./command/command.module";
+import { ConditionsModule } from "./conditions/conditions.module";
 import { ConversationLineTemplateModule } from "./conversationLineTemplate/conversationLineTemplate.module";
 import { CreatureQuestStarterModule } from "./creatureQuestStarter/creatureQuestStarter.module";
+import { ConversationTemplateModule } from "./conversationTemplate/conversationTemplate.module";
+import { CreatureLevelStatModule } from "./creatureLevelStat/creatureLevelStat.module";
 import { ConversationActorsModule } from "./conversationActors/conversationActors.module";
 import { CreatureTemplateGossipModule } from "./creatureTemplateGossip/creatureTemplateGossip.module";
-import { CreatureClassLevelStatsModule } from "./creatureClassLevelStats/creatureClassLevelStats.module";
 import { CreatureTemplateModule } from "./creatureTemplate/creatureTemplate.module";
-import { CreatureAddonModule } from "./creatureAddon/creatureAddon.module";
+import { CreatureEquipmentModule } from "./creatureEquipment/creatureEquipment.module";
 import { CreatureTemplateAddonModule } from "./creatureTemplateAddon/creatureTemplateAddon.module";
 import { CreatureSummonedDataModule } from "./creatureSummonedData/creatureSummonedData.module";
 import { CreatureModule } from "./creature/creature.module";
@@ -33,23 +34,20 @@ import { CreatureTemplateLocaleModule } from "./creatureTemplateLocale/creatureT
 import { CreatureTemplateDifficultyModule } from "./creatureTemplateDifficulty/creatureTemplateDifficulty.module";
 import { CreatureTemplateSpellModule } from "./creatureTemplateSpell/creatureTemplateSpell.module";
 import { CreatureTemplateSparringModule } from "./creatureTemplateSparring/creatureTemplateSparring.module";
-import { CreatureEquipTemplateModule } from "./creatureEquipTemplate/creatureEquipTemplate.module";
-import { ConversationTemplateModule } from "./conversationTemplate/conversationTemplate.module";
-import { CreatureOnKillReputationModule } from "./creatureOnKillReputation/creatureOnKillReputation.module";
-import { CreatureMovementInfoModule } from "./creatureMovementInfo/creatureMovementInfo.module";
 import { CreatureModelInfoModule } from "./creatureModelInfo/creatureModelInfo.module";
-import { CreatureImmunitiesModule } from "./creatureImmunities/creatureImmunities.module";
+import { CreatureOnKillReputationModule } from "./creatureOnKillReputation/creatureOnKillReputation.module";
+import { CreatureFormationModule } from "./creatureFormation/creatureFormation.module";
+import { CreatureLootModule } from "./creatureLoot/creatureLoot.module";
 import { CreatureQuestCurrencyModule } from "./creatureQuestCurrency/creatureQuestCurrency.module";
 import { CreatureTemplateModelModule } from "./creatureTemplateModel/creatureTemplateModel.module";
 import { CreatureTemplateMovementModule } from "./creatureTemplateMovement/creatureTemplateMovement.module";
 import { CreatureQuestItemModule } from "./creatureQuestItem/creatureQuestItem.module";
 import { CreatureTextLocaleModule } from "./creatureTextLocale/creatureTextLocale.module";
 import { CreatureQuestEnderModule } from "./creatureQuestEnder/creatureQuestEnder.module";
-import { CreatureLootTemplateModule } from "./creatureLootTemplate/creatureLootTemplate.module";
-import { CreatureMovementOverrideModule } from "./creatureMovementOverride/creatureMovementOverride.module";
 import { CreatureTemplateResistanceModule } from "./creatureTemplateResistance/creatureTemplateResistance.module";
-import { CreatureFormationsModule } from "./creatureFormations/creatureFormations.module";
+import { CreatureMovementInfoModule } from "./creatureMovementInfo/creatureMovementInfo.module";
 import { CreatureTextModule } from "./creatureText/creatureText.module";
+import { CreatureImmunityModule } from "./creatureImmunity/creatureImmunity.module";
 import { SpellModule } from "./spell/spell.module";
 import { SpellEffectModule } from "./spellEffect/spellEffect.module";
 import { SkillDiscoveryTemplateModule } from "./skillDiscoveryTemplate/skillDiscoveryTemplate.module";
@@ -59,8 +57,8 @@ import { SkillTiersModule } from "./skillTiers/skillTiers.module";
 import { SkillPerfectItemTemplateModule } from "./skillPerfectItemTemplate/skillPerfectItemTemplate.module";
 import { SmartScriptsModule } from "./smartScripts/smartScripts.module";
 import { SkinningLootTemplateModule } from "./skinningLootTemplate/skinningLootTemplate.module";
-import { ServersideSpellModule } from "./serversideSpell/serversideSpell.module";
 import { ServersideSpellEffectModule } from "./serversideSpellEffect/serversideSpellEffect.module";
+import { ServersideSpellModule } from "./serversideSpell/serversideSpell.module";
 import { SpawnGroupModule } from "./spawnGroup/spawnGroup.module";
 import { SpellAreaModule } from "./spellArea/spellArea.module";
 import { SpawnGroupTemplateModule } from "./spawnGroupTemplate/spawnGroupTemplate.module";
@@ -89,15 +87,16 @@ import { LoggerModule } from "./logger/logger.module";
     ACLModule,
     AuthModule,
     UserModule,
-    ConditionsModule,
     CommandModule,
+    ConditionsModule,
     ConversationLineTemplateModule,
     CreatureQuestStarterModule,
+    ConversationTemplateModule,
+    CreatureLevelStatModule,
     ConversationActorsModule,
     CreatureTemplateGossipModule,
-    CreatureClassLevelStatsModule,
     CreatureTemplateModule,
-    CreatureAddonModule,
+    CreatureEquipmentModule,
     CreatureTemplateAddonModule,
     CreatureSummonedDataModule,
     CreatureModule,
@@ -106,23 +105,20 @@ import { LoggerModule } from "./logger/logger.module";
     CreatureTemplateDifficultyModule,
     CreatureTemplateSpellModule,
     CreatureTemplateSparringModule,
-    CreatureEquipTemplateModule,
-    ConversationTemplateModule,
-    CreatureOnKillReputationModule,
-    CreatureMovementInfoModule,
     CreatureModelInfoModule,
-    CreatureImmunitiesModule,
+    CreatureOnKillReputationModule,
+    CreatureFormationModule,
+    CreatureLootModule,
     CreatureQuestCurrencyModule,
     CreatureTemplateModelModule,
     CreatureTemplateMovementModule,
     CreatureQuestItemModule,
     CreatureTextLocaleModule,
     CreatureQuestEnderModule,
-    CreatureLootTemplateModule,
-    CreatureMovementOverrideModule,
     CreatureTemplateResistanceModule,
-    CreatureFormationsModule,
+    CreatureMovementInfoModule,
     CreatureTextModule,
+    CreatureImmunityModule,
     SpellModule,
     SpellEffectModule,
     SkillDiscoveryTemplateModule,
@@ -132,8 +128,8 @@ import { LoggerModule } from "./logger/logger.module";
     SkillPerfectItemTemplateModule,
     SmartScriptsModule,
     SkinningLootTemplateModule,
-    ServersideSpellModule,
     ServersideSpellEffectModule,
+    ServersideSpellModule,
     SpawnGroupModule,
     SpellAreaModule,
     SpawnGroupTemplateModule,

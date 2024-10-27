@@ -6,48 +6,78 @@ service CreatureModelInfoService {
 rpc creatureModelInfos (findManyParams) returns (stream CreatureModelInfo) {}
 rpc creatureModelInfo (CreatureModelInfoWhereUniqueInput) returns (CreatureModelInfo) {}
 rpc updateCreatureModelInfo (CreatureModelInfoUpdateInput) returns (CreatureModelInfo) {}
-rpc deleteCreatureModelInfo (CreatureModelInfoWhereUniqueInput) returns (CreatureModelInfo) {} 
+rpc deleteCreatureModelInfo (CreatureModelInfoWhereUniqueInput) returns (CreatureModelInfo) {}
+rpc findManyCreatureModelInfo (CreatureModelInfoWhereUniqueInput) returns (stream Creature) {}
+rpc updateCreatureModelInfo (CreatureParams) returns (stream Creature) {}
+rpc connectCreatureModelInfo (CreatureParams) returns (Creature) {}
+rpc disconnectCreatureModelInfo (CreatureParams) returns (Creature) {} 
  }
 message CreatureModelInfoCreateInput {
-int32 boundingRadius = 1;
-int32 combatReach = 2;
+int32 boundRadius = 1;
+int32 combatRadius = 2;
 string createdAt = 3;
-int32 displayId = 4;
-int32 displayIdOtherGender = 5;
+repeated Creature creatures = 4;
+string displayId = 5;
 string id = 6;
 string updatedAt = 7;
-int32 verifiedBuild = 8;
 };
 message CreatureModelInfo {
-int32 boundingRadius = 1;
-int32 combatReach = 2;
+int32 boundRadius = 1;
+int32 combatRadius = 2;
 string createdAt = 3;
-int32 displayId = 4;
-int32 displayIdOtherGender = 5;
+repeated Creature creatures = 4;
+string displayId = 5;
 string id = 6;
 string updatedAt = 7;
-int32 verifiedBuild = 8;
 };
 message CreatureModelInfoWhereUniqueInput {
-int32 boundingRadius = 1;
-int32 combatReach = 2;
+int32 boundRadius = 1;
+int32 combatRadius = 2;
 string createdAt = 3;
-int32 displayId = 4;
-int32 displayIdOtherGender = 5;
+repeated Creature creatures = 4;
+string displayId = 5;
 string id = 6;
 string updatedAt = 7;
-int32 verifiedBuild = 8;
 };
 message CreatureModelInfoUpdateInput {
-int32 boundingRadius = 1;
-int32 combatReach = 2;
+int32 boundRadius = 1;
+int32 combatRadius = 2;
 string createdAt = 3;
-int32 displayId = 4;
-int32 displayIdOtherGender = 5;
+repeated Creature creatures = 4;
+string displayId = 5;
 string id = 6;
 string updatedAt = 7;
-int32 verifiedBuild = 8;
 };
 message findManyParams {
 
+};
+message Creature {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureWhereUniqueInput {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureParams {
+CreatureModelInfoWhereUniqueInput creatureModelInfoWhereUniqueInput = 1;
+CreatureWhereUniqueInput creatureWhereUniqueInput = 2;
 };

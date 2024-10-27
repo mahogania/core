@@ -28,7 +28,7 @@ class CreatureModelInfoOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  boundingRadius?: SortOrder;
+  boundRadius?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -39,7 +39,7 @@ class CreatureModelInfoOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  combatReach?: SortOrder;
+  combatRadius?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -72,17 +72,6 @@ class CreatureModelInfoOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  displayIdOtherGender?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
   id?: SortOrder;
 
   @ApiProperty({
@@ -95,17 +84,6 @@ class CreatureModelInfoOrderByInput {
     nullable: true,
   })
   updatedAt?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  verifiedBuild?: SortOrder;
 }
 
 export { CreatureModelInfoOrderByInput as CreatureModelInfoOrderByInput };
