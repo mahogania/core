@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package poolMember;
+service PoolMemberService {
+ rpc createPoolMember (PoolMemberCreateInput) returns (PoolMember) {}
+rpc poolMembers (findManyParams) returns (stream PoolMember) {}
+rpc poolMember (PoolMemberWhereUniqueInput) returns (PoolMember) {}
+rpc updatePoolMember (PoolMemberUpdateInput) returns (PoolMember) {}
+rpc deletePoolMember (PoolMemberWhereUniqueInput) returns (PoolMember) {}
+rpc findManyPoolMember (PoolMemberWhereUniqueInput) returns (stream QuestPoolMember) {}
+rpc updatePoolMember (QuestPoolMemberParams) returns (stream QuestPoolMember) {}
+rpc connectPoolMember (QuestPoolMemberParams) returns (QuestPoolMember) {}
+rpc disconnectPoolMember (QuestPoolMemberParams) returns (QuestPoolMember) {} 
+ }
+message PoolMemberCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestPoolMember questPoolMembers = 3;
+string updatedAt = 4;
+};
+message PoolMember {
+string createdAt = 1;
+string id = 2;
+repeated QuestPoolMember questPoolMembers = 3;
+string updatedAt = 4;
+};
+message PoolMemberWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestPoolMember questPoolMembers = 3;
+string updatedAt = 4;
+};
+message PoolMemberUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestPoolMember questPoolMembers = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message QuestPoolMember {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoolMemberWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoolMemberParams {
+PoolMemberWhereUniqueInput poolMemberWhereUniqueInput = 1;
+QuestPoolMemberWhereUniqueInput questpoolmemberWhereUniqueInput = 2;
+};

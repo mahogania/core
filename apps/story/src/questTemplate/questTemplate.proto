@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package questTemplate;
+service QuestTemplateService {
+ rpc createQuestTemplate (QuestTemplateCreateInput) returns (QuestTemplate) {}
+rpc questTemplates (findManyParams) returns (stream QuestTemplate) {}
+rpc questTemplate (QuestTemplateWhereUniqueInput) returns (QuestTemplate) {}
+rpc updateQuestTemplate (QuestTemplateUpdateInput) returns (QuestTemplate) {}
+rpc deleteQuestTemplate (QuestTemplateWhereUniqueInput) returns (QuestTemplate) {}
+rpc findManyQuestTemplate (QuestTemplateWhereUniqueInput) returns (stream Quest) {}
+rpc updateQuestTemplate (QuestParams) returns (stream Quest) {}
+rpc connectQuestTemplate (QuestParams) returns (Quest) {}
+rpc disconnectQuestTemplate (QuestParams) returns (Quest) {} 
+ }
+message QuestTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Quest quests = 3;
+string updatedAt = 4;
+};
+message QuestTemplate {
+string createdAt = 1;
+string id = 2;
+repeated Quest quests = 3;
+string updatedAt = 4;
+};
+message QuestTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Quest quests = 3;
+string updatedAt = 4;
+};
+message QuestTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Quest quests = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Quest {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestParams {
+QuestTemplateWhereUniqueInput questTemplateWhereUniqueInput = 1;
+QuestWhereUniqueInput questWhereUniqueInput = 2;
+};

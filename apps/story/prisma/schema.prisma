@@ -1,0 +1,382 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime   @default(now())
+  email     String?    @unique
+  firstName String?
+  id        String     @id @default(cuid())
+  lastName  String?
+  password  String
+  quests    Quest[]
+  roles     Json
+  scenarios Scenario[]
+  updatedAt DateTime   @updatedAt
+  username  String     @unique
+}
+
+model AreaQuestTrigger {
+  area      Area?    @relation(fields: [areaId], references: [id])
+  areaId    String?
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  quest     Quest?   @relation(fields: [questId], references: [id])
+  questId   String?
+  updatedAt DateTime @updatedAt
+}
+
+model AreaScenarioTrigger {
+  area       Area?     @relation(fields: [areaId], references: [id])
+  areaId     String?
+  createdAt  DateTime  @default(now())
+  id         String    @id @default(cuid())
+  name       String
+  scenario   Scenario? @relation(fields: [scenarioId], references: [id])
+  scenarioId String?
+  updatedAt  DateTime  @updatedAt
+}
+
+model AreaTeleportTrigger {
+  area      Area     @relation(fields: [areaId], references: [id])
+  areaId    String
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  name      String
+  portal    Portal   @relation(fields: [portalId], references: [id])
+  portalId  String
+  updatedAt DateTime @updatedAt
+}
+
+model PointsOfInterestLocale {
+  createdAt          DateTime         @default(now())
+  id                 String           @id @default(cuid())
+  pointsOfInterest   PointOfInterest? @relation(fields: [pointsOfInterestId], references: [id])
+  pointsOfInterestId String?
+  updatedAt          DateTime         @updatedAt
+}
+
+model PointOfInterest {
+  createdAt               DateTime                 @default(now())
+  id                      String                   @id @default(cuid())
+  location                String
+  name                    String
+  pointsOfInterestLocales PointsOfInterestLocale[]
+  questPoiPoints          QuestPoi[]
+  updatedAt               DateTime                 @updatedAt
+}
+
+model QuestRegion {
+  createdAt       DateTime         @default(now())
+  id              String           @id @default(cuid())
+  name            String
+  questObjectives QuestObjective[]
+  questPoiPoints  QuestPoi[]
+  updatedAt       DateTime         @updatedAt
+}
+
+model QuestRewardItem {
+  createdAt         DateTime           @default(now())
+  id                String             @id @default(cuid())
+  questOfferRewards QuestOfferReward[]
+  updatedAt         DateTime           @updatedAt
+}
+
+model PoolMember {
+  createdAt        DateTime          @default(now())
+  id               String            @id @default(cuid())
+  questPoolMembers QuestPoolMember[]
+  updatedAt        DateTime          @updatedAt
+}
+
+model Pool {
+  createdAt DateTime    @default(now())
+  id        String      @id @default(cuid())
+  questPool QuestPool[]
+  updatedAt DateTime    @updatedAt
+}
+
+model QuestPool {
+  createdAt          DateTime         @default(now())
+  id                 String           @id @default(cuid())
+  pool               Pool             @relation(fields: [poolId], references: [id])
+  poolId             String
+  questPoolMembers   QuestPoolMember? @relation(fields: [questPoolMembersId], references: [id])
+  questPoolMembersId String?
+  questTemplates     QuestTemplate[]
+  updatedAt          DateTime         @updatedAt
+}
+
+model QuestTemplate {
+  createdAt             DateTime             @default(now())
+  id                    String               @id @default(cuid())
+  questMails            QuestMail?           @relation(fields: [questMailsId], references: [id])
+  questMailsId          String?
+  questObjectives       QuestObjective       @relation(fields: [questObjectivesId], references: [id])
+  questObjectivesId     String
+  questOfferRewards     QuestOfferReward?    @relation(fields: [questOfferRewardsId], references: [id])
+  questOfferRewardsId   String?
+  questPools            QuestPool?           @relation(fields: [questPoolsId], references: [id])
+  questPoolsId          String?
+  questRequestItems     QuestRequestItem?    @relation(fields: [questRequestItemsId], references: [id])
+  questRequestItemsId   String?
+  questTemplateLocale   QuestTemplateLocale? @relation(fields: [questTemplateLocaleId], references: [id])
+  questTemplateLocaleId String?
+  quests                Quest[]
+  updatedAt             DateTime             @updatedAt
+}
+
+model QuestRequestItem {
+  createdAt                    DateTime                      @default(now())
+  id                           String                        @id @default(cuid())
+  questRequestItemConditionals QuestRequestItemConditional[]
+  questRequestItemsLocales     QuestRequestItemsLocale[]
+  questTemplates               QuestTemplate[]
+  updatedAt                    DateTime                      @updatedAt
+}
+
+model QuestRewardSpell {
+  createdAt         DateTime           @default(now())
+  id                String             @id @default(cuid())
+  questOfferRewards QuestOfferReward[]
+  updatedAt         DateTime           @updatedAt
+}
+
+model QuestDescriptionConditional {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  quests    Quest?   @relation(fields: [questsId], references: [id])
+  questsId  String?
+  updatedAt DateTime @updatedAt
+}
+
+model QuestGreetingLocale {
+  createdAt       DateTime       @default(now())
+  id              String         @id @default(cuid())
+  questGreeting   QuestGreeting? @relation(fields: [questGreetingId], references: [id])
+  questGreetingId String?
+  updatedAt       DateTime       @updatedAt
+}
+
+model QuestMail {
+  createdAt      DateTime        @default(now())
+  decription     String
+  id             String          @id @default(cuid())
+  name           String
+  questTemplates QuestTemplate[]
+  updatedAt      DateTime        @updatedAt
+}
+
+model QuestGreeting {
+  createdAt            DateTime              @default(now())
+  id                   String                @id @default(cuid())
+  name                 String
+  questGreetingLocales QuestGreetingLocale[]
+  quests               Quest[]
+  text                 String?
+  updatedAt            DateTime              @updatedAt
+}
+
+model QuestCompletionConditional {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  quest     Quest    @relation(fields: [questId], references: [id])
+  questId   String
+  updatedAt DateTime @updatedAt
+}
+
+model QuestRequestItemConditional {
+  createdAt          DateTime          @default(now())
+  id                 String            @id @default(cuid())
+  questRequestItem   QuestRequestItem? @relation(fields: [questRequestItemId], references: [id])
+  questRequestItemId String?
+  updatedAt          DateTime          @updatedAt
+}
+
+model QuestTemplateLocale {
+  createdAt      DateTime        @default(now())
+  id             String          @id @default(cuid())
+  questTemplates QuestTemplate[]
+  updatedAt      DateTime        @updatedAt
+}
+
+model QuestDetail {
+  createdAt   DateTime @default(now())
+  description String
+  id          String   @id @default(cuid())
+  name        String
+  quests      Quest[]
+  updatedAt   DateTime @updatedAt
+}
+
+model QuestPoolMember {
+  createdAt          DateTime    @default(now())
+  id                 String      @id @default(cuid())
+  poolMember         PoolMember  @relation(fields: [poolMemberId], references: [id])
+  poolMemberId       String
+  questPoolTemplates QuestPool[]
+  updatedAt          DateTime    @updatedAt
+}
+
+model QuestCueEffect {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  quests    Quest[]
+  updatedAt DateTime @updatedAt
+}
+
+model QuestPoi {
+  createdAt         DateTime        @default(now())
+  id                String          @id @default(cuid())
+  pointOfInterest   PointOfInterest @relation(fields: [pointOfInterestId], references: [id])
+  pointOfInterestId String
+  questPoi          QuestRegion?    @relation(fields: [questPoiId], references: [id])
+  questPoiId        String?
+  updatedAt         DateTime        @updatedAt
+}
+
+model QuestObjective {
+  createdAt                         DateTime                        @default(now())
+  id                                String                          @id @default(cuid())
+  questObjectiveCompletionEffects   QuestObjectiveCompletionEffect? @relation(fields: [questObjectiveCompletionEffectsId], references: [id])
+  questObjectiveCompletionEffectsId String?
+  questObjectiveLocales             QuestObjectiveLocale?           @relation(fields: [questObjectiveLocalesId], references: [id])
+  questObjectiveLocalesId           String?
+  questPois                         QuestRegion?                    @relation(fields: [questPoisId], references: [id])
+  questPoisId                       String?
+  questTemplates                    QuestTemplate[]
+  updatedAt                         DateTime                        @updatedAt
+}
+
+model QuestObjectiveLocale {
+  createdAt       DateTime         @default(now())
+  id              String           @id @default(cuid())
+  questObjectives QuestObjective[]
+  updatedAt       DateTime         @updatedAt
+}
+
+model QuestRequestItemsLocale {
+  createdAt          DateTime          @default(now())
+  id                 String            @id @default(cuid())
+  questRequestItem   QuestRequestItem? @relation(fields: [questRequestItemId], references: [id])
+  questRequestItemId String?
+  updatedAt          DateTime          @updatedAt
+}
+
+model QuestOfferRewardConditional {
+  createdAt          DateTime          @default(now())
+  id                 String            @id @default(cuid())
+  questOfferReward   QuestOfferReward? @relation(fields: [questOfferRewardId], references: [id])
+  questOfferRewardId String?
+  updatedAt          DateTime          @updatedAt
+}
+
+model QuestObjectiveCompletionEffect {
+  createdAt       DateTime         @default(now())
+  id              String           @id @default(cuid())
+  questObjectives QuestObjective[]
+  updatedAt       DateTime         @updatedAt
+}
+
+model QuestOfferReward {
+  createdAt                    DateTime                      @default(now())
+  id                           String                        @id @default(cuid())
+  questOfferRewardConditionals QuestOfferRewardConditional[]
+  questOfferRewardLocales      QuestOfferRewardLocale[]
+  questRewardItem              QuestRewardItem?              @relation(fields: [questRewardItemId], references: [id])
+  questRewardItemId            String?
+  questRewardSpell             QuestRewardSpell?             @relation(fields: [questRewardSpellId], references: [id])
+  questRewardSpellId           String?
+  questTemplates               QuestTemplate[]
+  updatedAt                    DateTime                      @updatedAt
+}
+
+model QuestOfferRewardLocale {
+  createdAt          DateTime          @default(now())
+  id                 String            @id @default(cuid())
+  questOfferReward   QuestOfferReward? @relation(fields: [questOfferRewardId], references: [id])
+  questOfferRewardId String?
+  updatedAt          DateTime          @updatedAt
+}
+
+model ScenarioPoi {
+  createdAt       DateTime         @default(now())
+  id              String           @id @default(cuid())
+  location        String
+  scenarioRegions ScenarioRegion[]
+  updatedAt       DateTime         @updatedAt
+}
+
+model ScenarioRegion {
+  createdAt      DateTime     @default(now())
+  description    String?
+  id             String       @id @default(cuid())
+  name           String?
+  scenarioPois   ScenarioPoi? @relation(fields: [scenarioPoisId], references: [id])
+  scenarioPoisId String?
+  scenarios      Scenario[]
+  updatedAt      DateTime     @updatedAt
+}
+
+model Scenario {
+  areaScenarioTriggers AreaScenarioTrigger[]
+  createdAt            DateTime              @default(now())
+  id                   String                @id @default(cuid())
+  scenarioRegions      ScenarioRegion        @relation(fields: [scenarioRegionsId], references: [id])
+  scenarioRegionsId    String
+  sceneTemplate        SceneTemplate         @relation(fields: [sceneTemplateId], references: [id])
+  sceneTemplateId      String
+  updatedAt            DateTime              @updatedAt
+  user                 User?                 @relation(fields: [userId], references: [id])
+  userId               String?
+}
+
+model SceneTemplate {
+  createdAt DateTime   @default(now())
+  id        String     @id @default(cuid())
+  name      String
+  scenarios Scenario[]
+  sceneUrl  String
+  updatedAt DateTime   @updatedAt
+}
+
+model Area {
+  areaQuestTriggers    AreaQuestTrigger[]
+  areaScenarioTriggers AreaScenarioTrigger[]
+  areaTeleportTriggers AreaTeleportTrigger[]
+  createdAt            DateTime              @default(now())
+  id                   String                @id @default(cuid())
+  updatedAt            DateTime              @updatedAt
+}
+
+model Portal {
+  areaTeleportTriggers AreaTeleportTrigger[]
+  createdAt            DateTime              @default(now())
+  id                   String                @id @default(cuid())
+  location             String
+  updatedAt            DateTime              @updatedAt
+}
+
+model Quest {
+  areaQuestTriggers            AreaQuestTrigger[]
+  createdAt                    DateTime                      @default(now())
+  id                           String                        @id @default(cuid())
+  questCompletionConditionals  QuestCompletionConditional[]
+  questCueEffects              QuestCueEffect?               @relation(fields: [questCueEffectsId], references: [id])
+  questCueEffectsId            String?
+  questDescriptionConditionals QuestDescriptionConditional[]
+  questDetails                 QuestDetail?                  @relation(fields: [questDetailsId], references: [id])
+  questDetailsId               String?
+  questGreeting                QuestGreeting?                @relation(fields: [questGreetingId], references: [id])
+  questGreetingId              String?
+  questTemplate                QuestTemplate?                @relation(fields: [questTemplateId], references: [id])
+  questTemplateId              String?
+  updatedAt                    DateTime                      @updatedAt
+  user                         User?                         @relation(fields: [userId], references: [id])
+  userId                       String?
+}

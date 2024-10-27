@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+                 package quest;
+service QuestService {
+ rpc createQuest (QuestCreateInput) returns (Quest) {}
+rpc quests (findManyParams) returns (stream Quest) {}
+rpc quest (QuestWhereUniqueInput) returns (Quest) {}
+rpc updateQuest (QuestUpdateInput) returns (Quest) {}
+rpc deleteQuest (QuestWhereUniqueInput) returns (Quest) {}
+rpc findManyQuest (QuestWhereUniqueInput) returns (stream AreaQuestTrigger) {}
+rpc updateQuest (AreaQuestTriggerParams) returns (stream AreaQuestTrigger) {}
+rpc connectQuest (AreaQuestTriggerParams) returns (AreaQuestTrigger) {}
+rpc disconnectQuest (AreaQuestTriggerParams) returns (AreaQuestTrigger) {}
+rpc findManyQuest (QuestWhereUniqueInput) returns (stream QuestCompletionConditional) {}
+rpc updateQuest (QuestCompletionConditionalParams) returns (stream QuestCompletionConditional) {}
+rpc connectQuest (QuestCompletionConditionalParams) returns (QuestCompletionConditional) {}
+rpc disconnectQuest (QuestCompletionConditionalParams) returns (QuestCompletionConditional) {}
+rpc findManyQuests (QuestWhereUniqueInput) returns (stream QuestDescriptionConditional) {}
+rpc updateQuests (QuestDescriptionConditionalParams) returns (stream QuestDescriptionConditional) {}
+rpc connectQuests (QuestDescriptionConditionalParams) returns (QuestDescriptionConditional) {}
+rpc disconnectQuests (QuestDescriptionConditionalParams) returns (QuestDescriptionConditional) {} 
+ }
+message QuestCreateInput {
+repeated AreaQuestTrigger areaQuestTriggers = 1;
+string createdAt = 2;
+string id = 3;
+repeated QuestCompletionConditional questCompletionConditionals = 4;
+repeated QuestDescriptionConditional questDescriptionConditionals = 5;
+string updatedAt = 6;
+};
+message Quest {
+repeated AreaQuestTrigger areaQuestTriggers = 1;
+string createdAt = 2;
+string id = 3;
+repeated QuestCompletionConditional questCompletionConditionals = 4;
+repeated QuestDescriptionConditional questDescriptionConditionals = 5;
+string updatedAt = 6;
+};
+message QuestWhereUniqueInput {
+repeated AreaQuestTrigger areaQuestTriggers = 1;
+string createdAt = 2;
+string id = 3;
+repeated QuestCompletionConditional questCompletionConditionals = 4;
+repeated QuestDescriptionConditional questDescriptionConditionals = 5;
+string updatedAt = 6;
+};
+message QuestUpdateInput {
+repeated AreaQuestTrigger areaQuestTriggers = 1;
+string createdAt = 2;
+string id = 3;
+repeated QuestCompletionConditional questCompletionConditionals = 4;
+repeated QuestDescriptionConditional questDescriptionConditionals = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message AreaQuestTrigger {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AreaQuestTriggerWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AreaQuestTriggerParams {
+QuestWhereUniqueInput questWhereUniqueInput = 1;
+AreaQuestTriggerWhereUniqueInput areaquesttriggerWhereUniqueInput = 2;
+};
+message QuestCompletionConditional {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestCompletionConditionalWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestCompletionConditionalParams {
+QuestWhereUniqueInput questWhereUniqueInput = 1;
+QuestCompletionConditionalWhereUniqueInput questcompletionconditionalWhereUniqueInput = 2;
+};
+message QuestDescriptionConditional {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestDescriptionConditionalWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestDescriptionConditionalParams {
+QuestWhereUniqueInput questWhereUniqueInput = 1;
+QuestDescriptionConditionalWhereUniqueInput questdescriptionconditionalWhereUniqueInput = 2;
+};
