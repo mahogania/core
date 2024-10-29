@@ -13,6 +13,7 @@ import { PrismaService } from "../../prisma/prisma.service";
 import {
   Prisma,
   PlayerXpForLevel as PrismaPlayerXpForLevel,
+  Player as PrismaPlayer,
 } from "@prisma/client";
 
 export class PlayerXpForLevelServiceBase {
@@ -48,5 +49,13 @@ export class PlayerXpForLevelServiceBase {
     args: Prisma.PlayerXpForLevelDeleteArgs
   ): Promise<PrismaPlayerXpForLevel> {
     return this.prisma.playerXpForLevel.delete(args);
+  }
+
+  async getPlayer(parentId: string): Promise<PrismaPlayer | null> {
+    return this.prisma.playerXpForLevel
+      .findUnique({
+        where: { id: parentId },
+      })
+      .player();
   }
 }

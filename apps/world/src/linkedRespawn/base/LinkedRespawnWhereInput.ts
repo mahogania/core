@@ -13,7 +13,8 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { IsOptional, ValidateNested } from "class-validator";
+import { InstanceTemplateListRelationFilter } from "../../instanceTemplate/base/InstanceTemplateListRelationFilter";
 
 @InputType()
 class LinkedRespawnWhereInput {
@@ -27,6 +28,18 @@ class LinkedRespawnWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => InstanceTemplateListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => InstanceTemplateListRelationFilter)
+  @IsOptional()
+  @Field(() => InstanceTemplateListRelationFilter, {
+    nullable: true,
+  })
+  instanceTemplates?: InstanceTemplateListRelationFilter;
 }
 
 export { LinkedRespawnWhereInput as LinkedRespawnWhereInput };

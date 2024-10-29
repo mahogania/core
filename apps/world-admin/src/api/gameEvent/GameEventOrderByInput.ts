@@ -5,13 +5,12 @@ export type GameEventOrderByInput = {
   createdAt?: SortOrder;
   description?: SortOrder;
   endTime?: SortOrder;
-  eventEntry?: SortOrder;
-  holiday?: SortOrder;
-  holidayStage?: SortOrder;
+  gameEventConditionsId?: SortOrder;
+  gameEventCreaturesId?: SortOrder;
+  gameEventGameObjectsId?: SortOrder;
+  gameEventModelEquipsId?: SortOrder;
+  gameEventQuestsId?: SortOrder;
   id?: SortOrder;
-  length?: SortOrder;
-  occurence?: SortOrder;
   startTime?: SortOrder;
   updatedAt?: SortOrder;
-  worldEvent?: SortOrder;
 };

@@ -18,11 +18,15 @@ import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
 import * as common from "@nestjs/common";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { InstanceTemplate } from "./InstanceTemplate";
 import { InstanceTemplateCountArgs } from "./InstanceTemplateCountArgs";
 import { InstanceTemplateFindManyArgs } from "./InstanceTemplateFindManyArgs";
 import { InstanceTemplateFindUniqueArgs } from "./InstanceTemplateFindUniqueArgs";
+import { CreateInstanceTemplateArgs } from "./CreateInstanceTemplateArgs";
+import { UpdateInstanceTemplateArgs } from "./UpdateInstanceTemplateArgs";
 import { DeleteInstanceTemplateArgs } from "./DeleteInstanceTemplateArgs";
+import { LinkedRespawn } from "../../linkedRespawn/base/LinkedRespawn";
 import { InstanceTemplateService } from "../instanceTemplate.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => InstanceTemplate)
@@ -77,6 +81,63 @@ export class InstanceTemplateResolverBase {
     return result;
   }
 
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => InstanceTemplate)
+  @nestAccessControl.UseRoles({
+    resource: "InstanceTemplate",
+    action: "create",
+    possession: "any",
+  })
+  async createInstanceTemplate(
+    @graphql.Args() args: CreateInstanceTemplateArgs
+  ): Promise<InstanceTemplate> {
+    return await this.service.createInstanceTemplate({
+      ...args,
+      data: {
+        ...args.data,
+
+        linkedRespawns: args.data.linkedRespawns
+          ? {
+              connect: args.data.linkedRespawns,
+            }
+          : undefined,
+      },
+    });
+  }
+
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => InstanceTemplate)
+  @nestAccessControl.UseRoles({
+    resource: "InstanceTemplate",
+    action: "update",
+    possession: "any",
+  })
+  async updateInstanceTemplate(
+    @graphql.Args() args: UpdateInstanceTemplateArgs
+  ): Promise<InstanceTemplate | null> {
+    try {
+      return await this.service.updateInstanceTemplate({
+        ...args,
+        data: {
+          ...args.data,
+
+          linkedRespawns: args.data.linkedRespawns
+            ? {
+                connect: args.data.linkedRespawns,
+              }
+            : undefined,
+        },
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new GraphQLError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
+  }
+
   @graphql.Mutation(() => InstanceTemplate)
   @nestAccessControl.UseRoles({
     resource: "InstanceTemplate",
@@ -96,5 +157,26 @@ export class InstanceTemplateResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => LinkedRespawn, {
+    nullable: true,
+    name: "linkedRespawns",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "LinkedRespawn",
+    action: "read",
+    possession: "any",
+  })
+  async getLinkedRespawns(
+    @graphql.Parent() parent: InstanceTemplate
+  ): Promise<LinkedRespawn | null> {
+    const result = await this.service.getLinkedRespawns(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

@@ -34,9 +34,24 @@ export class GameObjectTemplateAddonGrpcControllerBase {
     @common.Body() data: GameObjectTemplateAddonCreateInput
   ): Promise<GameObjectTemplateAddon> {
     return await this.service.createGameObjectTemplateAddon({
-      data: data,
+      data: {
+        ...data,
+
+        gameObjectTemplate: data.gameObjectTemplate
+          ? {
+              connect: data.gameObjectTemplate,
+            }
+          : undefined,
+      },
       select: {
         createdAt: true,
+
+        gameObjectTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
         updatedAt: true,
       },
@@ -58,6 +73,13 @@ export class GameObjectTemplateAddonGrpcControllerBase {
       ...args,
       select: {
         createdAt: true,
+
+        gameObjectTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
         updatedAt: true,
       },
@@ -75,6 +97,13 @@ export class GameObjectTemplateAddonGrpcControllerBase {
       where: params,
       select: {
         createdAt: true,
+
+        gameObjectTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
         updatedAt: true,
       },
@@ -98,9 +127,24 @@ export class GameObjectTemplateAddonGrpcControllerBase {
     try {
       return await this.service.updateGameObjectTemplateAddon({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          gameObjectTemplate: data.gameObjectTemplate
+            ? {
+                connect: data.gameObjectTemplate,
+              }
+            : undefined,
+        },
         select: {
           createdAt: true,
+
+          gameObjectTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
           updatedAt: true,
         },
@@ -127,6 +171,13 @@ export class GameObjectTemplateAddonGrpcControllerBase {
         where: params,
         select: {
           createdAt: true,
+
+          gameObjectTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
           updatedAt: true,
         },

@@ -11,45 +11,35 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IntNullableFilter } from "../../util/IntNullableFilter";
-import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
+import { Type } from "class-transformer";
+import { IsOptional, ValidateNested } from "class-validator";
+import { GameEventListRelationFilter } from "../../gameEvent/base/GameEventListRelationFilter";
 
 @InputType()
 class GameEventModelEquipWhereInput {
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  equipmentId?: IntNullableFilter;
+  equipmentId?: StringFilter;
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: () => GameEventListRelationFilter,
   })
-  @Type(() => IntNullableFilter)
+  @ValidateNested()
+  @Type(() => GameEventListRelationFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => GameEventListRelationFilter, {
     nullable: true,
   })
-  eventEntry?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  guid?: IntNullableFilter;
+  gameEvents?: GameEventListRelationFilter;
 
   @ApiProperty({
     required: false,
@@ -64,14 +54,14 @@ class GameEventModelEquipWhereInput {
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  modelid?: IntNullableFilter;
+  modelid?: StringFilter;
 }
 
 export { GameEventModelEquipWhereInput as GameEventModelEquipWhereInput };

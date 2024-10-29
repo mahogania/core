@@ -13,11 +13,12 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { IntNullableFilter } from "../../util/IntNullableFilter";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { IsOptional, ValidateNested } from "class-validator";
+import { GameObjectTemplateWhereUniqueInput } from "../../gameObjectTemplate/base/GameObjectTemplateWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { JsonFilter } from "../../util/JsonFilter";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 
 @InputType()
 class GameObjectWhereInput {
@@ -31,6 +32,18 @@ class GameObjectWhereInput {
     nullable: true,
   })
   areaId?: IntNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => GameObjectTemplateWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => GameObjectTemplateWhereUniqueInput)
+  @IsOptional()
+  @Field(() => GameObjectTemplateWhereUniqueInput, {
+    nullable: true,
+  })
+  gameObjectTemplate?: GameObjectTemplateWhereUniqueInput;
 
   @ApiProperty({
     required: false,
@@ -78,83 +91,6 @@ class GameObjectWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  positionX?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  positionY?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  positionZ?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  rotationW?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  rotationX?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  rotationY?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  rotationZ?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
     type: JsonFilter,
   })
   @Type(() => JsonFilter)
@@ -196,6 +132,17 @@ class GameObjectWhereInput {
     nullable: true,
   })
   stringId?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  transformId?: StringFilter;
 
   @ApiProperty({
     required: false,

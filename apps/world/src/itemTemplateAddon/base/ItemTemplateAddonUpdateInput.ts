@@ -9,5 +9,25 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-class ItemTemplateAddonUpdateInput {}
+import { InputType, Field } from "@nestjs/graphql";
+import { ApiProperty } from "@nestjs/swagger";
+import { ItemTemplateUpdateManyWithoutItemTemplateAddonsInput } from "./ItemTemplateUpdateManyWithoutItemTemplateAddonsInput";
+import { ValidateNested, IsOptional } from "class-validator";
+import { Type } from "class-transformer";
+
+@InputType()
+class ItemTemplateAddonUpdateInput {
+  @ApiProperty({
+    required: false,
+    type: () => ItemTemplateUpdateManyWithoutItemTemplateAddonsInput,
+  })
+  @ValidateNested()
+  @Type(() => ItemTemplateUpdateManyWithoutItemTemplateAddonsInput)
+  @IsOptional()
+  @Field(() => ItemTemplateUpdateManyWithoutItemTemplateAddonsInput, {
+    nullable: true,
+  })
+  itemTemplates?: ItemTemplateUpdateManyWithoutItemTemplateAddonsInput;
+}
+
 export { ItemTemplateAddonUpdateInput as ItemTemplateAddonUpdateInput };

@@ -12,29 +12,39 @@ https://docs.amplication.com/how-to/custom-code
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import {
-  IsInt,
-  Min,
-  Max,
-  IsOptional,
   IsString,
   MaxLength,
-  IsNumber,
+  IsOptional,
+  ValidateNested,
 } from "class-validator";
+import { GameEventUpdateManyWithoutGameEventConditionsInput } from "./GameEventUpdateManyWithoutGameEventConditionsInput";
+import { Type } from "class-transformer";
 
 @InputType()
 class GameEventConditionUpdateInput {
   @ApiProperty({
     required: false,
-    type: Number,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @IsString()
+  @MaxLength(1000)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => String, {
     nullable: true,
   })
-  conditionId?: number | null;
+  description?: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => GameEventUpdateManyWithoutGameEventConditionsInput,
+  })
+  @ValidateNested()
+  @Type(() => GameEventUpdateManyWithoutGameEventConditionsInput)
+  @IsOptional()
+  @Field(() => GameEventUpdateManyWithoutGameEventConditionsInput, {
+    nullable: true,
+  })
+  gameEvents?: GameEventUpdateManyWithoutGameEventConditionsInput;
 
   @ApiProperty({
     required: false,
@@ -46,59 +56,7 @@ class GameEventConditionUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  description?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  doneWorldStateField?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  eventEntry?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  maxWorldStateField?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  reqNum?: number | null;
+  name?: string | null;
 }
 
 export { GameEventConditionUpdateInput as GameEventConditionUpdateInput };

@@ -18,11 +18,15 @@ import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
 import * as common from "@nestjs/common";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { PlayerXpForLevel } from "./PlayerXpForLevel";
 import { PlayerXpForLevelCountArgs } from "./PlayerXpForLevelCountArgs";
 import { PlayerXpForLevelFindManyArgs } from "./PlayerXpForLevelFindManyArgs";
 import { PlayerXpForLevelFindUniqueArgs } from "./PlayerXpForLevelFindUniqueArgs";
+import { CreatePlayerXpForLevelArgs } from "./CreatePlayerXpForLevelArgs";
+import { UpdatePlayerXpForLevelArgs } from "./UpdatePlayerXpForLevelArgs";
 import { DeletePlayerXpForLevelArgs } from "./DeletePlayerXpForLevelArgs";
+import { Player } from "../../player/base/Player";
 import { PlayerXpForLevelService } from "../playerXpForLevel.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => PlayerXpForLevel)
@@ -77,6 +81,63 @@ export class PlayerXpForLevelResolverBase {
     return result;
   }
 
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => PlayerXpForLevel)
+  @nestAccessControl.UseRoles({
+    resource: "PlayerXpForLevel",
+    action: "create",
+    possession: "any",
+  })
+  async createPlayerXpForLevel(
+    @graphql.Args() args: CreatePlayerXpForLevelArgs
+  ): Promise<PlayerXpForLevel> {
+    return await this.service.createPlayerXpForLevel({
+      ...args,
+      data: {
+        ...args.data,
+
+        player: args.data.player
+          ? {
+              connect: args.data.player,
+            }
+          : undefined,
+      },
+    });
+  }
+
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => PlayerXpForLevel)
+  @nestAccessControl.UseRoles({
+    resource: "PlayerXpForLevel",
+    action: "update",
+    possession: "any",
+  })
+  async updatePlayerXpForLevel(
+    @graphql.Args() args: UpdatePlayerXpForLevelArgs
+  ): Promise<PlayerXpForLevel | null> {
+    try {
+      return await this.service.updatePlayerXpForLevel({
+        ...args,
+        data: {
+          ...args.data,
+
+          player: args.data.player
+            ? {
+                connect: args.data.player,
+              }
+            : undefined,
+        },
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new GraphQLError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
+  }
+
   @graphql.Mutation(() => PlayerXpForLevel)
   @nestAccessControl.UseRoles({
     resource: "PlayerXpForLevel",
@@ -96,5 +157,26 @@ export class PlayerXpForLevelResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => Player, {
+    nullable: true,
+    name: "player",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "Player",
+    action: "read",
+    possession: "any",
+  })
+  async getPlayer(
+    @graphql.Parent() parent: PlayerXpForLevel
+  ): Promise<Player | null> {
+    const result = await this.service.getPlayer(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

@@ -50,6 +50,17 @@ class PlayerXpForLevelOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  playerId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   updatedAt?: SortOrder;
 }
 

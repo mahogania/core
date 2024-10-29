@@ -11,13 +11,26 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { AchievementRewardListRelationFilter } from "../../achievementReward/base/AchievementRewardListRelationFilter";
+import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
 
 @InputType()
 class AchievementRewardLocaleWhereInput {
+  @ApiProperty({
+    required: false,
+    type: () => AchievementRewardListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => AchievementRewardListRelationFilter)
+  @IsOptional()
+  @Field(() => AchievementRewardListRelationFilter, {
+    nullable: true,
+  })
+  achievementRewards?: AchievementRewardListRelationFilter;
+
   @ApiProperty({
     required: false,
     type: StringNullableFilter,

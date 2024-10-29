@@ -10,9 +10,11 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
+
 import {
   Prisma,
   GameObjectTemplateLocale as PrismaGameObjectTemplateLocale,
+  GameObjectTemplate as PrismaGameObjectTemplate,
 } from "@prisma/client";
 
 export class GameObjectTemplateLocaleServiceBase {
@@ -48,5 +50,15 @@ export class GameObjectTemplateLocaleServiceBase {
     args: Prisma.GameObjectTemplateLocaleDeleteArgs
   ): Promise<PrismaGameObjectTemplateLocale> {
     return this.prisma.gameObjectTemplateLocale.delete(args);
+  }
+
+  async getGameObjectTemplate(
+    parentId: string
+  ): Promise<PrismaGameObjectTemplate | null> {
+    return this.prisma.gameObjectTemplateLocale
+      .findUnique({
+        where: { id: parentId },
+      })
+      .gameObjectTemplate();
   }
 }

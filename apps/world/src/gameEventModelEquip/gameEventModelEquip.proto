@@ -6,44 +6,66 @@ service GameEventModelEquipService {
 rpc gameEventModelEquips (findManyParams) returns (stream GameEventModelEquip) {}
 rpc gameEventModelEquip (GameEventModelEquipWhereUniqueInput) returns (GameEventModelEquip) {}
 rpc updateGameEventModelEquip (GameEventModelEquipUpdateInput) returns (GameEventModelEquip) {}
-rpc deleteGameEventModelEquip (GameEventModelEquipWhereUniqueInput) returns (GameEventModelEquip) {} 
+rpc deleteGameEventModelEquip (GameEventModelEquipWhereUniqueInput) returns (GameEventModelEquip) {}
+rpc findManyGameEventModelEquips (GameEventModelEquipWhereUniqueInput) returns (stream GameEvent) {}
+rpc updateGameEventModelEquips (GameEventParams) returns (stream GameEvent) {}
+rpc connectGameEventModelEquips (GameEventParams) returns (GameEvent) {}
+rpc disconnectGameEventModelEquips (GameEventParams) returns (GameEvent) {} 
  }
 message GameEventModelEquipCreateInput {
 string createdAt = 1;
-int32 equipmentId = 2;
-int32 eventEntry = 3;
-int32 guid = 4;
-string id = 5;
-int32 modelid = 6;
-string updatedAt = 7;
+string equipmentId = 2;
+repeated GameEvent gameEvents = 3;
+string id = 4;
+string modelid = 5;
+string updatedAt = 6;
 };
 message GameEventModelEquip {
 string createdAt = 1;
-int32 equipmentId = 2;
-int32 eventEntry = 3;
-int32 guid = 4;
-string id = 5;
-int32 modelid = 6;
-string updatedAt = 7;
+string equipmentId = 2;
+repeated GameEvent gameEvents = 3;
+string id = 4;
+string modelid = 5;
+string updatedAt = 6;
 };
 message GameEventModelEquipWhereUniqueInput {
 string createdAt = 1;
-int32 equipmentId = 2;
-int32 eventEntry = 3;
-int32 guid = 4;
-string id = 5;
-int32 modelid = 6;
-string updatedAt = 7;
+string equipmentId = 2;
+repeated GameEvent gameEvents = 3;
+string id = 4;
+string modelid = 5;
+string updatedAt = 6;
 };
 message GameEventModelEquipUpdateInput {
 string createdAt = 1;
-int32 equipmentId = 2;
-int32 eventEntry = 3;
-int32 guid = 4;
-string id = 5;
-int32 modelid = 6;
-string updatedAt = 7;
+string equipmentId = 2;
+repeated GameEvent gameEvents = 3;
+string id = 4;
+string modelid = 5;
+string updatedAt = 6;
 };
 message findManyParams {
 
+};
+message GameEvent {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message GameEventWhereUniqueInput {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message GameEventParams {
+GameEventModelEquipWhereUniqueInput gameEventModelEquipWhereUniqueInput = 1;
+GameEventWhereUniqueInput gameeventWhereUniqueInput = 2;
 };

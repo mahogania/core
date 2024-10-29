@@ -1,9 +1,10 @@
+import { GameEvent } from "../gameEvent/GameEvent";
+
 export type GameEventModelEquip = {
   createdAt: Date;
-  equipmentId: number | null;
-  eventEntry: number | null;
-  guid: number | null;
+  equipmentId: string;
+  gameEvents?: Array<GameEvent>;
   id: string;
-  modelid: number | null;
+  modelid: string;
   updatedAt: Date;
 };

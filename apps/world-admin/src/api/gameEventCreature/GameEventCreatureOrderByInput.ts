@@ -2,8 +2,7 @@ import { SortOrder } from "../../util/SortOrder";
 
 export type GameEventCreatureOrderByInput = {
   createdAt?: SortOrder;
-  eventEntry?: SortOrder;
-  guid?: SortOrder;
   id?: SortOrder;
+  spawnerId?: SortOrder;
   updatedAt?: SortOrder;
 };

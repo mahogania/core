@@ -11,10 +11,38 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsInt, Min, Max, IsOptional } from "class-validator";
+import { AchievementBehaviourUpdateManyWithoutAchievementsInput } from "./AchievementBehaviourUpdateManyWithoutAchievementsInput";
+import { ValidateNested, IsOptional, IsInt, Min, Max } from "class-validator";
+import { Type } from "class-transformer";
+import { AchievementRewardWhereUniqueInput } from "../../achievementReward/base/AchievementRewardWhereUniqueInput";
+import { PlayerWhereUniqueInput } from "../../player/base/PlayerWhereUniqueInput";
 
 @InputType()
 class AchievementUpdateInput {
+  @ApiProperty({
+    required: false,
+    type: () => AchievementBehaviourUpdateManyWithoutAchievementsInput,
+  })
+  @ValidateNested()
+  @Type(() => AchievementBehaviourUpdateManyWithoutAchievementsInput)
+  @IsOptional()
+  @Field(() => AchievementBehaviourUpdateManyWithoutAchievementsInput, {
+    nullable: true,
+  })
+  achievementBehaviours?: AchievementBehaviourUpdateManyWithoutAchievementsInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => AchievementRewardWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => AchievementRewardWhereUniqueInput)
+  @IsOptional()
+  @Field(() => AchievementRewardWhereUniqueInput, {
+    nullable: true,
+  })
+  achievementRewards?: AchievementRewardWhereUniqueInput;
+
   @ApiProperty({
     required: false,
     type: Number,
@@ -53,6 +81,18 @@ class AchievementUpdateInput {
     nullable: true,
   })
   map?: number | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => PlayerWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => PlayerWhereUniqueInput)
+  @IsOptional()
+  @Field(() => PlayerWhereUniqueInput, {
+    nullable: true,
+  })
+  player?: PlayerWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

@@ -34,10 +34,25 @@ export class MillingLootTemplateGrpcControllerBase {
     @common.Body() data: MillingLootTemplateCreateInput
   ): Promise<MillingLootTemplate> {
     return await this.service.createMillingLootTemplate({
-      data: data,
+      data: {
+        ...data,
+
+        lootTemplate: data.lootTemplate
+          ? {
+              connect: data.lootTemplate,
+            }
+          : undefined,
+      },
       select: {
         createdAt: true,
         id: true,
+
+        lootTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -56,6 +71,13 @@ export class MillingLootTemplateGrpcControllerBase {
       select: {
         createdAt: true,
         id: true,
+
+        lootTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -73,6 +95,13 @@ export class MillingLootTemplateGrpcControllerBase {
       select: {
         createdAt: true,
         id: true,
+
+        lootTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -95,10 +124,25 @@ export class MillingLootTemplateGrpcControllerBase {
     try {
       return await this.service.updateMillingLootTemplate({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          lootTemplate: data.lootTemplate
+            ? {
+                connect: data.lootTemplate,
+              }
+            : undefined,
+        },
         select: {
           createdAt: true,
           id: true,
+
+          lootTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });
@@ -125,6 +169,13 @@ export class MillingLootTemplateGrpcControllerBase {
         select: {
           createdAt: true,
           id: true,
+
+          lootTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });

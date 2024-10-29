@@ -21,7 +21,6 @@ const CREATE_INPUT = {
   chance: 42.42,
   comment: "exampleComment",
   createdAt: new Date(),
-  entry: 42242424,
   groupId: 42242424,
   id: 42242424,
   itemId: 42242424,
@@ -29,14 +28,12 @@ const CREATE_INPUT = {
   maxCount: 42,
   minCount: 42,
   questId: 42242424,
-  referenceId: 42242424,
   updatedAt: new Date(),
 };
 const CREATE_RESULT = {
   chance: 42.42,
   comment: "exampleComment",
   createdAt: new Date(),
-  entry: 42242424,
   groupId: 42242424,
   id: 42242424,
   itemId: 42242424,
@@ -44,7 +41,6 @@ const CREATE_RESULT = {
   maxCount: 42,
   minCount: 42,
   questId: 42242424,
-  referenceId: 42242424,
   updatedAt: new Date(),
 };
 const FIND_MANY_RESULT = [
@@ -52,7 +48,6 @@ const FIND_MANY_RESULT = [
     chance: 42.42,
     comment: "exampleComment",
     createdAt: new Date(),
-    entry: 42242424,
     groupId: 42242424,
     id: 42242424,
     itemId: 42242424,
@@ -60,7 +55,6 @@ const FIND_MANY_RESULT = [
     maxCount: 42,
     minCount: 42,
     questId: 42242424,
-    referenceId: 42242424,
     updatedAt: new Date(),
   },
 ];
@@ -68,7 +62,6 @@ const FIND_ONE_RESULT = {
   chance: 42.42,
   comment: "exampleComment",
   createdAt: new Date(),
-  entry: 42242424,
   groupId: 42242424,
   id: 42242424,
   itemId: 42242424,
@@ -76,7 +69,6 @@ const FIND_ONE_RESULT = {
   maxCount: 42,
   minCount: 42,
   questId: 42242424,
-  referenceId: 42242424,
   updatedAt: new Date(),
 };
 

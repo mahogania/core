@@ -10,9 +10,11 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
+
 import {
   Prisma,
   GameEventCreature as PrismaGameEventCreature,
+  GameEvent as PrismaGameEvent,
 } from "@prisma/client";
 
 export class GameEventCreatureServiceBase {
@@ -48,5 +50,16 @@ export class GameEventCreatureServiceBase {
     args: Prisma.GameEventCreatureDeleteArgs
   ): Promise<PrismaGameEventCreature> {
     return this.prisma.gameEventCreature.delete(args);
+  }
+
+  async findGameEvents(
+    parentId: string,
+    args: Prisma.GameEventFindManyArgs
+  ): Promise<PrismaGameEvent[]> {
+    return this.prisma.gameEventCreature
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .gameEvents(args);
   }
 }

@@ -1,5 +1,12 @@
 import * as React from "react";
-import { Edit, SimpleForm, EditProps } from "react-admin";
+import {
+  Edit,
+  SimpleForm,
+  EditProps,
+  ReferenceInput,
+  SelectInput,
+} from "react-admin";
+import { LootTemplateTitle } from "../lootTemplate/LootTemplateTitle";
 
 export const MillingLootTemplateEdit = (
   props: EditProps
@@ -7,7 +14,13 @@ export const MillingLootTemplateEdit = (
   return (
     <Edit {...props}>
       <SimpleForm>
-        <div />
+        <ReferenceInput
+          source="lootTemplate.id"
+          reference="LootTemplate"
+          label="Loot Template"
+        >
+          <SelectInput optionText={LootTemplateTitle} />
+        </ReferenceInput>
       </SimpleForm>
     </Edit>
   );

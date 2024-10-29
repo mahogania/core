@@ -18,49 +18,33 @@ import { GameEventConditionService } from "../gameEventCondition.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
-  conditionId: 42,
   createdAt: new Date(),
   description: "exampleDescription",
-  doneWorldStateField: 42,
-  eventEntry: 42,
   id: "exampleId",
-  maxWorldStateField: 42,
-  reqNum: 42.42,
+  name: "exampleName",
   updatedAt: new Date(),
 };
 const CREATE_RESULT = {
-  conditionId: 42,
   createdAt: new Date(),
   description: "exampleDescription",
-  doneWorldStateField: 42,
-  eventEntry: 42,
   id: "exampleId",
-  maxWorldStateField: 42,
-  reqNum: 42.42,
+  name: "exampleName",
   updatedAt: new Date(),
 };
 const FIND_MANY_RESULT = [
   {
-    conditionId: 42,
     createdAt: new Date(),
     description: "exampleDescription",
-    doneWorldStateField: 42,
-    eventEntry: 42,
     id: "exampleId",
-    maxWorldStateField: 42,
-    reqNum: 42.42,
+    name: "exampleName",
     updatedAt: new Date(),
   },
 ];
 const FIND_ONE_RESULT = {
-  conditionId: 42,
   createdAt: new Date(),
   description: "exampleDescription",
-  doneWorldStateField: 42,
-  eventEntry: 42,
   id: "exampleId",
-  maxWorldStateField: 42,
-  reqNum: 42.42,
+  name: "exampleName",
   updatedAt: new Date(),
 };
 

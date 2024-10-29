@@ -10,9 +10,11 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
+
 import {
   Prisma,
   MailLootTemplate as PrismaMailLootTemplate,
+  LootTemplate as PrismaLootTemplate,
 } from "@prisma/client";
 
 export class MailLootTemplateServiceBase {
@@ -48,5 +50,13 @@ export class MailLootTemplateServiceBase {
     args: Prisma.MailLootTemplateDeleteArgs
   ): Promise<PrismaMailLootTemplate> {
     return this.prisma.mailLootTemplate.delete(args);
+  }
+
+  async getLootTemplate(parentId: string): Promise<PrismaLootTemplate | null> {
+    return this.prisma.mailLootTemplate
+      .findUnique({
+        where: { id: parentId },
+      })
+      .lootTemplate();
   }
 }

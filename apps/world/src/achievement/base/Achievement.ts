@@ -11,11 +11,39 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsInt, Min, Max, IsOptional, IsDate, IsString } from "class-validator";
+import { AchievementBehaviour } from "../../achievementBehaviour/base/AchievementBehaviour";
+import {
+  ValidateNested,
+  IsOptional,
+  IsInt,
+  Min,
+  Max,
+  IsDate,
+  IsString,
+} from "class-validator";
 import { Type } from "class-transformer";
+import { AchievementReward } from "../../achievementReward/base/AchievementReward";
+import { Player } from "../../player/base/Player";
 
 @ObjectType()
 class Achievement {
+  @ApiProperty({
+    required: false,
+    type: () => [AchievementBehaviour],
+  })
+  @ValidateNested()
+  @Type(() => AchievementBehaviour)
+  @IsOptional()
+  achievementBehaviours?: Array<AchievementBehaviour>;
+
+  @ApiProperty({
+    required: true,
+    type: () => AchievementReward,
+  })
+  @ValidateNested()
+  @Type(() => AchievementReward)
+  achievementRewards?: AchievementReward;
+
   @ApiProperty({
     required: false,
     type: Number,
@@ -70,6 +98,15 @@ class Achievement {
     nullable: true,
   })
   map!: number | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => Player,
+  })
+  @ValidateNested()
+  @Type(() => Player)
+  @IsOptional()
+  player?: Player | null;
 
   @ApiProperty({
     required: false,

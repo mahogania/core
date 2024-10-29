@@ -11,12 +11,25 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { StringFilter } from "../../util/StringFilter";
+import { GameObjectTemplateWhereUniqueInput } from "../../gameObjectTemplate/base/GameObjectTemplateWhereUniqueInput";
+import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { StringFilter } from "../../util/StringFilter";
 
 @InputType()
 class GameObjectTemplateLocaleWhereInput {
+  @ApiProperty({
+    required: false,
+    type: () => GameObjectTemplateWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => GameObjectTemplateWhereUniqueInput)
+  @IsOptional()
+  @Field(() => GameObjectTemplateWhereUniqueInput, {
+    nullable: true,
+  })
+  gameObjectTemplate?: GameObjectTemplateWhereUniqueInput;
+
   @ApiProperty({
     required: false,
     type: StringFilter,

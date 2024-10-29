@@ -1,4 +1,9 @@
+import { AchievementRewardLocale } from "../achievementRewardLocale/AchievementRewardLocale";
+import { Achievement } from "../achievement/Achievement";
+
 export type AchievementReward = {
+  achievementRewardLocales?: AchievementRewardLocale | null;
+  achievements?: Array<Achievement>;
   body: string | null;
   createdAt: Date;
   id: string;

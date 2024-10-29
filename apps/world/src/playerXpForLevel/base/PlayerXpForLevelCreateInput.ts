@@ -9,5 +9,25 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-class PlayerXpForLevelCreateInput {}
+import { InputType, Field } from "@nestjs/graphql";
+import { ApiProperty } from "@nestjs/swagger";
+import { PlayerWhereUniqueInput } from "../../player/base/PlayerWhereUniqueInput";
+import { ValidateNested, IsOptional } from "class-validator";
+import { Type } from "class-transformer";
+
+@InputType()
+class PlayerXpForLevelCreateInput {
+  @ApiProperty({
+    required: false,
+    type: () => PlayerWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => PlayerWhereUniqueInput)
+  @IsOptional()
+  @Field(() => PlayerWhereUniqueInput, {
+    nullable: true,
+  })
+  player?: PlayerWhereUniqueInput | null;
+}
+
 export { PlayerXpForLevelCreateInput as PlayerXpForLevelCreateInput };

@@ -24,6 +24,15 @@ import { GameObjectTemplateWhereUniqueInput } from "./GameObjectTemplateWhereUni
 import { GameObjectTemplateFindManyArgs } from "./GameObjectTemplateFindManyArgs";
 import { GameObjectTemplateUpdateInput } from "./GameObjectTemplateUpdateInput";
 import { GameObjectTemplate } from "./GameObjectTemplate";
+import { GameObjectTemplateAddonFindManyArgs } from "../../gameObjectTemplateAddon/base/GameObjectTemplateAddonFindManyArgs";
+import { GameObjectTemplateAddon } from "../../gameObjectTemplateAddon/base/GameObjectTemplateAddon";
+import { GameObjectTemplateAddonWhereUniqueInput } from "../../gameObjectTemplateAddon/base/GameObjectTemplateAddonWhereUniqueInput";
+import { GameObjectTemplateLocaleFindManyArgs } from "../../gameObjectTemplateLocale/base/GameObjectTemplateLocaleFindManyArgs";
+import { GameObjectTemplateLocale } from "../../gameObjectTemplateLocale/base/GameObjectTemplateLocale";
+import { GameObjectTemplateLocaleWhereUniqueInput } from "../../gameObjectTemplateLocale/base/GameObjectTemplateLocaleWhereUniqueInput";
+import { GameObjectFindManyArgs } from "../../gameObject/base/GameObjectFindManyArgs";
+import { GameObject } from "../../gameObject/base/GameObject";
+import { GameObjectWhereUniqueInput } from "../../gameObject/base/GameObjectWhereUniqueInput";
 
 export class GameObjectTemplateGrpcControllerBase {
   constructor(protected readonly service: GameObjectTemplateService) {}
@@ -136,5 +145,283 @@ export class GameObjectTemplateGrpcControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Get("/:id/gameObjectTemplateAddons")
+  @ApiNestedQuery(GameObjectTemplateAddonFindManyArgs)
+  @GrpcMethod("GameObjectTemplateService", "findManyGameObjectTemplateAddons")
+  async findManyGameObjectTemplateAddons(
+    @common.Req() request: Request,
+    @common.Param() params: GameObjectTemplateWhereUniqueInput
+  ): Promise<GameObjectTemplateAddon[]> {
+    const query = plainToClass(
+      GameObjectTemplateAddonFindManyArgs,
+      request.query
+    );
+    const results = await this.service.findGameObjectTemplateAddons(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+
+        gameObjectTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/gameObjectTemplateAddons")
+  @GrpcMethod("GameObjectTemplateService", "connectGameObjectTemplateAddons")
+  async connectGameObjectTemplateAddons(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectTemplateAddonWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjectTemplateAddons: {
+        connect: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/gameObjectTemplateAddons")
+  @GrpcMethod("GameObjectTemplateService", "updateGameObjectTemplateAddons")
+  async updateGameObjectTemplateAddons(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectTemplateAddonWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjectTemplateAddons: {
+        set: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/gameObjectTemplateAddons")
+  @GrpcMethod("GameObjectTemplateService", "disconnectGameObjectTemplateAddons")
+  async disconnectGameObjectTemplateAddons(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectTemplateAddonWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjectTemplateAddons: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Get("/:id/gameObjectTemplateLocales")
+  @ApiNestedQuery(GameObjectTemplateLocaleFindManyArgs)
+  @GrpcMethod("GameObjectTemplateService", "findManyGameObjectTemplateLocales")
+  async findManyGameObjectTemplateLocales(
+    @common.Req() request: Request,
+    @common.Param() params: GameObjectTemplateWhereUniqueInput
+  ): Promise<GameObjectTemplateLocale[]> {
+    const query = plainToClass(
+      GameObjectTemplateLocaleFindManyArgs,
+      request.query
+    );
+    const results = await this.service.findGameObjectTemplateLocales(
+      params.id,
+      {
+        ...query,
+        select: {
+          createdAt: true,
+
+          gameObjectTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
+          id: true,
+          updatedAt: true,
+        },
+      }
+    );
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/gameObjectTemplateLocales")
+  @GrpcMethod("GameObjectTemplateService", "connectGameObjectTemplateLocales")
+  async connectGameObjectTemplateLocales(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectTemplateLocaleWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjectTemplateLocales: {
+        connect: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/gameObjectTemplateLocales")
+  @GrpcMethod("GameObjectTemplateService", "updateGameObjectTemplateLocales")
+  async updateGameObjectTemplateLocales(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectTemplateLocaleWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjectTemplateLocales: {
+        set: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/gameObjectTemplateLocales")
+  @GrpcMethod(
+    "GameObjectTemplateService",
+    "disconnectGameObjectTemplateLocales"
+  )
+  async disconnectGameObjectTemplateLocales(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectTemplateLocaleWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjectTemplateLocales: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Get("/:id/gameObjects")
+  @ApiNestedQuery(GameObjectFindManyArgs)
+  @GrpcMethod("GameObjectTemplateService", "findManyGameObjects")
+  async findManyGameObjects(
+    @common.Req() request: Request,
+    @common.Param() params: GameObjectTemplateWhereUniqueInput
+  ): Promise<GameObject[]> {
+    const query = plainToClass(GameObjectFindManyArgs, request.query);
+    const results = await this.service.findGameObjects(params.id, {
+      ...query,
+      select: {
+        areaId: true,
+        createdAt: true,
+
+        gameObjectTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        mapId: true,
+        phaseGroupId: true,
+        phaseId: true,
+        script: true,
+        spawnTime: true,
+        state: true,
+        stringId: true,
+        transformId: true,
+        updatedAt: true,
+        version: true,
+        zoneId: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/gameObjects")
+  @GrpcMethod("GameObjectTemplateService", "connectGameObjects")
+  async connectGameObjects(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjects: {
+        connect: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/gameObjects")
+  @GrpcMethod("GameObjectTemplateService", "updateGameObjects")
+  async updateGameObjects(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjects: {
+        set: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/gameObjects")
+  @GrpcMethod("GameObjectTemplateService", "disconnectGameObjects")
+  async disconnectGameObjects(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjects: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

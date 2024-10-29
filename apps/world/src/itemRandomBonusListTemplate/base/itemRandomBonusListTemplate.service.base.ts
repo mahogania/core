@@ -10,9 +10,11 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
+
 import {
   Prisma,
   ItemRandomBonusListTemplate as PrismaItemRandomBonusListTemplate,
+  ItemTemplate as PrismaItemTemplate,
 } from "@prisma/client";
 
 export class ItemRandomBonusListTemplateServiceBase {
@@ -48,5 +50,13 @@ export class ItemRandomBonusListTemplateServiceBase {
     args: Prisma.ItemRandomBonusListTemplateDeleteArgs
   ): Promise<PrismaItemRandomBonusListTemplate> {
     return this.prisma.itemRandomBonusListTemplate.delete(args);
+  }
+
+  async getItemTemplate(parentId: string): Promise<PrismaItemTemplate | null> {
+    return this.prisma.itemRandomBonusListTemplate
+      .findUnique({
+        where: { id: parentId },
+      })
+      .itemTemplate();
   }
 }

@@ -1,1 +1,5 @@
-export type ItemRandomBonusListTemplateCreateInput = {};
+import { ItemTemplateWhereUniqueInput } from "../itemTemplate/ItemTemplateWhereUniqueInput";
+
+export type ItemRandomBonusListTemplateCreateInput = {
+  itemTemplate?: ItemTemplateWhereUniqueInput | null;
+};

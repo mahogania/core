@@ -11,126 +11,36 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsInt, Min, Max, IsOptional, IsNumber } from "class-validator";
+import { IsString, MaxLength } from "class-validator";
 
 @InputType()
 class GameObjectAddonCreateInput {
   @ApiProperty({
-    required: false,
-    type: Number,
+    required: true,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  aiAnimKitId?: number | null;
+  @IsString()
+  @MaxLength(256)
+  @Field(() => String)
+  aiAnimKitId!: string;
 
   @ApiProperty({
-    required: false,
-    type: Number,
+    required: true,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  guid?: number | null;
+  @IsString()
+  @MaxLength(256)
+  @Field(() => String)
+  transformId!: string;
 
   @ApiProperty({
-    required: false,
-    type: Number,
+    required: true,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  invisibilityType?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  invisibilityValue?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  parentRotation0?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  parentRotation1?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  parentRotation2?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  parentRotation3?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  worldEffectId?: number | null;
+  @IsString()
+  @MaxLength(256)
+  @Field(() => String)
+  worldEffectId!: string;
 }
 
 export { GameObjectAddonCreateInput as GameObjectAddonCreateInput };

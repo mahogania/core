@@ -18,11 +18,15 @@ import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
 import * as common from "@nestjs/common";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { MillingLootTemplate } from "./MillingLootTemplate";
 import { MillingLootTemplateCountArgs } from "./MillingLootTemplateCountArgs";
 import { MillingLootTemplateFindManyArgs } from "./MillingLootTemplateFindManyArgs";
 import { MillingLootTemplateFindUniqueArgs } from "./MillingLootTemplateFindUniqueArgs";
+import { CreateMillingLootTemplateArgs } from "./CreateMillingLootTemplateArgs";
+import { UpdateMillingLootTemplateArgs } from "./UpdateMillingLootTemplateArgs";
 import { DeleteMillingLootTemplateArgs } from "./DeleteMillingLootTemplateArgs";
+import { LootTemplate } from "../../lootTemplate/base/LootTemplate";
 import { MillingLootTemplateService } from "../millingLootTemplate.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => MillingLootTemplate)
@@ -77,6 +81,63 @@ export class MillingLootTemplateResolverBase {
     return result;
   }
 
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => MillingLootTemplate)
+  @nestAccessControl.UseRoles({
+    resource: "MillingLootTemplate",
+    action: "create",
+    possession: "any",
+  })
+  async createMillingLootTemplate(
+    @graphql.Args() args: CreateMillingLootTemplateArgs
+  ): Promise<MillingLootTemplate> {
+    return await this.service.createMillingLootTemplate({
+      ...args,
+      data: {
+        ...args.data,
+
+        lootTemplate: args.data.lootTemplate
+          ? {
+              connect: args.data.lootTemplate,
+            }
+          : undefined,
+      },
+    });
+  }
+
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => MillingLootTemplate)
+  @nestAccessControl.UseRoles({
+    resource: "MillingLootTemplate",
+    action: "update",
+    possession: "any",
+  })
+  async updateMillingLootTemplate(
+    @graphql.Args() args: UpdateMillingLootTemplateArgs
+  ): Promise<MillingLootTemplate | null> {
+    try {
+      return await this.service.updateMillingLootTemplate({
+        ...args,
+        data: {
+          ...args.data,
+
+          lootTemplate: args.data.lootTemplate
+            ? {
+                connect: args.data.lootTemplate,
+              }
+            : undefined,
+        },
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new GraphQLError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
+  }
+
   @graphql.Mutation(() => MillingLootTemplate)
   @nestAccessControl.UseRoles({
     resource: "MillingLootTemplate",
@@ -96,5 +157,26 @@ export class MillingLootTemplateResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => LootTemplate, {
+    nullable: true,
+    name: "lootTemplate",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "LootTemplate",
+    action: "read",
+    possession: "any",
+  })
+  async getLootTemplate(
+    @graphql.Parent() parent: MillingLootTemplate
+  ): Promise<LootTemplate | null> {
+    const result = await this.service.getLootTemplate(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

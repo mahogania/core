@@ -11,22 +11,26 @@ rpc deleteMailLootTemplate (MailLootTemplateWhereUniqueInput) returns (MailLootT
 message MailLootTemplateCreateInput {
 string createdAt = 1;
 string id = 2;
-string updatedAt = 3;
+string sender = 3;
+string updatedAt = 4;
 };
 message MailLootTemplate {
 string createdAt = 1;
 string id = 2;
-string updatedAt = 3;
+string sender = 3;
+string updatedAt = 4;
 };
 message MailLootTemplateWhereUniqueInput {
 string createdAt = 1;
 string id = 2;
-string updatedAt = 3;
+string sender = 3;
+string updatedAt = 4;
 };
 message MailLootTemplateUpdateInput {
 string createdAt = 1;
 string id = 2;
-string updatedAt = 3;
+string sender = 3;
+string updatedAt = 4;
 };
 message findManyParams {
 

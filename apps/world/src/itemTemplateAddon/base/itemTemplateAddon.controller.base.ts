@@ -26,6 +26,9 @@ import { ItemTemplateAddon } from "./ItemTemplateAddon";
 import { ItemTemplateAddonFindManyArgs } from "./ItemTemplateAddonFindManyArgs";
 import { ItemTemplateAddonWhereUniqueInput } from "./ItemTemplateAddonWhereUniqueInput";
 import { ItemTemplateAddonUpdateInput } from "./ItemTemplateAddonUpdateInput";
+import { ItemTemplateFindManyArgs } from "../../itemTemplate/base/ItemTemplateFindManyArgs";
+import { ItemTemplate } from "../../itemTemplate/base/ItemTemplate";
+import { ItemTemplateWhereUniqueInput } from "../../itemTemplate/base/ItemTemplateWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -188,5 +191,113 @@ export class ItemTemplateAddonControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/itemTemplates")
+  @ApiNestedQuery(ItemTemplateFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "ItemTemplate",
+    action: "read",
+    possession: "any",
+  })
+  async findItemTemplates(
+    @common.Req() request: Request,
+    @common.Param() params: ItemTemplateAddonWhereUniqueInput
+  ): Promise<ItemTemplate[]> {
+    const query = plainToClass(ItemTemplateFindManyArgs, request.query);
+    const results = await this.service.findItemTemplates(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+
+        itemBehaviour: {
+          select: {
+            id: true,
+          },
+        },
+
+        itemTemplateAddons: {
+          select: {
+            id: true,
+          },
+        },
+
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/itemTemplates")
+  @nestAccessControl.UseRoles({
+    resource: "ItemTemplateAddon",
+    action: "update",
+    possession: "any",
+  })
+  async connectItemTemplates(
+    @common.Param() params: ItemTemplateAddonWhereUniqueInput,
+    @common.Body() body: ItemTemplateWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      itemTemplates: {
+        connect: body,
+      },
+    };
+    await this.service.updateItemTemplateAddon({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/itemTemplates")
+  @nestAccessControl.UseRoles({
+    resource: "ItemTemplateAddon",
+    action: "update",
+    possession: "any",
+  })
+  async updateItemTemplates(
+    @common.Param() params: ItemTemplateAddonWhereUniqueInput,
+    @common.Body() body: ItemTemplateWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      itemTemplates: {
+        set: body,
+      },
+    };
+    await this.service.updateItemTemplateAddon({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/itemTemplates")
+  @nestAccessControl.UseRoles({
+    resource: "ItemTemplateAddon",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectItemTemplates(
+    @common.Param() params: ItemTemplateAddonWhereUniqueInput,
+    @common.Body() body: ItemTemplateWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      itemTemplates: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateItemTemplateAddon({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

@@ -11,6 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+
 import {
   IsNumber,
   Min,
@@ -20,9 +21,12 @@ import {
   MaxLength,
   IsDate,
   IsInt,
+  ValidateNested,
 } from "class-validator";
+
 import { Type } from "class-transformer";
 import { GraphQLBigInt } from "../../util/GraphQLBigInt";
+import { LootTemplate } from "../../lootTemplate/base/LootTemplate";
 
 @ObjectType()
 class GameObjectLootTemplate {
@@ -58,19 +62,6 @@ class GameObjectLootTemplate {
   @Type(() => Date)
   @Field(() => Date)
   createdAt!: Date;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => GraphQLBigInt, {
-    nullable: true,
-  })
-  entry!: bigint | null;
 
   @ApiProperty({
     required: false,
@@ -121,6 +112,15 @@ class GameObjectLootTemplate {
 
   @ApiProperty({
     required: false,
+    type: () => LootTemplate,
+  })
+  @ValidateNested()
+  @Type(() => LootTemplate)
+  @IsOptional()
+  lootTemplate?: LootTemplate | null;
+
+  @ApiProperty({
+    required: false,
     type: Number,
   })
   @IsInt()
@@ -156,19 +156,6 @@ class GameObjectLootTemplate {
     nullable: true,
   })
   questId!: bigint | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => GraphQLBigInt, {
-    nullable: true,
-  })
-  referenceId!: bigint | null;
 
   @ApiProperty({
     required: true,

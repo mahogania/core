@@ -24,6 +24,9 @@ import { GameEventGameObjectWhereUniqueInput } from "./GameEventGameObjectWhereU
 import { GameEventGameObjectFindManyArgs } from "./GameEventGameObjectFindManyArgs";
 import { GameEventGameObjectUpdateInput } from "./GameEventGameObjectUpdateInput";
 import { GameEventGameObject } from "./GameEventGameObject";
+import { GameEventFindManyArgs } from "../../gameEvent/base/GameEventFindManyArgs";
+import { GameEvent } from "../../gameEvent/base/GameEvent";
+import { GameEventWhereUniqueInput } from "../../gameEvent/base/GameEventWhereUniqueInput";
 
 export class GameEventGameObjectGrpcControllerBase {
   constructor(protected readonly service: GameEventGameObjectService) {}
@@ -146,5 +149,118 @@ export class GameEventGameObjectGrpcControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Get("/:id/gameEvents")
+  @ApiNestedQuery(GameEventFindManyArgs)
+  @GrpcMethod("GameEventGameObjectService", "findManyGameEvents")
+  async findManyGameEvents(
+    @common.Req() request: Request,
+    @common.Param() params: GameEventGameObjectWhereUniqueInput
+  ): Promise<GameEvent[]> {
+    const query = plainToClass(GameEventFindManyArgs, request.query);
+    const results = await this.service.findGameEvents(params.id, {
+      ...query,
+      select: {
+        announce: true,
+        createdAt: true,
+        description: true,
+        endTime: true,
+
+        gameEventConditions: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventCreatures: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventGameObjects: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventModelEquips: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventQuests: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        startTime: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/gameEvents")
+  @GrpcMethod("GameEventGameObjectService", "connectGameEvents")
+  async connectGameEvents(
+    @common.Param() params: GameEventGameObjectWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        connect: body,
+      },
+    };
+    await this.service.updateGameEventGameObject({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/gameEvents")
+  @GrpcMethod("GameEventGameObjectService", "updateGameEvents")
+  async updateGameEvents(
+    @common.Param() params: GameEventGameObjectWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        set: body,
+      },
+    };
+    await this.service.updateGameEventGameObject({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/gameEvents")
+  @GrpcMethod("GameEventGameObjectService", "disconnectGameEvents")
+  async disconnectGameEvents(
+    @common.Param() params: GameEventGameObjectWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateGameEventGameObject({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

@@ -26,6 +26,9 @@ import { AchievementReward } from "./AchievementReward";
 import { AchievementRewardFindManyArgs } from "./AchievementRewardFindManyArgs";
 import { AchievementRewardWhereUniqueInput } from "./AchievementRewardWhereUniqueInput";
 import { AchievementRewardUpdateInput } from "./AchievementRewardUpdateInput";
+import { AchievementFindManyArgs } from "../../achievement/base/AchievementFindManyArgs";
+import { Achievement } from "../../achievement/base/Achievement";
+import { AchievementWhereUniqueInput } from "../../achievement/base/AchievementWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -52,8 +55,22 @@ export class AchievementRewardControllerBase {
     @common.Body() data: AchievementRewardCreateInput
   ): Promise<AchievementReward> {
     return await this.service.createAchievementReward({
-      data: data,
+      data: {
+        ...data,
+
+        achievementRewardLocales: data.achievementRewardLocales
+          ? {
+              connect: data.achievementRewardLocales,
+            }
+          : undefined,
+      },
       select: {
+        achievementRewardLocales: {
+          select: {
+            id: true,
+          },
+        },
+
         body: true,
         createdAt: true,
         id: true,
@@ -87,6 +104,12 @@ export class AchievementRewardControllerBase {
     return this.service.achievementRewards({
       ...args,
       select: {
+        achievementRewardLocales: {
+          select: {
+            id: true,
+          },
+        },
+
         body: true,
         createdAt: true,
         id: true,
@@ -119,6 +142,12 @@ export class AchievementRewardControllerBase {
     const result = await this.service.achievementReward({
       where: params,
       select: {
+        achievementRewardLocales: {
+          select: {
+            id: true,
+          },
+        },
+
         body: true,
         createdAt: true,
         id: true,
@@ -161,8 +190,22 @@ export class AchievementRewardControllerBase {
     try {
       return await this.service.updateAchievementReward({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          achievementRewardLocales: data.achievementRewardLocales
+            ? {
+                connect: data.achievementRewardLocales,
+              }
+            : undefined,
+        },
         select: {
+          achievementRewardLocales: {
+            select: {
+              id: true,
+            },
+          },
+
           body: true,
           createdAt: true,
           id: true,
@@ -203,6 +246,12 @@ export class AchievementRewardControllerBase {
       return await this.service.deleteAchievementReward({
         where: params,
         select: {
+          achievementRewardLocales: {
+            select: {
+              id: true,
+            },
+          },
+
           body: true,
           createdAt: true,
           id: true,
@@ -223,5 +272,119 @@ export class AchievementRewardControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/achievements")
+  @ApiNestedQuery(AchievementFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "Achievement",
+    action: "read",
+    possession: "any",
+  })
+  async findAchievements(
+    @common.Req() request: Request,
+    @common.Param() params: AchievementRewardWhereUniqueInput
+  ): Promise<Achievement[]> {
+    const query = plainToClass(AchievementFindManyArgs, request.query);
+    const results = await this.service.findAchievements(params.id, {
+      ...query,
+      select: {
+        achievementRewards: {
+          select: {
+            id: true,
+          },
+        },
+
+        count: true,
+        createdAt: true,
+        flags: true,
+        id: true,
+        map: true,
+
+        player: {
+          select: {
+            id: true,
+          },
+        },
+
+        points: true,
+        refAchievement: true,
+        requiredFaction: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/achievements")
+  @nestAccessControl.UseRoles({
+    resource: "AchievementReward",
+    action: "update",
+    possession: "any",
+  })
+  async connectAchievements(
+    @common.Param() params: AchievementRewardWhereUniqueInput,
+    @common.Body() body: AchievementWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      achievements: {
+        connect: body,
+      },
+    };
+    await this.service.updateAchievementReward({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/achievements")
+  @nestAccessControl.UseRoles({
+    resource: "AchievementReward",
+    action: "update",
+    possession: "any",
+  })
+  async updateAchievements(
+    @common.Param() params: AchievementRewardWhereUniqueInput,
+    @common.Body() body: AchievementWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      achievements: {
+        set: body,
+      },
+    };
+    await this.service.updateAchievementReward({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/achievements")
+  @nestAccessControl.UseRoles({
+    resource: "AchievementReward",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectAchievements(
+    @common.Param() params: AchievementRewardWhereUniqueInput,
+    @common.Body() body: AchievementWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      achievements: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateAchievementReward({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

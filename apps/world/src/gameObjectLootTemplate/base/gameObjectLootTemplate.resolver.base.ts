@@ -26,6 +26,7 @@ import { GameObjectLootTemplateFindUniqueArgs } from "./GameObjectLootTemplateFi
 import { CreateGameObjectLootTemplateArgs } from "./CreateGameObjectLootTemplateArgs";
 import { UpdateGameObjectLootTemplateArgs } from "./UpdateGameObjectLootTemplateArgs";
 import { DeleteGameObjectLootTemplateArgs } from "./DeleteGameObjectLootTemplateArgs";
+import { LootTemplate } from "../../lootTemplate/base/LootTemplate";
 import { GameObjectLootTemplateService } from "../gameObjectLootTemplate.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => GameObjectLootTemplate)
@@ -92,7 +93,15 @@ export class GameObjectLootTemplateResolverBase {
   ): Promise<GameObjectLootTemplate> {
     return await this.service.createGameObjectLootTemplate({
       ...args,
-      data: args.data,
+      data: {
+        ...args.data,
+
+        lootTemplate: args.data.lootTemplate
+          ? {
+              connect: args.data.lootTemplate,
+            }
+          : undefined,
+      },
     });
   }
 
@@ -109,7 +118,15 @@ export class GameObjectLootTemplateResolverBase {
     try {
       return await this.service.updateGameObjectLootTemplate({
         ...args,
-        data: args.data,
+        data: {
+          ...args.data,
+
+          lootTemplate: args.data.lootTemplate
+            ? {
+                connect: args.data.lootTemplate,
+              }
+            : undefined,
+        },
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -140,5 +157,26 @@ export class GameObjectLootTemplateResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => LootTemplate, {
+    nullable: true,
+    name: "lootTemplate",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "LootTemplate",
+    action: "read",
+    possession: "any",
+  })
+  async getLootTemplate(
+    @graphql.Parent() parent: GameObjectLootTemplate
+  ): Promise<LootTemplate | null> {
+    const result = await this.service.getLootTemplate(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

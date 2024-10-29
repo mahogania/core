@@ -9,5 +9,25 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-class LinkedRespawnUpdateInput {}
+import { InputType, Field } from "@nestjs/graphql";
+import { ApiProperty } from "@nestjs/swagger";
+import { InstanceTemplateUpdateManyWithoutLinkedRespawnsInput } from "./InstanceTemplateUpdateManyWithoutLinkedRespawnsInput";
+import { ValidateNested, IsOptional } from "class-validator";
+import { Type } from "class-transformer";
+
+@InputType()
+class LinkedRespawnUpdateInput {
+  @ApiProperty({
+    required: false,
+    type: () => InstanceTemplateUpdateManyWithoutLinkedRespawnsInput,
+  })
+  @ValidateNested()
+  @Type(() => InstanceTemplateUpdateManyWithoutLinkedRespawnsInput)
+  @IsOptional()
+  @Field(() => InstanceTemplateUpdateManyWithoutLinkedRespawnsInput, {
+    nullable: true,
+  })
+  instanceTemplates?: InstanceTemplateUpdateManyWithoutLinkedRespawnsInput;
+}
+
 export { LinkedRespawnUpdateInput as LinkedRespawnUpdateInput };

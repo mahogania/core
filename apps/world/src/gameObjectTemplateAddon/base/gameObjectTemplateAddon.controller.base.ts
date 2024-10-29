@@ -52,9 +52,24 @@ export class GameObjectTemplateAddonControllerBase {
     @common.Body() data: GameObjectTemplateAddonCreateInput
   ): Promise<GameObjectTemplateAddon> {
     return await this.service.createGameObjectTemplateAddon({
-      data: data,
+      data: {
+        ...data,
+
+        gameObjectTemplate: data.gameObjectTemplate
+          ? {
+              connect: data.gameObjectTemplate,
+            }
+          : undefined,
+      },
       select: {
         createdAt: true,
+
+        gameObjectTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
         updatedAt: true,
       },
@@ -84,6 +99,13 @@ export class GameObjectTemplateAddonControllerBase {
       ...args,
       select: {
         createdAt: true,
+
+        gameObjectTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
         updatedAt: true,
       },
@@ -109,6 +131,13 @@ export class GameObjectTemplateAddonControllerBase {
       where: params,
       select: {
         createdAt: true,
+
+        gameObjectTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
         updatedAt: true,
       },
@@ -143,9 +172,24 @@ export class GameObjectTemplateAddonControllerBase {
     try {
       return await this.service.updateGameObjectTemplateAddon({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          gameObjectTemplate: data.gameObjectTemplate
+            ? {
+                connect: data.gameObjectTemplate,
+              }
+            : undefined,
+        },
         select: {
           createdAt: true,
+
+          gameObjectTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
           updatedAt: true,
         },
@@ -179,6 +223,13 @@ export class GameObjectTemplateAddonControllerBase {
         where: params,
         select: {
           createdAt: true,
+
+          gameObjectTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
           updatedAt: true,
         },

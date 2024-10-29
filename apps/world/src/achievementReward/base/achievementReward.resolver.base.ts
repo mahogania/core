@@ -26,6 +26,9 @@ import { AchievementRewardFindUniqueArgs } from "./AchievementRewardFindUniqueAr
 import { CreateAchievementRewardArgs } from "./CreateAchievementRewardArgs";
 import { UpdateAchievementRewardArgs } from "./UpdateAchievementRewardArgs";
 import { DeleteAchievementRewardArgs } from "./DeleteAchievementRewardArgs";
+import { AchievementFindManyArgs } from "../../achievement/base/AchievementFindManyArgs";
+import { Achievement } from "../../achievement/base/Achievement";
+import { AchievementRewardLocale } from "../../achievementRewardLocale/base/AchievementRewardLocale";
 import { AchievementRewardService } from "../achievementReward.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => AchievementReward)
@@ -92,7 +95,15 @@ export class AchievementRewardResolverBase {
   ): Promise<AchievementReward> {
     return await this.service.createAchievementReward({
       ...args,
-      data: args.data,
+      data: {
+        ...args.data,
+
+        achievementRewardLocales: args.data.achievementRewardLocales
+          ? {
+              connect: args.data.achievementRewardLocales,
+            }
+          : undefined,
+      },
     });
   }
 
@@ -109,7 +120,15 @@ export class AchievementRewardResolverBase {
     try {
       return await this.service.updateAchievementReward({
         ...args,
-        data: args.data,
+        data: {
+          ...args.data,
+
+          achievementRewardLocales: args.data.achievementRewardLocales
+            ? {
+                connect: args.data.achievementRewardLocales,
+              }
+            : undefined,
+        },
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -140,5 +159,46 @@ export class AchievementRewardResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [Achievement], { name: "achievements" })
+  @nestAccessControl.UseRoles({
+    resource: "Achievement",
+    action: "read",
+    possession: "any",
+  })
+  async findAchievements(
+    @graphql.Parent() parent: AchievementReward,
+    @graphql.Args() args: AchievementFindManyArgs
+  ): Promise<Achievement[]> {
+    const results = await this.service.findAchievements(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => AchievementRewardLocale, {
+    nullable: true,
+    name: "achievementRewardLocales",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "AchievementRewardLocale",
+    action: "read",
+    possession: "any",
+  })
+  async getAchievementRewardLocales(
+    @graphql.Parent() parent: AchievementReward
+  ): Promise<AchievementRewardLocale | null> {
+    const result = await this.service.getAchievementRewardLocales(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

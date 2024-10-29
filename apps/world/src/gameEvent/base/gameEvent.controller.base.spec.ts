@@ -18,66 +18,42 @@ import { GameEventService } from "../gameEvent.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
-  announce: 42,
+  announce: "exampleAnnounce",
   createdAt: new Date(),
   description: "exampleDescription",
   endTime: new Date(),
-  eventEntry: 42,
-  holiday: 42,
-  holidayStage: 42,
   id: "exampleId",
-  length: 42,
-  occurence: 42,
   startTime: new Date(),
   updatedAt: new Date(),
-  worldEvent: 42,
 };
 const CREATE_RESULT = {
-  announce: 42,
+  announce: "exampleAnnounce",
   createdAt: new Date(),
   description: "exampleDescription",
   endTime: new Date(),
-  eventEntry: 42,
-  holiday: 42,
-  holidayStage: 42,
   id: "exampleId",
-  length: 42,
-  occurence: 42,
   startTime: new Date(),
   updatedAt: new Date(),
-  worldEvent: 42,
 };
 const FIND_MANY_RESULT = [
   {
-    announce: 42,
+    announce: "exampleAnnounce",
     createdAt: new Date(),
     description: "exampleDescription",
     endTime: new Date(),
-    eventEntry: 42,
-    holiday: 42,
-    holidayStage: 42,
     id: "exampleId",
-    length: 42,
-    occurence: 42,
     startTime: new Date(),
     updatedAt: new Date(),
-    worldEvent: 42,
   },
 ];
 const FIND_ONE_RESULT = {
-  announce: 42,
+  announce: "exampleAnnounce",
   createdAt: new Date(),
   description: "exampleDescription",
   endTime: new Date(),
-  eventEntry: 42,
-  holiday: 42,
-  holidayStage: 42,
   id: "exampleId",
-  length: 42,
-  occurence: 42,
   startTime: new Date(),
   updatedAt: new Date(),
-  worldEvent: 42,
 };
 
 const service = {

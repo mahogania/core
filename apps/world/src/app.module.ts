@@ -17,95 +17,66 @@ import { OTLPTraceExporter } from "@opentelemetry/exporter-trace-otlp-grpc";
 import { BatchSpanProcessor } from "@opentelemetry/sdk-trace-node";
 import { UserModule } from "./user/user.module";
 import { AchievementModule } from "./achievement/achievement.module";
-import { AccessRequirementModule } from "./accessRequirement/accessRequirement.module";
 import { AchievementRewardModule } from "./achievementReward/achievementReward.module";
 import { AchievementRewardLocaleModule } from "./achievementRewardLocale/achievementRewardLocale.module";
-import { AchievementScriptsModule } from "./achievementScripts/achievementScripts.module";
-import { DisenchantLootTemplateModule } from "./disenchantLootTemplate/disenchantLootTemplate.module";
-import { EventScriptNamesModule } from "./eventScriptNames/eventScriptNames.module";
-import { GameEventModule } from "./gameEvent/gameEvent.module";
-import { GameWeatherModule } from "./gameWeather/gameWeather.module";
-import { GameObjectModule } from "./gameObject/gameObject.module";
-import { ExplorationBasexpModule } from "./explorationBasexp/explorationBasexp.module";
-import { EventScriptsModule } from "./eventScripts/eventScripts.module";
+import { AchievementBehaviourModule } from "./achievementBehaviour/achievementBehaviour.module";
 import { GameObjectQuestItemModule } from "./gameObjectQuestItem/gameObjectQuestItem.module";
-import { GameObjectTemplateModule } from "./gameObjectTemplate/gameObjectTemplate.module";
-import { GameEventQuestConditionModule } from "./gameEventQuestCondition/gameEventQuestCondition.module";
+import { ExplorationBasexpModule } from "./explorationBasexp/explorationBasexp.module";
+import { GameEventModule } from "./gameEvent/gameEvent.module";
 import { GameObjectTemplateAddonModule } from "./gameObjectTemplateAddon/gameObjectTemplateAddon.module";
-import { GameObjectQuestStarterModule } from "./gameObjectQuestStarter/gameObjectQuestStarter.module";
-import { GameEventSeasonalQuestRelationModule } from "./gameEventSeasonalQuestRelation/gameEventSeasonalQuestRelation.module";
-import { FishingLootTemplateModule } from "./fishingLootTemplate/fishingLootTemplate.module";
+import { GameObjectTemplateModule } from "./gameObjectTemplate/gameObjectTemplate.module";
 import { GameObjectAddonModule } from "./gameObjectAddon/gameObjectAddon.module";
-import { GameTeleModule } from "./gameTele/gameTele.module";
-import { GameEventCreatureModule } from "./gameEventCreature/gameEventCreature.module";
-import { GameEventGameObjectModule } from "./gameEventGameObject/gameEventGameObject.module";
-import { GameEventPrerequisiteModule } from "./gameEventPrerequisite/gameEventPrerequisite.module";
-import { GameEventConditionModule } from "./gameEventCondition/gameEventCondition.module";
-import { GameObjectLootTemplateModule } from "./gameObjectLootTemplate/gameObjectLootTemplate.module";
-import { GameEventPoolModule } from "./gameEventPool/gameEventPool.module";
-import { GameEventCreatureQuestModule } from "./gameEventCreatureQuest/gameEventCreatureQuest.module";
-import { GameEventNpcVendorModule } from "./gameEventNpcVendor/gameEventNpcVendor.module";
-import { GameEventArenaSeasonsModule } from "./gameEventArenaSeasons/gameEventArenaSeasons.module";
-import { GameObjectOverridesModule } from "./gameObjectOverrides/gameObjectOverrides.module";
-import { GameEventNpcFlagModule } from "./gameEventNpcFlag/gameEventNpcFlag.module";
+import { GameObjectModule } from "./gameObject/gameObject.module";
+import { GameObjectQuestStarterModule } from "./gameObjectQuestStarter/gameObjectQuestStarter.module";
+import { LootTemplateModule } from "./lootTemplate/lootTemplate.module";
+import { GameObjectQuestEnderModule } from "./gameObjectQuestEnder/gameObjectQuestEnder.module";
 import { GameObjectTemplateLocaleModule } from "./gameObjectTemplateLocale/gameObjectTemplateLocale.module";
 import { GameEventModelEquipModule } from "./gameEventModelEquip/gameEventModelEquip.module";
-import { GameObjectQuestEnderModule } from "./gameObjectQuestEnder/gameObjectQuestEnder.module";
-import { GameEventGameObjectQuestModule } from "./gameEventGameObjectQuest/gameEventGameObjectQuest.module";
-import { GossipMenuOptionLocaleModule } from "./gossipMenuOptionLocale/gossipMenuOptionLocale.module";
-import { GossipMenuOptionModule } from "./gossipMenuOption/gossipMenuOption.module";
-import { GuildRewardsModule } from "./guildRewards/guildRewards.module";
-import { LfgDungeonRewardsModule } from "./lfgDungeonRewards/lfgDungeonRewards.module";
-import { MailLootTemplateModule } from "./mailLootTemplate/mailLootTemplate.module";
+import { GameEventGameObjectModule } from "./gameEventGameObject/gameEventGameObject.module";
+import { GameEventQuestModule } from "./gameEventQuest/gameEventQuest.module";
+import { GameEventCharacterModule } from "./gameEventCharacter/gameEventCharacter.module";
+import { GameObjectOverridesModule } from "./gameObjectOverrides/gameObjectOverrides.module";
+import { GameEventConditionModule } from "./gameEventCondition/gameEventCondition.module";
+import { GameEventCreatureModule } from "./gameEventCreature/gameEventCreature.module";
+import { GameObjectLootTemplateModule } from "./gameObjectLootTemplate/gameObjectLootTemplate.module";
 import { MillingLootTemplateModule } from "./millingLootTemplate/millingLootTemplate.module";
+import { MailLootTemplateModule } from "./mailLootTemplate/mailLootTemplate.module";
 import { GraveyardZoneModule } from "./graveyardZone/graveyardZone.module";
-import { LfgDungeonTemplateModule } from "./lfgDungeonTemplate/lfgDungeonTemplate.module";
-import { GuildRewardsReqAchievementsModule } from "./guildRewardsReqAchievements/guildRewardsReqAchievements.module";
-import { MailLevelRewardModule } from "./mailLevelReward/mailLevelReward.module";
-import { JumpChargeParamsModule } from "./jumpChargeParams/jumpChargeParams.module";
-import { InstanceTemplateModule } from "./instanceTemplate/instanceTemplate.module";
-import { ItemTemplateAddonModule } from "./itemTemplateAddon/itemTemplateAddon.module";
 import { ItemRandomBonusListTemplateModule } from "./itemRandomBonusListTemplate/itemRandomBonusListTemplate.module";
-import { ItemLootTemplateModule } from "./itemLootTemplate/itemLootTemplate.module";
+import { JumpChargeParamsModule } from "./jumpChargeParams/jumpChargeParams.module";
+import { ItemTemplateAddonModule } from "./itemTemplateAddon/itemTemplateAddon.module";
 import { LinkedRespawnModule } from "./linkedRespawn/linkedRespawn.module";
+import { ItemBehaviourModule } from "./itemBehaviour/itemBehaviour.module";
+import { InstanceTemplateModule } from "./instanceTemplate/instanceTemplate.module";
+import { ItemTemplateModule } from "./itemTemplate/itemTemplate.module";
 import { MountDefinitionsModule } from "./mountDefinitions/mountDefinitions.module";
 import { InstanceSpawnGroupsModule } from "./instanceSpawnGroups/instanceSpawnGroups.module";
-import { ItemScriptNamesModule } from "./itemScriptNames/itemScriptNames.module";
-import { NpcTextModule } from "./npcText/npcText.module";
-import { NpcSpellclickSpellsModule } from "./npcSpellclickSpells/npcSpellclickSpells.module";
-import { PageTextLocaleModule } from "./pageTextLocale/pageTextLocale.module";
-import { NpcVendorModule } from "./npcVendor/npcVendor.module";
-import { PhaseNameModule } from "./phaseName/phaseName.module";
-import { OutdoorpvpTemplateModule } from "./outdoorpvpTemplate/outdoorpvpTemplate.module";
-import { PhaseAreaModule } from "./phaseArea/phaseArea.module";
+import { CharacterSpellModule } from "./characterSpell/characterSpell.module";
+import { CharacterDialogueModule } from "./characterDialogue/characterDialogue.module";
+import { CharacterModule } from "./character/character.module";
+import { ParagraphLocaleModule } from "./paragraphLocale/paragraphLocale.module";
 import { PetNameGenerationModule } from "./petNameGeneration/petNameGeneration.module";
-import { PageTextModule } from "./pageText/pageText.module";
+import { ParagraphModule } from "./paragraph/paragraph.module";
 import { PetLevelstatsModule } from "./petLevelstats/petLevelstats.module";
-import { PlayerClasslevelstatsModule } from "./playerClasslevelstats/playerClasslevelstats.module";
-import { PlayerFactionchangeAchievementModule } from "./playerFactionchangeAchievement/playerFactionchangeAchievement.module";
-import { PlayerchoiceResponseRewardModule } from "./playerchoiceResponseReward/playerchoiceResponseReward.module";
-import { PlayerFactionchangeQuestsModule } from "./playerFactionchangeQuests/playerFactionchangeQuests.module";
-import { PlayerFactionchangeSpellsModule } from "./playerFactionchangeSpells/playerFactionchangeSpells.module";
-import { PlayercreateinfoActionModule } from "./playercreateinfoAction/playercreateinfoAction.module";
-import { PlayerFactionchangeReputationsModule } from "./playerFactionchangeReputations/playerFactionchangeReputations.module";
-import { PlayercreateinfoCastSpellModule } from "./playercreateinfoCastSpell/playercreateinfoCastSpell.module";
-import { PlayercreateinfoItemModule } from "./playercreateinfoItem/playercreateinfoItem.module";
+import { PlayerFactionAchievementModule } from "./playerFactionAchievement/playerFactionAchievement.module";
+import { CraftLevelStatModule } from "./craftLevelStat/craftLevelStat.module";
+import { PlayerFactionQuestModule } from "./playerFactionQuest/playerFactionQuest.module";
+import { PlayerRewardModule } from "./playerReward/playerReward.module";
+import { PlayerFactionReputationModule } from "./playerFactionReputation/playerFactionReputation.module";
+import { PlayerFactionSpellModule } from "./playerFactionSpell/playerFactionSpell.module";
+import { ResponseModule } from "./response/response.module";
+import { GeneStatModule } from "./geneStat/geneStat.module";
+import { PlayerFactionTitleModule } from "./playerFactionTitle/playerFactionTitle.module";
+import { ResponseLocaleModule } from "./responseLocale/responseLocale.module";
+import { ChoiceModule } from "./choice/choice.module";
 import { PlayerXpForLevelModule } from "./playerXpForLevel/playerXpForLevel.module";
-import { PlayerchoiceModule } from "./playerchoice/playerchoice.module";
-import { PlayerchoiceResponseRewardItemChoiceModule } from "./playerchoiceResponseRewardItemChoice/playerchoiceResponseRewardItemChoice.module";
-import { PlayerchoiceLocaleModule } from "./playerchoiceLocale/playerchoiceLocale.module";
-import { PlayerchoiceResponseRewardFactionModule } from "./playerchoiceResponseRewardFaction/playerchoiceResponseRewardFaction.module";
-import { PlayerchoiceResponseLocaleModule } from "./playerchoiceResponseLocale/playerchoiceResponseLocale.module";
-import { PlayercreateinfoSpellCustomModule } from "./playercreateinfoSpellCustom/playercreateinfoSpellCustom.module";
-import { PlayerchoiceResponseRewardItemModule } from "./playerchoiceResponseRewardItem/playerchoiceResponseRewardItem.module";
-import { PlayerRacestatsModule } from "./playerRacestats/playerRacestats.module";
-import { PlayerFactionchangeTitlesModule } from "./playerFactionchangeTitles/playerFactionchangeTitles.module";
-import { PlayerchoiceResponseModule } from "./playerchoiceResponse/playerchoiceResponse.module";
-import { PlayerchoiceResponseRewardCurrencyModule } from "./playerchoiceResponseRewardCurrency/playerchoiceResponseRewardCurrency.module";
-import { PlayerchoiceResponseMawPowerModule } from "./playerchoiceResponseMawPower/playerchoiceResponseMawPower.module";
-import { PlayercreateinfoModule } from "./playercreateinfo/playercreateinfo.module";
-import { ZoneModule } from "./zone/zone.module";
-import { MapModule } from "./map/map.module";
+import { PlayerRewardItemModule } from "./playerRewardItem/playerRewardItem.module";
+import { CurrencyModule } from "./currency/currency.module";
+import { ChoiceLocaleModule } from "./choiceLocale/choiceLocale.module";
+import { FactionModule } from "./faction/faction.module";
+import { PlayerModule } from "./player/player.module";
+import { CraftModule } from "./craft/craft.module";
+import { PlayerCraftModule } from "./playerCraft/playerCraft.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -132,95 +103,66 @@ import { LoggerModule } from "./logger/logger.module";
     AuthModule,
     UserModule,
     AchievementModule,
-    AccessRequirementModule,
     AchievementRewardModule,
     AchievementRewardLocaleModule,
-    AchievementScriptsModule,
-    DisenchantLootTemplateModule,
-    EventScriptNamesModule,
-    GameEventModule,
-    GameWeatherModule,
-    GameObjectModule,
-    ExplorationBasexpModule,
-    EventScriptsModule,
+    AchievementBehaviourModule,
     GameObjectQuestItemModule,
-    GameObjectTemplateModule,
-    GameEventQuestConditionModule,
+    ExplorationBasexpModule,
+    GameEventModule,
     GameObjectTemplateAddonModule,
-    GameObjectQuestStarterModule,
-    GameEventSeasonalQuestRelationModule,
-    FishingLootTemplateModule,
+    GameObjectTemplateModule,
     GameObjectAddonModule,
-    GameTeleModule,
-    GameEventCreatureModule,
-    GameEventGameObjectModule,
-    GameEventPrerequisiteModule,
-    GameEventConditionModule,
-    GameObjectLootTemplateModule,
-    GameEventPoolModule,
-    GameEventCreatureQuestModule,
-    GameEventNpcVendorModule,
-    GameEventArenaSeasonsModule,
-    GameObjectOverridesModule,
-    GameEventNpcFlagModule,
+    GameObjectModule,
+    GameObjectQuestStarterModule,
+    LootTemplateModule,
+    GameObjectQuestEnderModule,
     GameObjectTemplateLocaleModule,
     GameEventModelEquipModule,
-    GameObjectQuestEnderModule,
-    GameEventGameObjectQuestModule,
-    GossipMenuOptionLocaleModule,
-    GossipMenuOptionModule,
-    GuildRewardsModule,
-    LfgDungeonRewardsModule,
-    MailLootTemplateModule,
+    GameEventGameObjectModule,
+    GameEventQuestModule,
+    GameEventCharacterModule,
+    GameObjectOverridesModule,
+    GameEventConditionModule,
+    GameEventCreatureModule,
+    GameObjectLootTemplateModule,
     MillingLootTemplateModule,
+    MailLootTemplateModule,
     GraveyardZoneModule,
-    LfgDungeonTemplateModule,
-    GuildRewardsReqAchievementsModule,
-    MailLevelRewardModule,
-    JumpChargeParamsModule,
-    InstanceTemplateModule,
-    ItemTemplateAddonModule,
     ItemRandomBonusListTemplateModule,
-    ItemLootTemplateModule,
+    JumpChargeParamsModule,
+    ItemTemplateAddonModule,
     LinkedRespawnModule,
+    ItemBehaviourModule,
+    InstanceTemplateModule,
+    ItemTemplateModule,
     MountDefinitionsModule,
     InstanceSpawnGroupsModule,
-    ItemScriptNamesModule,
-    NpcTextModule,
-    NpcSpellclickSpellsModule,
-    PageTextLocaleModule,
-    NpcVendorModule,
-    PhaseNameModule,
-    OutdoorpvpTemplateModule,
-    PhaseAreaModule,
+    CharacterSpellModule,
+    CharacterDialogueModule,
+    CharacterModule,
+    ParagraphLocaleModule,
     PetNameGenerationModule,
-    PageTextModule,
+    ParagraphModule,
     PetLevelstatsModule,
-    PlayerClasslevelstatsModule,
-    PlayerFactionchangeAchievementModule,
-    PlayerchoiceResponseRewardModule,
-    PlayerFactionchangeQuestsModule,
-    PlayerFactionchangeSpellsModule,
-    PlayercreateinfoActionModule,
-    PlayerFactionchangeReputationsModule,
-    PlayercreateinfoCastSpellModule,
-    PlayercreateinfoItemModule,
+    PlayerFactionAchievementModule,
+    CraftLevelStatModule,
+    PlayerFactionQuestModule,
+    PlayerRewardModule,
+    PlayerFactionReputationModule,
+    PlayerFactionSpellModule,
+    ResponseModule,
+    GeneStatModule,
+    PlayerFactionTitleModule,
+    ResponseLocaleModule,
+    ChoiceModule,
     PlayerXpForLevelModule,
-    PlayerchoiceModule,
-    PlayerchoiceResponseRewardItemChoiceModule,
-    PlayerchoiceLocaleModule,
-    PlayerchoiceResponseRewardFactionModule,
-    PlayerchoiceResponseLocaleModule,
-    PlayercreateinfoSpellCustomModule,
-    PlayerchoiceResponseRewardItemModule,
-    PlayerRacestatsModule,
-    PlayerFactionchangeTitlesModule,
-    PlayerchoiceResponseModule,
-    PlayerchoiceResponseRewardCurrencyModule,
-    PlayerchoiceResponseMawPowerModule,
-    PlayercreateinfoModule,
-    ZoneModule,
-    MapModule,
+    PlayerRewardItemModule,
+    CurrencyModule,
+    ChoiceLocaleModule,
+    FactionModule,
+    PlayerModule,
+    CraftModule,
+    PlayerCraftModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

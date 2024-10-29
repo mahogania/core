@@ -26,6 +26,11 @@ import { GameEventFindUniqueArgs } from "./GameEventFindUniqueArgs";
 import { CreateGameEventArgs } from "./CreateGameEventArgs";
 import { UpdateGameEventArgs } from "./UpdateGameEventArgs";
 import { DeleteGameEventArgs } from "./DeleteGameEventArgs";
+import { GameEventCondition } from "../../gameEventCondition/base/GameEventCondition";
+import { GameEventCreature } from "../../gameEventCreature/base/GameEventCreature";
+import { GameEventGameObject } from "../../gameEventGameObject/base/GameEventGameObject";
+import { GameEventModelEquip } from "../../gameEventModelEquip/base/GameEventModelEquip";
+import { GameEventQuest } from "../../gameEventQuest/base/GameEventQuest";
 import { GameEventService } from "../gameEvent.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => GameEvent)
@@ -92,7 +97,39 @@ export class GameEventResolverBase {
   ): Promise<GameEvent> {
     return await this.service.createGameEvent({
       ...args,
-      data: args.data,
+      data: {
+        ...args.data,
+
+        gameEventConditions: args.data.gameEventConditions
+          ? {
+              connect: args.data.gameEventConditions,
+            }
+          : undefined,
+
+        gameEventCreatures: args.data.gameEventCreatures
+          ? {
+              connect: args.data.gameEventCreatures,
+            }
+          : undefined,
+
+        gameEventGameObjects: args.data.gameEventGameObjects
+          ? {
+              connect: args.data.gameEventGameObjects,
+            }
+          : undefined,
+
+        gameEventModelEquips: args.data.gameEventModelEquips
+          ? {
+              connect: args.data.gameEventModelEquips,
+            }
+          : undefined,
+
+        gameEventQuests: args.data.gameEventQuests
+          ? {
+              connect: args.data.gameEventQuests,
+            }
+          : undefined,
+      },
     });
   }
 
@@ -109,7 +146,39 @@ export class GameEventResolverBase {
     try {
       return await this.service.updateGameEvent({
         ...args,
-        data: args.data,
+        data: {
+          ...args.data,
+
+          gameEventConditions: args.data.gameEventConditions
+            ? {
+                connect: args.data.gameEventConditions,
+              }
+            : undefined,
+
+          gameEventCreatures: args.data.gameEventCreatures
+            ? {
+                connect: args.data.gameEventCreatures,
+              }
+            : undefined,
+
+          gameEventGameObjects: args.data.gameEventGameObjects
+            ? {
+                connect: args.data.gameEventGameObjects,
+              }
+            : undefined,
+
+          gameEventModelEquips: args.data.gameEventModelEquips
+            ? {
+                connect: args.data.gameEventModelEquips,
+              }
+            : undefined,
+
+          gameEventQuests: args.data.gameEventQuests
+            ? {
+                connect: args.data.gameEventQuests,
+              }
+            : undefined,
+        },
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -140,5 +209,110 @@ export class GameEventResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => GameEventCondition, {
+    nullable: true,
+    name: "gameEventConditions",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "GameEventCondition",
+    action: "read",
+    possession: "any",
+  })
+  async getGameEventConditions(
+    @graphql.Parent() parent: GameEvent
+  ): Promise<GameEventCondition | null> {
+    const result = await this.service.getGameEventConditions(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => GameEventCreature, {
+    nullable: true,
+    name: "gameEventCreatures",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "GameEventCreature",
+    action: "read",
+    possession: "any",
+  })
+  async getGameEventCreatures(
+    @graphql.Parent() parent: GameEvent
+  ): Promise<GameEventCreature | null> {
+    const result = await this.service.getGameEventCreatures(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => GameEventGameObject, {
+    nullable: true,
+    name: "gameEventGameObjects",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "GameEventGameObject",
+    action: "read",
+    possession: "any",
+  })
+  async getGameEventGameObjects(
+    @graphql.Parent() parent: GameEvent
+  ): Promise<GameEventGameObject | null> {
+    const result = await this.service.getGameEventGameObjects(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => GameEventModelEquip, {
+    nullable: true,
+    name: "gameEventModelEquips",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "GameEventModelEquip",
+    action: "read",
+    possession: "any",
+  })
+  async getGameEventModelEquips(
+    @graphql.Parent() parent: GameEvent
+  ): Promise<GameEventModelEquip | null> {
+    const result = await this.service.getGameEventModelEquips(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => GameEventQuest, {
+    nullable: true,
+    name: "gameEventQuests",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "GameEventQuest",
+    action: "read",
+    possession: "any",
+  })
+  async getGameEventQuests(
+    @graphql.Parent() parent: GameEvent
+  ): Promise<GameEventQuest | null> {
+    const result = await this.service.getGameEventQuests(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

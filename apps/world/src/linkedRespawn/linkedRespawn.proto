@@ -6,28 +6,50 @@ service LinkedRespawnService {
 rpc linkedRespawns (findManyParams) returns (stream LinkedRespawn) {}
 rpc linkedRespawn (LinkedRespawnWhereUniqueInput) returns (LinkedRespawn) {}
 rpc updateLinkedRespawn (LinkedRespawnUpdateInput) returns (LinkedRespawn) {}
-rpc deleteLinkedRespawn (LinkedRespawnWhereUniqueInput) returns (LinkedRespawn) {} 
+rpc deleteLinkedRespawn (LinkedRespawnWhereUniqueInput) returns (LinkedRespawn) {}
+rpc findManyLinkedRespawns (LinkedRespawnWhereUniqueInput) returns (stream InstanceTemplate) {}
+rpc updateLinkedRespawns (InstanceTemplateParams) returns (stream InstanceTemplate) {}
+rpc connectLinkedRespawns (InstanceTemplateParams) returns (InstanceTemplate) {}
+rpc disconnectLinkedRespawns (InstanceTemplateParams) returns (InstanceTemplate) {} 
  }
 message LinkedRespawnCreateInput {
 string createdAt = 1;
 string id = 2;
-string updatedAt = 3;
+repeated InstanceTemplate instanceTemplates = 3;
+string updatedAt = 4;
 };
 message LinkedRespawn {
 string createdAt = 1;
 string id = 2;
-string updatedAt = 3;
+repeated InstanceTemplate instanceTemplates = 3;
+string updatedAt = 4;
 };
 message LinkedRespawnWhereUniqueInput {
 string createdAt = 1;
 string id = 2;
-string updatedAt = 3;
+repeated InstanceTemplate instanceTemplates = 3;
+string updatedAt = 4;
 };
 message LinkedRespawnUpdateInput {
 string createdAt = 1;
 string id = 2;
-string updatedAt = 3;
+repeated InstanceTemplate instanceTemplates = 3;
+string updatedAt = 4;
 };
 message findManyParams {
 
+};
+message InstanceTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message InstanceTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message InstanceTemplateParams {
+LinkedRespawnWhereUniqueInput linkedRespawnWhereUniqueInput = 1;
+InstanceTemplateWhereUniqueInput instancetemplateWhereUniqueInput = 2;
 };

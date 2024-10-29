@@ -26,6 +26,10 @@ import { AchievementFindUniqueArgs } from "./AchievementFindUniqueArgs";
 import { CreateAchievementArgs } from "./CreateAchievementArgs";
 import { UpdateAchievementArgs } from "./UpdateAchievementArgs";
 import { DeleteAchievementArgs } from "./DeleteAchievementArgs";
+import { AchievementBehaviourFindManyArgs } from "../../achievementBehaviour/base/AchievementBehaviourFindManyArgs";
+import { AchievementBehaviour } from "../../achievementBehaviour/base/AchievementBehaviour";
+import { AchievementReward } from "../../achievementReward/base/AchievementReward";
+import { Player } from "../../player/base/Player";
 import { AchievementService } from "../achievement.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => Achievement)
@@ -92,7 +96,19 @@ export class AchievementResolverBase {
   ): Promise<Achievement> {
     return await this.service.createAchievement({
       ...args,
-      data: args.data,
+      data: {
+        ...args.data,
+
+        achievementRewards: {
+          connect: args.data.achievementRewards,
+        },
+
+        player: args.data.player
+          ? {
+              connect: args.data.player,
+            }
+          : undefined,
+      },
     });
   }
 
@@ -109,7 +125,19 @@ export class AchievementResolverBase {
     try {
       return await this.service.updateAchievement({
         ...args,
-        data: args.data,
+        data: {
+          ...args.data,
+
+          achievementRewards: {
+            connect: args.data.achievementRewards,
+          },
+
+          player: args.data.player
+            ? {
+                connect: args.data.player,
+              }
+            : undefined,
+        },
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -140,5 +168,72 @@ export class AchievementResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [AchievementBehaviour], {
+    name: "achievementBehaviours",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "AchievementBehaviour",
+    action: "read",
+    possession: "any",
+  })
+  async findAchievementBehaviours(
+    @graphql.Parent() parent: Achievement,
+    @graphql.Args() args: AchievementBehaviourFindManyArgs
+  ): Promise<AchievementBehaviour[]> {
+    const results = await this.service.findAchievementBehaviours(
+      parent.id,
+      args
+    );
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => AchievementReward, {
+    nullable: true,
+    name: "achievementRewards",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "AchievementReward",
+    action: "read",
+    possession: "any",
+  })
+  async getAchievementRewards(
+    @graphql.Parent() parent: Achievement
+  ): Promise<AchievementReward | null> {
+    const result = await this.service.getAchievementRewards(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => Player, {
+    nullable: true,
+    name: "player",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "Player",
+    action: "read",
+    possession: "any",
+  })
+  async getPlayer(
+    @graphql.Parent() parent: Achievement
+  ): Promise<Player | null> {
+    const result = await this.service.getPlayer(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

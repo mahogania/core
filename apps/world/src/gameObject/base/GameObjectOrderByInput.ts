@@ -50,6 +50,17 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  gameObjectTemplateId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   id?: SortOrder;
 
   @ApiProperty({
@@ -94,83 +105,6 @@ class GameObjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  positionX?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  positionY?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  positionZ?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  rotationW?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  rotationX?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  rotationY?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  rotationZ?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
   script?: SortOrder;
 
   @ApiProperty({
@@ -205,6 +139,17 @@ class GameObjectOrderByInput {
     nullable: true,
   })
   stringId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  transformId?: SortOrder;
 
   @ApiProperty({
     required: false,

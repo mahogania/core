@@ -6,28 +6,116 @@ service GameObjectTemplateService {
 rpc gameObjectTemplates (findManyParams) returns (stream GameObjectTemplate) {}
 rpc gameObjectTemplate (GameObjectTemplateWhereUniqueInput) returns (GameObjectTemplate) {}
 rpc updateGameObjectTemplate (GameObjectTemplateUpdateInput) returns (GameObjectTemplate) {}
-rpc deleteGameObjectTemplate (GameObjectTemplateWhereUniqueInput) returns (GameObjectTemplate) {} 
+rpc deleteGameObjectTemplate (GameObjectTemplateWhereUniqueInput) returns (GameObjectTemplate) {}
+rpc findManyGameObjectTemplate (GameObjectTemplateWhereUniqueInput) returns (stream GameObjectTemplateAddon) {}
+rpc updateGameObjectTemplate (GameObjectTemplateAddonParams) returns (stream GameObjectTemplateAddon) {}
+rpc connectGameObjectTemplate (GameObjectTemplateAddonParams) returns (GameObjectTemplateAddon) {}
+rpc disconnectGameObjectTemplate (GameObjectTemplateAddonParams) returns (GameObjectTemplateAddon) {}
+rpc findManyGameObjectTemplate (GameObjectTemplateWhereUniqueInput) returns (stream GameObjectTemplateLocale) {}
+rpc updateGameObjectTemplate (GameObjectTemplateLocaleParams) returns (stream GameObjectTemplateLocale) {}
+rpc connectGameObjectTemplate (GameObjectTemplateLocaleParams) returns (GameObjectTemplateLocale) {}
+rpc disconnectGameObjectTemplate (GameObjectTemplateLocaleParams) returns (GameObjectTemplateLocale) {}
+rpc findManyGameObjectTemplate (GameObjectTemplateWhereUniqueInput) returns (stream GameObject) {}
+rpc updateGameObjectTemplate (GameObjectParams) returns (stream GameObject) {}
+rpc connectGameObjectTemplate (GameObjectParams) returns (GameObject) {}
+rpc disconnectGameObjectTemplate (GameObjectParams) returns (GameObject) {} 
  }
 message GameObjectTemplateCreateInput {
 string createdAt = 1;
-string id = 2;
-string updatedAt = 3;
+repeated GameObjectTemplateAddon gameObjectTemplateAddons = 2;
+repeated GameObjectTemplateLocale gameObjectTemplateLocales = 3;
+repeated GameObject gameObjects = 4;
+string id = 5;
+string updatedAt = 6;
 };
 message GameObjectTemplate {
 string createdAt = 1;
-string id = 2;
-string updatedAt = 3;
+repeated GameObjectTemplateAddon gameObjectTemplateAddons = 2;
+repeated GameObjectTemplateLocale gameObjectTemplateLocales = 3;
+repeated GameObject gameObjects = 4;
+string id = 5;
+string updatedAt = 6;
 };
 message GameObjectTemplateWhereUniqueInput {
 string createdAt = 1;
-string id = 2;
-string updatedAt = 3;
+repeated GameObjectTemplateAddon gameObjectTemplateAddons = 2;
+repeated GameObjectTemplateLocale gameObjectTemplateLocales = 3;
+repeated GameObject gameObjects = 4;
+string id = 5;
+string updatedAt = 6;
 };
 message GameObjectTemplateUpdateInput {
+string createdAt = 1;
+repeated GameObjectTemplateAddon gameObjectTemplateAddons = 2;
+repeated GameObjectTemplateLocale gameObjectTemplateLocales = 3;
+repeated GameObject gameObjects = 4;
+string id = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message GameObjectTemplateAddon {
 string createdAt = 1;
 string id = 2;
 string updatedAt = 3;
 };
-message findManyParams {
-
+message GameObjectTemplateAddonWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectTemplateAddonParams {
+GameObjectTemplateWhereUniqueInput gameObjectTemplateWhereUniqueInput = 1;
+GameObjectTemplateAddonWhereUniqueInput gameobjecttemplateaddonWhereUniqueInput = 2;
+};
+message GameObjectTemplateLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectTemplateLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectTemplateLocaleParams {
+GameObjectTemplateWhereUniqueInput gameObjectTemplateWhereUniqueInput = 1;
+GameObjectTemplateLocaleWhereUniqueInput gameobjecttemplatelocaleWhereUniqueInput = 2;
+};
+message GameObject {
+int32 areaId = 1;
+string createdAt = 2;
+string id = 3;
+int32 mapId = 4;
+int32 phaseGroupId = 5;
+int32 phaseId = 6;
+string script = 7;
+string spawnTime = 8;
+int32 state = 9;
+string stringId = 10;
+string transformId = 11;
+string updatedAt = 12;
+int32 version = 13;
+int32 zoneId = 14;
+};
+message GameObjectWhereUniqueInput {
+int32 areaId = 1;
+string createdAt = 2;
+string id = 3;
+int32 mapId = 4;
+int32 phaseGroupId = 5;
+int32 phaseId = 6;
+string script = 7;
+string spawnTime = 8;
+int32 state = 9;
+string stringId = 10;
+string transformId = 11;
+string updatedAt = 12;
+int32 version = 13;
+int32 zoneId = 14;
+};
+message GameObjectParams {
+GameObjectTemplateWhereUniqueInput gameObjectTemplateWhereUniqueInput = 1;
+GameObjectWhereUniqueInput gameobjectWhereUniqueInput = 2;
 };

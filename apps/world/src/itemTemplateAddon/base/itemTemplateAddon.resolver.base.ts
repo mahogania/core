@@ -18,11 +18,16 @@ import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
 import * as common from "@nestjs/common";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { ItemTemplateAddon } from "./ItemTemplateAddon";
 import { ItemTemplateAddonCountArgs } from "./ItemTemplateAddonCountArgs";
 import { ItemTemplateAddonFindManyArgs } from "./ItemTemplateAddonFindManyArgs";
 import { ItemTemplateAddonFindUniqueArgs } from "./ItemTemplateAddonFindUniqueArgs";
+import { CreateItemTemplateAddonArgs } from "./CreateItemTemplateAddonArgs";
+import { UpdateItemTemplateAddonArgs } from "./UpdateItemTemplateAddonArgs";
 import { DeleteItemTemplateAddonArgs } from "./DeleteItemTemplateAddonArgs";
+import { ItemTemplateFindManyArgs } from "../../itemTemplate/base/ItemTemplateFindManyArgs";
+import { ItemTemplate } from "../../itemTemplate/base/ItemTemplate";
 import { ItemTemplateAddonService } from "../itemTemplateAddon.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => ItemTemplateAddon)
@@ -77,6 +82,47 @@ export class ItemTemplateAddonResolverBase {
     return result;
   }
 
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => ItemTemplateAddon)
+  @nestAccessControl.UseRoles({
+    resource: "ItemTemplateAddon",
+    action: "create",
+    possession: "any",
+  })
+  async createItemTemplateAddon(
+    @graphql.Args() args: CreateItemTemplateAddonArgs
+  ): Promise<ItemTemplateAddon> {
+    return await this.service.createItemTemplateAddon({
+      ...args,
+      data: args.data,
+    });
+  }
+
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => ItemTemplateAddon)
+  @nestAccessControl.UseRoles({
+    resource: "ItemTemplateAddon",
+    action: "update",
+    possession: "any",
+  })
+  async updateItemTemplateAddon(
+    @graphql.Args() args: UpdateItemTemplateAddonArgs
+  ): Promise<ItemTemplateAddon | null> {
+    try {
+      return await this.service.updateItemTemplateAddon({
+        ...args,
+        data: args.data,
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new GraphQLError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
+  }
+
   @graphql.Mutation(() => ItemTemplateAddon)
   @nestAccessControl.UseRoles({
     resource: "ItemTemplateAddon",
@@ -96,5 +142,25 @@ export class ItemTemplateAddonResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [ItemTemplate], { name: "itemTemplates" })
+  @nestAccessControl.UseRoles({
+    resource: "ItemTemplate",
+    action: "read",
+    possession: "any",
+  })
+  async findItemTemplates(
+    @graphql.Parent() parent: ItemTemplateAddon,
+    @graphql.Args() args: ItemTemplateFindManyArgs
+  ): Promise<ItemTemplate[]> {
+    const results = await this.service.findItemTemplates(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
   }
 }

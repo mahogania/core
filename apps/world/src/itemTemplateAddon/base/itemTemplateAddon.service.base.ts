@@ -10,9 +10,11 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
+
 import {
   Prisma,
   ItemTemplateAddon as PrismaItemTemplateAddon,
+  ItemTemplate as PrismaItemTemplate,
 } from "@prisma/client";
 
 export class ItemTemplateAddonServiceBase {
@@ -48,5 +50,16 @@ export class ItemTemplateAddonServiceBase {
     args: Prisma.ItemTemplateAddonDeleteArgs
   ): Promise<PrismaItemTemplateAddon> {
     return this.prisma.itemTemplateAddon.delete(args);
+  }
+
+  async findItemTemplates(
+    parentId: string,
+    args: Prisma.ItemTemplateFindManyArgs
+  ): Promise<PrismaItemTemplate[]> {
+    return this.prisma.itemTemplateAddon
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .itemTemplates(args);
   }
 }

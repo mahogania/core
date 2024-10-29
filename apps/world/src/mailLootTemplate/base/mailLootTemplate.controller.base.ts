@@ -52,10 +52,26 @@ export class MailLootTemplateControllerBase {
     @common.Body() data: MailLootTemplateCreateInput
   ): Promise<MailLootTemplate> {
     return await this.service.createMailLootTemplate({
-      data: data,
+      data: {
+        ...data,
+
+        lootTemplate: data.lootTemplate
+          ? {
+              connect: data.lootTemplate,
+            }
+          : undefined,
+      },
       select: {
         createdAt: true,
         id: true,
+
+        lootTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
+        sender: true,
         updatedAt: true,
       },
     });
@@ -82,6 +98,14 @@ export class MailLootTemplateControllerBase {
       select: {
         createdAt: true,
         id: true,
+
+        lootTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
+        sender: true,
         updatedAt: true,
       },
     });
@@ -107,6 +131,14 @@ export class MailLootTemplateControllerBase {
       select: {
         createdAt: true,
         id: true,
+
+        lootTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
+        sender: true,
         updatedAt: true,
       },
     });
@@ -140,10 +172,26 @@ export class MailLootTemplateControllerBase {
     try {
       return await this.service.updateMailLootTemplate({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          lootTemplate: data.lootTemplate
+            ? {
+                connect: data.lootTemplate,
+              }
+            : undefined,
+        },
         select: {
           createdAt: true,
           id: true,
+
+          lootTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
+          sender: true,
           updatedAt: true,
         },
       });
@@ -177,6 +225,14 @@ export class MailLootTemplateControllerBase {
         select: {
           createdAt: true,
           id: true,
+
+          lootTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
+          sender: true,
           updatedAt: true,
         },
       });

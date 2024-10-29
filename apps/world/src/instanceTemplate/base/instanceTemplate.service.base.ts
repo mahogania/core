@@ -10,9 +10,11 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
+
 import {
   Prisma,
   InstanceTemplate as PrismaInstanceTemplate,
+  LinkedRespawn as PrismaLinkedRespawn,
 } from "@prisma/client";
 
 export class InstanceTemplateServiceBase {
@@ -48,5 +50,15 @@ export class InstanceTemplateServiceBase {
     args: Prisma.InstanceTemplateDeleteArgs
   ): Promise<PrismaInstanceTemplate> {
     return this.prisma.instanceTemplate.delete(args);
+  }
+
+  async getLinkedRespawns(
+    parentId: string
+  ): Promise<PrismaLinkedRespawn | null> {
+    return this.prisma.instanceTemplate
+      .findUnique({
+        where: { id: parentId },
+      })
+      .linkedRespawns();
   }
 }

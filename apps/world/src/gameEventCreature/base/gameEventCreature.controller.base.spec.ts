@@ -19,32 +19,28 @@ const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
   createdAt: new Date(),
-  eventEntry: 42,
-  guid: 42,
   id: "exampleId",
+  spawnerId: "exampleSpawnerId",
   updatedAt: new Date(),
 };
 const CREATE_RESULT = {
   createdAt: new Date(),
-  eventEntry: 42,
-  guid: 42,
   id: "exampleId",
+  spawnerId: "exampleSpawnerId",
   updatedAt: new Date(),
 };
 const FIND_MANY_RESULT = [
   {
     createdAt: new Date(),
-    eventEntry: 42,
-    guid: 42,
     id: "exampleId",
+    spawnerId: "exampleSpawnerId",
     updatedAt: new Date(),
   },
 ];
 const FIND_ONE_RESULT = {
   createdAt: new Date(),
-  eventEntry: 42,
-  guid: 42,
   id: "exampleId",
+  spawnerId: "exampleSpawnerId",
   updatedAt: new Date(),
 };
 

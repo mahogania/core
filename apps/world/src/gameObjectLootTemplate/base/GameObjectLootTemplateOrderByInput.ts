@@ -61,17 +61,6 @@ class GameObjectLootTemplateOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  entry?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
   groupId?: SortOrder;
 
   @ApiProperty({
@@ -116,6 +105,17 @@ class GameObjectLootTemplateOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  lootTemplateId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   maxCount?: SortOrder;
 
   @ApiProperty({
@@ -139,17 +139,6 @@ class GameObjectLootTemplateOrderByInput {
     nullable: true,
   })
   questId?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  referenceId?: SortOrder;
 
   @ApiProperty({
     required: false,

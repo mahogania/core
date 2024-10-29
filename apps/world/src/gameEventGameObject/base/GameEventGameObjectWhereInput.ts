@@ -13,7 +13,8 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { IntNullableFilter } from "../../util/IntNullableFilter";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { IsOptional, ValidateNested } from "class-validator";
+import { GameEventListRelationFilter } from "../../gameEvent/base/GameEventListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 
 @InputType()
@@ -28,6 +29,18 @@ class GameEventGameObjectWhereInput {
     nullable: true,
   })
   eventEntry?: IntNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => GameEventListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => GameEventListRelationFilter)
+  @IsOptional()
+  @Field(() => GameEventListRelationFilter, {
+    nullable: true,
+  })
+  gameEvents?: GameEventListRelationFilter;
 
   @ApiProperty({
     required: false,

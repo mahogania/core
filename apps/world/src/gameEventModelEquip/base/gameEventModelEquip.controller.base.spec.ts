@@ -19,40 +19,32 @@ const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
   createdAt: new Date(),
-  equipmentId: 42,
-  eventEntry: 42,
-  guid: 42,
+  equipmentId: "exampleEquipmentId",
   id: "exampleId",
-  modelid: 42,
+  modelid: "exampleModelid",
   updatedAt: new Date(),
 };
 const CREATE_RESULT = {
   createdAt: new Date(),
-  equipmentId: 42,
-  eventEntry: 42,
-  guid: 42,
+  equipmentId: "exampleEquipmentId",
   id: "exampleId",
-  modelid: 42,
+  modelid: "exampleModelid",
   updatedAt: new Date(),
 };
 const FIND_MANY_RESULT = [
   {
     createdAt: new Date(),
-    equipmentId: 42,
-    eventEntry: 42,
-    guid: 42,
+    equipmentId: "exampleEquipmentId",
     id: "exampleId",
-    modelid: 42,
+    modelid: "exampleModelid",
     updatedAt: new Date(),
   },
 ];
 const FIND_ONE_RESULT = {
   createdAt: new Date(),
-  equipmentId: 42,
-  eventEntry: 42,
-  guid: 42,
+  equipmentId: "exampleEquipmentId",
   id: "exampleId",
-  modelid: 42,
+  modelid: "exampleModelid",
   updatedAt: new Date(),
 };
 

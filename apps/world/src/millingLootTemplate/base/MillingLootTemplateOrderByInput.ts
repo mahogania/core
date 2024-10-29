@@ -50,6 +50,17 @@ class MillingLootTemplateOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  lootTemplateId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   updatedAt?: SortOrder;
 }
 

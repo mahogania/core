@@ -10,9 +10,11 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
+
 import {
   Prisma,
   MillingLootTemplate as PrismaMillingLootTemplate,
+  LootTemplate as PrismaLootTemplate,
 } from "@prisma/client";
 
 export class MillingLootTemplateServiceBase {
@@ -48,5 +50,13 @@ export class MillingLootTemplateServiceBase {
     args: Prisma.MillingLootTemplateDeleteArgs
   ): Promise<PrismaMillingLootTemplate> {
     return this.prisma.millingLootTemplate.delete(args);
+  }
+
+  async getLootTemplate(parentId: string): Promise<PrismaLootTemplate | null> {
+    return this.prisma.millingLootTemplate
+      .findUnique({
+        where: { id: parentId },
+      })
+      .lootTemplate();
   }
 }

@@ -11,31 +11,19 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import {
-  IsInt,
-  Min,
-  Max,
-  IsOptional,
-  IsDate,
-  IsString,
-  IsNumber,
-} from "class-validator";
+import { IsString, MaxLength, IsDate } from "class-validator";
 import { Type } from "class-transformer";
 
 @ObjectType()
 class GameObjectAddon {
   @ApiProperty({
-    required: false,
-    type: Number,
+    required: true,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  aiAnimKitId!: number | null;
+  @IsString()
+  @MaxLength(256)
+  @Field(() => String)
+  aiAnimKitId!: string;
 
   @ApiProperty({
     required: true,
@@ -46,19 +34,6 @@ class GameObjectAddon {
   createdAt!: Date;
 
   @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  guid!: number | null;
-
-  @ApiProperty({
     required: true,
     type: String,
   })
@@ -67,82 +42,13 @@ class GameObjectAddon {
   id!: string;
 
   @ApiProperty({
-    required: false,
-    type: Number,
+    required: true,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  invisibilityType!: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  invisibilityValue!: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  parentRotation0!: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  parentRotation1!: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  parentRotation2!: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  parentRotation3!: number | null;
+  @IsString()
+  @MaxLength(256)
+  @Field(() => String)
+  transformId!: string;
 
   @ApiProperty({
     required: true,
@@ -153,17 +59,13 @@ class GameObjectAddon {
   updatedAt!: Date;
 
   @ApiProperty({
-    required: false,
-    type: Number,
+    required: true,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  worldEffectId!: number | null;
+  @IsString()
+  @MaxLength(256)
+  @Field(() => String)
+  worldEffectId!: string;
 }
 
 export { GameObjectAddon as GameObjectAddon };

@@ -14,11 +14,9 @@ export const GameEventModelEquipList = (
     >
       <Datagrid rowClick="show" bulkActionButtons={false}>
         <DateField source="createdAt" label="Created At" />
-        <TextField label="equipment_id" source="equipmentId" />
-        <TextField label="eventEntry" source="eventEntry" />
-        <TextField label="guid" source="guid" />
+        <TextField label="Equipment ID" source="equipmentId" />
         <TextField label="ID" source="id" />
-        <TextField label="modelid" source="modelid" />
+        <TextField label="Model ID" source="modelid" />
         <DateField source="updatedAt" label="Updated At" />{" "}
       </Datagrid>
     </List>

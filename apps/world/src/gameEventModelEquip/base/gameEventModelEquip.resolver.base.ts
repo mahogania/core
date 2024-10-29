@@ -26,6 +26,8 @@ import { GameEventModelEquipFindUniqueArgs } from "./GameEventModelEquipFindUniq
 import { CreateGameEventModelEquipArgs } from "./CreateGameEventModelEquipArgs";
 import { UpdateGameEventModelEquipArgs } from "./UpdateGameEventModelEquipArgs";
 import { DeleteGameEventModelEquipArgs } from "./DeleteGameEventModelEquipArgs";
+import { GameEventFindManyArgs } from "../../gameEvent/base/GameEventFindManyArgs";
+import { GameEvent } from "../../gameEvent/base/GameEvent";
 import { GameEventModelEquipService } from "../gameEventModelEquip.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => GameEventModelEquip)
@@ -140,5 +142,25 @@ export class GameEventModelEquipResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [GameEvent], { name: "gameEvents" })
+  @nestAccessControl.UseRoles({
+    resource: "GameEvent",
+    action: "read",
+    possession: "any",
+  })
+  async findGameEvents(
+    @graphql.Parent() parent: GameEventModelEquip,
+    @graphql.Args() args: GameEventFindManyArgs
+  ): Promise<GameEvent[]> {
+    const results = await this.service.findGameEvents(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
   }
 }

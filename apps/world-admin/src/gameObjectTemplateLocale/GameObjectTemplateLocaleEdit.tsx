@@ -1,5 +1,12 @@
 import * as React from "react";
-import { Edit, SimpleForm, EditProps } from "react-admin";
+import {
+  Edit,
+  SimpleForm,
+  EditProps,
+  ReferenceInput,
+  SelectInput,
+} from "react-admin";
+import { GameObjectTemplateTitle } from "../gameObjectTemplate/GameObjectTemplateTitle";
 
 export const GameObjectTemplateLocaleEdit = (
   props: EditProps
@@ -7,7 +14,13 @@ export const GameObjectTemplateLocaleEdit = (
   return (
     <Edit {...props}>
       <SimpleForm>
-        <div />
+        <ReferenceInput
+          source="gameObjectTemplate.id"
+          reference="GameObjectTemplate"
+          label="GameObjectTemplate"
+        >
+          <SelectInput optionText={GameObjectTemplateTitle} />
+        </ReferenceInput>
       </SimpleForm>
     </Edit>
   );

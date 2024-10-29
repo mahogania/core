@@ -11,17 +11,45 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+import { AchievementRewardLocaleWhereUniqueInput } from "../../achievementRewardLocale/base/AchievementRewardLocaleWhereUniqueInput";
 import {
+  ValidateNested,
+  IsOptional,
   IsString,
   MaxLength,
-  IsOptional,
   IsInt,
   Min,
   Max,
 } from "class-validator";
+import { Type } from "class-transformer";
+import { AchievementCreateNestedManyWithoutAchievementRewardsInput } from "./AchievementCreateNestedManyWithoutAchievementRewardsInput";
 
 @InputType()
 class AchievementRewardCreateInput {
+  @ApiProperty({
+    required: false,
+    type: () => AchievementRewardLocaleWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => AchievementRewardLocaleWhereUniqueInput)
+  @IsOptional()
+  @Field(() => AchievementRewardLocaleWhereUniqueInput, {
+    nullable: true,
+  })
+  achievementRewardLocales?: AchievementRewardLocaleWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => AchievementCreateNestedManyWithoutAchievementRewardsInput,
+  })
+  @ValidateNested()
+  @Type(() => AchievementCreateNestedManyWithoutAchievementRewardsInput)
+  @IsOptional()
+  @Field(() => AchievementCreateNestedManyWithoutAchievementRewardsInput, {
+    nullable: true,
+  })
+  achievements?: AchievementCreateNestedManyWithoutAchievementRewardsInput;
+
   @ApiProperty({
     required: false,
     type: String,

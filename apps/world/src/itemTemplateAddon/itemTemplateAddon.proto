@@ -6,28 +6,50 @@ service ItemTemplateAddonService {
 rpc itemTemplateAddons (findManyParams) returns (stream ItemTemplateAddon) {}
 rpc itemTemplateAddon (ItemTemplateAddonWhereUniqueInput) returns (ItemTemplateAddon) {}
 rpc updateItemTemplateAddon (ItemTemplateAddonUpdateInput) returns (ItemTemplateAddon) {}
-rpc deleteItemTemplateAddon (ItemTemplateAddonWhereUniqueInput) returns (ItemTemplateAddon) {} 
+rpc deleteItemTemplateAddon (ItemTemplateAddonWhereUniqueInput) returns (ItemTemplateAddon) {}
+rpc findManyItemTemplateAddons (ItemTemplateAddonWhereUniqueInput) returns (stream ItemTemplate) {}
+rpc updateItemTemplateAddons (ItemTemplateParams) returns (stream ItemTemplate) {}
+rpc connectItemTemplateAddons (ItemTemplateParams) returns (ItemTemplate) {}
+rpc disconnectItemTemplateAddons (ItemTemplateParams) returns (ItemTemplate) {} 
  }
 message ItemTemplateAddonCreateInput {
 string createdAt = 1;
 string id = 2;
-string updatedAt = 3;
+repeated ItemTemplate itemTemplates = 3;
+string updatedAt = 4;
 };
 message ItemTemplateAddon {
 string createdAt = 1;
 string id = 2;
-string updatedAt = 3;
+repeated ItemTemplate itemTemplates = 3;
+string updatedAt = 4;
 };
 message ItemTemplateAddonWhereUniqueInput {
 string createdAt = 1;
 string id = 2;
-string updatedAt = 3;
+repeated ItemTemplate itemTemplates = 3;
+string updatedAt = 4;
 };
 message ItemTemplateAddonUpdateInput {
 string createdAt = 1;
 string id = 2;
-string updatedAt = 3;
+repeated ItemTemplate itemTemplates = 3;
+string updatedAt = 4;
 };
 message findManyParams {
 
+};
+message ItemTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemTemplateParams {
+ItemTemplateAddonWhereUniqueInput itemTemplateAddonWhereUniqueInput = 1;
+ItemTemplateWhereUniqueInput itemtemplateWhereUniqueInput = 2;
 };

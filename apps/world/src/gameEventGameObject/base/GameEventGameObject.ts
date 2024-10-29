@@ -11,8 +11,17 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsInt, Min, Max, IsOptional, IsString } from "class-validator";
+import {
+  IsDate,
+  IsInt,
+  Min,
+  Max,
+  IsOptional,
+  ValidateNested,
+  IsString,
+} from "class-validator";
 import { Type } from "class-transformer";
+import { GameEvent } from "../../gameEvent/base/GameEvent";
 
 @ObjectType()
 class GameEventGameObject {
@@ -36,6 +45,15 @@ class GameEventGameObject {
     nullable: true,
   })
   eventEntry!: number | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => [GameEvent],
+  })
+  @ValidateNested()
+  @Type(() => GameEvent)
+  @IsOptional()
+  gameEvents?: Array<GameEvent>;
 
   @ApiProperty({
     required: false,

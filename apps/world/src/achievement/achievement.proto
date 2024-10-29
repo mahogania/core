@@ -6,52 +6,76 @@ service AchievementService {
 rpc achievements (findManyParams) returns (stream Achievement) {}
 rpc achievement (AchievementWhereUniqueInput) returns (Achievement) {}
 rpc updateAchievement (AchievementUpdateInput) returns (Achievement) {}
-rpc deleteAchievement (AchievementWhereUniqueInput) returns (Achievement) {} 
+rpc deleteAchievement (AchievementWhereUniqueInput) returns (Achievement) {}
+rpc findManyAchievement (AchievementWhereUniqueInput) returns (stream AchievementBehaviour) {}
+rpc updateAchievement (AchievementBehaviourParams) returns (stream AchievementBehaviour) {}
+rpc connectAchievement (AchievementBehaviourParams) returns (AchievementBehaviour) {}
+rpc disconnectAchievement (AchievementBehaviourParams) returns (AchievementBehaviour) {} 
  }
 message AchievementCreateInput {
-int32 count = 1;
-string createdAt = 2;
-int32 flags = 3;
-string id = 4;
-int32 map = 5;
-int32 points = 6;
-int32 refAchievement = 7;
-int32 requiredFaction = 8;
-string updatedAt = 9;
+repeated AchievementBehaviour achievementBehaviours = 1;
+int32 count = 2;
+string createdAt = 3;
+int32 flags = 4;
+string id = 5;
+int32 map = 6;
+int32 points = 7;
+int32 refAchievement = 8;
+int32 requiredFaction = 9;
+string updatedAt = 10;
 };
 message Achievement {
-int32 count = 1;
-string createdAt = 2;
-int32 flags = 3;
-string id = 4;
-int32 map = 5;
-int32 points = 6;
-int32 refAchievement = 7;
-int32 requiredFaction = 8;
-string updatedAt = 9;
+repeated AchievementBehaviour achievementBehaviours = 1;
+int32 count = 2;
+string createdAt = 3;
+int32 flags = 4;
+string id = 5;
+int32 map = 6;
+int32 points = 7;
+int32 refAchievement = 8;
+int32 requiredFaction = 9;
+string updatedAt = 10;
 };
 message AchievementWhereUniqueInput {
-int32 count = 1;
-string createdAt = 2;
-int32 flags = 3;
-string id = 4;
-int32 map = 5;
-int32 points = 6;
-int32 refAchievement = 7;
-int32 requiredFaction = 8;
-string updatedAt = 9;
+repeated AchievementBehaviour achievementBehaviours = 1;
+int32 count = 2;
+string createdAt = 3;
+int32 flags = 4;
+string id = 5;
+int32 map = 6;
+int32 points = 7;
+int32 refAchievement = 8;
+int32 requiredFaction = 9;
+string updatedAt = 10;
 };
 message AchievementUpdateInput {
-int32 count = 1;
-string createdAt = 2;
-int32 flags = 3;
-string id = 4;
-int32 map = 5;
-int32 points = 6;
-int32 refAchievement = 7;
-int32 requiredFaction = 8;
-string updatedAt = 9;
+repeated AchievementBehaviour achievementBehaviours = 1;
+int32 count = 2;
+string createdAt = 3;
+int32 flags = 4;
+string id = 5;
+int32 map = 6;
+int32 points = 7;
+int32 refAchievement = 8;
+int32 requiredFaction = 9;
+string updatedAt = 10;
 };
 message findManyParams {
 
+};
+message AchievementBehaviour {
+string behaviourName = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message AchievementBehaviourWhereUniqueInput {
+string behaviourName = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message AchievementBehaviourParams {
+AchievementWhereUniqueInput achievementWhereUniqueInput = 1;
+AchievementBehaviourWhereUniqueInput achievementbehaviourWhereUniqueInput = 2;
 };

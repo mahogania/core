@@ -10,9 +10,12 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
+
 import {
   Prisma,
   AchievementReward as PrismaAchievementReward,
+  Achievement as PrismaAchievement,
+  AchievementRewardLocale as PrismaAchievementRewardLocale,
 } from "@prisma/client";
 
 export class AchievementRewardServiceBase {
@@ -48,5 +51,26 @@ export class AchievementRewardServiceBase {
     args: Prisma.AchievementRewardDeleteArgs
   ): Promise<PrismaAchievementReward> {
     return this.prisma.achievementReward.delete(args);
+  }
+
+  async findAchievements(
+    parentId: string,
+    args: Prisma.AchievementFindManyArgs
+  ): Promise<PrismaAchievement[]> {
+    return this.prisma.achievementReward
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .achievements(args);
+  }
+
+  async getAchievementRewardLocales(
+    parentId: string
+  ): Promise<PrismaAchievementRewardLocale | null> {
+    return this.prisma.achievementReward
+      .findUnique({
+        where: { id: parentId },
+      })
+      .achievementRewardLocales();
   }
 }

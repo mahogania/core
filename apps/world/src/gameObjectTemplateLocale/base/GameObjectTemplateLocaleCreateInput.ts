@@ -9,5 +9,25 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-class GameObjectTemplateLocaleCreateInput {}
+import { InputType, Field } from "@nestjs/graphql";
+import { ApiProperty } from "@nestjs/swagger";
+import { GameObjectTemplateWhereUniqueInput } from "../../gameObjectTemplate/base/GameObjectTemplateWhereUniqueInput";
+import { ValidateNested, IsOptional } from "class-validator";
+import { Type } from "class-transformer";
+
+@InputType()
+class GameObjectTemplateLocaleCreateInput {
+  @ApiProperty({
+    required: false,
+    type: () => GameObjectTemplateWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => GameObjectTemplateWhereUniqueInput)
+  @IsOptional()
+  @Field(() => GameObjectTemplateWhereUniqueInput, {
+    nullable: true,
+  })
+  gameObjectTemplate?: GameObjectTemplateWhereUniqueInput | null;
+}
+
 export { GameObjectTemplateLocaleCreateInput as GameObjectTemplateLocaleCreateInput };

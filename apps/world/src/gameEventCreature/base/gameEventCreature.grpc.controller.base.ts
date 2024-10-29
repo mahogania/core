@@ -24,6 +24,9 @@ import { GameEventCreatureWhereUniqueInput } from "./GameEventCreatureWhereUniqu
 import { GameEventCreatureFindManyArgs } from "./GameEventCreatureFindManyArgs";
 import { GameEventCreatureUpdateInput } from "./GameEventCreatureUpdateInput";
 import { GameEventCreature } from "./GameEventCreature";
+import { GameEventFindManyArgs } from "../../gameEvent/base/GameEventFindManyArgs";
+import { GameEvent } from "../../gameEvent/base/GameEvent";
+import { GameEventWhereUniqueInput } from "../../gameEvent/base/GameEventWhereUniqueInput";
 
 export class GameEventCreatureGrpcControllerBase {
   constructor(protected readonly service: GameEventCreatureService) {}
@@ -37,9 +40,8 @@ export class GameEventCreatureGrpcControllerBase {
       data: data,
       select: {
         createdAt: true,
-        eventEntry: true,
-        guid: true,
         id: true,
+        spawnerId: true,
         updatedAt: true,
       },
     });
@@ -57,9 +59,8 @@ export class GameEventCreatureGrpcControllerBase {
       ...args,
       select: {
         createdAt: true,
-        eventEntry: true,
-        guid: true,
         id: true,
+        spawnerId: true,
         updatedAt: true,
       },
     });
@@ -76,9 +77,8 @@ export class GameEventCreatureGrpcControllerBase {
       where: params,
       select: {
         createdAt: true,
-        eventEntry: true,
-        guid: true,
         id: true,
+        spawnerId: true,
         updatedAt: true,
       },
     });
@@ -104,9 +104,8 @@ export class GameEventCreatureGrpcControllerBase {
         data: data,
         select: {
           createdAt: true,
-          eventEntry: true,
-          guid: true,
           id: true,
+          spawnerId: true,
           updatedAt: true,
         },
       });
@@ -132,9 +131,8 @@ export class GameEventCreatureGrpcControllerBase {
         where: params,
         select: {
           createdAt: true,
-          eventEntry: true,
-          guid: true,
           id: true,
+          spawnerId: true,
           updatedAt: true,
         },
       });
@@ -146,5 +144,118 @@ export class GameEventCreatureGrpcControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Get("/:id/gameEvents")
+  @ApiNestedQuery(GameEventFindManyArgs)
+  @GrpcMethod("GameEventCreatureService", "findManyGameEvents")
+  async findManyGameEvents(
+    @common.Req() request: Request,
+    @common.Param() params: GameEventCreatureWhereUniqueInput
+  ): Promise<GameEvent[]> {
+    const query = plainToClass(GameEventFindManyArgs, request.query);
+    const results = await this.service.findGameEvents(params.id, {
+      ...query,
+      select: {
+        announce: true,
+        createdAt: true,
+        description: true,
+        endTime: true,
+
+        gameEventConditions: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventCreatures: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventGameObjects: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventModelEquips: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventQuests: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        startTime: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/gameEvents")
+  @GrpcMethod("GameEventCreatureService", "connectGameEvents")
+  async connectGameEvents(
+    @common.Param() params: GameEventCreatureWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        connect: body,
+      },
+    };
+    await this.service.updateGameEventCreature({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/gameEvents")
+  @GrpcMethod("GameEventCreatureService", "updateGameEvents")
+  async updateGameEvents(
+    @common.Param() params: GameEventCreatureWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        set: body,
+      },
+    };
+    await this.service.updateGameEventCreature({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/gameEvents")
+  @GrpcMethod("GameEventCreatureService", "disconnectGameEvents")
+  async disconnectGameEvents(
+    @common.Param() params: GameEventCreatureWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateGameEventCreature({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

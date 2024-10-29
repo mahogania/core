@@ -9,5 +9,25 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-class MillingLootTemplateCreateInput {}
+import { InputType, Field } from "@nestjs/graphql";
+import { ApiProperty } from "@nestjs/swagger";
+import { LootTemplateWhereUniqueInput } from "../../lootTemplate/base/LootTemplateWhereUniqueInput";
+import { ValidateNested, IsOptional } from "class-validator";
+import { Type } from "class-transformer";
+
+@InputType()
+class MillingLootTemplateCreateInput {
+  @ApiProperty({
+    required: false,
+    type: () => LootTemplateWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => LootTemplateWhereUniqueInput)
+  @IsOptional()
+  @Field(() => LootTemplateWhereUniqueInput, {
+    nullable: true,
+  })
+  lootTemplate?: LootTemplateWhereUniqueInput | null;
+}
+
 export { MillingLootTemplateCreateInput as MillingLootTemplateCreateInput };

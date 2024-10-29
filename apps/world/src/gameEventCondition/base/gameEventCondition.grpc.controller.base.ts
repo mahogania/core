@@ -24,6 +24,9 @@ import { GameEventConditionWhereUniqueInput } from "./GameEventConditionWhereUni
 import { GameEventConditionFindManyArgs } from "./GameEventConditionFindManyArgs";
 import { GameEventConditionUpdateInput } from "./GameEventConditionUpdateInput";
 import { GameEventCondition } from "./GameEventCondition";
+import { GameEventFindManyArgs } from "../../gameEvent/base/GameEventFindManyArgs";
+import { GameEvent } from "../../gameEvent/base/GameEvent";
+import { GameEventWhereUniqueInput } from "../../gameEvent/base/GameEventWhereUniqueInput";
 
 export class GameEventConditionGrpcControllerBase {
   constructor(protected readonly service: GameEventConditionService) {}
@@ -36,14 +39,10 @@ export class GameEventConditionGrpcControllerBase {
     return await this.service.createGameEventCondition({
       data: data,
       select: {
-        conditionId: true,
         createdAt: true,
         description: true,
-        doneWorldStateField: true,
-        eventEntry: true,
         id: true,
-        maxWorldStateField: true,
-        reqNum: true,
+        name: true,
         updatedAt: true,
       },
     });
@@ -60,14 +59,10 @@ export class GameEventConditionGrpcControllerBase {
     return this.service.gameEventConditions({
       ...args,
       select: {
-        conditionId: true,
         createdAt: true,
         description: true,
-        doneWorldStateField: true,
-        eventEntry: true,
         id: true,
-        maxWorldStateField: true,
-        reqNum: true,
+        name: true,
         updatedAt: true,
       },
     });
@@ -83,14 +78,10 @@ export class GameEventConditionGrpcControllerBase {
     const result = await this.service.gameEventCondition({
       where: params,
       select: {
-        conditionId: true,
         createdAt: true,
         description: true,
-        doneWorldStateField: true,
-        eventEntry: true,
         id: true,
-        maxWorldStateField: true,
-        reqNum: true,
+        name: true,
         updatedAt: true,
       },
     });
@@ -115,14 +106,10 @@ export class GameEventConditionGrpcControllerBase {
         where: params,
         data: data,
         select: {
-          conditionId: true,
           createdAt: true,
           description: true,
-          doneWorldStateField: true,
-          eventEntry: true,
           id: true,
-          maxWorldStateField: true,
-          reqNum: true,
+          name: true,
           updatedAt: true,
         },
       });
@@ -147,14 +134,10 @@ export class GameEventConditionGrpcControllerBase {
       return await this.service.deleteGameEventCondition({
         where: params,
         select: {
-          conditionId: true,
           createdAt: true,
           description: true,
-          doneWorldStateField: true,
-          eventEntry: true,
           id: true,
-          maxWorldStateField: true,
-          reqNum: true,
+          name: true,
           updatedAt: true,
         },
       });
@@ -166,5 +149,118 @@ export class GameEventConditionGrpcControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Get("/:id/gameEvents")
+  @ApiNestedQuery(GameEventFindManyArgs)
+  @GrpcMethod("GameEventConditionService", "findManyGameEvents")
+  async findManyGameEvents(
+    @common.Req() request: Request,
+    @common.Param() params: GameEventConditionWhereUniqueInput
+  ): Promise<GameEvent[]> {
+    const query = plainToClass(GameEventFindManyArgs, request.query);
+    const results = await this.service.findGameEvents(params.id, {
+      ...query,
+      select: {
+        announce: true,
+        createdAt: true,
+        description: true,
+        endTime: true,
+
+        gameEventConditions: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventCreatures: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventGameObjects: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventModelEquips: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventQuests: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        startTime: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/gameEvents")
+  @GrpcMethod("GameEventConditionService", "connectGameEvents")
+  async connectGameEvents(
+    @common.Param() params: GameEventConditionWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        connect: body,
+      },
+    };
+    await this.service.updateGameEventCondition({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/gameEvents")
+  @GrpcMethod("GameEventConditionService", "updateGameEvents")
+  async updateGameEvents(
+    @common.Param() params: GameEventConditionWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        set: body,
+      },
+    };
+    await this.service.updateGameEventCondition({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/gameEvents")
+  @GrpcMethod("GameEventConditionService", "disconnectGameEvents")
+  async disconnectGameEvents(
+    @common.Param() params: GameEventConditionWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateGameEventCondition({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

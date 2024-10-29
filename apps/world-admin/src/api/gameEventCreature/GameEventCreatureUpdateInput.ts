@@ -1,4 +1,6 @@
+import { GameEventUpdateManyWithoutGameEventCreaturesInput } from "./GameEventUpdateManyWithoutGameEventCreaturesInput";
+
 export type GameEventCreatureUpdateInput = {
-  eventEntry?: number | null;
-  guid?: number | null;
+  gameEvents?: GameEventUpdateManyWithoutGameEventCreaturesInput;
+  spawnerId?: string;
 };

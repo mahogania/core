@@ -11,7 +11,9 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsInt, Min, Max, IsOptional } from "class-validator";
+import { IsInt, Min, Max, IsOptional, ValidateNested } from "class-validator";
+import { GameEventCreateNestedManyWithoutGameEventGameObjectsInput } from "./GameEventCreateNestedManyWithoutGameEventGameObjectsInput";
+import { Type } from "class-transformer";
 
 @InputType()
 class GameEventGameObjectCreateInput {
@@ -27,6 +29,18 @@ class GameEventGameObjectCreateInput {
     nullable: true,
   })
   eventEntry?: number | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => GameEventCreateNestedManyWithoutGameEventGameObjectsInput,
+  })
+  @ValidateNested()
+  @Type(() => GameEventCreateNestedManyWithoutGameEventGameObjectsInput)
+  @IsOptional()
+  @Field(() => GameEventCreateNestedManyWithoutGameEventGameObjectsInput, {
+    nullable: true,
+  })
+  gameEvents?: GameEventCreateNestedManyWithoutGameEventGameObjectsInput;
 
   @ApiProperty({
     required: false,

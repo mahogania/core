@@ -9,5 +9,25 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-class ItemRandomBonusListTemplateUpdateInput {}
+import { InputType, Field } from "@nestjs/graphql";
+import { ApiProperty } from "@nestjs/swagger";
+import { ItemTemplateWhereUniqueInput } from "../../itemTemplate/base/ItemTemplateWhereUniqueInput";
+import { ValidateNested, IsOptional } from "class-validator";
+import { Type } from "class-transformer";
+
+@InputType()
+class ItemRandomBonusListTemplateUpdateInput {
+  @ApiProperty({
+    required: false,
+    type: () => ItemTemplateWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => ItemTemplateWhereUniqueInput)
+  @IsOptional()
+  @Field(() => ItemTemplateWhereUniqueInput, {
+    nullable: true,
+  })
+  itemTemplate?: ItemTemplateWhereUniqueInput | null;
+}
+
 export { ItemRandomBonusListTemplateUpdateInput as ItemRandomBonusListTemplateUpdateInput };

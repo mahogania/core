@@ -26,6 +26,15 @@ import { GameObjectTemplate } from "./GameObjectTemplate";
 import { GameObjectTemplateFindManyArgs } from "./GameObjectTemplateFindManyArgs";
 import { GameObjectTemplateWhereUniqueInput } from "./GameObjectTemplateWhereUniqueInput";
 import { GameObjectTemplateUpdateInput } from "./GameObjectTemplateUpdateInput";
+import { GameObjectTemplateAddonFindManyArgs } from "../../gameObjectTemplateAddon/base/GameObjectTemplateAddonFindManyArgs";
+import { GameObjectTemplateAddon } from "../../gameObjectTemplateAddon/base/GameObjectTemplateAddon";
+import { GameObjectTemplateAddonWhereUniqueInput } from "../../gameObjectTemplateAddon/base/GameObjectTemplateAddonWhereUniqueInput";
+import { GameObjectTemplateLocaleFindManyArgs } from "../../gameObjectTemplateLocale/base/GameObjectTemplateLocaleFindManyArgs";
+import { GameObjectTemplateLocale } from "../../gameObjectTemplateLocale/base/GameObjectTemplateLocale";
+import { GameObjectTemplateLocaleWhereUniqueInput } from "../../gameObjectTemplateLocale/base/GameObjectTemplateLocaleWhereUniqueInput";
+import { GameObjectFindManyArgs } from "../../gameObject/base/GameObjectFindManyArgs";
+import { GameObject } from "../../gameObject/base/GameObject";
+import { GameObjectWhereUniqueInput } from "../../gameObject/base/GameObjectWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -188,5 +197,331 @@ export class GameObjectTemplateControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/gameObjectTemplateAddons")
+  @ApiNestedQuery(GameObjectTemplateAddonFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplateAddon",
+    action: "read",
+    possession: "any",
+  })
+  async findGameObjectTemplateAddons(
+    @common.Req() request: Request,
+    @common.Param() params: GameObjectTemplateWhereUniqueInput
+  ): Promise<GameObjectTemplateAddon[]> {
+    const query = plainToClass(
+      GameObjectTemplateAddonFindManyArgs,
+      request.query
+    );
+    const results = await this.service.findGameObjectTemplateAddons(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+
+        gameObjectTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/gameObjectTemplateAddons")
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplate",
+    action: "update",
+    possession: "any",
+  })
+  async connectGameObjectTemplateAddons(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectTemplateAddonWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjectTemplateAddons: {
+        connect: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/gameObjectTemplateAddons")
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplate",
+    action: "update",
+    possession: "any",
+  })
+  async updateGameObjectTemplateAddons(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectTemplateAddonWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjectTemplateAddons: {
+        set: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/gameObjectTemplateAddons")
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplate",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectGameObjectTemplateAddons(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectTemplateAddonWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjectTemplateAddons: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/gameObjectTemplateLocales")
+  @ApiNestedQuery(GameObjectTemplateLocaleFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplateLocale",
+    action: "read",
+    possession: "any",
+  })
+  async findGameObjectTemplateLocales(
+    @common.Req() request: Request,
+    @common.Param() params: GameObjectTemplateWhereUniqueInput
+  ): Promise<GameObjectTemplateLocale[]> {
+    const query = plainToClass(
+      GameObjectTemplateLocaleFindManyArgs,
+      request.query
+    );
+    const results = await this.service.findGameObjectTemplateLocales(
+      params.id,
+      {
+        ...query,
+        select: {
+          createdAt: true,
+
+          gameObjectTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
+          id: true,
+          updatedAt: true,
+        },
+      }
+    );
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/gameObjectTemplateLocales")
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplate",
+    action: "update",
+    possession: "any",
+  })
+  async connectGameObjectTemplateLocales(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectTemplateLocaleWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjectTemplateLocales: {
+        connect: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/gameObjectTemplateLocales")
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplate",
+    action: "update",
+    possession: "any",
+  })
+  async updateGameObjectTemplateLocales(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectTemplateLocaleWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjectTemplateLocales: {
+        set: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/gameObjectTemplateLocales")
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplate",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectGameObjectTemplateLocales(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectTemplateLocaleWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjectTemplateLocales: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/gameObjects")
+  @ApiNestedQuery(GameObjectFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "GameObject",
+    action: "read",
+    possession: "any",
+  })
+  async findGameObjects(
+    @common.Req() request: Request,
+    @common.Param() params: GameObjectTemplateWhereUniqueInput
+  ): Promise<GameObject[]> {
+    const query = plainToClass(GameObjectFindManyArgs, request.query);
+    const results = await this.service.findGameObjects(params.id, {
+      ...query,
+      select: {
+        areaId: true,
+        createdAt: true,
+
+        gameObjectTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        mapId: true,
+        phaseGroupId: true,
+        phaseId: true,
+        script: true,
+        spawnTime: true,
+        state: true,
+        stringId: true,
+        transformId: true,
+        updatedAt: true,
+        version: true,
+        zoneId: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/gameObjects")
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplate",
+    action: "update",
+    possession: "any",
+  })
+  async connectGameObjects(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjects: {
+        connect: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/gameObjects")
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplate",
+    action: "update",
+    possession: "any",
+  })
+  async updateGameObjects(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjects: {
+        set: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/gameObjects")
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplate",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectGameObjects(
+    @common.Param() params: GameObjectTemplateWhereUniqueInput,
+    @common.Body() body: GameObjectWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameObjects: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateGameObjectTemplate({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

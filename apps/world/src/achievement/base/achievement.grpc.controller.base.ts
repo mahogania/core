@@ -24,6 +24,9 @@ import { AchievementWhereUniqueInput } from "./AchievementWhereUniqueInput";
 import { AchievementFindManyArgs } from "./AchievementFindManyArgs";
 import { AchievementUpdateInput } from "./AchievementUpdateInput";
 import { Achievement } from "./Achievement";
+import { AchievementBehaviourFindManyArgs } from "../../achievementBehaviour/base/AchievementBehaviourFindManyArgs";
+import { AchievementBehaviour } from "../../achievementBehaviour/base/AchievementBehaviour";
+import { AchievementBehaviourWhereUniqueInput } from "../../achievementBehaviour/base/AchievementBehaviourWhereUniqueInput";
 
 export class AchievementGrpcControllerBase {
   constructor(protected readonly service: AchievementService) {}
@@ -34,13 +37,38 @@ export class AchievementGrpcControllerBase {
     @common.Body() data: AchievementCreateInput
   ): Promise<Achievement> {
     return await this.service.createAchievement({
-      data: data,
+      data: {
+        ...data,
+
+        achievementRewards: {
+          connect: data.achievementRewards,
+        },
+
+        player: data.player
+          ? {
+              connect: data.player,
+            }
+          : undefined,
+      },
       select: {
+        achievementRewards: {
+          select: {
+            id: true,
+          },
+        },
+
         count: true,
         createdAt: true,
         flags: true,
         id: true,
         map: true,
+
+        player: {
+          select: {
+            id: true,
+          },
+        },
+
         points: true,
         refAchievement: true,
         requiredFaction: true,
@@ -58,11 +86,24 @@ export class AchievementGrpcControllerBase {
     return this.service.achievements({
       ...args,
       select: {
+        achievementRewards: {
+          select: {
+            id: true,
+          },
+        },
+
         count: true,
         createdAt: true,
         flags: true,
         id: true,
         map: true,
+
+        player: {
+          select: {
+            id: true,
+          },
+        },
+
         points: true,
         refAchievement: true,
         requiredFaction: true,
@@ -81,11 +122,24 @@ export class AchievementGrpcControllerBase {
     const result = await this.service.achievement({
       where: params,
       select: {
+        achievementRewards: {
+          select: {
+            id: true,
+          },
+        },
+
         count: true,
         createdAt: true,
         flags: true,
         id: true,
         map: true,
+
+        player: {
+          select: {
+            id: true,
+          },
+        },
+
         points: true,
         refAchievement: true,
         requiredFaction: true,
@@ -111,13 +165,38 @@ export class AchievementGrpcControllerBase {
     try {
       return await this.service.updateAchievement({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          achievementRewards: {
+            connect: data.achievementRewards,
+          },
+
+          player: data.player
+            ? {
+                connect: data.player,
+              }
+            : undefined,
+        },
         select: {
+          achievementRewards: {
+            select: {
+              id: true,
+            },
+          },
+
           count: true,
           createdAt: true,
           flags: true,
           id: true,
           map: true,
+
+          player: {
+            select: {
+              id: true,
+            },
+          },
+
           points: true,
           refAchievement: true,
           requiredFaction: true,
@@ -145,11 +224,24 @@ export class AchievementGrpcControllerBase {
       return await this.service.deleteAchievement({
         where: params,
         select: {
+          achievementRewards: {
+            select: {
+              id: true,
+            },
+          },
+
           count: true,
           createdAt: true,
           flags: true,
           id: true,
           map: true,
+
+          player: {
+            select: {
+              id: true,
+            },
+          },
+
           points: true,
           refAchievement: true,
           requiredFaction: true,
@@ -164,5 +256,90 @@ export class AchievementGrpcControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Get("/:id/achievementBehaviours")
+  @ApiNestedQuery(AchievementBehaviourFindManyArgs)
+  @GrpcMethod("AchievementService", "findManyAchievementBehaviours")
+  async findManyAchievementBehaviours(
+    @common.Req() request: Request,
+    @common.Param() params: AchievementWhereUniqueInput
+  ): Promise<AchievementBehaviour[]> {
+    const query = plainToClass(AchievementBehaviourFindManyArgs, request.query);
+    const results = await this.service.findAchievementBehaviours(params.id, {
+      ...query,
+      select: {
+        achievement: {
+          select: {
+            id: true,
+          },
+        },
+
+        behaviourName: true,
+        createdAt: true,
+        id: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/achievementBehaviours")
+  @GrpcMethod("AchievementService", "connectAchievementBehaviours")
+  async connectAchievementBehaviours(
+    @common.Param() params: AchievementWhereUniqueInput,
+    @common.Body() body: AchievementBehaviourWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      achievementBehaviours: {
+        connect: body,
+      },
+    };
+    await this.service.updateAchievement({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/achievementBehaviours")
+  @GrpcMethod("AchievementService", "updateAchievementBehaviours")
+  async updateAchievementBehaviours(
+    @common.Param() params: AchievementWhereUniqueInput,
+    @common.Body() body: AchievementBehaviourWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      achievementBehaviours: {
+        set: body,
+      },
+    };
+    await this.service.updateAchievement({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/achievementBehaviours")
+  @GrpcMethod("AchievementService", "disconnectAchievementBehaviours")
+  async disconnectAchievementBehaviours(
+    @common.Param() params: AchievementWhereUniqueInput,
+    @common.Body() body: AchievementBehaviourWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      achievementBehaviours: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateAchievement({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

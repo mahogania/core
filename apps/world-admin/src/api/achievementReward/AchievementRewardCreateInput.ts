@@ -1,4 +1,9 @@
+import { AchievementRewardLocaleWhereUniqueInput } from "../achievementRewardLocale/AchievementRewardLocaleWhereUniqueInput";
+import { AchievementCreateNestedManyWithoutAchievementRewardsInput } from "./AchievementCreateNestedManyWithoutAchievementRewardsInput";
+
 export type AchievementRewardCreateInput = {
+  achievementRewardLocales?: AchievementRewardLocaleWhereUniqueInput | null;
+  achievements?: AchievementCreateNestedManyWithoutAchievementRewardsInput;
   body?: string | null;
   itemId?: number | null;
   mailTemplateId?: number | null;

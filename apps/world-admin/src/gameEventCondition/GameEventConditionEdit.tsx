@@ -1,11 +1,15 @@
 import * as React from "react";
+
 import {
   Edit,
   SimpleForm,
   EditProps,
-  NumberInput,
   TextInput,
+  ReferenceArrayInput,
+  SelectArrayInput,
 } from "react-admin";
+
+import { GameEventTitle } from "../gameEvent/GameEventTitle";
 
 export const GameEventConditionEdit = (
   props: EditProps
@@ -13,20 +17,15 @@ export const GameEventConditionEdit = (
   return (
     <Edit {...props}>
       <SimpleForm>
-        <NumberInput step={1} label="condition_id" source="conditionId" />
-        <TextInput label="description" source="description" />
-        <NumberInput
-          step={1}
-          label="done_world_state_field"
-          source="doneWorldStateField"
-        />
-        <NumberInput step={1} label="eventEntry" source="eventEntry" />
-        <NumberInput
-          step={1}
-          label="max_world_state_field"
-          source="maxWorldStateField"
-        />
-        <NumberInput label="req_num" source="reqNum" />
+        <TextInput label="Description" source="description" />
+        <ReferenceArrayInput source="gameEvents" reference="GameEvent">
+          <SelectArrayInput
+            optionText={GameEventTitle}
+            parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+            format={(value: any) => value && value.map((v: any) => v.id)}
+          />
+        </ReferenceArrayInput>
+        <TextInput label="Name" source="name" />
       </SimpleForm>
     </Edit>
   );

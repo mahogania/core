@@ -9,5 +9,59 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-class GameObjectTemplateUpdateInput {}
+import { InputType, Field } from "@nestjs/graphql";
+import { ApiProperty } from "@nestjs/swagger";
+import { GameObjectTemplateAddonUpdateManyWithoutGameObjectTemplatesInput } from "./GameObjectTemplateAddonUpdateManyWithoutGameObjectTemplatesInput";
+import { ValidateNested, IsOptional } from "class-validator";
+import { Type } from "class-transformer";
+import { GameObjectTemplateLocaleUpdateManyWithoutGameObjectTemplatesInput } from "./GameObjectTemplateLocaleUpdateManyWithoutGameObjectTemplatesInput";
+import { GameObjectUpdateManyWithoutGameObjectTemplatesInput } from "./GameObjectUpdateManyWithoutGameObjectTemplatesInput";
+
+@InputType()
+class GameObjectTemplateUpdateInput {
+  @ApiProperty({
+    required: false,
+    type: () =>
+      GameObjectTemplateAddonUpdateManyWithoutGameObjectTemplatesInput,
+  })
+  @ValidateNested()
+  @Type(() => GameObjectTemplateAddonUpdateManyWithoutGameObjectTemplatesInput)
+  @IsOptional()
+  @Field(
+    () => GameObjectTemplateAddonUpdateManyWithoutGameObjectTemplatesInput,
+    {
+      nullable: true,
+    }
+  )
+  gameObjectTemplateAddons?: GameObjectTemplateAddonUpdateManyWithoutGameObjectTemplatesInput;
+
+  @ApiProperty({
+    required: false,
+    type: () =>
+      GameObjectTemplateLocaleUpdateManyWithoutGameObjectTemplatesInput,
+  })
+  @ValidateNested()
+  @Type(() => GameObjectTemplateLocaleUpdateManyWithoutGameObjectTemplatesInput)
+  @IsOptional()
+  @Field(
+    () => GameObjectTemplateLocaleUpdateManyWithoutGameObjectTemplatesInput,
+    {
+      nullable: true,
+    }
+  )
+  gameObjectTemplateLocales?: GameObjectTemplateLocaleUpdateManyWithoutGameObjectTemplatesInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => GameObjectUpdateManyWithoutGameObjectTemplatesInput,
+  })
+  @ValidateNested()
+  @Type(() => GameObjectUpdateManyWithoutGameObjectTemplatesInput)
+  @IsOptional()
+  @Field(() => GameObjectUpdateManyWithoutGameObjectTemplatesInput, {
+    nullable: true,
+  })
+  gameObjects?: GameObjectUpdateManyWithoutGameObjectTemplatesInput;
+}
+
 export { GameObjectTemplateUpdateInput as GameObjectTemplateUpdateInput };

@@ -10,7 +10,14 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-import { Prisma, Achievement as PrismaAchievement } from "@prisma/client";
+
+import {
+  Prisma,
+  Achievement as PrismaAchievement,
+  AchievementBehaviour as PrismaAchievementBehaviour,
+  AchievementReward as PrismaAchievementReward,
+  Player as PrismaPlayer,
+} from "@prisma/client";
 
 export class AchievementServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -45,5 +52,34 @@ export class AchievementServiceBase {
     args: Prisma.AchievementDeleteArgs
   ): Promise<PrismaAchievement> {
     return this.prisma.achievement.delete(args);
+  }
+
+  async findAchievementBehaviours(
+    parentId: string,
+    args: Prisma.AchievementBehaviourFindManyArgs
+  ): Promise<PrismaAchievementBehaviour[]> {
+    return this.prisma.achievement
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .achievementBehaviours(args);
+  }
+
+  async getAchievementRewards(
+    parentId: string
+  ): Promise<PrismaAchievementReward | null> {
+    return this.prisma.achievement
+      .findUnique({
+        where: { id: parentId },
+      })
+      .achievementRewards();
+  }
+
+  async getPlayer(parentId: string): Promise<PrismaPlayer | null> {
+    return this.prisma.achievement
+      .findUnique({
+        where: { id: parentId },
+      })
+      .player();
   }
 }

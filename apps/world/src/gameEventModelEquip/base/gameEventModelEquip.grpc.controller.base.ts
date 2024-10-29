@@ -24,6 +24,9 @@ import { GameEventModelEquipWhereUniqueInput } from "./GameEventModelEquipWhereU
 import { GameEventModelEquipFindManyArgs } from "./GameEventModelEquipFindManyArgs";
 import { GameEventModelEquipUpdateInput } from "./GameEventModelEquipUpdateInput";
 import { GameEventModelEquip } from "./GameEventModelEquip";
+import { GameEventFindManyArgs } from "../../gameEvent/base/GameEventFindManyArgs";
+import { GameEvent } from "../../gameEvent/base/GameEvent";
+import { GameEventWhereUniqueInput } from "../../gameEvent/base/GameEventWhereUniqueInput";
 
 export class GameEventModelEquipGrpcControllerBase {
   constructor(protected readonly service: GameEventModelEquipService) {}
@@ -38,8 +41,6 @@ export class GameEventModelEquipGrpcControllerBase {
       select: {
         createdAt: true,
         equipmentId: true,
-        eventEntry: true,
-        guid: true,
         id: true,
         modelid: true,
         updatedAt: true,
@@ -60,8 +61,6 @@ export class GameEventModelEquipGrpcControllerBase {
       select: {
         createdAt: true,
         equipmentId: true,
-        eventEntry: true,
-        guid: true,
         id: true,
         modelid: true,
         updatedAt: true,
@@ -81,8 +80,6 @@ export class GameEventModelEquipGrpcControllerBase {
       select: {
         createdAt: true,
         equipmentId: true,
-        eventEntry: true,
-        guid: true,
         id: true,
         modelid: true,
         updatedAt: true,
@@ -111,8 +108,6 @@ export class GameEventModelEquipGrpcControllerBase {
         select: {
           createdAt: true,
           equipmentId: true,
-          eventEntry: true,
-          guid: true,
           id: true,
           modelid: true,
           updatedAt: true,
@@ -141,8 +136,6 @@ export class GameEventModelEquipGrpcControllerBase {
         select: {
           createdAt: true,
           equipmentId: true,
-          eventEntry: true,
-          guid: true,
           id: true,
           modelid: true,
           updatedAt: true,
@@ -156,5 +149,118 @@ export class GameEventModelEquipGrpcControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Get("/:id/gameEvents")
+  @ApiNestedQuery(GameEventFindManyArgs)
+  @GrpcMethod("GameEventModelEquipService", "findManyGameEvents")
+  async findManyGameEvents(
+    @common.Req() request: Request,
+    @common.Param() params: GameEventModelEquipWhereUniqueInput
+  ): Promise<GameEvent[]> {
+    const query = plainToClass(GameEventFindManyArgs, request.query);
+    const results = await this.service.findGameEvents(params.id, {
+      ...query,
+      select: {
+        announce: true,
+        createdAt: true,
+        description: true,
+        endTime: true,
+
+        gameEventConditions: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventCreatures: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventGameObjects: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventModelEquips: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventQuests: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        startTime: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/gameEvents")
+  @GrpcMethod("GameEventModelEquipService", "connectGameEvents")
+  async connectGameEvents(
+    @common.Param() params: GameEventModelEquipWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        connect: body,
+      },
+    };
+    await this.service.updateGameEventModelEquip({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/gameEvents")
+  @GrpcMethod("GameEventModelEquipService", "updateGameEvents")
+  async updateGameEvents(
+    @common.Param() params: GameEventModelEquipWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        set: body,
+      },
+    };
+    await this.service.updateGameEventModelEquip({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/gameEvents")
+  @GrpcMethod("GameEventModelEquipService", "disconnectGameEvents")
+  async disconnectGameEvents(
+    @common.Param() params: GameEventModelEquipWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateGameEventModelEquip({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

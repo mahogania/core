@@ -10,7 +10,16 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-import { Prisma, GameEvent as PrismaGameEvent } from "@prisma/client";
+
+import {
+  Prisma,
+  GameEvent as PrismaGameEvent,
+  GameEventCondition as PrismaGameEventCondition,
+  GameEventCreature as PrismaGameEventCreature,
+  GameEventGameObject as PrismaGameEventGameObject,
+  GameEventModelEquip as PrismaGameEventModelEquip,
+  GameEventQuest as PrismaGameEventQuest,
+} from "@prisma/client";
 
 export class GameEventServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -45,5 +54,55 @@ export class GameEventServiceBase {
     args: Prisma.GameEventDeleteArgs
   ): Promise<PrismaGameEvent> {
     return this.prisma.gameEvent.delete(args);
+  }
+
+  async getGameEventConditions(
+    parentId: string
+  ): Promise<PrismaGameEventCondition | null> {
+    return this.prisma.gameEvent
+      .findUnique({
+        where: { id: parentId },
+      })
+      .gameEventConditions();
+  }
+
+  async getGameEventCreatures(
+    parentId: string
+  ): Promise<PrismaGameEventCreature | null> {
+    return this.prisma.gameEvent
+      .findUnique({
+        where: { id: parentId },
+      })
+      .gameEventCreatures();
+  }
+
+  async getGameEventGameObjects(
+    parentId: string
+  ): Promise<PrismaGameEventGameObject | null> {
+    return this.prisma.gameEvent
+      .findUnique({
+        where: { id: parentId },
+      })
+      .gameEventGameObjects();
+  }
+
+  async getGameEventModelEquips(
+    parentId: string
+  ): Promise<PrismaGameEventModelEquip | null> {
+    return this.prisma.gameEvent
+      .findUnique({
+        where: { id: parentId },
+      })
+      .gameEventModelEquips();
+  }
+
+  async getGameEventQuests(
+    parentId: string
+  ): Promise<PrismaGameEventQuest | null> {
+    return this.prisma.gameEvent
+      .findUnique({
+        where: { id: parentId },
+      })
+      .gameEventQuests();
   }
 }

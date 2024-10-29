@@ -26,6 +26,9 @@ import { GameEventCondition } from "./GameEventCondition";
 import { GameEventConditionFindManyArgs } from "./GameEventConditionFindManyArgs";
 import { GameEventConditionWhereUniqueInput } from "./GameEventConditionWhereUniqueInput";
 import { GameEventConditionUpdateInput } from "./GameEventConditionUpdateInput";
+import { GameEventFindManyArgs } from "../../gameEvent/base/GameEventFindManyArgs";
+import { GameEvent } from "../../gameEvent/base/GameEvent";
+import { GameEventWhereUniqueInput } from "../../gameEvent/base/GameEventWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -54,14 +57,10 @@ export class GameEventConditionControllerBase {
     return await this.service.createGameEventCondition({
       data: data,
       select: {
-        conditionId: true,
         createdAt: true,
         description: true,
-        doneWorldStateField: true,
-        eventEntry: true,
         id: true,
-        maxWorldStateField: true,
-        reqNum: true,
+        name: true,
         updatedAt: true,
       },
     });
@@ -86,14 +85,10 @@ export class GameEventConditionControllerBase {
     return this.service.gameEventConditions({
       ...args,
       select: {
-        conditionId: true,
         createdAt: true,
         description: true,
-        doneWorldStateField: true,
-        eventEntry: true,
         id: true,
-        maxWorldStateField: true,
-        reqNum: true,
+        name: true,
         updatedAt: true,
       },
     });
@@ -117,14 +112,10 @@ export class GameEventConditionControllerBase {
     const result = await this.service.gameEventCondition({
       where: params,
       select: {
-        conditionId: true,
         createdAt: true,
         description: true,
-        doneWorldStateField: true,
-        eventEntry: true,
         id: true,
-        maxWorldStateField: true,
-        reqNum: true,
+        name: true,
         updatedAt: true,
       },
     });
@@ -160,14 +151,10 @@ export class GameEventConditionControllerBase {
         where: params,
         data: data,
         select: {
-          conditionId: true,
           createdAt: true,
           description: true,
-          doneWorldStateField: true,
-          eventEntry: true,
           id: true,
-          maxWorldStateField: true,
-          reqNum: true,
+          name: true,
           updatedAt: true,
         },
       });
@@ -199,14 +186,10 @@ export class GameEventConditionControllerBase {
       return await this.service.deleteGameEventCondition({
         where: params,
         select: {
-          conditionId: true,
           createdAt: true,
           description: true,
-          doneWorldStateField: true,
-          eventEntry: true,
           id: true,
-          maxWorldStateField: true,
-          reqNum: true,
+          name: true,
           updatedAt: true,
         },
       });
@@ -218,5 +201,135 @@ export class GameEventConditionControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/gameEvents")
+  @ApiNestedQuery(GameEventFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "GameEvent",
+    action: "read",
+    possession: "any",
+  })
+  async findGameEvents(
+    @common.Req() request: Request,
+    @common.Param() params: GameEventConditionWhereUniqueInput
+  ): Promise<GameEvent[]> {
+    const query = plainToClass(GameEventFindManyArgs, request.query);
+    const results = await this.service.findGameEvents(params.id, {
+      ...query,
+      select: {
+        announce: true,
+        createdAt: true,
+        description: true,
+        endTime: true,
+
+        gameEventConditions: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventCreatures: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventGameObjects: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventModelEquips: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventQuests: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        startTime: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/gameEvents")
+  @nestAccessControl.UseRoles({
+    resource: "GameEventCondition",
+    action: "update",
+    possession: "any",
+  })
+  async connectGameEvents(
+    @common.Param() params: GameEventConditionWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        connect: body,
+      },
+    };
+    await this.service.updateGameEventCondition({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/gameEvents")
+  @nestAccessControl.UseRoles({
+    resource: "GameEventCondition",
+    action: "update",
+    possession: "any",
+  })
+  async updateGameEvents(
+    @common.Param() params: GameEventConditionWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        set: body,
+      },
+    };
+    await this.service.updateGameEventCondition({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/gameEvents")
+  @nestAccessControl.UseRoles({
+    resource: "GameEventCondition",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectGameEvents(
+    @common.Param() params: GameEventConditionWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateGameEventCondition({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

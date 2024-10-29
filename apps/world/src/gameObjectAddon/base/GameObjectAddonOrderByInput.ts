@@ -50,17 +50,6 @@ class GameObjectAddonOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  guid?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
   id?: SortOrder;
 
   @ApiProperty({
@@ -72,62 +61,7 @@ class GameObjectAddonOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  invisibilityType?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  invisibilityValue?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  parentRotation0?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  parentRotation1?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  parentRotation2?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  parentRotation3?: SortOrder;
+  transformId?: SortOrder;
 
   @ApiProperty({
     required: false,

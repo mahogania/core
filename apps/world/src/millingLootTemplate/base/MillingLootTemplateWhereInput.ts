@@ -13,7 +13,8 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { IsOptional, ValidateNested } from "class-validator";
+import { LootTemplateWhereUniqueInput } from "../../lootTemplate/base/LootTemplateWhereUniqueInput";
 
 @InputType()
 class MillingLootTemplateWhereInput {
@@ -27,6 +28,18 @@ class MillingLootTemplateWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => LootTemplateWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => LootTemplateWhereUniqueInput)
+  @IsOptional()
+  @Field(() => LootTemplateWhereUniqueInput, {
+    nullable: true,
+  })
+  lootTemplate?: LootTemplateWhereUniqueInput;
 }
 
 export { MillingLootTemplateWhereInput as MillingLootTemplateWhereInput };

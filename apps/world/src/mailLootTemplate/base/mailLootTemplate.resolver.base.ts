@@ -18,11 +18,15 @@ import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
 import * as common from "@nestjs/common";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { MailLootTemplate } from "./MailLootTemplate";
 import { MailLootTemplateCountArgs } from "./MailLootTemplateCountArgs";
 import { MailLootTemplateFindManyArgs } from "./MailLootTemplateFindManyArgs";
 import { MailLootTemplateFindUniqueArgs } from "./MailLootTemplateFindUniqueArgs";
+import { CreateMailLootTemplateArgs } from "./CreateMailLootTemplateArgs";
+import { UpdateMailLootTemplateArgs } from "./UpdateMailLootTemplateArgs";
 import { DeleteMailLootTemplateArgs } from "./DeleteMailLootTemplateArgs";
+import { LootTemplate } from "../../lootTemplate/base/LootTemplate";
 import { MailLootTemplateService } from "../mailLootTemplate.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => MailLootTemplate)
@@ -77,6 +81,63 @@ export class MailLootTemplateResolverBase {
     return result;
   }
 
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => MailLootTemplate)
+  @nestAccessControl.UseRoles({
+    resource: "MailLootTemplate",
+    action: "create",
+    possession: "any",
+  })
+  async createMailLootTemplate(
+    @graphql.Args() args: CreateMailLootTemplateArgs
+  ): Promise<MailLootTemplate> {
+    return await this.service.createMailLootTemplate({
+      ...args,
+      data: {
+        ...args.data,
+
+        lootTemplate: args.data.lootTemplate
+          ? {
+              connect: args.data.lootTemplate,
+            }
+          : undefined,
+      },
+    });
+  }
+
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => MailLootTemplate)
+  @nestAccessControl.UseRoles({
+    resource: "MailLootTemplate",
+    action: "update",
+    possession: "any",
+  })
+  async updateMailLootTemplate(
+    @graphql.Args() args: UpdateMailLootTemplateArgs
+  ): Promise<MailLootTemplate | null> {
+    try {
+      return await this.service.updateMailLootTemplate({
+        ...args,
+        data: {
+          ...args.data,
+
+          lootTemplate: args.data.lootTemplate
+            ? {
+                connect: args.data.lootTemplate,
+              }
+            : undefined,
+        },
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new GraphQLError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
+  }
+
   @graphql.Mutation(() => MailLootTemplate)
   @nestAccessControl.UseRoles({
     resource: "MailLootTemplate",
@@ -96,5 +157,26 @@ export class MailLootTemplateResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => LootTemplate, {
+    nullable: true,
+    name: "lootTemplate",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "LootTemplate",
+    action: "read",
+    possession: "any",
+  })
+  async getLootTemplate(
+    @graphql.Parent() parent: MailLootTemplate
+  ): Promise<LootTemplate | null> {
+    const result = await this.service.getLootTemplate(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

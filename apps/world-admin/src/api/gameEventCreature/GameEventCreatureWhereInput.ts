@@ -1,8 +1,8 @@
-import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { GameEventListRelationFilter } from "../gameEvent/GameEventListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 
 export type GameEventCreatureWhereInput = {
-  eventEntry?: IntNullableFilter;
-  guid?: IntNullableFilter;
+  gameEvents?: GameEventListRelationFilter;
   id?: StringFilter;
+  spawnerId?: StringFilter;
 };

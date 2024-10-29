@@ -1,1 +1,5 @@
-export type PlayerXpForLevelUpdateInput = {};
+import { PlayerWhereUniqueInput } from "../player/PlayerWhereUniqueInput";
+
+export type PlayerXpForLevelUpdateInput = {
+  player?: PlayerWhereUniqueInput | null;
+};

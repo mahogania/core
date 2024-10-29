@@ -1,1 +1,9 @@
-export type GameObjectTemplateUpdateInput = {};
+import { GameObjectTemplateAddonUpdateManyWithoutGameObjectTemplatesInput } from "./GameObjectTemplateAddonUpdateManyWithoutGameObjectTemplatesInput";
+import { GameObjectTemplateLocaleUpdateManyWithoutGameObjectTemplatesInput } from "./GameObjectTemplateLocaleUpdateManyWithoutGameObjectTemplatesInput";
+import { GameObjectUpdateManyWithoutGameObjectTemplatesInput } from "./GameObjectUpdateManyWithoutGameObjectTemplatesInput";
+
+export type GameObjectTemplateUpdateInput = {
+  gameObjectTemplateAddons?: GameObjectTemplateAddonUpdateManyWithoutGameObjectTemplatesInput;
+  gameObjectTemplateLocales?: GameObjectTemplateLocaleUpdateManyWithoutGameObjectTemplatesInput;
+  gameObjects?: GameObjectUpdateManyWithoutGameObjectTemplatesInput;
+};

@@ -11,58 +11,36 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IntNullableFilter } from "../../util/IntNullableFilter";
-import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
-import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { Type } from "class-transformer";
+import { IsOptional, ValidateNested } from "class-validator";
+import { GameEventListRelationFilter } from "../../gameEvent/base/GameEventListRelationFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 
 @InputType()
 class GameEventConditionWhereInput {
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  conditionId?: IntNullableFilter;
+  description?: StringFilter;
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: () => GameEventListRelationFilter,
   })
-  @Type(() => StringNullableFilter)
+  @ValidateNested()
+  @Type(() => GameEventListRelationFilter)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => GameEventListRelationFilter, {
     nullable: true,
   })
-  description?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  doneWorldStateField?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  eventEntry?: IntNullableFilter;
+  gameEvents?: GameEventListRelationFilter;
 
   @ApiProperty({
     required: false,
@@ -77,25 +55,14 @@ class GameEventConditionWhereInput {
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: StringNullableFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => StringNullableFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  maxWorldStateField?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  reqNum?: FloatNullableFilter;
+  name?: StringNullableFilter;
 }
 
 export { GameEventConditionWhereInput as GameEventConditionWhereInput };

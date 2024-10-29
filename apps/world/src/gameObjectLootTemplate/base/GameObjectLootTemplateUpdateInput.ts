@@ -19,8 +19,11 @@ import {
   IsString,
   MaxLength,
   IsInt,
+  ValidateNested,
 } from "class-validator";
 import { GraphQLBigInt } from "../../util/GraphQLBigInt";
+import { LootTemplateWhereUniqueInput } from "../../lootTemplate/base/LootTemplateWhereUniqueInput";
+import { Type } from "class-transformer";
 
 @InputType()
 class GameObjectLootTemplateUpdateInput {
@@ -48,19 +51,6 @@ class GameObjectLootTemplateUpdateInput {
     nullable: true,
   })
   comment?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => GraphQLBigInt, {
-    nullable: true,
-  })
-  entry?: bigint | null;
 
   @ApiProperty({
     required: false,
@@ -103,6 +93,18 @@ class GameObjectLootTemplateUpdateInput {
 
   @ApiProperty({
     required: false,
+    type: () => LootTemplateWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => LootTemplateWhereUniqueInput)
+  @IsOptional()
+  @Field(() => LootTemplateWhereUniqueInput, {
+    nullable: true,
+  })
+  lootTemplate?: LootTemplateWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
     type: Number,
   })
   @IsInt()
@@ -138,19 +140,6 @@ class GameObjectLootTemplateUpdateInput {
     nullable: true,
   })
   questId?: bigint | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => GraphQLBigInt, {
-    nullable: true,
-  })
-  referenceId?: bigint | null;
 }
 
 export { GameObjectLootTemplateUpdateInput as GameObjectLootTemplateUpdateInput };

@@ -11,8 +11,15 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString } from "class-validator";
+import {
+  IsDate,
+  IsString,
+  ValidateNested,
+  IsOptional,
+  MaxLength,
+} from "class-validator";
 import { Type } from "class-transformer";
+import { LootTemplate } from "../../lootTemplate/base/LootTemplate";
 
 @ObjectType()
 class MailLootTemplate {
@@ -31,6 +38,27 @@ class MailLootTemplate {
   @IsString()
   @Field(() => String)
   id!: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => LootTemplate,
+  })
+  @ValidateNested()
+  @Type(() => LootTemplate)
+  @IsOptional()
+  lootTemplate?: LootTemplate | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  sender!: string | null;
 
   @ApiProperty({
     required: true,

@@ -10,7 +10,13 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-import { Prisma, GameObject as PrismaGameObject } from "@prisma/client";
+
+import {
+  Prisma,
+  GameObject as PrismaGameObject,
+  GameObjectTemplate as PrismaGameObjectTemplate,
+} from "@prisma/client";
+
 import { LocalStorageService } from "src/storage/providers/local/local.storage.service";
 import { InputJsonValue } from "src/types";
 import { FileDownload, FileUpload } from "src/storage/base/storage.types";
@@ -108,5 +114,15 @@ export class GameObjectServiceBase {
         script: Prisma.DbNull,
       },
     });
+  }
+
+  async getGameObjectTemplate(
+    parentId: string
+  ): Promise<PrismaGameObjectTemplate | null> {
+    return this.prisma.gameObject
+      .findUnique({
+        where: { id: parentId },
+      })
+      .gameObjectTemplate();
   }
 }

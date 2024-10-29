@@ -52,10 +52,25 @@ export class PlayerXpForLevelControllerBase {
     @common.Body() data: PlayerXpForLevelCreateInput
   ): Promise<PlayerXpForLevel> {
     return await this.service.createPlayerXpForLevel({
-      data: data,
+      data: {
+        ...data,
+
+        player: data.player
+          ? {
+              connect: data.player,
+            }
+          : undefined,
+      },
       select: {
         createdAt: true,
         id: true,
+
+        player: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -82,6 +97,13 @@ export class PlayerXpForLevelControllerBase {
       select: {
         createdAt: true,
         id: true,
+
+        player: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -107,6 +129,13 @@ export class PlayerXpForLevelControllerBase {
       select: {
         createdAt: true,
         id: true,
+
+        player: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -140,10 +169,25 @@ export class PlayerXpForLevelControllerBase {
     try {
       return await this.service.updatePlayerXpForLevel({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          player: data.player
+            ? {
+                connect: data.player,
+              }
+            : undefined,
+        },
         select: {
           createdAt: true,
           id: true,
+
+          player: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });
@@ -177,6 +221,13 @@ export class PlayerXpForLevelControllerBase {
         select: {
           createdAt: true,
           id: true,
+
+          player: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });

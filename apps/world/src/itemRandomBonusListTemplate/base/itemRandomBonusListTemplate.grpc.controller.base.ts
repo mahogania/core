@@ -37,10 +37,25 @@ export class ItemRandomBonusListTemplateGrpcControllerBase {
     @common.Body() data: ItemRandomBonusListTemplateCreateInput
   ): Promise<ItemRandomBonusListTemplate> {
     return await this.service.createItemRandomBonusListTemplate({
-      data: data,
+      data: {
+        ...data,
+
+        itemTemplate: data.itemTemplate
+          ? {
+              connect: data.itemTemplate,
+            }
+          : undefined,
+      },
       select: {
         createdAt: true,
         id: true,
+
+        itemTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -65,6 +80,13 @@ export class ItemRandomBonusListTemplateGrpcControllerBase {
       select: {
         createdAt: true,
         id: true,
+
+        itemTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -85,6 +107,13 @@ export class ItemRandomBonusListTemplateGrpcControllerBase {
       select: {
         createdAt: true,
         id: true,
+
+        itemTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -110,10 +139,25 @@ export class ItemRandomBonusListTemplateGrpcControllerBase {
     try {
       return await this.service.updateItemRandomBonusListTemplate({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          itemTemplate: data.itemTemplate
+            ? {
+                connect: data.itemTemplate,
+              }
+            : undefined,
+        },
         select: {
           createdAt: true,
           id: true,
+
+          itemTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });
@@ -143,6 +187,13 @@ export class ItemRandomBonusListTemplateGrpcControllerBase {
         select: {
           createdAt: true,
           id: true,
+
+          itemTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });

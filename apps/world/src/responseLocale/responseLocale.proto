@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package responseLocale;
+service ResponseLocaleService {
+ rpc createResponseLocale (ResponseLocaleCreateInput) returns (ResponseLocale) {}
+rpc responseLocales (findManyParams) returns (stream ResponseLocale) {}
+rpc responseLocale (ResponseLocaleWhereUniqueInput) returns (ResponseLocale) {}
+rpc updateResponseLocale (ResponseLocaleUpdateInput) returns (ResponseLocale) {}
+rpc deleteResponseLocale (ResponseLocaleWhereUniqueInput) returns (ResponseLocale) {}
+rpc findManyResponseLocales (ResponseLocaleWhereUniqueInput) returns (stream Response) {}
+rpc updateResponseLocales (ResponseParams) returns (stream Response) {}
+rpc connectResponseLocales (ResponseParams) returns (Response) {}
+rpc disconnectResponseLocales (ResponseParams) returns (Response) {} 
+ }
+message ResponseLocaleCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Response responses = 3;
+string updatedAt = 4;
+};
+message ResponseLocale {
+string createdAt = 1;
+string id = 2;
+repeated Response responses = 3;
+string updatedAt = 4;
+};
+message ResponseLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Response responses = 3;
+string updatedAt = 4;
+};
+message ResponseLocaleUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Response responses = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Response {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ResponseWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ResponseParams {
+ResponseLocaleWhereUniqueInput responseLocaleWhereUniqueInput = 1;
+ResponseWhereUniqueInput responseWhereUniqueInput = 2;
+};

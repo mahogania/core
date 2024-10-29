@@ -28,17 +28,6 @@ class GameEventConditionOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  conditionId?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
   createdAt?: SortOrder;
 
   @ApiProperty({
@@ -61,28 +50,6 @@ class GameEventConditionOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  doneWorldStateField?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  eventEntry?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
   id?: SortOrder;
 
   @ApiProperty({
@@ -94,18 +61,7 @@ class GameEventConditionOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  maxWorldStateField?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  reqNum?: SortOrder;
+  name?: SortOrder;
 
   @ApiProperty({
     required: false,

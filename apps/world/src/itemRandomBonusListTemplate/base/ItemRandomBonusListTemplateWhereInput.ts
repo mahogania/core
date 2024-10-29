@@ -13,7 +13,8 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { IsOptional, ValidateNested } from "class-validator";
+import { ItemTemplateWhereUniqueInput } from "../../itemTemplate/base/ItemTemplateWhereUniqueInput";
 
 @InputType()
 class ItemRandomBonusListTemplateWhereInput {
@@ -27,6 +28,18 @@ class ItemRandomBonusListTemplateWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => ItemTemplateWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => ItemTemplateWhereUniqueInput)
+  @IsOptional()
+  @Field(() => ItemTemplateWhereUniqueInput, {
+    nullable: true,
+  })
+  itemTemplate?: ItemTemplateWhereUniqueInput;
 }
 
 export { ItemRandomBonusListTemplateWhereInput as ItemRandomBonusListTemplateWhereInput };

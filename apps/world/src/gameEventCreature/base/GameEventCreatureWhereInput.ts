@@ -11,34 +11,24 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { GameEventListRelationFilter } from "../../gameEvent/base/GameEventListRelationFilter";
+import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
 
 @InputType()
 class GameEventCreatureWhereInput {
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: () => GameEventListRelationFilter,
   })
-  @Type(() => IntNullableFilter)
+  @ValidateNested()
+  @Type(() => GameEventListRelationFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => GameEventListRelationFilter, {
     nullable: true,
   })
-  eventEntry?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  guid?: IntNullableFilter;
+  gameEvents?: GameEventListRelationFilter;
 
   @ApiProperty({
     required: false,
@@ -50,6 +40,17 @@ class GameEventCreatureWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  spawnerId?: StringFilter;
 }
 
 export { GameEventCreatureWhereInput as GameEventCreatureWhereInput };

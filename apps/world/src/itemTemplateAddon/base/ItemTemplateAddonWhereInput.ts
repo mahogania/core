@@ -13,7 +13,8 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { IsOptional, ValidateNested } from "class-validator";
+import { ItemTemplateListRelationFilter } from "../../itemTemplate/base/ItemTemplateListRelationFilter";
 
 @InputType()
 class ItemTemplateAddonWhereInput {
@@ -27,6 +28,18 @@ class ItemTemplateAddonWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => ItemTemplateListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => ItemTemplateListRelationFilter)
+  @IsOptional()
+  @Field(() => ItemTemplateListRelationFilter, {
+    nullable: true,
+  })
+  itemTemplates?: ItemTemplateListRelationFilter;
 }
 
 export { ItemTemplateAddonWhereInput as ItemTemplateAddonWhereInput };

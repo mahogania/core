@@ -24,6 +24,9 @@ import { AchievementRewardLocaleWhereUniqueInput } from "./AchievementRewardLoca
 import { AchievementRewardLocaleFindManyArgs } from "./AchievementRewardLocaleFindManyArgs";
 import { AchievementRewardLocaleUpdateInput } from "./AchievementRewardLocaleUpdateInput";
 import { AchievementRewardLocale } from "./AchievementRewardLocale";
+import { AchievementRewardFindManyArgs } from "../../achievementReward/base/AchievementRewardFindManyArgs";
+import { AchievementReward } from "../../achievementReward/base/AchievementReward";
+import { AchievementRewardWhereUniqueInput } from "../../achievementReward/base/AchievementRewardWhereUniqueInput";
 
 export class AchievementRewardLocaleGrpcControllerBase {
   constructor(protected readonly service: AchievementRewardLocaleService) {}
@@ -154,5 +157,96 @@ export class AchievementRewardLocaleGrpcControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Get("/:id/achievementRewards")
+  @ApiNestedQuery(AchievementRewardFindManyArgs)
+  @GrpcMethod("AchievementRewardLocaleService", "findManyAchievementRewards")
+  async findManyAchievementRewards(
+    @common.Req() request: Request,
+    @common.Param() params: AchievementRewardLocaleWhereUniqueInput
+  ): Promise<AchievementReward[]> {
+    const query = plainToClass(AchievementRewardFindManyArgs, request.query);
+    const results = await this.service.findAchievementRewards(params.id, {
+      ...query,
+      select: {
+        achievementRewardLocales: {
+          select: {
+            id: true,
+          },
+        },
+
+        body: true,
+        createdAt: true,
+        id: true,
+        itemId: true,
+        mailTemplateId: true,
+        sender: true,
+        subject: true,
+        titleA: true,
+        titleH: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/achievementRewards")
+  @GrpcMethod("AchievementRewardLocaleService", "connectAchievementRewards")
+  async connectAchievementRewards(
+    @common.Param() params: AchievementRewardLocaleWhereUniqueInput,
+    @common.Body() body: AchievementRewardWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      achievementRewards: {
+        connect: body,
+      },
+    };
+    await this.service.updateAchievementRewardLocale({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/achievementRewards")
+  @GrpcMethod("AchievementRewardLocaleService", "updateAchievementRewards")
+  async updateAchievementRewards(
+    @common.Param() params: AchievementRewardLocaleWhereUniqueInput,
+    @common.Body() body: AchievementRewardWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      achievementRewards: {
+        set: body,
+      },
+    };
+    await this.service.updateAchievementRewardLocale({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/achievementRewards")
+  @GrpcMethod("AchievementRewardLocaleService", "disconnectAchievementRewards")
+  async disconnectAchievementRewards(
+    @common.Param() params: AchievementRewardLocaleWhereUniqueInput,
+    @common.Body() body: AchievementRewardWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      achievementRewards: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateAchievementRewardLocale({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

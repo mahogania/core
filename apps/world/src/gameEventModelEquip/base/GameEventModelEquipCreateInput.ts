@@ -11,61 +11,46 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsInt, Min, Max, IsOptional } from "class-validator";
+import {
+  IsString,
+  MaxLength,
+  ValidateNested,
+  IsOptional,
+} from "class-validator";
+import { GameEventCreateNestedManyWithoutGameEventModelEquipsInput } from "./GameEventCreateNestedManyWithoutGameEventModelEquipsInput";
+import { Type } from "class-transformer";
 
 @InputType()
 class GameEventModelEquipCreateInput {
   @ApiProperty({
-    required: false,
-    type: Number,
+    required: true,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  equipmentId?: number | null;
+  @IsString()
+  @MaxLength(256)
+  @Field(() => String)
+  equipmentId!: string;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => GameEventCreateNestedManyWithoutGameEventModelEquipsInput,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEventCreateNestedManyWithoutGameEventModelEquipsInput)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GameEventCreateNestedManyWithoutGameEventModelEquipsInput, {
     nullable: true,
   })
-  eventEntry?: number | null;
+  gameEvents?: GameEventCreateNestedManyWithoutGameEventModelEquipsInput;
 
   @ApiProperty({
-    required: false,
-    type: Number,
+    required: true,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  guid?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  modelid?: number | null;
+  @IsString()
+  @MaxLength(256)
+  @Field(() => String)
+  modelid!: string;
 }
 
 export { GameEventModelEquipCreateInput as GameEventModelEquipCreateInput };

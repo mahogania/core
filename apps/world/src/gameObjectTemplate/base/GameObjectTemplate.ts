@@ -11,8 +11,11 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString } from "class-validator";
+import { IsDate, ValidateNested, IsOptional, IsString } from "class-validator";
 import { Type } from "class-transformer";
+import { GameObjectTemplateAddon } from "../../gameObjectTemplateAddon/base/GameObjectTemplateAddon";
+import { GameObjectTemplateLocale } from "../../gameObjectTemplateLocale/base/GameObjectTemplateLocale";
+import { GameObject } from "../../gameObject/base/GameObject";
 
 @ObjectType()
 class GameObjectTemplate {
@@ -23,6 +26,33 @@ class GameObjectTemplate {
   @Type(() => Date)
   @Field(() => Date)
   createdAt!: Date;
+
+  @ApiProperty({
+    required: false,
+    type: () => [GameObjectTemplateAddon],
+  })
+  @ValidateNested()
+  @Type(() => GameObjectTemplateAddon)
+  @IsOptional()
+  gameObjectTemplateAddons?: Array<GameObjectTemplateAddon>;
+
+  @ApiProperty({
+    required: false,
+    type: () => [GameObjectTemplateLocale],
+  })
+  @ValidateNested()
+  @Type(() => GameObjectTemplateLocale)
+  @IsOptional()
+  gameObjectTemplateLocales?: Array<GameObjectTemplateLocale>;
+
+  @ApiProperty({
+    required: false,
+    type: () => [GameObject],
+  })
+  @ValidateNested()
+  @Type(() => GameObject)
+  @IsOptional()
+  gameObjects?: Array<GameObject>;
 
   @ApiProperty({
     required: true,

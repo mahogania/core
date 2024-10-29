@@ -6,56 +6,90 @@ service AchievementRewardService {
 rpc achievementRewards (findManyParams) returns (stream AchievementReward) {}
 rpc achievementReward (AchievementRewardWhereUniqueInput) returns (AchievementReward) {}
 rpc updateAchievementReward (AchievementRewardUpdateInput) returns (AchievementReward) {}
-rpc deleteAchievementReward (AchievementRewardWhereUniqueInput) returns (AchievementReward) {} 
+rpc deleteAchievementReward (AchievementRewardWhereUniqueInput) returns (AchievementReward) {}
+rpc findManyAchievementRewards (AchievementRewardWhereUniqueInput) returns (stream Achievement) {}
+rpc updateAchievementRewards (AchievementParams) returns (stream Achievement) {}
+rpc connectAchievementRewards (AchievementParams) returns (Achievement) {}
+rpc disconnectAchievementRewards (AchievementParams) returns (Achievement) {} 
  }
 message AchievementRewardCreateInput {
-string body = 1;
-string createdAt = 2;
-string id = 3;
-int32 itemId = 4;
-int32 mailTemplateId = 5;
-int32 sender = 6;
-string subject = 7;
-int32 titleA = 8;
-int32 titleH = 9;
-string updatedAt = 10;
+repeated Achievement achievements = 1;
+string body = 2;
+string createdAt = 3;
+string id = 4;
+int32 itemId = 5;
+int32 mailTemplateId = 6;
+int32 sender = 7;
+string subject = 8;
+int32 titleA = 9;
+int32 titleH = 10;
+string updatedAt = 11;
 };
 message AchievementReward {
-string body = 1;
-string createdAt = 2;
-string id = 3;
-int32 itemId = 4;
-int32 mailTemplateId = 5;
-int32 sender = 6;
-string subject = 7;
-int32 titleA = 8;
-int32 titleH = 9;
-string updatedAt = 10;
+repeated Achievement achievements = 1;
+string body = 2;
+string createdAt = 3;
+string id = 4;
+int32 itemId = 5;
+int32 mailTemplateId = 6;
+int32 sender = 7;
+string subject = 8;
+int32 titleA = 9;
+int32 titleH = 10;
+string updatedAt = 11;
 };
 message AchievementRewardWhereUniqueInput {
-string body = 1;
-string createdAt = 2;
-string id = 3;
-int32 itemId = 4;
-int32 mailTemplateId = 5;
-int32 sender = 6;
-string subject = 7;
-int32 titleA = 8;
-int32 titleH = 9;
-string updatedAt = 10;
+repeated Achievement achievements = 1;
+string body = 2;
+string createdAt = 3;
+string id = 4;
+int32 itemId = 5;
+int32 mailTemplateId = 6;
+int32 sender = 7;
+string subject = 8;
+int32 titleA = 9;
+int32 titleH = 10;
+string updatedAt = 11;
 };
 message AchievementRewardUpdateInput {
-string body = 1;
-string createdAt = 2;
-string id = 3;
-int32 itemId = 4;
-int32 mailTemplateId = 5;
-int32 sender = 6;
-string subject = 7;
-int32 titleA = 8;
-int32 titleH = 9;
-string updatedAt = 10;
+repeated Achievement achievements = 1;
+string body = 2;
+string createdAt = 3;
+string id = 4;
+int32 itemId = 5;
+int32 mailTemplateId = 6;
+int32 sender = 7;
+string subject = 8;
+int32 titleA = 9;
+int32 titleH = 10;
+string updatedAt = 11;
 };
 message findManyParams {
 
+};
+message Achievement {
+int32 count = 1;
+string createdAt = 2;
+int32 flags = 3;
+string id = 4;
+int32 map = 5;
+int32 points = 6;
+int32 refAchievement = 7;
+int32 requiredFaction = 8;
+string updatedAt = 9;
+};
+message AchievementWhereUniqueInput {
+int32 count = 1;
+string createdAt = 2;
+int32 flags = 3;
+string id = 4;
+int32 map = 5;
+int32 points = 6;
+int32 refAchievement = 7;
+int32 requiredFaction = 8;
+string updatedAt = 9;
+};
+message AchievementParams {
+AchievementRewardWhereUniqueInput achievementRewardWhereUniqueInput = 1;
+AchievementWhereUniqueInput achievementWhereUniqueInput = 2;
 };

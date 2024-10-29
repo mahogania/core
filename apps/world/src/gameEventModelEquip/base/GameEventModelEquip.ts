@@ -11,8 +11,15 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsInt, Min, Max, IsOptional, IsString } from "class-validator";
+import {
+  IsDate,
+  IsString,
+  MaxLength,
+  ValidateNested,
+  IsOptional,
+} from "class-validator";
 import { Type } from "class-transformer";
+import { GameEvent } from "../../gameEvent/base/GameEvent";
 
 @ObjectType()
 class GameEventModelEquip {
@@ -25,43 +32,22 @@ class GameEventModelEquip {
   createdAt!: Date;
 
   @ApiProperty({
-    required: false,
-    type: Number,
+    required: true,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  equipmentId!: number | null;
+  @IsString()
+  @MaxLength(256)
+  @Field(() => String)
+  equipmentId!: string;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => [GameEvent],
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEvent)
   @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  eventEntry!: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  guid!: number | null;
+  gameEvents?: Array<GameEvent>;
 
   @ApiProperty({
     required: true,
@@ -72,17 +58,13 @@ class GameEventModelEquip {
   id!: string;
 
   @ApiProperty({
-    required: false,
-    type: Number,
+    required: true,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  modelid!: number | null;
+  @IsString()
+  @MaxLength(256)
+  @Field(() => String)
+  modelid!: string;
 
   @ApiProperty({
     required: true,

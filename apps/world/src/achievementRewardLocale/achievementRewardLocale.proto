@@ -6,40 +6,76 @@ service AchievementRewardLocaleService {
 rpc achievementRewardLocales (findManyParams) returns (stream AchievementRewardLocale) {}
 rpc achievementRewardLocale (AchievementRewardLocaleWhereUniqueInput) returns (AchievementRewardLocale) {}
 rpc updateAchievementRewardLocale (AchievementRewardLocaleUpdateInput) returns (AchievementRewardLocale) {}
-rpc deleteAchievementRewardLocale (AchievementRewardLocaleWhereUniqueInput) returns (AchievementRewardLocale) {} 
+rpc deleteAchievementRewardLocale (AchievementRewardLocaleWhereUniqueInput) returns (AchievementRewardLocale) {}
+rpc findManyAchievementRewardLocales (AchievementRewardLocaleWhereUniqueInput) returns (stream AchievementReward) {}
+rpc updateAchievementRewardLocales (AchievementRewardParams) returns (stream AchievementReward) {}
+rpc connectAchievementRewardLocales (AchievementRewardParams) returns (AchievementReward) {}
+rpc disconnectAchievementRewardLocales (AchievementRewardParams) returns (AchievementReward) {} 
  }
 message AchievementRewardLocaleCreateInput {
-string body = 1;
-string createdAt = 2;
-string id = 3;
-string locale = 4;
-string subject = 5;
-string updatedAt = 6;
+repeated AchievementReward achievementRewards = 1;
+string body = 2;
+string createdAt = 3;
+string id = 4;
+string locale = 5;
+string subject = 6;
+string updatedAt = 7;
 };
 message AchievementRewardLocale {
-string body = 1;
-string createdAt = 2;
-string id = 3;
-string locale = 4;
-string subject = 5;
-string updatedAt = 6;
+repeated AchievementReward achievementRewards = 1;
+string body = 2;
+string createdAt = 3;
+string id = 4;
+string locale = 5;
+string subject = 6;
+string updatedAt = 7;
 };
 message AchievementRewardLocaleWhereUniqueInput {
-string body = 1;
-string createdAt = 2;
-string id = 3;
-string locale = 4;
-string subject = 5;
-string updatedAt = 6;
+repeated AchievementReward achievementRewards = 1;
+string body = 2;
+string createdAt = 3;
+string id = 4;
+string locale = 5;
+string subject = 6;
+string updatedAt = 7;
 };
 message AchievementRewardLocaleUpdateInput {
-string body = 1;
-string createdAt = 2;
-string id = 3;
-string locale = 4;
-string subject = 5;
-string updatedAt = 6;
+repeated AchievementReward achievementRewards = 1;
+string body = 2;
+string createdAt = 3;
+string id = 4;
+string locale = 5;
+string subject = 6;
+string updatedAt = 7;
 };
 message findManyParams {
 
+};
+message AchievementReward {
+string body = 1;
+string createdAt = 2;
+string id = 3;
+int32 itemId = 4;
+int32 mailTemplateId = 5;
+int32 sender = 6;
+string subject = 7;
+int32 titleA = 8;
+int32 titleH = 9;
+string updatedAt = 10;
+};
+message AchievementRewardWhereUniqueInput {
+string body = 1;
+string createdAt = 2;
+string id = 3;
+int32 itemId = 4;
+int32 mailTemplateId = 5;
+int32 sender = 6;
+string subject = 7;
+int32 titleA = 8;
+int32 titleH = 9;
+string updatedAt = 10;
+};
+message AchievementRewardParams {
+AchievementRewardLocaleWhereUniqueInput achievementRewardLocaleWhereUniqueInput = 1;
+AchievementRewardWhereUniqueInput achievementrewardWhereUniqueInput = 2;
 };

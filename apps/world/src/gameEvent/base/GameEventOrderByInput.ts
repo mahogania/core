@@ -72,7 +72,7 @@ class GameEventOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  eventEntry?: SortOrder;
+  gameEventConditionsId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -83,7 +83,7 @@ class GameEventOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  holiday?: SortOrder;
+  gameEventCreaturesId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -94,7 +94,29 @@ class GameEventOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  holidayStage?: SortOrder;
+  gameEventGameObjectsId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  gameEventModelEquipsId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  gameEventQuestsId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -106,28 +128,6 @@ class GameEventOrderByInput {
     nullable: true,
   })
   id?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  length?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  occurence?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -150,17 +150,6 @@ class GameEventOrderByInput {
     nullable: true,
   })
   updatedAt?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  worldEvent?: SortOrder;
 }
 
 export { GameEventOrderByInput as GameEventOrderByInput };

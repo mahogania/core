@@ -34,10 +34,25 @@ export class InstanceTemplateGrpcControllerBase {
     @common.Body() data: InstanceTemplateCreateInput
   ): Promise<InstanceTemplate> {
     return await this.service.createInstanceTemplate({
-      data: data,
+      data: {
+        ...data,
+
+        linkedRespawns: data.linkedRespawns
+          ? {
+              connect: data.linkedRespawns,
+            }
+          : undefined,
+      },
       select: {
         createdAt: true,
         id: true,
+
+        linkedRespawns: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -56,6 +71,13 @@ export class InstanceTemplateGrpcControllerBase {
       select: {
         createdAt: true,
         id: true,
+
+        linkedRespawns: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -73,6 +95,13 @@ export class InstanceTemplateGrpcControllerBase {
       select: {
         createdAt: true,
         id: true,
+
+        linkedRespawns: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -95,10 +124,25 @@ export class InstanceTemplateGrpcControllerBase {
     try {
       return await this.service.updateInstanceTemplate({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          linkedRespawns: data.linkedRespawns
+            ? {
+                connect: data.linkedRespawns,
+              }
+            : undefined,
+        },
         select: {
           createdAt: true,
           id: true,
+
+          linkedRespawns: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });
@@ -125,6 +169,13 @@ export class InstanceTemplateGrpcControllerBase {
         select: {
           createdAt: true,
           id: true,
+
+          linkedRespawns: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });

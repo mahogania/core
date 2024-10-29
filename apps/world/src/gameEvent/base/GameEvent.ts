@@ -12,30 +12,32 @@ https://docs.amplication.com/how-to/custom-code
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import {
-  IsInt,
-  Min,
-  Max,
-  IsOptional,
-  IsDate,
   IsString,
   MaxLength,
+  IsOptional,
+  IsDate,
+  ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
+import { GameEventCondition } from "../../gameEventCondition/base/GameEventCondition";
+import { GameEventCreature } from "../../gameEventCreature/base/GameEventCreature";
+import { GameEventGameObject } from "../../gameEventGameObject/base/GameEventGameObject";
+import { GameEventModelEquip } from "../../gameEventModelEquip/base/GameEventModelEquip";
+import { GameEventQuest } from "../../gameEventQuest/base/GameEventQuest";
 
 @ObjectType()
 class GameEvent {
   @ApiProperty({
     required: false,
-    type: Number,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @IsString()
+  @MaxLength(256)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => String, {
     nullable: true,
   })
-  announce!: number | null;
+  announce!: string | null;
 
   @ApiProperty({
     required: true,
@@ -70,42 +72,48 @@ class GameEvent {
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => GameEventCondition,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEventCondition)
   @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  eventEntry!: number | null;
+  gameEventConditions?: GameEventCondition | null;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => GameEventCreature,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEventCreature)
   @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  holiday!: number | null;
+  gameEventCreatures?: GameEventCreature | null;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => GameEventGameObject,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEventGameObject)
   @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
+  gameEventGameObjects?: GameEventGameObject | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => GameEventModelEquip,
   })
-  holidayStage!: number | null;
+  @ValidateNested()
+  @Type(() => GameEventModelEquip)
+  @IsOptional()
+  gameEventModelEquips?: GameEventModelEquip | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => GameEventQuest,
+  })
+  @ValidateNested()
+  @Type(() => GameEventQuest)
+  @IsOptional()
+  gameEventQuests?: GameEventQuest | null;
 
   @ApiProperty({
     required: true,
@@ -114,32 +122,6 @@ class GameEvent {
   @IsString()
   @Field(() => String)
   id!: string;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  length!: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  occurence!: number | null;
 
   @ApiProperty({
     required: false,
@@ -159,19 +141,6 @@ class GameEvent {
   @Type(() => Date)
   @Field(() => Date)
   updatedAt!: Date;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  worldEvent!: number | null;
 }
 
 export { GameEvent as GameEvent };

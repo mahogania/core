@@ -12,9 +12,8 @@ export const GameEventCreatureList = (props: ListProps): React.ReactElement => {
     >
       <Datagrid rowClick="show" bulkActionButtons={false}>
         <DateField source="createdAt" label="Created At" />
-        <TextField label="eventEntry" source="eventEntry" />
-        <TextField label="guid" source="guid" />
         <TextField label="ID" source="id" />
+        <TextField label="Spawner ID" source="spawnerId" />
         <DateField source="updatedAt" label="Updated At" />{" "}
       </Datagrid>
     </List>

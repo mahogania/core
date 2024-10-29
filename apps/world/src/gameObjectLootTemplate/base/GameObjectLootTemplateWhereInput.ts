@@ -13,11 +13,12 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { IsOptional, ValidateNested } from "class-validator";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { BigIntNullableFilter } from "../../util/BigIntNullableFilter";
 import { BigIntFilter } from "../../util/BigIntFilter";
 import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { LootTemplateWhereUniqueInput } from "../../lootTemplate/base/LootTemplateWhereUniqueInput";
 
 @InputType()
 class GameObjectLootTemplateWhereInput {
@@ -42,17 +43,6 @@ class GameObjectLootTemplateWhereInput {
     nullable: true,
   })
   comment?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: BigIntNullableFilter,
-  })
-  @Type(() => BigIntNullableFilter)
-  @IsOptional()
-  @Field(() => BigIntNullableFilter, {
-    nullable: true,
-  })
-  entry?: BigIntNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -100,6 +90,18 @@ class GameObjectLootTemplateWhereInput {
 
   @ApiProperty({
     required: false,
+    type: () => LootTemplateWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => LootTemplateWhereUniqueInput)
+  @IsOptional()
+  @Field(() => LootTemplateWhereUniqueInput, {
+    nullable: true,
+  })
+  lootTemplate?: LootTemplateWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
     type: IntNullableFilter,
   })
   @Type(() => IntNullableFilter)
@@ -130,17 +132,6 @@ class GameObjectLootTemplateWhereInput {
     nullable: true,
   })
   questId?: BigIntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: BigIntNullableFilter,
-  })
-  @Type(() => BigIntNullableFilter)
-  @IsOptional()
-  @Field(() => BigIntNullableFilter, {
-    nullable: true,
-  })
-  referenceId?: BigIntNullableFilter;
 }
 
 export { GameObjectLootTemplateWhereInput as GameObjectLootTemplateWhereInput };

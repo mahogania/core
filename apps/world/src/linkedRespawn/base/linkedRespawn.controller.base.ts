@@ -26,6 +26,9 @@ import { LinkedRespawn } from "./LinkedRespawn";
 import { LinkedRespawnFindManyArgs } from "./LinkedRespawnFindManyArgs";
 import { LinkedRespawnWhereUniqueInput } from "./LinkedRespawnWhereUniqueInput";
 import { LinkedRespawnUpdateInput } from "./LinkedRespawnUpdateInput";
+import { InstanceTemplateFindManyArgs } from "../../instanceTemplate/base/InstanceTemplateFindManyArgs";
+import { InstanceTemplate } from "../../instanceTemplate/base/InstanceTemplate";
+import { InstanceTemplateWhereUniqueInput } from "../../instanceTemplate/base/InstanceTemplateWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -188,5 +191,107 @@ export class LinkedRespawnControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/instanceTemplates")
+  @ApiNestedQuery(InstanceTemplateFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "InstanceTemplate",
+    action: "read",
+    possession: "any",
+  })
+  async findInstanceTemplates(
+    @common.Req() request: Request,
+    @common.Param() params: LinkedRespawnWhereUniqueInput
+  ): Promise<InstanceTemplate[]> {
+    const query = plainToClass(InstanceTemplateFindManyArgs, request.query);
+    const results = await this.service.findInstanceTemplates(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+
+        linkedRespawns: {
+          select: {
+            id: true,
+          },
+        },
+
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/instanceTemplates")
+  @nestAccessControl.UseRoles({
+    resource: "LinkedRespawn",
+    action: "update",
+    possession: "any",
+  })
+  async connectInstanceTemplates(
+    @common.Param() params: LinkedRespawnWhereUniqueInput,
+    @common.Body() body: InstanceTemplateWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      instanceTemplates: {
+        connect: body,
+      },
+    };
+    await this.service.updateLinkedRespawn({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/instanceTemplates")
+  @nestAccessControl.UseRoles({
+    resource: "LinkedRespawn",
+    action: "update",
+    possession: "any",
+  })
+  async updateInstanceTemplates(
+    @common.Param() params: LinkedRespawnWhereUniqueInput,
+    @common.Body() body: InstanceTemplateWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      instanceTemplates: {
+        set: body,
+      },
+    };
+    await this.service.updateLinkedRespawn({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/instanceTemplates")
+  @nestAccessControl.UseRoles({
+    resource: "LinkedRespawn",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectInstanceTemplates(
+    @common.Param() params: LinkedRespawnWhereUniqueInput,
+    @common.Body() body: InstanceTemplateWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      instanceTemplates: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateLinkedRespawn({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

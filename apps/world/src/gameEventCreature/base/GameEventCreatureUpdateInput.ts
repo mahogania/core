@@ -11,35 +11,40 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsInt, Min, Max, IsOptional } from "class-validator";
+import { GameEventUpdateManyWithoutGameEventCreaturesInput } from "./GameEventUpdateManyWithoutGameEventCreaturesInput";
+import {
+  ValidateNested,
+  IsOptional,
+  IsString,
+  MaxLength,
+} from "class-validator";
+import { Type } from "class-transformer";
 
 @InputType()
 class GameEventCreatureUpdateInput {
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => GameEventUpdateManyWithoutGameEventCreaturesInput,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEventUpdateManyWithoutGameEventCreaturesInput)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GameEventUpdateManyWithoutGameEventCreaturesInput, {
     nullable: true,
   })
-  eventEntry?: number | null;
+  gameEvents?: GameEventUpdateManyWithoutGameEventCreaturesInput;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @IsString()
+  @MaxLength(256)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => String, {
     nullable: true,
   })
-  guid?: number | null;
+  spawnerId?: string;
 }
 
 export { GameEventCreatureUpdateInput as GameEventCreatureUpdateInput };

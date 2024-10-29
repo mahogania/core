@@ -11,35 +11,37 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsInt, Min, Max, IsOptional } from "class-validator";
+import { GameEventCreateNestedManyWithoutGameEventCreaturesInput } from "./GameEventCreateNestedManyWithoutGameEventCreaturesInput";
+import {
+  ValidateNested,
+  IsOptional,
+  IsString,
+  MaxLength,
+} from "class-validator";
+import { Type } from "class-transformer";
 
 @InputType()
 class GameEventCreatureCreateInput {
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => GameEventCreateNestedManyWithoutGameEventCreaturesInput,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEventCreateNestedManyWithoutGameEventCreaturesInput)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GameEventCreateNestedManyWithoutGameEventCreaturesInput, {
     nullable: true,
   })
-  eventEntry?: number | null;
+  gameEvents?: GameEventCreateNestedManyWithoutGameEventCreaturesInput;
 
   @ApiProperty({
-    required: false,
-    type: Number,
+    required: true,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  guid?: number | null;
+  @IsString()
+  @MaxLength(256)
+  @Field(() => String)
+  spawnerId!: string;
 }
 
 export { GameEventCreatureCreateInput as GameEventCreatureCreateInput };

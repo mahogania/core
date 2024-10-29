@@ -1,6 +1,7 @@
+import { GameEventCreateNestedManyWithoutGameEventModelEquipsInput } from "./GameEventCreateNestedManyWithoutGameEventModelEquipsInput";
+
 export type GameEventModelEquipCreateInput = {
-  equipmentId?: number | null;
-  eventEntry?: number | null;
-  guid?: number | null;
-  modelid?: number | null;
+  equipmentId: string;
+  gameEvents?: GameEventCreateNestedManyWithoutGameEventModelEquipsInput;
+  modelid: string;
 };

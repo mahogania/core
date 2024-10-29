@@ -52,21 +52,78 @@ export class GameEventControllerBase {
     @common.Body() data: GameEventCreateInput
   ): Promise<GameEvent> {
     return await this.service.createGameEvent({
-      data: data,
+      data: {
+        ...data,
+
+        gameEventConditions: data.gameEventConditions
+          ? {
+              connect: data.gameEventConditions,
+            }
+          : undefined,
+
+        gameEventCreatures: data.gameEventCreatures
+          ? {
+              connect: data.gameEventCreatures,
+            }
+          : undefined,
+
+        gameEventGameObjects: data.gameEventGameObjects
+          ? {
+              connect: data.gameEventGameObjects,
+            }
+          : undefined,
+
+        gameEventModelEquips: data.gameEventModelEquips
+          ? {
+              connect: data.gameEventModelEquips,
+            }
+          : undefined,
+
+        gameEventQuests: data.gameEventQuests
+          ? {
+              connect: data.gameEventQuests,
+            }
+          : undefined,
+      },
       select: {
         announce: true,
         createdAt: true,
         description: true,
         endTime: true,
-        eventEntry: true,
-        holiday: true,
-        holidayStage: true,
+
+        gameEventConditions: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventCreatures: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventGameObjects: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventModelEquips: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventQuests: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
-        length: true,
-        occurence: true,
         startTime: true,
         updatedAt: true,
-        worldEvent: true,
       },
     });
   }
@@ -92,15 +149,40 @@ export class GameEventControllerBase {
         createdAt: true,
         description: true,
         endTime: true,
-        eventEntry: true,
-        holiday: true,
-        holidayStage: true,
+
+        gameEventConditions: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventCreatures: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventGameObjects: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventModelEquips: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventQuests: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
-        length: true,
-        occurence: true,
         startTime: true,
         updatedAt: true,
-        worldEvent: true,
       },
     });
   }
@@ -127,15 +209,40 @@ export class GameEventControllerBase {
         createdAt: true,
         description: true,
         endTime: true,
-        eventEntry: true,
-        holiday: true,
-        holidayStage: true,
+
+        gameEventConditions: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventCreatures: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventGameObjects: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventModelEquips: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventQuests: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
-        length: true,
-        occurence: true,
         startTime: true,
         updatedAt: true,
-        worldEvent: true,
       },
     });
     if (result === null) {
@@ -168,21 +275,78 @@ export class GameEventControllerBase {
     try {
       return await this.service.updateGameEvent({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          gameEventConditions: data.gameEventConditions
+            ? {
+                connect: data.gameEventConditions,
+              }
+            : undefined,
+
+          gameEventCreatures: data.gameEventCreatures
+            ? {
+                connect: data.gameEventCreatures,
+              }
+            : undefined,
+
+          gameEventGameObjects: data.gameEventGameObjects
+            ? {
+                connect: data.gameEventGameObjects,
+              }
+            : undefined,
+
+          gameEventModelEquips: data.gameEventModelEquips
+            ? {
+                connect: data.gameEventModelEquips,
+              }
+            : undefined,
+
+          gameEventQuests: data.gameEventQuests
+            ? {
+                connect: data.gameEventQuests,
+              }
+            : undefined,
+        },
         select: {
           announce: true,
           createdAt: true,
           description: true,
           endTime: true,
-          eventEntry: true,
-          holiday: true,
-          holidayStage: true,
+
+          gameEventConditions: {
+            select: {
+              id: true,
+            },
+          },
+
+          gameEventCreatures: {
+            select: {
+              id: true,
+            },
+          },
+
+          gameEventGameObjects: {
+            select: {
+              id: true,
+            },
+          },
+
+          gameEventModelEquips: {
+            select: {
+              id: true,
+            },
+          },
+
+          gameEventQuests: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
-          length: true,
-          occurence: true,
           startTime: true,
           updatedAt: true,
-          worldEvent: true,
         },
       });
     } catch (error) {
@@ -217,15 +381,40 @@ export class GameEventControllerBase {
           createdAt: true,
           description: true,
           endTime: true,
-          eventEntry: true,
-          holiday: true,
-          holidayStage: true,
+
+          gameEventConditions: {
+            select: {
+              id: true,
+            },
+          },
+
+          gameEventCreatures: {
+            select: {
+              id: true,
+            },
+          },
+
+          gameEventGameObjects: {
+            select: {
+              id: true,
+            },
+          },
+
+          gameEventModelEquips: {
+            select: {
+              id: true,
+            },
+          },
+
+          gameEventQuests: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
-          length: true,
-          occurence: true,
           startTime: true,
           updatedAt: true,
-          worldEvent: true,
         },
       });
     } catch (error) {

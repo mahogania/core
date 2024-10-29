@@ -11,35 +11,22 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
 import { IsOptional } from "class-validator";
-import { StringFilter } from "../../util/StringFilter";
-import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 
 @InputType()
 class GameObjectAddonWhereInput {
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  aiAnimKitId?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  guid?: IntNullableFilter;
+  aiAnimKitId?: StringFilter;
 
   @ApiProperty({
     required: false,
@@ -54,80 +41,25 @@ class GameObjectAddonWhereInput {
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  invisibilityType?: IntNullableFilter;
+  transformId?: StringFilter;
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  invisibilityValue?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  parentRotation0?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  parentRotation1?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  parentRotation2?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: FloatNullableFilter,
-  })
-  @Type(() => FloatNullableFilter)
-  @IsOptional()
-  @Field(() => FloatNullableFilter, {
-    nullable: true,
-  })
-  parentRotation3?: FloatNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  worldEffectId?: IntNullableFilter;
+  worldEffectId?: StringFilter;
 }
 
 export { GameObjectAddonWhereInput as GameObjectAddonWhereInput };

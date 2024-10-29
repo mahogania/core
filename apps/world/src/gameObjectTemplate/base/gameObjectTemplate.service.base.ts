@@ -10,9 +10,13 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
+
 import {
   Prisma,
   GameObjectTemplate as PrismaGameObjectTemplate,
+  GameObjectTemplateAddon as PrismaGameObjectTemplateAddon,
+  GameObjectTemplateLocale as PrismaGameObjectTemplateLocale,
+  GameObject as PrismaGameObject,
 } from "@prisma/client";
 
 export class GameObjectTemplateServiceBase {
@@ -48,5 +52,38 @@ export class GameObjectTemplateServiceBase {
     args: Prisma.GameObjectTemplateDeleteArgs
   ): Promise<PrismaGameObjectTemplate> {
     return this.prisma.gameObjectTemplate.delete(args);
+  }
+
+  async findGameObjectTemplateAddons(
+    parentId: string,
+    args: Prisma.GameObjectTemplateAddonFindManyArgs
+  ): Promise<PrismaGameObjectTemplateAddon[]> {
+    return this.prisma.gameObjectTemplate
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .gameObjectTemplateAddons(args);
+  }
+
+  async findGameObjectTemplateLocales(
+    parentId: string,
+    args: Prisma.GameObjectTemplateLocaleFindManyArgs
+  ): Promise<PrismaGameObjectTemplateLocale[]> {
+    return this.prisma.gameObjectTemplate
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .gameObjectTemplateLocales(args);
+  }
+
+  async findGameObjects(
+    parentId: string,
+    args: Prisma.GameObjectFindManyArgs
+  ): Promise<PrismaGameObject[]> {
+    return this.prisma.gameObjectTemplate
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .gameObjects(args);
   }
 }

@@ -12,30 +12,32 @@ https://docs.amplication.com/how-to/custom-code
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import {
-  IsInt,
-  Min,
-  Max,
-  IsOptional,
   IsString,
   MaxLength,
+  IsOptional,
   IsDate,
+  ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
+import { GameEventConditionWhereUniqueInput } from "../../gameEventCondition/base/GameEventConditionWhereUniqueInput";
+import { GameEventCreatureWhereUniqueInput } from "../../gameEventCreature/base/GameEventCreatureWhereUniqueInput";
+import { GameEventGameObjectWhereUniqueInput } from "../../gameEventGameObject/base/GameEventGameObjectWhereUniqueInput";
+import { GameEventModelEquipWhereUniqueInput } from "../../gameEventModelEquip/base/GameEventModelEquipWhereUniqueInput";
+import { GameEventQuestWhereUniqueInput } from "../../gameEventQuest/base/GameEventQuestWhereUniqueInput";
 
 @InputType()
 class GameEventCreateInput {
   @ApiProperty({
     required: false,
-    type: Number,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @IsString()
+  @MaxLength(256)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => String, {
     nullable: true,
   })
-  announce?: number | null;
+  announce?: string | null;
 
   @ApiProperty({
     required: false,
@@ -62,68 +64,63 @@ class GameEventCreateInput {
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => GameEventConditionWhereUniqueInput,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEventConditionWhereUniqueInput)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GameEventConditionWhereUniqueInput, {
     nullable: true,
   })
-  eventEntry?: number | null;
+  gameEventConditions?: GameEventConditionWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => GameEventCreatureWhereUniqueInput,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEventCreatureWhereUniqueInput)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GameEventCreatureWhereUniqueInput, {
     nullable: true,
   })
-  holiday?: number | null;
+  gameEventCreatures?: GameEventCreatureWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => GameEventGameObjectWhereUniqueInput,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEventGameObjectWhereUniqueInput)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GameEventGameObjectWhereUniqueInput, {
     nullable: true,
   })
-  holidayStage?: number | null;
+  gameEventGameObjects?: GameEventGameObjectWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => GameEventModelEquipWhereUniqueInput,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEventModelEquipWhereUniqueInput)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GameEventModelEquipWhereUniqueInput, {
     nullable: true,
   })
-  length?: number | null;
+  gameEventModelEquips?: GameEventModelEquipWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => GameEventQuestWhereUniqueInput,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEventQuestWhereUniqueInput)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GameEventQuestWhereUniqueInput, {
     nullable: true,
   })
-  occurence?: number | null;
+  gameEventQuests?: GameEventQuestWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
@@ -135,19 +132,6 @@ class GameEventCreateInput {
     nullable: true,
   })
   startTime?: Date | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  worldEvent?: number | null;
 }
 
 export { GameEventCreateInput as GameEventCreateInput };

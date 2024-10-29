@@ -28,6 +28,7 @@ import { GameObjectFindUniqueArgs } from "./GameObjectFindUniqueArgs";
 import { CreateGameObjectArgs } from "./CreateGameObjectArgs";
 import { UpdateGameObjectArgs } from "./UpdateGameObjectArgs";
 import { DeleteGameObjectArgs } from "./DeleteGameObjectArgs";
+import { GameObjectTemplate } from "../../gameObjectTemplate/base/GameObjectTemplate";
 import { GameObjectService } from "../gameObject.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => GameObject)
@@ -94,7 +95,15 @@ export class GameObjectResolverBase {
   ): Promise<GameObject> {
     return await this.service.createGameObject({
       ...args,
-      data: args.data,
+      data: {
+        ...args.data,
+
+        gameObjectTemplate: args.data.gameObjectTemplate
+          ? {
+              connect: args.data.gameObjectTemplate,
+            }
+          : undefined,
+      },
     });
   }
 
@@ -111,7 +120,15 @@ export class GameObjectResolverBase {
     try {
       return await this.service.updateGameObject({
         ...args,
-        data: args.data,
+        data: {
+          ...args.data,
+
+          gameObjectTemplate: args.data.gameObjectTemplate
+            ? {
+                connect: args.data.gameObjectTemplate,
+              }
+            : undefined,
+        },
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -163,5 +180,26 @@ export class GameObjectResolverBase {
     args: GameObjectFindUniqueArgs
   ): Promise<GameObject> {
     return await this.service.deleteScript(args);
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => GameObjectTemplate, {
+    nullable: true,
+    name: "gameObjectTemplate",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplate",
+    action: "read",
+    possession: "any",
+  })
+  async getGameObjectTemplate(
+    @graphql.Parent() parent: GameObject
+  ): Promise<GameObjectTemplate | null> {
+    const result = await this.service.getGameObjectTemplate(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

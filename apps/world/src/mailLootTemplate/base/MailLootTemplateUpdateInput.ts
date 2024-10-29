@@ -9,5 +9,42 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-class MailLootTemplateUpdateInput {}
+import { InputType, Field } from "@nestjs/graphql";
+import { ApiProperty } from "@nestjs/swagger";
+import { LootTemplateWhereUniqueInput } from "../../lootTemplate/base/LootTemplateWhereUniqueInput";
+import {
+  ValidateNested,
+  IsOptional,
+  IsString,
+  MaxLength,
+} from "class-validator";
+import { Type } from "class-transformer";
+
+@InputType()
+class MailLootTemplateUpdateInput {
+  @ApiProperty({
+    required: false,
+    type: () => LootTemplateWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => LootTemplateWhereUniqueInput)
+  @IsOptional()
+  @Field(() => LootTemplateWhereUniqueInput, {
+    nullable: true,
+  })
+  lootTemplate?: LootTemplateWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  sender?: string | null;
+}
+
 export { MailLootTemplateUpdateInput as MailLootTemplateUpdateInput };

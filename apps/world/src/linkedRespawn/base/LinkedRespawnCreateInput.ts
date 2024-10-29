@@ -9,5 +9,25 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-class LinkedRespawnCreateInput {}
+import { InputType, Field } from "@nestjs/graphql";
+import { ApiProperty } from "@nestjs/swagger";
+import { InstanceTemplateCreateNestedManyWithoutLinkedRespawnsInput } from "./InstanceTemplateCreateNestedManyWithoutLinkedRespawnsInput";
+import { ValidateNested, IsOptional } from "class-validator";
+import { Type } from "class-transformer";
+
+@InputType()
+class LinkedRespawnCreateInput {
+  @ApiProperty({
+    required: false,
+    type: () => InstanceTemplateCreateNestedManyWithoutLinkedRespawnsInput,
+  })
+  @ValidateNested()
+  @Type(() => InstanceTemplateCreateNestedManyWithoutLinkedRespawnsInput)
+  @IsOptional()
+  @Field(() => InstanceTemplateCreateNestedManyWithoutLinkedRespawnsInput, {
+    nullable: true,
+  })
+  instanceTemplates?: InstanceTemplateCreateNestedManyWithoutLinkedRespawnsInput;
+}
+
 export { LinkedRespawnCreateInput as LinkedRespawnCreateInput };

@@ -12,32 +12,17 @@ https://docs.amplication.com/how-to/custom-code
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import {
-  IsInt,
-  Min,
-  Max,
-  IsOptional,
   IsDate,
   IsString,
   MaxLength,
-  IsNumber,
+  ValidateNested,
+  IsOptional,
 } from "class-validator";
 import { Type } from "class-transformer";
+import { GameEvent } from "../../gameEvent/base/GameEvent";
 
 @ObjectType()
 class GameEventCondition {
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  conditionId!: number | null;
-
   @ApiProperty({
     required: true,
   })
@@ -47,42 +32,22 @@ class GameEventCondition {
   createdAt!: Date;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: String,
   })
   @IsString()
   @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  description!: string | null;
+  @Field(() => String)
+  description!: string;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => [GameEvent],
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEvent)
   @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  doneWorldStateField!: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  eventEntry!: number | null;
+  gameEvents?: Array<GameEvent>;
 
   @ApiProperty({
     required: true,
@@ -94,29 +59,15 @@ class GameEventCondition {
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @IsString()
+  @MaxLength(1000)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => String, {
     nullable: true,
   })
-  maxWorldStateField!: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsNumber()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  reqNum!: number | null;
+  name!: string | null;
 
   @ApiProperty({
     required: true,

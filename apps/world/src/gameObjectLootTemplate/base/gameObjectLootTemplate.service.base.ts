@@ -10,9 +10,11 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
+
 import {
   Prisma,
   GameObjectLootTemplate as PrismaGameObjectLootTemplate,
+  LootTemplate as PrismaLootTemplate,
 } from "@prisma/client";
 
 export class GameObjectLootTemplateServiceBase {
@@ -48,5 +50,13 @@ export class GameObjectLootTemplateServiceBase {
     args: Prisma.GameObjectLootTemplateDeleteArgs
   ): Promise<PrismaGameObjectLootTemplate> {
     return this.prisma.gameObjectLootTemplate.delete(args);
+  }
+
+  async getLootTemplate(parentId: bigint): Promise<PrismaLootTemplate | null> {
+    return this.prisma.gameObjectLootTemplate
+      .findUnique({
+        where: { id: parentId },
+      })
+      .lootTemplate();
   }
 }

@@ -11,61 +11,52 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsInt, Min, Max, IsOptional } from "class-validator";
+import {
+  IsString,
+  MaxLength,
+  IsOptional,
+  ValidateNested,
+} from "class-validator";
+import { GameEventUpdateManyWithoutGameEventModelEquipsInput } from "./GameEventUpdateManyWithoutGameEventModelEquipsInput";
+import { Type } from "class-transformer";
 
 @InputType()
 class GameEventModelEquipUpdateInput {
   @ApiProperty({
     required: false,
-    type: Number,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @IsString()
+  @MaxLength(256)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => String, {
     nullable: true,
   })
-  equipmentId?: number | null;
+  equipmentId?: string;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: () => GameEventUpdateManyWithoutGameEventModelEquipsInput,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @ValidateNested()
+  @Type(() => GameEventUpdateManyWithoutGameEventModelEquipsInput)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => GameEventUpdateManyWithoutGameEventModelEquipsInput, {
     nullable: true,
   })
-  eventEntry?: number | null;
+  gameEvents?: GameEventUpdateManyWithoutGameEventModelEquipsInput;
 
   @ApiProperty({
     required: false,
-    type: Number,
+    type: String,
   })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
+  @IsString()
+  @MaxLength(256)
   @IsOptional()
-  @Field(() => Number, {
+  @Field(() => String, {
     nullable: true,
   })
-  guid?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  modelid?: number | null;
+  modelid?: string;
 }
 
 export { GameEventModelEquipUpdateInput as GameEventModelEquipUpdateInput };

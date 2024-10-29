@@ -11,25 +11,29 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IntNullableFilter } from "../../util/IntNullableFilter";
-import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { Type } from "class-transformer";
+import { IsOptional, ValidateNested } from "class-validator";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { GameEventConditionWhereUniqueInput } from "../../gameEventCondition/base/GameEventConditionWhereUniqueInput";
+import { GameEventCreatureWhereUniqueInput } from "../../gameEventCreature/base/GameEventCreatureWhereUniqueInput";
+import { GameEventGameObjectWhereUniqueInput } from "../../gameEventGameObject/base/GameEventGameObjectWhereUniqueInput";
+import { GameEventModelEquipWhereUniqueInput } from "../../gameEventModelEquip/base/GameEventModelEquipWhereUniqueInput";
+import { GameEventQuestWhereUniqueInput } from "../../gameEventQuest/base/GameEventQuestWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
 
 @InputType()
 class GameEventWhereInput {
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: StringNullableFilter,
   })
-  @Type(() => IntNullableFilter)
+  @Type(() => StringNullableFilter)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  announce?: IntNullableFilter;
+  announce?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -55,36 +59,63 @@ class GameEventWhereInput {
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: () => GameEventConditionWhereUniqueInput,
   })
-  @Type(() => IntNullableFilter)
+  @ValidateNested()
+  @Type(() => GameEventConditionWhereUniqueInput)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => GameEventConditionWhereUniqueInput, {
     nullable: true,
   })
-  eventEntry?: IntNullableFilter;
+  gameEventConditions?: GameEventConditionWhereUniqueInput;
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: () => GameEventCreatureWhereUniqueInput,
   })
-  @Type(() => IntNullableFilter)
+  @ValidateNested()
+  @Type(() => GameEventCreatureWhereUniqueInput)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => GameEventCreatureWhereUniqueInput, {
     nullable: true,
   })
-  holiday?: IntNullableFilter;
+  gameEventCreatures?: GameEventCreatureWhereUniqueInput;
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
+    type: () => GameEventGameObjectWhereUniqueInput,
   })
-  @Type(() => IntNullableFilter)
+  @ValidateNested()
+  @Type(() => GameEventGameObjectWhereUniqueInput)
   @IsOptional()
-  @Field(() => IntNullableFilter, {
+  @Field(() => GameEventGameObjectWhereUniqueInput, {
     nullable: true,
   })
-  holidayStage?: IntNullableFilter;
+  gameEventGameObjects?: GameEventGameObjectWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => GameEventModelEquipWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => GameEventModelEquipWhereUniqueInput)
+  @IsOptional()
+  @Field(() => GameEventModelEquipWhereUniqueInput, {
+    nullable: true,
+  })
+  gameEventModelEquips?: GameEventModelEquipWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => GameEventQuestWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => GameEventQuestWhereUniqueInput)
+  @IsOptional()
+  @Field(() => GameEventQuestWhereUniqueInput, {
+    nullable: true,
+  })
+  gameEventQuests?: GameEventQuestWhereUniqueInput;
 
   @ApiProperty({
     required: false,
@@ -99,28 +130,6 @@ class GameEventWhereInput {
 
   @ApiProperty({
     required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  length?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  occurence?: IntNullableFilter;
-
-  @ApiProperty({
-    required: false,
     type: DateTimeNullableFilter,
   })
   @Type(() => DateTimeNullableFilter)
@@ -129,17 +138,6 @@ class GameEventWhereInput {
     nullable: true,
   })
   startTime?: DateTimeNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: IntNullableFilter,
-  })
-  @Type(() => IntNullableFilter)
-  @IsOptional()
-  @Field(() => IntNullableFilter, {
-    nullable: true,
-  })
-  worldEvent?: IntNullableFilter;
 }
 
 export { GameEventWhereInput as GameEventWhereInput };

@@ -13,7 +13,8 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { IsOptional, ValidateNested } from "class-validator";
+import { PlayerWhereUniqueInput } from "../../player/base/PlayerWhereUniqueInput";
 
 @InputType()
 class PlayerXpForLevelWhereInput {
@@ -27,6 +28,18 @@ class PlayerXpForLevelWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => PlayerWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => PlayerWhereUniqueInput)
+  @IsOptional()
+  @Field(() => PlayerWhereUniqueInput, {
+    nullable: true,
+  })
+  player?: PlayerWhereUniqueInput;
 }
 
 export { PlayerXpForLevelWhereInput as PlayerXpForLevelWhereInput };

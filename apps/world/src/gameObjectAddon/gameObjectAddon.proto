@@ -9,60 +9,36 @@ rpc updateGameObjectAddon (GameObjectAddonUpdateInput) returns (GameObjectAddon)
 rpc deleteGameObjectAddon (GameObjectAddonWhereUniqueInput) returns (GameObjectAddon) {} 
  }
 message GameObjectAddonCreateInput {
-int32 aiAnimKitId = 1;
+string aiAnimKitId = 1;
 string createdAt = 2;
-int32 guid = 3;
-string id = 4;
-int32 invisibilityType = 5;
-int32 invisibilityValue = 6;
-int32 parentRotation0 = 7;
-int32 parentRotation1 = 8;
-int32 parentRotation2 = 9;
-int32 parentRotation3 = 10;
-string updatedAt = 11;
-int32 worldEffectId = 12;
+string id = 3;
+string transformId = 4;
+string updatedAt = 5;
+string worldEffectId = 6;
 };
 message GameObjectAddon {
-int32 aiAnimKitId = 1;
+string aiAnimKitId = 1;
 string createdAt = 2;
-int32 guid = 3;
-string id = 4;
-int32 invisibilityType = 5;
-int32 invisibilityValue = 6;
-int32 parentRotation0 = 7;
-int32 parentRotation1 = 8;
-int32 parentRotation2 = 9;
-int32 parentRotation3 = 10;
-string updatedAt = 11;
-int32 worldEffectId = 12;
+string id = 3;
+string transformId = 4;
+string updatedAt = 5;
+string worldEffectId = 6;
 };
 message GameObjectAddonWhereUniqueInput {
-int32 aiAnimKitId = 1;
+string aiAnimKitId = 1;
 string createdAt = 2;
-int32 guid = 3;
-string id = 4;
-int32 invisibilityType = 5;
-int32 invisibilityValue = 6;
-int32 parentRotation0 = 7;
-int32 parentRotation1 = 8;
-int32 parentRotation2 = 9;
-int32 parentRotation3 = 10;
-string updatedAt = 11;
-int32 worldEffectId = 12;
+string id = 3;
+string transformId = 4;
+string updatedAt = 5;
+string worldEffectId = 6;
 };
 message GameObjectAddonUpdateInput {
-int32 aiAnimKitId = 1;
+string aiAnimKitId = 1;
 string createdAt = 2;
-int32 guid = 3;
-string id = 4;
-int32 invisibilityType = 5;
-int32 invisibilityValue = 6;
-int32 parentRotation0 = 7;
-int32 parentRotation1 = 8;
-int32 parentRotation2 = 9;
-int32 parentRotation3 = 10;
-string updatedAt = 11;
-int32 worldEffectId = 12;
+string id = 3;
+string transformId = 4;
+string updatedAt = 5;
+string worldEffectId = 6;
 };
 message findManyParams {
 

@@ -1,11 +1,10 @@
+import { GameEvent } from "../gameEvent/GameEvent";
+
 export type GameEventCondition = {
-  conditionId: number | null;
   createdAt: Date;
-  description: string | null;
-  doneWorldStateField: number | null;
-  eventEntry: number | null;
+  description: string;
+  gameEvents?: Array<GameEvent>;
   id: string;
-  maxWorldStateField: number | null;
-  reqNum: number | null;
+  name: string | null;
   updatedAt: Date;
 };

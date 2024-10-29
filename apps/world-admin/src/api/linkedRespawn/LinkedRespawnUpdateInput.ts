@@ -1,1 +1,5 @@
-export type LinkedRespawnUpdateInput = {};
+import { InstanceTemplateUpdateManyWithoutLinkedRespawnsInput } from "./InstanceTemplateUpdateManyWithoutLinkedRespawnsInput";
+
+export type LinkedRespawnUpdateInput = {
+  instanceTemplates?: InstanceTemplateUpdateManyWithoutLinkedRespawnsInput;
+};

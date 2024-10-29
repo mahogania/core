@@ -1,14 +1,10 @@
-import { IntNullableFilter } from "../../util/IntNullableFilter";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
-import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { GameEventListRelationFilter } from "../gameEvent/GameEventListRelationFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 
 export type GameEventConditionWhereInput = {
-  conditionId?: IntNullableFilter;
-  description?: StringNullableFilter;
-  doneWorldStateField?: IntNullableFilter;
-  eventEntry?: IntNullableFilter;
+  description?: StringFilter;
+  gameEvents?: GameEventListRelationFilter;
   id?: StringFilter;
-  maxWorldStateField?: IntNullableFilter;
-  reqNum?: FloatNullableFilter;
+  name?: StringNullableFilter;
 };

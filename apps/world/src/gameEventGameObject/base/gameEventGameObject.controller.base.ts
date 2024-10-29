@@ -26,6 +26,9 @@ import { GameEventGameObject } from "./GameEventGameObject";
 import { GameEventGameObjectFindManyArgs } from "./GameEventGameObjectFindManyArgs";
 import { GameEventGameObjectWhereUniqueInput } from "./GameEventGameObjectWhereUniqueInput";
 import { GameEventGameObjectUpdateInput } from "./GameEventGameObjectUpdateInput";
+import { GameEventFindManyArgs } from "../../gameEvent/base/GameEventFindManyArgs";
+import { GameEvent } from "../../gameEvent/base/GameEvent";
+import { GameEventWhereUniqueInput } from "../../gameEvent/base/GameEventWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -198,5 +201,135 @@ export class GameEventGameObjectControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/gameEvents")
+  @ApiNestedQuery(GameEventFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "GameEvent",
+    action: "read",
+    possession: "any",
+  })
+  async findGameEvents(
+    @common.Req() request: Request,
+    @common.Param() params: GameEventGameObjectWhereUniqueInput
+  ): Promise<GameEvent[]> {
+    const query = plainToClass(GameEventFindManyArgs, request.query);
+    const results = await this.service.findGameEvents(params.id, {
+      ...query,
+      select: {
+        announce: true,
+        createdAt: true,
+        description: true,
+        endTime: true,
+
+        gameEventConditions: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventCreatures: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventGameObjects: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventModelEquips: {
+          select: {
+            id: true,
+          },
+        },
+
+        gameEventQuests: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        startTime: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/gameEvents")
+  @nestAccessControl.UseRoles({
+    resource: "GameEventGameObject",
+    action: "update",
+    possession: "any",
+  })
+  async connectGameEvents(
+    @common.Param() params: GameEventGameObjectWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        connect: body,
+      },
+    };
+    await this.service.updateGameEventGameObject({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/gameEvents")
+  @nestAccessControl.UseRoles({
+    resource: "GameEventGameObject",
+    action: "update",
+    possession: "any",
+  })
+  async updateGameEvents(
+    @common.Param() params: GameEventGameObjectWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        set: body,
+      },
+    };
+    await this.service.updateGameEventGameObject({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/gameEvents")
+  @nestAccessControl.UseRoles({
+    resource: "GameEventGameObject",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectGameEvents(
+    @common.Param() params: GameEventGameObjectWhereUniqueInput,
+    @common.Body() body: GameEventWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      gameEvents: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateGameEventGameObject({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

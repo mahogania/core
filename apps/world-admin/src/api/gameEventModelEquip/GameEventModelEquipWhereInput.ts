@@ -1,10 +1,9 @@
-import { IntNullableFilter } from "../../util/IntNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { GameEventListRelationFilter } from "../gameEvent/GameEventListRelationFilter";
 
 export type GameEventModelEquipWhereInput = {
-  equipmentId?: IntNullableFilter;
-  eventEntry?: IntNullableFilter;
-  guid?: IntNullableFilter;
+  equipmentId?: StringFilter;
+  gameEvents?: GameEventListRelationFilter;
   id?: StringFilter;
-  modelid?: IntNullableFilter;
+  modelid?: StringFilter;
 };

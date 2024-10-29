@@ -18,11 +18,20 @@ import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
 import * as common from "@nestjs/common";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { GameObjectTemplate } from "./GameObjectTemplate";
 import { GameObjectTemplateCountArgs } from "./GameObjectTemplateCountArgs";
 import { GameObjectTemplateFindManyArgs } from "./GameObjectTemplateFindManyArgs";
 import { GameObjectTemplateFindUniqueArgs } from "./GameObjectTemplateFindUniqueArgs";
+import { CreateGameObjectTemplateArgs } from "./CreateGameObjectTemplateArgs";
+import { UpdateGameObjectTemplateArgs } from "./UpdateGameObjectTemplateArgs";
 import { DeleteGameObjectTemplateArgs } from "./DeleteGameObjectTemplateArgs";
+import { GameObjectTemplateAddonFindManyArgs } from "../../gameObjectTemplateAddon/base/GameObjectTemplateAddonFindManyArgs";
+import { GameObjectTemplateAddon } from "../../gameObjectTemplateAddon/base/GameObjectTemplateAddon";
+import { GameObjectTemplateLocaleFindManyArgs } from "../../gameObjectTemplateLocale/base/GameObjectTemplateLocaleFindManyArgs";
+import { GameObjectTemplateLocale } from "../../gameObjectTemplateLocale/base/GameObjectTemplateLocale";
+import { GameObjectFindManyArgs } from "../../gameObject/base/GameObjectFindManyArgs";
+import { GameObject } from "../../gameObject/base/GameObject";
 import { GameObjectTemplateService } from "../gameObjectTemplate.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => GameObjectTemplate)
@@ -77,6 +86,47 @@ export class GameObjectTemplateResolverBase {
     return result;
   }
 
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => GameObjectTemplate)
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplate",
+    action: "create",
+    possession: "any",
+  })
+  async createGameObjectTemplate(
+    @graphql.Args() args: CreateGameObjectTemplateArgs
+  ): Promise<GameObjectTemplate> {
+    return await this.service.createGameObjectTemplate({
+      ...args,
+      data: args.data,
+    });
+  }
+
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => GameObjectTemplate)
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplate",
+    action: "update",
+    possession: "any",
+  })
+  async updateGameObjectTemplate(
+    @graphql.Args() args: UpdateGameObjectTemplateArgs
+  ): Promise<GameObjectTemplate | null> {
+    try {
+      return await this.service.updateGameObjectTemplate({
+        ...args,
+        data: args.data,
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new GraphQLError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
+  }
+
   @graphql.Mutation(() => GameObjectTemplate)
   @nestAccessControl.UseRoles({
     resource: "GameObjectTemplate",
@@ -96,5 +146,75 @@ export class GameObjectTemplateResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [GameObjectTemplateAddon], {
+    name: "gameObjectTemplateAddons",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplateAddon",
+    action: "read",
+    possession: "any",
+  })
+  async findGameObjectTemplateAddons(
+    @graphql.Parent() parent: GameObjectTemplate,
+    @graphql.Args() args: GameObjectTemplateAddonFindManyArgs
+  ): Promise<GameObjectTemplateAddon[]> {
+    const results = await this.service.findGameObjectTemplateAddons(
+      parent.id,
+      args
+    );
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [GameObjectTemplateLocale], {
+    name: "gameObjectTemplateLocales",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplateLocale",
+    action: "read",
+    possession: "any",
+  })
+  async findGameObjectTemplateLocales(
+    @graphql.Parent() parent: GameObjectTemplate,
+    @graphql.Args() args: GameObjectTemplateLocaleFindManyArgs
+  ): Promise<GameObjectTemplateLocale[]> {
+    const results = await this.service.findGameObjectTemplateLocales(
+      parent.id,
+      args
+    );
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [GameObject], { name: "gameObjects" })
+  @nestAccessControl.UseRoles({
+    resource: "GameObject",
+    action: "read",
+    possession: "any",
+  })
+  async findGameObjects(
+    @graphql.Parent() parent: GameObjectTemplate,
+    @graphql.Args() args: GameObjectFindManyArgs
+  ): Promise<GameObject[]> {
+    const results = await this.service.findGameObjects(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
   }
 }

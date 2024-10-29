@@ -34,25 +34,34 @@ export class GameObjectGrpcControllerBase {
     @common.Body() data: GameObjectCreateInput
   ): Promise<GameObject> {
     return await this.service.createGameObject({
-      data: data,
+      data: {
+        ...data,
+
+        gameObjectTemplate: data.gameObjectTemplate
+          ? {
+              connect: data.gameObjectTemplate,
+            }
+          : undefined,
+      },
       select: {
         areaId: true,
         createdAt: true,
+
+        gameObjectTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
         mapId: true,
         phaseGroupId: true,
         phaseId: true,
-        positionX: true,
-        positionY: true,
-        positionZ: true,
-        rotationW: true,
-        rotationX: true,
-        rotationY: true,
-        rotationZ: true,
         script: true,
         spawnTime: true,
         state: true,
         stringId: true,
+        transformId: true,
         updatedAt: true,
         version: true,
         zoneId: true,
@@ -71,21 +80,22 @@ export class GameObjectGrpcControllerBase {
       select: {
         areaId: true,
         createdAt: true,
+
+        gameObjectTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
         mapId: true,
         phaseGroupId: true,
         phaseId: true,
-        positionX: true,
-        positionY: true,
-        positionZ: true,
-        rotationW: true,
-        rotationX: true,
-        rotationY: true,
-        rotationZ: true,
         script: true,
         spawnTime: true,
         state: true,
         stringId: true,
+        transformId: true,
         updatedAt: true,
         version: true,
         zoneId: true,
@@ -105,21 +115,22 @@ export class GameObjectGrpcControllerBase {
       select: {
         areaId: true,
         createdAt: true,
+
+        gameObjectTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
         mapId: true,
         phaseGroupId: true,
         phaseId: true,
-        positionX: true,
-        positionY: true,
-        positionZ: true,
-        rotationW: true,
-        rotationX: true,
-        rotationY: true,
-        rotationZ: true,
         script: true,
         spawnTime: true,
         state: true,
         stringId: true,
+        transformId: true,
         updatedAt: true,
         version: true,
         zoneId: true,
@@ -144,25 +155,34 @@ export class GameObjectGrpcControllerBase {
     try {
       return await this.service.updateGameObject({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          gameObjectTemplate: data.gameObjectTemplate
+            ? {
+                connect: data.gameObjectTemplate,
+              }
+            : undefined,
+        },
         select: {
           areaId: true,
           createdAt: true,
+
+          gameObjectTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
           mapId: true,
           phaseGroupId: true,
           phaseId: true,
-          positionX: true,
-          positionY: true,
-          positionZ: true,
-          rotationW: true,
-          rotationX: true,
-          rotationY: true,
-          rotationZ: true,
           script: true,
           spawnTime: true,
           state: true,
           stringId: true,
+          transformId: true,
           updatedAt: true,
           version: true,
           zoneId: true,
@@ -191,21 +211,22 @@ export class GameObjectGrpcControllerBase {
         select: {
           areaId: true,
           createdAt: true,
+
+          gameObjectTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
           mapId: true,
           phaseGroupId: true,
           phaseId: true,
-          positionX: true,
-          positionY: true,
-          positionZ: true,
-          rotationW: true,
-          rotationX: true,
-          rotationY: true,
-          rotationZ: true,
           script: true,
           spawnTime: true,
           state: true,
           stringId: true,
+          transformId: true,
           updatedAt: true,
           version: true,
           zoneId: true,

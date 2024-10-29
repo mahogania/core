@@ -11,8 +11,9 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString } from "class-validator";
+import { IsDate, IsString, ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { Player } from "../../player/base/Player";
 
 @ObjectType()
 class PlayerXpForLevel {
@@ -31,6 +32,15 @@ class PlayerXpForLevel {
   @IsString()
   @Field(() => String)
   id!: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => Player,
+  })
+  @ValidateNested()
+  @Type(() => Player)
+  @IsOptional()
+  player?: Player | null;
 
   @ApiProperty({
     required: true,

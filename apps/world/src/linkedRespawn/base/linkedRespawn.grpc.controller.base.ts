@@ -24,6 +24,9 @@ import { LinkedRespawnWhereUniqueInput } from "./LinkedRespawnWhereUniqueInput";
 import { LinkedRespawnFindManyArgs } from "./LinkedRespawnFindManyArgs";
 import { LinkedRespawnUpdateInput } from "./LinkedRespawnUpdateInput";
 import { LinkedRespawn } from "./LinkedRespawn";
+import { InstanceTemplateFindManyArgs } from "../../instanceTemplate/base/InstanceTemplateFindManyArgs";
+import { InstanceTemplate } from "../../instanceTemplate/base/InstanceTemplate";
+import { InstanceTemplateWhereUniqueInput } from "../../instanceTemplate/base/InstanceTemplateWhereUniqueInput";
 
 export class LinkedRespawnGrpcControllerBase {
   constructor(protected readonly service: LinkedRespawnService) {}
@@ -136,5 +139,90 @@ export class LinkedRespawnGrpcControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Get("/:id/instanceTemplates")
+  @ApiNestedQuery(InstanceTemplateFindManyArgs)
+  @GrpcMethod("LinkedRespawnService", "findManyInstanceTemplates")
+  async findManyInstanceTemplates(
+    @common.Req() request: Request,
+    @common.Param() params: LinkedRespawnWhereUniqueInput
+  ): Promise<InstanceTemplate[]> {
+    const query = plainToClass(InstanceTemplateFindManyArgs, request.query);
+    const results = await this.service.findInstanceTemplates(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+
+        linkedRespawns: {
+          select: {
+            id: true,
+          },
+        },
+
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/instanceTemplates")
+  @GrpcMethod("LinkedRespawnService", "connectInstanceTemplates")
+  async connectInstanceTemplates(
+    @common.Param() params: LinkedRespawnWhereUniqueInput,
+    @common.Body() body: InstanceTemplateWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      instanceTemplates: {
+        connect: body,
+      },
+    };
+    await this.service.updateLinkedRespawn({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/instanceTemplates")
+  @GrpcMethod("LinkedRespawnService", "updateInstanceTemplates")
+  async updateInstanceTemplates(
+    @common.Param() params: LinkedRespawnWhereUniqueInput,
+    @common.Body() body: InstanceTemplateWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      instanceTemplates: {
+        set: body,
+      },
+    };
+    await this.service.updateLinkedRespawn({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/instanceTemplates")
+  @GrpcMethod("LinkedRespawnService", "disconnectInstanceTemplates")
+  async disconnectInstanceTemplates(
+    @common.Param() params: LinkedRespawnWhereUniqueInput,
+    @common.Body() body: InstanceTemplateWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      instanceTemplates: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateLinkedRespawn({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

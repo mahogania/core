@@ -34,20 +34,33 @@ export class GameObjectLootTemplateGrpcControllerBase {
     @common.Body() data: GameObjectLootTemplateCreateInput
   ): Promise<GameObjectLootTemplate> {
     return await this.service.createGameObjectLootTemplate({
-      data: data,
+      data: {
+        ...data,
+
+        lootTemplate: data.lootTemplate
+          ? {
+              connect: data.lootTemplate,
+            }
+          : undefined,
+      },
       select: {
         chance: true,
         comment: true,
         createdAt: true,
-        entry: true,
         groupId: true,
         id: true,
         itemId: true,
         lootMode: true,
+
+        lootTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         maxCount: true,
         minCount: true,
         questId: true,
-        referenceId: true,
         updatedAt: true,
       },
     });
@@ -70,15 +83,20 @@ export class GameObjectLootTemplateGrpcControllerBase {
         chance: true,
         comment: true,
         createdAt: true,
-        entry: true,
         groupId: true,
         id: true,
         itemId: true,
         lootMode: true,
+
+        lootTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         maxCount: true,
         minCount: true,
         questId: true,
-        referenceId: true,
         updatedAt: true,
       },
     });
@@ -97,15 +115,20 @@ export class GameObjectLootTemplateGrpcControllerBase {
         chance: true,
         comment: true,
         createdAt: true,
-        entry: true,
         groupId: true,
         id: true,
         itemId: true,
         lootMode: true,
+
+        lootTemplate: {
+          select: {
+            id: true,
+          },
+        },
+
         maxCount: true,
         minCount: true,
         questId: true,
-        referenceId: true,
         updatedAt: true,
       },
     });
@@ -128,20 +151,33 @@ export class GameObjectLootTemplateGrpcControllerBase {
     try {
       return await this.service.updateGameObjectLootTemplate({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          lootTemplate: data.lootTemplate
+            ? {
+                connect: data.lootTemplate,
+              }
+            : undefined,
+        },
         select: {
           chance: true,
           comment: true,
           createdAt: true,
-          entry: true,
           groupId: true,
           id: true,
           itemId: true,
           lootMode: true,
+
+          lootTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
           maxCount: true,
           minCount: true,
           questId: true,
-          referenceId: true,
           updatedAt: true,
         },
       });
@@ -169,15 +205,20 @@ export class GameObjectLootTemplateGrpcControllerBase {
           chance: true,
           comment: true,
           createdAt: true,
-          entry: true,
           groupId: true,
           id: true,
           itemId: true,
           lootMode: true,
+
+          lootTemplate: {
+            select: {
+              id: true,
+            },
+          },
+
           maxCount: true,
           minCount: true,
           questId: true,
-          referenceId: true,
           updatedAt: true,
         },
       });

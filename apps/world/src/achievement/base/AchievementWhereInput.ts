@@ -11,13 +11,40 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { AchievementBehaviourListRelationFilter } from "../../achievementBehaviour/base/AchievementBehaviourListRelationFilter";
+import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { AchievementRewardWhereUniqueInput } from "../../achievementReward/base/AchievementRewardWhereUniqueInput";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { PlayerWhereUniqueInput } from "../../player/base/PlayerWhereUniqueInput";
 
 @InputType()
 class AchievementWhereInput {
+  @ApiProperty({
+    required: false,
+    type: () => AchievementBehaviourListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => AchievementBehaviourListRelationFilter)
+  @IsOptional()
+  @Field(() => AchievementBehaviourListRelationFilter, {
+    nullable: true,
+  })
+  achievementBehaviours?: AchievementBehaviourListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => AchievementRewardWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => AchievementRewardWhereUniqueInput)
+  @IsOptional()
+  @Field(() => AchievementRewardWhereUniqueInput, {
+    nullable: true,
+  })
+  achievementRewards?: AchievementRewardWhereUniqueInput;
+
   @ApiProperty({
     required: false,
     type: IntNullableFilter,
@@ -61,6 +88,18 @@ class AchievementWhereInput {
     nullable: true,
   })
   map?: IntNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => PlayerWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => PlayerWhereUniqueInput)
+  @IsOptional()
+  @Field(() => PlayerWhereUniqueInput, {
+    nullable: true,
+  })
+  player?: PlayerWhereUniqueInput;
 
   @ApiProperty({
     required: false,

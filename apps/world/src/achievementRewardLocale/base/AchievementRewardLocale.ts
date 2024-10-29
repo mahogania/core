@@ -11,11 +11,27 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, MaxLength, IsOptional, IsDate } from "class-validator";
+import { AchievementReward } from "../../achievementReward/base/AchievementReward";
+import {
+  ValidateNested,
+  IsOptional,
+  IsString,
+  MaxLength,
+  IsDate,
+} from "class-validator";
 import { Type } from "class-transformer";
 
 @ObjectType()
 class AchievementRewardLocale {
+  @ApiProperty({
+    required: false,
+    type: () => [AchievementReward],
+  })
+  @ValidateNested()
+  @Type(() => AchievementReward)
+  @IsOptional()
+  achievementRewards?: Array<AchievementReward>;
+
   @ApiProperty({
     required: false,
     type: String,

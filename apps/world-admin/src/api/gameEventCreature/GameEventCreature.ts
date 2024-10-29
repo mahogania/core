@@ -1,7 +1,9 @@
+import { GameEvent } from "../gameEvent/GameEvent";
+
 export type GameEventCreature = {
   createdAt: Date;
-  eventEntry: number | null;
-  guid: number | null;
+  gameEvents?: Array<GameEvent>;
   id: string;
+  spawnerId: string;
   updatedAt: Date;
 };

@@ -18,11 +18,15 @@ import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
 import * as common from "@nestjs/common";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { GameObjectTemplateLocale } from "./GameObjectTemplateLocale";
 import { GameObjectTemplateLocaleCountArgs } from "./GameObjectTemplateLocaleCountArgs";
 import { GameObjectTemplateLocaleFindManyArgs } from "./GameObjectTemplateLocaleFindManyArgs";
 import { GameObjectTemplateLocaleFindUniqueArgs } from "./GameObjectTemplateLocaleFindUniqueArgs";
+import { CreateGameObjectTemplateLocaleArgs } from "./CreateGameObjectTemplateLocaleArgs";
+import { UpdateGameObjectTemplateLocaleArgs } from "./UpdateGameObjectTemplateLocaleArgs";
 import { DeleteGameObjectTemplateLocaleArgs } from "./DeleteGameObjectTemplateLocaleArgs";
+import { GameObjectTemplate } from "../../gameObjectTemplate/base/GameObjectTemplate";
 import { GameObjectTemplateLocaleService } from "../gameObjectTemplateLocale.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => GameObjectTemplateLocale)
@@ -77,6 +81,63 @@ export class GameObjectTemplateLocaleResolverBase {
     return result;
   }
 
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => GameObjectTemplateLocale)
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplateLocale",
+    action: "create",
+    possession: "any",
+  })
+  async createGameObjectTemplateLocale(
+    @graphql.Args() args: CreateGameObjectTemplateLocaleArgs
+  ): Promise<GameObjectTemplateLocale> {
+    return await this.service.createGameObjectTemplateLocale({
+      ...args,
+      data: {
+        ...args.data,
+
+        gameObjectTemplate: args.data.gameObjectTemplate
+          ? {
+              connect: args.data.gameObjectTemplate,
+            }
+          : undefined,
+      },
+    });
+  }
+
+  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @graphql.Mutation(() => GameObjectTemplateLocale)
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplateLocale",
+    action: "update",
+    possession: "any",
+  })
+  async updateGameObjectTemplateLocale(
+    @graphql.Args() args: UpdateGameObjectTemplateLocaleArgs
+  ): Promise<GameObjectTemplateLocale | null> {
+    try {
+      return await this.service.updateGameObjectTemplateLocale({
+        ...args,
+        data: {
+          ...args.data,
+
+          gameObjectTemplate: args.data.gameObjectTemplate
+            ? {
+                connect: args.data.gameObjectTemplate,
+              }
+            : undefined,
+        },
+      });
+    } catch (error) {
+      if (isRecordNotFoundError(error)) {
+        throw new GraphQLError(
+          `No resource was found for ${JSON.stringify(args.where)}`
+        );
+      }
+      throw error;
+    }
+  }
+
   @graphql.Mutation(() => GameObjectTemplateLocale)
   @nestAccessControl.UseRoles({
     resource: "GameObjectTemplateLocale",
@@ -96,5 +157,26 @@ export class GameObjectTemplateLocaleResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => GameObjectTemplate, {
+    nullable: true,
+    name: "gameObjectTemplate",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "GameObjectTemplate",
+    action: "read",
+    possession: "any",
+  })
+  async getGameObjectTemplate(
+    @graphql.Parent() parent: GameObjectTemplateLocale
+  ): Promise<GameObjectTemplate | null> {
+    const result = await this.service.getGameObjectTemplate(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

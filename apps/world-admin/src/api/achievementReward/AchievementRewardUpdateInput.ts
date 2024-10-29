@@ -1,4 +1,9 @@
+import { AchievementRewardLocaleWhereUniqueInput } from "../achievementRewardLocale/AchievementRewardLocaleWhereUniqueInput";
+import { AchievementUpdateManyWithoutAchievementRewardsInput } from "./AchievementUpdateManyWithoutAchievementRewardsInput";
+
 export type AchievementRewardUpdateInput = {
+  achievementRewardLocales?: AchievementRewardLocaleWhereUniqueInput | null;
+  achievements?: AchievementUpdateManyWithoutAchievementRewardsInput;
   body?: string | null;
   itemId?: number | null;
   mailTemplateId?: number | null;

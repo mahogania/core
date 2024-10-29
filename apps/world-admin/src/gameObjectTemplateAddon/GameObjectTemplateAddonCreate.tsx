@@ -1,5 +1,12 @@
 import * as React from "react";
-import { Create, SimpleForm, CreateProps } from "react-admin";
+import {
+  Create,
+  SimpleForm,
+  CreateProps,
+  ReferenceInput,
+  SelectInput,
+} from "react-admin";
+import { GameObjectTemplateTitle } from "../gameObjectTemplate/GameObjectTemplateTitle";
 
 export const GameObjectTemplateAddonCreate = (
   props: CreateProps
@@ -7,7 +14,13 @@ export const GameObjectTemplateAddonCreate = (
   return (
     <Create {...props}>
       <SimpleForm>
-        <div />
+        <ReferenceInput
+          source="gameObjectTemplate.id"
+          reference="GameObjectTemplate"
+          label="GameObjectTemplate"
+        >
+          <SelectInput optionText={GameObjectTemplateTitle} />
+        </ReferenceInput>
       </SimpleForm>
     </Create>
   );

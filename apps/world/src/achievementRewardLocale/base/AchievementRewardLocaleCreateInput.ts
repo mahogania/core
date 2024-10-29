@@ -11,10 +11,35 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, MaxLength, IsOptional } from "class-validator";
+import { AchievementRewardCreateNestedManyWithoutAchievementRewardLocalesInput } from "./AchievementRewardCreateNestedManyWithoutAchievementRewardLocalesInput";
+import {
+  ValidateNested,
+  IsOptional,
+  IsString,
+  MaxLength,
+} from "class-validator";
+import { Type } from "class-transformer";
 
 @InputType()
 class AchievementRewardLocaleCreateInput {
+  @ApiProperty({
+    required: false,
+    type: () =>
+      AchievementRewardCreateNestedManyWithoutAchievementRewardLocalesInput,
+  })
+  @ValidateNested()
+  @Type(
+    () => AchievementRewardCreateNestedManyWithoutAchievementRewardLocalesInput
+  )
+  @IsOptional()
+  @Field(
+    () => AchievementRewardCreateNestedManyWithoutAchievementRewardLocalesInput,
+    {
+      nullable: true,
+    }
+  )
+  achievementRewards?: AchievementRewardCreateNestedManyWithoutAchievementRewardLocalesInput;
+
   @ApiProperty({
     required: false,
     type: String,

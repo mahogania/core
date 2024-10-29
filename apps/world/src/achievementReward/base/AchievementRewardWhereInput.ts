@@ -11,14 +11,40 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { AchievementRewardLocaleWhereUniqueInput } from "../../achievementRewardLocale/base/AchievementRewardLocaleWhereUniqueInput";
+import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { AchievementListRelationFilter } from "../../achievement/base/AchievementListRelationFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { IntNullableFilter } from "../../util/IntNullableFilter";
 
 @InputType()
 class AchievementRewardWhereInput {
+  @ApiProperty({
+    required: false,
+    type: () => AchievementRewardLocaleWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => AchievementRewardLocaleWhereUniqueInput)
+  @IsOptional()
+  @Field(() => AchievementRewardLocaleWhereUniqueInput, {
+    nullable: true,
+  })
+  achievementRewardLocales?: AchievementRewardLocaleWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => AchievementListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => AchievementListRelationFilter)
+  @IsOptional()
+  @Field(() => AchievementListRelationFilter, {
+    nullable: true,
+  })
+  achievements?: AchievementListRelationFilter;
+
   @ApiProperty({
     required: false,
     type: StringNullableFilter,

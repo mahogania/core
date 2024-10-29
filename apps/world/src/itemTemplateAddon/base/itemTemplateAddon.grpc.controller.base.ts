@@ -24,6 +24,9 @@ import { ItemTemplateAddonWhereUniqueInput } from "./ItemTemplateAddonWhereUniqu
 import { ItemTemplateAddonFindManyArgs } from "./ItemTemplateAddonFindManyArgs";
 import { ItemTemplateAddonUpdateInput } from "./ItemTemplateAddonUpdateInput";
 import { ItemTemplateAddon } from "./ItemTemplateAddon";
+import { ItemTemplateFindManyArgs } from "../../itemTemplate/base/ItemTemplateFindManyArgs";
+import { ItemTemplate } from "../../itemTemplate/base/ItemTemplate";
+import { ItemTemplateWhereUniqueInput } from "../../itemTemplate/base/ItemTemplateWhereUniqueInput";
 
 export class ItemTemplateAddonGrpcControllerBase {
   constructor(protected readonly service: ItemTemplateAddonService) {}
@@ -136,5 +139,96 @@ export class ItemTemplateAddonGrpcControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Get("/:id/itemTemplates")
+  @ApiNestedQuery(ItemTemplateFindManyArgs)
+  @GrpcMethod("ItemTemplateAddonService", "findManyItemTemplates")
+  async findManyItemTemplates(
+    @common.Req() request: Request,
+    @common.Param() params: ItemTemplateAddonWhereUniqueInput
+  ): Promise<ItemTemplate[]> {
+    const query = plainToClass(ItemTemplateFindManyArgs, request.query);
+    const results = await this.service.findItemTemplates(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+
+        itemBehaviour: {
+          select: {
+            id: true,
+          },
+        },
+
+        itemTemplateAddons: {
+          select: {
+            id: true,
+          },
+        },
+
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/itemTemplates")
+  @GrpcMethod("ItemTemplateAddonService", "connectItemTemplates")
+  async connectItemTemplates(
+    @common.Param() params: ItemTemplateAddonWhereUniqueInput,
+    @common.Body() body: ItemTemplateWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      itemTemplates: {
+        connect: body,
+      },
+    };
+    await this.service.updateItemTemplateAddon({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/itemTemplates")
+  @GrpcMethod("ItemTemplateAddonService", "updateItemTemplates")
+  async updateItemTemplates(
+    @common.Param() params: ItemTemplateAddonWhereUniqueInput,
+    @common.Body() body: ItemTemplateWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      itemTemplates: {
+        set: body,
+      },
+    };
+    await this.service.updateItemTemplateAddon({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/itemTemplates")
+  @GrpcMethod("ItemTemplateAddonService", "disconnectItemTemplates")
+  async disconnectItemTemplates(
+    @common.Param() params: ItemTemplateAddonWhereUniqueInput,
+    @common.Body() body: ItemTemplateWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      itemTemplates: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateItemTemplateAddon({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

@@ -61,36 +61,6 @@
   },
   {
     "role": "user",
-    "resource": "AccessRequirement",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "AccessRequirement",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "AccessRequirement",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "AccessRequirement",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "AccessRequirement",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
     "resource": "AchievementReward",
     "action": "read:own",
     "attributes": "*"
@@ -151,241 +121,31 @@
   },
   {
     "role": "user",
-    "resource": "AchievementScripts",
+    "resource": "AchievementBehaviour",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "AchievementScripts",
+    "resource": "AchievementBehaviour",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "AchievementScripts",
+    "resource": "AchievementBehaviour",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "AchievementScripts",
+    "resource": "AchievementBehaviour",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "AchievementScripts",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DisenchantLootTemplate",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DisenchantLootTemplate",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DisenchantLootTemplate",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DisenchantLootTemplate",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "DisenchantLootTemplate",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EventScriptNames",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EventScriptNames",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EventScriptNames",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EventScriptNames",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EventScriptNames",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEvent",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEvent",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEvent",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEvent",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEvent",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameWeather",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameWeather",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameWeather",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameWeather",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameWeather",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObject",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObject",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObject",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObject",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObject",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ExplorationBasexp",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ExplorationBasexp",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ExplorationBasexp",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ExplorationBasexp",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ExplorationBasexp",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EventScripts",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EventScripts",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EventScripts",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EventScripts",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "EventScripts",
+    "resource": "AchievementBehaviour",
     "action": "read:any",
     "attributes": "*"
   },
@@ -421,61 +181,61 @@
   },
   {
     "role": "user",
-    "resource": "GameObjectTemplate",
+    "resource": "ExplorationBasexp",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameObjectTemplate",
+    "resource": "ExplorationBasexp",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameObjectTemplate",
+    "resource": "ExplorationBasexp",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameObjectTemplate",
+    "resource": "ExplorationBasexp",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameObjectTemplate",
+    "resource": "ExplorationBasexp",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventQuestCondition",
+    "resource": "GameEvent",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventQuestCondition",
+    "resource": "GameEvent",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventQuestCondition",
+    "resource": "GameEvent",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventQuestCondition",
+    "resource": "GameEvent",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventQuestCondition",
+    "resource": "GameEvent",
     "action": "read:any",
     "attributes": "*"
   },
@@ -511,91 +271,31 @@
   },
   {
     "role": "user",
-    "resource": "GameObjectQuestStarter",
+    "resource": "GameObjectTemplate",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameObjectQuestStarter",
+    "resource": "GameObjectTemplate",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameObjectQuestStarter",
+    "resource": "GameObjectTemplate",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameObjectQuestStarter",
+    "resource": "GameObjectTemplate",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameObjectQuestStarter",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventSeasonalQuestRelation",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventSeasonalQuestRelation",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventSeasonalQuestRelation",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventSeasonalQuestRelation",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventSeasonalQuestRelation",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "FishingLootTemplate",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "FishingLootTemplate",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "FishingLootTemplate",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "FishingLootTemplate",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "FishingLootTemplate",
+    "resource": "GameObjectTemplate",
     "action": "read:any",
     "attributes": "*"
   },
@@ -631,361 +331,121 @@
   },
   {
     "role": "user",
-    "resource": "GameTele",
+    "resource": "GameObject",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameTele",
+    "resource": "GameObject",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameTele",
+    "resource": "GameObject",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameTele",
+    "resource": "GameObject",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameTele",
+    "resource": "GameObject",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventCreature",
+    "resource": "GameObjectQuestStarter",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventCreature",
+    "resource": "GameObjectQuestStarter",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventCreature",
+    "resource": "GameObjectQuestStarter",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventCreature",
+    "resource": "GameObjectQuestStarter",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventCreature",
+    "resource": "GameObjectQuestStarter",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventGameObject",
+    "resource": "LootTemplate",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventGameObject",
+    "resource": "LootTemplate",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventGameObject",
+    "resource": "LootTemplate",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventGameObject",
+    "resource": "LootTemplate",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventGameObject",
+    "resource": "LootTemplate",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventPrerequisite",
+    "resource": "GameObjectQuestEnder",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventPrerequisite",
+    "resource": "GameObjectQuestEnder",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventPrerequisite",
+    "resource": "GameObjectQuestEnder",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventPrerequisite",
+    "resource": "GameObjectQuestEnder",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventPrerequisite",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventCondition",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventCondition",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventCondition",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventCondition",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventCondition",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObjectLootTemplate",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObjectLootTemplate",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObjectLootTemplate",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObjectLootTemplate",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObjectLootTemplate",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventPool",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventPool",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventPool",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventPool",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventPool",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventCreatureQuest",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventCreatureQuest",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventCreatureQuest",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventCreatureQuest",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventCreatureQuest",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventNpcVendor",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventNpcVendor",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventNpcVendor",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventNpcVendor",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventNpcVendor",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventArenaSeasons",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventArenaSeasons",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventArenaSeasons",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventArenaSeasons",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventArenaSeasons",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObjectOverrides",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObjectOverrides",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObjectOverrides",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObjectOverrides",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameObjectOverrides",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventNpcFlag",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventNpcFlag",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventNpcFlag",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventNpcFlag",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GameEventNpcFlag",
+    "resource": "GameObjectQuestEnder",
     "action": "read:any",
     "attributes": "*"
   },
@@ -1051,211 +511,211 @@
   },
   {
     "role": "user",
-    "resource": "GameObjectQuestEnder",
+    "resource": "GameEventGameObject",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameObjectQuestEnder",
+    "resource": "GameEventGameObject",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameObjectQuestEnder",
+    "resource": "GameEventGameObject",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameObjectQuestEnder",
+    "resource": "GameEventGameObject",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameObjectQuestEnder",
+    "resource": "GameEventGameObject",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventGameObjectQuest",
+    "resource": "GameEventQuest",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventGameObjectQuest",
+    "resource": "GameEventQuest",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventGameObjectQuest",
+    "resource": "GameEventQuest",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventGameObjectQuest",
+    "resource": "GameEventQuest",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GameEventGameObjectQuest",
+    "resource": "GameEventQuest",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GossipMenuOptionLocale",
+    "resource": "GameEventCharacter",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GossipMenuOptionLocale",
+    "resource": "GameEventCharacter",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GossipMenuOptionLocale",
+    "resource": "GameEventCharacter",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GossipMenuOptionLocale",
+    "resource": "GameEventCharacter",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GossipMenuOptionLocale",
+    "resource": "GameEventCharacter",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GossipMenuOption",
+    "resource": "GameObjectOverrides",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GossipMenuOption",
+    "resource": "GameObjectOverrides",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GossipMenuOption",
+    "resource": "GameObjectOverrides",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GossipMenuOption",
+    "resource": "GameObjectOverrides",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GossipMenuOption",
+    "resource": "GameObjectOverrides",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GuildRewards",
+    "resource": "GameEventCondition",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GuildRewards",
+    "resource": "GameEventCondition",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GuildRewards",
+    "resource": "GameEventCondition",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GuildRewards",
+    "resource": "GameEventCondition",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "GuildRewards",
+    "resource": "GameEventCondition",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "LfgDungeonRewards",
+    "resource": "GameEventCreature",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "LfgDungeonRewards",
+    "resource": "GameEventCreature",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "LfgDungeonRewards",
+    "resource": "GameEventCreature",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "LfgDungeonRewards",
+    "resource": "GameEventCreature",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "LfgDungeonRewards",
+    "resource": "GameEventCreature",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "MailLootTemplate",
+    "resource": "GameObjectLootTemplate",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "MailLootTemplate",
+    "resource": "GameObjectLootTemplate",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "MailLootTemplate",
+    "resource": "GameObjectLootTemplate",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "MailLootTemplate",
+    "resource": "GameObjectLootTemplate",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "MailLootTemplate",
+    "resource": "GameObjectLootTemplate",
     "action": "read:any",
     "attributes": "*"
   },
@@ -1291,6 +751,36 @@
   },
   {
     "role": "user",
+    "resource": "MailLootTemplate",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "MailLootTemplate",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "MailLootTemplate",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "MailLootTemplate",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "MailLootTemplate",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
     "resource": "GraveyardZone",
     "action": "read:own",
     "attributes": "*"
@@ -1316,186 +806,6 @@
   {
     "role": "user",
     "resource": "GraveyardZone",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "LfgDungeonTemplate",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "LfgDungeonTemplate",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "LfgDungeonTemplate",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "LfgDungeonTemplate",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "LfgDungeonTemplate",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GuildRewardsReqAchievements",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GuildRewardsReqAchievements",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GuildRewardsReqAchievements",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GuildRewardsReqAchievements",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "GuildRewardsReqAchievements",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "MailLevelReward",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "MailLevelReward",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "MailLevelReward",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "MailLevelReward",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "MailLevelReward",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "JumpChargeParams",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "JumpChargeParams",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "JumpChargeParams",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "JumpChargeParams",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "JumpChargeParams",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "InstanceTemplate",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "InstanceTemplate",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "InstanceTemplate",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "InstanceTemplate",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "InstanceTemplate",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ItemTemplateAddon",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ItemTemplateAddon",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ItemTemplateAddon",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ItemTemplateAddon",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ItemTemplateAddon",
     "action": "read:any",
     "attributes": "*"
   },
@@ -1531,31 +841,61 @@
   },
   {
     "role": "user",
-    "resource": "ItemLootTemplate",
+    "resource": "JumpChargeParams",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ItemLootTemplate",
+    "resource": "JumpChargeParams",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ItemLootTemplate",
+    "resource": "JumpChargeParams",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ItemLootTemplate",
+    "resource": "JumpChargeParams",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ItemLootTemplate",
+    "resource": "JumpChargeParams",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemTemplateAddon",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemTemplateAddon",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemTemplateAddon",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemTemplateAddon",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemTemplateAddon",
     "action": "read:any",
     "attributes": "*"
   },
@@ -1586,6 +926,96 @@
   {
     "role": "user",
     "resource": "LinkedRespawn",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemBehaviour",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemBehaviour",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemBehaviour",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemBehaviour",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemBehaviour",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "InstanceTemplate",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "InstanceTemplate",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "InstanceTemplate",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "InstanceTemplate",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "InstanceTemplate",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemTemplate",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemTemplate",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemTemplate",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemTemplate",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ItemTemplate",
     "action": "read:any",
     "attributes": "*"
   },
@@ -1651,241 +1081,121 @@
   },
   {
     "role": "user",
-    "resource": "ItemScriptNames",
+    "resource": "CharacterSpell",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ItemScriptNames",
+    "resource": "CharacterSpell",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ItemScriptNames",
+    "resource": "CharacterSpell",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ItemScriptNames",
+    "resource": "CharacterSpell",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "ItemScriptNames",
+    "resource": "CharacterSpell",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "NpcText",
+    "resource": "CharacterDialogue",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "NpcText",
+    "resource": "CharacterDialogue",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "NpcText",
+    "resource": "CharacterDialogue",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "NpcText",
+    "resource": "CharacterDialogue",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "NpcText",
+    "resource": "CharacterDialogue",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "NpcSpellclickSpells",
+    "resource": "Character",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "NpcSpellclickSpells",
+    "resource": "Character",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "NpcSpellclickSpells",
+    "resource": "Character",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "NpcSpellclickSpells",
+    "resource": "Character",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "NpcSpellclickSpells",
+    "resource": "Character",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PageTextLocale",
+    "resource": "ParagraphLocale",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PageTextLocale",
+    "resource": "ParagraphLocale",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PageTextLocale",
+    "resource": "ParagraphLocale",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PageTextLocale",
+    "resource": "ParagraphLocale",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PageTextLocale",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "NpcVendor",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "NpcVendor",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "NpcVendor",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "NpcVendor",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "NpcVendor",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PhaseName",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PhaseName",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PhaseName",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PhaseName",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PhaseName",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "OutdoorpvpTemplate",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "OutdoorpvpTemplate",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "OutdoorpvpTemplate",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "OutdoorpvpTemplate",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "OutdoorpvpTemplate",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PhaseArea",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PhaseArea",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PhaseArea",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PhaseArea",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PhaseArea",
+    "resource": "ParagraphLocale",
     "action": "read:any",
     "attributes": "*"
   },
@@ -1921,31 +1231,31 @@
   },
   {
     "role": "user",
-    "resource": "PageText",
+    "resource": "Paragraph",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PageText",
+    "resource": "Paragraph",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PageText",
+    "resource": "Paragraph",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PageText",
+    "resource": "Paragraph",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PageText",
+    "resource": "Paragraph",
     "action": "read:any",
     "attributes": "*"
   },
@@ -1981,271 +1291,331 @@
   },
   {
     "role": "user",
-    "resource": "PlayerClasslevelstats",
+    "resource": "PlayerFactionAchievement",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerClasslevelstats",
+    "resource": "PlayerFactionAchievement",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerClasslevelstats",
+    "resource": "PlayerFactionAchievement",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerClasslevelstats",
+    "resource": "PlayerFactionAchievement",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerClasslevelstats",
+    "resource": "PlayerFactionAchievement",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeAchievement",
+    "resource": "CraftLevelStat",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeAchievement",
+    "resource": "CraftLevelStat",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeAchievement",
+    "resource": "CraftLevelStat",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeAchievement",
+    "resource": "CraftLevelStat",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeAchievement",
+    "resource": "CraftLevelStat",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseReward",
+    "resource": "PlayerFactionQuest",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseReward",
+    "resource": "PlayerFactionQuest",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseReward",
+    "resource": "PlayerFactionQuest",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseReward",
+    "resource": "PlayerFactionQuest",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseReward",
+    "resource": "PlayerFactionQuest",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeQuests",
+    "resource": "PlayerReward",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeQuests",
+    "resource": "PlayerReward",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeQuests",
+    "resource": "PlayerReward",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeQuests",
+    "resource": "PlayerReward",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeQuests",
+    "resource": "PlayerReward",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeSpells",
+    "resource": "PlayerFactionReputation",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeSpells",
+    "resource": "PlayerFactionReputation",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeSpells",
+    "resource": "PlayerFactionReputation",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeSpells",
+    "resource": "PlayerFactionReputation",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeSpells",
+    "resource": "PlayerFactionReputation",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoAction",
+    "resource": "PlayerFactionSpell",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoAction",
+    "resource": "PlayerFactionSpell",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoAction",
+    "resource": "PlayerFactionSpell",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoAction",
+    "resource": "PlayerFactionSpell",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoAction",
+    "resource": "PlayerFactionSpell",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeReputations",
+    "resource": "Response",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeReputations",
+    "resource": "Response",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeReputations",
+    "resource": "Response",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeReputations",
+    "resource": "Response",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerFactionchangeReputations",
+    "resource": "Response",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoCastSpell",
+    "resource": "GeneStat",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoCastSpell",
+    "resource": "GeneStat",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoCastSpell",
+    "resource": "GeneStat",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoCastSpell",
+    "resource": "GeneStat",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoCastSpell",
+    "resource": "GeneStat",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoItem",
+    "resource": "PlayerFactionTitle",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoItem",
+    "resource": "PlayerFactionTitle",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoItem",
+    "resource": "PlayerFactionTitle",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoItem",
+    "resource": "PlayerFactionTitle",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoItem",
+    "resource": "PlayerFactionTitle",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ResponseLocale",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ResponseLocale",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ResponseLocale",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ResponseLocale",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "ResponseLocale",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Choice",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Choice",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Choice",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Choice",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Choice",
     "action": "read:any",
     "attributes": "*"
   },
@@ -2281,451 +1651,211 @@
   },
   {
     "role": "user",
-    "resource": "Playerchoice",
+    "resource": "PlayerRewardItem",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Playerchoice",
+    "resource": "PlayerRewardItem",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Playerchoice",
+    "resource": "PlayerRewardItem",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Playerchoice",
+    "resource": "PlayerRewardItem",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Playerchoice",
+    "resource": "PlayerRewardItem",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardItemChoice",
+    "resource": "Currency",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardItemChoice",
+    "resource": "Currency",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardItemChoice",
+    "resource": "Currency",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardItemChoice",
+    "resource": "Currency",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardItemChoice",
+    "resource": "Currency",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceLocale",
+    "resource": "ChoiceLocale",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceLocale",
+    "resource": "ChoiceLocale",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceLocale",
+    "resource": "ChoiceLocale",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceLocale",
+    "resource": "ChoiceLocale",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceLocale",
+    "resource": "ChoiceLocale",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardFaction",
+    "resource": "Faction",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardFaction",
+    "resource": "Faction",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardFaction",
+    "resource": "Faction",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardFaction",
+    "resource": "Faction",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardFaction",
+    "resource": "Faction",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseLocale",
+    "resource": "Player",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseLocale",
+    "resource": "Player",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseLocale",
+    "resource": "Player",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseLocale",
+    "resource": "Player",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseLocale",
+    "resource": "Player",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoSpellCustom",
+    "resource": "Craft",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoSpellCustom",
+    "resource": "Craft",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoSpellCustom",
+    "resource": "Craft",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoSpellCustom",
+    "resource": "Craft",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayercreateinfoSpellCustom",
+    "resource": "Craft",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardItem",
+    "resource": "PlayerCraft",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardItem",
+    "resource": "PlayerCraft",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardItem",
+    "resource": "PlayerCraft",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardItem",
+    "resource": "PlayerCraft",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "PlayerchoiceResponseRewardItem",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerRacestats",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerRacestats",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerRacestats",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerRacestats",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerRacestats",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerFactionchangeTitles",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerFactionchangeTitles",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerFactionchangeTitles",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerFactionchangeTitles",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerFactionchangeTitles",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponse",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponse",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponse",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponse",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponse",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponseRewardCurrency",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponseRewardCurrency",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponseRewardCurrency",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponseRewardCurrency",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponseRewardCurrency",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponseMawPower",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponseMawPower",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponseMawPower",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponseMawPower",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "PlayerchoiceResponseMawPower",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Playercreateinfo",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Playercreateinfo",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Playercreateinfo",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Playercreateinfo",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Playercreateinfo",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Zone",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Zone",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Zone",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Zone",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Zone",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Map",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Map",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Map",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Map",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Map",
+    "resource": "PlayerCraft",
     "action": "read:any",
     "attributes": "*"
   }

@@ -1,4 +1,6 @@
+import { GameEventCreateNestedManyWithoutGameEventCreaturesInput } from "./GameEventCreateNestedManyWithoutGameEventCreaturesInput";
+
 export type GameEventCreatureCreateInput = {
-  eventEntry?: number | null;
-  guid?: number | null;
+  gameEvents?: GameEventCreateNestedManyWithoutGameEventCreaturesInput;
+  spawnerId: string;
 };

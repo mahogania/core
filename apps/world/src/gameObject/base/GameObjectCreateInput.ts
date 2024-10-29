@@ -16,14 +16,16 @@ import {
   Min,
   Max,
   IsOptional,
+  ValidateNested,
+  IsDate,
   IsString,
   MaxLength,
-  IsDate,
 } from "class-validator";
+import { GameObjectTemplateWhereUniqueInput } from "../../gameObjectTemplate/base/GameObjectTemplateWhereUniqueInput";
+import { Type } from "class-transformer";
 import { IsJSONValue } from "../../validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { InputJsonValue } from "../../types";
-import { Type } from "class-transformer";
 
 @InputType()
 class GameObjectCreateInput {
@@ -39,6 +41,18 @@ class GameObjectCreateInput {
     nullable: true,
   })
   areaId?: number | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => GameObjectTemplateWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => GameObjectTemplateWhereUniqueInput)
+  @IsOptional()
+  @Field(() => GameObjectTemplateWhereUniqueInput, {
+    nullable: true,
+  })
+  gameObjectTemplate?: GameObjectTemplateWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
@@ -77,90 +91,6 @@ class GameObjectCreateInput {
     nullable: true,
   })
   phaseId?: number | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  positionX?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  positionY?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  positionZ?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  rotationW?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  rotationX?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  rotationY?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  rotationZ?: string | null;
 
   @ApiProperty({
     required: false,
@@ -207,6 +137,15 @@ class GameObjectCreateInput {
     nullable: true,
   })
   stringId?: string | null;
+
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(256)
+  @Field(() => String)
+  transformId!: string;
 
   @ApiProperty({
     required: false,

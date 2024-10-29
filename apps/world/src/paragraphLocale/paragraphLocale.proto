@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package paragraphLocale;
+service ParagraphLocaleService {
+ rpc createParagraphLocale (ParagraphLocaleCreateInput) returns (ParagraphLocale) {}
+rpc paragraphLocales (findManyParams) returns (stream ParagraphLocale) {}
+rpc paragraphLocale (ParagraphLocaleWhereUniqueInput) returns (ParagraphLocale) {}
+rpc updateParagraphLocale (ParagraphLocaleUpdateInput) returns (ParagraphLocale) {}
+rpc deleteParagraphLocale (ParagraphLocaleWhereUniqueInput) returns (ParagraphLocale) {}
+rpc findManyParagraphLocales (ParagraphLocaleWhereUniqueInput) returns (stream Paragraph) {}
+rpc updateParagraphLocales (ParagraphParams) returns (stream Paragraph) {}
+rpc connectParagraphLocales (ParagraphParams) returns (Paragraph) {}
+rpc disconnectParagraphLocales (ParagraphParams) returns (Paragraph) {} 
+ }
+message ParagraphLocaleCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Paragraph paragraphs = 3;
+string updatedAt = 4;
+};
+message ParagraphLocale {
+string createdAt = 1;
+string id = 2;
+repeated Paragraph paragraphs = 3;
+string updatedAt = 4;
+};
+message ParagraphLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Paragraph paragraphs = 3;
+string updatedAt = 4;
+};
+message ParagraphLocaleUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Paragraph paragraphs = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Paragraph {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ParagraphWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ParagraphParams {
+ParagraphLocaleWhereUniqueInput paragraphLocaleWhereUniqueInput = 1;
+ParagraphWhereUniqueInput paragraphWhereUniqueInput = 2;
+};

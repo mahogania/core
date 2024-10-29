@@ -10,9 +10,11 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
+
 import {
   Prisma,
   GameObjectTemplateAddon as PrismaGameObjectTemplateAddon,
+  GameObjectTemplate as PrismaGameObjectTemplate,
 } from "@prisma/client";
 
 export class GameObjectTemplateAddonServiceBase {
@@ -48,5 +50,15 @@ export class GameObjectTemplateAddonServiceBase {
     args: Prisma.GameObjectTemplateAddonDeleteArgs
   ): Promise<PrismaGameObjectTemplateAddon> {
     return this.prisma.gameObjectTemplateAddon.delete(args);
+  }
+
+  async getGameObjectTemplate(
+    parentId: string
+  ): Promise<PrismaGameObjectTemplate | null> {
+    return this.prisma.gameObjectTemplateAddon
+      .findUnique({
+        where: { id: parentId },
+      })
+      .gameObjectTemplate();
   }
 }

@@ -18,10 +18,6 @@ import { AchievementList } from "./achievement/AchievementList";
 import { AchievementCreate } from "./achievement/AchievementCreate";
 import { AchievementEdit } from "./achievement/AchievementEdit";
 import { AchievementShow } from "./achievement/AchievementShow";
-import { AccessRequirementList } from "./accessRequirement/AccessRequirementList";
-import { AccessRequirementCreate } from "./accessRequirement/AccessRequirementCreate";
-import { AccessRequirementEdit } from "./accessRequirement/AccessRequirementEdit";
-import { AccessRequirementShow } from "./accessRequirement/AccessRequirementShow";
 import { AchievementRewardList } from "./achievementReward/AchievementRewardList";
 import { AchievementRewardCreate } from "./achievementReward/AchievementRewardCreate";
 import { AchievementRewardEdit } from "./achievementReward/AchievementRewardEdit";
@@ -30,118 +26,50 @@ import { AchievementRewardLocaleList } from "./achievementRewardLocale/Achieveme
 import { AchievementRewardLocaleCreate } from "./achievementRewardLocale/AchievementRewardLocaleCreate";
 import { AchievementRewardLocaleEdit } from "./achievementRewardLocale/AchievementRewardLocaleEdit";
 import { AchievementRewardLocaleShow } from "./achievementRewardLocale/AchievementRewardLocaleShow";
-import { AchievementScriptsList } from "./achievementScripts/AchievementScriptsList";
-import { AchievementScriptsCreate } from "./achievementScripts/AchievementScriptsCreate";
-import { AchievementScriptsEdit } from "./achievementScripts/AchievementScriptsEdit";
-import { AchievementScriptsShow } from "./achievementScripts/AchievementScriptsShow";
-import { DisenchantLootTemplateList } from "./disenchantLootTemplate/DisenchantLootTemplateList";
-import { DisenchantLootTemplateCreate } from "./disenchantLootTemplate/DisenchantLootTemplateCreate";
-import { DisenchantLootTemplateEdit } from "./disenchantLootTemplate/DisenchantLootTemplateEdit";
-import { DisenchantLootTemplateShow } from "./disenchantLootTemplate/DisenchantLootTemplateShow";
-import { EventScriptNamesList } from "./eventScriptNames/EventScriptNamesList";
-import { EventScriptNamesCreate } from "./eventScriptNames/EventScriptNamesCreate";
-import { EventScriptNamesEdit } from "./eventScriptNames/EventScriptNamesEdit";
-import { EventScriptNamesShow } from "./eventScriptNames/EventScriptNamesShow";
-import { GameEventList } from "./gameEvent/GameEventList";
-import { GameEventCreate } from "./gameEvent/GameEventCreate";
-import { GameEventEdit } from "./gameEvent/GameEventEdit";
-import { GameEventShow } from "./gameEvent/GameEventShow";
-import { GameWeatherList } from "./gameWeather/GameWeatherList";
-import { GameWeatherCreate } from "./gameWeather/GameWeatherCreate";
-import { GameWeatherEdit } from "./gameWeather/GameWeatherEdit";
-import { GameWeatherShow } from "./gameWeather/GameWeatherShow";
-import { GameObjectList } from "./gameObject/GameObjectList";
-import { GameObjectCreate } from "./gameObject/GameObjectCreate";
-import { GameObjectEdit } from "./gameObject/GameObjectEdit";
-import { GameObjectShow } from "./gameObject/GameObjectShow";
-import { ExplorationBasexpList } from "./explorationBasexp/ExplorationBasexpList";
-import { ExplorationBasexpCreate } from "./explorationBasexp/ExplorationBasexpCreate";
-import { ExplorationBasexpEdit } from "./explorationBasexp/ExplorationBasexpEdit";
-import { ExplorationBasexpShow } from "./explorationBasexp/ExplorationBasexpShow";
-import { EventScriptsList } from "./eventScripts/EventScriptsList";
-import { EventScriptsCreate } from "./eventScripts/EventScriptsCreate";
-import { EventScriptsEdit } from "./eventScripts/EventScriptsEdit";
-import { EventScriptsShow } from "./eventScripts/EventScriptsShow";
+import { AchievementBehaviourList } from "./achievementBehaviour/AchievementBehaviourList";
+import { AchievementBehaviourCreate } from "./achievementBehaviour/AchievementBehaviourCreate";
+import { AchievementBehaviourEdit } from "./achievementBehaviour/AchievementBehaviourEdit";
+import { AchievementBehaviourShow } from "./achievementBehaviour/AchievementBehaviourShow";
 import { GameObjectQuestItemList } from "./gameObjectQuestItem/GameObjectQuestItemList";
 import { GameObjectQuestItemCreate } from "./gameObjectQuestItem/GameObjectQuestItemCreate";
 import { GameObjectQuestItemEdit } from "./gameObjectQuestItem/GameObjectQuestItemEdit";
 import { GameObjectQuestItemShow } from "./gameObjectQuestItem/GameObjectQuestItemShow";
-import { GameObjectTemplateList } from "./gameObjectTemplate/GameObjectTemplateList";
-import { GameObjectTemplateCreate } from "./gameObjectTemplate/GameObjectTemplateCreate";
-import { GameObjectTemplateEdit } from "./gameObjectTemplate/GameObjectTemplateEdit";
-import { GameObjectTemplateShow } from "./gameObjectTemplate/GameObjectTemplateShow";
-import { GameEventQuestConditionList } from "./gameEventQuestCondition/GameEventQuestConditionList";
-import { GameEventQuestConditionCreate } from "./gameEventQuestCondition/GameEventQuestConditionCreate";
-import { GameEventQuestConditionEdit } from "./gameEventQuestCondition/GameEventQuestConditionEdit";
-import { GameEventQuestConditionShow } from "./gameEventQuestCondition/GameEventQuestConditionShow";
+import { ExplorationBasexpList } from "./explorationBasexp/ExplorationBasexpList";
+import { ExplorationBasexpCreate } from "./explorationBasexp/ExplorationBasexpCreate";
+import { ExplorationBasexpEdit } from "./explorationBasexp/ExplorationBasexpEdit";
+import { ExplorationBasexpShow } from "./explorationBasexp/ExplorationBasexpShow";
+import { GameEventList } from "./gameEvent/GameEventList";
+import { GameEventCreate } from "./gameEvent/GameEventCreate";
+import { GameEventEdit } from "./gameEvent/GameEventEdit";
+import { GameEventShow } from "./gameEvent/GameEventShow";
 import { GameObjectTemplateAddonList } from "./gameObjectTemplateAddon/GameObjectTemplateAddonList";
 import { GameObjectTemplateAddonCreate } from "./gameObjectTemplateAddon/GameObjectTemplateAddonCreate";
 import { GameObjectTemplateAddonEdit } from "./gameObjectTemplateAddon/GameObjectTemplateAddonEdit";
 import { GameObjectTemplateAddonShow } from "./gameObjectTemplateAddon/GameObjectTemplateAddonShow";
-import { GameObjectQuestStarterList } from "./gameObjectQuestStarter/GameObjectQuestStarterList";
-import { GameObjectQuestStarterCreate } from "./gameObjectQuestStarter/GameObjectQuestStarterCreate";
-import { GameObjectQuestStarterEdit } from "./gameObjectQuestStarter/GameObjectQuestStarterEdit";
-import { GameObjectQuestStarterShow } from "./gameObjectQuestStarter/GameObjectQuestStarterShow";
-import { GameEventSeasonalQuestRelationList } from "./gameEventSeasonalQuestRelation/GameEventSeasonalQuestRelationList";
-import { GameEventSeasonalQuestRelationCreate } from "./gameEventSeasonalQuestRelation/GameEventSeasonalQuestRelationCreate";
-import { GameEventSeasonalQuestRelationEdit } from "./gameEventSeasonalQuestRelation/GameEventSeasonalQuestRelationEdit";
-import { GameEventSeasonalQuestRelationShow } from "./gameEventSeasonalQuestRelation/GameEventSeasonalQuestRelationShow";
-import { FishingLootTemplateList } from "./fishingLootTemplate/FishingLootTemplateList";
-import { FishingLootTemplateCreate } from "./fishingLootTemplate/FishingLootTemplateCreate";
-import { FishingLootTemplateEdit } from "./fishingLootTemplate/FishingLootTemplateEdit";
-import { FishingLootTemplateShow } from "./fishingLootTemplate/FishingLootTemplateShow";
+import { GameObjectTemplateList } from "./gameObjectTemplate/GameObjectTemplateList";
+import { GameObjectTemplateCreate } from "./gameObjectTemplate/GameObjectTemplateCreate";
+import { GameObjectTemplateEdit } from "./gameObjectTemplate/GameObjectTemplateEdit";
+import { GameObjectTemplateShow } from "./gameObjectTemplate/GameObjectTemplateShow";
 import { GameObjectAddonList } from "./gameObjectAddon/GameObjectAddonList";
 import { GameObjectAddonCreate } from "./gameObjectAddon/GameObjectAddonCreate";
 import { GameObjectAddonEdit } from "./gameObjectAddon/GameObjectAddonEdit";
 import { GameObjectAddonShow } from "./gameObjectAddon/GameObjectAddonShow";
-import { GameTeleList } from "./gameTele/GameTeleList";
-import { GameTeleCreate } from "./gameTele/GameTeleCreate";
-import { GameTeleEdit } from "./gameTele/GameTeleEdit";
-import { GameTeleShow } from "./gameTele/GameTeleShow";
-import { GameEventCreatureList } from "./gameEventCreature/GameEventCreatureList";
-import { GameEventCreatureCreate } from "./gameEventCreature/GameEventCreatureCreate";
-import { GameEventCreatureEdit } from "./gameEventCreature/GameEventCreatureEdit";
-import { GameEventCreatureShow } from "./gameEventCreature/GameEventCreatureShow";
-import { GameEventGameObjectList } from "./gameEventGameObject/GameEventGameObjectList";
-import { GameEventGameObjectCreate } from "./gameEventGameObject/GameEventGameObjectCreate";
-import { GameEventGameObjectEdit } from "./gameEventGameObject/GameEventGameObjectEdit";
-import { GameEventGameObjectShow } from "./gameEventGameObject/GameEventGameObjectShow";
-import { GameEventPrerequisiteList } from "./gameEventPrerequisite/GameEventPrerequisiteList";
-import { GameEventPrerequisiteCreate } from "./gameEventPrerequisite/GameEventPrerequisiteCreate";
-import { GameEventPrerequisiteEdit } from "./gameEventPrerequisite/GameEventPrerequisiteEdit";
-import { GameEventPrerequisiteShow } from "./gameEventPrerequisite/GameEventPrerequisiteShow";
-import { GameEventConditionList } from "./gameEventCondition/GameEventConditionList";
-import { GameEventConditionCreate } from "./gameEventCondition/GameEventConditionCreate";
-import { GameEventConditionEdit } from "./gameEventCondition/GameEventConditionEdit";
-import { GameEventConditionShow } from "./gameEventCondition/GameEventConditionShow";
-import { GameObjectLootTemplateList } from "./gameObjectLootTemplate/GameObjectLootTemplateList";
-import { GameObjectLootTemplateCreate } from "./gameObjectLootTemplate/GameObjectLootTemplateCreate";
-import { GameObjectLootTemplateEdit } from "./gameObjectLootTemplate/GameObjectLootTemplateEdit";
-import { GameObjectLootTemplateShow } from "./gameObjectLootTemplate/GameObjectLootTemplateShow";
-import { GameEventPoolList } from "./gameEventPool/GameEventPoolList";
-import { GameEventPoolCreate } from "./gameEventPool/GameEventPoolCreate";
-import { GameEventPoolEdit } from "./gameEventPool/GameEventPoolEdit";
-import { GameEventPoolShow } from "./gameEventPool/GameEventPoolShow";
-import { GameEventCreatureQuestList } from "./gameEventCreatureQuest/GameEventCreatureQuestList";
-import { GameEventCreatureQuestCreate } from "./gameEventCreatureQuest/GameEventCreatureQuestCreate";
-import { GameEventCreatureQuestEdit } from "./gameEventCreatureQuest/GameEventCreatureQuestEdit";
-import { GameEventCreatureQuestShow } from "./gameEventCreatureQuest/GameEventCreatureQuestShow";
-import { GameEventNpcVendorList } from "./gameEventNpcVendor/GameEventNpcVendorList";
-import { GameEventNpcVendorCreate } from "./gameEventNpcVendor/GameEventNpcVendorCreate";
-import { GameEventNpcVendorEdit } from "./gameEventNpcVendor/GameEventNpcVendorEdit";
-import { GameEventNpcVendorShow } from "./gameEventNpcVendor/GameEventNpcVendorShow";
-import { GameEventArenaSeasonsList } from "./gameEventArenaSeasons/GameEventArenaSeasonsList";
-import { GameEventArenaSeasonsCreate } from "./gameEventArenaSeasons/GameEventArenaSeasonsCreate";
-import { GameEventArenaSeasonsEdit } from "./gameEventArenaSeasons/GameEventArenaSeasonsEdit";
-import { GameEventArenaSeasonsShow } from "./gameEventArenaSeasons/GameEventArenaSeasonsShow";
-import { GameObjectOverridesList } from "./gameObjectOverrides/GameObjectOverridesList";
-import { GameObjectOverridesCreate } from "./gameObjectOverrides/GameObjectOverridesCreate";
-import { GameObjectOverridesEdit } from "./gameObjectOverrides/GameObjectOverridesEdit";
-import { GameObjectOverridesShow } from "./gameObjectOverrides/GameObjectOverridesShow";
-import { GameEventNpcFlagList } from "./gameEventNpcFlag/GameEventNpcFlagList";
-import { GameEventNpcFlagCreate } from "./gameEventNpcFlag/GameEventNpcFlagCreate";
-import { GameEventNpcFlagEdit } from "./gameEventNpcFlag/GameEventNpcFlagEdit";
-import { GameEventNpcFlagShow } from "./gameEventNpcFlag/GameEventNpcFlagShow";
+import { GameObjectList } from "./gameObject/GameObjectList";
+import { GameObjectCreate } from "./gameObject/GameObjectCreate";
+import { GameObjectEdit } from "./gameObject/GameObjectEdit";
+import { GameObjectShow } from "./gameObject/GameObjectShow";
+import { GameObjectQuestStarterList } from "./gameObjectQuestStarter/GameObjectQuestStarterList";
+import { GameObjectQuestStarterCreate } from "./gameObjectQuestStarter/GameObjectQuestStarterCreate";
+import { GameObjectQuestStarterEdit } from "./gameObjectQuestStarter/GameObjectQuestStarterEdit";
+import { GameObjectQuestStarterShow } from "./gameObjectQuestStarter/GameObjectQuestStarterShow";
+import { LootTemplateList } from "./lootTemplate/LootTemplateList";
+import { LootTemplateCreate } from "./lootTemplate/LootTemplateCreate";
+import { LootTemplateEdit } from "./lootTemplate/LootTemplateEdit";
+import { LootTemplateShow } from "./lootTemplate/LootTemplateShow";
+import { GameObjectQuestEnderList } from "./gameObjectQuestEnder/GameObjectQuestEnderList";
+import { GameObjectQuestEnderCreate } from "./gameObjectQuestEnder/GameObjectQuestEnderCreate";
+import { GameObjectQuestEnderEdit } from "./gameObjectQuestEnder/GameObjectQuestEnderEdit";
+import { GameObjectQuestEnderShow } from "./gameObjectQuestEnder/GameObjectQuestEnderShow";
 import { GameObjectTemplateLocaleList } from "./gameObjectTemplateLocale/GameObjectTemplateLocaleList";
 import { GameObjectTemplateLocaleCreate } from "./gameObjectTemplateLocale/GameObjectTemplateLocaleCreate";
 import { GameObjectTemplateLocaleEdit } from "./gameObjectTemplateLocale/GameObjectTemplateLocaleEdit";
@@ -150,78 +78,74 @@ import { GameEventModelEquipList } from "./gameEventModelEquip/GameEventModelEqu
 import { GameEventModelEquipCreate } from "./gameEventModelEquip/GameEventModelEquipCreate";
 import { GameEventModelEquipEdit } from "./gameEventModelEquip/GameEventModelEquipEdit";
 import { GameEventModelEquipShow } from "./gameEventModelEquip/GameEventModelEquipShow";
-import { GameObjectQuestEnderList } from "./gameObjectQuestEnder/GameObjectQuestEnderList";
-import { GameObjectQuestEnderCreate } from "./gameObjectQuestEnder/GameObjectQuestEnderCreate";
-import { GameObjectQuestEnderEdit } from "./gameObjectQuestEnder/GameObjectQuestEnderEdit";
-import { GameObjectQuestEnderShow } from "./gameObjectQuestEnder/GameObjectQuestEnderShow";
-import { GameEventGameObjectQuestList } from "./gameEventGameObjectQuest/GameEventGameObjectQuestList";
-import { GameEventGameObjectQuestCreate } from "./gameEventGameObjectQuest/GameEventGameObjectQuestCreate";
-import { GameEventGameObjectQuestEdit } from "./gameEventGameObjectQuest/GameEventGameObjectQuestEdit";
-import { GameEventGameObjectQuestShow } from "./gameEventGameObjectQuest/GameEventGameObjectQuestShow";
-import { GossipMenuOptionLocaleList } from "./gossipMenuOptionLocale/GossipMenuOptionLocaleList";
-import { GossipMenuOptionLocaleCreate } from "./gossipMenuOptionLocale/GossipMenuOptionLocaleCreate";
-import { GossipMenuOptionLocaleEdit } from "./gossipMenuOptionLocale/GossipMenuOptionLocaleEdit";
-import { GossipMenuOptionLocaleShow } from "./gossipMenuOptionLocale/GossipMenuOptionLocaleShow";
-import { GossipMenuOptionList } from "./gossipMenuOption/GossipMenuOptionList";
-import { GossipMenuOptionCreate } from "./gossipMenuOption/GossipMenuOptionCreate";
-import { GossipMenuOptionEdit } from "./gossipMenuOption/GossipMenuOptionEdit";
-import { GossipMenuOptionShow } from "./gossipMenuOption/GossipMenuOptionShow";
-import { GuildRewardsList } from "./guildRewards/GuildRewardsList";
-import { GuildRewardsCreate } from "./guildRewards/GuildRewardsCreate";
-import { GuildRewardsEdit } from "./guildRewards/GuildRewardsEdit";
-import { GuildRewardsShow } from "./guildRewards/GuildRewardsShow";
-import { LfgDungeonRewardsList } from "./lfgDungeonRewards/LfgDungeonRewardsList";
-import { LfgDungeonRewardsCreate } from "./lfgDungeonRewards/LfgDungeonRewardsCreate";
-import { LfgDungeonRewardsEdit } from "./lfgDungeonRewards/LfgDungeonRewardsEdit";
-import { LfgDungeonRewardsShow } from "./lfgDungeonRewards/LfgDungeonRewardsShow";
-import { MailLootTemplateList } from "./mailLootTemplate/MailLootTemplateList";
-import { MailLootTemplateCreate } from "./mailLootTemplate/MailLootTemplateCreate";
-import { MailLootTemplateEdit } from "./mailLootTemplate/MailLootTemplateEdit";
-import { MailLootTemplateShow } from "./mailLootTemplate/MailLootTemplateShow";
+import { GameEventGameObjectList } from "./gameEventGameObject/GameEventGameObjectList";
+import { GameEventGameObjectCreate } from "./gameEventGameObject/GameEventGameObjectCreate";
+import { GameEventGameObjectEdit } from "./gameEventGameObject/GameEventGameObjectEdit";
+import { GameEventGameObjectShow } from "./gameEventGameObject/GameEventGameObjectShow";
+import { GameEventQuestList } from "./gameEventQuest/GameEventQuestList";
+import { GameEventQuestCreate } from "./gameEventQuest/GameEventQuestCreate";
+import { GameEventQuestEdit } from "./gameEventQuest/GameEventQuestEdit";
+import { GameEventQuestShow } from "./gameEventQuest/GameEventQuestShow";
+import { GameEventCharacterList } from "./gameEventCharacter/GameEventCharacterList";
+import { GameEventCharacterCreate } from "./gameEventCharacter/GameEventCharacterCreate";
+import { GameEventCharacterEdit } from "./gameEventCharacter/GameEventCharacterEdit";
+import { GameEventCharacterShow } from "./gameEventCharacter/GameEventCharacterShow";
+import { GameObjectOverridesList } from "./gameObjectOverrides/GameObjectOverridesList";
+import { GameObjectOverridesCreate } from "./gameObjectOverrides/GameObjectOverridesCreate";
+import { GameObjectOverridesEdit } from "./gameObjectOverrides/GameObjectOverridesEdit";
+import { GameObjectOverridesShow } from "./gameObjectOverrides/GameObjectOverridesShow";
+import { GameEventConditionList } from "./gameEventCondition/GameEventConditionList";
+import { GameEventConditionCreate } from "./gameEventCondition/GameEventConditionCreate";
+import { GameEventConditionEdit } from "./gameEventCondition/GameEventConditionEdit";
+import { GameEventConditionShow } from "./gameEventCondition/GameEventConditionShow";
+import { GameEventCreatureList } from "./gameEventCreature/GameEventCreatureList";
+import { GameEventCreatureCreate } from "./gameEventCreature/GameEventCreatureCreate";
+import { GameEventCreatureEdit } from "./gameEventCreature/GameEventCreatureEdit";
+import { GameEventCreatureShow } from "./gameEventCreature/GameEventCreatureShow";
+import { GameObjectLootTemplateList } from "./gameObjectLootTemplate/GameObjectLootTemplateList";
+import { GameObjectLootTemplateCreate } from "./gameObjectLootTemplate/GameObjectLootTemplateCreate";
+import { GameObjectLootTemplateEdit } from "./gameObjectLootTemplate/GameObjectLootTemplateEdit";
+import { GameObjectLootTemplateShow } from "./gameObjectLootTemplate/GameObjectLootTemplateShow";
 import { MillingLootTemplateList } from "./millingLootTemplate/MillingLootTemplateList";
 import { MillingLootTemplateCreate } from "./millingLootTemplate/MillingLootTemplateCreate";
 import { MillingLootTemplateEdit } from "./millingLootTemplate/MillingLootTemplateEdit";
 import { MillingLootTemplateShow } from "./millingLootTemplate/MillingLootTemplateShow";
+import { MailLootTemplateList } from "./mailLootTemplate/MailLootTemplateList";
+import { MailLootTemplateCreate } from "./mailLootTemplate/MailLootTemplateCreate";
+import { MailLootTemplateEdit } from "./mailLootTemplate/MailLootTemplateEdit";
+import { MailLootTemplateShow } from "./mailLootTemplate/MailLootTemplateShow";
 import { GraveyardZoneList } from "./graveyardZone/GraveyardZoneList";
 import { GraveyardZoneCreate } from "./graveyardZone/GraveyardZoneCreate";
 import { GraveyardZoneEdit } from "./graveyardZone/GraveyardZoneEdit";
 import { GraveyardZoneShow } from "./graveyardZone/GraveyardZoneShow";
-import { LfgDungeonTemplateList } from "./lfgDungeonTemplate/LfgDungeonTemplateList";
-import { LfgDungeonTemplateCreate } from "./lfgDungeonTemplate/LfgDungeonTemplateCreate";
-import { LfgDungeonTemplateEdit } from "./lfgDungeonTemplate/LfgDungeonTemplateEdit";
-import { LfgDungeonTemplateShow } from "./lfgDungeonTemplate/LfgDungeonTemplateShow";
-import { GuildRewardsReqAchievementsList } from "./guildRewardsReqAchievements/GuildRewardsReqAchievementsList";
-import { GuildRewardsReqAchievementsCreate } from "./guildRewardsReqAchievements/GuildRewardsReqAchievementsCreate";
-import { GuildRewardsReqAchievementsEdit } from "./guildRewardsReqAchievements/GuildRewardsReqAchievementsEdit";
-import { GuildRewardsReqAchievementsShow } from "./guildRewardsReqAchievements/GuildRewardsReqAchievementsShow";
-import { MailLevelRewardList } from "./mailLevelReward/MailLevelRewardList";
-import { MailLevelRewardCreate } from "./mailLevelReward/MailLevelRewardCreate";
-import { MailLevelRewardEdit } from "./mailLevelReward/MailLevelRewardEdit";
-import { MailLevelRewardShow } from "./mailLevelReward/MailLevelRewardShow";
-import { JumpChargeParamsList } from "./jumpChargeParams/JumpChargeParamsList";
-import { JumpChargeParamsCreate } from "./jumpChargeParams/JumpChargeParamsCreate";
-import { JumpChargeParamsEdit } from "./jumpChargeParams/JumpChargeParamsEdit";
-import { JumpChargeParamsShow } from "./jumpChargeParams/JumpChargeParamsShow";
-import { InstanceTemplateList } from "./instanceTemplate/InstanceTemplateList";
-import { InstanceTemplateCreate } from "./instanceTemplate/InstanceTemplateCreate";
-import { InstanceTemplateEdit } from "./instanceTemplate/InstanceTemplateEdit";
-import { InstanceTemplateShow } from "./instanceTemplate/InstanceTemplateShow";
-import { ItemTemplateAddonList } from "./itemTemplateAddon/ItemTemplateAddonList";
-import { ItemTemplateAddonCreate } from "./itemTemplateAddon/ItemTemplateAddonCreate";
-import { ItemTemplateAddonEdit } from "./itemTemplateAddon/ItemTemplateAddonEdit";
-import { ItemTemplateAddonShow } from "./itemTemplateAddon/ItemTemplateAddonShow";
 import { ItemRandomBonusListTemplateList } from "./itemRandomBonusListTemplate/ItemRandomBonusListTemplateList";
 import { ItemRandomBonusListTemplateCreate } from "./itemRandomBonusListTemplate/ItemRandomBonusListTemplateCreate";
 import { ItemRandomBonusListTemplateEdit } from "./itemRandomBonusListTemplate/ItemRandomBonusListTemplateEdit";
 import { ItemRandomBonusListTemplateShow } from "./itemRandomBonusListTemplate/ItemRandomBonusListTemplateShow";
-import { ItemLootTemplateList } from "./itemLootTemplate/ItemLootTemplateList";
-import { ItemLootTemplateCreate } from "./itemLootTemplate/ItemLootTemplateCreate";
-import { ItemLootTemplateEdit } from "./itemLootTemplate/ItemLootTemplateEdit";
-import { ItemLootTemplateShow } from "./itemLootTemplate/ItemLootTemplateShow";
+import { JumpChargeParamsList } from "./jumpChargeParams/JumpChargeParamsList";
+import { JumpChargeParamsCreate } from "./jumpChargeParams/JumpChargeParamsCreate";
+import { JumpChargeParamsEdit } from "./jumpChargeParams/JumpChargeParamsEdit";
+import { JumpChargeParamsShow } from "./jumpChargeParams/JumpChargeParamsShow";
+import { ItemTemplateAddonList } from "./itemTemplateAddon/ItemTemplateAddonList";
+import { ItemTemplateAddonCreate } from "./itemTemplateAddon/ItemTemplateAddonCreate";
+import { ItemTemplateAddonEdit } from "./itemTemplateAddon/ItemTemplateAddonEdit";
+import { ItemTemplateAddonShow } from "./itemTemplateAddon/ItemTemplateAddonShow";
 import { LinkedRespawnList } from "./linkedRespawn/LinkedRespawnList";
 import { LinkedRespawnCreate } from "./linkedRespawn/LinkedRespawnCreate";
 import { LinkedRespawnEdit } from "./linkedRespawn/LinkedRespawnEdit";
 import { LinkedRespawnShow } from "./linkedRespawn/LinkedRespawnShow";
+import { ItemBehaviourList } from "./itemBehaviour/ItemBehaviourList";
+import { ItemBehaviourCreate } from "./itemBehaviour/ItemBehaviourCreate";
+import { ItemBehaviourEdit } from "./itemBehaviour/ItemBehaviourEdit";
+import { ItemBehaviourShow } from "./itemBehaviour/ItemBehaviourShow";
+import { InstanceTemplateList } from "./instanceTemplate/InstanceTemplateList";
+import { InstanceTemplateCreate } from "./instanceTemplate/InstanceTemplateCreate";
+import { InstanceTemplateEdit } from "./instanceTemplate/InstanceTemplateEdit";
+import { InstanceTemplateShow } from "./instanceTemplate/InstanceTemplateShow";
+import { ItemTemplateList } from "./itemTemplate/ItemTemplateList";
+import { ItemTemplateCreate } from "./itemTemplate/ItemTemplateCreate";
+import { ItemTemplateEdit } from "./itemTemplate/ItemTemplateEdit";
+import { ItemTemplateShow } from "./itemTemplate/ItemTemplateShow";
 import { MountDefinitionsList } from "./mountDefinitions/MountDefinitionsList";
 import { MountDefinitionsCreate } from "./mountDefinitions/MountDefinitionsCreate";
 import { MountDefinitionsEdit } from "./mountDefinitions/MountDefinitionsEdit";
@@ -230,150 +154,110 @@ import { InstanceSpawnGroupsList } from "./instanceSpawnGroups/InstanceSpawnGrou
 import { InstanceSpawnGroupsCreate } from "./instanceSpawnGroups/InstanceSpawnGroupsCreate";
 import { InstanceSpawnGroupsEdit } from "./instanceSpawnGroups/InstanceSpawnGroupsEdit";
 import { InstanceSpawnGroupsShow } from "./instanceSpawnGroups/InstanceSpawnGroupsShow";
-import { ItemScriptNamesList } from "./itemScriptNames/ItemScriptNamesList";
-import { ItemScriptNamesCreate } from "./itemScriptNames/ItemScriptNamesCreate";
-import { ItemScriptNamesEdit } from "./itemScriptNames/ItemScriptNamesEdit";
-import { ItemScriptNamesShow } from "./itemScriptNames/ItemScriptNamesShow";
-import { NpcTextList } from "./npcText/NpcTextList";
-import { NpcTextCreate } from "./npcText/NpcTextCreate";
-import { NpcTextEdit } from "./npcText/NpcTextEdit";
-import { NpcTextShow } from "./npcText/NpcTextShow";
-import { NpcSpellclickSpellsList } from "./npcSpellclickSpells/NpcSpellclickSpellsList";
-import { NpcSpellclickSpellsCreate } from "./npcSpellclickSpells/NpcSpellclickSpellsCreate";
-import { NpcSpellclickSpellsEdit } from "./npcSpellclickSpells/NpcSpellclickSpellsEdit";
-import { NpcSpellclickSpellsShow } from "./npcSpellclickSpells/NpcSpellclickSpellsShow";
-import { PageTextLocaleList } from "./pageTextLocale/PageTextLocaleList";
-import { PageTextLocaleCreate } from "./pageTextLocale/PageTextLocaleCreate";
-import { PageTextLocaleEdit } from "./pageTextLocale/PageTextLocaleEdit";
-import { PageTextLocaleShow } from "./pageTextLocale/PageTextLocaleShow";
-import { NpcVendorList } from "./npcVendor/NpcVendorList";
-import { NpcVendorCreate } from "./npcVendor/NpcVendorCreate";
-import { NpcVendorEdit } from "./npcVendor/NpcVendorEdit";
-import { NpcVendorShow } from "./npcVendor/NpcVendorShow";
-import { PhaseNameList } from "./phaseName/PhaseNameList";
-import { PhaseNameCreate } from "./phaseName/PhaseNameCreate";
-import { PhaseNameEdit } from "./phaseName/PhaseNameEdit";
-import { PhaseNameShow } from "./phaseName/PhaseNameShow";
-import { OutdoorpvpTemplateList } from "./outdoorpvpTemplate/OutdoorpvpTemplateList";
-import { OutdoorpvpTemplateCreate } from "./outdoorpvpTemplate/OutdoorpvpTemplateCreate";
-import { OutdoorpvpTemplateEdit } from "./outdoorpvpTemplate/OutdoorpvpTemplateEdit";
-import { OutdoorpvpTemplateShow } from "./outdoorpvpTemplate/OutdoorpvpTemplateShow";
-import { PhaseAreaList } from "./phaseArea/PhaseAreaList";
-import { PhaseAreaCreate } from "./phaseArea/PhaseAreaCreate";
-import { PhaseAreaEdit } from "./phaseArea/PhaseAreaEdit";
-import { PhaseAreaShow } from "./phaseArea/PhaseAreaShow";
+import { CharacterSpellList } from "./characterSpell/CharacterSpellList";
+import { CharacterSpellCreate } from "./characterSpell/CharacterSpellCreate";
+import { CharacterSpellEdit } from "./characterSpell/CharacterSpellEdit";
+import { CharacterSpellShow } from "./characterSpell/CharacterSpellShow";
+import { CharacterDialogueList } from "./characterDialogue/CharacterDialogueList";
+import { CharacterDialogueCreate } from "./characterDialogue/CharacterDialogueCreate";
+import { CharacterDialogueEdit } from "./characterDialogue/CharacterDialogueEdit";
+import { CharacterDialogueShow } from "./characterDialogue/CharacterDialogueShow";
+import { CharacterList } from "./character/CharacterList";
+import { CharacterCreate } from "./character/CharacterCreate";
+import { CharacterEdit } from "./character/CharacterEdit";
+import { CharacterShow } from "./character/CharacterShow";
+import { ParagraphLocaleList } from "./paragraphLocale/ParagraphLocaleList";
+import { ParagraphLocaleCreate } from "./paragraphLocale/ParagraphLocaleCreate";
+import { ParagraphLocaleEdit } from "./paragraphLocale/ParagraphLocaleEdit";
+import { ParagraphLocaleShow } from "./paragraphLocale/ParagraphLocaleShow";
 import { PetNameGenerationList } from "./petNameGeneration/PetNameGenerationList";
 import { PetNameGenerationCreate } from "./petNameGeneration/PetNameGenerationCreate";
 import { PetNameGenerationEdit } from "./petNameGeneration/PetNameGenerationEdit";
 import { PetNameGenerationShow } from "./petNameGeneration/PetNameGenerationShow";
-import { PageTextList } from "./pageText/PageTextList";
-import { PageTextCreate } from "./pageText/PageTextCreate";
-import { PageTextEdit } from "./pageText/PageTextEdit";
-import { PageTextShow } from "./pageText/PageTextShow";
+import { ParagraphList } from "./paragraph/ParagraphList";
+import { ParagraphCreate } from "./paragraph/ParagraphCreate";
+import { ParagraphEdit } from "./paragraph/ParagraphEdit";
+import { ParagraphShow } from "./paragraph/ParagraphShow";
 import { PetLevelstatsList } from "./petLevelstats/PetLevelstatsList";
 import { PetLevelstatsCreate } from "./petLevelstats/PetLevelstatsCreate";
 import { PetLevelstatsEdit } from "./petLevelstats/PetLevelstatsEdit";
 import { PetLevelstatsShow } from "./petLevelstats/PetLevelstatsShow";
-import { PlayerClasslevelstatsList } from "./playerClasslevelstats/PlayerClasslevelstatsList";
-import { PlayerClasslevelstatsCreate } from "./playerClasslevelstats/PlayerClasslevelstatsCreate";
-import { PlayerClasslevelstatsEdit } from "./playerClasslevelstats/PlayerClasslevelstatsEdit";
-import { PlayerClasslevelstatsShow } from "./playerClasslevelstats/PlayerClasslevelstatsShow";
-import { PlayerFactionchangeAchievementList } from "./playerFactionchangeAchievement/PlayerFactionchangeAchievementList";
-import { PlayerFactionchangeAchievementCreate } from "./playerFactionchangeAchievement/PlayerFactionchangeAchievementCreate";
-import { PlayerFactionchangeAchievementEdit } from "./playerFactionchangeAchievement/PlayerFactionchangeAchievementEdit";
-import { PlayerFactionchangeAchievementShow } from "./playerFactionchangeAchievement/PlayerFactionchangeAchievementShow";
-import { PlayerchoiceResponseRewardList } from "./playerchoiceResponseReward/PlayerchoiceResponseRewardList";
-import { PlayerchoiceResponseRewardCreate } from "./playerchoiceResponseReward/PlayerchoiceResponseRewardCreate";
-import { PlayerchoiceResponseRewardEdit } from "./playerchoiceResponseReward/PlayerchoiceResponseRewardEdit";
-import { PlayerchoiceResponseRewardShow } from "./playerchoiceResponseReward/PlayerchoiceResponseRewardShow";
-import { PlayerFactionchangeQuestsList } from "./playerFactionchangeQuests/PlayerFactionchangeQuestsList";
-import { PlayerFactionchangeQuestsCreate } from "./playerFactionchangeQuests/PlayerFactionchangeQuestsCreate";
-import { PlayerFactionchangeQuestsEdit } from "./playerFactionchangeQuests/PlayerFactionchangeQuestsEdit";
-import { PlayerFactionchangeQuestsShow } from "./playerFactionchangeQuests/PlayerFactionchangeQuestsShow";
-import { PlayerFactionchangeSpellsList } from "./playerFactionchangeSpells/PlayerFactionchangeSpellsList";
-import { PlayerFactionchangeSpellsCreate } from "./playerFactionchangeSpells/PlayerFactionchangeSpellsCreate";
-import { PlayerFactionchangeSpellsEdit } from "./playerFactionchangeSpells/PlayerFactionchangeSpellsEdit";
-import { PlayerFactionchangeSpellsShow } from "./playerFactionchangeSpells/PlayerFactionchangeSpellsShow";
-import { PlayercreateinfoActionList } from "./playercreateinfoAction/PlayercreateinfoActionList";
-import { PlayercreateinfoActionCreate } from "./playercreateinfoAction/PlayercreateinfoActionCreate";
-import { PlayercreateinfoActionEdit } from "./playercreateinfoAction/PlayercreateinfoActionEdit";
-import { PlayercreateinfoActionShow } from "./playercreateinfoAction/PlayercreateinfoActionShow";
-import { PlayerFactionchangeReputationsList } from "./playerFactionchangeReputations/PlayerFactionchangeReputationsList";
-import { PlayerFactionchangeReputationsCreate } from "./playerFactionchangeReputations/PlayerFactionchangeReputationsCreate";
-import { PlayerFactionchangeReputationsEdit } from "./playerFactionchangeReputations/PlayerFactionchangeReputationsEdit";
-import { PlayerFactionchangeReputationsShow } from "./playerFactionchangeReputations/PlayerFactionchangeReputationsShow";
-import { PlayercreateinfoCastSpellList } from "./playercreateinfoCastSpell/PlayercreateinfoCastSpellList";
-import { PlayercreateinfoCastSpellCreate } from "./playercreateinfoCastSpell/PlayercreateinfoCastSpellCreate";
-import { PlayercreateinfoCastSpellEdit } from "./playercreateinfoCastSpell/PlayercreateinfoCastSpellEdit";
-import { PlayercreateinfoCastSpellShow } from "./playercreateinfoCastSpell/PlayercreateinfoCastSpellShow";
-import { PlayercreateinfoItemList } from "./playercreateinfoItem/PlayercreateinfoItemList";
-import { PlayercreateinfoItemCreate } from "./playercreateinfoItem/PlayercreateinfoItemCreate";
-import { PlayercreateinfoItemEdit } from "./playercreateinfoItem/PlayercreateinfoItemEdit";
-import { PlayercreateinfoItemShow } from "./playercreateinfoItem/PlayercreateinfoItemShow";
+import { PlayerFactionAchievementList } from "./playerFactionAchievement/PlayerFactionAchievementList";
+import { PlayerFactionAchievementCreate } from "./playerFactionAchievement/PlayerFactionAchievementCreate";
+import { PlayerFactionAchievementEdit } from "./playerFactionAchievement/PlayerFactionAchievementEdit";
+import { PlayerFactionAchievementShow } from "./playerFactionAchievement/PlayerFactionAchievementShow";
+import { CraftLevelStatList } from "./craftLevelStat/CraftLevelStatList";
+import { CraftLevelStatCreate } from "./craftLevelStat/CraftLevelStatCreate";
+import { CraftLevelStatEdit } from "./craftLevelStat/CraftLevelStatEdit";
+import { CraftLevelStatShow } from "./craftLevelStat/CraftLevelStatShow";
+import { PlayerFactionQuestList } from "./playerFactionQuest/PlayerFactionQuestList";
+import { PlayerFactionQuestCreate } from "./playerFactionQuest/PlayerFactionQuestCreate";
+import { PlayerFactionQuestEdit } from "./playerFactionQuest/PlayerFactionQuestEdit";
+import { PlayerFactionQuestShow } from "./playerFactionQuest/PlayerFactionQuestShow";
+import { PlayerRewardList } from "./playerReward/PlayerRewardList";
+import { PlayerRewardCreate } from "./playerReward/PlayerRewardCreate";
+import { PlayerRewardEdit } from "./playerReward/PlayerRewardEdit";
+import { PlayerRewardShow } from "./playerReward/PlayerRewardShow";
+import { PlayerFactionReputationList } from "./playerFactionReputation/PlayerFactionReputationList";
+import { PlayerFactionReputationCreate } from "./playerFactionReputation/PlayerFactionReputationCreate";
+import { PlayerFactionReputationEdit } from "./playerFactionReputation/PlayerFactionReputationEdit";
+import { PlayerFactionReputationShow } from "./playerFactionReputation/PlayerFactionReputationShow";
+import { PlayerFactionSpellList } from "./playerFactionSpell/PlayerFactionSpellList";
+import { PlayerFactionSpellCreate } from "./playerFactionSpell/PlayerFactionSpellCreate";
+import { PlayerFactionSpellEdit } from "./playerFactionSpell/PlayerFactionSpellEdit";
+import { PlayerFactionSpellShow } from "./playerFactionSpell/PlayerFactionSpellShow";
+import { ResponseList } from "./response/ResponseList";
+import { ResponseCreate } from "./response/ResponseCreate";
+import { ResponseEdit } from "./response/ResponseEdit";
+import { ResponseShow } from "./response/ResponseShow";
+import { GeneStatList } from "./geneStat/GeneStatList";
+import { GeneStatCreate } from "./geneStat/GeneStatCreate";
+import { GeneStatEdit } from "./geneStat/GeneStatEdit";
+import { GeneStatShow } from "./geneStat/GeneStatShow";
+import { PlayerFactionTitleList } from "./playerFactionTitle/PlayerFactionTitleList";
+import { PlayerFactionTitleCreate } from "./playerFactionTitle/PlayerFactionTitleCreate";
+import { PlayerFactionTitleEdit } from "./playerFactionTitle/PlayerFactionTitleEdit";
+import { PlayerFactionTitleShow } from "./playerFactionTitle/PlayerFactionTitleShow";
+import { ResponseLocaleList } from "./responseLocale/ResponseLocaleList";
+import { ResponseLocaleCreate } from "./responseLocale/ResponseLocaleCreate";
+import { ResponseLocaleEdit } from "./responseLocale/ResponseLocaleEdit";
+import { ResponseLocaleShow } from "./responseLocale/ResponseLocaleShow";
+import { ChoiceList } from "./choice/ChoiceList";
+import { ChoiceCreate } from "./choice/ChoiceCreate";
+import { ChoiceEdit } from "./choice/ChoiceEdit";
+import { ChoiceShow } from "./choice/ChoiceShow";
 import { PlayerXpForLevelList } from "./playerXpForLevel/PlayerXpForLevelList";
 import { PlayerXpForLevelCreate } from "./playerXpForLevel/PlayerXpForLevelCreate";
 import { PlayerXpForLevelEdit } from "./playerXpForLevel/PlayerXpForLevelEdit";
 import { PlayerXpForLevelShow } from "./playerXpForLevel/PlayerXpForLevelShow";
-import { PlayerchoiceList } from "./playerchoice/PlayerchoiceList";
-import { PlayerchoiceCreate } from "./playerchoice/PlayerchoiceCreate";
-import { PlayerchoiceEdit } from "./playerchoice/PlayerchoiceEdit";
-import { PlayerchoiceShow } from "./playerchoice/PlayerchoiceShow";
-import { PlayerchoiceResponseRewardItemChoiceList } from "./playerchoiceResponseRewardItemChoice/PlayerchoiceResponseRewardItemChoiceList";
-import { PlayerchoiceResponseRewardItemChoiceCreate } from "./playerchoiceResponseRewardItemChoice/PlayerchoiceResponseRewardItemChoiceCreate";
-import { PlayerchoiceResponseRewardItemChoiceEdit } from "./playerchoiceResponseRewardItemChoice/PlayerchoiceResponseRewardItemChoiceEdit";
-import { PlayerchoiceResponseRewardItemChoiceShow } from "./playerchoiceResponseRewardItemChoice/PlayerchoiceResponseRewardItemChoiceShow";
-import { PlayerchoiceLocaleList } from "./playerchoiceLocale/PlayerchoiceLocaleList";
-import { PlayerchoiceLocaleCreate } from "./playerchoiceLocale/PlayerchoiceLocaleCreate";
-import { PlayerchoiceLocaleEdit } from "./playerchoiceLocale/PlayerchoiceLocaleEdit";
-import { PlayerchoiceLocaleShow } from "./playerchoiceLocale/PlayerchoiceLocaleShow";
-import { PlayerchoiceResponseRewardFactionList } from "./playerchoiceResponseRewardFaction/PlayerchoiceResponseRewardFactionList";
-import { PlayerchoiceResponseRewardFactionCreate } from "./playerchoiceResponseRewardFaction/PlayerchoiceResponseRewardFactionCreate";
-import { PlayerchoiceResponseRewardFactionEdit } from "./playerchoiceResponseRewardFaction/PlayerchoiceResponseRewardFactionEdit";
-import { PlayerchoiceResponseRewardFactionShow } from "./playerchoiceResponseRewardFaction/PlayerchoiceResponseRewardFactionShow";
-import { PlayerchoiceResponseLocaleList } from "./playerchoiceResponseLocale/PlayerchoiceResponseLocaleList";
-import { PlayerchoiceResponseLocaleCreate } from "./playerchoiceResponseLocale/PlayerchoiceResponseLocaleCreate";
-import { PlayerchoiceResponseLocaleEdit } from "./playerchoiceResponseLocale/PlayerchoiceResponseLocaleEdit";
-import { PlayerchoiceResponseLocaleShow } from "./playerchoiceResponseLocale/PlayerchoiceResponseLocaleShow";
-import { PlayercreateinfoSpellCustomList } from "./playercreateinfoSpellCustom/PlayercreateinfoSpellCustomList";
-import { PlayercreateinfoSpellCustomCreate } from "./playercreateinfoSpellCustom/PlayercreateinfoSpellCustomCreate";
-import { PlayercreateinfoSpellCustomEdit } from "./playercreateinfoSpellCustom/PlayercreateinfoSpellCustomEdit";
-import { PlayercreateinfoSpellCustomShow } from "./playercreateinfoSpellCustom/PlayercreateinfoSpellCustomShow";
-import { PlayerchoiceResponseRewardItemList } from "./playerchoiceResponseRewardItem/PlayerchoiceResponseRewardItemList";
-import { PlayerchoiceResponseRewardItemCreate } from "./playerchoiceResponseRewardItem/PlayerchoiceResponseRewardItemCreate";
-import { PlayerchoiceResponseRewardItemEdit } from "./playerchoiceResponseRewardItem/PlayerchoiceResponseRewardItemEdit";
-import { PlayerchoiceResponseRewardItemShow } from "./playerchoiceResponseRewardItem/PlayerchoiceResponseRewardItemShow";
-import { PlayerRacestatsList } from "./playerRacestats/PlayerRacestatsList";
-import { PlayerRacestatsCreate } from "./playerRacestats/PlayerRacestatsCreate";
-import { PlayerRacestatsEdit } from "./playerRacestats/PlayerRacestatsEdit";
-import { PlayerRacestatsShow } from "./playerRacestats/PlayerRacestatsShow";
-import { PlayerFactionchangeTitlesList } from "./playerFactionchangeTitles/PlayerFactionchangeTitlesList";
-import { PlayerFactionchangeTitlesCreate } from "./playerFactionchangeTitles/PlayerFactionchangeTitlesCreate";
-import { PlayerFactionchangeTitlesEdit } from "./playerFactionchangeTitles/PlayerFactionchangeTitlesEdit";
-import { PlayerFactionchangeTitlesShow } from "./playerFactionchangeTitles/PlayerFactionchangeTitlesShow";
-import { PlayerchoiceResponseList } from "./playerchoiceResponse/PlayerchoiceResponseList";
-import { PlayerchoiceResponseCreate } from "./playerchoiceResponse/PlayerchoiceResponseCreate";
-import { PlayerchoiceResponseEdit } from "./playerchoiceResponse/PlayerchoiceResponseEdit";
-import { PlayerchoiceResponseShow } from "./playerchoiceResponse/PlayerchoiceResponseShow";
-import { PlayerchoiceResponseRewardCurrencyList } from "./playerchoiceResponseRewardCurrency/PlayerchoiceResponseRewardCurrencyList";
-import { PlayerchoiceResponseRewardCurrencyCreate } from "./playerchoiceResponseRewardCurrency/PlayerchoiceResponseRewardCurrencyCreate";
-import { PlayerchoiceResponseRewardCurrencyEdit } from "./playerchoiceResponseRewardCurrency/PlayerchoiceResponseRewardCurrencyEdit";
-import { PlayerchoiceResponseRewardCurrencyShow } from "./playerchoiceResponseRewardCurrency/PlayerchoiceResponseRewardCurrencyShow";
-import { PlayerchoiceResponseMawPowerList } from "./playerchoiceResponseMawPower/PlayerchoiceResponseMawPowerList";
-import { PlayerchoiceResponseMawPowerCreate } from "./playerchoiceResponseMawPower/PlayerchoiceResponseMawPowerCreate";
-import { PlayerchoiceResponseMawPowerEdit } from "./playerchoiceResponseMawPower/PlayerchoiceResponseMawPowerEdit";
-import { PlayerchoiceResponseMawPowerShow } from "./playerchoiceResponseMawPower/PlayerchoiceResponseMawPowerShow";
-import { PlayercreateinfoList } from "./playercreateinfo/PlayercreateinfoList";
-import { PlayercreateinfoCreate } from "./playercreateinfo/PlayercreateinfoCreate";
-import { PlayercreateinfoEdit } from "./playercreateinfo/PlayercreateinfoEdit";
-import { PlayercreateinfoShow } from "./playercreateinfo/PlayercreateinfoShow";
-import { ZoneList } from "./zone/ZoneList";
-import { ZoneCreate } from "./zone/ZoneCreate";
-import { ZoneEdit } from "./zone/ZoneEdit";
-import { ZoneShow } from "./zone/ZoneShow";
-import { MapList } from "./map/MapList";
-import { MapCreate } from "./map/MapCreate";
-import { MapEdit } from "./map/MapEdit";
-import { MapShow } from "./map/MapShow";
+import { PlayerRewardItemList } from "./playerRewardItem/PlayerRewardItemList";
+import { PlayerRewardItemCreate } from "./playerRewardItem/PlayerRewardItemCreate";
+import { PlayerRewardItemEdit } from "./playerRewardItem/PlayerRewardItemEdit";
+import { PlayerRewardItemShow } from "./playerRewardItem/PlayerRewardItemShow";
+import { CurrencyList } from "./currency/CurrencyList";
+import { CurrencyCreate } from "./currency/CurrencyCreate";
+import { CurrencyEdit } from "./currency/CurrencyEdit";
+import { CurrencyShow } from "./currency/CurrencyShow";
+import { ChoiceLocaleList } from "./choiceLocale/ChoiceLocaleList";
+import { ChoiceLocaleCreate } from "./choiceLocale/ChoiceLocaleCreate";
+import { ChoiceLocaleEdit } from "./choiceLocale/ChoiceLocaleEdit";
+import { ChoiceLocaleShow } from "./choiceLocale/ChoiceLocaleShow";
+import { FactionList } from "./faction/FactionList";
+import { FactionCreate } from "./faction/FactionCreate";
+import { FactionEdit } from "./faction/FactionEdit";
+import { FactionShow } from "./faction/FactionShow";
+import { PlayerList } from "./player/PlayerList";
+import { PlayerCreate } from "./player/PlayerCreate";
+import { PlayerEdit } from "./player/PlayerEdit";
+import { PlayerShow } from "./player/PlayerShow";
+import { CraftList } from "./craft/CraftList";
+import { CraftCreate } from "./craft/CraftCreate";
+import { CraftEdit } from "./craft/CraftEdit";
+import { CraftShow } from "./craft/CraftShow";
+import { PlayerCraftList } from "./playerCraft/PlayerCraftList";
+import { PlayerCraftCreate } from "./playerCraft/PlayerCraftCreate";
+import { PlayerCraftEdit } from "./playerCraft/PlayerCraftEdit";
+import { PlayerCraftShow } from "./playerCraft/PlayerCraftShow";
 
 const App = (): React.ReactElement => {
   const [dataProvider, setDataProvider] = useState<DataProvider | null>(null);
@@ -432,13 +316,6 @@ const App = (): React.ReactElement => {
           show={AchievementShow}
         />
         <Resource
-          name="AccessRequirement"
-          list={AccessRequirementList}
-          edit={AccessRequirementEdit}
-          create={AccessRequirementCreate}
-          show={AccessRequirementShow}
-        />
-        <Resource
           name="AchievementReward"
           list={AchievementRewardList}
           edit={AchievementRewardEdit}
@@ -453,60 +330,11 @@ const App = (): React.ReactElement => {
           show={AchievementRewardLocaleShow}
         />
         <Resource
-          name="AchievementScripts"
-          list={AchievementScriptsList}
-          edit={AchievementScriptsEdit}
-          create={AchievementScriptsCreate}
-          show={AchievementScriptsShow}
-        />
-        <Resource
-          name="DisenchantLootTemplate"
-          list={DisenchantLootTemplateList}
-          edit={DisenchantLootTemplateEdit}
-          create={DisenchantLootTemplateCreate}
-          show={DisenchantLootTemplateShow}
-        />
-        <Resource
-          name="EventScriptNames"
-          list={EventScriptNamesList}
-          edit={EventScriptNamesEdit}
-          create={EventScriptNamesCreate}
-          show={EventScriptNamesShow}
-        />
-        <Resource
-          name="GameEvent"
-          list={GameEventList}
-          edit={GameEventEdit}
-          create={GameEventCreate}
-          show={GameEventShow}
-        />
-        <Resource
-          name="GameWeather"
-          list={GameWeatherList}
-          edit={GameWeatherEdit}
-          create={GameWeatherCreate}
-          show={GameWeatherShow}
-        />
-        <Resource
-          name="GameObject"
-          list={GameObjectList}
-          edit={GameObjectEdit}
-          create={GameObjectCreate}
-          show={GameObjectShow}
-        />
-        <Resource
-          name="ExplorationBasexp"
-          list={ExplorationBasexpList}
-          edit={ExplorationBasexpEdit}
-          create={ExplorationBasexpCreate}
-          show={ExplorationBasexpShow}
-        />
-        <Resource
-          name="EventScripts"
-          list={EventScriptsList}
-          edit={EventScriptsEdit}
-          create={EventScriptsCreate}
-          show={EventScriptsShow}
+          name="AchievementBehaviour"
+          list={AchievementBehaviourList}
+          edit={AchievementBehaviourEdit}
+          create={AchievementBehaviourCreate}
+          show={AchievementBehaviourShow}
         />
         <Resource
           name="GameObjectQuestItem"
@@ -516,18 +344,18 @@ const App = (): React.ReactElement => {
           show={GameObjectQuestItemShow}
         />
         <Resource
-          name="GameObjectTemplate"
-          list={GameObjectTemplateList}
-          edit={GameObjectTemplateEdit}
-          create={GameObjectTemplateCreate}
-          show={GameObjectTemplateShow}
+          name="ExplorationBasexp"
+          list={ExplorationBasexpList}
+          edit={ExplorationBasexpEdit}
+          create={ExplorationBasexpCreate}
+          show={ExplorationBasexpShow}
         />
         <Resource
-          name="GameEventQuestCondition"
-          list={GameEventQuestConditionList}
-          edit={GameEventQuestConditionEdit}
-          create={GameEventQuestConditionCreate}
-          show={GameEventQuestConditionShow}
+          name="GameEvent"
+          list={GameEventList}
+          edit={GameEventEdit}
+          create={GameEventCreate}
+          show={GameEventShow}
         />
         <Resource
           name="GameObjectTemplateAddon"
@@ -537,25 +365,11 @@ const App = (): React.ReactElement => {
           show={GameObjectTemplateAddonShow}
         />
         <Resource
-          name="GameObjectQuestStarter"
-          list={GameObjectQuestStarterList}
-          edit={GameObjectQuestStarterEdit}
-          create={GameObjectQuestStarterCreate}
-          show={GameObjectQuestStarterShow}
-        />
-        <Resource
-          name="GameEventSeasonalQuestRelation"
-          list={GameEventSeasonalQuestRelationList}
-          edit={GameEventSeasonalQuestRelationEdit}
-          create={GameEventSeasonalQuestRelationCreate}
-          show={GameEventSeasonalQuestRelationShow}
-        />
-        <Resource
-          name="FishingLootTemplate"
-          list={FishingLootTemplateList}
-          edit={FishingLootTemplateEdit}
-          create={FishingLootTemplateCreate}
-          show={FishingLootTemplateShow}
+          name="GameObjectTemplate"
+          list={GameObjectTemplateList}
+          edit={GameObjectTemplateEdit}
+          create={GameObjectTemplateCreate}
+          show={GameObjectTemplateShow}
         />
         <Resource
           name="GameObjectAddon"
@@ -565,88 +379,32 @@ const App = (): React.ReactElement => {
           show={GameObjectAddonShow}
         />
         <Resource
-          name="GameTele"
-          list={GameTeleList}
-          edit={GameTeleEdit}
-          create={GameTeleCreate}
-          show={GameTeleShow}
+          name="GameObject"
+          list={GameObjectList}
+          edit={GameObjectEdit}
+          create={GameObjectCreate}
+          show={GameObjectShow}
         />
         <Resource
-          name="GameEventCreature"
-          list={GameEventCreatureList}
-          edit={GameEventCreatureEdit}
-          create={GameEventCreatureCreate}
-          show={GameEventCreatureShow}
+          name="GameObjectQuestStarter"
+          list={GameObjectQuestStarterList}
+          edit={GameObjectQuestStarterEdit}
+          create={GameObjectQuestStarterCreate}
+          show={GameObjectQuestStarterShow}
         />
         <Resource
-          name="GameEventGameObject"
-          list={GameEventGameObjectList}
-          edit={GameEventGameObjectEdit}
-          create={GameEventGameObjectCreate}
-          show={GameEventGameObjectShow}
+          name="LootTemplate"
+          list={LootTemplateList}
+          edit={LootTemplateEdit}
+          create={LootTemplateCreate}
+          show={LootTemplateShow}
         />
         <Resource
-          name="GameEventPrerequisite"
-          list={GameEventPrerequisiteList}
-          edit={GameEventPrerequisiteEdit}
-          create={GameEventPrerequisiteCreate}
-          show={GameEventPrerequisiteShow}
-        />
-        <Resource
-          name="GameEventCondition"
-          list={GameEventConditionList}
-          edit={GameEventConditionEdit}
-          create={GameEventConditionCreate}
-          show={GameEventConditionShow}
-        />
-        <Resource
-          name="GameObjectLootTemplate"
-          list={GameObjectLootTemplateList}
-          edit={GameObjectLootTemplateEdit}
-          create={GameObjectLootTemplateCreate}
-          show={GameObjectLootTemplateShow}
-        />
-        <Resource
-          name="GameEventPool"
-          list={GameEventPoolList}
-          edit={GameEventPoolEdit}
-          create={GameEventPoolCreate}
-          show={GameEventPoolShow}
-        />
-        <Resource
-          name="GameEventCreatureQuest"
-          list={GameEventCreatureQuestList}
-          edit={GameEventCreatureQuestEdit}
-          create={GameEventCreatureQuestCreate}
-          show={GameEventCreatureQuestShow}
-        />
-        <Resource
-          name="GameEventNpcVendor"
-          list={GameEventNpcVendorList}
-          edit={GameEventNpcVendorEdit}
-          create={GameEventNpcVendorCreate}
-          show={GameEventNpcVendorShow}
-        />
-        <Resource
-          name="GameEventArenaSeasons"
-          list={GameEventArenaSeasonsList}
-          edit={GameEventArenaSeasonsEdit}
-          create={GameEventArenaSeasonsCreate}
-          show={GameEventArenaSeasonsShow}
-        />
-        <Resource
-          name="GameObjectOverrides"
-          list={GameObjectOverridesList}
-          edit={GameObjectOverridesEdit}
-          create={GameObjectOverridesCreate}
-          show={GameObjectOverridesShow}
-        />
-        <Resource
-          name="GameEventNpcFlag"
-          list={GameEventNpcFlagList}
-          edit={GameEventNpcFlagEdit}
-          create={GameEventNpcFlagCreate}
-          show={GameEventNpcFlagShow}
+          name="GameObjectQuestEnder"
+          list={GameObjectQuestEnderList}
+          edit={GameObjectQuestEnderEdit}
+          create={GameObjectQuestEnderCreate}
+          show={GameObjectQuestEnderShow}
         />
         <Resource
           name="GameObjectTemplateLocale"
@@ -663,53 +421,53 @@ const App = (): React.ReactElement => {
           show={GameEventModelEquipShow}
         />
         <Resource
-          name="GameObjectQuestEnder"
-          list={GameObjectQuestEnderList}
-          edit={GameObjectQuestEnderEdit}
-          create={GameObjectQuestEnderCreate}
-          show={GameObjectQuestEnderShow}
+          name="GameEventGameObject"
+          list={GameEventGameObjectList}
+          edit={GameEventGameObjectEdit}
+          create={GameEventGameObjectCreate}
+          show={GameEventGameObjectShow}
         />
         <Resource
-          name="GameEventGameObjectQuest"
-          list={GameEventGameObjectQuestList}
-          edit={GameEventGameObjectQuestEdit}
-          create={GameEventGameObjectQuestCreate}
-          show={GameEventGameObjectQuestShow}
+          name="GameEventQuest"
+          list={GameEventQuestList}
+          edit={GameEventQuestEdit}
+          create={GameEventQuestCreate}
+          show={GameEventQuestShow}
         />
         <Resource
-          name="GossipMenuOptionLocale"
-          list={GossipMenuOptionLocaleList}
-          edit={GossipMenuOptionLocaleEdit}
-          create={GossipMenuOptionLocaleCreate}
-          show={GossipMenuOptionLocaleShow}
+          name="GameEventCharacter"
+          list={GameEventCharacterList}
+          edit={GameEventCharacterEdit}
+          create={GameEventCharacterCreate}
+          show={GameEventCharacterShow}
         />
         <Resource
-          name="GossipMenuOption"
-          list={GossipMenuOptionList}
-          edit={GossipMenuOptionEdit}
-          create={GossipMenuOptionCreate}
-          show={GossipMenuOptionShow}
+          name="GameObjectOverrides"
+          list={GameObjectOverridesList}
+          edit={GameObjectOverridesEdit}
+          create={GameObjectOverridesCreate}
+          show={GameObjectOverridesShow}
         />
         <Resource
-          name="GuildRewards"
-          list={GuildRewardsList}
-          edit={GuildRewardsEdit}
-          create={GuildRewardsCreate}
-          show={GuildRewardsShow}
+          name="GameEventCondition"
+          list={GameEventConditionList}
+          edit={GameEventConditionEdit}
+          create={GameEventConditionCreate}
+          show={GameEventConditionShow}
         />
         <Resource
-          name="LfgDungeonRewards"
-          list={LfgDungeonRewardsList}
-          edit={LfgDungeonRewardsEdit}
-          create={LfgDungeonRewardsCreate}
-          show={LfgDungeonRewardsShow}
+          name="GameEventCreature"
+          list={GameEventCreatureList}
+          edit={GameEventCreatureEdit}
+          create={GameEventCreatureCreate}
+          show={GameEventCreatureShow}
         />
         <Resource
-          name="MailLootTemplate"
-          list={MailLootTemplateList}
-          edit={MailLootTemplateEdit}
-          create={MailLootTemplateCreate}
-          show={MailLootTemplateShow}
+          name="GameObjectLootTemplate"
+          list={GameObjectLootTemplateList}
+          edit={GameObjectLootTemplateEdit}
+          create={GameObjectLootTemplateCreate}
+          show={GameObjectLootTemplateShow}
         />
         <Resource
           name="MillingLootTemplate"
@@ -719,53 +477,18 @@ const App = (): React.ReactElement => {
           show={MillingLootTemplateShow}
         />
         <Resource
+          name="MailLootTemplate"
+          list={MailLootTemplateList}
+          edit={MailLootTemplateEdit}
+          create={MailLootTemplateCreate}
+          show={MailLootTemplateShow}
+        />
+        <Resource
           name="GraveyardZone"
           list={GraveyardZoneList}
           edit={GraveyardZoneEdit}
           create={GraveyardZoneCreate}
           show={GraveyardZoneShow}
-        />
-        <Resource
-          name="LfgDungeonTemplate"
-          list={LfgDungeonTemplateList}
-          edit={LfgDungeonTemplateEdit}
-          create={LfgDungeonTemplateCreate}
-          show={LfgDungeonTemplateShow}
-        />
-        <Resource
-          name="GuildRewardsReqAchievements"
-          list={GuildRewardsReqAchievementsList}
-          edit={GuildRewardsReqAchievementsEdit}
-          create={GuildRewardsReqAchievementsCreate}
-          show={GuildRewardsReqAchievementsShow}
-        />
-        <Resource
-          name="MailLevelReward"
-          list={MailLevelRewardList}
-          edit={MailLevelRewardEdit}
-          create={MailLevelRewardCreate}
-          show={MailLevelRewardShow}
-        />
-        <Resource
-          name="JumpChargeParams"
-          list={JumpChargeParamsList}
-          edit={JumpChargeParamsEdit}
-          create={JumpChargeParamsCreate}
-          show={JumpChargeParamsShow}
-        />
-        <Resource
-          name="InstanceTemplate"
-          list={InstanceTemplateList}
-          edit={InstanceTemplateEdit}
-          create={InstanceTemplateCreate}
-          show={InstanceTemplateShow}
-        />
-        <Resource
-          name="ItemTemplateAddon"
-          list={ItemTemplateAddonList}
-          edit={ItemTemplateAddonEdit}
-          create={ItemTemplateAddonCreate}
-          show={ItemTemplateAddonShow}
         />
         <Resource
           name="ItemRandomBonusListTemplate"
@@ -775,11 +498,18 @@ const App = (): React.ReactElement => {
           show={ItemRandomBonusListTemplateShow}
         />
         <Resource
-          name="ItemLootTemplate"
-          list={ItemLootTemplateList}
-          edit={ItemLootTemplateEdit}
-          create={ItemLootTemplateCreate}
-          show={ItemLootTemplateShow}
+          name="JumpChargeParams"
+          list={JumpChargeParamsList}
+          edit={JumpChargeParamsEdit}
+          create={JumpChargeParamsCreate}
+          show={JumpChargeParamsShow}
+        />
+        <Resource
+          name="ItemTemplateAddon"
+          list={ItemTemplateAddonList}
+          edit={ItemTemplateAddonEdit}
+          create={ItemTemplateAddonCreate}
+          show={ItemTemplateAddonShow}
         />
         <Resource
           name="LinkedRespawn"
@@ -787,6 +517,27 @@ const App = (): React.ReactElement => {
           edit={LinkedRespawnEdit}
           create={LinkedRespawnCreate}
           show={LinkedRespawnShow}
+        />
+        <Resource
+          name="ItemBehaviour"
+          list={ItemBehaviourList}
+          edit={ItemBehaviourEdit}
+          create={ItemBehaviourCreate}
+          show={ItemBehaviourShow}
+        />
+        <Resource
+          name="InstanceTemplate"
+          list={InstanceTemplateList}
+          edit={InstanceTemplateEdit}
+          create={InstanceTemplateCreate}
+          show={InstanceTemplateShow}
+        />
+        <Resource
+          name="ItemTemplate"
+          list={ItemTemplateList}
+          edit={ItemTemplateEdit}
+          create={ItemTemplateCreate}
+          show={ItemTemplateShow}
         />
         <Resource
           name="MountDefinitions"
@@ -803,60 +554,32 @@ const App = (): React.ReactElement => {
           show={InstanceSpawnGroupsShow}
         />
         <Resource
-          name="ItemScriptNames"
-          list={ItemScriptNamesList}
-          edit={ItemScriptNamesEdit}
-          create={ItemScriptNamesCreate}
-          show={ItemScriptNamesShow}
+          name="CharacterSpell"
+          list={CharacterSpellList}
+          edit={CharacterSpellEdit}
+          create={CharacterSpellCreate}
+          show={CharacterSpellShow}
         />
         <Resource
-          name="NpcText"
-          list={NpcTextList}
-          edit={NpcTextEdit}
-          create={NpcTextCreate}
-          show={NpcTextShow}
+          name="CharacterDialogue"
+          list={CharacterDialogueList}
+          edit={CharacterDialogueEdit}
+          create={CharacterDialogueCreate}
+          show={CharacterDialogueShow}
         />
         <Resource
-          name="NpcSpellclickSpells"
-          list={NpcSpellclickSpellsList}
-          edit={NpcSpellclickSpellsEdit}
-          create={NpcSpellclickSpellsCreate}
-          show={NpcSpellclickSpellsShow}
+          name="Character"
+          list={CharacterList}
+          edit={CharacterEdit}
+          create={CharacterCreate}
+          show={CharacterShow}
         />
         <Resource
-          name="PageTextLocale"
-          list={PageTextLocaleList}
-          edit={PageTextLocaleEdit}
-          create={PageTextLocaleCreate}
-          show={PageTextLocaleShow}
-        />
-        <Resource
-          name="NpcVendor"
-          list={NpcVendorList}
-          edit={NpcVendorEdit}
-          create={NpcVendorCreate}
-          show={NpcVendorShow}
-        />
-        <Resource
-          name="PhaseName"
-          list={PhaseNameList}
-          edit={PhaseNameEdit}
-          create={PhaseNameCreate}
-          show={PhaseNameShow}
-        />
-        <Resource
-          name="OutdoorpvpTemplate"
-          list={OutdoorpvpTemplateList}
-          edit={OutdoorpvpTemplateEdit}
-          create={OutdoorpvpTemplateCreate}
-          show={OutdoorpvpTemplateShow}
-        />
-        <Resource
-          name="PhaseArea"
-          list={PhaseAreaList}
-          edit={PhaseAreaEdit}
-          create={PhaseAreaCreate}
-          show={PhaseAreaShow}
+          name="ParagraphLocale"
+          list={ParagraphLocaleList}
+          edit={ParagraphLocaleEdit}
+          create={ParagraphLocaleCreate}
+          show={ParagraphLocaleShow}
         />
         <Resource
           name="PetNameGeneration"
@@ -866,11 +589,11 @@ const App = (): React.ReactElement => {
           show={PetNameGenerationShow}
         />
         <Resource
-          name="PageText"
-          list={PageTextList}
-          edit={PageTextEdit}
-          create={PageTextCreate}
-          show={PageTextShow}
+          name="Paragraph"
+          list={ParagraphList}
+          edit={ParagraphEdit}
+          create={ParagraphCreate}
+          show={ParagraphShow}
         />
         <Resource
           name="PetLevelstats"
@@ -880,67 +603,81 @@ const App = (): React.ReactElement => {
           show={PetLevelstatsShow}
         />
         <Resource
-          name="PlayerClasslevelstats"
-          list={PlayerClasslevelstatsList}
-          edit={PlayerClasslevelstatsEdit}
-          create={PlayerClasslevelstatsCreate}
-          show={PlayerClasslevelstatsShow}
+          name="PlayerFactionAchievement"
+          list={PlayerFactionAchievementList}
+          edit={PlayerFactionAchievementEdit}
+          create={PlayerFactionAchievementCreate}
+          show={PlayerFactionAchievementShow}
         />
         <Resource
-          name="PlayerFactionchangeAchievement"
-          list={PlayerFactionchangeAchievementList}
-          edit={PlayerFactionchangeAchievementEdit}
-          create={PlayerFactionchangeAchievementCreate}
-          show={PlayerFactionchangeAchievementShow}
+          name="CraftLevelStat"
+          list={CraftLevelStatList}
+          edit={CraftLevelStatEdit}
+          create={CraftLevelStatCreate}
+          show={CraftLevelStatShow}
         />
         <Resource
-          name="PlayerchoiceResponseReward"
-          list={PlayerchoiceResponseRewardList}
-          edit={PlayerchoiceResponseRewardEdit}
-          create={PlayerchoiceResponseRewardCreate}
-          show={PlayerchoiceResponseRewardShow}
+          name="PlayerFactionQuest"
+          list={PlayerFactionQuestList}
+          edit={PlayerFactionQuestEdit}
+          create={PlayerFactionQuestCreate}
+          show={PlayerFactionQuestShow}
         />
         <Resource
-          name="PlayerFactionchangeQuests"
-          list={PlayerFactionchangeQuestsList}
-          edit={PlayerFactionchangeQuestsEdit}
-          create={PlayerFactionchangeQuestsCreate}
-          show={PlayerFactionchangeQuestsShow}
+          name="PlayerReward"
+          list={PlayerRewardList}
+          edit={PlayerRewardEdit}
+          create={PlayerRewardCreate}
+          show={PlayerRewardShow}
         />
         <Resource
-          name="PlayerFactionchangeSpells"
-          list={PlayerFactionchangeSpellsList}
-          edit={PlayerFactionchangeSpellsEdit}
-          create={PlayerFactionchangeSpellsCreate}
-          show={PlayerFactionchangeSpellsShow}
+          name="PlayerFactionReputation"
+          list={PlayerFactionReputationList}
+          edit={PlayerFactionReputationEdit}
+          create={PlayerFactionReputationCreate}
+          show={PlayerFactionReputationShow}
         />
         <Resource
-          name="PlayercreateinfoAction"
-          list={PlayercreateinfoActionList}
-          edit={PlayercreateinfoActionEdit}
-          create={PlayercreateinfoActionCreate}
-          show={PlayercreateinfoActionShow}
+          name="PlayerFactionSpell"
+          list={PlayerFactionSpellList}
+          edit={PlayerFactionSpellEdit}
+          create={PlayerFactionSpellCreate}
+          show={PlayerFactionSpellShow}
         />
         <Resource
-          name="PlayerFactionchangeReputations"
-          list={PlayerFactionchangeReputationsList}
-          edit={PlayerFactionchangeReputationsEdit}
-          create={PlayerFactionchangeReputationsCreate}
-          show={PlayerFactionchangeReputationsShow}
+          name="Response"
+          list={ResponseList}
+          edit={ResponseEdit}
+          create={ResponseCreate}
+          show={ResponseShow}
         />
         <Resource
-          name="PlayercreateinfoCastSpell"
-          list={PlayercreateinfoCastSpellList}
-          edit={PlayercreateinfoCastSpellEdit}
-          create={PlayercreateinfoCastSpellCreate}
-          show={PlayercreateinfoCastSpellShow}
+          name="GeneStat"
+          list={GeneStatList}
+          edit={GeneStatEdit}
+          create={GeneStatCreate}
+          show={GeneStatShow}
         />
         <Resource
-          name="PlayercreateinfoItem"
-          list={PlayercreateinfoItemList}
-          edit={PlayercreateinfoItemEdit}
-          create={PlayercreateinfoItemCreate}
-          show={PlayercreateinfoItemShow}
+          name="PlayerFactionTitle"
+          list={PlayerFactionTitleList}
+          edit={PlayerFactionTitleEdit}
+          create={PlayerFactionTitleCreate}
+          show={PlayerFactionTitleShow}
+        />
+        <Resource
+          name="ResponseLocale"
+          list={ResponseLocaleList}
+          edit={ResponseLocaleEdit}
+          create={ResponseLocaleCreate}
+          show={ResponseLocaleShow}
+        />
+        <Resource
+          name="Choice"
+          list={ChoiceList}
+          edit={ChoiceEdit}
+          create={ChoiceCreate}
+          show={ChoiceShow}
         />
         <Resource
           name="PlayerXpForLevel"
@@ -950,109 +687,53 @@ const App = (): React.ReactElement => {
           show={PlayerXpForLevelShow}
         />
         <Resource
-          name="Playerchoice"
-          list={PlayerchoiceList}
-          edit={PlayerchoiceEdit}
-          create={PlayerchoiceCreate}
-          show={PlayerchoiceShow}
+          name="PlayerRewardItem"
+          list={PlayerRewardItemList}
+          edit={PlayerRewardItemEdit}
+          create={PlayerRewardItemCreate}
+          show={PlayerRewardItemShow}
         />
         <Resource
-          name="PlayerchoiceResponseRewardItemChoice"
-          list={PlayerchoiceResponseRewardItemChoiceList}
-          edit={PlayerchoiceResponseRewardItemChoiceEdit}
-          create={PlayerchoiceResponseRewardItemChoiceCreate}
-          show={PlayerchoiceResponseRewardItemChoiceShow}
+          name="Currency"
+          list={CurrencyList}
+          edit={CurrencyEdit}
+          create={CurrencyCreate}
+          show={CurrencyShow}
         />
         <Resource
-          name="PlayerchoiceLocale"
-          list={PlayerchoiceLocaleList}
-          edit={PlayerchoiceLocaleEdit}
-          create={PlayerchoiceLocaleCreate}
-          show={PlayerchoiceLocaleShow}
+          name="ChoiceLocale"
+          list={ChoiceLocaleList}
+          edit={ChoiceLocaleEdit}
+          create={ChoiceLocaleCreate}
+          show={ChoiceLocaleShow}
         />
         <Resource
-          name="PlayerchoiceResponseRewardFaction"
-          list={PlayerchoiceResponseRewardFactionList}
-          edit={PlayerchoiceResponseRewardFactionEdit}
-          create={PlayerchoiceResponseRewardFactionCreate}
-          show={PlayerchoiceResponseRewardFactionShow}
+          name="Faction"
+          list={FactionList}
+          edit={FactionEdit}
+          create={FactionCreate}
+          show={FactionShow}
         />
         <Resource
-          name="PlayerchoiceResponseLocale"
-          list={PlayerchoiceResponseLocaleList}
-          edit={PlayerchoiceResponseLocaleEdit}
-          create={PlayerchoiceResponseLocaleCreate}
-          show={PlayerchoiceResponseLocaleShow}
+          name="Player"
+          list={PlayerList}
+          edit={PlayerEdit}
+          create={PlayerCreate}
+          show={PlayerShow}
         />
         <Resource
-          name="PlayercreateinfoSpellCustom"
-          list={PlayercreateinfoSpellCustomList}
-          edit={PlayercreateinfoSpellCustomEdit}
-          create={PlayercreateinfoSpellCustomCreate}
-          show={PlayercreateinfoSpellCustomShow}
+          name="Craft"
+          list={CraftList}
+          edit={CraftEdit}
+          create={CraftCreate}
+          show={CraftShow}
         />
         <Resource
-          name="PlayerchoiceResponseRewardItem"
-          list={PlayerchoiceResponseRewardItemList}
-          edit={PlayerchoiceResponseRewardItemEdit}
-          create={PlayerchoiceResponseRewardItemCreate}
-          show={PlayerchoiceResponseRewardItemShow}
-        />
-        <Resource
-          name="PlayerRacestats"
-          list={PlayerRacestatsList}
-          edit={PlayerRacestatsEdit}
-          create={PlayerRacestatsCreate}
-          show={PlayerRacestatsShow}
-        />
-        <Resource
-          name="PlayerFactionchangeTitles"
-          list={PlayerFactionchangeTitlesList}
-          edit={PlayerFactionchangeTitlesEdit}
-          create={PlayerFactionchangeTitlesCreate}
-          show={PlayerFactionchangeTitlesShow}
-        />
-        <Resource
-          name="PlayerchoiceResponse"
-          list={PlayerchoiceResponseList}
-          edit={PlayerchoiceResponseEdit}
-          create={PlayerchoiceResponseCreate}
-          show={PlayerchoiceResponseShow}
-        />
-        <Resource
-          name="PlayerchoiceResponseRewardCurrency"
-          list={PlayerchoiceResponseRewardCurrencyList}
-          edit={PlayerchoiceResponseRewardCurrencyEdit}
-          create={PlayerchoiceResponseRewardCurrencyCreate}
-          show={PlayerchoiceResponseRewardCurrencyShow}
-        />
-        <Resource
-          name="PlayerchoiceResponseMawPower"
-          list={PlayerchoiceResponseMawPowerList}
-          edit={PlayerchoiceResponseMawPowerEdit}
-          create={PlayerchoiceResponseMawPowerCreate}
-          show={PlayerchoiceResponseMawPowerShow}
-        />
-        <Resource
-          name="Playercreateinfo"
-          list={PlayercreateinfoList}
-          edit={PlayercreateinfoEdit}
-          create={PlayercreateinfoCreate}
-          show={PlayercreateinfoShow}
-        />
-        <Resource
-          name="Zone"
-          list={ZoneList}
-          edit={ZoneEdit}
-          create={ZoneCreate}
-          show={ZoneShow}
-        />
-        <Resource
-          name="Map"
-          list={MapList}
-          edit={MapEdit}
-          create={MapCreate}
-          show={MapShow}
+          name="PlayerCraft"
+          list={PlayerCraftList}
+          edit={PlayerCraftEdit}
+          create={PlayerCraftCreate}
+          show={PlayerCraftShow}
         />
       </Admin>
     </div>

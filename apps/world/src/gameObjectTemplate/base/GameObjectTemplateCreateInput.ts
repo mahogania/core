@@ -9,5 +9,66 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-class GameObjectTemplateCreateInput {}
+import { InputType, Field } from "@nestjs/graphql";
+import { ApiProperty } from "@nestjs/swagger";
+import { GameObjectTemplateAddonCreateNestedManyWithoutGameObjectTemplatesInput } from "./GameObjectTemplateAddonCreateNestedManyWithoutGameObjectTemplatesInput";
+import { ValidateNested, IsOptional } from "class-validator";
+import { Type } from "class-transformer";
+import { GameObjectTemplateLocaleCreateNestedManyWithoutGameObjectTemplatesInput } from "./GameObjectTemplateLocaleCreateNestedManyWithoutGameObjectTemplatesInput";
+import { GameObjectCreateNestedManyWithoutGameObjectTemplatesInput } from "./GameObjectCreateNestedManyWithoutGameObjectTemplatesInput";
+
+@InputType()
+class GameObjectTemplateCreateInput {
+  @ApiProperty({
+    required: false,
+    type: () =>
+      GameObjectTemplateAddonCreateNestedManyWithoutGameObjectTemplatesInput,
+  })
+  @ValidateNested()
+  @Type(
+    () => GameObjectTemplateAddonCreateNestedManyWithoutGameObjectTemplatesInput
+  )
+  @IsOptional()
+  @Field(
+    () =>
+      GameObjectTemplateAddonCreateNestedManyWithoutGameObjectTemplatesInput,
+    {
+      nullable: true,
+    }
+  )
+  gameObjectTemplateAddons?: GameObjectTemplateAddonCreateNestedManyWithoutGameObjectTemplatesInput;
+
+  @ApiProperty({
+    required: false,
+    type: () =>
+      GameObjectTemplateLocaleCreateNestedManyWithoutGameObjectTemplatesInput,
+  })
+  @ValidateNested()
+  @Type(
+    () =>
+      GameObjectTemplateLocaleCreateNestedManyWithoutGameObjectTemplatesInput
+  )
+  @IsOptional()
+  @Field(
+    () =>
+      GameObjectTemplateLocaleCreateNestedManyWithoutGameObjectTemplatesInput,
+    {
+      nullable: true,
+    }
+  )
+  gameObjectTemplateLocales?: GameObjectTemplateLocaleCreateNestedManyWithoutGameObjectTemplatesInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => GameObjectCreateNestedManyWithoutGameObjectTemplatesInput,
+  })
+  @ValidateNested()
+  @Type(() => GameObjectCreateNestedManyWithoutGameObjectTemplatesInput)
+  @IsOptional()
+  @Field(() => GameObjectCreateNestedManyWithoutGameObjectTemplatesInput, {
+    nullable: true,
+  })
+  gameObjects?: GameObjectCreateNestedManyWithoutGameObjectTemplatesInput;
+}
+
 export { GameObjectTemplateCreateInput as GameObjectTemplateCreateInput };
