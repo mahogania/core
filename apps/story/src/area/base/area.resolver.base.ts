@@ -32,6 +32,7 @@ import { AreaScenarioTriggerFindManyArgs } from "../../areaScenarioTrigger/base/
 import { AreaScenarioTrigger } from "../../areaScenarioTrigger/base/AreaScenarioTrigger";
 import { AreaTeleportTriggerFindManyArgs } from "../../areaTeleportTrigger/base/AreaTeleportTriggerFindManyArgs";
 import { AreaTeleportTrigger } from "../../areaTeleportTrigger/base/AreaTeleportTrigger";
+import { Zone } from "../../zone/base/Zone";
 import { AreaService } from "../area.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => Area)
@@ -92,7 +93,15 @@ export class AreaResolverBase {
   async createArea(@graphql.Args() args: CreateAreaArgs): Promise<Area> {
     return await this.service.createArea({
       ...args,
-      data: args.data,
+      data: {
+        ...args.data,
+
+        zone: args.data.zone
+          ? {
+              connect: args.data.zone,
+            }
+          : undefined,
+      },
     });
   }
 
@@ -107,7 +116,15 @@ export class AreaResolverBase {
     try {
       return await this.service.updateArea({
         ...args,
-        data: args.data,
+        data: {
+          ...args.data,
+
+          zone: args.data.zone
+            ? {
+                connect: args.data.zone,
+              }
+            : undefined,
+        },
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -206,5 +223,24 @@ export class AreaResolverBase {
     }
 
     return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => Zone, {
+    nullable: true,
+    name: "zone",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "Zone",
+    action: "read",
+    possession: "any",
+  })
+  async getZone(@graphql.Parent() parent: Area): Promise<Zone | null> {
+    const result = await this.service.getZone(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

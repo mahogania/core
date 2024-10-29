@@ -6,15 +6,16 @@ import {
   ShowProps,
   DateField,
   TextField,
+  ReferenceField,
   ReferenceManyField,
   Datagrid,
-  ReferenceField,
 } from "react-admin";
 
 import { AREA_TITLE_FIELD } from "./AreaTitle";
 import { QUEST_TITLE_FIELD } from "../quest/QuestTitle";
 import { SCENARIO_TITLE_FIELD } from "../scenario/ScenarioTitle";
 import { PORTAL_TITLE_FIELD } from "../portal/PortalTitle";
+import { ZONE_TITLE_FIELD } from "../zone/ZoneTitle";
 
 export const AreaShow = (props: ShowProps): React.ReactElement => {
   return (
@@ -23,6 +24,9 @@ export const AreaShow = (props: ShowProps): React.ReactElement => {
         <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
         <DateField source="updatedAt" label="Updated At" />
+        <ReferenceField label="Zone" source="zone.id" reference="Zone">
+          <TextField source={ZONE_TITLE_FIELD} />
+        </ReferenceField>
         <ReferenceManyField
           reference="AreaQuestTrigger"
           target="areaId"

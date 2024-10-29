@@ -11,6 +11,7 @@ import {
 } from "react-admin";
 
 import { AreaQuestTriggerTitle } from "../areaQuestTrigger/AreaQuestTriggerTitle";
+import { EpicTitle } from "../epic/EpicTitle";
 import { QuestCompletionConditionalTitle } from "../questCompletionConditional/QuestCompletionConditionalTitle";
 import { QuestCueEffectTitle } from "../questCueEffect/QuestCueEffectTitle";
 import { QuestDescriptionConditionalTitle } from "../questDescriptionConditional/QuestDescriptionConditionalTitle";
@@ -33,6 +34,9 @@ export const QuestEdit = (props: EditProps): React.ReactElement => {
             format={(value: any) => value && value.map((v: any) => v.id)}
           />
         </ReferenceArrayInput>
+        <ReferenceInput source="epic.id" reference="Epic" label="Epic">
+          <SelectInput optionText={EpicTitle} />
+        </ReferenceInput>
         <ReferenceArrayInput
           source="questCompletionConditionals"
           reference="QuestCompletionConditional"

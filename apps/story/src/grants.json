@@ -301,6 +301,36 @@
   },
   {
     "role": "user",
+    "resource": "QuestPoi",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "QuestPoi",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "QuestPoi",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "QuestPoi",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "QuestPoi",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
     "resource": "QuestPool",
     "action": "read:own",
     "attributes": "*"
@@ -721,36 +751,6 @@
   },
   {
     "role": "user",
-    "resource": "QuestPoi",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "QuestPoi",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "QuestPoi",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "QuestPoi",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "QuestPoi",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
     "resource": "QuestObjective",
     "action": "read:own",
     "attributes": "*"
@@ -1166,6 +1166,96 @@
   {
     "role": "user",
     "resource": "Quest",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Zone",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Zone",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Zone",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Zone",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Zone",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Map",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Map",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Map",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Map",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Map",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Epic",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Epic",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Epic",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Epic",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Epic",
     "action": "read:any",
     "attributes": "*"
   }

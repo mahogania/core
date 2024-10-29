@@ -59,11 +59,25 @@ export class AreaControllerBase {
   })
   async createArea(@common.Body() data: AreaCreateInput): Promise<Area> {
     return await this.service.createArea({
-      data: data,
+      data: {
+        ...data,
+
+        zone: data.zone
+          ? {
+              connect: data.zone,
+            }
+          : undefined,
+      },
       select: {
         createdAt: true,
         id: true,
         updatedAt: true,
+
+        zone: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
   }
@@ -88,6 +102,12 @@ export class AreaControllerBase {
         createdAt: true,
         id: true,
         updatedAt: true,
+
+        zone: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
   }
@@ -113,6 +133,12 @@ export class AreaControllerBase {
         createdAt: true,
         id: true,
         updatedAt: true,
+
+        zone: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
     if (result === null) {
@@ -145,11 +171,25 @@ export class AreaControllerBase {
     try {
       return await this.service.updateArea({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          zone: data.zone
+            ? {
+                connect: data.zone,
+              }
+            : undefined,
+        },
         select: {
           createdAt: true,
           id: true,
           updatedAt: true,
+
+          zone: {
+            select: {
+              id: true,
+            },
+          },
         },
       });
     } catch (error) {
@@ -183,6 +223,12 @@ export class AreaControllerBase {
           createdAt: true,
           id: true,
           updatedAt: true,
+
+          zone: {
+            select: {
+              id: true,
+            },
+          },
         },
       });
     } catch (error) {

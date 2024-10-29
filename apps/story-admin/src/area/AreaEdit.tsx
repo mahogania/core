@@ -1,14 +1,19 @@
 import * as React from "react";
+
 import {
   Edit,
   SimpleForm,
   EditProps,
   ReferenceArrayInput,
   SelectArrayInput,
+  ReferenceInput,
+  SelectInput,
 } from "react-admin";
+
 import { AreaQuestTriggerTitle } from "../areaQuestTrigger/AreaQuestTriggerTitle";
 import { AreaScenarioTriggerTitle } from "../areaScenarioTrigger/AreaScenarioTriggerTitle";
 import { AreaTeleportTriggerTitle } from "../areaTeleportTrigger/AreaTeleportTriggerTitle";
+import { ZoneTitle } from "../zone/ZoneTitle";
 
 export const AreaEdit = (props: EditProps): React.ReactElement => {
   return (
@@ -44,6 +49,9 @@ export const AreaEdit = (props: EditProps): React.ReactElement => {
             format={(value: any) => value && value.map((v: any) => v.id)}
           />
         </ReferenceArrayInput>
+        <ReferenceInput source="zone.id" reference="Zone" label="Zone">
+          <SelectInput optionText={ZoneTitle} />
+        </ReferenceInput>
       </SimpleForm>
     </Edit>
   );

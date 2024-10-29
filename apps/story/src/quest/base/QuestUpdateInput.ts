@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { AreaQuestTriggerUpdateManyWithoutQuestsInput } from "./AreaQuestTriggerUpdateManyWithoutQuestsInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { EpicWhereUniqueInput } from "../../epic/base/EpicWhereUniqueInput";
 import { QuestCompletionConditionalUpdateManyWithoutQuestsInput } from "./QuestCompletionConditionalUpdateManyWithoutQuestsInput";
 import { QuestCueEffectWhereUniqueInput } from "../../questCueEffect/base/QuestCueEffectWhereUniqueInput";
 import { QuestDescriptionConditionalUpdateManyWithoutQuestsInput } from "./QuestDescriptionConditionalUpdateManyWithoutQuestsInput";
@@ -35,6 +36,18 @@ class QuestUpdateInput {
     nullable: true,
   })
   areaQuestTriggers?: AreaQuestTriggerUpdateManyWithoutQuestsInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => EpicWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => EpicWhereUniqueInput)
+  @IsOptional()
+  @Field(() => EpicWhereUniqueInput, {
+    nullable: true,
+  })
+  epic?: EpicWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

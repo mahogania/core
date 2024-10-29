@@ -17,6 +17,7 @@ import {
   AreaQuestTrigger as PrismaAreaQuestTrigger,
   QuestCompletionConditional as PrismaQuestCompletionConditional,
   QuestDescriptionConditional as PrismaQuestDescriptionConditional,
+  Epic as PrismaEpic,
   QuestCueEffect as PrismaQuestCueEffect,
   QuestDetail as PrismaQuestDetail,
   QuestGreeting as PrismaQuestGreeting,
@@ -78,6 +79,14 @@ export class QuestServiceBase {
         where: { id: parentId },
       })
       .questDescriptionConditionals(args);
+  }
+
+  async getEpic(parentId: string): Promise<PrismaEpic | null> {
+    return this.prisma.quest
+      .findUnique({
+        where: { id: parentId },
+      })
+      .epic();
   }
 
   async getQuestCueEffects(

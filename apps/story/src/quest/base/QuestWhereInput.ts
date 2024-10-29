@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { AreaQuestTriggerListRelationFilter } from "../../areaQuestTrigger/base/AreaQuestTriggerListRelationFilter";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { EpicWhereUniqueInput } from "../../epic/base/EpicWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
 import { QuestCompletionConditionalListRelationFilter } from "../../questCompletionConditional/base/QuestCompletionConditionalListRelationFilter";
 import { QuestCueEffectWhereUniqueInput } from "../../questCueEffect/base/QuestCueEffectWhereUniqueInput";
@@ -36,6 +37,18 @@ class QuestWhereInput {
     nullable: true,
   })
   areaQuestTriggers?: AreaQuestTriggerListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => EpicWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => EpicWhereUniqueInput)
+  @IsOptional()
+  @Field(() => EpicWhereUniqueInput, {
+    nullable: true,
+  })
+  epic?: EpicWhereUniqueInput;
 
   @ApiProperty({
     required: false,

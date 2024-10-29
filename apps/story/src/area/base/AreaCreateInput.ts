@@ -16,6 +16,7 @@ import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 import { AreaScenarioTriggerCreateNestedManyWithoutAreasInput } from "./AreaScenarioTriggerCreateNestedManyWithoutAreasInput";
 import { AreaTeleportTriggerCreateNestedManyWithoutAreasInput } from "./AreaTeleportTriggerCreateNestedManyWithoutAreasInput";
+import { ZoneWhereUniqueInput } from "../../zone/base/ZoneWhereUniqueInput";
 
 @InputType()
 class AreaCreateInput {
@@ -54,6 +55,18 @@ class AreaCreateInput {
     nullable: true,
   })
   areaTeleportTriggers?: AreaTeleportTriggerCreateNestedManyWithoutAreasInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => ZoneWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => ZoneWhereUniqueInput)
+  @IsOptional()
+  @Field(() => ZoneWhereUniqueInput, {
+    nullable: true,
+  })
+  zone?: ZoneWhereUniqueInput | null;
 }
 
 export { AreaCreateInput as AreaCreateInput };

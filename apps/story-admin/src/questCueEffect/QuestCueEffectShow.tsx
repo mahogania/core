@@ -11,6 +11,7 @@ import {
   ReferenceField,
 } from "react-admin";
 
+import { EPIC_TITLE_FIELD } from "../epic/EpicTitle";
 import { QUESTCUEEFFECT_TITLE_FIELD } from "./QuestCueEffectTitle";
 import { QUESTDETAIL_TITLE_FIELD } from "../questDetail/QuestDetailTitle";
 import { QUESTGREETING_TITLE_FIELD } from "../questGreeting/QuestGreetingTitle";
@@ -31,6 +32,9 @@ export const QuestCueEffectShow = (props: ShowProps): React.ReactElement => {
         >
           <Datagrid rowClick="show" bulkActionButtons={false}>
             <DateField source="createdAt" label="Created At" />
+            <ReferenceField label="Epic" source="epic.id" reference="Epic">
+              <TextField source={EPIC_TITLE_FIELD} />
+            </ReferenceField>
             <TextField label="ID" source="id" />
             <ReferenceField
               label="Quest Cue Effects"

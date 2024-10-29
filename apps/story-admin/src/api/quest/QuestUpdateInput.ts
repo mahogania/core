@@ -1,4 +1,5 @@
 import { AreaQuestTriggerUpdateManyWithoutQuestsInput } from "./AreaQuestTriggerUpdateManyWithoutQuestsInput";
+import { EpicWhereUniqueInput } from "../epic/EpicWhereUniqueInput";
 import { QuestCompletionConditionalUpdateManyWithoutQuestsInput } from "./QuestCompletionConditionalUpdateManyWithoutQuestsInput";
 import { QuestCueEffectWhereUniqueInput } from "../questCueEffect/QuestCueEffectWhereUniqueInput";
 import { QuestDescriptionConditionalUpdateManyWithoutQuestsInput } from "./QuestDescriptionConditionalUpdateManyWithoutQuestsInput";
@@ -9,6 +10,7 @@ import { UserWhereUniqueInput } from "../user/UserWhereUniqueInput";
 
 export type QuestUpdateInput = {
   areaQuestTriggers?: AreaQuestTriggerUpdateManyWithoutQuestsInput;
+  epic?: EpicWhereUniqueInput | null;
   questCompletionConditionals?: QuestCompletionConditionalUpdateManyWithoutQuestsInput;
   questCueEffects?: QuestCueEffectWhereUniqueInput | null;
   questDescriptionConditionals?: QuestDescriptionConditionalUpdateManyWithoutQuestsInput;

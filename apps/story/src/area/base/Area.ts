@@ -16,6 +16,7 @@ import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
 import { Type } from "class-transformer";
 import { AreaScenarioTrigger } from "../../areaScenarioTrigger/base/AreaScenarioTrigger";
 import { AreaTeleportTrigger } from "../../areaTeleportTrigger/base/AreaTeleportTrigger";
+import { Zone } from "../../zone/base/Zone";
 
 @ObjectType()
 class Area {
@@ -69,6 +70,15 @@ class Area {
   @Type(() => Date)
   @Field(() => Date)
   updatedAt!: Date;
+
+  @ApiProperty({
+    required: false,
+    type: () => Zone,
+  })
+  @ValidateNested()
+  @Type(() => Zone)
+  @IsOptional()
+  zone?: Zone | null;
 }
 
 export { Area as Area };

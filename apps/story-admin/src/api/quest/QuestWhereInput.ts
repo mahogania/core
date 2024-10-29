@@ -1,4 +1,5 @@
 import { AreaQuestTriggerListRelationFilter } from "../areaQuestTrigger/AreaQuestTriggerListRelationFilter";
+import { EpicWhereUniqueInput } from "../epic/EpicWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
 import { QuestCompletionConditionalListRelationFilter } from "../questCompletionConditional/QuestCompletionConditionalListRelationFilter";
 import { QuestCueEffectWhereUniqueInput } from "../questCueEffect/QuestCueEffectWhereUniqueInput";
@@ -10,6 +11,7 @@ import { UserWhereUniqueInput } from "../user/UserWhereUniqueInput";
 
 export type QuestWhereInput = {
   areaQuestTriggers?: AreaQuestTriggerListRelationFilter;
+  epic?: EpicWhereUniqueInput;
   id?: StringFilter;
   questCompletionConditionals?: QuestCompletionConditionalListRelationFilter;
   questCueEffects?: QuestCueEffectWhereUniqueInput;

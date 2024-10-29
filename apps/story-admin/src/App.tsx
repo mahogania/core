@@ -50,6 +50,10 @@ import { PoolList } from "./pool/PoolList";
 import { PoolCreate } from "./pool/PoolCreate";
 import { PoolEdit } from "./pool/PoolEdit";
 import { PoolShow } from "./pool/PoolShow";
+import { QuestPoiList } from "./questPoi/QuestPoiList";
+import { QuestPoiCreate } from "./questPoi/QuestPoiCreate";
+import { QuestPoiEdit } from "./questPoi/QuestPoiEdit";
+import { QuestPoiShow } from "./questPoi/QuestPoiShow";
 import { QuestPoolList } from "./questPool/QuestPoolList";
 import { QuestPoolCreate } from "./questPool/QuestPoolCreate";
 import { QuestPoolEdit } from "./questPool/QuestPoolEdit";
@@ -106,10 +110,6 @@ import { QuestCueEffectList } from "./questCueEffect/QuestCueEffectList";
 import { QuestCueEffectCreate } from "./questCueEffect/QuestCueEffectCreate";
 import { QuestCueEffectEdit } from "./questCueEffect/QuestCueEffectEdit";
 import { QuestCueEffectShow } from "./questCueEffect/QuestCueEffectShow";
-import { QuestPoiList } from "./questPoi/QuestPoiList";
-import { QuestPoiCreate } from "./questPoi/QuestPoiCreate";
-import { QuestPoiEdit } from "./questPoi/QuestPoiEdit";
-import { QuestPoiShow } from "./questPoi/QuestPoiShow";
 import { QuestObjectiveList } from "./questObjective/QuestObjectiveList";
 import { QuestObjectiveCreate } from "./questObjective/QuestObjectiveCreate";
 import { QuestObjectiveEdit } from "./questObjective/QuestObjectiveEdit";
@@ -166,6 +166,18 @@ import { QuestList } from "./quest/QuestList";
 import { QuestCreate } from "./quest/QuestCreate";
 import { QuestEdit } from "./quest/QuestEdit";
 import { QuestShow } from "./quest/QuestShow";
+import { ZoneList } from "./zone/ZoneList";
+import { ZoneCreate } from "./zone/ZoneCreate";
+import { ZoneEdit } from "./zone/ZoneEdit";
+import { ZoneShow } from "./zone/ZoneShow";
+import { MapList } from "./map/MapList";
+import { MapCreate } from "./map/MapCreate";
+import { MapEdit } from "./map/MapEdit";
+import { MapShow } from "./map/MapShow";
+import { EpicList } from "./epic/EpicList";
+import { EpicCreate } from "./epic/EpicCreate";
+import { EpicEdit } from "./epic/EpicEdit";
+import { EpicShow } from "./epic/EpicShow";
 
 const App = (): React.ReactElement => {
   const [dataProvider, setDataProvider] = useState<DataProvider | null>(null);
@@ -280,6 +292,13 @@ const App = (): React.ReactElement => {
           show={PoolShow}
         />
         <Resource
+          name="QuestPoi"
+          list={QuestPoiList}
+          edit={QuestPoiEdit}
+          create={QuestPoiCreate}
+          show={QuestPoiShow}
+        />
+        <Resource
           name="QuestPool"
           list={QuestPoolList}
           edit={QuestPoolEdit}
@@ -378,13 +397,6 @@ const App = (): React.ReactElement => {
           show={QuestCueEffectShow}
         />
         <Resource
-          name="QuestPoi"
-          list={QuestPoiList}
-          edit={QuestPoiEdit}
-          create={QuestPoiCreate}
-          show={QuestPoiShow}
-        />
-        <Resource
           name="QuestObjective"
           list={QuestObjectiveList}
           edit={QuestObjectiveEdit}
@@ -481,6 +493,27 @@ const App = (): React.ReactElement => {
           edit={QuestEdit}
           create={QuestCreate}
           show={QuestShow}
+        />
+        <Resource
+          name="Zone"
+          list={ZoneList}
+          edit={ZoneEdit}
+          create={ZoneCreate}
+          show={ZoneShow}
+        />
+        <Resource
+          name="Map"
+          list={MapList}
+          edit={MapEdit}
+          create={MapCreate}
+          show={MapShow}
+        />
+        <Resource
+          name="Epic"
+          list={EpicList}
+          edit={EpicEdit}
+          create={EpicCreate}
+          show={EpicShow}
         />
       </Admin>
     </div>

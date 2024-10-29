@@ -5,14 +5,15 @@ import {
   SimpleShowLayout,
   ShowProps,
   DateField,
-  TextField,
   ReferenceField,
+  TextField,
   ReferenceManyField,
   Datagrid,
 } from "react-admin";
 
 import { AREA_TITLE_FIELD } from "../area/AreaTitle";
 import { QUEST_TITLE_FIELD } from "./QuestTitle";
+import { EPIC_TITLE_FIELD } from "../epic/EpicTitle";
 import { QUESTCUEEFFECT_TITLE_FIELD } from "../questCueEffect/QuestCueEffectTitle";
 import { QUESTDETAIL_TITLE_FIELD } from "../questDetail/QuestDetailTitle";
 import { QUESTGREETING_TITLE_FIELD } from "../questGreeting/QuestGreetingTitle";
@@ -24,6 +25,9 @@ export const QuestShow = (props: ShowProps): React.ReactElement => {
     <Show {...props}>
       <SimpleShowLayout>
         <DateField source="createdAt" label="Created At" />
+        <ReferenceField label="Epic" source="epic.id" reference="Epic">
+          <TextField source={EPIC_TITLE_FIELD} />
+        </ReferenceField>
         <TextField label="ID" source="id" />
         <ReferenceField
           label="Quest Cue Effects"

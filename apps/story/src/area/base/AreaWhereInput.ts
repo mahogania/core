@@ -17,6 +17,7 @@ import { Type } from "class-transformer";
 import { AreaScenarioTriggerListRelationFilter } from "../../areaScenarioTrigger/base/AreaScenarioTriggerListRelationFilter";
 import { AreaTeleportTriggerListRelationFilter } from "../../areaTeleportTrigger/base/AreaTeleportTriggerListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { ZoneWhereUniqueInput } from "../../zone/base/ZoneWhereUniqueInput";
 
 @InputType()
 class AreaWhereInput {
@@ -66,6 +67,18 @@ class AreaWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => ZoneWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => ZoneWhereUniqueInput)
+  @IsOptional()
+  @Field(() => ZoneWhereUniqueInput, {
+    nullable: true,
+  })
+  zone?: ZoneWhereUniqueInput;
 }
 
 export { AreaWhereInput as AreaWhereInput };

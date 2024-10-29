@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { AreaQuestTrigger } from "../../areaQuestTrigger/base/AreaQuestTrigger";
 import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
 import { Type } from "class-transformer";
+import { Epic } from "../../epic/base/Epic";
 import { QuestCompletionConditional } from "../../questCompletionConditional/base/QuestCompletionConditional";
 import { QuestCueEffect } from "../../questCueEffect/base/QuestCueEffect";
 import { QuestDescriptionConditional } from "../../questDescriptionConditional/base/QuestDescriptionConditional";
@@ -40,6 +41,15 @@ class Quest {
   @Type(() => Date)
   @Field(() => Date)
   createdAt!: Date;
+
+  @ApiProperty({
+    required: false,
+    type: () => Epic,
+  })
+  @ValidateNested()
+  @Type(() => Epic)
+  @IsOptional()
+  epic?: Epic | null;
 
   @ApiProperty({
     required: true,

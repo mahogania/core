@@ -153,6 +153,13 @@ export class QuestCueEffectGrpcControllerBase {
       ...query,
       select: {
         createdAt: true,
+
+        epic: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
 
         questCueEffects: {

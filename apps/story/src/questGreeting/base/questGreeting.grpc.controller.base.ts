@@ -251,6 +251,13 @@ export class QuestGreetingGrpcControllerBase {
       ...query,
       select: {
         createdAt: true,
+
+        epic: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
 
         questCueEffects: {

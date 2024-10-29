@@ -32,6 +32,7 @@ import { QuestCompletionConditionalFindManyArgs } from "../../questCompletionCon
 import { QuestCompletionConditional } from "../../questCompletionConditional/base/QuestCompletionConditional";
 import { QuestDescriptionConditionalFindManyArgs } from "../../questDescriptionConditional/base/QuestDescriptionConditionalFindManyArgs";
 import { QuestDescriptionConditional } from "../../questDescriptionConditional/base/QuestDescriptionConditional";
+import { Epic } from "../../epic/base/Epic";
 import { QuestCueEffect } from "../../questCueEffect/base/QuestCueEffect";
 import { QuestDetail } from "../../questDetail/base/QuestDetail";
 import { QuestGreeting } from "../../questGreeting/base/QuestGreeting";
@@ -102,6 +103,12 @@ export class QuestResolverBase {
       data: {
         ...args.data,
 
+        epic: args.data.epic
+          ? {
+              connect: args.data.epic,
+            }
+          : undefined,
+
         questCueEffects: args.data.questCueEffects
           ? {
               connect: args.data.questCueEffects,
@@ -150,6 +157,12 @@ export class QuestResolverBase {
         ...args,
         data: {
           ...args.data,
+
+          epic: args.data.epic
+            ? {
+                connect: args.data.epic,
+              }
+            : undefined,
 
           questCueEffects: args.data.questCueEffects
             ? {
@@ -281,6 +294,25 @@ export class QuestResolverBase {
     }
 
     return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => Epic, {
+    nullable: true,
+    name: "epic",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "Epic",
+    action: "read",
+    possession: "any",
+  })
+  async getEpic(@graphql.Parent() parent: Quest): Promise<Epic | null> {
+    const result = await this.service.getEpic(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)

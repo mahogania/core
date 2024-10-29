@@ -62,6 +62,12 @@ export class QuestControllerBase {
       data: {
         ...data,
 
+        epic: data.epic
+          ? {
+              connect: data.epic,
+            }
+          : undefined,
+
         questCueEffects: data.questCueEffects
           ? {
               connect: data.questCueEffects,
@@ -94,6 +100,13 @@ export class QuestControllerBase {
       },
       select: {
         createdAt: true,
+
+        epic: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
 
         questCueEffects: {
@@ -149,6 +162,13 @@ export class QuestControllerBase {
       ...args,
       select: {
         createdAt: true,
+
+        epic: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
 
         questCueEffects: {
@@ -205,6 +225,13 @@ export class QuestControllerBase {
       where: params,
       select: {
         createdAt: true,
+
+        epic: {
+          select: {
+            id: true,
+          },
+        },
+
         id: true,
 
         questCueEffects: {
@@ -273,6 +300,12 @@ export class QuestControllerBase {
         data: {
           ...data,
 
+          epic: data.epic
+            ? {
+                connect: data.epic,
+              }
+            : undefined,
+
           questCueEffects: data.questCueEffects
             ? {
                 connect: data.questCueEffects,
@@ -305,6 +338,13 @@ export class QuestControllerBase {
         },
         select: {
           createdAt: true,
+
+          epic: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
 
           questCueEffects: {
@@ -369,6 +409,13 @@ export class QuestControllerBase {
         where: params,
         select: {
           createdAt: true,
+
+          epic: {
+            select: {
+              id: true,
+            },
+          },
+
           id: true,
 
           questCueEffects: {

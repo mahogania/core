@@ -17,6 +17,7 @@ import {
   AreaQuestTrigger as PrismaAreaQuestTrigger,
   AreaScenarioTrigger as PrismaAreaScenarioTrigger,
   AreaTeleportTrigger as PrismaAreaTeleportTrigger,
+  Zone as PrismaZone,
 } from "@prisma/client";
 
 export class AreaServiceBase {
@@ -73,5 +74,13 @@ export class AreaServiceBase {
         where: { id: parentId },
       })
       .areaTeleportTriggers(args);
+  }
+
+  async getZone(parentId: string): Promise<PrismaZone | null> {
+    return this.prisma.area
+      .findUnique({
+        where: { id: parentId },
+      })
+      .zone();
   }
 }

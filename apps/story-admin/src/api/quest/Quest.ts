@@ -1,4 +1,5 @@
 import { AreaQuestTrigger } from "../areaQuestTrigger/AreaQuestTrigger";
+import { Epic } from "../epic/Epic";
 import { QuestCompletionConditional } from "../questCompletionConditional/QuestCompletionConditional";
 import { QuestCueEffect } from "../questCueEffect/QuestCueEffect";
 import { QuestDescriptionConditional } from "../questDescriptionConditional/QuestDescriptionConditional";
@@ -10,6 +11,7 @@ import { User } from "../user/User";
 export type Quest = {
   areaQuestTriggers?: Array<AreaQuestTrigger>;
   createdAt: Date;
+  epic?: Epic | null;
   id: string;
   questCompletionConditionals?: Array<QuestCompletionConditional>;
   questCueEffects?: QuestCueEffect | null;

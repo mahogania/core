@@ -25,6 +25,7 @@ import { QuestRegionModule } from "./questRegion/questRegion.module";
 import { QuestRewardItemModule } from "./questRewardItem/questRewardItem.module";
 import { PoolMemberModule } from "./poolMember/poolMember.module";
 import { PoolModule } from "./pool/pool.module";
+import { QuestPoiModule } from "./questPoi/questPoi.module";
 import { QuestPoolModule } from "./questPool/questPool.module";
 import { QuestTemplateModule } from "./questTemplate/questTemplate.module";
 import { QuestRequestItemModule } from "./questRequestItem/questRequestItem.module";
@@ -39,7 +40,6 @@ import { QuestTemplateLocaleModule } from "./questTemplateLocale/questTemplateLo
 import { QuestDetailModule } from "./questDetail/questDetail.module";
 import { QuestPoolMemberModule } from "./questPoolMember/questPoolMember.module";
 import { QuestCueEffectModule } from "./questCueEffect/questCueEffect.module";
-import { QuestPoiModule } from "./questPoi/questPoi.module";
 import { QuestObjectiveModule } from "./questObjective/questObjective.module";
 import { QuestObjectiveLocaleModule } from "./questObjectiveLocale/questObjectiveLocale.module";
 import { QuestRequestItemsLocaleModule } from "./questRequestItemsLocale/questRequestItemsLocale.module";
@@ -54,6 +54,9 @@ import { SceneTemplateModule } from "./sceneTemplate/sceneTemplate.module";
 import { AreaModule } from "./area/area.module";
 import { PortalModule } from "./portal/portal.module";
 import { QuestModule } from "./quest/quest.module";
+import { ZoneModule } from "./zone/zone.module";
+import { MapModule } from "./map/map.module";
+import { EpicModule } from "./epic/epic.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -88,6 +91,7 @@ import { LoggerModule } from "./logger/logger.module";
     QuestRewardItemModule,
     PoolMemberModule,
     PoolModule,
+    QuestPoiModule,
     QuestPoolModule,
     QuestTemplateModule,
     QuestRequestItemModule,
@@ -102,7 +106,6 @@ import { LoggerModule } from "./logger/logger.module";
     QuestDetailModule,
     QuestPoolMemberModule,
     QuestCueEffectModule,
-    QuestPoiModule,
     QuestObjectiveModule,
     QuestObjectiveLocaleModule,
     QuestRequestItemsLocaleModule,
@@ -117,6 +120,9 @@ import { LoggerModule } from "./logger/logger.module";
     AreaModule,
     PortalModule,
     QuestModule,
+    ZoneModule,
+    MapModule,
+    EpicModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

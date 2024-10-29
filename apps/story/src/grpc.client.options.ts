@@ -17,6 +17,7 @@ export const grpcClientOptions: ClientOptions = {
       "questrewarditem",
       "poolmember",
       "pool",
+      "questpoi",
       "questpool",
       "questtemplate",
       "questrequestitem",
@@ -31,7 +32,6 @@ export const grpcClientOptions: ClientOptions = {
       "questdetail",
       "questpoolmember",
       "questcueeffect",
-      "questpoi",
       "questobjective",
       "questobjectivelocale",
       "questrequestitemslocale",
@@ -45,7 +45,10 @@ export const grpcClientOptions: ClientOptions = {
       "scenetemplate",
       "area",
       "portal",
-      "quest"
+      "quest",
+      "zone",
+      "map",
+      "epic"
     ],
     protoPath: [
       "src/user/user.proto",
@@ -58,6 +61,7 @@ export const grpcClientOptions: ClientOptions = {
       "src/questrewarditem/questrewarditem.proto",
       "src/poolmember/poolmember.proto",
       "src/pool/pool.proto",
+      "src/questpoi/questpoi.proto",
       "src/questpool/questpool.proto",
       "src/questtemplate/questtemplate.proto",
       "src/questrequestitem/questrequestitem.proto",
@@ -72,7 +76,6 @@ export const grpcClientOptions: ClientOptions = {
       "src/questdetail/questdetail.proto",
       "src/questpoolmember/questpoolmember.proto",
       "src/questcueeffect/questcueeffect.proto",
-      "src/questpoi/questpoi.proto",
       "src/questobjective/questobjective.proto",
       "src/questobjectivelocale/questobjectivelocale.proto",
       "src/questrequestitemslocale/questrequestitemslocale.proto",
@@ -86,7 +89,10 @@ export const grpcClientOptions: ClientOptions = {
       "src/scenetemplate/scenetemplate.proto",
       "src/area/area.proto",
       "src/portal/portal.proto",
-      "src/quest/quest.proto"
+      "src/quest/quest.proto",
+      "src/zone/zone.proto",
+      "src/map/map.proto",
+      "src/epic/epic.proto"
     ],
     url: configService.get<string>("GRPC_CLIENT_URL_PATH"),
   },
