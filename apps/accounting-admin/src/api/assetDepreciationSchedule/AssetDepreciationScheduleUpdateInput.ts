@@ -1,0 +1,27 @@
+export type AssetDepreciationScheduleUpdateInput = {
+  amendedFrom?: string | null;
+  asset?: string | null;
+  company?: string | null;
+  creation?: Date | null;
+  dailyProrataBased?: number | null;
+  depreciationMethod?: string | null;
+  docstatus?: number | null;
+  expectedValueAfterUsefulLife?: number | null;
+  financeBook?: string | null;
+  financeBookId?: number | null;
+  frequencyOfDepreciation?: number | null;
+  grossPurchaseAmount?: number | null;
+  idx?: number | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  namingSeries?: string | null;
+  notes?: string | null;
+  openingAccumulatedDepreciation?: number | null;
+  openingNumberOfBookedDepreciations?: number | null;
+  owner?: string | null;
+  rateOfDepreciation?: number | null;
+  shiftBased?: number | null;
+  status?: string | null;
+  totalNumberOfDepreciations?: number | null;
+};

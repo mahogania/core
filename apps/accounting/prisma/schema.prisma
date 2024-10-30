@@ -1,0 +1,958 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model AccountClosingBalance {
+  account                     String?
+  accountCurrency             String?
+  assign                      String?
+  closingDate                 DateTime?
+  comments                    String?
+  company                     String?
+  costCenter                  String?
+  createdAt                   DateTime  @default(now())
+  creation                    DateTime?
+  credit                      Float?
+  creditInAccountCurrency     Float?
+  debit                       Float?
+  debitInAccountCurrency      Float?
+  docstatus                   Int?
+  financeBook                 String?
+  id                          String    @id @default(cuid())
+  idx                         Int?
+  isPeriodClosingVoucherEntry Int?
+  likedBy                     String?
+  modified                    DateTime?
+  modifiedBy                  String?
+  name                        String?
+  owner                       String?
+  periodClosingVoucher        String?
+  project                     String?
+  updatedAt                   DateTime  @updatedAt
+  userTags                    String?
+}
+
+model Account {
+  accountCurrency String?
+  accountName     String?
+  accountNumber   String?
+  accountType     String?
+  assign          String?
+  balanceMustBe   String?
+  comments        String?
+  company         String?
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  disabled        Int?
+  docstatus       Int?
+  freezeAccount   String?
+  id              String    @id @default(cuid())
+  idx             Int?
+  includeInGross  Int?
+  isGroup         Int?
+  lft             Int?
+  likedBy         String?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  oldParent       String?
+  owner           String?
+  parentAccount   String?
+  reportType      String?
+  rgt             Int?
+  rootType        String?
+  taxRate         Float?
+  updatedAt       DateTime  @updatedAt
+  userTags        String?
+}
+
+model AccountingDimensionDetail {
+  automaticallyPostBalancingAccountingEntry Int?
+  company                                   String?
+  createdAt                                 DateTime  @default(now())
+  creation                                  DateTime?
+  defaultDimension                          String?
+  docstatus                                 Int?
+  id                                        String    @id @default(cuid())
+  idx                                       Int?
+  mandatoryForBs                            Int?
+  mandatoryForPl                            Int?
+  modified                                  DateTime?
+  modifiedBy                                String?
+  name                                      String?
+  offsettingAccount                         String?
+  owner                                     String?
+  parent                                    String?
+  parentfield                               String?
+  parenttype                                String?
+  referenceDocument                         String?
+  updatedAt                                 DateTime  @updatedAt
+}
+
+model AccountingDimensionFilter {
+  accountingDimension      String?
+  allowOrRestrict          String?
+  applyRestrictionOnValues Int?
+  company                  String?
+  createdAt                DateTime  @default(now())
+  creation                 DateTime?
+  disabled                 Int?
+  docstatus                Int?
+  id                       String    @id @default(cuid())
+  idx                      Int?
+  modified                 DateTime?
+  modifiedBy               String?
+  name                     String?
+  owner                    String?
+  updatedAt                DateTime  @updatedAt
+}
+
+model AccountingDimension {
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  disabled     Int?
+  docstatus    Int?
+  documentType String?
+  fieldname    String?
+  id           String    @id @default(cuid())
+  idx          Int?
+  label        String?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model AccountingPeriod {
+  company    String?
+  createdAt  DateTime  @default(now())
+  creation   DateTime?
+  docstatus  Int?
+  endDate    DateTime?
+  id         String    @id @default(cuid())
+  idx        Int?
+  modified   DateTime?
+  modifiedBy String?
+  name       String?
+  owner      String?
+  periodName String?
+  startDate  DateTime?
+  updatedAt  DateTime  @updatedAt
+}
+
+model ActivityType {
+  activityType String?
+  billingRate  Float?
+  costingRate  Float?
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  disabled     Int?
+  docstatus    Int?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model AddressTemplate {
+  country    String?
+  createdAt  DateTime  @default(now())
+  creation   DateTime?
+  docstatus  Int?
+  id         String    @id @default(cuid())
+  idx        Int?
+  isDefault  Int?
+  modified   DateTime?
+  modifiedBy String?
+  name       String?
+  owner      String?
+  template   String?
+  updatedAt  DateTime  @updatedAt
+}
+
+model Address {
+  addressLine1      String?
+  addressLine2      String?
+  addressTitle      String?
+  addressType       String?
+  city              String?
+  country           String?
+  county            String?
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  disabled          Int?
+  docstatus         Int?
+  emailId           String?
+  fax               String?
+  id                String    @id @default(cuid())
+  idx               Int?
+  isPrimaryAddress  Int?
+  isShippingAddress Int?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  owner             String?
+  phone             String?
+  pincode           String?
+  state             String?
+  updatedAt         DateTime  @updatedAt
+}
+
+model AdvanceTaxesAndCharges {
+  accountHead          String?
+  addDeductTax         String?
+  allocatedAmount      Float?
+  baseTaxAmount        Float?
+  baseTotal            Float?
+  chargeType           String?
+  costCenter           String?
+  createdAt            DateTime @default(now())
+  currency             String?
+  description          String?
+  docstatus            Int?
+  id                   String   @id @default(cuid())
+  idx                  Int?
+  includedInPaidAmount Int?
+  name                 String?
+  owner                String?
+  parent               String?
+  parentfield          String?
+  parenttype           String?
+  rate                 Float?
+  rowId                String?
+  taxAmount            Float?
+  total                Float?
+  updatedAt            DateTime @updatedAt
+}
+
+model ActivityLog {
+  communicationDate DateTime?
+  content           String?
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  docstatus         Int?
+  fullName          String?
+  id                String    @id @default(cuid())
+  idx               Int?
+  ipAddress         String?
+  linkDoctype       String?
+  linkName          String?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  operation         String?
+  owner             String?
+  referenceDoctype  String?
+  referenceName     String?
+  referenceOwner    String?
+  status            String?
+  subject           String?
+  timelineDoctype   String?
+  timelineName      String?
+  updatedAt         DateTime  @updatedAt
+  user              String?
+}
+
+model AllowedDimension {
+  accountingDimension String?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  dimensionValue      String?
+  docstatus           Int?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  owner               String?
+  parent              String?
+  parentfield         String?
+  parenttype          String?
+  updatedAt           DateTime  @updatedAt
+}
+
+model AdvanceTax {
+  accountHead     String?
+  allocatedAmount Float?
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  docstatus       Int?
+  id              String    @id @default(cuid())
+  idx             Int?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  owner           String?
+  parent          String?
+  parentfield     String?
+  parenttype      String?
+  referenceDetail String?
+  referenceName   String?
+  referenceType   String?
+  updatedAt       DateTime  @updatedAt
+}
+
+model AllowedToTransactWith {
+  company     String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model AmendedDocumentNamingSettings {
+  action       String?
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  docstatus    Int?
+  documentType String?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  parent       String?
+  parentfield  String?
+  parenttype   String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model ApplicableOnAccount {
+  applicableOnAccount String?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  docstatus           Int?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  isMandatory         Int?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  owner               String?
+  parent              String?
+  parentfield         String?
+  parenttype          String?
+  updatedAt           DateTime  @updatedAt
+}
+
+model Appointment {
+  appointmentWith     String?
+  calendarEvent       String?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  customerDetails     String?
+  customerEmail       String?
+  customerName        String?
+  customerPhoneNumber String?
+  customerSkype       String?
+  docstatus           Int?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  owner               String?
+  party               String?
+  scheduledTime       DateTime?
+  status              String?
+  updatedAt           DateTime  @updatedAt
+}
+
+model AssetActivity {
+  asset      String?
+  createdAt  DateTime  @default(now())
+  creation   DateTime?
+  date       DateTime?
+  docstatus  Int?
+  id         String    @id @default(cuid())
+  idx        Int?
+  modified   DateTime?
+  modifiedBy String?
+  name       String?
+  owner      String?
+  subject    String?
+  updatedAt  DateTime  @updatedAt
+  user       String?
+}
+
+model AssetCapitalizationAssetItem {
+  asset             String?
+  assetName         String?
+  assetValue        Float?
+  costCenter        String?
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  currentAssetValue Float?
+  docstatus         Int?
+  financeBook       String?
+  fixedAssetAccount String?
+  id                String    @id @default(cuid())
+  idx               Int?
+  itemCode          String?
+  itemName          String?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  owner             String?
+  parent            String?
+  parentfield       String?
+  parenttype        String?
+  updatedAt         DateTime  @updatedAt
+}
+
+model AssetCapitalizationServiceItem {
+  actualQty            Float?
+  amount               Float?
+  batchNo              String?
+  costCenter           String?
+  createdAt            DateTime  @default(now())
+  creation             DateTime?
+  docstatus            Int?
+  expenseAccount       String?
+  id                   String    @id @default(cuid())
+  idx                  Int?
+  itemCode             String?
+  itemName             String?
+  modified             DateTime?
+  modifiedBy           String?
+  name                 String?
+  owner                String?
+  parent               String?
+  parentField          String?
+  parentType           String?
+  parentfield          String?
+  parenttype           String?
+  qty                  Float?
+  rate                 Float?
+  serialAndBatchBundle String?
+  serialNo             String?
+  stockQty             Float?
+  stockUom             String?
+  uom                  String?
+  updatedAt            DateTime  @updatedAt
+  useSerialBatchFields Int?
+  valuationRate        Float?
+  warehouse            String?
+}
+
+model AssetCapitalizationStockItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model AssetCapitalization {
+  amendedFrom             String?
+  assetItemsTotal         Float?
+  capitalizationMethod    String?
+  company                 String?
+  costCenter              String?
+  createdAt               DateTime  @default(now())
+  creation                DateTime?
+  docstatus               Int?
+  entryType               String?
+  financeBook             String?
+  id                      String    @id @default(cuid())
+  idx                     Int?
+  modified                DateTime?
+  modifiedBy              String?
+  name                    String?
+  namingSeries            String?
+  owner                   String?
+  postingDate             DateTime?
+  postingTime             DateTime?
+  serviceItemsTotal       Float?
+  setPostingTime          Int?
+  stockItemsTotal         Float?
+  targetAsset             String?
+  targetAssetLocation     String?
+  targetAssetName         String?
+  targetBatchNo           String?
+  targetFixedAssetAccount String?
+  targetHasBatchNo        Int?
+  targetHasSerialNo       Int?
+  targetIncomingRate      Float?
+  targetIsFixedAsset      Int?
+  targetItemCode          String?
+  targetItemName          String?
+  targetQty               Float?
+  targetSerialNo          String?
+  targetStockUom          String?
+  targetWarehouse         String?
+  title                   String?
+  totalValue              Float?
+  updatedAt               DateTime  @updatedAt
+}
+
+model AssetCategoryAccount {
+  accumulatedDepreciationAccount String?
+  capitalWorkInProgressAccount   String?
+  companyName                    String?
+  createdAt                      DateTime  @default(now())
+  creation                       DateTime?
+  depreciationExpenseAccount     String?
+  docstatus                      Int?
+  fixedAssetAccount              String?
+  id                             String    @id @default(cuid())
+  idx                            Int?
+  modified                       DateTime?
+  modifiedBy                     String?
+  name                           String?
+  owner                          String?
+  parent                         String?
+  parentfield                    String?
+  parenttype                     String?
+  updatedAt                      DateTime  @updatedAt
+}
+
+model AssetCategory {
+  assetCategoryName    String?
+  createdAt            DateTime  @default(now())
+  creation             DateTime?
+  docstatus            Int?
+  enableCwipAccounting Int?
+  id                   String    @id @default(cuid())
+  idx                  Int?
+  modified             DateTime?
+  modifiedBy           String?
+  name                 String?
+  owner                String?
+  updatedAt            DateTime  @updatedAt
+}
+
+model AssetDepreciationSchedule {
+  amendedFrom                        String?
+  asset                              String?
+  company                            String?
+  createdAt                          DateTime  @default(now())
+  creation                           DateTime?
+  dailyProrataBased                  Int?
+  depreciationMethod                 String?
+  docstatus                          Int?
+  expectedValueAfterUsefulLife       Float?
+  financeBook                        String?
+  financeBookId                      Int?
+  frequencyOfDepreciation            Int?
+  grossPurchaseAmount                Float?
+  id                                 String    @id @default(cuid())
+  idx                                Int?
+  modified                           DateTime?
+  modifiedBy                         String?
+  name                               String?
+  namingSeries                       String?
+  notes                              String?
+  openingAccumulatedDepreciation     Float?
+  openingNumberOfBookedDepreciations Int?
+  owner                              String?
+  rateOfDepreciation                 Float?
+  shiftBased                         Int?
+  status                             String?
+  totalNumberOfDepreciations         Int?
+  updatedAt                          DateTime  @updatedAt
+}
+
+model AssetFinanceBook {
+  createdAt                        DateTime  @default(now())
+  creation                         DateTime?
+  dailyProrataBased                Int?
+  depreciationMethod               String?
+  depreciationStartDate            DateTime?
+  docstatus                        Int?
+  expectedValueAfterUsefulLife     Float?
+  financeBook                      String?
+  frequencyOfDepreciation          Int?
+  id                               String    @id @default(cuid())
+  idx                              Int?
+  modified                         DateTime?
+  modifiedBy                       String?
+  name                             String?
+  owner                            String?
+  parent                           String?
+  parentfield                      String?
+  parenttype                       String?
+  rateOfDepreciation               Float?
+  salvageValuePercentage           Float?
+  shiftBased                       Int?
+  totalNumberOfBookedDepreciations Int?
+  totalNumberOfDepreciations       Int?
+  updatedAt                        DateTime  @updatedAt
+  valueAfterDepreciation           Float?
+}
+
+model AssetMaintenanceLog {
+  actionsPerformed       String?
+  amendedFrom            String?
+  assetMaintenance       String?
+  assetName              String?
+  assignToName           String?
+  certificateAttachement String?
+  completionDate         DateTime?
+  createdAt              DateTime  @default(now())
+  creation               DateTime?
+  description            String?
+  docstatus              Int?
+  dueDate                DateTime?
+  hasCertificate         Int?
+  id                     String    @id @default(cuid())
+  idx                    Int?
+  itemCode               String?
+  itemName               String?
+  maintenanceStatus      String?
+  maintenanceType        String?
+  modified               DateTime?
+  modifiedBy             String?
+  name                   String?
+  namingSeries           String?
+  owner                  String?
+  periodicity            String?
+  task                   String?
+  taskName               String?
+  updatedAt              DateTime  @updatedAt
+}
+
+model AssetMaintenanceTask {
+  assignTo            String?
+  assignToName        String?
+  certificateRequired Int?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  description         String?
+  docstatus           Int?
+  endDate             DateTime?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  lastCompletionDate  DateTime?
+  maintenanceStatus   String?
+  maintenanceTask     String?
+  maintenanceType     String?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  nextDueDate         DateTime?
+  owner               String?
+  parent              String?
+  parentField         String?
+  parentType          String?
+  periodicity         String?
+  startDate           DateTime?
+  updatedAt           DateTime  @updatedAt
+}
+
+model AssetMaintenanceTeam {
+  company                String?
+  createdAt              DateTime  @default(now())
+  creation               DateTime?
+  docstatus              Int?
+  id                     String    @id @default(cuid())
+  idx                    Int?
+  maintenanceManager     String?
+  maintenanceManagerName String?
+  maintenanceTeamName    String?
+  modified               DateTime?
+  modifiedBy             String?
+  name                   String?
+  owner                  String?
+  updatedAt              DateTime  @updatedAt
+}
+
+model AssetMaintenance {
+  assetCategory          String?
+  assetName              String?
+  company                String?
+  createdAt              DateTime  @default(now())
+  creation               DateTime?
+  docstatus              Int?
+  id                     String    @id @default(cuid())
+  idx                    Int?
+  itemCode               String?
+  itemName               String?
+  maintenanceManager     String?
+  maintenanceManagerName String?
+  maintenanceTeam        String?
+  modified               DateTime?
+  modifiedBy             String?
+  name                   String?
+  owner                  String?
+  updatedAt              DateTime  @updatedAt
+}
+
+model AssetMovementItem {
+  asset          String?
+  assetName      String?
+  company        String?
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  docstatus      Int?
+  fromEmployee   String?
+  id             String    @id @default(cuid())
+  idx            Int?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  parent         String?
+  parentField    String?
+  parentType     String?
+  sourceLocation String?
+  targetLocation String?
+  toEmployee     String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model AssetRepairConsumedItem {
+  consumedQuantity     String?
+  createdAt            DateTime @default(now())
+  docstatus            Int?
+  id                   String   @id @default(cuid())
+  idx                  Int?
+  itemCode             String?
+  name                 String?
+  owner                String?
+  parent               String?
+  parentField          String?
+  parentType           String?
+  serialAndBatchBundle String?
+  serialNo             String?
+  totalValue           Float?
+  updatedAt            DateTime @updatedAt
+  valuationRate        Float?
+  warehouse            String?
+}
+
+model AssetRepair {
+  actionsPerformed     String?
+  amendedFrom          String?
+  asset                String?
+  assetName            String?
+  capitalizeRepairCost Int?
+  company              String?
+  completionDate       DateTime?
+  costCenter           String?
+  createdAt            DateTime  @default(now())
+  creation             DateTime?
+  description          String?
+  docstatus            Int?
+  downtime             String?
+  failureDate          DateTime?
+  id                   String    @id @default(cuid())
+  idx                  Int?
+  increaseInAssetLife  Int?
+  modified             DateTime?
+  modifiedBy           String?
+  name                 String?
+  namingSeries         String?
+  owner                String?
+  project              String?
+  purchaseInvoice      String?
+  repairCost           Float?
+  repairStatus         String?
+  stockConsumption     Int?
+  totalRepairCost      Float?
+  updatedAt            DateTime  @updatedAt
+}
+
+model AssetShiftFactor {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  shiftFactor Float?
+  shiftName   String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model AssetValueAdjustment {
+  amendedFrom       String?
+  asset             String?
+  assetCategory     String?
+  company           String?
+  costCenter        String?
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  currentAssetValue Float?
+  date              DateTime?
+  differenceAmount  Float?
+  docstatus         Int?
+  financeBook       String?
+  id                String    @id @default(cuid())
+  idx               Int?
+  journalEntry      String?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  newAssetValue     Float?
+  owner             String?
+  updatedAt         DateTime  @updatedAt
+}
+
+model Asset {
+  additionalAssetCost                Float?
+  amendedFrom                        String?
+  assetCategory                      String?
+  assetName                          String?
+  assetOwner                         String?
+  assetOwnerCompany                  String?
+  assetQuantity                      Int?
+  availableForUseDate                DateTime?
+  bookedFixedAsset                   Int?
+  calculateDepreciation              Int?
+  company                            String?
+  comprehensiveInsurance             String?
+  costCenter                         String?
+  createdAt                          DateTime  @default(now())
+  creation                           DateTime?
+  custodian                          String?
+  customer                           String?
+  defaultFinanceBook                 String?
+  department                         String?
+  deprEntryPostingStatus             String?
+  depreciationMethod                 String?
+  disposalDate                       DateTime?
+  docstatus                          Int?
+  frequencyOfDepreciation            Int?
+  grossPurchaseAmount                Float?
+  id                                 String    @id @default(cuid())
+  idx                                Int?
+  image                              String?
+  insuranceEndDate                   DateTime?
+  insuranceStartDate                 DateTime?
+  insuredValue                       String?
+  insurer                            String?
+  isCompositeAsset                   Int?
+  isExistingAsset                    Int?
+  isFullyDepreciated                 Int?
+  itemCode                           String?
+  itemName                           String?
+  journalEntryForScrap               String?
+  location                           String?
+  maintenanceRequired                Int?
+  modified                           DateTime?
+  modifiedBy                         String?
+  name                               String?
+  namingSeries                       String?
+  nextDepreciationDate               DateTime?
+  openingAccumulatedDepreciation     Float?
+  openingNumberOfBookedDepreciations Int?
+  owner                              String?
+  policyNumber                       String?
+  purchaseAmount                     Float?
+  purchaseDate                       DateTime?
+  purchaseInvoice                    String?
+  purchaseInvoiceItem                String?
+  purchaseReceipt                    String?
+  purchaseReceiptItem                String?
+  splitFrom                          String?
+  status                             String?
+  supplier                           String?
+  totalAssetCost                     Float?
+  totalNumberOfDepreciations         Int?
+  updatedAt                          DateTime  @updatedAt
+  valueAfterDepreciation             Float?
+}
+
+model AssignmentRuleDay {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  day         String?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentField String?
+  parentType  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model AssignmentRuleUser {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentField String?
+  parentType  String?
+  updatedAt   DateTime  @updatedAt
+  user        String?
+}
+
+model AssignmentRule {
+  assignCondition   String?
+  closeCondition    String?
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  description       String?
+  disabled          Int?
+  docstatus         Int?
+  documentType      String?
+  dueDateBasedOn    String?
+  fieldField        String?
+  id                String    @id @default(cuid())
+  idx               Int?
+  lastUser          String?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  owner             String?
+  priority          Int?
+  rule              String?
+  unassignCondition String?
+  updatedAt         DateTime  @updatedAt
+}
+
+model AuthorizationRule {
+  approvingRole  String?
+  approvingUser  String?
+  basedOn        String?
+  company        String?
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  customerOrItem String?
+  docstatus      Int?
+  id             String    @id @default(cuid())
+  idx            Int?
+  masterName     String?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  systemRole     String?
+  systemUser     String?
+  toDesignation  String?
+  toEmp          String?
+  transaction    String?
+  updatedAt      DateTime  @updatedAt
+  value          Float?
+}

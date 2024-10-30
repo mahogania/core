@@ -1,0 +1,27 @@
+export type AssetFinanceBook = {
+  createdAt: Date;
+  creation: Date | null;
+  dailyProrataBased: number | null;
+  depreciationMethod: string | null;
+  depreciationStartDate: Date | null;
+  docstatus: number | null;
+  expectedValueAfterUsefulLife: number | null;
+  financeBook: string | null;
+  frequencyOfDepreciation: number | null;
+  id: string;
+  idx: number | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  parent: string | null;
+  parentfield: string | null;
+  parenttype: string | null;
+  rateOfDepreciation: number | null;
+  salvageValuePercentage: number | null;
+  shiftBased: number | null;
+  totalNumberOfBookedDepreciations: number | null;
+  totalNumberOfDepreciations: number | null;
+  updatedAt: Date;
+  valueAfterDepreciation: number | null;
+};

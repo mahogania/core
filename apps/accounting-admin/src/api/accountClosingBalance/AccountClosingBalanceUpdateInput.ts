@@ -1,0 +1,26 @@
+export type AccountClosingBalanceUpdateInput = {
+  account?: string | null;
+  accountCurrency?: string | null;
+  assign?: string | null;
+  closingDate?: Date | null;
+  comments?: string | null;
+  company?: string | null;
+  costCenter?: string | null;
+  creation?: Date | null;
+  credit?: number | null;
+  creditInAccountCurrency?: number | null;
+  debit?: number | null;
+  debitInAccountCurrency?: number | null;
+  docstatus?: number | null;
+  financeBook?: string | null;
+  idx?: number | null;
+  isPeriodClosingVoucherEntry?: number | null;
+  likedBy?: string | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  owner?: string | null;
+  periodClosingVoucher?: string | null;
+  project?: string | null;
+  userTags?: string | null;
+};
