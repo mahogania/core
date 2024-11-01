@@ -1,0 +1,34 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type BomCreatorOrderByInput = {
+  amendedFrom?: SortOrder;
+  buyingPriceList?: SortOrder;
+  company?: SortOrder;
+  conversionRate?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  currency?: SortOrder;
+  defaultWarehouse?: SortOrder;
+  docstatus?: SortOrder;
+  errorLog?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  itemCode?: SortOrder;
+  itemGroup?: SortOrder;
+  itemName?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  owner?: SortOrder;
+  plcConversionRate?: SortOrder;
+  priceListCurrency?: SortOrder;
+  project?: SortOrder;
+  qty?: SortOrder;
+  rawMaterialCost?: SortOrder;
+  remarks?: SortOrder;
+  rmCostAsPer?: SortOrder;
+  setRateBasedOnWarehouse?: SortOrder;
+  status?: SortOrder;
+  uom?: SortOrder;
+  updatedAt?: SortOrder;
+};

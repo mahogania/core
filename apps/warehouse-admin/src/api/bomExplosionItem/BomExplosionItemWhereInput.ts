@@ -1,0 +1,33 @@
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
+
+export type BomExplosionItemWhereInput = {
+  amount?: FloatNullableFilter;
+  creation?: DateTimeNullableFilter;
+  description?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  image?: StringNullableFilter;
+  includeItemInManufacturing?: BooleanNullableFilter;
+  itemCode?: StringNullableFilter;
+  itemName?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  operation?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  parentfield?: StringNullableFilter;
+  parenttype?: StringNullableFilter;
+  qtyConsumedPerUnit?: FloatNullableFilter;
+  rate?: FloatNullableFilter;
+  sourceWarehouse?: StringNullableFilter;
+  sourcedBySupplier?: BooleanNullableFilter;
+  stockQty?: FloatNullableFilter;
+  stockUom?: StringNullableFilter;
+};
