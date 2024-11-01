@@ -39,6 +39,8 @@ import { AssignmentRuleDayModule } from "./assignmentRuleDay/assignmentRuleDay.m
 import { AssignmentRuleUserModule } from "./assignmentRuleUser/assignmentRuleUser.module";
 import { AssignmentRuleModule } from "./assignmentRule/assignmentRule.module";
 import { AuthorizationRuleModule } from "./authorizationRule/authorizationRule.module";
+import { AutoEmailReportModule } from "./autoEmailReport/autoEmailReport.module";
+import { AutoRepeatDayModule } from "./autoRepeatDay/autoRepeatDay.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -91,6 +93,8 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     AssignmentRuleUserModule,
     AssignmentRuleModule,
     AuthorizationRuleModule,
+    AutoEmailReportModule,
+    AutoRepeatDayModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

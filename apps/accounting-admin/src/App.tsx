@@ -165,6 +165,14 @@ import { AuthorizationRuleList } from "./authorizationRule/AuthorizationRuleList
 import { AuthorizationRuleCreate } from "./authorizationRule/AuthorizationRuleCreate";
 import { AuthorizationRuleEdit } from "./authorizationRule/AuthorizationRuleEdit";
 import { AuthorizationRuleShow } from "./authorizationRule/AuthorizationRuleShow";
+import { AutoEmailReportList } from "./autoEmailReport/AutoEmailReportList";
+import { AutoEmailReportCreate } from "./autoEmailReport/AutoEmailReportCreate";
+import { AutoEmailReportEdit } from "./autoEmailReport/AutoEmailReportEdit";
+import { AutoEmailReportShow } from "./autoEmailReport/AutoEmailReportShow";
+import { AutoRepeatDayList } from "./autoRepeatDay/AutoRepeatDayList";
+import { AutoRepeatDayCreate } from "./autoRepeatDay/AutoRepeatDayCreate";
+import { AutoRepeatDayEdit } from "./autoRepeatDay/AutoRepeatDayEdit";
+import { AutoRepeatDayShow } from "./autoRepeatDay/AutoRepeatDayShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -457,6 +465,20 @@ const App = (): React.ReactElement => {
           edit={AuthorizationRuleEdit}
           create={AuthorizationRuleCreate}
           show={AuthorizationRuleShow}
+        />
+        <Resource
+          name="AutoEmailReport"
+          list={AutoEmailReportList}
+          edit={AutoEmailReportEdit}
+          create={AutoEmailReportCreate}
+          show={AutoEmailReportShow}
+        />
+        <Resource
+          name="AutoRepeatDay"
+          list={AutoRepeatDayList}
+          edit={AutoRepeatDayEdit}
+          create={AutoRepeatDayCreate}
+          show={AutoRepeatDayShow}
         />
       </Admin>
     </div>

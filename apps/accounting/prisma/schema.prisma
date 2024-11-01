@@ -956,3 +956,53 @@ model AuthorizationRule {
   updatedAt      DateTime  @updatedAt
   value          Float?
 }
+
+model AutoEmailReport {
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  dataModifiedTill    Int?
+  dayOfWeek           String?
+  description         String?
+  docstatus           Int?
+  dynamicDatePeriod   String?
+  emailTo             String?
+  enabled             Int?
+  filterMeta          String?
+  filters             String?
+  format              String?
+  frequency           String?
+  fromDateField       String?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  noOfRows            Int?
+  owner               String?
+  referenceReport     String?
+  report              String?
+  reportType          String?
+  sendIfData          Int?
+  sender              String?
+  toDateField         String?
+  updatedAt           DateTime  @updatedAt
+  useFirstDayOfPeriod Int?
+  user                String?
+}
+
+model AutoRepeatDay {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  day         String?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
