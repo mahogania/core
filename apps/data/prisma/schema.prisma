@@ -70,3 +70,333 @@ model DefaultValue {
   parenttype  String?
   updatedAt   DateTime  @updatedAt
 }
+
+model DocField {
+  allowBulkEdit             Int?
+  allowInQuickEntry         Int?
+  allowOnSubmit             Int?
+  bold                      Int?
+  collapsible               Int?
+  collapsibleDependsOn      String?
+  columns                   Int?
+  createdAt                 DateTime  @default(now())
+  creation                  DateTime?
+  defaultField              String?
+  dependsOn                 String?
+  description               String?
+  docstatus                 Int?
+  documentationUrl          String?
+  fetchFrom                 String?
+  fetchIfEmpty              Int?
+  fieldname                 String?
+  fieldtype                 String?
+  hidden                    Int?
+  hideBorder                Int?
+  hideDays                  Int?
+  hideSeconds               Int?
+  id                        String    @id @default(cuid())
+  idx                       Int?
+  ignoreUserPermissions     Int?
+  ignoreXssFilter           Int?
+  inFilter                  Int?
+  inGlobalSearch            Int?
+  inListView                Int?
+  inPreview                 Int?
+  inStandardFilter          Int?
+  isVirtual                 Int?
+  label                     String?
+  length                    Int?
+  linkFilters               Json?
+  mandatoryDependsOn        String?
+  maxHeight                 String?
+  modified                  DateTime?
+  modifiedBy                String?
+  name                      String?
+  noCopy                    Int?
+  nonNegative               Int?
+  oldfieldname              String?
+  oldfieldtype              String?
+  options                   String?
+  owner                     String?
+  parent                    String?
+  parentfield               String?
+  parenttype                String?
+  permlevel                 Int?
+  precision                 String?
+  printHide                 Int?
+  printHideIfNoValue        Int?
+  printWidth                String?
+  readOnly                  Int?
+  readOnlyDependsOn         String?
+  rememberLastSelectedValue Int?
+  reportHide                Int?
+  reqd                      Int?
+  searchIndex               Int?
+  setOnlyOnce               Int?
+  showDashboard             Int?
+  showOnTimeline            Int?
+  showPreviewPopup          Int?
+  sortOptions               Int?
+  translatable              Int?
+  trigger                   String?
+  unique                    Int?
+  updatedAt                 DateTime  @updatedAt
+  width                     String?
+}
+
+model DocPerm {
+  amend       Int?
+  cancel      Int?
+  create      Int?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  deleteField Int?
+  docstatus   Int?
+  email       Int?
+  exportField Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  ifOwner     Int?
+  importField Int?
+  match       String?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  permlevel   Int?
+  print       Int?
+  read        Int?
+  report      Int?
+  role        String?
+  select      Int?
+  share       Int?
+  submit      Int?
+  updatedAt   DateTime  @updatedAt
+  write       Int?
+}
+
+model DocShare {
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  docstatus     Int?
+  everyone      Int?
+  id            String    @id @default(cuid())
+  idx           Int?
+  modified      DateTime?
+  modifiedBy    String?
+  name          String?
+  notifyByEmail Int?
+  owner         String?
+  read          Int?
+  share         Int?
+  shareDoctype  String?
+  shareName     String?
+  submit        Int?
+  updatedAt     DateTime  @updatedAt
+  user          String?
+  write         Int?
+}
+
+model DocTypeAction {
+  action      String?
+  actionType  String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  custom      Int?
+  docstatus   Int?
+  group       String?
+  hidden      Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  label       String?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model DocTypeLayoutField {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  fieldname   String?
+  id          String    @id @default(cuid())
+  idx         Int?
+  label       String?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model DocTypeLayout {
+  clientScript String?
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  docstatus    Int?
+  documentType String?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  route        String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model DocTypeLink {
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  custom         Int?
+  docstatus      Int?
+  group          String?
+  hidden         Int?
+  id             String    @id @default(cuid())
+  idx            Int?
+  isChildTable   Int?
+  linkDoctype    String?
+  linkFieldname  String?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  parent         String?
+  parentDoctype  String?
+  parentfield    String?
+  parenttype     String?
+  tableFieldname String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model DocTypeState {
+  color       String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  custom      Int?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  title       String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model DocType {
+  allowAutoRepeat           Int?
+  allowCopy                 Int?
+  allowEventsInTimeline     Int?
+  allowGuestToView          Int?
+  allowImport               Int?
+  allowRename               Int?
+  appField                  String?
+  autoname                  String?
+  beta                      Int?
+  color                     String?
+  colour                    String?
+  createdAt                 DateTime  @default(now())
+  creation                  DateTime?
+  custom                    Int?
+  defaultEmailTemplate      String?
+  defaultPrintFormat        String?
+  defaultView               String?
+  description               String?
+  docstatus                 Int?
+  documentType              String?
+  documentation             String?
+  editableGrid              Int?
+  emailAppendTo             Int?
+  engine                    String?
+  forceReRouteToDefaultView Int?
+  hasWebView                Int?
+  hideToolbar               Int?
+  icon                      String?
+  id                        String    @id @default(cuid())
+  idx                       Int?
+  imageField                String?
+  inCreate                  Int?
+  indexWebPagesForSearch    Int?
+  isCalendarAndGantt        Int?
+  isPublishedField          String?
+  isSubmittable             Int?
+  isTree                    Int?
+  isVirtual                 Int?
+  issingle                  Int?
+  istable                   Int?
+  lastUpdate                String?
+  makeAttachmentsPublic     Int?
+  maxAttachments            Int?
+  menuIndex                 Int?
+  migrationHash             String?
+  modified                  DateTime?
+  modifiedBy                String?
+  moduleField               String?
+  name                      String?
+  namingRule                String?
+  nsmParentField            String?
+  owner                     String?
+  parentNode                String?
+  printOutline              String?
+  queueInBackground         Int?
+  quickEntry                Int?
+  readOnly                  Int?
+  restrictToDomain          String?
+  route                     String?
+  searchFields              String?
+  senderField               String?
+  senderNameField           String?
+  showNameInGlobalSearch    Int?
+  showPreviewPopup          Int?
+  showTitleFieldInLink      Int?
+  smallicon                 String?
+  sortField                 String?
+  sortOrder                 String?
+  subject                   String?
+  subjectField              String?
+  tagFields                 String?
+  timelineField             String?
+  titleField                String?
+  trackChanges              Int?
+  trackSeen                 Int?
+  trackViews                Int?
+  translatedDoctype         Int?
+  updatedAt                 DateTime  @updatedAt
+  userTags                  String?
+  websiteSearchField        String?
+}
+
+model DynamicLink {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  linkDoctype String?
+  linkName    String?
+  linkTitle   String?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}

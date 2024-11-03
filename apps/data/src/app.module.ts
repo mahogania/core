@@ -2,6 +2,16 @@ import { Module } from "@nestjs/common";
 import { DataImportModule } from "./dataImport/dataImport.module";
 import { DataImportLogModule } from "./dataImportLog/dataImportLog.module";
 import { DefaultValueModule } from "./defaultValue/defaultValue.module";
+import { DocFieldModule } from "./docField/docField.module";
+import { DocPermModule } from "./docPerm/docPerm.module";
+import { DocShareModule } from "./docShare/docShare.module";
+import { DocTypeActionModule } from "./docTypeAction/docTypeAction.module";
+import { DocTypeLayoutFieldModule } from "./docTypeLayoutField/docTypeLayoutField.module";
+import { DocTypeLayoutModule } from "./docTypeLayout/docTypeLayout.module";
+import { DocTypeLinkModule } from "./docTypeLink/docTypeLink.module";
+import { DocTypeStateModule } from "./docTypeState/docTypeState.module";
+import { DocTypeModule } from "./docType/docType.module";
+import { DynamicLinkModule } from "./dynamicLink/dynamicLink.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -17,6 +27,16 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     DataImportModule,
     DataImportLogModule,
     DefaultValueModule,
+    DocFieldModule,
+    DocPermModule,
+    DocShareModule,
+    DocTypeActionModule,
+    DocTypeLayoutFieldModule,
+    DocTypeLayoutModule,
+    DocTypeLinkModule,
+    DocTypeStateModule,
+    DocTypeModule,
+    DynamicLinkModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
