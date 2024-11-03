@@ -1,5 +1,5 @@
 {
-  "name": "Story",
+  "name": "Entity",
   "dockerComposeFile": "docker-compose.devcontainer.yml",
   "service": "devcontainer",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
