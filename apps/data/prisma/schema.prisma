@@ -1,0 +1,72 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model DataImport {
+  createdAt         DateTime        @default(now())
+  creation          DateTime?
+  dataImportLogs    DataImportLog[]
+  docstatus         Int?
+  googleSheetsUrl   String?
+  id                String          @id @default(cuid())
+  idx               Int?
+  importFile        String?
+  importType        String?
+  modified          DateTime?
+  modifiedBy        String?
+  muteEmails        Int?
+  name              String?
+  owner             String?
+  payloadCount      Int?
+  referenceDoctype  String?
+  showFailedLogs    Int?
+  status            String?
+  submitAfterImport Int?
+  templateOptions   String?
+  templateWarnings  String?
+  updatedAt         DateTime        @updatedAt
+}
+
+model DataImportLog {
+  createdAt    DateTime    @default(now())
+  creation     DateTime?
+  dataImport   DataImport? @relation(fields: [dataImportId], references: [id])
+  dataImportId String?
+  docname      String?
+  docstatus    Int?
+  exception    String?
+  id           String      @id @default(cuid())
+  idx          Int?
+  logIndex     Int?
+  messages     String?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  rowIndexes   String?
+  success      Int?
+  updatedAt    DateTime    @updatedAt
+}
+
+model DefaultValue {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  defkey      String?
+  defvalue    String?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
