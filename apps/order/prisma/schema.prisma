@@ -1,0 +1,56 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model BlanketOrderItem {
+  createdAt          DateTime  @default(now())
+  creation           DateTime?
+  docstatus          Int?
+  id                 String    @id @default(cuid())
+  idx                Int?
+  itemCode           String?
+  itemName           String?
+  modified           DateTime?
+  modifiedBy         String?
+  name               String?
+  orderedQty         Float?
+  owner              String?
+  parent             String?
+  parentfield        String?
+  parenttype         String?
+  partyItemCode      String?
+  qty                Float?
+  rate               Float?
+  termsAndConditions String?
+  updatedAt          DateTime  @updatedAt
+}
+
+model BlanketOrder {
+  amendedFrom      String?
+  blanketOrderType String?
+  company          String?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  customer         String?
+  customerName     String?
+  docstatus        Int?
+  fromDate         DateTime?
+  id               String    @id @default(cuid())
+  idx              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  namingSeries     String?
+  owner            String?
+  supplier         String?
+  supplierName     String?
+  tcName           String?
+  terms            String?
+  toDate           DateTime?
+  updatedAt        DateTime  @updatedAt
+}
