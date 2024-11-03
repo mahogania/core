@@ -1128,3 +1128,80 @@ model CustomsTariffNumber {
   tariffNumber String?
   updatedAt    DateTime  @updatedAt
 }
+
+model DepreciationSchedule {
+  accumulatedDepreciationAmount Float?
+  createdAt                     DateTime  @default(now())
+  creation                      DateTime?
+  depreciationAmount            Float?
+  docstatus                     Int?
+  id                            String    @id @default(cuid())
+  idx                           Int?
+  journalEntry                  String?
+  modified                      DateTime?
+  modifiedBy                    String?
+  name                          String?
+  owner                         String?
+  parent                        String?
+  parentfield                   String?
+  parenttype                    String?
+  scheduleDate                  DateTime?
+  shift                         String?
+  updatedAt                     DateTime  @updatedAt
+}
+
+model Department {
+  company          String?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  departmentName   String?
+  disabled         Int?
+  docstatus        Int?
+  id               String    @id @default(cuid())
+  idx              Int?
+  isGroup          Int?
+  lft              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  parentDepartment String?
+  rgt              Int?
+  updatedAt        DateTime  @updatedAt
+}
+
+model Designation {
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  description     String?
+  designationName String?
+  docstatus       Int?
+  id              String    @id @default(cuid())
+  idx             Int?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  owner           String?
+  updatedAt       DateTime  @updatedAt
+}
+
+model DiscountedInvoice {
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  customer          String?
+  debitTo           String?
+  docstatus         Int?
+  id                String    @id @default(cuid())
+  idx               Int?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  outstandingAmount Float?
+  owner             String?
+  parent            String?
+  parentfield       String?
+  parenttype        String?
+  postingDate       DateTime?
+  salesInvoice      String?
+  updatedAt         DateTime  @updatedAt
+}

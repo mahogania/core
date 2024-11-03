@@ -197,6 +197,22 @@ import { CustomsTariffNumberList } from "./customsTariffNumber/CustomsTariffNumb
 import { CustomsTariffNumberCreate } from "./customsTariffNumber/CustomsTariffNumberCreate";
 import { CustomsTariffNumberEdit } from "./customsTariffNumber/CustomsTariffNumberEdit";
 import { CustomsTariffNumberShow } from "./customsTariffNumber/CustomsTariffNumberShow";
+import { DepreciationScheduleList } from "./depreciationSchedule/DepreciationScheduleList";
+import { DepreciationScheduleCreate } from "./depreciationSchedule/DepreciationScheduleCreate";
+import { DepreciationScheduleEdit } from "./depreciationSchedule/DepreciationScheduleEdit";
+import { DepreciationScheduleShow } from "./depreciationSchedule/DepreciationScheduleShow";
+import { DepartmentList } from "./department/DepartmentList";
+import { DepartmentCreate } from "./department/DepartmentCreate";
+import { DepartmentEdit } from "./department/DepartmentEdit";
+import { DepartmentShow } from "./department/DepartmentShow";
+import { DesignationList } from "./designation/DesignationList";
+import { DesignationCreate } from "./designation/DesignationCreate";
+import { DesignationEdit } from "./designation/DesignationEdit";
+import { DesignationShow } from "./designation/DesignationShow";
+import { DiscountedInvoiceList } from "./discountedInvoice/DiscountedInvoiceList";
+import { DiscountedInvoiceCreate } from "./discountedInvoice/DiscountedInvoiceCreate";
+import { DiscountedInvoiceEdit } from "./discountedInvoice/DiscountedInvoiceEdit";
+import { DiscountedInvoiceShow } from "./discountedInvoice/DiscountedInvoiceShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -545,6 +561,34 @@ const App = (): React.ReactElement => {
           edit={CustomsTariffNumberEdit}
           create={CustomsTariffNumberCreate}
           show={CustomsTariffNumberShow}
+        />
+        <Resource
+          name="DepreciationSchedule"
+          list={DepreciationScheduleList}
+          edit={DepreciationScheduleEdit}
+          create={DepreciationScheduleCreate}
+          show={DepreciationScheduleShow}
+        />
+        <Resource
+          name="Department"
+          list={DepartmentList}
+          edit={DepartmentEdit}
+          create={DepartmentCreate}
+          show={DepartmentShow}
+        />
+        <Resource
+          name="Designation"
+          list={DesignationList}
+          edit={DesignationEdit}
+          create={DesignationCreate}
+          show={DesignationShow}
+        />
+        <Resource
+          name="DiscountedInvoice"
+          list={DiscountedInvoiceList}
+          edit={DiscountedInvoiceEdit}
+          create={DiscountedInvoiceCreate}
+          show={DiscountedInvoiceShow}
         />
       </Admin>
     </div>

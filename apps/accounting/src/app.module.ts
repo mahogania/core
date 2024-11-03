@@ -47,6 +47,10 @@ import { BudgetAccountModule } from "./budgetAccount/budgetAccount.module";
 import { BudgetModule } from "./budget/budget.module";
 import { BulkTransactionLogDetailModule } from "./bulkTransactionLogDetail/bulkTransactionLogDetail.module";
 import { CustomsTariffNumberModule } from "./customsTariffNumber/customsTariffNumber.module";
+import { DepreciationScheduleModule } from "./depreciationSchedule/depreciationSchedule.module";
+import { DepartmentModule } from "./department/department.module";
+import { DesignationModule } from "./designation/designation.module";
+import { DiscountedInvoiceModule } from "./discountedInvoice/discountedInvoice.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -107,6 +111,10 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     BudgetModule,
     BulkTransactionLogDetailModule,
     CustomsTariffNumberModule,
+    DepreciationScheduleModule,
+    DepartmentModule,
+    DesignationModule,
+    DiscountedInvoiceModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
