@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+                 package employeeInternalWorkHistory;
+service EmployeeInternalWorkHistoryService {
+ rpc createEmployeeInternalWorkHistory (EmployeeInternalWorkHistoryCreateInput) returns (EmployeeInternalWorkHistory) {}
+rpc employeeInternalWorkHistories (findManyParams) returns (stream EmployeeInternalWorkHistory) {}
+rpc employeeInternalWorkHistory (EmployeeInternalWorkHistoryWhereUniqueInput) returns (EmployeeInternalWorkHistory) {}
+rpc updateEmployeeInternalWorkHistory (EmployeeInternalWorkHistoryUpdateInput) returns (EmployeeInternalWorkHistory) {}
+rpc deleteEmployeeInternalWorkHistory (EmployeeInternalWorkHistoryWhereUniqueInput) returns (EmployeeInternalWorkHistory) {} 
+ }
+message EmployeeInternalWorkHistoryCreateInput {
+string branch = 1;
+string createdAt = 2;
+string creation = 3;
+string department = 4;
+string designation = 5;
+int32 docstatus = 6;
+string fromDate = 7;
+string id = 8;
+int32 idx = 9;
+string modified = 10;
+string modifiedBy = 11;
+string name = 12;
+string owner = 13;
+string parent = 14;
+string parentfield = 15;
+string parenttype = 16;
+string toDate = 17;
+string updatedAt = 18;
+};
+message EmployeeInternalWorkHistory {
+string branch = 1;
+string createdAt = 2;
+string creation = 3;
+string department = 4;
+string designation = 5;
+int32 docstatus = 6;
+string fromDate = 7;
+string id = 8;
+int32 idx = 9;
+string modified = 10;
+string modifiedBy = 11;
+string name = 12;
+string owner = 13;
+string parent = 14;
+string parentfield = 15;
+string parenttype = 16;
+string toDate = 17;
+string updatedAt = 18;
+};
+message EmployeeInternalWorkHistoryWhereUniqueInput {
+string branch = 1;
+string createdAt = 2;
+string creation = 3;
+string department = 4;
+string designation = 5;
+int32 docstatus = 6;
+string fromDate = 7;
+string id = 8;
+int32 idx = 9;
+string modified = 10;
+string modifiedBy = 11;
+string name = 12;
+string owner = 13;
+string parent = 14;
+string parentfield = 15;
+string parenttype = 16;
+string toDate = 17;
+string updatedAt = 18;
+};
+message EmployeeInternalWorkHistoryUpdateInput {
+string branch = 1;
+string createdAt = 2;
+string creation = 3;
+string department = 4;
+string designation = 5;
+int32 docstatus = 6;
+string fromDate = 7;
+string id = 8;
+int32 idx = 9;
+string modified = 10;
+string modifiedBy = 11;
+string name = 12;
+string owner = 13;
+string parent = 14;
+string parentfield = 15;
+string parenttype = 16;
+string toDate = 17;
+string updatedAt = 18;
+};
+message findManyParams {
+
+};
