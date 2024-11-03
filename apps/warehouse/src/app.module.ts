@@ -10,6 +10,8 @@ import { BomUpdateLogModule } from "./bomUpdateLog/bomUpdateLog.module";
 import { BomWebsiteItemModule } from "./bomWebsiteItem/bomWebsiteItem.module";
 import { BomWebsiteOperationModule } from "./bomWebsiteOperation/bomWebsiteOperation.module";
 import { BomModule } from "./bom/bom.module";
+import { BatchModule } from "./batch/batch.module";
+import { BinModule } from "./bin/bin.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -33,6 +35,8 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     BomWebsiteItemModule,
     BomWebsiteOperationModule,
     BomModule,
+    BatchModule,
+    BinModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

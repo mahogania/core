@@ -49,6 +49,14 @@ import { BomList } from "./bom/BomList";
 import { BomCreate } from "./bom/BomCreate";
 import { BomEdit } from "./bom/BomEdit";
 import { BomShow } from "./bom/BomShow";
+import { BatchList } from "./batch/BatchList";
+import { BatchCreate } from "./batch/BatchCreate";
+import { BatchEdit } from "./batch/BatchEdit";
+import { BatchShow } from "./batch/BatchShow";
+import { BinList } from "./bin/BinList";
+import { BinCreate } from "./bin/BinCreate";
+import { BinEdit } from "./bin/BinEdit";
+import { BinShow } from "./bin/BinShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -138,6 +146,20 @@ const App = (): React.ReactElement => {
           edit={BomEdit}
           create={BomCreate}
           show={BomShow}
+        />
+        <Resource
+          name="Batch"
+          list={BatchList}
+          edit={BatchEdit}
+          create={BatchCreate}
+          show={BatchShow}
+        />
+        <Resource
+          name="Bin"
+          list={BinList}
+          edit={BinEdit}
+          create={BinCreate}
+          show={BinShow}
         />
       </Admin>
     </div>

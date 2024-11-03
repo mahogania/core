@@ -344,3 +344,56 @@ model Bom {
   websiteImage                       String?
   withOperations                     Boolean?
 }
+
+model Batch {
+  batchId               String?
+  batchQty              Float?
+  createdAt             DateTime  @default(now())
+  description           String?
+  disabled              Int?
+  docstatus             Int?
+  expiryDate            DateTime?
+  id                    String    @id @default(cuid())
+  idx                   Int?
+  image                 String?
+  item                  String?
+  itemName              String?
+  manufacturingDate     DateTime?
+  owner                 String?
+  parentBatch           String?
+  producedQty           Float?
+  qtyToProduce          Float?
+  referenceDoctype      String?
+  referenceName         String?
+  stockUom              String?
+  supplier              String?
+  updatedAt             DateTime  @updatedAt
+  useBatchwiseValuation Int?
+}
+
+model Bin {
+  actualQty                    Float?
+  createdAt                    DateTime  @default(now())
+  creation                     DateTime?
+  docstatus                    Int?
+  id                           String    @id @default(cuid())
+  idx                          Int?
+  indentedQty                  Float?
+  itemCode                     String?
+  modified                     DateTime?
+  modifiedBy                   String?
+  orderedQty                   Float?
+  owner                        String?
+  plannedQty                   Float?
+  projectedQty                 Float?
+  reservedQty                  Float?
+  reservedQtyForProduction     Float?
+  reservedQtyForProductionPlan Float?
+  reservedQtyForSubContract    Float?
+  reservedStock                Float?
+  stockUom                     String?
+  stockValue                   Float?
+  updatedAt                    DateTime  @updatedAt
+  valuationRate                Float?
+  warehouse                    String?
+}

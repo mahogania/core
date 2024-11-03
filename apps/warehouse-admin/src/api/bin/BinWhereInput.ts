@@ -1,0 +1,30 @@
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+
+export type BinWhereInput = {
+  actualQty?: FloatNullableFilter;
+  creation?: DateTimeNullableFilter;
+  docstatus?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  indentedQty?: FloatNullableFilter;
+  itemCode?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  orderedQty?: FloatNullableFilter;
+  owner?: StringNullableFilter;
+  plannedQty?: FloatNullableFilter;
+  projectedQty?: FloatNullableFilter;
+  reservedQty?: FloatNullableFilter;
+  reservedQtyForProduction?: FloatNullableFilter;
+  reservedQtyForProductionPlan?: FloatNullableFilter;
+  reservedQtyForSubContract?: FloatNullableFilter;
+  reservedStock?: FloatNullableFilter;
+  stockUom?: StringNullableFilter;
+  stockValue?: FloatNullableFilter;
+  valuationRate?: FloatNullableFilter;
+  warehouse?: StringNullableFilter;
+};
