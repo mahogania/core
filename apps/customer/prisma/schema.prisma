@@ -1,0 +1,1237 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model CrmNote {
+  addedBy     String?
+  addedOn     DateTime?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  note        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model CallLog {
+  callReceivedBy String?
+  callType       String?
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  customer       String?
+  docstatus      Int?
+  duration       Float?
+  employeeUserId String?
+  endTime        DateTime?
+  fromField      String?
+  id             String    @id @default(cuid())
+  idx            Int?
+  medium         String?
+  modified       DateTime?
+  modifiedBy     String?
+  originalId     String?
+  owner          String?
+  recordingUrl   String?
+  startTime      DateTime?
+  status         String?
+  summary        String?
+  to             String?
+  typeOfCall     String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model CalendarView {
+  allDay           Int?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  endDateField     String?
+  id               String    @id @default(cuid())
+  idx              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  owner            String?
+  referenceDoctype String?
+  startDateField   String?
+  subjectField     String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model CampaignEmailSchedule {
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  docstatus     Int?
+  emailTemplate String?
+  id            String    @id @default(cuid())
+  idx           Int?
+  modified      DateTime?
+  modifiedBy    String?
+  owner         String?
+  parent        String?
+  parentfield   String?
+  parenttype    String?
+  sendAfterDays Int?
+  updatedAt     DateTime  @updatedAt
+}
+
+model CampaignItem {
+  campaign    String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model Campaign {
+  campaignName String?
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  description  String?
+  docstatus    Int?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  namingSeries String?
+  owner        String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model CashierClosingPayments {
+  amount        Float?
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  docstatus     Int?
+  id            String    @id @default(cuid())
+  idx           Int?
+  modeOfPayment String?
+  modified      DateTime?
+  modifiedBy    String?
+  owner         String?
+  parent        String?
+  parentfield   String?
+  parenttype    String?
+  updatedAt     DateTime  @updatedAt
+}
+
+model CashierClosing {
+  amendedFrom       String?
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  custody           Float?
+  date              DateTime?
+  docstatus         Int?
+  expense           Float?
+  fromTime          DateTime?
+  id                String    @id @default(cuid())
+  idx               Int?
+  modified          DateTime?
+  modifiedBy        String?
+  namingSeries      String?
+  netAmount         Float?
+  outstandingAmount Float?
+  owner             String?
+  returns           Float?
+  time              DateTime?
+  updatedAt         DateTime  @updatedAt
+  user              String?
+}
+
+model ChequePrintTemplate {
+  accNoDistFromLeftEdge       Float?
+  accNoDistFromTopEdge        Float?
+  accPayDistFromLeftEdge      Float?
+  accPayDistFromTopEdge       Float?
+  amtInFiguresFromLeftEdge    Float?
+  amtInFiguresFromTopEdge     Float?
+  amtInWordWidth              Float?
+  amtInWordsFromLeftEdge      Float?
+  amtInWordsFromTopEdge       Float?
+  amtInWordsLineSpacing       Float?
+  bankName                    String?
+  chequeHeight                Float?
+  chequeSize                  String?
+  chequeWidth                 Float?
+  createdAt                   DateTime  @default(now())
+  creation                    DateTime?
+  dateDistFromLeftEdge        Float?
+  dateDistFromTopEdge         Float?
+  docstatus                   Int?
+  hasPrintFormat              Int?
+  id                          String    @id @default(cuid())
+  idx                         Int?
+  isAccountPayable            Int?
+  messageToShow               String?
+  modified                    DateTime?
+  modifiedBy                  String?
+  owner                       String?
+  payerNameFromLeftEdge       Float?
+  payerNameFromTopEdge        Float?
+  scannedCheque               String?
+  signatoryFromLeftEdge       Float?
+  signatoryFromTopEdge        Float?
+  startingPositionFromTopEdge Float?
+  updatedAt                   DateTime  @updatedAt
+}
+
+model ClientScript {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  dt          String?
+  enabled     Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  moduleField String?
+  owner       String?
+  script      String?
+  updatedAt   DateTime  @updatedAt
+  view        String?
+}
+
+model ChangelogFeed {
+  appName          String?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  id               String    @id @default(cuid())
+  idx              Int?
+  link             String?
+  modified         DateTime?
+  modifiedBy       String?
+  owner            String?
+  postingTimestamp DateTime?
+  title            String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model ClosedDocument {
+  closed       Int?
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  docstatus    Int?
+  documentType String?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  owner        String?
+  parent       String?
+  parentfield  String?
+  parenttype   String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model ClosingStockBalance {
+  amendedFrom   String?
+  company       String?
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  docstatus     Int?
+  fromDate      DateTime?
+  id            String    @id @default(cuid())
+  idx           Int?
+  includeUom    String?
+  itemCode      String?
+  itemGroup     String?
+  modified      DateTime?
+  modifiedBy    String?
+  namingSeries  String?
+  owner         String?
+  status        String?
+  toDate        DateTime?
+  updatedAt     DateTime  @updatedAt
+  warehouse     String?
+  warehouseType String?
+}
+
+model Color {
+  color      String?
+  createdAt  DateTime  @default(now())
+  creation   DateTime?
+  docstatus  Int?
+  id         String    @id @default(cuid())
+  idx        Int?
+  modified   DateTime?
+  modifiedBy String?
+  owner      String?
+  updatedAt  DateTime  @updatedAt
+}
+
+model CommunicationLink {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  linkDoctype String?
+  linkName    String?
+  linkTitle   String?
+  modified    DateTime?
+  modifiedBy  String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model Comment {
+  commentBy        String?
+  commentEmail     String?
+  commentType      String?
+  content          String?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  id               String    @id @default(cuid())
+  idx              Int?
+  ipAddress        String?
+  modified         DateTime?
+  modifiedBy       String?
+  owner            String?
+  published        Int?
+  referenceDoctype String?
+  referenceName    String?
+  referenceOwner   String?
+  seen             Int?
+  subject          String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model CommunicationMediumTimeslot {
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  dayOfWeek     String?
+  docstatus     Int?
+  employeeGroup String?
+  fromTime      DateTime?
+  id            String    @id @default(cuid())
+  idx           Int?
+  modified      DateTime?
+  modifiedBy    String?
+  owner         String?
+  parent        String?
+  parentfield   String?
+  parenttype    String?
+  toTime        DateTime?
+  updatedAt     DateTime  @updatedAt
+}
+
+model CommunicationMedium {
+  catchAll                String?
+  communicationChannel    String?
+  communicationMediumType String?
+  createdAt               DateTime  @default(now())
+  creation                DateTime?
+  disabled                Int?
+  docstatus               Int?
+  id                      String    @id @default(cuid())
+  idx                     Int?
+  modified                DateTime?
+  modifiedBy              String?
+  owner                   String?
+  provider                String?
+  updatedAt               DateTime  @updatedAt
+}
+
+model Communication {
+  bcc                    String?
+  cc                     String?
+  commentType            String?
+  communicationDate      DateTime?
+  communicationMedium    String?
+  communicationType      String?
+  content                String?
+  createdAt              DateTime  @default(now())
+  creation               DateTime?
+  deliveryStatus         String?
+  docstatus              Int?
+  emailAccount           String?
+  emailStatus            String?
+  emailTemplate          String?
+  feedbackRequest        String?
+  hasAttachment          Int?
+  id                     String    @id @default(cuid())
+  idx                    Int?
+  imapFolder             String?
+  inReplyTo              String?
+  messageId              String?
+  modified               DateTime?
+  modifiedBy             String?
+  owner                  String?
+  phoneNo                String?
+  rating                 Int?
+  readByRecipient        Int?
+  readByRecipientOn      DateTime?
+  readReceipt            Int?
+  recipients             String?
+  referenceDoctype       String?
+  referenceName          String?
+  referenceOwner         String?
+  seen                   Int?
+  sendAfter              DateTime?
+  sender                 String?
+  senderFullName         String?
+  sentOrReceived         String?
+  status                 String?
+  subject                String?
+  textContent            String?
+  uid                    Int?
+  unreadNotificationSent Int?
+  updatedAt              DateTime  @updatedAt
+  user                   String?
+  userTags               String?
+}
+
+model CompanyHistory {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  highlight   String?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+  year        String?
+}
+
+model Company {
+  abbr                                        String?
+  accumulatedDepreciationAccount              String?
+  allowAccountCreationAgainstChildCompany     Int?
+  assetReceivedButNotBilled                   String?
+  autoErrFrequency                            String?
+  autoExchangeRateRevaluation                 Int?
+  bookAdvancePaymentsInSeparatePartyAccount   Int?
+  capitalWorkInProgressAccount                String?
+  chartOfAccounts                             String?
+  companyDescription                          String?
+  companyLogo                                 String?
+  companyName                                 String?
+  costCenter                                  String?
+  country                                     String?
+  createChartOfAccountsBasedOn                String?
+  createdAt                                   DateTime  @default(now())
+  creation                                    DateTime?
+  creditLimit                                 Float?
+  dateOfCommencement                          DateTime?
+  dateOfEstablishment                         DateTime?
+  dateOfIncorporation                         DateTime?
+  defaultAdvancePaidAccount                   String?
+  defaultAdvanceReceivedAccount               String?
+  defaultBankAccount                          String?
+  defaultBuyingTerms                          String?
+  defaultCashAccount                          String?
+  defaultCurrency                             String?
+  defaultDeferredExpenseAccount               String?
+  defaultDeferredRevenueAccount               String?
+  defaultDiscountAccount                      String?
+  defaultExpenseAccount                       String?
+  defaultFinanceBook                          String?
+  defaultHolidayList                          String?
+  defaultInTransitWarehouse                   String?
+  defaultIncomeAccount                        String?
+  defaultInventoryAccount                     String?
+  defaultLetterHead                           String?
+  defaultOperatingCostAccount                 String?
+  defaultPayableAccount                       String?
+  defaultProvisionalAccount                   String?
+  defaultReceivableAccount                    String?
+  defaultSellingTerms                         String?
+  defaultWarehouseForSalesReturn              String?
+  depreciationCostCenter                      String?
+  depreciationExpenseAccount                  String?
+  disposalAccount                             String?
+  docstatus                                   Int?
+  domain                                      String?
+  email                                       String?
+  enablePerpetualInventory                    Int?
+  enableProvisionalAccountingForNonStockItems Int?
+  exceptionBudgetApproverRole                 String?
+  exchangeGainLossAccount                     String?
+  existingCompany                             String?
+  expensesIncludedInAssetValuation            String?
+  expensesIncludedInValuation                 String?
+  fax                                         String?
+  id                                          String    @id @default(cuid())
+  idx                                         Int?
+  isGroup                                     Int?
+  lft                                         Int?
+  modified                                    DateTime?
+  modifiedBy                                  String?
+  monthlySalesTarget                          Float?
+  oldParent                                   String?
+  owner                                       String?
+  parentCompany                               String?
+  paymentTerms                                String?
+  phoneNo                                     String?
+  reconcileOnAdvancePaymentDate               Int?
+  registrationDetails                         String?
+  rgt                                         Int?
+  roundOffAccount                             String?
+  roundOffCostCenter                          String?
+  salesMonthlyHistory                         String?
+  seriesForDepreciationEntry                  String?
+  stockAdjustmentAccount                      String?
+  stockReceivedButNotBilled                   String?
+  submitErrJv                                 Int?
+  taxId                                       String?
+  totalMonthlySales                           Float?
+  transactionsAnnualHistory                   String?
+  unrealizedExchangeGainLossAccount           String?
+  unrealizedProfitLossAccount                 String?
+  updatedAt                                   DateTime  @updatedAt
+  website                                     String?
+  writeOffAccount                             String?
+}
+
+model CompetitorDetail {
+  competitor  String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model Competitor {
+  competitorName String?
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  docstatus      Int?
+  id             String    @id @default(cuid())
+  idx            Int?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  updatedAt      DateTime  @updatedAt
+  website        String?
+}
+
+model ConnectedApp {
+  authorizationUri    String?
+  clientId            String?
+  clientSecret        String?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  docstatus           Int?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  introspectionUri    String?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  openidConfiguration String?
+  owner               String?
+  providerName        String?
+  redirectUri         String?
+  revocationUri       String?
+  tokenUri            String?
+  updatedAt           DateTime  @updatedAt
+  userinfoUri         String?
+}
+
+model ConsoleLog {
+  committed  Int?
+  createdAt  DateTime  @default(now())
+  creation   DateTime?
+  docstatus  Int?
+  id         String    @id @default(cuid())
+  idx        Int?
+  modified   DateTime?
+  modifiedBy String?
+  name       String?
+  owner      String?
+  script     String?
+  typeField  String?
+  updatedAt  DateTime  @updatedAt
+}
+
+model ContactEmail {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  emailId     String?
+  id          String    @id @default(cuid())
+  idx         Int?
+  isPrimary   Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model ContactPhone {
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  docstatus         Int?
+  id                String    @id @default(cuid())
+  idx               Int?
+  isPrimaryMobileNo Boolean?
+  isPrimaryPhone    Boolean?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  owner             String?
+  parent            String?
+  parentfield       String?
+  parenttype        String?
+  phone             String?
+  updatedAt         DateTime  @updatedAt
+}
+
+model Contact {
+  address                  String?
+  companyName              String?
+  createdAt                DateTime  @default(now())
+  creation                 DateTime?
+  department               String?
+  designation              String?
+  docstatus                Int?
+  emailId                  String?
+  firstName                String?
+  fullName                 String?
+  gender                   String?
+  googleContacts           String?
+  googleContactsId         String?
+  id                       String    @id @default(cuid())
+  idx                      Int?
+  image                    String?
+  isPrimaryContact         Boolean?
+  lastName                 String?
+  middleName               String?
+  mobileNo                 String?
+  modified                 DateTime?
+  modifiedBy               String?
+  name                     String?
+  owner                    String?
+  phone                    String?
+  pulledFromGoogleContacts Boolean?
+  salutation               String?
+  status                   String?
+  syncWithGoogleContacts   Boolean?
+  unsubscribed             Boolean?
+  updatedAt                DateTime  @updatedAt
+  user                     String?
+}
+
+model ContractFulfilmentChecklist {
+  amendedFrom String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  fulfilled   Boolean?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  notes       String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  requirement String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model ContractTemplateFulfilmentTerms {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  requirement String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model ContractTemplate {
+  contractTerms      String?
+  createdAt          DateTime  @default(now())
+  creation           DateTime?
+  docstatus          Int?
+  id                 String    @id @default(cuid())
+  idx                Int?
+  modified           DateTime?
+  modifiedBy         String?
+  name               String?
+  owner              String?
+  requiresFulfilment Boolean?
+  title              String?
+  updatedAt          DateTime  @updatedAt
+}
+
+model Contract {
+  amendedFrom        String?
+  contractTemplate   String?
+  contractTerms      String?
+  createdAt          DateTime  @default(now())
+  creation           DateTime?
+  docstatus          Int?
+  documentName       String?
+  documentType       String?
+  endDate            DateTime?
+  fulfilmentDeadline DateTime?
+  fulfilmentStatus   String?
+  id                 String    @id @default(cuid())
+  idx                Int?
+  ipAddress          String?
+  isSigned           Boolean?
+  modified           DateTime?
+  modifiedBy         String?
+  name               String?
+  owner              String?
+  partyName          String?
+  partyType          String?
+  partyUser          String?
+  requiresFulfilment Boolean?
+  signedByCompany    String?
+  signedOn           DateTime?
+  signee             String?
+  signeeCompany      String?
+  startDate          DateTime?
+  status             String?
+  updatedAt          DateTime  @updatedAt
+}
+
+model CostCenterAllocationPercentage {
+  costCenter  String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  percentage  Float?
+  updatedAt   DateTime  @updatedAt
+}
+
+model CostCenterAllocation {
+  amendedFrom    String?
+  company        String?
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  docstatus      Int?
+  id             String    @id @default(cuid())
+  idx            Int?
+  mainCostCenter String?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  updatedAt      DateTime  @updatedAt
+  validFrom      DateTime?
+}
+
+model CostCenter {
+  company          String?
+  costCenterName   String?
+  costCenterNumber String?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  disabled         Boolean?
+  docstatus        Int?
+  id               String    @id @default(cuid())
+  idx              Int?
+  isGroup          Boolean?
+  lft              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  oldParent        String?
+  owner            String?
+  parentCostCenter String?
+  rgt              Int?
+  updatedAt        DateTime  @updatedAt
+}
+
+model Country {
+  code        String?
+  countryName String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  dateFormat  String?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  timeFormat  String?
+  timeZones   String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model CouponCode {
+  amendedFrom String?
+  couponCode  String?
+  couponName  String?
+  couponType  String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  customer    String?
+  description String?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  maximumUse  Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  pricingRule String?
+  updatedAt   DateTime  @updatedAt
+  used        Int?
+  validFrom   DateTime?
+  validUpto   DateTime?
+}
+
+model CurrencyExchangeSettingsDetails {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  key         String?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+  value       String?
+}
+
+model CurrencyExchangeSettingsResult {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  key         String?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model CurrencyExchange {
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  date         DateTime?
+  docstatus    Int?
+  exchangeRate Float?
+  forBuying    Boolean?
+  forSelling   Boolean?
+  fromCurrency String?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  toCurrency   String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model Currency {
+  createdAt                     DateTime  @default(now())
+  creation                      DateTime?
+  currencyName                  String?
+  docstatus                     Int?
+  enabled                       Boolean?
+  fraction                      String?
+  fractionUnits                 Int?
+  id                            String    @id @default(cuid())
+  idx                           Int?
+  modified                      DateTime?
+  modifiedBy                    String?
+  name                          String?
+  numberFormat                  String?
+  owner                         String?
+  smallestCurrencyFractionValue Float?
+  symbolField                   String?
+  symbolOnRight                 Boolean?
+  updatedAt                     DateTime  @updatedAt
+}
+
+model CustomDocPerm {
+  amend       Boolean?
+  cancel      Boolean?
+  create      Boolean?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  deleteField Boolean?
+  docstatus   Int?
+  email       Boolean?
+  exportField Boolean?
+  id          String    @id @default(cuid())
+  idx         Int?
+  ifOwner     Boolean?
+  importField Boolean?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  permlevel   Int?
+  print       Boolean?
+  read        Boolean?
+  report      Boolean?
+  role        String?
+  selectField Boolean?
+  share       Boolean?
+  submit      Boolean?
+  updatedAt   DateTime  @updatedAt
+  write       Boolean?
+}
+
+model CustomField {
+  allowInQuickEntry     Boolean?
+  allowOnSubmit         Boolean?
+  bold                  Boolean?
+  collapsible           Boolean?
+  collapsibleDependsOn  String?
+  columns               Int?
+  createdAt             DateTime  @default(now())
+  creation              DateTime?
+  defaultField          String?
+  dependsOn             String?
+  description           String?
+  docstatus             Int?
+  dt                    String?
+  fetchFrom             String?
+  fetchIfEmpty          Boolean?
+  fieldname             String?
+  fieldtype             String?
+  hidden                Boolean?
+  hideBorder            Boolean?
+  hideDays              Boolean?
+  hideSeconds           Boolean?
+  id                    String    @id @default(cuid())
+  idx                   Int?
+  ignoreUserPermissions Boolean?
+  ignoreXssFilter       Boolean?
+  inGlobalSearch        Boolean?
+  inListView            Boolean?
+  inPreview             Boolean?
+  inStandardFilter      Boolean?
+  insertAfter           String?
+  isSystemGenerated     Boolean?
+  isVirtual             Boolean?
+  label                 String?
+  length                Int?
+  linkFilters           Json?
+  mandatoryDependsOn    String?
+  modified              DateTime?
+  modifiedBy            String?
+  moduleField           String?
+  name                  String?
+  noCopy                Boolean?
+  nonNegative           Boolean?
+  options               String?
+  owner                 String?
+  permlevel             Int?
+  precision             String?
+  printHide             Boolean?
+  printHideIfNoValue    Boolean?
+  printWidth            String?
+  readOnly              Boolean?
+  readOnlyDependsOn     String?
+  reportHide            Boolean?
+  reqd                  Boolean?
+  searchIndex           Boolean?
+  showDashboard         Boolean?
+  sortOptions           Boolean?
+  translatable          Boolean?
+  unique                Boolean?
+  updatedAt             DateTime  @updatedAt
+  width                 String?
+}
+
+model CustomHtmlBlock {
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  docstatus    Int?
+  html         String?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  privateField Boolean?
+  script       String?
+  style        String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model CustomRole {
+  createdAt  DateTime  @default(now())
+  creation   DateTime?
+  docstatus  Int?
+  id         String    @id @default(cuid())
+  idx        Int?
+  modified   DateTime?
+  modifiedBy String?
+  name       String?
+  owner      String?
+  page       String?
+  refDoctype String?
+  report     String?
+  updatedAt  DateTime  @updatedAt
+}
+
+model CustomerCreditLimit {
+  bypassCreditLimitCheck Boolean?
+  company                String?
+  createdAt              DateTime  @default(now())
+  creation               DateTime?
+  creditLimit            Float?
+  docstatus              Int?
+  id                     String    @id @default(cuid())
+  idx                    Int?
+  modified               DateTime?
+  modifiedBy             String?
+  name                   String?
+  owner                  String?
+  parent                 String?
+  parentfield            String?
+  parenttype             String?
+  updatedAt              DateTime  @updatedAt
+}
+
+model CustomerGroupItem {
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  customerGroup String?
+  docstatus     Int?
+  id            String    @id @default(cuid())
+  idx           Int?
+  modified      DateTime?
+  modifiedBy    String?
+  name          String?
+  owner         String?
+  parent        String?
+  parentfield   String?
+  parenttype    String?
+  updatedAt     DateTime  @updatedAt
+}
+
+model CustomerGroup {
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  customerGroupName   String?
+  defaultPriceList    String?
+  docstatus           Int?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  isGroup             Boolean?
+  lft                 Int?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  oldParent           String?
+  owner               String?
+  parentCustomerGroup String?
+  paymentTerms        String?
+  rgt                 Int?
+  updatedAt           DateTime  @updatedAt
+}
+
+model CustomerItem {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  customer    String?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model Customer {
+  accountManager         String?
+  createdAt              DateTime  @default(now())
+  creation               DateTime?
+  customerDetails        String?
+  customerGroup          String?
+  customerName           String?
+  customerPosId          String?
+  customerPrimaryAddress String?
+  customerPrimaryContact String?
+  customerType           String?
+  defaultBankAccount     String?
+  defaultCommissionRate  Float?
+  defaultCurrency        String?
+  defaultPriceList       String?
+  defaultSalesPartner    String?
+  disabled               Boolean?
+  dnRequired             Boolean?
+  docstatus              Int?
+  emailId                String?
+  gender                 String?
+  id                     String    @id @default(cuid())
+  idx                    Int?
+  image                  String?
+  industry               String?
+  isFrozen               Boolean?
+  isInternalCustomer     Boolean?
+  language               String?
+  leadName               String?
+  loyaltyProgram         String?
+  loyaltyProgramTier     String?
+  marketSegment          String?
+  mobileNo               String?
+  modified               DateTime?
+  modifiedBy             String?
+  name                   String?
+  namingSeries           String?
+  opportunityName        String?
+  owner                  String?
+  paymentTerms           String?
+  primaryAddress         String?
+  prospectName           String?
+  representsCompany      String?
+  salutation             String?
+  soRequired             Boolean?
+  taxCategory            String?
+  taxId                  String?
+  taxWithholdingCategory String?
+  territory              String?
+  updatedAt              DateTime  @updatedAt
+  website                String?
+}
+
+model CustomizeFormField {
+  allowBulkEdit             Boolean?
+  allowInQuickEntry         Boolean?
+  allowOnSubmit             Boolean?
+  bold                      Boolean?
+  collapsible               Boolean?
+  collapsibleDependsOn      String?
+  columns                   Int?
+  createdAt                 DateTime  @default(now())
+  creation                  DateTime?
+  defaultField              String?
+  dependsOn                 String?
+  description               String?
+  docstatus                 Int?
+  fetchFrom                 String?
+  fetchIfEmpty              Boolean?
+  fieldname                 String?
+  fieldtype                 String?
+  hidden                    Boolean?
+  hideBorder                Boolean?
+  hideDays                  Boolean?
+  hideSeconds               Boolean?
+  id                        String    @id @default(cuid())
+  idx                       Int?
+  ignoreUserPermissions     Boolean?
+  ignoreXssFilter           Boolean?
+  inFilter                  Boolean?
+  inGlobalSearch            Boolean?
+  inListView                Boolean?
+  inPreview                 Boolean?
+  inStandardFilter          Boolean?
+  isCustomField             Boolean?
+  isSystemGenerated         Boolean?
+  isVirtual                 Boolean?
+  label                     String?
+  length                    Int?
+  linkFilters               Json?
+  mandatoryDependsOn        String?
+  modified                  DateTime?
+  modifiedBy                String?
+  name                      String?
+  noCopy                    Boolean?
+  nonNegative               Boolean?
+  options                   String?
+  owner                     String?
+  parent                    String?
+  parentfield               String?
+  parenttype                String?
+  permlevel                 Int?
+  precision                 String?
+  printHide                 Boolean?
+  printHideIfNoValue        Boolean?
+  printWidth                String?
+  readOnly                  Boolean?
+  readOnlyDependsOn         String?
+  rememberLastSelectedValue Boolean?
+  reportHide                Boolean?
+  reqd                      Boolean?
+  showDashboard             Boolean?
+  sortOptions               Boolean?
+  translatable              Boolean?
+  unique                    Boolean?
+  updatedAt                 DateTime  @updatedAt
+  width                     String?
+}
