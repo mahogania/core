@@ -41,6 +41,12 @@ import { AssignmentRuleModule } from "./assignmentRule/assignmentRule.module";
 import { AuthorizationRuleModule } from "./authorizationRule/authorizationRule.module";
 import { AutoEmailReportModule } from "./autoEmailReport/autoEmailReport.module";
 import { AutoRepeatDayModule } from "./autoRepeatDay/autoRepeatDay.module";
+import { BisectNodesModule } from "./bisectNodes/bisectNodes.module";
+import { BrandModule } from "./brand/brand.module";
+import { BudgetAccountModule } from "./budgetAccount/budgetAccount.module";
+import { BudgetModule } from "./budget/budget.module";
+import { BulkTransactionLogDetailModule } from "./bulkTransactionLogDetail/bulkTransactionLogDetail.module";
+import { CustomsTariffNumberModule } from "./customsTariffNumber/customsTariffNumber.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -95,6 +101,12 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     AuthorizationRuleModule,
     AutoEmailReportModule,
     AutoRepeatDayModule,
+    BisectNodesModule,
+    BrandModule,
+    BudgetAccountModule,
+    BudgetModule,
+    BulkTransactionLogDetailModule,
+    CustomsTariffNumberModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

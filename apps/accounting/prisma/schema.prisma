@@ -1006,3 +1006,125 @@ model AutoRepeatDay {
   parenttype  String?
   updatedAt   DateTime  @updatedAt
 }
+
+model BisectNodes {
+  balanceSheetSummary Float?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  difference          Float?
+  docstatus           Int?
+  generated           Int?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  leftChild           String?
+  modified            DateTime?
+  modifiedBy          String?
+  name                Int?
+  owner               String?
+  periodFromDate      DateTime?
+  periodToDate        DateTime?
+  profitLossSummary   Float?
+  rightChild          String?
+  root                String?
+  updatedAt           DateTime  @updatedAt
+}
+
+model Brand {
+  brand       String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  description String?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  image       String?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model BudgetAccount {
+  account      String?
+  budgetAmount Float?
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  docstatus    Int?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  parent       String?
+  parentfield  String?
+  parenttype   String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model Budget {
+  actionIfAccumulatedMonthlyBudgetExceeded     String?
+  actionIfAccumulatedMonthlyBudgetExceededOnMr String?
+  actionIfAccumulatedMonthlyBudgetExceededOnPo String?
+  actionIfAnnualBudgetExceeded                 String?
+  actionIfAnnualBudgetExceededOnMr             String?
+  actionIfAnnualBudgetExceededOnPo             String?
+  amendedFrom                                  String?
+  applicableOnBookingActualExpenses            Int?
+  applicableOnMaterialRequest                  Int?
+  applicableOnPurchaseOrder                    Int?
+  budgetAgainst                                String?
+  company                                      String?
+  costCenter                                   String?
+  createdAt                                    DateTime  @default(now())
+  creation                                     DateTime?
+  docstatus                                    Int?
+  fiscalYear                                   String?
+  id                                           String    @id @default(cuid())
+  idx                                          Int?
+  modified                                     DateTime?
+  modifiedBy                                   String?
+  monthlyDistribution                          String?
+  name                                         String?
+  namingSeries                                 String?
+  owner                                        String?
+  project                                      String?
+  updatedAt                                    DateTime  @updatedAt
+}
+
+model BulkTransactionLogDetail {
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  date              DateTime?
+  docstatus         Int?
+  errorDescription  String?
+  fromDoctype       String?
+  id                String    @id @default(cuid())
+  idx               Int?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  owner             String?
+  retried           Int?
+  time              DateTime?
+  toDoctype         String?
+  transactionName   String?
+  transactionStatus String?
+  updatedAt         DateTime  @updatedAt
+}
+
+model CustomsTariffNumber {
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  description  String?
+  docstatus    Int?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  tariffNumber String?
+  updatedAt    DateTime  @updatedAt
+}

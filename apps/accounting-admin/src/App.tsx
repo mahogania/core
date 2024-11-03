@@ -173,6 +173,30 @@ import { AutoRepeatDayList } from "./autoRepeatDay/AutoRepeatDayList";
 import { AutoRepeatDayCreate } from "./autoRepeatDay/AutoRepeatDayCreate";
 import { AutoRepeatDayEdit } from "./autoRepeatDay/AutoRepeatDayEdit";
 import { AutoRepeatDayShow } from "./autoRepeatDay/AutoRepeatDayShow";
+import { BisectNodesList } from "./bisectNodes/BisectNodesList";
+import { BisectNodesCreate } from "./bisectNodes/BisectNodesCreate";
+import { BisectNodesEdit } from "./bisectNodes/BisectNodesEdit";
+import { BisectNodesShow } from "./bisectNodes/BisectNodesShow";
+import { BrandList } from "./brand/BrandList";
+import { BrandCreate } from "./brand/BrandCreate";
+import { BrandEdit } from "./brand/BrandEdit";
+import { BrandShow } from "./brand/BrandShow";
+import { BudgetAccountList } from "./budgetAccount/BudgetAccountList";
+import { BudgetAccountCreate } from "./budgetAccount/BudgetAccountCreate";
+import { BudgetAccountEdit } from "./budgetAccount/BudgetAccountEdit";
+import { BudgetAccountShow } from "./budgetAccount/BudgetAccountShow";
+import { BudgetList } from "./budget/BudgetList";
+import { BudgetCreate } from "./budget/BudgetCreate";
+import { BudgetEdit } from "./budget/BudgetEdit";
+import { BudgetShow } from "./budget/BudgetShow";
+import { BulkTransactionLogDetailList } from "./bulkTransactionLogDetail/BulkTransactionLogDetailList";
+import { BulkTransactionLogDetailCreate } from "./bulkTransactionLogDetail/BulkTransactionLogDetailCreate";
+import { BulkTransactionLogDetailEdit } from "./bulkTransactionLogDetail/BulkTransactionLogDetailEdit";
+import { BulkTransactionLogDetailShow } from "./bulkTransactionLogDetail/BulkTransactionLogDetailShow";
+import { CustomsTariffNumberList } from "./customsTariffNumber/CustomsTariffNumberList";
+import { CustomsTariffNumberCreate } from "./customsTariffNumber/CustomsTariffNumberCreate";
+import { CustomsTariffNumberEdit } from "./customsTariffNumber/CustomsTariffNumberEdit";
+import { CustomsTariffNumberShow } from "./customsTariffNumber/CustomsTariffNumberShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -479,6 +503,48 @@ const App = (): React.ReactElement => {
           edit={AutoRepeatDayEdit}
           create={AutoRepeatDayCreate}
           show={AutoRepeatDayShow}
+        />
+        <Resource
+          name="BisectNodes"
+          list={BisectNodesList}
+          edit={BisectNodesEdit}
+          create={BisectNodesCreate}
+          show={BisectNodesShow}
+        />
+        <Resource
+          name="Brand"
+          list={BrandList}
+          edit={BrandEdit}
+          create={BrandCreate}
+          show={BrandShow}
+        />
+        <Resource
+          name="BudgetAccount"
+          list={BudgetAccountList}
+          edit={BudgetAccountEdit}
+          create={BudgetAccountCreate}
+          show={BudgetAccountShow}
+        />
+        <Resource
+          name="Budget"
+          list={BudgetList}
+          edit={BudgetEdit}
+          create={BudgetCreate}
+          show={BudgetShow}
+        />
+        <Resource
+          name="BulkTransactionLogDetail"
+          list={BulkTransactionLogDetailList}
+          edit={BulkTransactionLogDetailEdit}
+          create={BulkTransactionLogDetailCreate}
+          show={BulkTransactionLogDetailShow}
+        />
+        <Resource
+          name="CustomsTariffNumber"
+          list={CustomsTariffNumberList}
+          edit={CustomsTariffNumberEdit}
+          create={CustomsTariffNumberCreate}
+          show={CustomsTariffNumberShow}
         />
       </Admin>
     </div>
