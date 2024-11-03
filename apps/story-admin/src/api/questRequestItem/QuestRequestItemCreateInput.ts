@@ -1,0 +1,9 @@
+import { QuestRequestItemConditionalCreateNestedManyWithoutQuestRequestItemsInput } from "./QuestRequestItemConditionalCreateNestedManyWithoutQuestRequestItemsInput";
+import { QuestRequestItemsLocaleCreateNestedManyWithoutQuestRequestItemsInput } from "./QuestRequestItemsLocaleCreateNestedManyWithoutQuestRequestItemsInput";
+import { QuestTemplateCreateNestedManyWithoutQuestRequestItemsInput } from "./QuestTemplateCreateNestedManyWithoutQuestRequestItemsInput";
+
+export type QuestRequestItemCreateInput = {
+  questRequestItemConditionals?: QuestRequestItemConditionalCreateNestedManyWithoutQuestRequestItemsInput;
+  questRequestItemsLocales?: QuestRequestItemsLocaleCreateNestedManyWithoutQuestRequestItemsInput;
+  questTemplates?: QuestTemplateCreateNestedManyWithoutQuestRequestItemsInput;
+};

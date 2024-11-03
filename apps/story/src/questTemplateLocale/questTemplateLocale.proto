@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package questTemplateLocale;
+service QuestTemplateLocaleService {
+ rpc createQuestTemplateLocale (QuestTemplateLocaleCreateInput) returns (QuestTemplateLocale) {}
+rpc questTemplateLocales (findManyParams) returns (stream QuestTemplateLocale) {}
+rpc questTemplateLocale (QuestTemplateLocaleWhereUniqueInput) returns (QuestTemplateLocale) {}
+rpc updateQuestTemplateLocale (QuestTemplateLocaleUpdateInput) returns (QuestTemplateLocale) {}
+rpc deleteQuestTemplateLocale (QuestTemplateLocaleWhereUniqueInput) returns (QuestTemplateLocale) {}
+rpc findManyQuestTemplateLocale (QuestTemplateLocaleWhereUniqueInput) returns (stream QuestTemplate) {}
+rpc updateQuestTemplateLocale (QuestTemplateParams) returns (stream QuestTemplate) {}
+rpc connectQuestTemplateLocale (QuestTemplateParams) returns (QuestTemplate) {}
+rpc disconnectQuestTemplateLocale (QuestTemplateParams) returns (QuestTemplate) {} 
+ }
+message QuestTemplateLocaleCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestTemplate questTemplates = 3;
+string updatedAt = 4;
+};
+message QuestTemplateLocale {
+string createdAt = 1;
+string id = 2;
+repeated QuestTemplate questTemplates = 3;
+string updatedAt = 4;
+};
+message QuestTemplateLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestTemplate questTemplates = 3;
+string updatedAt = 4;
+};
+message QuestTemplateLocaleUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestTemplate questTemplates = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message QuestTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestTemplateParams {
+QuestTemplateLocaleWhereUniqueInput questTemplateLocaleWhereUniqueInput = 1;
+QuestTemplateWhereUniqueInput questtemplateWhereUniqueInput = 2;
+};
