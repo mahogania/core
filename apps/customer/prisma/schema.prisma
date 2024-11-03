@@ -25,6 +25,23 @@ model CrmNote {
   updatedAt   DateTime  @updatedAt
 }
 
+model CalendarView {
+  allDay           Int?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  endDateField     String?
+  id               String    @id @default(cuid())
+  idx              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  owner            String?
+  referenceDoctype String?
+  startDateField   String?
+  subjectField     String?
+  updatedAt        DateTime  @updatedAt
+}
+
 model CallLog {
   callReceivedBy String?
   callType       String?
@@ -50,23 +67,6 @@ model CallLog {
   to             String?
   typeOfCall     String?
   updatedAt      DateTime  @updatedAt
-}
-
-model CalendarView {
-  allDay           Int?
-  createdAt        DateTime  @default(now())
-  creation         DateTime?
-  docstatus        Int?
-  endDateField     String?
-  id               String    @id @default(cuid())
-  idx              Int?
-  modified         DateTime?
-  modifiedBy       String?
-  owner            String?
-  referenceDoctype String?
-  startDateField   String?
-  subjectField     String?
-  updatedAt        DateTime  @updatedAt
 }
 
 model CampaignEmailSchedule {
@@ -1234,4 +1234,435 @@ model CustomizeFormField {
   unique                    Boolean?
   updatedAt                 DateTime  @updatedAt
   width                     String?
+}
+
+model DiscussionReply {
+  createdAt  DateTime  @default(now())
+  docstatus  Int?
+  id         String    @id @default(cuid())
+  idx        Int?
+  modified   DateTime?
+  modifiedBy String?
+  owner      String?
+  reply      String?
+  topic      String?
+  updatedAt  DateTime  @updatedAt
+}
+
+model DiscussionTopic {
+  createdAt        DateTime  @default(now())
+  docstatus        Int?
+  id               String    @id @default(cuid())
+  idx              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  owner            String?
+  referenceDocname String?
+  referenceDoctype String?
+  title            String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model DunningType {
+  company        String?
+  costCenter     String?
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  docstatus      Int?
+  dunningFee     Float?
+  dunningType    String?
+  id             String    @id @default(cuid())
+  idx            Int?
+  incomeAccount  String?
+  isDefault      Int?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  rateOfInterest Float?
+  updatedAt      DateTime  @updatedAt
+}
+
+model DunningLetterText {
+  bodyText          String?
+  closingText       String?
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  docstatus         Int?
+  id                String    @id @default(cuid())
+  idx               Int?
+  isDefaultLanguage Int?
+  language          String?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  owner             String?
+  parent            String?
+  parentfield       String?
+  parenttype        String?
+  updatedAt         DateTime  @updatedAt
+}
+
+model Dunning {
+  addressDisplay        String?
+  amendedFrom           String?
+  baseDunningAmount     Float?
+  bodyText              String?
+  closingText           String?
+  company               String?
+  companyAddress        String?
+  companyAddressDisplay String?
+  contactDisplay        String?
+  contactEmail          String?
+  contactMobile         String?
+  contactPerson         String?
+  conversionRate        Float?
+  costCenter            String?
+  createdAt             DateTime  @default(now())
+  creation              DateTime?
+  currency              String?
+  customer              String?
+  customerAddress       String?
+  customerName          String?
+  docstatus             Int?
+  dunningAmount         Float?
+  dunningFee            Float?
+  dunningType           String?
+  grandTotal            Float?
+  id                    String    @id @default(cuid())
+  idx                   Int?
+  incomeAccount         String?
+  language              String?
+  letterHead            String?
+  modified              DateTime?
+  modifiedBy            String?
+  name                  String?
+  namingSeries          String?
+  owner                 String?
+  postingDate           DateTime?
+  postingTime           DateTime?
+  rateOfInterest        Float?
+  spacer                String?
+  status                String?
+  totalInterest         Float?
+  totalOutstanding      Float?
+  updatedAt             DateTime  @updatedAt
+}
+
+model EmailAccount {
+  addSignature                     Boolean?
+  alwaysUseAccountEmailIdAsSender  Boolean?
+  alwaysUseAccountNameAsSenderName Boolean?
+  appendEmailsToSentFolder         Boolean?
+  appendTo                         String?
+  asciiEncodePassword              Boolean?
+  attachmentLimit                  Int?
+  authMethod                       String?
+  autoReplyMessage                 String?
+  awaitingPassword                 Boolean?
+  brandLogo                        String?
+  connectedApp                     String?
+  connectedUser                    String?
+  createContact                    Boolean?
+  createdAt                        DateTime  @default(now())
+  creation                         DateTime?
+  defaultIncoming                  Boolean?
+  defaultOutgoing                  Boolean?
+  docstatus                        Int?
+  domain                           String?
+  emailAccountName                 String?
+  emailId                          String?
+  emailServer                      String?
+  emailSyncOption                  String?
+  enableAutoReply                  Boolean?
+  enableAutomaticLinking           Boolean?
+  enableIncoming                   Boolean?
+  enableOutgoing                   Boolean?
+  footer                           String?
+  id                               String    @id @default(cuid())
+  idx                              Int?
+  incomingPort                     String?
+  initialSyncCount                 String?
+  loginId                          String?
+  loginIdIsDifferent               Boolean?
+  modified                         DateTime?
+  modifiedBy                       String?
+  name                             String?
+  noFailed                         Int?
+  noSmtpAuthentication             Boolean?
+  notifyIfUnreplied                Boolean?
+  owner                            String?
+  password                         String?
+  sendNotificationTo               String?
+  sendUnsubscribeMessage           Boolean?
+  service                          String?
+  signature                        String?
+  smtpPort                         String?
+  smtpServer                       String?
+  trackEmailStatus                 Boolean?
+  uidnext                          Int?
+  uidvalidity                      String?
+  unrepliedForMins                 Int?
+  updatedAt                        DateTime  @updatedAt
+  useImap                          Boolean?
+  useSsl                           Boolean?
+  useSslForOutgoing                Boolean?
+  useStarttls                      Boolean?
+  useTls                           Boolean?
+}
+
+model EmailCampaign {
+  campaignName     String?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  emailCampaignFor String?
+  endDate          DateTime?
+  id               String    @id @default(cuid())
+  idx              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  recipient        String?
+  sender           String?
+  startDate        DateTime?
+  status           String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model EmailDigestRecipient {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  recipient   String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model EmailDigest {
+  addQuote                   Int?
+  bankBalance                Int?
+  calendarEvents             Int?
+  company                    String?
+  createdAt                  DateTime  @default(now())
+  creation                   DateTime?
+  creditBalance              Int?
+  docstatus                  Int?
+  enabled                    Boolean?
+  expenseYearToDate          Int?
+  expensesBooked             Int?
+  frequency                  String?
+  id                         String    @id @default(cuid())
+  idx                        Int?
+  income                     Int?
+  incomeYearToDate           Int?
+  invoicedAmount             Int?
+  issue                      Int?
+  modified                   DateTime?
+  modifiedBy                 String?
+  name                       String?
+  newQuotations              Int?
+  nextSend                   String?
+  notifications              Int?
+  owner                      String?
+  payables                   Int?
+  pendingQuotations          Int?
+  project                    Int?
+  purchaseInvoice            Int?
+  purchaseOrder              Int?
+  purchaseOrdersItemsOverdue Int?
+  purchaseOrdersToBill       Int?
+  purchaseOrdersToReceive    Int?
+  salesInvoice               Int?
+  salesOrder                 Int?
+  salesOrdersToBill          Int?
+  salesOrdersToDeliver       Int?
+  todoList                   Int?
+  updatedAt                  DateTime  @updatedAt
+}
+
+model EmailDomain {
+  appendEmailsToSentFolder Boolean?
+  attachmentLimit          Int?
+  createdAt                DateTime  @default(now())
+  creation                 DateTime?
+  docstatus                Int?
+  domainName               String?
+  emailServer              String?
+  id                       String    @id @default(cuid())
+  idx                      Int?
+  incomingPort             String?
+  modified                 DateTime?
+  modifiedBy               String?
+  name                     String?
+  owner                    String?
+  smtpPort                 String?
+  smtpServer               String?
+  updatedAt                DateTime  @updatedAt
+  useImap                  Boolean?
+  useSsl                   Boolean?
+  useSslForOutgoing        Boolean?
+  useStarttls              Boolean?
+  useTls                   Boolean?
+}
+
+model EmailFlagQueue {
+  action        String?
+  communication String?
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  docstatus     Int?
+  emailAccount  String?
+  id            String    @id @default(cuid())
+  idx           Int?
+  isCompleted   Boolean?
+  modified      DateTime?
+  modifiedBy    String?
+  name          String?
+  owner         String?
+  uid           String?
+  updatedAt     DateTime  @updatedAt
+}
+
+model EmailGroupMember {
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  docstatus    Int?
+  email        String?
+  emailGroup   String?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  unsubscribed Boolean?
+  updatedAt    DateTime  @updatedAt
+}
+
+model EmailGroup {
+  addQueryParameters        Boolean?
+  confirmationEmailTemplate String?
+  createdAt                 DateTime  @default(now())
+  creation                  DateTime?
+  docstatus                 Int?
+  id                        String    @id @default(cuid())
+  idx                       Int?
+  modified                  DateTime?
+  modifiedBy                String?
+  name                      String?
+  owner                     String?
+  title                     String?
+  totalSubscribers          Int?
+  updatedAt                 DateTime  @updatedAt
+  welcomeEmailTemplate      String?
+  welcomeUrl                String?
+}
+
+model EmailQueueRecipient {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  errorField  String?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  recipient   String?
+  status      String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model EmailQueue {
+  addUnsubscribeLink Boolean?
+  attachments        String?
+  communication      String?
+  createdAt          DateTime  @default(now())
+  creation           DateTime?
+  docstatus          Int?
+  emailAccount       String?
+  errorField         String?
+  exposeRecipients   String?
+  id                 String    @id @default(cuid())
+  idx                Int?
+  message            String?
+  messageId          String?
+  modified           DateTime?
+  modifiedBy         String?
+  name               String?
+  owner              String?
+  priority           Int?
+  referenceDoctype   String?
+  referenceName      String?
+  retry              Int?
+  sendAfter          DateTime?
+  sender             String?
+  showAsCc           String?
+  status             String?
+  unsubscribeMethod  String?
+  unsubscribeParam   String?
+  updatedAt          DateTime  @updatedAt
+}
+
+model EmailRule {
+  createdAt  DateTime  @default(now())
+  creation   DateTime?
+  docstatus  Int?
+  emailId    String?
+  id         String    @id @default(cuid())
+  idx        Int?
+  isSpam     Boolean?
+  modified   DateTime?
+  modifiedBy String?
+  name       String?
+  owner      String?
+  updatedAt  DateTime  @updatedAt
+}
+
+model EmailTemplate {
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  docstatus    Int?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  response     String?
+  responseHtml String?
+  subject      String?
+  updatedAt    DateTime  @updatedAt
+  useHtml      Boolean?
+}
+
+model EmailUnsubscribe {
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  docstatus         Int?
+  email             String?
+  globalUnsubscribe Boolean?
+  id                String    @id @default(cuid())
+  idx               Int?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  owner             String?
+  referenceDoctype  String?
+  referenceName     String?
+  updatedAt         DateTime  @updatedAt
 }

@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
 import { CrmNoteModule } from "./crmNote/crmNote.module";
-import { CallLogModule } from "./callLog/callLog.module";
 import { CalendarViewModule } from "./calendarView/calendarView.module";
+import { CallLogModule } from "./callLog/callLog.module";
 import { CampaignEmailScheduleModule } from "./campaignEmailSchedule/campaignEmailSchedule.module";
 import { CampaignItemModule } from "./campaignItem/campaignItem.module";
 import { CampaignModule } from "./campaign/campaign.module";
@@ -50,6 +50,24 @@ import { CustomerGroupModule } from "./customerGroup/customerGroup.module";
 import { CustomerItemModule } from "./customerItem/customerItem.module";
 import { CustomerModule } from "./customer/customer.module";
 import { CustomizeFormFieldModule } from "./customizeFormField/customizeFormField.module";
+import { DiscussionReplyModule } from "./discussionReply/discussionReply.module";
+import { DiscussionTopicModule } from "./discussionTopic/discussionTopic.module";
+import { DunningTypeModule } from "./dunningType/dunningType.module";
+import { DunningLetterTextModule } from "./dunningLetterText/dunningLetterText.module";
+import { DunningModule } from "./dunning/dunning.module";
+import { EmailAccountModule } from "./emailAccount/emailAccount.module";
+import { EmailCampaignModule } from "./emailCampaign/emailCampaign.module";
+import { EmailDigestRecipientModule } from "./emailDigestRecipient/emailDigestRecipient.module";
+import { EmailDigestModule } from "./emailDigest/emailDigest.module";
+import { EmailDomainModule } from "./emailDomain/emailDomain.module";
+import { EmailFlagQueueModule } from "./emailFlagQueue/emailFlagQueue.module";
+import { EmailGroupMemberModule } from "./emailGroupMember/emailGroupMember.module";
+import { EmailGroupModule } from "./emailGroup/emailGroup.module";
+import { EmailQueueRecipientModule } from "./emailQueueRecipient/emailQueueRecipient.module";
+import { EmailQueueModule } from "./emailQueue/emailQueue.module";
+import { EmailRuleModule } from "./emailRule/emailRule.module";
+import { EmailTemplateModule } from "./emailTemplate/emailTemplate.module";
+import { EmailUnsubscribeModule } from "./emailUnsubscribe/emailUnsubscribe.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -63,8 +81,8 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
   controllers: [],
   imports: [
     CrmNoteModule,
-    CallLogModule,
     CalendarViewModule,
+    CallLogModule,
     CampaignEmailScheduleModule,
     CampaignItemModule,
     CampaignModule,
@@ -113,6 +131,24 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     CustomerItemModule,
     CustomerModule,
     CustomizeFormFieldModule,
+    DiscussionReplyModule,
+    DiscussionTopicModule,
+    DunningTypeModule,
+    DunningLetterTextModule,
+    DunningModule,
+    EmailAccountModule,
+    EmailCampaignModule,
+    EmailDigestRecipientModule,
+    EmailDigestModule,
+    EmailDomainModule,
+    EmailFlagQueueModule,
+    EmailGroupMemberModule,
+    EmailGroupModule,
+    EmailQueueRecipientModule,
+    EmailQueueModule,
+    EmailRuleModule,
+    EmailTemplateModule,
+    EmailUnsubscribeModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

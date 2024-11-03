@@ -9,14 +9,14 @@ import { CrmNoteList } from "./crmNote/CrmNoteList";
 import { CrmNoteCreate } from "./crmNote/CrmNoteCreate";
 import { CrmNoteEdit } from "./crmNote/CrmNoteEdit";
 import { CrmNoteShow } from "./crmNote/CrmNoteShow";
-import { CallLogList } from "./callLog/CallLogList";
-import { CallLogCreate } from "./callLog/CallLogCreate";
-import { CallLogEdit } from "./callLog/CallLogEdit";
-import { CallLogShow } from "./callLog/CallLogShow";
 import { CalendarViewList } from "./calendarView/CalendarViewList";
 import { CalendarViewCreate } from "./calendarView/CalendarViewCreate";
 import { CalendarViewEdit } from "./calendarView/CalendarViewEdit";
 import { CalendarViewShow } from "./calendarView/CalendarViewShow";
+import { CallLogList } from "./callLog/CallLogList";
+import { CallLogCreate } from "./callLog/CallLogCreate";
+import { CallLogEdit } from "./callLog/CallLogEdit";
+import { CallLogShow } from "./callLog/CallLogShow";
 import { CampaignEmailScheduleList } from "./campaignEmailSchedule/CampaignEmailScheduleList";
 import { CampaignEmailScheduleCreate } from "./campaignEmailSchedule/CampaignEmailScheduleCreate";
 import { CampaignEmailScheduleEdit } from "./campaignEmailSchedule/CampaignEmailScheduleEdit";
@@ -209,6 +209,78 @@ import { CustomizeFormFieldList } from "./customizeFormField/CustomizeFormFieldL
 import { CustomizeFormFieldCreate } from "./customizeFormField/CustomizeFormFieldCreate";
 import { CustomizeFormFieldEdit } from "./customizeFormField/CustomizeFormFieldEdit";
 import { CustomizeFormFieldShow } from "./customizeFormField/CustomizeFormFieldShow";
+import { DiscussionReplyList } from "./discussionReply/DiscussionReplyList";
+import { DiscussionReplyCreate } from "./discussionReply/DiscussionReplyCreate";
+import { DiscussionReplyEdit } from "./discussionReply/DiscussionReplyEdit";
+import { DiscussionReplyShow } from "./discussionReply/DiscussionReplyShow";
+import { DiscussionTopicList } from "./discussionTopic/DiscussionTopicList";
+import { DiscussionTopicCreate } from "./discussionTopic/DiscussionTopicCreate";
+import { DiscussionTopicEdit } from "./discussionTopic/DiscussionTopicEdit";
+import { DiscussionTopicShow } from "./discussionTopic/DiscussionTopicShow";
+import { DunningTypeList } from "./dunningType/DunningTypeList";
+import { DunningTypeCreate } from "./dunningType/DunningTypeCreate";
+import { DunningTypeEdit } from "./dunningType/DunningTypeEdit";
+import { DunningTypeShow } from "./dunningType/DunningTypeShow";
+import { DunningLetterTextList } from "./dunningLetterText/DunningLetterTextList";
+import { DunningLetterTextCreate } from "./dunningLetterText/DunningLetterTextCreate";
+import { DunningLetterTextEdit } from "./dunningLetterText/DunningLetterTextEdit";
+import { DunningLetterTextShow } from "./dunningLetterText/DunningLetterTextShow";
+import { DunningList } from "./dunning/DunningList";
+import { DunningCreate } from "./dunning/DunningCreate";
+import { DunningEdit } from "./dunning/DunningEdit";
+import { DunningShow } from "./dunning/DunningShow";
+import { EmailAccountList } from "./emailAccount/EmailAccountList";
+import { EmailAccountCreate } from "./emailAccount/EmailAccountCreate";
+import { EmailAccountEdit } from "./emailAccount/EmailAccountEdit";
+import { EmailAccountShow } from "./emailAccount/EmailAccountShow";
+import { EmailCampaignList } from "./emailCampaign/EmailCampaignList";
+import { EmailCampaignCreate } from "./emailCampaign/EmailCampaignCreate";
+import { EmailCampaignEdit } from "./emailCampaign/EmailCampaignEdit";
+import { EmailCampaignShow } from "./emailCampaign/EmailCampaignShow";
+import { EmailDigestRecipientList } from "./emailDigestRecipient/EmailDigestRecipientList";
+import { EmailDigestRecipientCreate } from "./emailDigestRecipient/EmailDigestRecipientCreate";
+import { EmailDigestRecipientEdit } from "./emailDigestRecipient/EmailDigestRecipientEdit";
+import { EmailDigestRecipientShow } from "./emailDigestRecipient/EmailDigestRecipientShow";
+import { EmailDigestList } from "./emailDigest/EmailDigestList";
+import { EmailDigestCreate } from "./emailDigest/EmailDigestCreate";
+import { EmailDigestEdit } from "./emailDigest/EmailDigestEdit";
+import { EmailDigestShow } from "./emailDigest/EmailDigestShow";
+import { EmailDomainList } from "./emailDomain/EmailDomainList";
+import { EmailDomainCreate } from "./emailDomain/EmailDomainCreate";
+import { EmailDomainEdit } from "./emailDomain/EmailDomainEdit";
+import { EmailDomainShow } from "./emailDomain/EmailDomainShow";
+import { EmailFlagQueueList } from "./emailFlagQueue/EmailFlagQueueList";
+import { EmailFlagQueueCreate } from "./emailFlagQueue/EmailFlagQueueCreate";
+import { EmailFlagQueueEdit } from "./emailFlagQueue/EmailFlagQueueEdit";
+import { EmailFlagQueueShow } from "./emailFlagQueue/EmailFlagQueueShow";
+import { EmailGroupMemberList } from "./emailGroupMember/EmailGroupMemberList";
+import { EmailGroupMemberCreate } from "./emailGroupMember/EmailGroupMemberCreate";
+import { EmailGroupMemberEdit } from "./emailGroupMember/EmailGroupMemberEdit";
+import { EmailGroupMemberShow } from "./emailGroupMember/EmailGroupMemberShow";
+import { EmailGroupList } from "./emailGroup/EmailGroupList";
+import { EmailGroupCreate } from "./emailGroup/EmailGroupCreate";
+import { EmailGroupEdit } from "./emailGroup/EmailGroupEdit";
+import { EmailGroupShow } from "./emailGroup/EmailGroupShow";
+import { EmailQueueRecipientList } from "./emailQueueRecipient/EmailQueueRecipientList";
+import { EmailQueueRecipientCreate } from "./emailQueueRecipient/EmailQueueRecipientCreate";
+import { EmailQueueRecipientEdit } from "./emailQueueRecipient/EmailQueueRecipientEdit";
+import { EmailQueueRecipientShow } from "./emailQueueRecipient/EmailQueueRecipientShow";
+import { EmailQueueList } from "./emailQueue/EmailQueueList";
+import { EmailQueueCreate } from "./emailQueue/EmailQueueCreate";
+import { EmailQueueEdit } from "./emailQueue/EmailQueueEdit";
+import { EmailQueueShow } from "./emailQueue/EmailQueueShow";
+import { EmailRuleList } from "./emailRule/EmailRuleList";
+import { EmailRuleCreate } from "./emailRule/EmailRuleCreate";
+import { EmailRuleEdit } from "./emailRule/EmailRuleEdit";
+import { EmailRuleShow } from "./emailRule/EmailRuleShow";
+import { EmailTemplateList } from "./emailTemplate/EmailTemplateList";
+import { EmailTemplateCreate } from "./emailTemplate/EmailTemplateCreate";
+import { EmailTemplateEdit } from "./emailTemplate/EmailTemplateEdit";
+import { EmailTemplateShow } from "./emailTemplate/EmailTemplateShow";
+import { EmailUnsubscribeList } from "./emailUnsubscribe/EmailUnsubscribeList";
+import { EmailUnsubscribeCreate } from "./emailUnsubscribe/EmailUnsubscribeCreate";
+import { EmailUnsubscribeEdit } from "./emailUnsubscribe/EmailUnsubscribeEdit";
+import { EmailUnsubscribeShow } from "./emailUnsubscribe/EmailUnsubscribeShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -230,18 +302,18 @@ const App = (): React.ReactElement => {
           show={CrmNoteShow}
         />
         <Resource
-          name="CallLog"
-          list={CallLogList}
-          edit={CallLogEdit}
-          create={CallLogCreate}
-          show={CallLogShow}
-        />
-        <Resource
           name="CalendarView"
           list={CalendarViewList}
           edit={CalendarViewEdit}
           create={CalendarViewCreate}
           show={CalendarViewShow}
+        />
+        <Resource
+          name="CallLog"
+          list={CallLogList}
+          edit={CallLogEdit}
+          create={CallLogCreate}
+          show={CallLogShow}
         />
         <Resource
           name="CampaignEmailSchedule"
@@ -578,6 +650,132 @@ const App = (): React.ReactElement => {
           edit={CustomizeFormFieldEdit}
           create={CustomizeFormFieldCreate}
           show={CustomizeFormFieldShow}
+        />
+        <Resource
+          name="DiscussionReply"
+          list={DiscussionReplyList}
+          edit={DiscussionReplyEdit}
+          create={DiscussionReplyCreate}
+          show={DiscussionReplyShow}
+        />
+        <Resource
+          name="DiscussionTopic"
+          list={DiscussionTopicList}
+          edit={DiscussionTopicEdit}
+          create={DiscussionTopicCreate}
+          show={DiscussionTopicShow}
+        />
+        <Resource
+          name="DunningType"
+          list={DunningTypeList}
+          edit={DunningTypeEdit}
+          create={DunningTypeCreate}
+          show={DunningTypeShow}
+        />
+        <Resource
+          name="DunningLetterText"
+          list={DunningLetterTextList}
+          edit={DunningLetterTextEdit}
+          create={DunningLetterTextCreate}
+          show={DunningLetterTextShow}
+        />
+        <Resource
+          name="Dunning"
+          list={DunningList}
+          edit={DunningEdit}
+          create={DunningCreate}
+          show={DunningShow}
+        />
+        <Resource
+          name="EmailAccount"
+          list={EmailAccountList}
+          edit={EmailAccountEdit}
+          create={EmailAccountCreate}
+          show={EmailAccountShow}
+        />
+        <Resource
+          name="EmailCampaign"
+          list={EmailCampaignList}
+          edit={EmailCampaignEdit}
+          create={EmailCampaignCreate}
+          show={EmailCampaignShow}
+        />
+        <Resource
+          name="EmailDigestRecipient"
+          list={EmailDigestRecipientList}
+          edit={EmailDigestRecipientEdit}
+          create={EmailDigestRecipientCreate}
+          show={EmailDigestRecipientShow}
+        />
+        <Resource
+          name="EmailDigest"
+          list={EmailDigestList}
+          edit={EmailDigestEdit}
+          create={EmailDigestCreate}
+          show={EmailDigestShow}
+        />
+        <Resource
+          name="EmailDomain"
+          list={EmailDomainList}
+          edit={EmailDomainEdit}
+          create={EmailDomainCreate}
+          show={EmailDomainShow}
+        />
+        <Resource
+          name="EmailFlagQueue"
+          list={EmailFlagQueueList}
+          edit={EmailFlagQueueEdit}
+          create={EmailFlagQueueCreate}
+          show={EmailFlagQueueShow}
+        />
+        <Resource
+          name="EmailGroupMember"
+          list={EmailGroupMemberList}
+          edit={EmailGroupMemberEdit}
+          create={EmailGroupMemberCreate}
+          show={EmailGroupMemberShow}
+        />
+        <Resource
+          name="EmailGroup"
+          list={EmailGroupList}
+          edit={EmailGroupEdit}
+          create={EmailGroupCreate}
+          show={EmailGroupShow}
+        />
+        <Resource
+          name="EmailQueueRecipient"
+          list={EmailQueueRecipientList}
+          edit={EmailQueueRecipientEdit}
+          create={EmailQueueRecipientCreate}
+          show={EmailQueueRecipientShow}
+        />
+        <Resource
+          name="EmailQueue"
+          list={EmailQueueList}
+          edit={EmailQueueEdit}
+          create={EmailQueueCreate}
+          show={EmailQueueShow}
+        />
+        <Resource
+          name="EmailRule"
+          list={EmailRuleList}
+          edit={EmailRuleEdit}
+          create={EmailRuleCreate}
+          show={EmailRuleShow}
+        />
+        <Resource
+          name="EmailTemplate"
+          list={EmailTemplateList}
+          edit={EmailTemplateEdit}
+          create={EmailTemplateCreate}
+          show={EmailTemplateShow}
+        />
+        <Resource
+          name="EmailUnsubscribe"
+          list={EmailUnsubscribeList}
+          edit={EmailUnsubscribeEdit}
+          create={EmailUnsubscribeCreate}
+          show={EmailUnsubscribeShow}
         />
       </Admin>
     </div>
