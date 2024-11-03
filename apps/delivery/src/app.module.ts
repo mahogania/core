@@ -3,6 +3,8 @@ import { DeliveryNoteItemModule } from "./deliveryNoteItem/deliveryNoteItem.modu
 import { DeliveryNoteModule } from "./deliveryNote/deliveryNote.module";
 import { DeliveryStopModule } from "./deliveryStop/deliveryStop.module";
 import { DeliveryTripModule } from "./deliveryTrip/deliveryTrip.module";
+import { DrivingLicenseCategoryModule } from "./drivingLicenseCategory/drivingLicenseCategory.module";
+import { DriverModule } from "./driver/driver.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -19,6 +21,8 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     DeliveryNoteModule,
     DeliveryStopModule,
     DeliveryTripModule,
+    DrivingLicenseCategoryModule,
+    DriverModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

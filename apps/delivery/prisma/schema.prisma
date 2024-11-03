@@ -259,3 +259,15 @@ model DeliveryTrip {
   updatedAt             DateTime  @updatedAt
   vehicle               String?
 }
+
+model DrivingLicenseCategory {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Driver {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}

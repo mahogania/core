@@ -21,6 +21,14 @@ import { DeliveryTripList } from "./deliveryTrip/DeliveryTripList";
 import { DeliveryTripCreate } from "./deliveryTrip/DeliveryTripCreate";
 import { DeliveryTripEdit } from "./deliveryTrip/DeliveryTripEdit";
 import { DeliveryTripShow } from "./deliveryTrip/DeliveryTripShow";
+import { DrivingLicenseCategoryList } from "./drivingLicenseCategory/DrivingLicenseCategoryList";
+import { DrivingLicenseCategoryCreate } from "./drivingLicenseCategory/DrivingLicenseCategoryCreate";
+import { DrivingLicenseCategoryEdit } from "./drivingLicenseCategory/DrivingLicenseCategoryEdit";
+import { DrivingLicenseCategoryShow } from "./drivingLicenseCategory/DrivingLicenseCategoryShow";
+import { DriverList } from "./driver/DriverList";
+import { DriverCreate } from "./driver/DriverCreate";
+import { DriverEdit } from "./driver/DriverEdit";
+import { DriverShow } from "./driver/DriverShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -61,6 +69,20 @@ const App = (): React.ReactElement => {
           edit={DeliveryTripEdit}
           create={DeliveryTripCreate}
           show={DeliveryTripShow}
+        />
+        <Resource
+          name="DrivingLicenseCategory"
+          list={DrivingLicenseCategoryList}
+          edit={DrivingLicenseCategoryEdit}
+          create={DrivingLicenseCategoryCreate}
+          show={DrivingLicenseCategoryShow}
+        />
+        <Resource
+          name="Driver"
+          list={DriverList}
+          edit={DriverEdit}
+          create={DriverCreate}
+          show={DriverShow}
         />
       </Admin>
     </div>
