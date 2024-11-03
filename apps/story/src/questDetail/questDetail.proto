@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+                 package questDetail;
+service QuestDetailService {
+ rpc createQuestDetail (QuestDetailCreateInput) returns (QuestDetail) {}
+rpc questDetails (findManyParams) returns (stream QuestDetail) {}
+rpc questDetail (QuestDetailWhereUniqueInput) returns (QuestDetail) {}
+rpc updateQuestDetail (QuestDetailUpdateInput) returns (QuestDetail) {}
+rpc deleteQuestDetail (QuestDetailWhereUniqueInput) returns (QuestDetail) {}
+rpc findManyQuestDetails (QuestDetailWhereUniqueInput) returns (stream Quest) {}
+rpc updateQuestDetails (QuestParams) returns (stream Quest) {}
+rpc connectQuestDetails (QuestParams) returns (Quest) {}
+rpc disconnectQuestDetails (QuestParams) returns (Quest) {} 
+ }
+message QuestDetailCreateInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string name = 4;
+repeated Quest quests = 5;
+string updatedAt = 6;
+};
+message QuestDetail {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string name = 4;
+repeated Quest quests = 5;
+string updatedAt = 6;
+};
+message QuestDetailWhereUniqueInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string name = 4;
+repeated Quest quests = 5;
+string updatedAt = 6;
+};
+message QuestDetailUpdateInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string name = 4;
+repeated Quest quests = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message Quest {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestParams {
+QuestDetailWhereUniqueInput questDetailWhereUniqueInput = 1;
+QuestWhereUniqueInput questWhereUniqueInput = 2;
+};
