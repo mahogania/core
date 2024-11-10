@@ -1,0 +1,31 @@
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
+
+export type LandedCostItemWhereInput = {
+  amount?: FloatNullableFilter;
+  applicableCharges?: FloatNullableFilter;
+  costCenter?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  description?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  isFixedAsset?: BooleanNullableFilter;
+  itemCode?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  parentfield?: StringNullableFilter;
+  parenttype?: StringNullableFilter;
+  purchaseReceiptItem?: StringNullableFilter;
+  qty?: FloatNullableFilter;
+  rate?: FloatNullableFilter;
+  receiptDocument?: StringNullableFilter;
+  receiptDocumentType?: StringNullableFilter;
+};
