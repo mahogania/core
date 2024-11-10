@@ -1,0 +1,24 @@
+export type InvoiceDiscountingUpdateInput = {
+  accountsReceivableCredit?: string | null;
+  accountsReceivableDiscounted?: string | null;
+  accountsReceivableUnpaid?: string | null;
+  amendedFrom?: string | null;
+  bankAccount?: string | null;
+  bankCharges?: number | null;
+  bankChargesAccount?: string | null;
+  company?: string | null;
+  creation?: Date | null;
+  docstatus?: number | null;
+  idx?: number | null;
+  loanEndDate?: Date | null;
+  loanPeriod?: number | null;
+  loanStartDate?: Date | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  owner?: string | null;
+  postingDate?: Date | null;
+  shortTermLoan?: string | null;
+  status?: string | null;
+  totalAmount?: number | null;
+};

@@ -1,0 +1,36 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type ContactOrderByInput = {
+  address?: SortOrder;
+  companyName?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  department?: SortOrder;
+  designation?: SortOrder;
+  docstatus?: SortOrder;
+  emailId?: SortOrder;
+  firstName?: SortOrder;
+  fullName?: SortOrder;
+  gender?: SortOrder;
+  googleContacts?: SortOrder;
+  googleContactsId?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  image?: SortOrder;
+  isPrimaryContact?: SortOrder;
+  lastName?: SortOrder;
+  middleName?: SortOrder;
+  mobileNo?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  owner?: SortOrder;
+  phone?: SortOrder;
+  pulledFromGoogleContacts?: SortOrder;
+  salutation?: SortOrder;
+  status?: SortOrder;
+  syncWithGoogleContacts?: SortOrder;
+  unsubscribed?: SortOrder;
+  updatedAt?: SortOrder;
+  user?: SortOrder;
+};

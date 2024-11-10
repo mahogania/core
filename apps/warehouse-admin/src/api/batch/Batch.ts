@@ -1,0 +1,25 @@
+export type Batch = {
+  batchId: string | null;
+  batchQty: number | null;
+  createdAt: Date;
+  description: string | null;
+  disabled: number | null;
+  docstatus: number | null;
+  expiryDate: Date | null;
+  id: string;
+  idx: number | null;
+  image: string | null;
+  item: string | null;
+  itemName: string | null;
+  manufacturingDate: Date | null;
+  owner: string | null;
+  parentBatch: string | null;
+  producedQty: number | null;
+  qtyToProduce: number | null;
+  referenceDoctype: string | null;
+  referenceName: string | null;
+  stockUom: string | null;
+  supplier: string | null;
+  updatedAt: Date;
+  useBatchwiseValuation: number | null;
+};

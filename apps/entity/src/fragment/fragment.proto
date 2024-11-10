@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+                 package fragment;
+service FragmentService {
+ rpc createFragment (FragmentCreateInput) returns (Fragment) {}
+rpc fragments (findManyParams) returns (stream Fragment) {}
+rpc fragment (FragmentWhereUniqueInput) returns (Fragment) {}
+rpc updateFragment (FragmentUpdateInput) returns (Fragment) {}
+rpc deleteFragment (FragmentWhereUniqueInput) returns (Fragment) {}
+rpc findManyFragment (FragmentWhereUniqueInput) returns (stream Attribute) {}
+rpc updateFragment (AttributeParams) returns (stream Attribute) {}
+rpc connectFragment (AttributeParams) returns (Attribute) {}
+rpc disconnectFragment (AttributeParams) returns (Attribute) {}
+rpc findManyFragment (FragmentWhereUniqueInput) returns (stream View) {}
+rpc updateFragment (ViewParams) returns (stream View) {}
+rpc connectFragment (ViewParams) returns (View) {}
+rpc disconnectFragment (ViewParams) returns (View) {} 
+ }
+message FragmentCreateInput {
+repeated Attribute attributes = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
+string name = 6;
+string updatedAt = 7;
+repeated View views = 8;
+};
+message Fragment {
+repeated Attribute attributes = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
+string name = 6;
+string updatedAt = 7;
+repeated View views = 8;
+};
+message FragmentWhereUniqueInput {
+repeated Attribute attributes = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
+string name = 6;
+string updatedAt = 7;
+repeated View views = 8;
+};
+message FragmentUpdateInput {
+repeated Attribute attributes = 1;
+string createdAt = 2;
+string description = 3;
+string displayName = 4;
+string id = 5;
+string name = 6;
+string updatedAt = 7;
+repeated View views = 8;
+};
+message findManyParams {
+
+};
+message Attribute {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AttributeWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AttributeParams {
+FragmentWhereUniqueInput fragmentWhereUniqueInput = 1;
+AttributeWhereUniqueInput attributeWhereUniqueInput = 2;
+};
+message View {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ViewWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ViewParams {
+FragmentWhereUniqueInput fragmentWhereUniqueInput = 1;
+ViewWhereUniqueInput viewWhereUniqueInput = 2;
+};

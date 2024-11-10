@@ -1,0 +1,21 @@
+export type DocShare = {
+  createdAt: Date;
+  creation: Date | null;
+  docstatus: number | null;
+  everyone: number | null;
+  id: string;
+  idx: number | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  notifyByEmail: number | null;
+  owner: string | null;
+  read: number | null;
+  share: number | null;
+  shareDoctype: string | null;
+  shareName: string | null;
+  submit: number | null;
+  updatedAt: Date;
+  user: string | null;
+  write: number | null;
+};

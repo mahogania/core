@@ -1,0 +1,34 @@
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type EmailQueueWhereInput = {
+  addUnsubscribeLink?: BooleanNullableFilter;
+  attachments?: StringNullableFilter;
+  communication?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  docstatus?: IntNullableFilter;
+  emailAccount?: StringNullableFilter;
+  errorField?: StringNullableFilter;
+  exposeRecipients?: StringNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  message?: StringNullableFilter;
+  messageId?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  priority?: IntNullableFilter;
+  referenceDoctype?: StringNullableFilter;
+  referenceName?: StringNullableFilter;
+  retry?: IntNullableFilter;
+  sendAfter?: DateTimeNullableFilter;
+  sender?: StringNullableFilter;
+  showAsCc?: StringNullableFilter;
+  status?: StringNullableFilter;
+  unsubscribeMethod?: StringNullableFilter;
+  unsubscribeParam?: StringNullableFilter;
+};

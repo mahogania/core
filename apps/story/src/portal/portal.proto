@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+                 package portal;
+service PortalService {
+ rpc createPortal (PortalCreateInput) returns (Portal) {}
+rpc portals (findManyParams) returns (stream Portal) {}
+rpc portal (PortalWhereUniqueInput) returns (Portal) {}
+rpc updatePortal (PortalUpdateInput) returns (Portal) {}
+rpc deletePortal (PortalWhereUniqueInput) returns (Portal) {}
+rpc findManyPortal (PortalWhereUniqueInput) returns (stream AreaTeleportTrigger) {}
+rpc updatePortal (AreaTeleportTriggerParams) returns (stream AreaTeleportTrigger) {}
+rpc connectPortal (AreaTeleportTriggerParams) returns (AreaTeleportTrigger) {}
+rpc disconnectPortal (AreaTeleportTriggerParams) returns (AreaTeleportTrigger) {} 
+ }
+message PortalCreateInput {
+repeated AreaTeleportTrigger areaTeleportTriggers = 1;
+string createdAt = 2;
+string id = 3;
+string location = 4;
+string updatedAt = 5;
+};
+message Portal {
+repeated AreaTeleportTrigger areaTeleportTriggers = 1;
+string createdAt = 2;
+string id = 3;
+string location = 4;
+string updatedAt = 5;
+};
+message PortalWhereUniqueInput {
+repeated AreaTeleportTrigger areaTeleportTriggers = 1;
+string createdAt = 2;
+string id = 3;
+string location = 4;
+string updatedAt = 5;
+};
+message PortalUpdateInput {
+repeated AreaTeleportTrigger areaTeleportTriggers = 1;
+string createdAt = 2;
+string id = 3;
+string location = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
+message AreaTeleportTrigger {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaTeleportTriggerWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaTeleportTriggerParams {
+PortalWhereUniqueInput portalWhereUniqueInput = 1;
+AreaTeleportTriggerWhereUniqueInput areateleporttriggerWhereUniqueInput = 2;
+};
