@@ -1,0 +1,37 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+
+export type ProductionPlanItemWhereInput = {
+  bomNo?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  description?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  includeExplodedItems?: IntNullableFilter;
+  itemCode?: StringNullableFilter;
+  itemReference?: StringNullableFilter;
+  materialRequest?: StringNullableFilter;
+  materialRequestItem?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  orderedQty?: FloatNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  parentfield?: StringNullableFilter;
+  parenttype?: StringNullableFilter;
+  pendingQty?: FloatNullableFilter;
+  plannedQty?: FloatNullableFilter;
+  plannedStartDate?: DateTimeNullableFilter;
+  producedQty?: FloatNullableFilter;
+  productBundleItem?: StringNullableFilter;
+  salesOrder?: StringNullableFilter;
+  salesOrderItem?: StringNullableFilter;
+  stockUom?: StringNullableFilter;
+  temporaryName?: StringNullableFilter;
+  warehouse?: StringNullableFilter;
+};

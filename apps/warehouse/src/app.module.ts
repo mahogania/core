@@ -15,9 +15,31 @@ import { BinModule } from "./bin/bin.module";
 import { InstallationNoteItemModule } from "./installationNoteItem/installationNoteItem.module";
 import { InventoryDimensionModule } from "./inventoryDimension/inventoryDimension.module";
 import { LandedCostItemModule } from "./landedCostItem/landedCostItem.module";
-import { LandedCostPurchaseReceiptModule } from "./landedCostPurchaseReceipt/landedCostPurchaseReceipt.module";
 import { LandedCostTaxesAndChargesModule } from "./landedCostTaxesAndCharges/landedCostTaxesAndCharges.module";
+import { LandedCostPurchaseReceiptModule } from "./landedCostPurchaseReceipt/landedCostPurchaseReceipt.module";
 import { LandedCostVoucherModule } from "./landedCostVoucher/landedCostVoucher.module";
+import { MaintenanceScheduleItemModule } from "./maintenanceScheduleItem/maintenanceScheduleItem.module";
+import { MaintenanceScheduleModule } from "./maintenanceSchedule/maintenanceSchedule.module";
+import { MaintenanceTeamMemberModule } from "./maintenanceTeamMember/maintenanceTeamMember.module";
+import { MaintenanceVisitPurposeModule } from "./maintenanceVisitPurpose/maintenanceVisitPurpose.module";
+import { MaintenanceVisitModule } from "./maintenanceVisit/maintenanceVisit.module";
+import { MaterialRequestItemModule } from "./materialRequestItem/materialRequestItem.module";
+import { ManufacturerModule } from "./manufacturer/manufacturer.module";
+import { MaterialRequestPlanItemModule } from "./materialRequestPlanItem/materialRequestPlanItem.module";
+import { MaterialRequestModule } from "./materialRequest/materialRequest.module";
+import { PackedItemModule } from "./packedItem/packedItem.module";
+import { PackingSlipItemModule } from "./packingSlipItem/packingSlipItem.module";
+import { PackingSlipModule } from "./packingSlip/packingSlip.module";
+import { ProductionPlanItemReferenceModule } from "./productionPlanItemReference/productionPlanItemReference.module";
+import { ProductionPlanMaterialRequestWarehouseModule } from "./productionPlanMaterialRequestWarehouse/productionPlanMaterialRequestWarehouse.module";
+import { ProductionPlanSubAssemblyItemModule } from "./productionPlanSubAssemblyItem/productionPlanSubAssemblyItem.module";
+import { ProductionPlanMaterialRequestModule } from "./productionPlanMaterialRequest/productionPlanMaterialRequest.module";
+import { ProductionPlanItemModule } from "./productionPlanItem/productionPlanItem.module";
+import { ProductionPlanSalesOrderModule } from "./productionPlanSalesOrder/productionPlanSalesOrder.module";
+import { ProductionPlanModule } from "./productionPlan/productionPlan.module";
+import { SerialNoModule } from "./serialNo/serialNo.module";
+import { SerialAndBatchEntryModule } from "./serialAndBatchEntry/serialAndBatchEntry.module";
+import { SerialAndBatchBundleModule } from "./serialAndBatchBundle/serialAndBatchBundle.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -46,9 +68,31 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     InstallationNoteItemModule,
     InventoryDimensionModule,
     LandedCostItemModule,
-    LandedCostPurchaseReceiptModule,
     LandedCostTaxesAndChargesModule,
+    LandedCostPurchaseReceiptModule,
     LandedCostVoucherModule,
+    MaintenanceScheduleItemModule,
+    MaintenanceScheduleModule,
+    MaintenanceTeamMemberModule,
+    MaintenanceVisitPurposeModule,
+    MaintenanceVisitModule,
+    MaterialRequestItemModule,
+    ManufacturerModule,
+    MaterialRequestPlanItemModule,
+    MaterialRequestModule,
+    PackedItemModule,
+    PackingSlipItemModule,
+    PackingSlipModule,
+    ProductionPlanItemReferenceModule,
+    ProductionPlanMaterialRequestWarehouseModule,
+    ProductionPlanSubAssemblyItemModule,
+    ProductionPlanMaterialRequestModule,
+    ProductionPlanItemModule,
+    ProductionPlanSalesOrderModule,
+    ProductionPlanModule,
+    SerialNoModule,
+    SerialAndBatchEntryModule,
+    SerialAndBatchBundleModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
