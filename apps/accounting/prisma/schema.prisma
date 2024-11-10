@@ -1205,3 +1205,67 @@ model DiscountedInvoice {
   salesInvoice      String?
   updatedAt         DateTime  @updatedAt
 }
+
+model FiscalYearCompany {
+  company     String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docStatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentField String?
+  parentType  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model FinanceBook {
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  docStatus       Int?
+  financeBookName String?
+  id              String    @id @default(cuid())
+  idx             Int?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  owner           String?
+  updatedAt       DateTime  @updatedAt
+}
+
+model FiscalYear {
+  autoCreated   Int?
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  disabled      Int?
+  docStatus     Int?
+  id            String    @id @default(cuid())
+  idx           Int?
+  isShortYear   Int?
+  modified      DateTime?
+  modifiedBy    String?
+  name          String?
+  owner         String?
+  updatedAt     DateTime  @updatedAt
+  year          String?
+  yearEndDate   DateTime?
+  yearStartDate DateTime?
+}
+
+model IndustryType {
+  createdAt  DateTime  @default(now())
+  creation   DateTime?
+  docstatus  Int?
+  id         String    @id @default(cuid())
+  idx        Int?
+  industry   String?
+  modified   DateTime?
+  modifiedBy String?
+  name       String?
+  owner      String?
+  updatedAt  DateTime  @updatedAt
+}

@@ -51,6 +51,10 @@ import { DepreciationScheduleModule } from "./depreciationSchedule/depreciationS
 import { DepartmentModule } from "./department/department.module";
 import { DesignationModule } from "./designation/designation.module";
 import { DiscountedInvoiceModule } from "./discountedInvoice/discountedInvoice.module";
+import { FiscalYearCompanyModule } from "./fiscalYearCompany/fiscalYearCompany.module";
+import { FinanceBookModule } from "./financeBook/financeBook.module";
+import { FiscalYearModule } from "./fiscalYear/fiscalYear.module";
+import { IndustryTypeModule } from "./industryType/industryType.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -115,6 +119,10 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     DepartmentModule,
     DesignationModule,
     DiscountedInvoiceModule,
+    FiscalYearCompanyModule,
+    FinanceBookModule,
+    FiscalYearModule,
+    IndustryTypeModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

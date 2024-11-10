@@ -213,6 +213,22 @@ import { DiscountedInvoiceList } from "./discountedInvoice/DiscountedInvoiceList
 import { DiscountedInvoiceCreate } from "./discountedInvoice/DiscountedInvoiceCreate";
 import { DiscountedInvoiceEdit } from "./discountedInvoice/DiscountedInvoiceEdit";
 import { DiscountedInvoiceShow } from "./discountedInvoice/DiscountedInvoiceShow";
+import { FiscalYearCompanyList } from "./fiscalYearCompany/FiscalYearCompanyList";
+import { FiscalYearCompanyCreate } from "./fiscalYearCompany/FiscalYearCompanyCreate";
+import { FiscalYearCompanyEdit } from "./fiscalYearCompany/FiscalYearCompanyEdit";
+import { FiscalYearCompanyShow } from "./fiscalYearCompany/FiscalYearCompanyShow";
+import { FinanceBookList } from "./financeBook/FinanceBookList";
+import { FinanceBookCreate } from "./financeBook/FinanceBookCreate";
+import { FinanceBookEdit } from "./financeBook/FinanceBookEdit";
+import { FinanceBookShow } from "./financeBook/FinanceBookShow";
+import { FiscalYearList } from "./fiscalYear/FiscalYearList";
+import { FiscalYearCreate } from "./fiscalYear/FiscalYearCreate";
+import { FiscalYearEdit } from "./fiscalYear/FiscalYearEdit";
+import { FiscalYearShow } from "./fiscalYear/FiscalYearShow";
+import { IndustryTypeList } from "./industryType/IndustryTypeList";
+import { IndustryTypeCreate } from "./industryType/IndustryTypeCreate";
+import { IndustryTypeEdit } from "./industryType/IndustryTypeEdit";
+import { IndustryTypeShow } from "./industryType/IndustryTypeShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -589,6 +605,34 @@ const App = (): React.ReactElement => {
           edit={DiscountedInvoiceEdit}
           create={DiscountedInvoiceCreate}
           show={DiscountedInvoiceShow}
+        />
+        <Resource
+          name="FiscalYearCompany"
+          list={FiscalYearCompanyList}
+          edit={FiscalYearCompanyEdit}
+          create={FiscalYearCompanyCreate}
+          show={FiscalYearCompanyShow}
+        />
+        <Resource
+          name="FinanceBook"
+          list={FinanceBookList}
+          edit={FinanceBookEdit}
+          create={FinanceBookCreate}
+          show={FinanceBookShow}
+        />
+        <Resource
+          name="FiscalYear"
+          list={FiscalYearList}
+          edit={FiscalYearEdit}
+          create={FiscalYearCreate}
+          show={FiscalYearShow}
+        />
+        <Resource
+          name="IndustryType"
+          list={IndustryTypeList}
+          edit={IndustryTypeEdit}
+          create={IndustryTypeCreate}
+          show={IndustryTypeShow}
         />
       </Admin>
     </div>
