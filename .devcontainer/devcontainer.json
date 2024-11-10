@@ -1,5 +1,5 @@
 {
-  "name": "Employee",
+  "name": "Sale",
   "dockerComposeFile": "docker-compose.devcontainer.yml",
   "service": "devcontainer",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
