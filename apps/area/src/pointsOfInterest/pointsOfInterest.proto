@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package pointsOfInterest;
+service PointsOfInterestService {
+ rpc createPointsOfInterest (PointsOfInterestCreateInput) returns (PointsOfInterest) {}
+rpc pointsOfInterests (findManyParams) returns (stream PointsOfInterest) {}
+rpc pointsOfInterest (PointsOfInterestWhereUniqueInput) returns (PointsOfInterest) {}
+rpc updatePointsOfInterest (PointsOfInterestUpdateInput) returns (PointsOfInterest) {}
+rpc deletePointsOfInterest (PointsOfInterestWhereUniqueInput) returns (PointsOfInterest) {} 
+ }
+message PointsOfInterestCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PointsOfInterest {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PointsOfInterestWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PointsOfInterestUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

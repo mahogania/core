@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package poolMembers;
+service PoolMembersService {
+ rpc createPoolMembers (PoolMembersCreateInput) returns (PoolMembers) {}
+rpc poolMembersItems (findManyParams) returns (stream PoolMembers) {}
+rpc poolMembers (PoolMembersWhereUniqueInput) returns (PoolMembers) {}
+rpc updatePoolMembers (PoolMembersUpdateInput) returns (PoolMembers) {}
+rpc deletePoolMembers (PoolMembersWhereUniqueInput) returns (PoolMembers) {} 
+ }
+message PoolMembersCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PoolMembers {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PoolMembersWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PoolMembersUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

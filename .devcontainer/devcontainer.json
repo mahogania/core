@@ -1,5 +1,5 @@
 {
-  "name": "World",
+  "name": "Area",
   "dockerComposeFile": "docker-compose.devcontainer.yml",
   "service": "devcontainer",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
