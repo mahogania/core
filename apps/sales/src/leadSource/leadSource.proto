@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+                 package leadSource;
+service LeadSourceService {
+ rpc createLeadSource (LeadSourceCreateInput) returns (LeadSource) {}
+rpc leadSources (findManyParams) returns (stream LeadSource) {}
+rpc leadSource (LeadSourceWhereUniqueInput) returns (LeadSource) {}
+rpc updateLeadSource (LeadSourceUpdateInput) returns (LeadSource) {}
+rpc deleteLeadSource (LeadSourceWhereUniqueInput) returns (LeadSource) {} 
+ }
+message LeadSourceCreateInput {
+string createdAt = 1;
+string creation = 2;
+string details = 3;
+int32 docstatus = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string sourceName = 11;
+string updatedAt = 12;
+};
+message LeadSource {
+string createdAt = 1;
+string creation = 2;
+string details = 3;
+int32 docstatus = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string sourceName = 11;
+string updatedAt = 12;
+};
+message LeadSourceWhereUniqueInput {
+string createdAt = 1;
+string creation = 2;
+string details = 3;
+int32 docstatus = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string sourceName = 11;
+string updatedAt = 12;
+};
+message LeadSourceUpdateInput {
+string createdAt = 1;
+string creation = 2;
+string details = 3;
+int32 docstatus = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string sourceName = 11;
+string updatedAt = 12;
+};
+message findManyParams {
+
+};

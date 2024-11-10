@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package option;
+service OptionService {
+ rpc createOption (OptionCreateInput) returns (Option) {}
+rpc options (findManyParams) returns (stream Option) {}
+rpc option (OptionWhereUniqueInput) returns (Option) {}
+rpc updateOption (OptionUpdateInput) returns (Option) {}
+rpc deleteOption (OptionWhereUniqueInput) returns (Option) {} 
+ }
+message OptionCreateInput {
+string createdAt = 1;
+Constraint drivingConstraints = 2;
+string id = 3;
+Constraint leadingConstraints = 4;
+string updatedAt = 5;
+};
+message Option {
+string createdAt = 1;
+Constraint drivingConstraints = 2;
+string id = 3;
+Constraint leadingConstraints = 4;
+string updatedAt = 5;
+};
+message OptionWhereUniqueInput {
+string createdAt = 1;
+Constraint drivingConstraints = 2;
+string id = 3;
+Constraint leadingConstraints = 4;
+string updatedAt = 5;
+};
+message OptionUpdateInput {
+string createdAt = 1;
+Constraint drivingConstraints = 2;
+string id = 3;
+Constraint leadingConstraints = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
