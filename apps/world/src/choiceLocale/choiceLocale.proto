@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+                 package choiceLocale;
+service ChoiceLocaleService {
+ rpc createChoiceLocale (ChoiceLocaleCreateInput) returns (ChoiceLocale) {}
+rpc choiceLocales (findManyParams) returns (stream ChoiceLocale) {}
+rpc choiceLocale (ChoiceLocaleWhereUniqueInput) returns (ChoiceLocale) {}
+rpc updateChoiceLocale (ChoiceLocaleUpdateInput) returns (ChoiceLocale) {}
+rpc deleteChoiceLocale (ChoiceLocaleWhereUniqueInput) returns (ChoiceLocale) {}
+rpc findManyChoiceLocales (ChoiceLocaleWhereUniqueInput) returns (stream Choice) {}
+rpc updateChoiceLocales (ChoiceParams) returns (stream Choice) {}
+rpc connectChoiceLocales (ChoiceParams) returns (Choice) {}
+rpc disconnectChoiceLocales (ChoiceParams) returns (Choice) {} 
+ }
+message ChoiceLocaleCreateInput {
+repeated Choice choices = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message ChoiceLocale {
+repeated Choice choices = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message ChoiceLocaleWhereUniqueInput {
+repeated Choice choices = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message ChoiceLocaleUpdateInput {
+repeated Choice choices = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Choice {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message ChoiceWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message ChoiceParams {
+ChoiceLocaleWhereUniqueInput choiceLocaleWhereUniqueInput = 1;
+ChoiceWhereUniqueInput choiceWhereUniqueInput = 2;
+};

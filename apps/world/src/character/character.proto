@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package character;
+service CharacterService {
+ rpc createCharacter (CharacterCreateInput) returns (Character) {}
+rpc characters (findManyParams) returns (stream Character) {}
+rpc character (CharacterWhereUniqueInput) returns (Character) {}
+rpc updateCharacter (CharacterUpdateInput) returns (Character) {}
+rpc deleteCharacter (CharacterWhereUniqueInput) returns (Character) {}
+rpc findManyCharacters (CharacterWhereUniqueInput) returns (stream CharacterDialogue) {}
+rpc updateCharacters (CharacterDialogueParams) returns (stream CharacterDialogue) {}
+rpc connectCharacters (CharacterDialogueParams) returns (CharacterDialogue) {}
+rpc disconnectCharacters (CharacterDialogueParams) returns (CharacterDialogue) {} 
+ }
+message CharacterCreateInput {
+repeated CharacterDialogue characterDialogues = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message Character {
+repeated CharacterDialogue characterDialogues = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message CharacterWhereUniqueInput {
+repeated CharacterDialogue characterDialogues = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message CharacterUpdateInput {
+repeated CharacterDialogue characterDialogues = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message CharacterDialogue {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CharacterDialogueWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CharacterDialogueParams {
+CharacterWhereUniqueInput characterWhereUniqueInput = 1;
+CharacterDialogueWhereUniqueInput characterdialogueWhereUniqueInput = 2;
+};

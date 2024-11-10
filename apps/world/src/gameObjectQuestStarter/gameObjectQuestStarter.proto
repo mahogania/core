@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package gameObjectQuestStarter;
+service GameObjectQuestStarterService {
+ rpc createGameObjectQuestStarter (GameObjectQuestStarterCreateInput) returns (GameObjectQuestStarter) {}
+rpc gameObjectQuestStarters (findManyParams) returns (stream GameObjectQuestStarter) {}
+rpc gameObjectQuestStarter (GameObjectQuestStarterWhereUniqueInput) returns (GameObjectQuestStarter) {}
+rpc updateGameObjectQuestStarter (GameObjectQuestStarterUpdateInput) returns (GameObjectQuestStarter) {}
+rpc deleteGameObjectQuestStarter (GameObjectQuestStarterWhereUniqueInput) returns (GameObjectQuestStarter) {} 
+ }
+message GameObjectQuestStarterCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectQuestStarter {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectQuestStarterWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectQuestStarterUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

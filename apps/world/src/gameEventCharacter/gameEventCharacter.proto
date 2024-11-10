@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+                 package gameEventCharacter;
+service GameEventCharacterService {
+ rpc createGameEventCharacter (GameEventCharacterCreateInput) returns (GameEventCharacter) {}
+rpc gameEventCharacters (findManyParams) returns (stream GameEventCharacter) {}
+rpc gameEventCharacter (GameEventCharacterWhereUniqueInput) returns (GameEventCharacter) {}
+rpc updateGameEventCharacter (GameEventCharacterUpdateInput) returns (GameEventCharacter) {}
+rpc deleteGameEventCharacter (GameEventCharacterWhereUniqueInput) returns (GameEventCharacter) {} 
+ }
+message GameEventCharacterCreateInput {
+string createdAt = 1;
+string id = 2;
+int32 npcId = 3;
+string updatedAt = 4;
+};
+message GameEventCharacter {
+string createdAt = 1;
+string id = 2;
+int32 npcId = 3;
+string updatedAt = 4;
+};
+message GameEventCharacterWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+int32 npcId = 3;
+string updatedAt = 4;
+};
+message GameEventCharacterUpdateInput {
+string createdAt = 1;
+string id = 2;
+int32 npcId = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};

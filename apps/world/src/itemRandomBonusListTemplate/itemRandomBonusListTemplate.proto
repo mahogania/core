@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package itemRandomBonusListTemplate;
+service ItemRandomBonusListTemplateService {
+ rpc createItemRandomBonusListTemplate (ItemRandomBonusListTemplateCreateInput) returns (ItemRandomBonusListTemplate) {}
+rpc itemRandomBonusListTemplates (findManyParams) returns (stream ItemRandomBonusListTemplate) {}
+rpc itemRandomBonusListTemplate (ItemRandomBonusListTemplateWhereUniqueInput) returns (ItemRandomBonusListTemplate) {}
+rpc updateItemRandomBonusListTemplate (ItemRandomBonusListTemplateUpdateInput) returns (ItemRandomBonusListTemplate) {}
+rpc deleteItemRandomBonusListTemplate (ItemRandomBonusListTemplateWhereUniqueInput) returns (ItemRandomBonusListTemplate) {} 
+ }
+message ItemRandomBonusListTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemRandomBonusListTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemRandomBonusListTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemRandomBonusListTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};
