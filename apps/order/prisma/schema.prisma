@@ -54,3 +54,345 @@ model BlanketOrder {
   toDate           DateTime?
   updatedAt        DateTime  @updatedAt
 }
+
+model InvoiceDiscounting {
+  accountsReceivableCredit     String?
+  accountsReceivableDiscounted String?
+  accountsReceivableUnpaid     String?
+  amendedFrom                  String?
+  bankAccount                  String?
+  bankCharges                  Float?
+  bankChargesAccount           String?
+  company                      String?
+  createdAt                    DateTime  @default(now())
+  creation                     DateTime?
+  docstatus                    Int?
+  id                           String    @id @default(cuid())
+  idx                          Int?
+  loanEndDate                  DateTime?
+  loanPeriod                   Int?
+  loanStartDate                DateTime?
+  modified                     DateTime?
+  modifiedBy                   String?
+  name                         String?
+  owner                        String?
+  postingDate                  DateTime?
+  shortTermLoan                String?
+  status                       String?
+  totalAmount                  Float?
+  updatedAt                    DateTime  @updatedAt
+}
+
+model ItemAlternative {
+  alternativeItemCode String?
+  alternativeItemName String?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  docstatus           Int?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  itemCode            String?
+  itemName            String?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  owner               String?
+  twoWay              Int?
+  updatedAt           DateTime  @updatedAt
+}
+
+model ItemAttributeValue {
+  abbr           String?
+  attributeValue String?
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  docstatus      Int?
+  id             String    @id @default(cuid())
+  idx            Int?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  parent         String?
+  parentfield    String?
+  parenttype     String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model ItemAttribute {
+  attributeName String?
+  createdAt     DateTime @default(now())
+  docstatus     Int?
+  fromRange     Float?
+  id            String   @id @default(cuid())
+  idx           Int?
+  increment     Float?
+  modifiedBy    String?
+  name          String?
+  numericValues Boolean?
+  owner         String?
+  toRange       Float?
+  updatedAt     DateTime @updatedAt
+}
+
+model ItemBarcode {
+  barcode     String?
+  barcodeType String?
+  createdAt   DateTime @default(now())
+  docstatus   Int?
+  id          String   @id @default(cuid())
+  idx         Int?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  uom         String?
+  updatedAt   DateTime @updatedAt
+}
+
+model ItemCustomerDetail {
+  createdAt     DateTime @default(now())
+  customerGroup String?
+  customerName  String?
+  docstatus     Int?
+  id            String   @id @default(cuid())
+  idx           Int?
+  modifiedBy    String?
+  name          String?
+  owner         String?
+  parent        String?
+  parentfield   String?
+  parenttype    String?
+  refCode       String?
+  updatedAt     DateTime @updatedAt
+}
+
+model ItemDefault {
+  buyingCostCenter          String?
+  company                   String?
+  createdAt                 DateTime @default(now())
+  defaultDiscountAccount    String?
+  defaultPriceList          String?
+  defaultProvisionalAccount String?
+  defaultSupplier           String?
+  defaultWarehouse          String?
+  deferredExpenseAccount    String?
+  deferredRevenueAccount    String?
+  docstatus                 Int?
+  expenseAccount            String?
+  id                        String   @id @default(cuid())
+  idx                       Int?
+  incomeAccount             String?
+  modifiedBy                String?
+  name                      String?
+  owner                     String?
+  parent                    String?
+  parentfield               String?
+  parenttype                String?
+  sellingCostCenter         String?
+  updatedAt                 DateTime @updatedAt
+}
+
+model ItemGroup {
+  createdAt       DateTime @default(now())
+  docstatus       Int?
+  id              String   @id @default(cuid())
+  idx             Int?
+  image           String?
+  isGroup         Boolean?
+  itemGroupName   String?
+  lft             Int?
+  modifiedBy      String?
+  name            String?
+  oldParent       String?
+  owner           String?
+  parentItemGroup String?
+  rgt             Int?
+  updatedAt       DateTime @updatedAt
+}
+
+model ItemManufacturer {
+  createdAt          DateTime @default(now())
+  description        String?
+  docstatus          Int?
+  id                 String   @id @default(cuid())
+  idx                Int?
+  isDefault          Boolean?
+  itemCode           String?
+  itemName           String?
+  manufacturer       String?
+  manufacturerPartNo String?
+  modifiedBy         String?
+  name               String?
+  owner              String?
+  updatedAt          DateTime @updatedAt
+}
+
+model ItemPrice {
+  batchNo         String?
+  brand           String?
+  buying          Boolean?
+  createdAt       DateTime  @default(now())
+  currency        String?
+  customer        String?
+  docstatus       Int?
+  id              String    @id @default(cuid())
+  idx             Int?
+  itemCode        String?
+  itemDescription String?
+  itemName        String?
+  leadTimeDays    Int?
+  modifiedBy      String?
+  name            String?
+  note            String?
+  owner           String?
+  packingUnit     Int?
+  priceList       String?
+  priceListRate   Float?
+  reference       String?
+  selling         Boolean?
+  supplier        String?
+  uom             String?
+  updatedAt       DateTime  @updatedAt
+  validFrom       DateTime?
+  validUpto       DateTime?
+}
+
+model ItemReorder {
+  createdAt             DateTime @default(now())
+  docstatus             Int?
+  id                    String   @id @default(cuid())
+  idx                   Int?
+  materialRequestType   String?
+  name                  String?
+  owner                 String?
+  parent                String?
+  parentfield           String?
+  parenttype            String?
+  updatedAt             DateTime @updatedAt
+  warehouse             String?
+  warehouseGroup        String?
+  warehouseReorderLevel Float?
+  warehouseReorderQty   Float?
+}
+
+model ItemSupplier {
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  docstatus      Int?
+  id             String    @id @default(cuid())
+  idx            Int?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  parent         String?
+  parentfield    String?
+  parenttype     String?
+  supplier       String?
+  supplierPartNo String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model ItemTaxTemplateDetail {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  taxRate     Float?
+  taxType     String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model ItemTaxTemplate {
+  company    String?
+  createdAt  DateTime  @default(now())
+  creation   DateTime?
+  disabled   Int?
+  docstatus  Int?
+  id         String    @id @default(cuid())
+  idx        Int?
+  modified   DateTime?
+  modifiedBy String?
+  name       String?
+  owner      String?
+  title      String?
+  updatedAt  DateTime  @updatedAt
+}
+
+model ItemTax {
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  docstatus       Int?
+  id              String    @id @default(cuid())
+  idx             Int?
+  itemTaxTemplate String?
+  maximumNetRate  Float?
+  minimumNetRate  Float?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  owner           String?
+  parent          String?
+  parentfield     String?
+  parenttype      String?
+  taxCategory     String?
+  updatedAt       DateTime  @updatedAt
+  validFrom       DateTime?
+}
+
+model ItemVariant {
+  createdAt          DateTime  @default(now())
+  creation           DateTime?
+  docstatus          Int?
+  id                 String    @id @default(cuid())
+  idx                Int?
+  itemAttribute      String?
+  itemAttributeValue String?
+  modified           DateTime?
+  modifiedBy         String?
+  name               String?
+  owner              String?
+  parent             String?
+  parentfield        String?
+  parenttype         String?
+  updatedAt          DateTime  @updatedAt
+}
+
+model Item {
+  allowAlternativeItem Int?
+  autoCreateAssets     Int?
+  createdAt            DateTime  @default(now())
+  creation             DateTime?
+  disabled             Int?
+  docstatus            Int?
+  hasVariants          Int?
+  id                   String    @id @default(cuid())
+  idx                  Int?
+  isFixedAsset         Int?
+  isGroupedAsset       Int?
+  isStockItem          Int?
+  itemCode             String?
+  itemGroup            String?
+  itemName             String?
+  modified             DateTime?
+  modifiedBy           String?
+  name                 String?
+  namingSeries         String?
+  openingStock         Float?
+  owner                String?
+  standardRate         Float?
+  stockUom             String?
+  updatedAt            DateTime  @updatedAt
+  valuationRate        Float?
+}
