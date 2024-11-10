@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package creatureTemplateDifficulty;
+service CreatureTemplateDifficultyService {
+ rpc createCreatureTemplateDifficulty (CreatureTemplateDifficultyCreateInput) returns (CreatureTemplateDifficulty) {}
+rpc creatureTemplateDifficulties (findManyParams) returns (stream CreatureTemplateDifficulty) {}
+rpc creatureTemplateDifficulty (CreatureTemplateDifficultyWhereUniqueInput) returns (CreatureTemplateDifficulty) {}
+rpc updateCreatureTemplateDifficulty (CreatureTemplateDifficultyUpdateInput) returns (CreatureTemplateDifficulty) {}
+rpc deleteCreatureTemplateDifficulty (CreatureTemplateDifficultyWhereUniqueInput) returns (CreatureTemplateDifficulty) {} 
+ }
+message CreatureTemplateDifficultyCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateDifficulty {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateDifficultyWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateDifficultyUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+                 package creatureLoot;
+service CreatureLootService {
+ rpc createCreatureLoot (CreatureLootCreateInput) returns (CreatureLoot) {}
+rpc creatureLoots (findManyParams) returns (stream CreatureLoot) {}
+rpc creatureLoot (CreatureLootWhereUniqueInput) returns (CreatureLoot) {}
+rpc updateCreatureLoot (CreatureLootUpdateInput) returns (CreatureLoot) {}
+rpc deleteCreatureLoot (CreatureLootWhereUniqueInput) returns (CreatureLoot) {}
+rpc findManyCreatureLoots (CreatureLootWhereUniqueInput) returns (stream Creature) {}
+rpc updateCreatureLoots (CreatureParams) returns (stream Creature) {}
+rpc connectCreatureLoots (CreatureParams) returns (Creature) {}
+rpc disconnectCreatureLoots (CreatureParams) returns (Creature) {} 
+ }
+message CreatureLootCreateInput {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+repeated Creature creatures = 4;
+string id = 5;
+string itemId = 6;
+int32 maxCount = 7;
+int32 minCount = 8;
+string questId = 9;
+string updatedAt = 10;
+};
+message CreatureLoot {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+repeated Creature creatures = 4;
+string id = 5;
+string itemId = 6;
+int32 maxCount = 7;
+int32 minCount = 8;
+string questId = 9;
+string updatedAt = 10;
+};
+message CreatureLootWhereUniqueInput {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+repeated Creature creatures = 4;
+string id = 5;
+string itemId = 6;
+int32 maxCount = 7;
+int32 minCount = 8;
+string questId = 9;
+string updatedAt = 10;
+};
+message CreatureLootUpdateInput {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+repeated Creature creatures = 4;
+string id = 5;
+string itemId = 6;
+int32 maxCount = 7;
+int32 minCount = 8;
+string questId = 9;
+string updatedAt = 10;
+};
+message findManyParams {
+
+};
+message Creature {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureWhereUniqueInput {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureParams {
+CreatureLootWhereUniqueInput creatureLootWhereUniqueInput = 1;
+CreatureWhereUniqueInput creatureWhereUniqueInput = 2;
+};
