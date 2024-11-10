@@ -1,0 +1,32 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type AssetDepreciationScheduleOrderByInput = {
+  amendedFrom?: SortOrder;
+  asset?: SortOrder;
+  company?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  dailyProrataBased?: SortOrder;
+  depreciationMethod?: SortOrder;
+  docstatus?: SortOrder;
+  expectedValueAfterUsefulLife?: SortOrder;
+  financeBook?: SortOrder;
+  financeBookId?: SortOrder;
+  frequencyOfDepreciation?: SortOrder;
+  grossPurchaseAmount?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  namingSeries?: SortOrder;
+  notes?: SortOrder;
+  openingAccumulatedDepreciation?: SortOrder;
+  openingNumberOfBookedDepreciations?: SortOrder;
+  owner?: SortOrder;
+  rateOfDepreciation?: SortOrder;
+  shiftBased?: SortOrder;
+  status?: SortOrder;
+  totalNumberOfDepreciations?: SortOrder;
+  updatedAt?: SortOrder;
+};

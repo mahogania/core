@@ -1,0 +1,23 @@
+export type DeliveryTrip = {
+  amendedFrom: string | null;
+  company: string | null;
+  createdAt: Date;
+  departureTime: Date | null;
+  docstatus: number | null;
+  driver: string | null;
+  driverAddress: string | null;
+  driverEmail: string | null;
+  driverName: string | null;
+  emailNotificationSent: boolean | null;
+  employee: string | null;
+  id: string;
+  idx: number | null;
+  name: string | null;
+  namingSeries: string | null;
+  owner: string | null;
+  status: string | null;
+  totalDistance: number | null;
+  uom: string | null;
+  updatedAt: Date;
+  vehicle: string | null;
+};

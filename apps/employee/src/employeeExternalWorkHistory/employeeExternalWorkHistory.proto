@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+                 package employeeExternalWorkHistory;
+service EmployeeExternalWorkHistoryService {
+ rpc createEmployeeExternalWorkHistory (EmployeeExternalWorkHistoryCreateInput) returns (EmployeeExternalWorkHistory) {}
+rpc employeeExternalWorkHistories (findManyParams) returns (stream EmployeeExternalWorkHistory) {}
+rpc employeeExternalWorkHistory (EmployeeExternalWorkHistoryWhereUniqueInput) returns (EmployeeExternalWorkHistory) {}
+rpc updateEmployeeExternalWorkHistory (EmployeeExternalWorkHistoryUpdateInput) returns (EmployeeExternalWorkHistory) {}
+rpc deleteEmployeeExternalWorkHistory (EmployeeExternalWorkHistoryWhereUniqueInput) returns (EmployeeExternalWorkHistory) {} 
+ }
+message EmployeeExternalWorkHistoryCreateInput {
+string address = 1;
+string companyName = 2;
+string contact = 3;
+string createdAt = 4;
+string creation = 5;
+string designation = 6;
+int32 docstatus = 7;
+string id = 8;
+int32 idx = 9;
+string modified = 10;
+string modifiedBy = 11;
+string name = 12;
+string owner = 13;
+string parent = 14;
+string parentfield = 15;
+string parenttype = 16;
+int32 salary = 17;
+string totalExperience = 18;
+string updatedAt = 19;
+};
+message EmployeeExternalWorkHistory {
+string address = 1;
+string companyName = 2;
+string contact = 3;
+string createdAt = 4;
+string creation = 5;
+string designation = 6;
+int32 docstatus = 7;
+string id = 8;
+int32 idx = 9;
+string modified = 10;
+string modifiedBy = 11;
+string name = 12;
+string owner = 13;
+string parent = 14;
+string parentfield = 15;
+string parenttype = 16;
+int32 salary = 17;
+string totalExperience = 18;
+string updatedAt = 19;
+};
+message EmployeeExternalWorkHistoryWhereUniqueInput {
+string address = 1;
+string companyName = 2;
+string contact = 3;
+string createdAt = 4;
+string creation = 5;
+string designation = 6;
+int32 docstatus = 7;
+string id = 8;
+int32 idx = 9;
+string modified = 10;
+string modifiedBy = 11;
+string name = 12;
+string owner = 13;
+string parent = 14;
+string parentfield = 15;
+string parenttype = 16;
+int32 salary = 17;
+string totalExperience = 18;
+string updatedAt = 19;
+};
+message EmployeeExternalWorkHistoryUpdateInput {
+string address = 1;
+string companyName = 2;
+string contact = 3;
+string createdAt = 4;
+string creation = 5;
+string designation = 6;
+int32 docstatus = 7;
+string id = 8;
+int32 idx = 9;
+string modified = 10;
+string modifiedBy = 11;
+string name = 12;
+string owner = 13;
+string parent = 14;
+string parentfield = 15;
+string parenttype = 16;
+int32 salary = 17;
+string totalExperience = 18;
+string updatedAt = 19;
+};
+message findManyParams {
+
+};

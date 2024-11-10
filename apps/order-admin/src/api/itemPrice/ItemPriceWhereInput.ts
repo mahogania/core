@@ -1,0 +1,34 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+
+export type ItemPriceWhereInput = {
+  batchNo?: StringNullableFilter;
+  brand?: StringNullableFilter;
+  buying?: BooleanNullableFilter;
+  currency?: StringNullableFilter;
+  customer?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  itemCode?: StringNullableFilter;
+  itemDescription?: StringNullableFilter;
+  itemName?: StringNullableFilter;
+  leadTimeDays?: IntNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  note?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  packingUnit?: IntNullableFilter;
+  priceList?: StringNullableFilter;
+  priceListRate?: FloatNullableFilter;
+  reference?: StringNullableFilter;
+  selling?: BooleanNullableFilter;
+  supplier?: StringNullableFilter;
+  uom?: StringNullableFilter;
+  validFrom?: DateTimeNullableFilter;
+  validUpto?: DateTimeNullableFilter;
+};

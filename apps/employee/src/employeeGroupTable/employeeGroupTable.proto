@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+                 package employeeGroupTable;
+service EmployeeGroupTableService {
+ rpc createEmployeeGroupTable (EmployeeGroupTableCreateInput) returns (EmployeeGroupTable) {}
+rpc employeeGroupTables (findManyParams) returns (stream EmployeeGroupTable) {}
+rpc employeeGroupTable (EmployeeGroupTableWhereUniqueInput) returns (EmployeeGroupTable) {}
+rpc updateEmployeeGroupTable (EmployeeGroupTableUpdateInput) returns (EmployeeGroupTable) {}
+rpc deleteEmployeeGroupTable (EmployeeGroupTableWhereUniqueInput) returns (EmployeeGroupTable) {} 
+ }
+message EmployeeGroupTableCreateInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+string employee = 4;
+string employeeName = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentfield = 13;
+string parenttype = 14;
+string updatedAt = 15;
+string userId = 16;
+};
+message EmployeeGroupTable {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+string employee = 4;
+string employeeName = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentfield = 13;
+string parenttype = 14;
+string updatedAt = 15;
+string userId = 16;
+};
+message EmployeeGroupTableWhereUniqueInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+string employee = 4;
+string employeeName = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentfield = 13;
+string parenttype = 14;
+string updatedAt = 15;
+string userId = 16;
+};
+message EmployeeGroupTableUpdateInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+string employee = 4;
+string employeeName = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentfield = 13;
+string parenttype = 14;
+string updatedAt = 15;
+string userId = 16;
+};
+message findManyParams {
+
+};

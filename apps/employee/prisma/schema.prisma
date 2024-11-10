@@ -1,0 +1,184 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model EmployeeEducation {
+  classPer      String?
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  docstatus     Int?
+  id            String    @id @default(cuid())
+  idx           Int?
+  level         String?
+  majOptSubj    String?
+  modified      DateTime?
+  modifiedBy    String?
+  name          String?
+  owner         String?
+  parent        String?
+  parentfield   String?
+  parenttype    String?
+  qualification String?
+  schoolUniv    String?
+  updatedAt     DateTime  @updatedAt
+  yearOfPassing Int?
+}
+
+model EmployeeExternalWorkHistory {
+  address         String?
+  companyName     String?
+  contact         String?
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  designation     String?
+  docstatus       Int?
+  id              String    @id @default(cuid())
+  idx             Int?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  owner           String?
+  parent          String?
+  parentfield     String?
+  parenttype      String?
+  salary          Float?
+  totalExperience String?
+  updatedAt       DateTime  @updatedAt
+}
+
+model EmployeeGroupTable {
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  docstatus    Int?
+  employee     String?
+  employeeName String?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  parent       String?
+  parentfield  String?
+  parenttype   String?
+  updatedAt    DateTime  @updatedAt
+  userId       String?
+}
+
+model EmployeeGroup {
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  docstatus         Int?
+  employeeGroupName String?
+  id                String    @id @default(cuid())
+  idx               Int?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  owner             String?
+  updatedAt         DateTime  @updatedAt
+}
+
+model EmployeeInternalWorkHistory {
+  branch      String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  department  String?
+  designation String?
+  docstatus   Int?
+  fromDate    DateTime?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  toDate      DateTime?
+  updatedAt   DateTime  @updatedAt
+}
+
+model Employee {
+  attendanceDeviceId         String?
+  bankAcNo                   String?
+  bankName                   String?
+  bio                        String?
+  bloodGroup                 String?
+  branch                     String?
+  cellNumber                 String?
+  company                    String?
+  companyEmail               String?
+  contractEndDate            DateTime?
+  createUserPermission       Int?
+  createdAt                  DateTime  @default(now())
+  creation                   DateTime?
+  ctc                        Float?
+  currentAccommodationType   String?
+  currentAddress             String?
+  dateOfBirth                DateTime?
+  dateOfIssue                DateTime?
+  dateOfJoining              DateTime?
+  dateOfRetirement           DateTime?
+  department                 String?
+  designation                String?
+  docstatus                  Int?
+  emergencyPhoneNumber       String?
+  employee                   String?
+  employeeName               String?
+  employeeNumber             String?
+  encashmentDate             DateTime?
+  familyBackground           String?
+  feedback                   String?
+  finalConfirmationDate      DateTime?
+  firstName                  String?
+  gender                     String?
+  healthDetails              String?
+  heldOn                     DateTime?
+  holidayList                String?
+  iban                       String?
+  id                         String    @id @default(cuid())
+  idx                        Int?
+  image                      String?
+  lastName                   String?
+  leaveEncashed              String?
+  lft                        Int?
+  maritalStatus              String?
+  middleName                 String?
+  modified                   DateTime?
+  modifiedBy                 String?
+  name                       String?
+  namingSeries               String?
+  newWorkplace               String?
+  noticeNumberOfDays         Int?
+  owner                      String?
+  passportNumber             String?
+  permanentAccommodationType String?
+  permanentAddress           String?
+  personToBeContacted        String?
+  personalEmail              String?
+  placeOfIssue               String?
+  preferedContactEmail       String?
+  preferedEmail              String?
+  reasonForLeaving           String?
+  relation                   String?
+  relievingDate              DateTime?
+  reportsTo                  String?
+  resignationLetterDate      DateTime?
+  rgt                        Int?
+  salaryCurrency             String?
+  salaryMode                 String?
+  salutation                 String?
+  scheduledConfirmationDate  DateTime?
+  status                     String?
+  unsubscribed               Int?
+  updatedAt                  DateTime  @updatedAt
+  userId                     String?
+  validUpto                  DateTime?
+}

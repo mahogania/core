@@ -1,0 +1,36 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type JournalEntryAccountOrderByInput = {
+  account?: SortOrder;
+  accountCurrency?: SortOrder;
+  accountType?: SortOrder;
+  againstAccount?: SortOrder;
+  bankAccount?: SortOrder;
+  costCenter?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  credit?: SortOrder;
+  creditInAccountCurrency?: SortOrder;
+  debit?: SortOrder;
+  debitInAccountCurrency?: SortOrder;
+  docstatus?: SortOrder;
+  exchangeRate?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  isAdvance?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  owner?: SortOrder;
+  parent?: SortOrder;
+  parentfield?: SortOrder;
+  parenttype?: SortOrder;
+  party?: SortOrder;
+  partyType?: SortOrder;
+  project?: SortOrder;
+  referenceDetailNo?: SortOrder;
+  referenceDueDate?: SortOrder;
+  referenceName?: SortOrder;
+  referenceType?: SortOrder;
+  updatedAt?: SortOrder;
+  userRemark?: SortOrder;
+};

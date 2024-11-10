@@ -1,0 +1,31 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type AccountClosingBalanceOrderByInput = {
+  account?: SortOrder;
+  accountCurrency?: SortOrder;
+  assign?: SortOrder;
+  closingDate?: SortOrder;
+  comments?: SortOrder;
+  company?: SortOrder;
+  costCenter?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  credit?: SortOrder;
+  creditInAccountCurrency?: SortOrder;
+  debit?: SortOrder;
+  debitInAccountCurrency?: SortOrder;
+  docstatus?: SortOrder;
+  financeBook?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  isPeriodClosingVoucherEntry?: SortOrder;
+  likedBy?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  owner?: SortOrder;
+  periodClosingVoucher?: SortOrder;
+  project?: SortOrder;
+  updatedAt?: SortOrder;
+  userTags?: SortOrder;
+};

@@ -1,0 +1,26 @@
+export type BudgetCreateInput = {
+  actionIfAccumulatedMonthlyBudgetExceeded?: string | null;
+  actionIfAccumulatedMonthlyBudgetExceededOnMr?: string | null;
+  actionIfAccumulatedMonthlyBudgetExceededOnPo?: string | null;
+  actionIfAnnualBudgetExceeded?: string | null;
+  actionIfAnnualBudgetExceededOnMr?: string | null;
+  actionIfAnnualBudgetExceededOnPo?: string | null;
+  amendedFrom?: string | null;
+  applicableOnBookingActualExpenses?: number | null;
+  applicableOnMaterialRequest?: number | null;
+  applicableOnPurchaseOrder?: number | null;
+  budgetAgainst?: string | null;
+  company?: string | null;
+  costCenter?: string | null;
+  creation?: Date | null;
+  docstatus?: number | null;
+  fiscalYear?: string | null;
+  idx?: number | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  monthlyDistribution?: string | null;
+  name?: string | null;
+  namingSeries?: string | null;
+  owner?: string | null;
+  project?: string | null;
+};

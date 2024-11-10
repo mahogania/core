@@ -1,0 +1,129 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model DashboardChartField {
+  color       String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+  yField      String?
+}
+
+model DashboardChartLink {
+  chart       String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+  width       String?
+}
+
+model DashboardChartSource {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  moduleField String?
+  owner       String?
+  sourceName  String?
+  timeseries  Int?
+  updatedAt   DateTime  @updatedAt
+}
+
+model DashboardChart {
+  aggregateFunctionBasedOn String?
+  basedOn                  String?
+  chartName                String?
+  chartType                String?
+  color                    String?
+  createdAt                DateTime  @default(now())
+  creation                 DateTime?
+  customOptions            String?
+  docstatus                Int?
+  documentType             String?
+  dynamicFiltersJson       String?
+  filtersJson              String?
+  fromDate                 DateTime?
+  groupByBasedOn           String?
+  groupByType              String?
+  heatmapYear              String?
+  id                       String    @id @default(cuid())
+  idx                      Int?
+  isPublic                 Int?
+  isStandard               Int?
+  lastSyncedOn             DateTime?
+  modified                 DateTime?
+  modifiedBy               String?
+  moduleField              String?
+  numberOfGroups           Int?
+  owner                    String?
+  parentDocumentType       String?
+  reportName               String?
+  source                   String?
+  timeInterval             String?
+  timeseries               Int?
+  timespan                 String?
+  toDate                   DateTime?
+  typeField                String?
+  updatedAt                DateTime  @updatedAt
+  useReportChart           Int?
+  valueBasedOn             String?
+  xField                   String?
+}
+
+model DashboardSettings {
+  chartConfig String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  owner       String?
+  updatedAt   DateTime  @updatedAt
+  user        String?
+}
+
+model Dashboard {
+  chartOptions  String?
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  dashboardName String?
+  docstatus     Int?
+  id            String    @id @default(cuid())
+  idx           Int?
+  isDefault     Int?
+  isStandard    Int?
+  modified      DateTime?
+  modifiedBy    String?
+  moduleField   String?
+  owner         String?
+  updatedAt     DateTime  @updatedAt
+}

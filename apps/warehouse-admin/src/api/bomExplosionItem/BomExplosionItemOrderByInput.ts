@@ -1,0 +1,30 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type BomExplosionItemOrderByInput = {
+  amount?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  description?: SortOrder;
+  docstatus?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  image?: SortOrder;
+  includeItemInManufacturing?: SortOrder;
+  itemCode?: SortOrder;
+  itemName?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  operation?: SortOrder;
+  owner?: SortOrder;
+  parent?: SortOrder;
+  parentfield?: SortOrder;
+  parenttype?: SortOrder;
+  qtyConsumedPerUnit?: SortOrder;
+  rate?: SortOrder;
+  sourceWarehouse?: SortOrder;
+  sourcedBySupplier?: SortOrder;
+  stockQty?: SortOrder;
+  stockUom?: SortOrder;
+  updatedAt?: SortOrder;
+};

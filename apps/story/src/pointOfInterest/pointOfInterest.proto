@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+                 package pointOfInterest;
+service PointOfInterestService {
+ rpc createPointOfInterest (PointOfInterestCreateInput) returns (PointOfInterest) {}
+rpc pointOfInterests (findManyParams) returns (stream PointOfInterest) {}
+rpc pointOfInterest (PointOfInterestWhereUniqueInput) returns (PointOfInterest) {}
+rpc updatePointOfInterest (PointOfInterestUpdateInput) returns (PointOfInterest) {}
+rpc deletePointOfInterest (PointOfInterestWhereUniqueInput) returns (PointOfInterest) {}
+rpc findManyPointsOfInterest (PointOfInterestWhereUniqueInput) returns (stream PointsOfInterestLocale) {}
+rpc updatePointsOfInterest (PointsOfInterestLocaleParams) returns (stream PointsOfInterestLocale) {}
+rpc connectPointsOfInterest (PointsOfInterestLocaleParams) returns (PointsOfInterestLocale) {}
+rpc disconnectPointsOfInterest (PointsOfInterestLocaleParams) returns (PointsOfInterestLocale) {}
+rpc findManyPointOfInterest (PointOfInterestWhereUniqueInput) returns (stream QuestPoi) {}
+rpc updatePointOfInterest (QuestPoiParams) returns (stream QuestPoi) {}
+rpc connectPointOfInterest (QuestPoiParams) returns (QuestPoi) {}
+rpc disconnectPointOfInterest (QuestPoiParams) returns (QuestPoi) {} 
+ }
+message PointOfInterestCreateInput {
+string createdAt = 1;
+string id = 2;
+string location = 3;
+string name = 4;
+repeated PointsOfInterestLocale pointsOfInterestLocales = 5;
+repeated QuestPoi questPoiPoints = 6;
+string updatedAt = 7;
+};
+message PointOfInterest {
+string createdAt = 1;
+string id = 2;
+string location = 3;
+string name = 4;
+repeated PointsOfInterestLocale pointsOfInterestLocales = 5;
+repeated QuestPoi questPoiPoints = 6;
+string updatedAt = 7;
+};
+message PointOfInterestWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string location = 3;
+string name = 4;
+repeated PointsOfInterestLocale pointsOfInterestLocales = 5;
+repeated QuestPoi questPoiPoints = 6;
+string updatedAt = 7;
+};
+message PointOfInterestUpdateInput {
+string createdAt = 1;
+string id = 2;
+string location = 3;
+string name = 4;
+repeated PointsOfInterestLocale pointsOfInterestLocales = 5;
+repeated QuestPoi questPoiPoints = 6;
+string updatedAt = 7;
+};
+message findManyParams {
+
+};
+message PointsOfInterestLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PointsOfInterestLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PointsOfInterestLocaleParams {
+PointOfInterestWhereUniqueInput pointOfInterestWhereUniqueInput = 1;
+PointsOfInterestLocaleWhereUniqueInput pointsofinterestlocaleWhereUniqueInput = 2;
+};
+message QuestPoi {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoiWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoiParams {
+PointOfInterestWhereUniqueInput pointOfInterestWhereUniqueInput = 1;
+QuestPoiWhereUniqueInput questpoiWhereUniqueInput = 2;
+};

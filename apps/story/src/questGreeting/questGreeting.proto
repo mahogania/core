@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+                 package questGreeting;
+service QuestGreetingService {
+ rpc createQuestGreeting (QuestGreetingCreateInput) returns (QuestGreeting) {}
+rpc questGreetings (findManyParams) returns (stream QuestGreeting) {}
+rpc questGreeting (QuestGreetingWhereUniqueInput) returns (QuestGreeting) {}
+rpc updateQuestGreeting (QuestGreetingUpdateInput) returns (QuestGreeting) {}
+rpc deleteQuestGreeting (QuestGreetingWhereUniqueInput) returns (QuestGreeting) {}
+rpc findManyQuestGreeting (QuestGreetingWhereUniqueInput) returns (stream QuestGreetingLocale) {}
+rpc updateQuestGreeting (QuestGreetingLocaleParams) returns (stream QuestGreetingLocale) {}
+rpc connectQuestGreeting (QuestGreetingLocaleParams) returns (QuestGreetingLocale) {}
+rpc disconnectQuestGreeting (QuestGreetingLocaleParams) returns (QuestGreetingLocale) {}
+rpc findManyQuestGreeting (QuestGreetingWhereUniqueInput) returns (stream Quest) {}
+rpc updateQuestGreeting (QuestParams) returns (stream Quest) {}
+rpc connectQuestGreeting (QuestParams) returns (Quest) {}
+rpc disconnectQuestGreeting (QuestParams) returns (Quest) {} 
+ }
+message QuestGreetingCreateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+repeated QuestGreetingLocale questGreetingLocales = 4;
+repeated Quest quests = 5;
+string text = 6;
+string updatedAt = 7;
+};
+message QuestGreeting {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+repeated QuestGreetingLocale questGreetingLocales = 4;
+repeated Quest quests = 5;
+string text = 6;
+string updatedAt = 7;
+};
+message QuestGreetingWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+repeated QuestGreetingLocale questGreetingLocales = 4;
+repeated Quest quests = 5;
+string text = 6;
+string updatedAt = 7;
+};
+message QuestGreetingUpdateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+repeated QuestGreetingLocale questGreetingLocales = 4;
+repeated Quest quests = 5;
+string text = 6;
+string updatedAt = 7;
+};
+message findManyParams {
+
+};
+message QuestGreetingLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestGreetingLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestGreetingLocaleParams {
+QuestGreetingWhereUniqueInput questGreetingWhereUniqueInput = 1;
+QuestGreetingLocaleWhereUniqueInput questgreetinglocaleWhereUniqueInput = 2;
+};
+message Quest {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestParams {
+QuestGreetingWhereUniqueInput questGreetingWhereUniqueInput = 1;
+QuestWhereUniqueInput questWhereUniqueInput = 2;
+};

@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+                 package questOfferReward;
+service QuestOfferRewardService {
+ rpc createQuestOfferReward (QuestOfferRewardCreateInput) returns (QuestOfferReward) {}
+rpc questOfferRewards (findManyParams) returns (stream QuestOfferReward) {}
+rpc questOfferReward (QuestOfferRewardWhereUniqueInput) returns (QuestOfferReward) {}
+rpc updateQuestOfferReward (QuestOfferRewardUpdateInput) returns (QuestOfferReward) {}
+rpc deleteQuestOfferReward (QuestOfferRewardWhereUniqueInput) returns (QuestOfferReward) {}
+rpc findManyQuestOfferReward (QuestOfferRewardWhereUniqueInput) returns (stream QuestOfferRewardConditional) {}
+rpc updateQuestOfferReward (QuestOfferRewardConditionalParams) returns (stream QuestOfferRewardConditional) {}
+rpc connectQuestOfferReward (QuestOfferRewardConditionalParams) returns (QuestOfferRewardConditional) {}
+rpc disconnectQuestOfferReward (QuestOfferRewardConditionalParams) returns (QuestOfferRewardConditional) {}
+rpc findManyQuestOfferReward (QuestOfferRewardWhereUniqueInput) returns (stream QuestOfferRewardLocale) {}
+rpc updateQuestOfferReward (QuestOfferRewardLocaleParams) returns (stream QuestOfferRewardLocale) {}
+rpc connectQuestOfferReward (QuestOfferRewardLocaleParams) returns (QuestOfferRewardLocale) {}
+rpc disconnectQuestOfferReward (QuestOfferRewardLocaleParams) returns (QuestOfferRewardLocale) {}
+rpc findManyQuestOfferRewards (QuestOfferRewardWhereUniqueInput) returns (stream QuestTemplate) {}
+rpc updateQuestOfferRewards (QuestTemplateParams) returns (stream QuestTemplate) {}
+rpc connectQuestOfferRewards (QuestTemplateParams) returns (QuestTemplate) {}
+rpc disconnectQuestOfferRewards (QuestTemplateParams) returns (QuestTemplate) {} 
+ }
+message QuestOfferRewardCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestOfferRewardConditional questOfferRewardConditionals = 3;
+repeated QuestOfferRewardLocale questOfferRewardLocales = 4;
+repeated QuestTemplate questTemplates = 5;
+string updatedAt = 6;
+};
+message QuestOfferReward {
+string createdAt = 1;
+string id = 2;
+repeated QuestOfferRewardConditional questOfferRewardConditionals = 3;
+repeated QuestOfferRewardLocale questOfferRewardLocales = 4;
+repeated QuestTemplate questTemplates = 5;
+string updatedAt = 6;
+};
+message QuestOfferRewardWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestOfferRewardConditional questOfferRewardConditionals = 3;
+repeated QuestOfferRewardLocale questOfferRewardLocales = 4;
+repeated QuestTemplate questTemplates = 5;
+string updatedAt = 6;
+};
+message QuestOfferRewardUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestOfferRewardConditional questOfferRewardConditionals = 3;
+repeated QuestOfferRewardLocale questOfferRewardLocales = 4;
+repeated QuestTemplate questTemplates = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message QuestOfferRewardConditional {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardConditionalWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardConditionalParams {
+QuestOfferRewardWhereUniqueInput questOfferRewardWhereUniqueInput = 1;
+QuestOfferRewardConditionalWhereUniqueInput questofferrewardconditionalWhereUniqueInput = 2;
+};
+message QuestOfferRewardLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardLocaleParams {
+QuestOfferRewardWhereUniqueInput questOfferRewardWhereUniqueInput = 1;
+QuestOfferRewardLocaleWhereUniqueInput questofferrewardlocaleWhereUniqueInput = 2;
+};
+message QuestTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestTemplateParams {
+QuestOfferRewardWhereUniqueInput questOfferRewardWhereUniqueInput = 1;
+QuestTemplateWhereUniqueInput questtemplateWhereUniqueInput = 2;
+};

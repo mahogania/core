@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package paragraph;
+service ParagraphService {
+ rpc createParagraph (ParagraphCreateInput) returns (Paragraph) {}
+rpc paragraphs (findManyParams) returns (stream Paragraph) {}
+rpc paragraph (ParagraphWhereUniqueInput) returns (Paragraph) {}
+rpc updateParagraph (ParagraphUpdateInput) returns (Paragraph) {}
+rpc deleteParagraph (ParagraphWhereUniqueInput) returns (Paragraph) {}
+rpc findManyParagraphs (ParagraphWhereUniqueInput) returns (stream CharacterDialogue) {}
+rpc updateParagraphs (CharacterDialogueParams) returns (stream CharacterDialogue) {}
+rpc connectParagraphs (CharacterDialogueParams) returns (CharacterDialogue) {}
+rpc disconnectParagraphs (CharacterDialogueParams) returns (CharacterDialogue) {} 
+ }
+message ParagraphCreateInput {
+repeated CharacterDialogue characterLines = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message Paragraph {
+repeated CharacterDialogue characterLines = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message ParagraphWhereUniqueInput {
+repeated CharacterDialogue characterLines = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message ParagraphUpdateInput {
+repeated CharacterDialogue characterLines = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message CharacterDialogue {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CharacterDialogueWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CharacterDialogueParams {
+ParagraphWhereUniqueInput paragraphWhereUniqueInput = 1;
+CharacterDialogueWhereUniqueInput characterdialogueWhereUniqueInput = 2;
+};

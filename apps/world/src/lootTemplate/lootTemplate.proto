@@ -1,0 +1,157 @@
+syntax = "proto3";
+
+                 package lootTemplate;
+service LootTemplateService {
+ rpc createLootTemplate (LootTemplateCreateInput) returns (LootTemplate) {}
+rpc lootTemplates (findManyParams) returns (stream LootTemplate) {}
+rpc lootTemplate (LootTemplateWhereUniqueInput) returns (LootTemplate) {}
+rpc updateLootTemplate (LootTemplateUpdateInput) returns (LootTemplate) {}
+rpc deleteLootTemplate (LootTemplateWhereUniqueInput) returns (LootTemplate) {}
+rpc findManyLootTemplate (LootTemplateWhereUniqueInput) returns (stream GameObjectLootTemplate) {}
+rpc updateLootTemplate (GameObjectLootTemplateParams) returns (stream GameObjectLootTemplate) {}
+rpc connectLootTemplate (GameObjectLootTemplateParams) returns (GameObjectLootTemplate) {}
+rpc disconnectLootTemplate (GameObjectLootTemplateParams) returns (GameObjectLootTemplate) {}
+rpc findManyLootTemplate (LootTemplateWhereUniqueInput) returns (stream MailLootTemplate) {}
+rpc updateLootTemplate (MailLootTemplateParams) returns (stream MailLootTemplate) {}
+rpc connectLootTemplate (MailLootTemplateParams) returns (MailLootTemplate) {}
+rpc disconnectLootTemplate (MailLootTemplateParams) returns (MailLootTemplate) {}
+rpc findManyLootTemplate (LootTemplateWhereUniqueInput) returns (stream MillingLootTemplate) {}
+rpc updateLootTemplate (MillingLootTemplateParams) returns (stream MillingLootTemplate) {}
+rpc connectLootTemplate (MillingLootTemplateParams) returns (MillingLootTemplate) {}
+rpc disconnectLootTemplate (MillingLootTemplateParams) returns (MillingLootTemplate) {} 
+ }
+message LootTemplateCreateInput {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+int32 entry = 4;
+repeated GameObjectLootTemplate gameObjectLootTemplates = 5;
+int32 groupId = 6;
+string id = 7;
+int32 item = 8;
+int32 lootMode = 9;
+repeated MailLootTemplate mailLootTemplates = 10;
+int32 maxCount = 11;
+repeated MillingLootTemplate millingLootTemplates = 12;
+int32 minCount = 13;
+bool questRequired = 14;
+int32 reference = 15;
+string updatedAt = 16;
+};
+message LootTemplate {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+int32 entry = 4;
+repeated GameObjectLootTemplate gameObjectLootTemplates = 5;
+int32 groupId = 6;
+string id = 7;
+int32 item = 8;
+int32 lootMode = 9;
+repeated MailLootTemplate mailLootTemplates = 10;
+int32 maxCount = 11;
+repeated MillingLootTemplate millingLootTemplates = 12;
+int32 minCount = 13;
+bool questRequired = 14;
+int32 reference = 15;
+string updatedAt = 16;
+};
+message LootTemplateWhereUniqueInput {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+int32 entry = 4;
+repeated GameObjectLootTemplate gameObjectLootTemplates = 5;
+int32 groupId = 6;
+string id = 7;
+int32 item = 8;
+int32 lootMode = 9;
+repeated MailLootTemplate mailLootTemplates = 10;
+int32 maxCount = 11;
+repeated MillingLootTemplate millingLootTemplates = 12;
+int32 minCount = 13;
+bool questRequired = 14;
+int32 reference = 15;
+string updatedAt = 16;
+};
+message LootTemplateUpdateInput {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+int32 entry = 4;
+repeated GameObjectLootTemplate gameObjectLootTemplates = 5;
+int32 groupId = 6;
+string id = 7;
+int32 item = 8;
+int32 lootMode = 9;
+repeated MailLootTemplate mailLootTemplates = 10;
+int32 maxCount = 11;
+repeated MillingLootTemplate millingLootTemplates = 12;
+int32 minCount = 13;
+bool questRequired = 14;
+int32 reference = 15;
+string updatedAt = 16;
+};
+message findManyParams {
+
+};
+message GameObjectLootTemplate {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+int32 groupId = 4;
+int32 id = 5;
+int32 itemId = 6;
+int32 lootMode = 7;
+int32 maxCount = 8;
+int32 minCount = 9;
+int32 questId = 10;
+string updatedAt = 11;
+};
+message GameObjectLootTemplateWhereUniqueInput {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+int32 groupId = 4;
+int32 id = 5;
+int32 itemId = 6;
+int32 lootMode = 7;
+int32 maxCount = 8;
+int32 minCount = 9;
+int32 questId = 10;
+string updatedAt = 11;
+};
+message GameObjectLootTemplateParams {
+LootTemplateWhereUniqueInput lootTemplateWhereUniqueInput = 1;
+GameObjectLootTemplateWhereUniqueInput gameobjectloottemplateWhereUniqueInput = 2;
+};
+message MailLootTemplate {
+string createdAt = 1;
+string id = 2;
+string sender = 3;
+string updatedAt = 4;
+};
+message MailLootTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string sender = 3;
+string updatedAt = 4;
+};
+message MailLootTemplateParams {
+LootTemplateWhereUniqueInput lootTemplateWhereUniqueInput = 1;
+MailLootTemplateWhereUniqueInput mailloottemplateWhereUniqueInput = 2;
+};
+message MillingLootTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message MillingLootTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message MillingLootTemplateParams {
+LootTemplateWhereUniqueInput lootTemplateWhereUniqueInput = 1;
+MillingLootTemplateWhereUniqueInput millingloottemplateWhereUniqueInput = 2;
+};

@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+                 package faction;
+service FactionService {
+ rpc createFaction (FactionCreateInput) returns (Faction) {}
+rpc factions (findManyParams) returns (stream Faction) {}
+rpc faction (FactionWhereUniqueInput) returns (Faction) {}
+rpc updateFaction (FactionUpdateInput) returns (Faction) {}
+rpc deleteFaction (FactionWhereUniqueInput) returns (Faction) {}
+rpc findManyFaction (FactionWhereUniqueInput) returns (stream PlayerFactionQuest) {}
+rpc updateFaction (PlayerFactionQuestParams) returns (stream PlayerFactionQuest) {}
+rpc connectFaction (PlayerFactionQuestParams) returns (PlayerFactionQuest) {}
+rpc disconnectFaction (PlayerFactionQuestParams) returns (PlayerFactionQuest) {}
+rpc findManyFaction (FactionWhereUniqueInput) returns (stream PlayerFactionReputation) {}
+rpc updateFaction (PlayerFactionReputationParams) returns (stream PlayerFactionReputation) {}
+rpc connectFaction (PlayerFactionReputationParams) returns (PlayerFactionReputation) {}
+rpc disconnectFaction (PlayerFactionReputationParams) returns (PlayerFactionReputation) {}
+rpc findManyFaction (FactionWhereUniqueInput) returns (stream PlayerFactionSpell) {}
+rpc updateFaction (PlayerFactionSpellParams) returns (stream PlayerFactionSpell) {}
+rpc connectFaction (PlayerFactionSpellParams) returns (PlayerFactionSpell) {}
+rpc disconnectFaction (PlayerFactionSpellParams) returns (PlayerFactionSpell) {}
+rpc findManyFaction (FactionWhereUniqueInput) returns (stream PlayerFactionTitle) {}
+rpc updateFaction (PlayerFactionTitleParams) returns (stream PlayerFactionTitle) {}
+rpc connectFaction (PlayerFactionTitleParams) returns (PlayerFactionTitle) {}
+rpc disconnectFaction (PlayerFactionTitleParams) returns (PlayerFactionTitle) {} 
+ }
+message FactionCreateInput {
+string createdAt = 1;
+string id = 2;
+PlayerFactionAchievement playerFactionAchievements = 3;
+repeated PlayerFactionQuest playerFactionQuests = 4;
+repeated PlayerFactionReputation playerFactionReputations = 5;
+repeated PlayerFactionSpell playerFactionSpells = 6;
+repeated PlayerFactionTitle playerFactionTitles = 7;
+string updatedAt = 8;
+};
+message Faction {
+string createdAt = 1;
+string id = 2;
+PlayerFactionAchievement playerFactionAchievements = 3;
+repeated PlayerFactionQuest playerFactionQuests = 4;
+repeated PlayerFactionReputation playerFactionReputations = 5;
+repeated PlayerFactionSpell playerFactionSpells = 6;
+repeated PlayerFactionTitle playerFactionTitles = 7;
+string updatedAt = 8;
+};
+message FactionWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+PlayerFactionAchievement playerFactionAchievements = 3;
+repeated PlayerFactionQuest playerFactionQuests = 4;
+repeated PlayerFactionReputation playerFactionReputations = 5;
+repeated PlayerFactionSpell playerFactionSpells = 6;
+repeated PlayerFactionTitle playerFactionTitles = 7;
+string updatedAt = 8;
+};
+message FactionUpdateInput {
+string createdAt = 1;
+string id = 2;
+PlayerFactionAchievement playerFactionAchievements = 3;
+repeated PlayerFactionQuest playerFactionQuests = 4;
+repeated PlayerFactionReputation playerFactionReputations = 5;
+repeated PlayerFactionSpell playerFactionSpells = 6;
+repeated PlayerFactionTitle playerFactionTitles = 7;
+string updatedAt = 8;
+};
+message findManyParams {
+
+};
+message PlayerFactionQuest {
+string createdAt = 1;
+string id = 2;
+string questId = 3;
+string state = 4;
+string updatedAt = 5;
+};
+message PlayerFactionQuestWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string questId = 3;
+string state = 4;
+string updatedAt = 5;
+};
+message PlayerFactionQuestParams {
+FactionWhereUniqueInput factionWhereUniqueInput = 1;
+PlayerFactionQuestWhereUniqueInput playerfactionquestWhereUniqueInput = 2;
+};
+message PlayerFactionReputation {
+int32 amount = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message PlayerFactionReputationWhereUniqueInput {
+int32 amount = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message PlayerFactionReputationParams {
+FactionWhereUniqueInput factionWhereUniqueInput = 1;
+PlayerFactionReputationWhereUniqueInput playerfactionreputationWhereUniqueInput = 2;
+};
+message PlayerFactionSpell {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionSpellWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionSpellParams {
+FactionWhereUniqueInput factionWhereUniqueInput = 1;
+PlayerFactionSpellWhereUniqueInput playerfactionspellWhereUniqueInput = 2;
+};
+message PlayerFactionTitle {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionTitleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionTitleParams {
+FactionWhereUniqueInput factionWhereUniqueInput = 1;
+PlayerFactionTitleWhereUniqueInput playerfactiontitleWhereUniqueInput = 2;
+};
