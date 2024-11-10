@@ -241,3 +241,108 @@ model Bank {
   updatedAt        DateTime  @updatedAt
   website          String?
 }
+
+model JournalEntryAccount {
+  account                 String?
+  accountCurrency         String?
+  accountType             String?
+  againstAccount          String?
+  bankAccount             String?
+  costCenter              String?
+  createdAt               DateTime  @default(now())
+  creation                DateTime?
+  credit                  Float?
+  creditInAccountCurrency Float?
+  debit                   Float?
+  debitInAccountCurrency  Float?
+  docstatus               Int?
+  exchangeRate            Float?
+  id                      String    @id @default(cuid())
+  idx                     Int?
+  isAdvance               String?
+  modified                DateTime?
+  modifiedBy              String?
+  owner                   String?
+  parent                  String?
+  parentfield             String?
+  parenttype              String?
+  party                   String?
+  partyType               String?
+  project                 String?
+  referenceDetailNo       String?
+  referenceDueDate        DateTime?
+  referenceName           String?
+  referenceType           String?
+  updatedAt               DateTime  @updatedAt
+  userRemark              String?
+}
+
+model JournalEntryTemplate {
+  company       String?
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  docstatus     Int?
+  id            String    @id @default(cuid())
+  idx           Int?
+  isOpening     String?
+  modified      DateTime?
+  modifiedBy    String?
+  multiCurrency Int?
+  namingSeries  String?
+  owner         String?
+  templateTitle String?
+  updatedAt     DateTime  @updatedAt
+  voucherType   String?
+}
+
+model JournalEntry {
+  amendedFrom                       String?
+  applyTds                          Int?
+  autoRepeat                        String?
+  billDate                          DateTime?
+  billNo                            String?
+  chequeDate                        DateTime?
+  chequeNo                          String?
+  clearanceDate                     DateTime?
+  company                           String?
+  createdAt                         DateTime  @default(now())
+  creation                          DateTime?
+  difference                        Float?
+  docstatus                         Int?
+  dueDate                           DateTime?
+  financeBook                       String?
+  fromTemplate                      String?
+  id                                String    @id @default(cuid())
+  idx                               Int?
+  interCompanyJournalEntryReference String?
+  isOpening                         String?
+  isSystemGenerated                 Int?
+  letterHead                        String?
+  modeOfPayment                     String?
+  modified                          DateTime?
+  modifiedBy                        String?
+  multiCurrency                     Int?
+  namingSeries                      String?
+  owner                             String?
+  paidLoan                          String?
+  payToRecdFrom                     String?
+  paymentOrder                      String?
+  postingDate                       DateTime?
+  processDeferredAccounting         String?
+  remark                            String?
+  reversalOf                        String?
+  selectPrintHeading                String?
+  stockEntry                        String?
+  taxWithholdingCategory            String?
+  title                             String?
+  totalAmount                       Float?
+  totalAmountCurrency               String?
+  totalAmountInWords                String?
+  totalCredit                       Float?
+  totalDebit                        Float?
+  updatedAt                         DateTime  @updatedAt
+  userRemark                        String?
+  voucherType                       String?
+  writeOffAmount                    Float?
+  writeOffBasedOn                   String?
+}

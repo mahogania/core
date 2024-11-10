@@ -1,0 +1,38 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type JournalEntryAccountWhereInput = {
+  account?: StringNullableFilter;
+  accountCurrency?: StringNullableFilter;
+  accountType?: StringNullableFilter;
+  againstAccount?: StringNullableFilter;
+  bankAccount?: StringNullableFilter;
+  costCenter?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  credit?: FloatNullableFilter;
+  creditInAccountCurrency?: FloatNullableFilter;
+  debit?: FloatNullableFilter;
+  debitInAccountCurrency?: FloatNullableFilter;
+  docstatus?: IntNullableFilter;
+  exchangeRate?: FloatNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  isAdvance?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  parentfield?: StringNullableFilter;
+  parenttype?: StringNullableFilter;
+  party?: StringNullableFilter;
+  partyType?: StringNullableFilter;
+  project?: StringNullableFilter;
+  referenceDetailNo?: StringNullableFilter;
+  referenceDueDate?: DateTimeNullableFilter;
+  referenceName?: StringNullableFilter;
+  referenceType?: StringNullableFilter;
+  userRemark?: StringNullableFilter;
+};

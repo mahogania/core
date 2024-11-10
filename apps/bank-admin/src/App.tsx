@@ -45,6 +45,18 @@ import { BankList } from "./bank/BankList";
 import { BankCreate } from "./bank/BankCreate";
 import { BankEdit } from "./bank/BankEdit";
 import { BankShow } from "./bank/BankShow";
+import { JournalEntryAccountList } from "./journalEntryAccount/JournalEntryAccountList";
+import { JournalEntryAccountCreate } from "./journalEntryAccount/JournalEntryAccountCreate";
+import { JournalEntryAccountEdit } from "./journalEntryAccount/JournalEntryAccountEdit";
+import { JournalEntryAccountShow } from "./journalEntryAccount/JournalEntryAccountShow";
+import { JournalEntryTemplateList } from "./journalEntryTemplate/JournalEntryTemplateList";
+import { JournalEntryTemplateCreate } from "./journalEntryTemplate/JournalEntryTemplateCreate";
+import { JournalEntryTemplateEdit } from "./journalEntryTemplate/JournalEntryTemplateEdit";
+import { JournalEntryTemplateShow } from "./journalEntryTemplate/JournalEntryTemplateShow";
+import { JournalEntryList } from "./journalEntry/JournalEntryList";
+import { JournalEntryCreate } from "./journalEntry/JournalEntryCreate";
+import { JournalEntryEdit } from "./journalEntry/JournalEntryEdit";
+import { JournalEntryShow } from "./journalEntry/JournalEntryShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -127,6 +139,27 @@ const App = (): React.ReactElement => {
           edit={BankEdit}
           create={BankCreate}
           show={BankShow}
+        />
+        <Resource
+          name="JournalEntryAccount"
+          list={JournalEntryAccountList}
+          edit={JournalEntryAccountEdit}
+          create={JournalEntryAccountCreate}
+          show={JournalEntryAccountShow}
+        />
+        <Resource
+          name="JournalEntryTemplate"
+          list={JournalEntryTemplateList}
+          edit={JournalEntryTemplateEdit}
+          create={JournalEntryTemplateCreate}
+          show={JournalEntryTemplateShow}
+        />
+        <Resource
+          name="JournalEntry"
+          list={JournalEntryList}
+          edit={JournalEntryEdit}
+          create={JournalEntryCreate}
+          show={JournalEntryShow}
         />
       </Admin>
     </div>

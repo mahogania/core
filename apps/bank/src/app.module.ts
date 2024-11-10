@@ -9,6 +9,9 @@ import { BankTransactionMappingModule } from "./bankTransactionMapping/bankTrans
 import { BankTransactionPaymentsModule } from "./bankTransactionPayments/bankTransactionPayments.module";
 import { BankTransactionModule } from "./bankTransaction/bankTransaction.module";
 import { BankModule } from "./bank/bank.module";
+import { JournalEntryAccountModule } from "./journalEntryAccount/journalEntryAccount.module";
+import { JournalEntryTemplateModule } from "./journalEntryTemplate/journalEntryTemplate.module";
+import { JournalEntryModule } from "./journalEntry/journalEntry.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -31,6 +34,9 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     BankTransactionPaymentsModule,
     BankTransactionModule,
     BankModule,
+    JournalEntryAccountModule,
+    JournalEntryTemplateModule,
+    JournalEntryModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
