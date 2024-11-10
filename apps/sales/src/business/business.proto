@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+                 package business;
+service BusinessService {
+ rpc createBusiness (BusinessCreateInput) returns (Business) {}
+rpc businesses (findManyParams) returns (stream Business) {}
+rpc business (BusinessWhereUniqueInput) returns (Business) {}
+rpc updateBusiness (BusinessUpdateInput) returns (Business) {}
+rpc deleteBusiness (BusinessWhereUniqueInput) returns (Business) {}
+rpc findManyCompetitor (BusinessWhereUniqueInput) returns (stream Unit) {}
+rpc updateCompetitor (UnitParams) returns (stream Unit) {}
+rpc connectCompetitor (UnitParams) returns (Unit) {}
+rpc disconnectCompetitor (UnitParams) returns (Unit) {}
+rpc findManyAscendantBusiness (BusinessWhereUniqueInput) returns (stream Relation) {}
+rpc updateAscendantBusiness (RelationParams) returns (stream Relation) {}
+rpc connectAscendantBusiness (RelationParams) returns (Relation) {}
+rpc disconnectAscendantBusiness (RelationParams) returns (Relation) {}
+rpc findManyCompetitor (BusinessWhereUniqueInput) returns (stream Strength) {}
+rpc updateCompetitor (StrengthParams) returns (stream Strength) {}
+rpc connectCompetitor (StrengthParams) returns (Strength) {}
+rpc disconnectCompetitor (StrengthParams) returns (Strength) {}
+rpc findManyCompetitor (BusinessWhereUniqueInput) returns (stream Weakness) {}
+rpc updateCompetitor (WeaknessParams) returns (stream Weakness) {}
+rpc connectCompetitor (WeaknessParams) returns (Weakness) {}
+rpc disconnectCompetitor (WeaknessParams) returns (Weakness) {} 
+ }
+message BusinessCreateInput {
+repeated Unit businessUnits = 1;
+string createdAt = 2;
+string id = 3;
+string name = 4;
+repeated Relation predecessorRelations = 5;
+repeated Strength strengths = 6;
+Relation succesorRelations = 7;
+string updatedAt = 8;
+repeated Weakness weaknesses = 9;
+};
+message Business {
+repeated Unit businessUnits = 1;
+string createdAt = 2;
+string id = 3;
+string name = 4;
+repeated Relation predecessorRelations = 5;
+repeated Strength strengths = 6;
+Relation succesorRelations = 7;
+string updatedAt = 8;
+repeated Weakness weaknesses = 9;
+};
+message BusinessWhereUniqueInput {
+repeated Unit businessUnits = 1;
+string createdAt = 2;
+string id = 3;
+string name = 4;
+repeated Relation predecessorRelations = 5;
+repeated Strength strengths = 6;
+Relation succesorRelations = 7;
+string updatedAt = 8;
+repeated Weakness weaknesses = 9;
+};
+message BusinessUpdateInput {
+repeated Unit businessUnits = 1;
+string createdAt = 2;
+string id = 3;
+string name = 4;
+repeated Relation predecessorRelations = 5;
+repeated Strength strengths = 6;
+Relation succesorRelations = 7;
+string updatedAt = 8;
+repeated Weakness weaknesses = 9;
+};
+message findManyParams {
+
+};
+message Unit {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message UnitWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message UnitParams {
+BusinessWhereUniqueInput businessWhereUniqueInput = 1;
+UnitWhereUniqueInput unitWhereUniqueInput = 2;
+};
+message Relation {
+string createdAt = 1;
+string id = 2;
+repeated string kind = 3;
+string updatedAt = 4;
+};
+message RelationWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated string kind = 3;
+string updatedAt = 4;
+};
+message RelationParams {
+BusinessWhereUniqueInput businessWhereUniqueInput = 1;
+RelationWhereUniqueInput relationWhereUniqueInput = 2;
+};
+message Strength {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message StrengthWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message StrengthParams {
+BusinessWhereUniqueInput businessWhereUniqueInput = 1;
+StrengthWhereUniqueInput strengthWhereUniqueInput = 2;
+};
+message Weakness {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message WeaknessWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message WeaknessParams {
+BusinessWhereUniqueInput businessWhereUniqueInput = 1;
+WeaknessWhereUniqueInput weaknessWhereUniqueInput = 2;
+};

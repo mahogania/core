@@ -1,0 +1,38 @@
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type AssetCapitalizationServiceItemWhereInput = {
+  actualQty?: FloatNullableFilter;
+  amount?: FloatNullableFilter;
+  batchNo?: StringNullableFilter;
+  costCenter?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  docstatus?: IntNullableFilter;
+  expenseAccount?: StringNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  itemCode?: StringNullableFilter;
+  itemName?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  parentField?: StringNullableFilter;
+  parentType?: StringNullableFilter;
+  parentfield?: StringNullableFilter;
+  parenttype?: StringNullableFilter;
+  qty?: FloatNullableFilter;
+  rate?: FloatNullableFilter;
+  serialAndBatchBundle?: StringNullableFilter;
+  serialNo?: StringNullableFilter;
+  stockQty?: FloatNullableFilter;
+  stockUom?: StringNullableFilter;
+  uom?: StringNullableFilter;
+  useSerialBatchFields?: IntNullableFilter;
+  valuationRate?: FloatNullableFilter;
+  warehouse?: StringNullableFilter;
+};

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package location;
+service LocationService {
+ rpc createLocation (LocationCreateInput) returns (Location) {}
+rpc locations (findManyParams) returns (stream Location) {}
+rpc location (LocationWhereUniqueInput) returns (Location) {}
+rpc updateLocation (LocationUpdateInput) returns (Location) {}
+rpc deleteLocation (LocationWhereUniqueInput) returns (Location) {} 
+ }
+message LocationCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Location {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LocationWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LocationUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

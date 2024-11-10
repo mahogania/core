@@ -1,0 +1,31 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type InvoiceDiscountingWhereInput = {
+  accountsReceivableCredit?: StringNullableFilter;
+  accountsReceivableDiscounted?: StringNullableFilter;
+  accountsReceivableUnpaid?: StringNullableFilter;
+  amendedFrom?: StringNullableFilter;
+  bankAccount?: StringNullableFilter;
+  bankCharges?: FloatNullableFilter;
+  bankChargesAccount?: StringNullableFilter;
+  company?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  docstatus?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  loanEndDate?: DateTimeNullableFilter;
+  loanPeriod?: IntNullableFilter;
+  loanStartDate?: DateTimeNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  postingDate?: DateTimeNullableFilter;
+  shortTermLoan?: StringNullableFilter;
+  status?: StringNullableFilter;
+  totalAmount?: FloatNullableFilter;
+};

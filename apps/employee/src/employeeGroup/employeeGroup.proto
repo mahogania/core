@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+                 package employeeGroup;
+service EmployeeGroupService {
+ rpc createEmployeeGroup (EmployeeGroupCreateInput) returns (EmployeeGroup) {}
+rpc employeeGroups (findManyParams) returns (stream EmployeeGroup) {}
+rpc employeeGroup (EmployeeGroupWhereUniqueInput) returns (EmployeeGroup) {}
+rpc updateEmployeeGroup (EmployeeGroupUpdateInput) returns (EmployeeGroup) {}
+rpc deleteEmployeeGroup (EmployeeGroupWhereUniqueInput) returns (EmployeeGroup) {} 
+ }
+message EmployeeGroupCreateInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+string employeeGroupName = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string updatedAt = 11;
+};
+message EmployeeGroup {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+string employeeGroupName = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string updatedAt = 11;
+};
+message EmployeeGroupWhereUniqueInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+string employeeGroupName = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string updatedAt = 11;
+};
+message EmployeeGroupUpdateInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+string employeeGroupName = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string updatedAt = 11;
+};
+message findManyParams {
+
+};

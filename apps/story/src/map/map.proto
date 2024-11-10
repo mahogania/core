@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+                 package map;
+service MapService {
+ rpc createMap (MapCreateInput) returns (Map) {}
+rpc maps (findManyParams) returns (stream Map) {}
+rpc map (MapWhereUniqueInput) returns (Map) {}
+rpc updateMap (MapUpdateInput) returns (Map) {}
+rpc deleteMap (MapWhereUniqueInput) returns (Map) {}
+rpc findManyMap (MapWhereUniqueInput) returns (stream Zone) {}
+rpc updateMap (ZoneParams) returns (stream Zone) {}
+rpc connectMap (ZoneParams) returns (Zone) {}
+rpc disconnectMap (ZoneParams) returns (Zone) {} 
+ }
+message MapCreateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+repeated Zone zones = 5;
+};
+message Map {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+repeated Zone zones = 5;
+};
+message MapWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+repeated Zone zones = 5;
+};
+message MapUpdateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+repeated Zone zones = 5;
+};
+message findManyParams {
+
+};
+message Zone {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ZoneWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ZoneParams {
+MapWhereUniqueInput mapWhereUniqueInput = 1;
+ZoneWhereUniqueInput zoneWhereUniqueInput = 2;
+};

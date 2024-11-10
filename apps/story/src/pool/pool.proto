@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package pool;
+service PoolService {
+ rpc createPool (PoolCreateInput) returns (Pool) {}
+rpc pools (findManyParams) returns (stream Pool) {}
+rpc pool (PoolWhereUniqueInput) returns (Pool) {}
+rpc updatePool (PoolUpdateInput) returns (Pool) {}
+rpc deletePool (PoolWhereUniqueInput) returns (Pool) {}
+rpc findManyPool (PoolWhereUniqueInput) returns (stream QuestPool) {}
+rpc updatePool (QuestPoolParams) returns (stream QuestPool) {}
+rpc connectPool (QuestPoolParams) returns (QuestPool) {}
+rpc disconnectPool (QuestPoolParams) returns (QuestPool) {} 
+ }
+message PoolCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestPool questPool = 3;
+string updatedAt = 4;
+};
+message Pool {
+string createdAt = 1;
+string id = 2;
+repeated QuestPool questPool = 3;
+string updatedAt = 4;
+};
+message PoolWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestPool questPool = 3;
+string updatedAt = 4;
+};
+message PoolUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestPool questPool = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message QuestPool {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoolWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoolParams {
+PoolWhereUniqueInput poolWhereUniqueInput = 1;
+QuestPoolWhereUniqueInput questpoolWhereUniqueInput = 2;
+};

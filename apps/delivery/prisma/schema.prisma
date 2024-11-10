@@ -1,0 +1,273 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model DeliveryNoteItem {
+  actualBatchQty         Float?
+  actualQty              Float?
+  againstSalesInvoice    String?
+  againstSalesOrder      String?
+  allowZeroValuationRate Boolean?
+  amount                 Float?
+  barcode                String?
+  baseAmount             Float?
+  baseNetAmount          Float?
+  baseNetRate            Float?
+  basePriceListRate      Float?
+  baseRate               Float?
+  baseRateWithMargin     Float?
+  batchNo                String?
+  billedAmt              Float?
+  brand                  String?
+  conversionFactor       Float?
+  costCenter             String?
+  createdAt              DateTime  @default(now())
+  creation               DateTime?
+  customerItemCode       String?
+  description            String?
+  discountAmount         Float?
+  discountPercentage     Float?
+  dnDetail               String?
+  docstatus              Int?
+  expenseAccount         String?
+  grantCommission        Boolean?
+  hasItemScanned         Boolean?
+  id                     String    @id @default(cuid())
+  idx                    Int?
+  image                  String?
+  incomingRate           Float?
+  installedQty           Float?
+  isFreeItem             Boolean?
+  itemCode               String?
+  itemGroup              String?
+  itemName               String?
+  itemTaxRate            String?
+  itemTaxTemplate        String?
+  marginRateOrAmount     Float?
+  marginType             String?
+  materialRequest        String?
+  materialRequestItem    String?
+  modified               DateTime?
+  modifiedBy             String?
+  name                   String?
+  netAmount              Float?
+  netRate                Float?
+  owner                  String?
+  packedQty              Float?
+  pageBreak              Boolean?
+  parent                 String?
+  parentfield            String?
+  parenttype             String?
+  pickListItem           String?
+  priceListRate          Float?
+  pricingRules           String?
+  project                String?
+  purchaseOrder          String?
+  purchaseOrderItem      String?
+  qty                    Float?
+  qualityInspection      String?
+  rate                   Float?
+  rateWithMargin         Float?
+  receivedQty            Float?
+  returnedQty            Float?
+  serialAndBatchBundle   String?
+  serialNo               String?
+  siDetail               String?
+  soDetail               String?
+  stockQty               Float?
+  stockUom               String?
+  stockUomRate           Float?
+  targetWarehouse        String?
+  totalWeight            Float?
+  uom                    String?
+  updatedAt              DateTime  @updatedAt
+  useSerialBatchFields   Boolean?
+  warehouse              String?
+  weightPerUnit          Float?
+  weightUom              String?
+}
+
+model DeliveryNote {
+  additionalDiscountPercentage Float?
+  addressDisplay               String?
+  amendedFrom                  String?
+  amountEligibleForCommission  Float?
+  applyDiscountOn              String?
+  autoRepeat                   String?
+  baseDiscountAmount           Float?
+  baseGrandTotal               Float?
+  baseInWords                  String?
+  baseNetTotal                 Float?
+  baseRoundedTotal             Float?
+  baseRoundingAdjustment       Float?
+  baseTotal                    Float?
+  baseTotalTaxesAndCharges     Float?
+  campaign                     String?
+  commissionRate               Float?
+  company                      String?
+  companyAddress               String?
+  companyAddressDisplay        String?
+  contactDisplay               String?
+  contactEmail                 String?
+  contactMobile                String?
+  contactPerson                String?
+  conversionRate               Float?
+  costCenter                   String?
+  createdAt                    DateTime  @default(now())
+  creation                     DateTime?
+  currency                     String?
+  customer                     String?
+  customerAddress              String?
+  customerGroup                String?
+  customerName                 String?
+  disableRoundedTotal          Boolean?
+  discountAmount               Float?
+  dispatchAddress              String?
+  dispatchAddressName          String?
+  docstatus                    Int?
+  driver                       String?
+  driverName                   String?
+  excisePage                   String?
+  grandTotal                   Float?
+  groupSameItems               Boolean?
+  id                           String    @id @default(cuid())
+  idx                          Int?
+  ignorePricingRule            Boolean?
+  inWords                      String?
+  incoterm                     String?
+  installationStatus           String?
+  instructions                 String?
+  interCompanyReference        String?
+  isInternalCustomer           Boolean?
+  isReturn                     Boolean?
+  issueCreditNote              Boolean?
+  language                     String?
+  letterHead                   String?
+  lrDate                       DateTime?
+  lrNo                         String?
+  modified                     DateTime?
+  modifiedBy                   String?
+  name                         String?
+  namedPlace                   String?
+  namingSeries                 String?
+  netTotal                     Float?
+  otherChargesCalculation      String?
+  owner                        String?
+  perBilled                    Float?
+  perInstalled                 Float?
+  perReturned                  Float?
+  pickList                     String?
+  plcConversionRate            Float?
+  poDate                       DateTime?
+  poNo                         String?
+  postingDate                  DateTime?
+  postingTime                  DateTime?
+  priceListCurrency            String?
+  printWithoutAmount           Boolean?
+  project                      String?
+  representsCompany            String?
+  returnAgainst                String?
+  roundedTotal                 Float?
+  roundingAdjustment           Float?
+  salesPartner                 String?
+  scanBarcode                  String?
+  selectPrintHeading           String?
+  sellingPriceList             String?
+  setPostingTime               Boolean?
+  setTargetWarehouse           String?
+  setWarehouse                 String?
+  shippingAddress              String?
+  shippingAddressName          String?
+  shippingRule                 String?
+  source                       String?
+  status                       String?
+  taxCategory                  String?
+  taxId                        String?
+  taxesAndCharges              String?
+  tcName                       String?
+  terms                        String?
+  territory                    String?
+  title                        String?
+  total                        Float?
+  totalCommission              Float?
+  totalNetWeight               Float?
+  totalQty                     Float?
+  totalTaxesAndCharges         Float?
+  transporter                  String?
+  transporterName              String?
+  updatedAt                    DateTime  @updatedAt
+  vehicleNo                    String?
+}
+
+model DeliveryStop {
+  address          String?
+  contact          String?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  customer         String?
+  customerAddress  String?
+  customerContact  String?
+  deliveryNote     String?
+  details          String?
+  distance         Float?
+  docstatus        Int?
+  emailSentTo      String?
+  estimatedArrival DateTime?
+  grandTotal       Float?
+  id               String    @id @default(cuid())
+  idx              Int?
+  lat              Float?
+  lng              Float?
+  locked           Boolean?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  parent           String?
+  parentfield      String?
+  parenttype       String?
+  uom              String?
+  updatedAt        DateTime  @updatedAt
+  visited          Boolean?
+}
+
+model DeliveryTrip {
+  amendedFrom           String?
+  company               String?
+  createdAt             DateTime  @default(now())
+  departureTime         DateTime?
+  docstatus             Int?
+  driver                String?
+  driverAddress         String?
+  driverEmail           String?
+  driverName            String?
+  emailNotificationSent Boolean?
+  employee              String?
+  id                    String    @id @default(cuid())
+  idx                   Int?
+  name                  String?
+  namingSeries          String?
+  owner                 String?
+  status                String?
+  totalDistance         Float?
+  uom                   String?
+  updatedAt             DateTime  @updatedAt
+  vehicle               String?
+}
+
+model DrivingLicenseCategory {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Driver {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}

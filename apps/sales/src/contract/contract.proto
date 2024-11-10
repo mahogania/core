@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package contract;
+service ContractService {
+ rpc createContract (ContractCreateInput) returns (Contract) {}
+rpc contracts (findManyParams) returns (stream Contract) {}
+rpc contract (ContractWhereUniqueInput) returns (Contract) {}
+rpc updateContract (ContractUpdateInput) returns (Contract) {}
+rpc deleteContract (ContractWhereUniqueInput) returns (Contract) {} 
+ }
+message ContractCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Contract {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ContractWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ContractUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

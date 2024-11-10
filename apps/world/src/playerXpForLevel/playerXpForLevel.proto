@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerXpForLevel;
+service PlayerXpForLevelService {
+ rpc createPlayerXpForLevel (PlayerXpForLevelCreateInput) returns (PlayerXpForLevel) {}
+rpc playerXpForLevels (findManyParams) returns (stream PlayerXpForLevel) {}
+rpc playerXpForLevel (PlayerXpForLevelWhereUniqueInput) returns (PlayerXpForLevel) {}
+rpc updatePlayerXpForLevel (PlayerXpForLevelUpdateInput) returns (PlayerXpForLevel) {}
+rpc deletePlayerXpForLevel (PlayerXpForLevelWhereUniqueInput) returns (PlayerXpForLevel) {} 
+ }
+message PlayerXpForLevelCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerXpForLevel {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerXpForLevelWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerXpForLevelUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

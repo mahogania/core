@@ -1,0 +1,34 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type BankTransactionOrderByInput = {
+  allocatedAmount?: SortOrder;
+  amendedFrom?: SortOrder;
+  bankAccount?: SortOrder;
+  bankPartyAccountNumber?: SortOrder;
+  bankPartyIban?: SortOrder;
+  bankPartyName?: SortOrder;
+  company?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  currency?: SortOrder;
+  date?: SortOrder;
+  deposit?: SortOrder;
+  description?: SortOrder;
+  docstatus?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  namingSeries?: SortOrder;
+  owner?: SortOrder;
+  party?: SortOrder;
+  partyType?: SortOrder;
+  referenceNumber?: SortOrder;
+  status?: SortOrder;
+  transactionId?: SortOrder;
+  transactionType?: SortOrder;
+  unallocatedAmount?: SortOrder;
+  updatedAt?: SortOrder;
+  withdrawal?: SortOrder;
+};

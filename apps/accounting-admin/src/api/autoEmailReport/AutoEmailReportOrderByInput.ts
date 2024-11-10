@@ -1,0 +1,34 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type AutoEmailReportOrderByInput = {
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  dataModifiedTill?: SortOrder;
+  dayOfWeek?: SortOrder;
+  description?: SortOrder;
+  docstatus?: SortOrder;
+  dynamicDatePeriod?: SortOrder;
+  emailTo?: SortOrder;
+  enabled?: SortOrder;
+  filterMeta?: SortOrder;
+  filters?: SortOrder;
+  format?: SortOrder;
+  frequency?: SortOrder;
+  fromDateField?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  noOfRows?: SortOrder;
+  owner?: SortOrder;
+  referenceReport?: SortOrder;
+  report?: SortOrder;
+  reportType?: SortOrder;
+  sendIfData?: SortOrder;
+  sender?: SortOrder;
+  toDateField?: SortOrder;
+  updatedAt?: SortOrder;
+  useFirstDayOfPeriod?: SortOrder;
+  user?: SortOrder;
+};

@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+                 package user;
+service UserService {
+ rpc createUser (UserCreateInput) returns (User) {}
+rpc users (findManyParams) returns (stream User) {}
+rpc user (UserWhereUniqueInput) returns (User) {}
+rpc updateUser (UserUpdateInput) returns (User) {}
+rpc deleteUser (UserWhereUniqueInput) returns (User) {}
+rpc findManyUser (UserWhereUniqueInput) returns (stream Quest) {}
+rpc updateUser (QuestParams) returns (stream Quest) {}
+rpc connectUser (QuestParams) returns (Quest) {}
+rpc disconnectUser (QuestParams) returns (Quest) {}
+rpc findManyUser (UserWhereUniqueInput) returns (stream Scenario) {}
+rpc updateUser (ScenarioParams) returns (stream Scenario) {}
+rpc connectUser (ScenarioParams) returns (Scenario) {}
+rpc disconnectUser (ScenarioParams) returns (Scenario) {} 
+ }
+message UserCreateInput {
+string createdAt = 1;
+string email = 2;
+string firstName = 3;
+string id = 4;
+string lastName = 5;
+string password = 6;
+repeated Quest quests = 7;
+repeated string roles = 8;
+repeated Scenario scenarios = 9;
+string updatedAt = 10;
+string username = 11;
+};
+message User {
+string createdAt = 1;
+string email = 2;
+string firstName = 3;
+string id = 4;
+string lastName = 5;
+string password = 6;
+repeated Quest quests = 7;
+repeated string roles = 8;
+repeated Scenario scenarios = 9;
+string updatedAt = 10;
+string username = 11;
+};
+message UserWhereUniqueInput {
+string createdAt = 1;
+string email = 2;
+string firstName = 3;
+string id = 4;
+string lastName = 5;
+string password = 6;
+repeated Quest quests = 7;
+repeated string roles = 8;
+repeated Scenario scenarios = 9;
+string updatedAt = 10;
+string username = 11;
+};
+message UserUpdateInput {
+string createdAt = 1;
+string email = 2;
+string firstName = 3;
+string id = 4;
+string lastName = 5;
+string password = 6;
+repeated Quest quests = 7;
+repeated string roles = 8;
+repeated Scenario scenarios = 9;
+string updatedAt = 10;
+string username = 11;
+};
+message findManyParams {
+
+};
+message Quest {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestParams {
+UserWhereUniqueInput userWhereUniqueInput = 1;
+QuestWhereUniqueInput questWhereUniqueInput = 2;
+};
+message Scenario {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScenarioWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScenarioParams {
+UserWhereUniqueInput userWhereUniqueInput = 1;
+ScenarioWhereUniqueInput scenarioWhereUniqueInput = 2;
+};

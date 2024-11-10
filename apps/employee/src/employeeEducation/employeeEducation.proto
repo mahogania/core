@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+                 package employeeEducation;
+service EmployeeEducationService {
+ rpc createEmployeeEducation (EmployeeEducationCreateInput) returns (EmployeeEducation) {}
+rpc employeeEducations (findManyParams) returns (stream EmployeeEducation) {}
+rpc employeeEducation (EmployeeEducationWhereUniqueInput) returns (EmployeeEducation) {}
+rpc updateEmployeeEducation (EmployeeEducationUpdateInput) returns (EmployeeEducation) {}
+rpc deleteEmployeeEducation (EmployeeEducationWhereUniqueInput) returns (EmployeeEducation) {} 
+ }
+message EmployeeEducationCreateInput {
+string classPer = 1;
+string createdAt = 2;
+string creation = 3;
+int32 docstatus = 4;
+string id = 5;
+int32 idx = 6;
+string level = 7;
+string majOptSubj = 8;
+string modified = 9;
+string modifiedBy = 10;
+string name = 11;
+string owner = 12;
+string parent = 13;
+string parentfield = 14;
+string parenttype = 15;
+string qualification = 16;
+string schoolUniv = 17;
+string updatedAt = 18;
+int32 yearOfPassing = 19;
+};
+message EmployeeEducation {
+string classPer = 1;
+string createdAt = 2;
+string creation = 3;
+int32 docstatus = 4;
+string id = 5;
+int32 idx = 6;
+string level = 7;
+string majOptSubj = 8;
+string modified = 9;
+string modifiedBy = 10;
+string name = 11;
+string owner = 12;
+string parent = 13;
+string parentfield = 14;
+string parenttype = 15;
+string qualification = 16;
+string schoolUniv = 17;
+string updatedAt = 18;
+int32 yearOfPassing = 19;
+};
+message EmployeeEducationWhereUniqueInput {
+string classPer = 1;
+string createdAt = 2;
+string creation = 3;
+int32 docstatus = 4;
+string id = 5;
+int32 idx = 6;
+string level = 7;
+string majOptSubj = 8;
+string modified = 9;
+string modifiedBy = 10;
+string name = 11;
+string owner = 12;
+string parent = 13;
+string parentfield = 14;
+string parenttype = 15;
+string qualification = 16;
+string schoolUniv = 17;
+string updatedAt = 18;
+int32 yearOfPassing = 19;
+};
+message EmployeeEducationUpdateInput {
+string classPer = 1;
+string createdAt = 2;
+string creation = 3;
+int32 docstatus = 4;
+string id = 5;
+int32 idx = 6;
+string level = 7;
+string majOptSubj = 8;
+string modified = 9;
+string modifiedBy = 10;
+string name = 11;
+string owner = 12;
+string parent = 13;
+string parentfield = 14;
+string parenttype = 15;
+string qualification = 16;
+string schoolUniv = 17;
+string updatedAt = 18;
+int32 yearOfPassing = 19;
+};
+message findManyParams {
+
+};
