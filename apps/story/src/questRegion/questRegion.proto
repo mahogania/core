@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+                 package questRegion;
+service QuestRegionService {
+ rpc createQuestRegion (QuestRegionCreateInput) returns (QuestRegion) {}
+rpc questRegions (findManyParams) returns (stream QuestRegion) {}
+rpc questRegion (QuestRegionWhereUniqueInput) returns (QuestRegion) {}
+rpc updateQuestRegion (QuestRegionUpdateInput) returns (QuestRegion) {}
+rpc deleteQuestRegion (QuestRegionWhereUniqueInput) returns (QuestRegion) {}
+rpc findManyQuestPois (QuestRegionWhereUniqueInput) returns (stream QuestObjective) {}
+rpc updateQuestPois (QuestObjectiveParams) returns (stream QuestObjective) {}
+rpc connectQuestPois (QuestObjectiveParams) returns (QuestObjective) {}
+rpc disconnectQuestPois (QuestObjectiveParams) returns (QuestObjective) {}
+rpc findManyQuestPoi (QuestRegionWhereUniqueInput) returns (stream QuestPoi) {}
+rpc updateQuestPoi (QuestPoiParams) returns (stream QuestPoi) {}
+rpc connectQuestPoi (QuestPoiParams) returns (QuestPoi) {}
+rpc disconnectQuestPoi (QuestPoiParams) returns (QuestPoi) {} 
+ }
+message QuestRegionCreateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+repeated QuestObjective questObjectives = 4;
+repeated QuestPoi questPoiPoints = 5;
+string updatedAt = 6;
+};
+message QuestRegion {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+repeated QuestObjective questObjectives = 4;
+repeated QuestPoi questPoiPoints = 5;
+string updatedAt = 6;
+};
+message QuestRegionWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+repeated QuestObjective questObjectives = 4;
+repeated QuestPoi questPoiPoints = 5;
+string updatedAt = 6;
+};
+message QuestRegionUpdateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+repeated QuestObjective questObjectives = 4;
+repeated QuestPoi questPoiPoints = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message QuestObjective {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestObjectiveWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestObjectiveParams {
+QuestRegionWhereUniqueInput questRegionWhereUniqueInput = 1;
+QuestObjectiveWhereUniqueInput questobjectiveWhereUniqueInput = 2;
+};
+message QuestPoi {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoiWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoiParams {
+QuestRegionWhereUniqueInput questRegionWhereUniqueInput = 1;
+QuestPoiWhereUniqueInput questpoiWhereUniqueInput = 2;
+};

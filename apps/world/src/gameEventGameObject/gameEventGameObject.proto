@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+                 package gameEventGameObject;
+service GameEventGameObjectService {
+ rpc createGameEventGameObject (GameEventGameObjectCreateInput) returns (GameEventGameObject) {}
+rpc gameEventGameObjects (findManyParams) returns (stream GameEventGameObject) {}
+rpc gameEventGameObject (GameEventGameObjectWhereUniqueInput) returns (GameEventGameObject) {}
+rpc updateGameEventGameObject (GameEventGameObjectUpdateInput) returns (GameEventGameObject) {}
+rpc deleteGameEventGameObject (GameEventGameObjectWhereUniqueInput) returns (GameEventGameObject) {}
+rpc findManyGameEventGameObjects (GameEventGameObjectWhereUniqueInput) returns (stream GameEvent) {}
+rpc updateGameEventGameObjects (GameEventParams) returns (stream GameEvent) {}
+rpc connectGameEventGameObjects (GameEventParams) returns (GameEvent) {}
+rpc disconnectGameEventGameObjects (GameEventParams) returns (GameEvent) {} 
+ }
+message GameEventGameObjectCreateInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+repeated GameEvent gameEvents = 3;
+int32 guid = 4;
+string id = 5;
+string updatedAt = 6;
+};
+message GameEventGameObject {
+string createdAt = 1;
+int32 eventEntry = 2;
+repeated GameEvent gameEvents = 3;
+int32 guid = 4;
+string id = 5;
+string updatedAt = 6;
+};
+message GameEventGameObjectWhereUniqueInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+repeated GameEvent gameEvents = 3;
+int32 guid = 4;
+string id = 5;
+string updatedAt = 6;
+};
+message GameEventGameObjectUpdateInput {
+string createdAt = 1;
+int32 eventEntry = 2;
+repeated GameEvent gameEvents = 3;
+int32 guid = 4;
+string id = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message GameEvent {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message GameEventWhereUniqueInput {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message GameEventParams {
+GameEventGameObjectWhereUniqueInput gameEventGameObjectWhereUniqueInput = 1;
+GameEventWhereUniqueInput gameeventWhereUniqueInput = 2;
+};

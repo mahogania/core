@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package creatureTemplateSparring;
+service CreatureTemplateSparringService {
+ rpc createCreatureTemplateSparring (CreatureTemplateSparringCreateInput) returns (CreatureTemplateSparring) {}
+rpc creatureTemplateSparrings (findManyParams) returns (stream CreatureTemplateSparring) {}
+rpc creatureTemplateSparring (CreatureTemplateSparringWhereUniqueInput) returns (CreatureTemplateSparring) {}
+rpc updateCreatureTemplateSparring (CreatureTemplateSparringUpdateInput) returns (CreatureTemplateSparring) {}
+rpc deleteCreatureTemplateSparring (CreatureTemplateSparringWhereUniqueInput) returns (CreatureTemplateSparring) {} 
+ }
+message CreatureTemplateSparringCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateSparring {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateSparringWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateSparringUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

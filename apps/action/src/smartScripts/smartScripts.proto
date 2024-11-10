@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package smartScripts;
+service SmartScriptsService {
+ rpc createSmartScripts (SmartScriptsCreateInput) returns (SmartScripts) {}
+rpc smartScriptsItems (findManyParams) returns (stream SmartScripts) {}
+rpc smartScripts (SmartScriptsWhereUniqueInput) returns (SmartScripts) {}
+rpc updateSmartScripts (SmartScriptsUpdateInput) returns (SmartScripts) {}
+rpc deleteSmartScripts (SmartScriptsWhereUniqueInput) returns (SmartScripts) {} 
+ }
+message SmartScriptsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SmartScripts {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SmartScriptsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SmartScriptsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

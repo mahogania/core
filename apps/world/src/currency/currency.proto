@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package currency;
+service CurrencyService {
+ rpc createCurrency (CurrencyCreateInput) returns (Currency) {}
+rpc currencies (findManyParams) returns (stream Currency) {}
+rpc currency (CurrencyWhereUniqueInput) returns (Currency) {}
+rpc updateCurrency (CurrencyUpdateInput) returns (Currency) {}
+rpc deleteCurrency (CurrencyWhereUniqueInput) returns (Currency) {} 
+ }
+message CurrencyCreateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string symbolField = 4;
+string updatedAt = 5;
+};
+message Currency {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string symbolField = 4;
+string updatedAt = 5;
+};
+message CurrencyWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string symbolField = 4;
+string updatedAt = 5;
+};
+message CurrencyUpdateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string symbolField = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

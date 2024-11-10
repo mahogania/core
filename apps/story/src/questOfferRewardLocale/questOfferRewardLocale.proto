@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questOfferRewardLocale;
+service QuestOfferRewardLocaleService {
+ rpc createQuestOfferRewardLocale (QuestOfferRewardLocaleCreateInput) returns (QuestOfferRewardLocale) {}
+rpc questOfferRewardLocales (findManyParams) returns (stream QuestOfferRewardLocale) {}
+rpc questOfferRewardLocale (QuestOfferRewardLocaleWhereUniqueInput) returns (QuestOfferRewardLocale) {}
+rpc updateQuestOfferRewardLocale (QuestOfferRewardLocaleUpdateInput) returns (QuestOfferRewardLocale) {}
+rpc deleteQuestOfferRewardLocale (QuestOfferRewardLocaleWhereUniqueInput) returns (QuestOfferRewardLocale) {} 
+ }
+message QuestOfferRewardLocaleCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardLocaleUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

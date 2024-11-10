@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+                 package creatureFormation;
+service CreatureFormationService {
+ rpc createCreatureFormation (CreatureFormationCreateInput) returns (CreatureFormation) {}
+rpc creatureFormations (findManyParams) returns (stream CreatureFormation) {}
+rpc creatureFormation (CreatureFormationWhereUniqueInput) returns (CreatureFormation) {}
+rpc updateCreatureFormation (CreatureFormationUpdateInput) returns (CreatureFormation) {}
+rpc deleteCreatureFormation (CreatureFormationWhereUniqueInput) returns (CreatureFormation) {}
+rpc findManyCreatureFormations (CreatureFormationWhereUniqueInput) returns (stream Creature) {}
+rpc updateCreatureFormations (CreatureParams) returns (stream Creature) {}
+rpc connectCreatureFormations (CreatureParams) returns (Creature) {}
+rpc disconnectCreatureFormations (CreatureParams) returns (Creature) {} 
+ }
+message CreatureFormationCreateInput {
+int32 angle = 1;
+string boxId = 2;
+string createdAt = 3;
+repeated Creature creatures = 4;
+int32 dist = 5;
+string groupId = 6;
+string id = 7;
+string leaderId = 8;
+string memberId = 9;
+string updatedAt = 10;
+};
+message CreatureFormation {
+int32 angle = 1;
+string boxId = 2;
+string createdAt = 3;
+repeated Creature creatures = 4;
+int32 dist = 5;
+string groupId = 6;
+string id = 7;
+string leaderId = 8;
+string memberId = 9;
+string updatedAt = 10;
+};
+message CreatureFormationWhereUniqueInput {
+int32 angle = 1;
+string boxId = 2;
+string createdAt = 3;
+repeated Creature creatures = 4;
+int32 dist = 5;
+string groupId = 6;
+string id = 7;
+string leaderId = 8;
+string memberId = 9;
+string updatedAt = 10;
+};
+message CreatureFormationUpdateInput {
+int32 angle = 1;
+string boxId = 2;
+string createdAt = 3;
+repeated Creature creatures = 4;
+int32 dist = 5;
+string groupId = 6;
+string id = 7;
+string leaderId = 8;
+string memberId = 9;
+string updatedAt = 10;
+};
+message findManyParams {
+
+};
+message Creature {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureWhereUniqueInput {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureParams {
+CreatureFormationWhereUniqueInput creatureFormationWhereUniqueInput = 1;
+CreatureWhereUniqueInput creatureWhereUniqueInput = 2;
+};

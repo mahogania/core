@@ -1,0 +1,27 @@
+export type CustomDocPermCreateInput = {
+  amend?: boolean | null;
+  cancel?: boolean | null;
+  create?: boolean | null;
+  creation?: Date | null;
+  deleteField?: boolean | null;
+  docstatus?: number | null;
+  email?: boolean | null;
+  exportField?: boolean | null;
+  idx?: number | null;
+  ifOwner?: boolean | null;
+  importField?: boolean | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  owner?: string | null;
+  parent?: string | null;
+  permlevel?: number | null;
+  print?: boolean | null;
+  read?: boolean | null;
+  report?: boolean | null;
+  role?: string | null;
+  selectField?: boolean | null;
+  share?: boolean | null;
+  submit?: boolean | null;
+  write?: boolean | null;
+};

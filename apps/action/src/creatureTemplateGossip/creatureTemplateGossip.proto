@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package creatureTemplateGossip;
+service CreatureTemplateGossipService {
+ rpc createCreatureTemplateGossip (CreatureTemplateGossipCreateInput) returns (CreatureTemplateGossip) {}
+rpc creatureTemplateGossips (findManyParams) returns (stream CreatureTemplateGossip) {}
+rpc creatureTemplateGossip (CreatureTemplateGossipWhereUniqueInput) returns (CreatureTemplateGossip) {}
+rpc updateCreatureTemplateGossip (CreatureTemplateGossipUpdateInput) returns (CreatureTemplateGossip) {}
+rpc deleteCreatureTemplateGossip (CreatureTemplateGossipWhereUniqueInput) returns (CreatureTemplateGossip) {} 
+ }
+message CreatureTemplateGossipCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateGossip {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateGossipWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateGossipUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

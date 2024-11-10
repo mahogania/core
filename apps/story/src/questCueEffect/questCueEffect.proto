@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package questCueEffect;
+service QuestCueEffectService {
+ rpc createQuestCueEffect (QuestCueEffectCreateInput) returns (QuestCueEffect) {}
+rpc questCueEffects (findManyParams) returns (stream QuestCueEffect) {}
+rpc questCueEffect (QuestCueEffectWhereUniqueInput) returns (QuestCueEffect) {}
+rpc updateQuestCueEffect (QuestCueEffectUpdateInput) returns (QuestCueEffect) {}
+rpc deleteQuestCueEffect (QuestCueEffectWhereUniqueInput) returns (QuestCueEffect) {}
+rpc findManyQuestCueEffects (QuestCueEffectWhereUniqueInput) returns (stream Quest) {}
+rpc updateQuestCueEffects (QuestParams) returns (stream Quest) {}
+rpc connectQuestCueEffects (QuestParams) returns (Quest) {}
+rpc disconnectQuestCueEffects (QuestParams) returns (Quest) {} 
+ }
+message QuestCueEffectCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Quest quests = 3;
+string updatedAt = 4;
+};
+message QuestCueEffect {
+string createdAt = 1;
+string id = 2;
+repeated Quest quests = 3;
+string updatedAt = 4;
+};
+message QuestCueEffectWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Quest quests = 3;
+string updatedAt = 4;
+};
+message QuestCueEffectUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Quest quests = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Quest {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestParams {
+QuestCueEffectWhereUniqueInput questCueEffectWhereUniqueInput = 1;
+QuestWhereUniqueInput questWhereUniqueInput = 2;
+};

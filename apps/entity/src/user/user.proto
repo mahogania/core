@@ -1,0 +1,117 @@
+syntax = "proto3";
+
+                 package user;
+service UserService {
+ rpc createUser (UserCreateInput) returns (User) {}
+rpc users (findManyParams) returns (stream User) {}
+rpc user (UserWhereUniqueInput) returns (User) {}
+rpc updateUser (UserUpdateInput) returns (User) {}
+rpc deleteUser (UserWhereUniqueInput) returns (User) {}
+rpc findManyOwner (UserWhereUniqueInput) returns (stream Entity) {}
+rpc updateOwner (EntityParams) returns (stream Entity) {}
+rpc connectOwner (EntityParams) returns (Entity) {}
+rpc disconnectOwner (EntityParams) returns (Entity) {}
+rpc findManyUsers (UserWhereUniqueInput) returns (stream Realm) {}
+rpc updateUsers (RealmParams) returns (stream Realm) {}
+rpc connectUsers (RealmParams) returns (Realm) {}
+rpc disconnectUsers (RealmParams) returns (Realm) {} 
+ }
+message UserCreateInput {
+string createdAt = 1;
+string email = 2;
+repeated Entity entities = 3;
+string firstName = 4;
+string id = 5;
+string lastName = 6;
+string password = 7;
+repeated Realm realms = 8;
+repeated string roles = 9;
+string sessionId = 10;
+string supertokensId = 11;
+string updatedAt = 12;
+string username = 13;
+};
+message User {
+string createdAt = 1;
+string email = 2;
+repeated Entity entities = 3;
+string firstName = 4;
+string id = 5;
+string lastName = 6;
+string password = 7;
+repeated Realm realms = 8;
+repeated string roles = 9;
+string sessionId = 10;
+string supertokensId = 11;
+string updatedAt = 12;
+string username = 13;
+};
+message UserWhereUniqueInput {
+string createdAt = 1;
+string email = 2;
+repeated Entity entities = 3;
+string firstName = 4;
+string id = 5;
+string lastName = 6;
+string password = 7;
+repeated Realm realms = 8;
+repeated string roles = 9;
+string sessionId = 10;
+string supertokensId = 11;
+string updatedAt = 12;
+string username = 13;
+};
+message UserUpdateInput {
+string createdAt = 1;
+string email = 2;
+repeated Entity entities = 3;
+string firstName = 4;
+string id = 5;
+string lastName = 6;
+string password = 7;
+repeated Realm realms = 8;
+repeated string roles = 9;
+string sessionId = 10;
+string supertokensId = 11;
+string updatedAt = 12;
+string username = 13;
+};
+message findManyParams {
+
+};
+message Entity {
+string createdAt = 1;
+string description = 2;
+string displayName = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+string version = 7;
+};
+message EntityWhereUniqueInput {
+string createdAt = 1;
+string description = 2;
+string displayName = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+string version = 7;
+};
+message EntityParams {
+UserWhereUniqueInput userWhereUniqueInput = 1;
+EntityWhereUniqueInput entityWhereUniqueInput = 2;
+};
+message Realm {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message RealmWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message RealmParams {
+UserWhereUniqueInput userWhereUniqueInput = 1;
+RealmWhereUniqueInput realmWhereUniqueInput = 2;
+};

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerFactionAchievement;
+service PlayerFactionAchievementService {
+ rpc createPlayerFactionAchievement (PlayerFactionAchievementCreateInput) returns (PlayerFactionAchievement) {}
+rpc playerFactionAchievements (findManyParams) returns (stream PlayerFactionAchievement) {}
+rpc playerFactionAchievement (PlayerFactionAchievementWhereUniqueInput) returns (PlayerFactionAchievement) {}
+rpc updatePlayerFactionAchievement (PlayerFactionAchievementUpdateInput) returns (PlayerFactionAchievement) {}
+rpc deletePlayerFactionAchievement (PlayerFactionAchievementWhereUniqueInput) returns (PlayerFactionAchievement) {} 
+ }
+message PlayerFactionAchievementCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionAchievement {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionAchievementWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionAchievementUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

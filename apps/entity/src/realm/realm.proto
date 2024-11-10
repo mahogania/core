@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+                 package realm;
+service RealmService {
+ rpc createRealm (RealmCreateInput) returns (Realm) {}
+rpc realms (findManyParams) returns (stream Realm) {}
+rpc realm (RealmWhereUniqueInput) returns (Realm) {}
+rpc updateRealm (RealmUpdateInput) returns (Realm) {}
+rpc deleteRealm (RealmWhereUniqueInput) returns (Realm) {}
+rpc findManyRealms (RealmWhereUniqueInput) returns (stream User) {}
+rpc updateRealms (UserParams) returns (stream User) {}
+rpc connectRealms (UserParams) returns (User) {}
+rpc disconnectRealms (UserParams) returns (User) {} 
+ }
+message RealmCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+repeated User users = 4;
+};
+message Realm {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+repeated User users = 4;
+};
+message RealmWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+repeated User users = 4;
+};
+message RealmUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+repeated User users = 4;
+};
+message findManyParams {
+
+};
+message User {
+string createdAt = 1;
+string email = 2;
+string firstName = 3;
+string id = 4;
+string lastName = 5;
+string password = 6;
+repeated string roles = 7;
+string sessionId = 8;
+string supertokensId = 9;
+string updatedAt = 10;
+string username = 11;
+};
+message UserWhereUniqueInput {
+string createdAt = 1;
+string email = 2;
+string firstName = 3;
+string id = 4;
+string lastName = 5;
+string password = 6;
+repeated string roles = 7;
+string sessionId = 8;
+string supertokensId = 9;
+string updatedAt = 10;
+string username = 11;
+};
+message UserParams {
+RealmWhereUniqueInput realmWhereUniqueInput = 1;
+UserWhereUniqueInput userWhereUniqueInput = 2;
+};

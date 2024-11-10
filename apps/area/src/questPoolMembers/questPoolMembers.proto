@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questPoolMembers;
+service QuestPoolMembersService {
+ rpc createQuestPoolMembers (QuestPoolMembersCreateInput) returns (QuestPoolMembers) {}
+rpc questPoolMembersItems (findManyParams) returns (stream QuestPoolMembers) {}
+rpc questPoolMembers (QuestPoolMembersWhereUniqueInput) returns (QuestPoolMembers) {}
+rpc updateQuestPoolMembers (QuestPoolMembersUpdateInput) returns (QuestPoolMembers) {}
+rpc deleteQuestPoolMembers (QuestPoolMembersWhereUniqueInput) returns (QuestPoolMembers) {} 
+ }
+message QuestPoolMembersCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoolMembers {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoolMembersWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestPoolMembersUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

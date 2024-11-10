@@ -1,0 +1,21 @@
+export type AuthorizationRuleUpdateInput = {
+  approvingRole?: string | null;
+  approvingUser?: string | null;
+  basedOn?: string | null;
+  company?: string | null;
+  creation?: Date | null;
+  customerOrItem?: string | null;
+  docstatus?: number | null;
+  idx?: number | null;
+  masterName?: string | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  owner?: string | null;
+  systemRole?: string | null;
+  systemUser?: string | null;
+  toDesignation?: string | null;
+  toEmp?: string | null;
+  transaction?: string | null;
+  value?: number | null;
+};

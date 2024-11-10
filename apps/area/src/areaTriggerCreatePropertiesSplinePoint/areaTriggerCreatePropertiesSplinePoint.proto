@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+                 package areaTriggerCreatePropertiesSplinePoint;
+service AreaTriggerCreatePropertiesSplinePointService {
+ rpc createAreaTriggerCreatePropertiesSplinePoint (AreaTriggerCreatePropertiesSplinePointCreateInput) returns (AreaTriggerCreatePropertiesSplinePoint) {}
+rpc areaTriggerCreatePropertiesSplinePoints (findManyParams) returns (stream AreaTriggerCreatePropertiesSplinePoint) {}
+rpc areaTriggerCreatePropertiesSplinePoint (AreaTriggerCreatePropertiesSplinePointWhereUniqueInput) returns (AreaTriggerCreatePropertiesSplinePoint) {}
+rpc updateAreaTriggerCreatePropertiesSplinePoint (AreaTriggerCreatePropertiesSplinePointUpdateInput) returns (AreaTriggerCreatePropertiesSplinePoint) {}
+rpc deleteAreaTriggerCreatePropertiesSplinePoint (AreaTriggerCreatePropertiesSplinePointWhereUniqueInput) returns (AreaTriggerCreatePropertiesSplinePoint) {} 
+ }
+message AreaTriggerCreatePropertiesSplinePointCreateInput {
+int32 areaTriggerCreatePropertiesId = 1;
+string createdAt = 2;
+string id = 3;
+int32 idx = 4;
+bool isCustom = 5;
+string updatedAt = 6;
+int32 verifiedBuild = 7;
+int32 x = 8;
+int32 y = 9;
+int32 z = 10;
+};
+message AreaTriggerCreatePropertiesSplinePoint {
+int32 areaTriggerCreatePropertiesId = 1;
+string createdAt = 2;
+string id = 3;
+int32 idx = 4;
+bool isCustom = 5;
+string updatedAt = 6;
+int32 verifiedBuild = 7;
+int32 x = 8;
+int32 y = 9;
+int32 z = 10;
+};
+message AreaTriggerCreatePropertiesSplinePointWhereUniqueInput {
+int32 areaTriggerCreatePropertiesId = 1;
+string createdAt = 2;
+string id = 3;
+int32 idx = 4;
+bool isCustom = 5;
+string updatedAt = 6;
+int32 verifiedBuild = 7;
+int32 x = 8;
+int32 y = 9;
+int32 z = 10;
+};
+message AreaTriggerCreatePropertiesSplinePointUpdateInput {
+int32 areaTriggerCreatePropertiesId = 1;
+string createdAt = 2;
+string id = 3;
+int32 idx = 4;
+bool isCustom = 5;
+string updatedAt = 6;
+int32 verifiedBuild = 7;
+int32 x = 8;
+int32 y = 9;
+int32 z = 10;
+};
+message findManyParams {
+
+};

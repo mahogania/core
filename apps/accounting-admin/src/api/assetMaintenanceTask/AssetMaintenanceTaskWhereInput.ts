@@ -1,0 +1,30 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type AssetMaintenanceTaskWhereInput = {
+  assignTo?: StringNullableFilter;
+  assignToName?: StringNullableFilter;
+  certificateRequired?: IntNullableFilter;
+  creation?: DateTimeNullableFilter;
+  description?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  endDate?: DateTimeNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  lastCompletionDate?: DateTimeNullableFilter;
+  maintenanceStatus?: StringNullableFilter;
+  maintenanceTask?: StringNullableFilter;
+  maintenanceType?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  nextDueDate?: DateTimeNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  parentField?: StringNullableFilter;
+  parentType?: StringNullableFilter;
+  periodicity?: StringNullableFilter;
+  startDate?: DateTimeNullableFilter;
+};

@@ -1,0 +1,31 @@
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type AssetFinanceBookWhereInput = {
+  creation?: DateTimeNullableFilter;
+  dailyProrataBased?: IntNullableFilter;
+  depreciationMethod?: StringNullableFilter;
+  depreciationStartDate?: DateTimeNullableFilter;
+  docstatus?: IntNullableFilter;
+  expectedValueAfterUsefulLife?: FloatNullableFilter;
+  financeBook?: StringNullableFilter;
+  frequencyOfDepreciation?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  parentfield?: StringNullableFilter;
+  parenttype?: StringNullableFilter;
+  rateOfDepreciation?: FloatNullableFilter;
+  salvageValuePercentage?: FloatNullableFilter;
+  shiftBased?: IntNullableFilter;
+  totalNumberOfBookedDepreciations?: IntNullableFilter;
+  totalNumberOfDepreciations?: IntNullableFilter;
+  valueAfterDepreciation?: FloatNullableFilter;
+};

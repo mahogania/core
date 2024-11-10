@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+                 package achievementBehaviour;
+service AchievementBehaviourService {
+ rpc createAchievementBehaviour (AchievementBehaviourCreateInput) returns (AchievementBehaviour) {}
+rpc achievementBehaviours (findManyParams) returns (stream AchievementBehaviour) {}
+rpc achievementBehaviour (AchievementBehaviourWhereUniqueInput) returns (AchievementBehaviour) {}
+rpc updateAchievementBehaviour (AchievementBehaviourUpdateInput) returns (AchievementBehaviour) {}
+rpc deleteAchievementBehaviour (AchievementBehaviourWhereUniqueInput) returns (AchievementBehaviour) {} 
+ }
+message AchievementBehaviourCreateInput {
+string behaviourName = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message AchievementBehaviour {
+string behaviourName = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message AchievementBehaviourWhereUniqueInput {
+string behaviourName = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message AchievementBehaviourUpdateInput {
+string behaviourName = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};

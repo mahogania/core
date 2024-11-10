@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+                 package areaTriggerCreatePropertiesPolygonVertex;
+service AreaTriggerCreatePropertiesPolygonVertexService {
+ rpc createAreaTriggerCreatePropertiesPolygonVertex (AreaTriggerCreatePropertiesPolygonVertexCreateInput) returns (AreaTriggerCreatePropertiesPolygonVertex) {}
+rpc areaTriggerCreatePropertiesPolygonVertices (findManyParams) returns (stream AreaTriggerCreatePropertiesPolygonVertex) {}
+rpc areaTriggerCreatePropertiesPolygonVertex (AreaTriggerCreatePropertiesPolygonVertexWhereUniqueInput) returns (AreaTriggerCreatePropertiesPolygonVertex) {}
+rpc updateAreaTriggerCreatePropertiesPolygonVertex (AreaTriggerCreatePropertiesPolygonVertexUpdateInput) returns (AreaTriggerCreatePropertiesPolygonVertex) {}
+rpc deleteAreaTriggerCreatePropertiesPolygonVertex (AreaTriggerCreatePropertiesPolygonVertexWhereUniqueInput) returns (AreaTriggerCreatePropertiesPolygonVertex) {} 
+ }
+message AreaTriggerCreatePropertiesPolygonVertexCreateInput {
+int32 areaTriggerCreatePropertiesId = 1;
+string createdAt = 2;
+string id = 3;
+int32 idx = 4;
+bool isCustom = 5;
+string updatedAt = 6;
+int32 verifiedBuild = 7;
+int32 verticeTargetX = 8;
+int32 verticeTargetY = 9;
+int32 verticeX = 10;
+int32 verticeY = 11;
+};
+message AreaTriggerCreatePropertiesPolygonVertex {
+int32 areaTriggerCreatePropertiesId = 1;
+string createdAt = 2;
+string id = 3;
+int32 idx = 4;
+bool isCustom = 5;
+string updatedAt = 6;
+int32 verifiedBuild = 7;
+int32 verticeTargetX = 8;
+int32 verticeTargetY = 9;
+int32 verticeX = 10;
+int32 verticeY = 11;
+};
+message AreaTriggerCreatePropertiesPolygonVertexWhereUniqueInput {
+int32 areaTriggerCreatePropertiesId = 1;
+string createdAt = 2;
+string id = 3;
+int32 idx = 4;
+bool isCustom = 5;
+string updatedAt = 6;
+int32 verifiedBuild = 7;
+int32 verticeTargetX = 8;
+int32 verticeTargetY = 9;
+int32 verticeX = 10;
+int32 verticeY = 11;
+};
+message AreaTriggerCreatePropertiesPolygonVertexUpdateInput {
+int32 areaTriggerCreatePropertiesId = 1;
+string createdAt = 2;
+string id = 3;
+int32 idx = 4;
+bool isCustom = 5;
+string updatedAt = 6;
+int32 verifiedBuild = 7;
+int32 verticeTargetX = 8;
+int32 verticeTargetY = 9;
+int32 verticeX = 10;
+int32 verticeY = 11;
+};
+message findManyParams {
+
+};

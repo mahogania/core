@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package geneStat;
+service GeneStatService {
+ rpc createGeneStat (GeneStatCreateInput) returns (GeneStat) {}
+rpc geneStats (findManyParams) returns (stream GeneStat) {}
+rpc geneStat (GeneStatWhereUniqueInput) returns (GeneStat) {}
+rpc updateGeneStat (GeneStatUpdateInput) returns (GeneStat) {}
+rpc deleteGeneStat (GeneStatWhereUniqueInput) returns (GeneStat) {}
+rpc findManyGeneStats (GeneStatWhereUniqueInput) returns (stream Player) {}
+rpc updateGeneStats (PlayerParams) returns (stream Player) {}
+rpc connectGeneStats (PlayerParams) returns (Player) {}
+rpc disconnectGeneStats (PlayerParams) returns (Player) {} 
+ }
+message GeneStatCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Player players = 3;
+string updatedAt = 4;
+};
+message GeneStat {
+string createdAt = 1;
+string id = 2;
+repeated Player players = 3;
+string updatedAt = 4;
+};
+message GeneStatWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Player players = 3;
+string updatedAt = 4;
+};
+message GeneStatUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Player players = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Player {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerParams {
+GeneStatWhereUniqueInput geneStatWhereUniqueInput = 1;
+PlayerWhereUniqueInput playerWhereUniqueInput = 2;
+};

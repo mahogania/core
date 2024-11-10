@@ -1,0 +1,359 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime @default(now())
+  email     String?  @unique
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+model AreaTriggerCreateProperty {
+  animId              Int?
+  animKitId           Int?
+  areaTriggerId       Int?
+  createdAt           DateTime @default(now())
+  decalPropertiesId   Int?
+  facingCurveId       Int?
+  flags               Int?
+  id                  String   @id @default(cuid())
+  isAreatriggerCustom Boolean?
+  isCustom            Boolean?
+  morphCurveId        Int?
+  moveCurveId         Int?
+  scaleCurveId        Int?
+  scriptName          String?
+  shape               Int?
+  shapeData0          Float?
+  shapeData1          Float?
+  shapeData2          Float?
+  shapeData3          Float?
+  shapeData4          Float?
+  shapeData5          Float?
+  shapeData6          Float?
+  shapeData7          Float?
+  timeToTarget        Int?
+  timeToTargetScale   Int?
+  updatedAt           DateTime @updatedAt
+  verifiedBuild       Int?
+}
+
+model AreaTriggerCreatePropertiesOrbit {
+  areaTriggerCreatePropertiesId Int?
+  blendFromRadius               Float?
+  canLoop                       Boolean?
+  circleRadius                  Float?
+  counterClockwise              Boolean?
+  createdAt                     DateTime @default(now())
+  id                            String   @id @default(cuid())
+  initialAngle                  Float?
+  isCustom                      Boolean?
+  startDelay                    Int?
+  updatedAt                     DateTime @updatedAt
+  verifiedBuild                 Int?
+  zOffset                       Float?
+}
+
+model AreaTriggerCreatePropertiesPolygonVertex {
+  areaTriggerCreatePropertiesId Int?
+  createdAt                     DateTime @default(now())
+  id                            String   @id @default(cuid())
+  idx                           Int?
+  isCustom                      Boolean?
+  updatedAt                     DateTime @updatedAt
+  verifiedBuild                 Int?
+  verticeTargetX                Float?
+  verticeTargetY                Float?
+  verticeX                      Float?
+  verticeY                      Float?
+}
+
+model AreaTriggerCreatePropertiesSplinePoint {
+  areaTriggerCreatePropertiesId Int?
+  createdAt                     DateTime @default(now())
+  id                            String   @id @default(cuid())
+  idx                           Int?
+  isCustom                      Boolean?
+  updatedAt                     DateTime @updatedAt
+  verifiedBuild                 Int?
+  x                             Float?
+  y                             Float?
+  z                             Float?
+}
+
+model AreaTriggerInvolvedRelation {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  quest     Int?
+  updatedAt DateTime @updatedAt
+}
+
+model AreaTriggerScript {
+  createdAt  DateTime @default(now())
+  entry      Int?
+  id         String   @id @default(cuid())
+  scriptName String?
+  updatedAt  DateTime @updatedAt
+}
+
+model AreaTriggerTavern {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  name      String?
+  updatedAt DateTime @updatedAt
+}
+
+model AreaTriggerTeleport {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  name      String?
+  portLocId Int?
+  updatedAt DateTime @updatedAt
+}
+
+model AreaTriggerTemplate {
+  createdAt     DateTime @default(now())
+  flags         Int?
+  id            String   @id @default(cuid())
+  isCustom      Boolean?
+  updatedAt     DateTime @updatedAt
+  verifiedBuild Int?
+}
+
+model AreaTriggerTemplateAction {
+  actionParam   Int?
+  actionType    Int?
+  areaTriggerId Int?
+  createdAt     DateTime @default(now())
+  id            String   @id @default(cuid())
+  isCustom      Boolean?
+  targetType    Int?
+  updatedAt     DateTime @updatedAt
+}
+
+model PointsOfInterestLocale {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PointsOfInterest {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PoolMembers {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PoolTemplate {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestPoi {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestRewardChoiceItems {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model ProspectingLootTemplate {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestPoolMembers {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestDetails {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestTemplate {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestTemplateAddon {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestMailSender {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestRequestItems {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestGreetingLocale {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestPoiPoints {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestRewardDisplaySpell {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestTemplateLocale {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestCompletionLogConditional {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestPoolTemplate {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestDescriptionConditional {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestRequestItemsConditional {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestVisualEffect {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestGreeting {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestOfferRewardConditional {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestObjectivesLocale {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestObjectives {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestOfferReward {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestOfferRewardLocale {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestObjectivesCompletionEffect {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model QuestRequestItemsLocale {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model ScenarioPoiPoints {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model ScenarioPoi {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Scenarios {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model SceneTemplate {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model ScriptSplineChainWaypoints {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model ScriptSplineChainMeta {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}

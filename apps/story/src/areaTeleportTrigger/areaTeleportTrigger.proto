@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+                 package areaTeleportTrigger;
+service AreaTeleportTriggerService {
+ rpc createAreaTeleportTrigger (AreaTeleportTriggerCreateInput) returns (AreaTeleportTrigger) {}
+rpc areaTeleportTriggers (findManyParams) returns (stream AreaTeleportTrigger) {}
+rpc areaTeleportTrigger (AreaTeleportTriggerWhereUniqueInput) returns (AreaTeleportTrigger) {}
+rpc updateAreaTeleportTrigger (AreaTeleportTriggerUpdateInput) returns (AreaTeleportTrigger) {}
+rpc deleteAreaTeleportTrigger (AreaTeleportTriggerWhereUniqueInput) returns (AreaTeleportTrigger) {} 
+ }
+message AreaTeleportTriggerCreateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaTeleportTrigger {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaTeleportTriggerWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaTeleportTriggerUpdateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};

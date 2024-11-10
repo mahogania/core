@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package explorationBasexp;
+service ExplorationBasexpService {
+ rpc createExplorationBasexp (ExplorationBasexpCreateInput) returns (ExplorationBasexp) {}
+rpc explorationBasexps (findManyParams) returns (stream ExplorationBasexp) {}
+rpc explorationBasexp (ExplorationBasexpWhereUniqueInput) returns (ExplorationBasexp) {}
+rpc updateExplorationBasexp (ExplorationBasexpUpdateInput) returns (ExplorationBasexp) {}
+rpc deleteExplorationBasexp (ExplorationBasexpWhereUniqueInput) returns (ExplorationBasexp) {} 
+ }
+message ExplorationBasexpCreateInput {
+int32 basexp = 1;
+string createdAt = 2;
+string id = 3;
+int32 level = 4;
+string updatedAt = 5;
+};
+message ExplorationBasexp {
+int32 basexp = 1;
+string createdAt = 2;
+string id = 3;
+int32 level = 4;
+string updatedAt = 5;
+};
+message ExplorationBasexpWhereUniqueInput {
+int32 basexp = 1;
+string createdAt = 2;
+string id = 3;
+int32 level = 4;
+string updatedAt = 5;
+};
+message ExplorationBasexpUpdateInput {
+int32 basexp = 1;
+string createdAt = 2;
+string id = 3;
+int32 level = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

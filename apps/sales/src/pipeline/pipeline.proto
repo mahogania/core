@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+                 package pipeline;
+service PipelineService {
+ rpc createPipeline (PipelineCreateInput) returns (Pipeline) {}
+rpc pipelines (findManyParams) returns (stream Pipeline) {}
+rpc pipeline (PipelineWhereUniqueInput) returns (Pipeline) {}
+rpc updatePipeline (PipelineUpdateInput) returns (Pipeline) {}
+rpc deletePipeline (PipelineWhereUniqueInput) returns (Pipeline) {}
+rpc findManyPipeline (PipelineWhereUniqueInput) returns (stream Configuration) {}
+rpc updatePipeline (ConfigurationParams) returns (stream Configuration) {}
+rpc connectPipeline (ConfigurationParams) returns (Configuration) {}
+rpc disconnectPipeline (ConfigurationParams) returns (Configuration) {}
+rpc findManyPipeline (PipelineWhereUniqueInput) returns (stream Process) {}
+rpc updatePipeline (ProcessParams) returns (stream Process) {}
+rpc connectPipeline (ProcessParams) returns (Process) {}
+rpc disconnectPipeline (ProcessParams) returns (Process) {} 
+ }
+message PipelineCreateInput {
+repeated Configuration Configurations = 1;
+string createdAt = 2;
+string id = 3;
+repeated Process processes = 4;
+string updatedAt = 5;
+};
+message Pipeline {
+repeated Configuration Configurations = 1;
+string createdAt = 2;
+string id = 3;
+repeated Process processes = 4;
+string updatedAt = 5;
+};
+message PipelineWhereUniqueInput {
+repeated Configuration Configurations = 1;
+string createdAt = 2;
+string id = 3;
+repeated Process processes = 4;
+string updatedAt = 5;
+};
+message PipelineUpdateInput {
+repeated Configuration Configurations = 1;
+string createdAt = 2;
+string id = 3;
+repeated Process processes = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
+message Configuration {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ConfigurationWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ConfigurationParams {
+PipelineWhereUniqueInput pipelineWhereUniqueInput = 1;
+ConfigurationWhereUniqueInput configurationWhereUniqueInput = 2;
+};
+message Process {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ProcessWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ProcessParams {
+PipelineWhereUniqueInput pipelineWhereUniqueInput = 1;
+ProcessWhereUniqueInput processWhereUniqueInput = 2;
+};

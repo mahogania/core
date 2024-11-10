@@ -1,0 +1,22 @@
+export type ItemDefaultUpdateInput = {
+  buyingCostCenter?: string | null;
+  company?: string | null;
+  defaultDiscountAccount?: string | null;
+  defaultPriceList?: string | null;
+  defaultProvisionalAccount?: string | null;
+  defaultSupplier?: string | null;
+  defaultWarehouse?: string | null;
+  deferredExpenseAccount?: string | null;
+  deferredRevenueAccount?: string | null;
+  docstatus?: number | null;
+  expenseAccount?: string | null;
+  idx?: number | null;
+  incomeAccount?: string | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  owner?: string | null;
+  parent?: string | null;
+  parentfield?: string | null;
+  parenttype?: string | null;
+  sellingCostCenter?: string | null;
+};

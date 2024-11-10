@@ -1,0 +1,129 @@
+syntax = "proto3";
+
+                 package areaTriggerCreateProperty;
+service AreaTriggerCreatePropertyService {
+ rpc createAreaTriggerCreateProperty (AreaTriggerCreatePropertyCreateInput) returns (AreaTriggerCreateProperty) {}
+rpc areaTriggerCreateProperties (findManyParams) returns (stream AreaTriggerCreateProperty) {}
+rpc areaTriggerCreateProperty (AreaTriggerCreatePropertyWhereUniqueInput) returns (AreaTriggerCreateProperty) {}
+rpc updateAreaTriggerCreateProperty (AreaTriggerCreatePropertyUpdateInput) returns (AreaTriggerCreateProperty) {}
+rpc deleteAreaTriggerCreateProperty (AreaTriggerCreatePropertyWhereUniqueInput) returns (AreaTriggerCreateProperty) {} 
+ }
+message AreaTriggerCreatePropertyCreateInput {
+int32 animId = 1;
+int32 animKitId = 2;
+int32 areaTriggerId = 3;
+string createdAt = 4;
+int32 decalPropertiesId = 5;
+int32 facingCurveId = 6;
+int32 flags = 7;
+string id = 8;
+bool isAreatriggerCustom = 9;
+bool isCustom = 10;
+int32 morphCurveId = 11;
+int32 moveCurveId = 12;
+int32 scaleCurveId = 13;
+string scriptName = 14;
+int32 shape = 15;
+int32 shapeData0 = 16;
+int32 shapeData1 = 17;
+int32 shapeData2 = 18;
+int32 shapeData3 = 19;
+int32 shapeData4 = 20;
+int32 shapeData5 = 21;
+int32 shapeData6 = 22;
+int32 shapeData7 = 23;
+int32 timeToTarget = 24;
+int32 timeToTargetScale = 25;
+string updatedAt = 26;
+int32 verifiedBuild = 27;
+};
+message AreaTriggerCreateProperty {
+int32 animId = 1;
+int32 animKitId = 2;
+int32 areaTriggerId = 3;
+string createdAt = 4;
+int32 decalPropertiesId = 5;
+int32 facingCurveId = 6;
+int32 flags = 7;
+string id = 8;
+bool isAreatriggerCustom = 9;
+bool isCustom = 10;
+int32 morphCurveId = 11;
+int32 moveCurveId = 12;
+int32 scaleCurveId = 13;
+string scriptName = 14;
+int32 shape = 15;
+int32 shapeData0 = 16;
+int32 shapeData1 = 17;
+int32 shapeData2 = 18;
+int32 shapeData3 = 19;
+int32 shapeData4 = 20;
+int32 shapeData5 = 21;
+int32 shapeData6 = 22;
+int32 shapeData7 = 23;
+int32 timeToTarget = 24;
+int32 timeToTargetScale = 25;
+string updatedAt = 26;
+int32 verifiedBuild = 27;
+};
+message AreaTriggerCreatePropertyWhereUniqueInput {
+int32 animId = 1;
+int32 animKitId = 2;
+int32 areaTriggerId = 3;
+string createdAt = 4;
+int32 decalPropertiesId = 5;
+int32 facingCurveId = 6;
+int32 flags = 7;
+string id = 8;
+bool isAreatriggerCustom = 9;
+bool isCustom = 10;
+int32 morphCurveId = 11;
+int32 moveCurveId = 12;
+int32 scaleCurveId = 13;
+string scriptName = 14;
+int32 shape = 15;
+int32 shapeData0 = 16;
+int32 shapeData1 = 17;
+int32 shapeData2 = 18;
+int32 shapeData3 = 19;
+int32 shapeData4 = 20;
+int32 shapeData5 = 21;
+int32 shapeData6 = 22;
+int32 shapeData7 = 23;
+int32 timeToTarget = 24;
+int32 timeToTargetScale = 25;
+string updatedAt = 26;
+int32 verifiedBuild = 27;
+};
+message AreaTriggerCreatePropertyUpdateInput {
+int32 animId = 1;
+int32 animKitId = 2;
+int32 areaTriggerId = 3;
+string createdAt = 4;
+int32 decalPropertiesId = 5;
+int32 facingCurveId = 6;
+int32 flags = 7;
+string id = 8;
+bool isAreatriggerCustom = 9;
+bool isCustom = 10;
+int32 morphCurveId = 11;
+int32 moveCurveId = 12;
+int32 scaleCurveId = 13;
+string scriptName = 14;
+int32 shape = 15;
+int32 shapeData0 = 16;
+int32 shapeData1 = 17;
+int32 shapeData2 = 18;
+int32 shapeData3 = 19;
+int32 shapeData4 = 20;
+int32 shapeData5 = 21;
+int32 shapeData6 = 22;
+int32 shapeData7 = 23;
+int32 timeToTarget = 24;
+int32 timeToTargetScale = 25;
+string updatedAt = 26;
+int32 verifiedBuild = 27;
+};
+message findManyParams {
+
+};

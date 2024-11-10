@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+                 package area;
+service AreaService {
+ rpc createArea (AreaCreateInput) returns (Area) {}
+rpc areas (findManyParams) returns (stream Area) {}
+rpc area (AreaWhereUniqueInput) returns (Area) {}
+rpc updateArea (AreaUpdateInput) returns (Area) {}
+rpc deleteArea (AreaWhereUniqueInput) returns (Area) {}
+rpc findManyArea (AreaWhereUniqueInput) returns (stream AreaQuestTrigger) {}
+rpc updateArea (AreaQuestTriggerParams) returns (stream AreaQuestTrigger) {}
+rpc connectArea (AreaQuestTriggerParams) returns (AreaQuestTrigger) {}
+rpc disconnectArea (AreaQuestTriggerParams) returns (AreaQuestTrigger) {}
+rpc findManyArea (AreaWhereUniqueInput) returns (stream AreaScenarioTrigger) {}
+rpc updateArea (AreaScenarioTriggerParams) returns (stream AreaScenarioTrigger) {}
+rpc connectArea (AreaScenarioTriggerParams) returns (AreaScenarioTrigger) {}
+rpc disconnectArea (AreaScenarioTriggerParams) returns (AreaScenarioTrigger) {}
+rpc findManyArea (AreaWhereUniqueInput) returns (stream AreaTeleportTrigger) {}
+rpc updateArea (AreaTeleportTriggerParams) returns (stream AreaTeleportTrigger) {}
+rpc connectArea (AreaTeleportTriggerParams) returns (AreaTeleportTrigger) {}
+rpc disconnectArea (AreaTeleportTriggerParams) returns (AreaTeleportTrigger) {} 
+ }
+message AreaCreateInput {
+repeated AreaQuestTrigger areaQuestTriggers = 1;
+repeated AreaScenarioTrigger areaScenarioTriggers = 2;
+repeated AreaTeleportTrigger areaTeleportTriggers = 3;
+string createdAt = 4;
+string id = 5;
+string updatedAt = 6;
+};
+message Area {
+repeated AreaQuestTrigger areaQuestTriggers = 1;
+repeated AreaScenarioTrigger areaScenarioTriggers = 2;
+repeated AreaTeleportTrigger areaTeleportTriggers = 3;
+string createdAt = 4;
+string id = 5;
+string updatedAt = 6;
+};
+message AreaWhereUniqueInput {
+repeated AreaQuestTrigger areaQuestTriggers = 1;
+repeated AreaScenarioTrigger areaScenarioTriggers = 2;
+repeated AreaTeleportTrigger areaTeleportTriggers = 3;
+string createdAt = 4;
+string id = 5;
+string updatedAt = 6;
+};
+message AreaUpdateInput {
+repeated AreaQuestTrigger areaQuestTriggers = 1;
+repeated AreaScenarioTrigger areaScenarioTriggers = 2;
+repeated AreaTeleportTrigger areaTeleportTriggers = 3;
+string createdAt = 4;
+string id = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message AreaQuestTrigger {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AreaQuestTriggerWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AreaQuestTriggerParams {
+AreaWhereUniqueInput areaWhereUniqueInput = 1;
+AreaQuestTriggerWhereUniqueInput areaquesttriggerWhereUniqueInput = 2;
+};
+message AreaScenarioTrigger {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaScenarioTriggerWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaScenarioTriggerParams {
+AreaWhereUniqueInput areaWhereUniqueInput = 1;
+AreaScenarioTriggerWhereUniqueInput areascenariotriggerWhereUniqueInput = 2;
+};
+message AreaTeleportTrigger {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaTeleportTriggerWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaTeleportTriggerParams {
+AreaWhereUniqueInput areaWhereUniqueInput = 1;
+AreaTeleportTriggerWhereUniqueInput areateleporttriggerWhereUniqueInput = 2;
+};

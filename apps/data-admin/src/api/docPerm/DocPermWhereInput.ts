@@ -1,0 +1,36 @@
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+
+export type DocPermWhereInput = {
+  amend?: IntNullableFilter;
+  cancel?: IntNullableFilter;
+  create?: IntNullableFilter;
+  creation?: DateTimeNullableFilter;
+  deleteField?: IntNullableFilter;
+  docstatus?: IntNullableFilter;
+  email?: IntNullableFilter;
+  exportField?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  ifOwner?: IntNullableFilter;
+  importField?: IntNullableFilter;
+  match?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  parentfield?: StringNullableFilter;
+  parenttype?: StringNullableFilter;
+  permlevel?: IntNullableFilter;
+  print?: IntNullableFilter;
+  read?: IntNullableFilter;
+  report?: IntNullableFilter;
+  role?: StringNullableFilter;
+  select?: IntNullableFilter;
+  share?: IntNullableFilter;
+  submit?: IntNullableFilter;
+  write?: IntNullableFilter;
+};
