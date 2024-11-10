@@ -1,0 +1,20 @@
+export type CouponCodeUpdateInput = {
+  amendedFrom?: string | null;
+  couponCode?: string | null;
+  couponName?: string | null;
+  couponType?: string | null;
+  creation?: Date | null;
+  customer?: string | null;
+  description?: string | null;
+  docstatus?: number | null;
+  idx?: number | null;
+  maximumUse?: number | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  owner?: string | null;
+  pricingRule?: string | null;
+  used?: number | null;
+  validFrom?: Date | null;
+  validUpto?: Date | null;
+};

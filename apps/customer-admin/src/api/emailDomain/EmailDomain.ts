@@ -1,0 +1,24 @@
+export type EmailDomain = {
+  appendEmailsToSentFolder: boolean | null;
+  attachmentLimit: number | null;
+  createdAt: Date;
+  creation: Date | null;
+  docstatus: number | null;
+  domainName: string | null;
+  emailServer: string | null;
+  id: string;
+  idx: number | null;
+  incomingPort: string | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  smtpPort: string | null;
+  smtpServer: string | null;
+  updatedAt: Date;
+  useImap: boolean | null;
+  useSsl: boolean | null;
+  useSslForOutgoing: boolean | null;
+  useStarttls: boolean | null;
+  useTls: boolean | null;
+};
