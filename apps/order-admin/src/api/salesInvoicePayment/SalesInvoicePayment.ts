@@ -1,0 +1,23 @@
+export type SalesInvoicePayment = {
+  account: string | null;
+  amount: number | null;
+  baseAmount: number | null;
+  clearanceDate: Date | null;
+  createdAt: Date;
+  creation: Date | null;
+  defaultField: number | null;
+  docstatus: number | null;
+  id: string;
+  idx: number | null;
+  modeOfPayment: string | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  parent: string | null;
+  parentField: string | null;
+  parentType: string | null;
+  referenceNo: string | null;
+  typeField: string | null;
+  updatedAt: Date;
+};

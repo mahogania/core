@@ -1,0 +1,36 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type PurchaseTaxesAndChargesOrderByInput = {
+  accountCurrency?: SortOrder;
+  accountHead?: SortOrder;
+  addDeductTax?: SortOrder;
+  baseTaxAmount?: SortOrder;
+  baseTaxAmountAfterDiscountAmount?: SortOrder;
+  baseTotal?: SortOrder;
+  category?: SortOrder;
+  chargeType?: SortOrder;
+  costCenter?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  description?: SortOrder;
+  docstatus?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  includedInPaidAmount?: SortOrder;
+  includedInPrintRate?: SortOrder;
+  isTaxWithholdingAccount?: SortOrder;
+  itemWiseTaxDetail?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  owner?: SortOrder;
+  parent?: SortOrder;
+  parentField?: SortOrder;
+  parentType?: SortOrder;
+  rate?: SortOrder;
+  rowId?: SortOrder;
+  taxAmount?: SortOrder;
+  taxAmountAfterDiscountAmount?: SortOrder;
+  total?: SortOrder;
+  updatedAt?: SortOrder;
+};
