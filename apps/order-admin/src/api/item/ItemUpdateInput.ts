@@ -1,0 +1,24 @@
+export type ItemUpdateInput = {
+  allowAlternativeItem?: number | null;
+  autoCreateAssets?: number | null;
+  creation?: Date | null;
+  disabled?: number | null;
+  docstatus?: number | null;
+  hasVariants?: number | null;
+  idx?: number | null;
+  isFixedAsset?: number | null;
+  isGroupedAsset?: number | null;
+  isStockItem?: number | null;
+  itemCode?: string | null;
+  itemGroup?: string | null;
+  itemName?: string | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  namingSeries?: string | null;
+  openingStock?: number | null;
+  owner?: string | null;
+  standardRate?: number | null;
+  stockUom?: string | null;
+  valuationRate?: number | null;
+};
