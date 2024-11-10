@@ -12,6 +12,12 @@ import { BomWebsiteOperationModule } from "./bomWebsiteOperation/bomWebsiteOpera
 import { BomModule } from "./bom/bom.module";
 import { BatchModule } from "./batch/batch.module";
 import { BinModule } from "./bin/bin.module";
+import { InstallationNoteItemModule } from "./installationNoteItem/installationNoteItem.module";
+import { InventoryDimensionModule } from "./inventoryDimension/inventoryDimension.module";
+import { LandedCostItemModule } from "./landedCostItem/landedCostItem.module";
+import { LandedCostPurchaseReceiptModule } from "./landedCostPurchaseReceipt/landedCostPurchaseReceipt.module";
+import { LandedCostTaxesAndChargesModule } from "./landedCostTaxesAndCharges/landedCostTaxesAndCharges.module";
+import { LandedCostVoucherModule } from "./landedCostVoucher/landedCostVoucher.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -37,6 +43,12 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     BomModule,
     BatchModule,
     BinModule,
+    InstallationNoteItemModule,
+    InventoryDimensionModule,
+    LandedCostItemModule,
+    LandedCostPurchaseReceiptModule,
+    LandedCostTaxesAndChargesModule,
+    LandedCostVoucherModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

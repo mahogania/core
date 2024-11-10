@@ -57,6 +57,30 @@ import { BinList } from "./bin/BinList";
 import { BinCreate } from "./bin/BinCreate";
 import { BinEdit } from "./bin/BinEdit";
 import { BinShow } from "./bin/BinShow";
+import { InstallationNoteItemList } from "./installationNoteItem/InstallationNoteItemList";
+import { InstallationNoteItemCreate } from "./installationNoteItem/InstallationNoteItemCreate";
+import { InstallationNoteItemEdit } from "./installationNoteItem/InstallationNoteItemEdit";
+import { InstallationNoteItemShow } from "./installationNoteItem/InstallationNoteItemShow";
+import { InventoryDimensionList } from "./inventoryDimension/InventoryDimensionList";
+import { InventoryDimensionCreate } from "./inventoryDimension/InventoryDimensionCreate";
+import { InventoryDimensionEdit } from "./inventoryDimension/InventoryDimensionEdit";
+import { InventoryDimensionShow } from "./inventoryDimension/InventoryDimensionShow";
+import { LandedCostItemList } from "./landedCostItem/LandedCostItemList";
+import { LandedCostItemCreate } from "./landedCostItem/LandedCostItemCreate";
+import { LandedCostItemEdit } from "./landedCostItem/LandedCostItemEdit";
+import { LandedCostItemShow } from "./landedCostItem/LandedCostItemShow";
+import { LandedCostPurchaseReceiptList } from "./landedCostPurchaseReceipt/LandedCostPurchaseReceiptList";
+import { LandedCostPurchaseReceiptCreate } from "./landedCostPurchaseReceipt/LandedCostPurchaseReceiptCreate";
+import { LandedCostPurchaseReceiptEdit } from "./landedCostPurchaseReceipt/LandedCostPurchaseReceiptEdit";
+import { LandedCostPurchaseReceiptShow } from "./landedCostPurchaseReceipt/LandedCostPurchaseReceiptShow";
+import { LandedCostTaxesAndChargesList } from "./landedCostTaxesAndCharges/LandedCostTaxesAndChargesList";
+import { LandedCostTaxesAndChargesCreate } from "./landedCostTaxesAndCharges/LandedCostTaxesAndChargesCreate";
+import { LandedCostTaxesAndChargesEdit } from "./landedCostTaxesAndCharges/LandedCostTaxesAndChargesEdit";
+import { LandedCostTaxesAndChargesShow } from "./landedCostTaxesAndCharges/LandedCostTaxesAndChargesShow";
+import { LandedCostVoucherList } from "./landedCostVoucher/LandedCostVoucherList";
+import { LandedCostVoucherCreate } from "./landedCostVoucher/LandedCostVoucherCreate";
+import { LandedCostVoucherEdit } from "./landedCostVoucher/LandedCostVoucherEdit";
+import { LandedCostVoucherShow } from "./landedCostVoucher/LandedCostVoucherShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -160,6 +184,48 @@ const App = (): React.ReactElement => {
           edit={BinEdit}
           create={BinCreate}
           show={BinShow}
+        />
+        <Resource
+          name="InstallationNoteItem"
+          list={InstallationNoteItemList}
+          edit={InstallationNoteItemEdit}
+          create={InstallationNoteItemCreate}
+          show={InstallationNoteItemShow}
+        />
+        <Resource
+          name="InventoryDimension"
+          list={InventoryDimensionList}
+          edit={InventoryDimensionEdit}
+          create={InventoryDimensionCreate}
+          show={InventoryDimensionShow}
+        />
+        <Resource
+          name="LandedCostItem"
+          list={LandedCostItemList}
+          edit={LandedCostItemEdit}
+          create={LandedCostItemCreate}
+          show={LandedCostItemShow}
+        />
+        <Resource
+          name="LandedCostPurchaseReceipt"
+          list={LandedCostPurchaseReceiptList}
+          edit={LandedCostPurchaseReceiptEdit}
+          create={LandedCostPurchaseReceiptCreate}
+          show={LandedCostPurchaseReceiptShow}
+        />
+        <Resource
+          name="LandedCostTaxesAndCharges"
+          list={LandedCostTaxesAndChargesList}
+          edit={LandedCostTaxesAndChargesEdit}
+          create={LandedCostTaxesAndChargesCreate}
+          show={LandedCostTaxesAndChargesShow}
+        />
+        <Resource
+          name="LandedCostVoucher"
+          list={LandedCostVoucherList}
+          edit={LandedCostVoucherEdit}
+          create={LandedCostVoucherCreate}
+          show={LandedCostVoucherShow}
         />
       </Admin>
     </div>
