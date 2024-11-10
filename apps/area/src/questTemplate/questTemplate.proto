@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questTemplate;
+service QuestTemplateService {
+ rpc createQuestTemplate (QuestTemplateCreateInput) returns (QuestTemplate) {}
+rpc questTemplates (findManyParams) returns (stream QuestTemplate) {}
+rpc questTemplate (QuestTemplateWhereUniqueInput) returns (QuestTemplate) {}
+rpc updateQuestTemplate (QuestTemplateUpdateInput) returns (QuestTemplate) {}
+rpc deleteQuestTemplate (QuestTemplateWhereUniqueInput) returns (QuestTemplate) {} 
+ }
+message QuestTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};
