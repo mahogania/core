@@ -1,0 +1,31 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type BudgetOrderByInput = {
+  actionIfAccumulatedMonthlyBudgetExceeded?: SortOrder;
+  actionIfAccumulatedMonthlyBudgetExceededOnMr?: SortOrder;
+  actionIfAccumulatedMonthlyBudgetExceededOnPo?: SortOrder;
+  actionIfAnnualBudgetExceeded?: SortOrder;
+  actionIfAnnualBudgetExceededOnMr?: SortOrder;
+  actionIfAnnualBudgetExceededOnPo?: SortOrder;
+  amendedFrom?: SortOrder;
+  applicableOnBookingActualExpenses?: SortOrder;
+  applicableOnMaterialRequest?: SortOrder;
+  applicableOnPurchaseOrder?: SortOrder;
+  budgetAgainst?: SortOrder;
+  company?: SortOrder;
+  costCenter?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  docstatus?: SortOrder;
+  fiscalYear?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  monthlyDistribution?: SortOrder;
+  name?: SortOrder;
+  namingSeries?: SortOrder;
+  owner?: SortOrder;
+  project?: SortOrder;
+  updatedAt?: SortOrder;
+};

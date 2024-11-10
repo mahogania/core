@@ -1,0 +1,32 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type BudgetWhereInput = {
+  actionIfAccumulatedMonthlyBudgetExceeded?: StringNullableFilter;
+  actionIfAccumulatedMonthlyBudgetExceededOnMr?: StringNullableFilter;
+  actionIfAccumulatedMonthlyBudgetExceededOnPo?: StringNullableFilter;
+  actionIfAnnualBudgetExceeded?: StringNullableFilter;
+  actionIfAnnualBudgetExceededOnMr?: StringNullableFilter;
+  actionIfAnnualBudgetExceededOnPo?: StringNullableFilter;
+  amendedFrom?: StringNullableFilter;
+  applicableOnBookingActualExpenses?: IntNullableFilter;
+  applicableOnMaterialRequest?: IntNullableFilter;
+  applicableOnPurchaseOrder?: IntNullableFilter;
+  budgetAgainst?: StringNullableFilter;
+  company?: StringNullableFilter;
+  costCenter?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  docstatus?: IntNullableFilter;
+  fiscalYear?: StringNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  monthlyDistribution?: StringNullableFilter;
+  name?: StringNullableFilter;
+  namingSeries?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  project?: StringNullableFilter;
+};

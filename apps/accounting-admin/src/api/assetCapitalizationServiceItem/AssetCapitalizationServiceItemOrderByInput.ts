@@ -1,0 +1,36 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type AssetCapitalizationServiceItemOrderByInput = {
+  actualQty?: SortOrder;
+  amount?: SortOrder;
+  batchNo?: SortOrder;
+  costCenter?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  docstatus?: SortOrder;
+  expenseAccount?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  itemCode?: SortOrder;
+  itemName?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  owner?: SortOrder;
+  parent?: SortOrder;
+  parentField?: SortOrder;
+  parentType?: SortOrder;
+  parentfield?: SortOrder;
+  parenttype?: SortOrder;
+  qty?: SortOrder;
+  rate?: SortOrder;
+  serialAndBatchBundle?: SortOrder;
+  serialNo?: SortOrder;
+  stockQty?: SortOrder;
+  stockUom?: SortOrder;
+  uom?: SortOrder;
+  updatedAt?: SortOrder;
+  useSerialBatchFields?: SortOrder;
+  valuationRate?: SortOrder;
+  warehouse?: SortOrder;
+};

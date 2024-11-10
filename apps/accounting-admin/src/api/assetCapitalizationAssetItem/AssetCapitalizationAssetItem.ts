@@ -1,0 +1,24 @@
+export type AssetCapitalizationAssetItem = {
+  asset: string | null;
+  assetName: string | null;
+  assetValue: number | null;
+  costCenter: string | null;
+  createdAt: Date;
+  creation: Date | null;
+  currentAssetValue: number | null;
+  docstatus: number | null;
+  financeBook: string | null;
+  fixedAssetAccount: string | null;
+  id: string;
+  idx: number | null;
+  itemCode: string | null;
+  itemName: string | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  parent: string | null;
+  parentfield: string | null;
+  parenttype: string | null;
+  updatedAt: Date;
+};
