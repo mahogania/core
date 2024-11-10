@@ -1,0 +1,31 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type ItemPriceOrderByInput = {
+  batchNo?: SortOrder;
+  brand?: SortOrder;
+  buying?: SortOrder;
+  createdAt?: SortOrder;
+  currency?: SortOrder;
+  customer?: SortOrder;
+  docstatus?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  itemCode?: SortOrder;
+  itemDescription?: SortOrder;
+  itemName?: SortOrder;
+  leadTimeDays?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  note?: SortOrder;
+  owner?: SortOrder;
+  packingUnit?: SortOrder;
+  priceList?: SortOrder;
+  priceListRate?: SortOrder;
+  reference?: SortOrder;
+  selling?: SortOrder;
+  supplier?: SortOrder;
+  uom?: SortOrder;
+  updatedAt?: SortOrder;
+  validFrom?: SortOrder;
+  validUpto?: SortOrder;
+};

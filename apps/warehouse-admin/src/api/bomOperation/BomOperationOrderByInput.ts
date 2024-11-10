@@ -1,0 +1,33 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type BomOperationOrderByInput = {
+  baseCostPerUnit?: SortOrder;
+  baseHourRate?: SortOrder;
+  baseOperatingCost?: SortOrder;
+  batchSize?: SortOrder;
+  costPerUnit?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  description?: SortOrder;
+  docstatus?: SortOrder;
+  fixedTime?: SortOrder;
+  hourRate?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  image?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  operatingCost?: SortOrder;
+  operation?: SortOrder;
+  owner?: SortOrder;
+  parent?: SortOrder;
+  parentfield?: SortOrder;
+  parenttype?: SortOrder;
+  sequenceId?: SortOrder;
+  setCostBasedOnBomQty?: SortOrder;
+  timeInMins?: SortOrder;
+  updatedAt?: SortOrder;
+  workstation?: SortOrder;
+  workstationType?: SortOrder;
+};

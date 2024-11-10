@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+                 package scenarioRegion;
+service ScenarioRegionService {
+ rpc createScenarioRegion (ScenarioRegionCreateInput) returns (ScenarioRegion) {}
+rpc scenarioRegions (findManyParams) returns (stream ScenarioRegion) {}
+rpc scenarioRegion (ScenarioRegionWhereUniqueInput) returns (ScenarioRegion) {}
+rpc updateScenarioRegion (ScenarioRegionUpdateInput) returns (ScenarioRegion) {}
+rpc deleteScenarioRegion (ScenarioRegionWhereUniqueInput) returns (ScenarioRegion) {}
+rpc findManyScenarioRegions (ScenarioRegionWhereUniqueInput) returns (stream Scenario) {}
+rpc updateScenarioRegions (ScenarioParams) returns (stream Scenario) {}
+rpc connectScenarioRegions (ScenarioParams) returns (Scenario) {}
+rpc disconnectScenarioRegions (ScenarioParams) returns (Scenario) {} 
+ }
+message ScenarioRegionCreateInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string name = 4;
+repeated Scenario scenarios = 5;
+string updatedAt = 6;
+};
+message ScenarioRegion {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string name = 4;
+repeated Scenario scenarios = 5;
+string updatedAt = 6;
+};
+message ScenarioRegionWhereUniqueInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string name = 4;
+repeated Scenario scenarios = 5;
+string updatedAt = 6;
+};
+message ScenarioRegionUpdateInput {
+string createdAt = 1;
+string description = 2;
+string id = 3;
+string name = 4;
+repeated Scenario scenarios = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message Scenario {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScenarioWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScenarioParams {
+ScenarioRegionWhereUniqueInput scenarioRegionWhereUniqueInput = 1;
+ScenarioWhereUniqueInput scenarioWhereUniqueInput = 2;
+};

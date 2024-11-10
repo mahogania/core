@@ -1,0 +1,27 @@
+export type Address = {
+  addressLine1: string | null;
+  addressLine2: string | null;
+  addressTitle: string | null;
+  addressType: string | null;
+  city: string | null;
+  country: string | null;
+  county: string | null;
+  createdAt: Date;
+  creation: Date | null;
+  disabled: number | null;
+  docstatus: number | null;
+  emailId: string | null;
+  fax: string | null;
+  id: string;
+  idx: number | null;
+  isPrimaryAddress: number | null;
+  isShippingAddress: number | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  phone: string | null;
+  pincode: string | null;
+  state: string | null;
+  updatedAt: Date;
+};

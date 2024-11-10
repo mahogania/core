@@ -1,0 +1,31 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type BankAccountOrderByInput = {
+  account?: SortOrder;
+  accountName?: SortOrder;
+  accountSubtype?: SortOrder;
+  accountType?: SortOrder;
+  bank?: SortOrder;
+  bankAccountNo?: SortOrder;
+  branchCode?: SortOrder;
+  company?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  disabled?: SortOrder;
+  docstatus?: SortOrder;
+  iban?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  integrationId?: SortOrder;
+  isCompanyAccount?: SortOrder;
+  isDefault?: SortOrder;
+  lastIntegrationDate?: SortOrder;
+  mask?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  owner?: SortOrder;
+  party?: SortOrder;
+  partyType?: SortOrder;
+  updatedAt?: SortOrder;
+};

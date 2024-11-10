@@ -1,0 +1,35 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+
+export type AssetRepairWhereInput = {
+  actionsPerformed?: StringNullableFilter;
+  amendedFrom?: StringNullableFilter;
+  asset?: StringNullableFilter;
+  assetName?: StringNullableFilter;
+  capitalizeRepairCost?: IntNullableFilter;
+  company?: StringNullableFilter;
+  completionDate?: DateTimeNullableFilter;
+  costCenter?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  description?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  downtime?: StringNullableFilter;
+  failureDate?: DateTimeNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  increaseInAssetLife?: IntNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  namingSeries?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  project?: StringNullableFilter;
+  purchaseInvoice?: StringNullableFilter;
+  repairCost?: FloatNullableFilter;
+  repairStatus?: StringNullableFilter;
+  stockConsumption?: IntNullableFilter;
+  totalRepairCost?: FloatNullableFilter;
+};

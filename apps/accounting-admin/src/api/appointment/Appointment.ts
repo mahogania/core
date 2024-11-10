@@ -1,0 +1,22 @@
+export type Appointment = {
+  appointmentWith: string | null;
+  calendarEvent: string | null;
+  createdAt: Date;
+  creation: Date | null;
+  customerDetails: string | null;
+  customerEmail: string | null;
+  customerName: string | null;
+  customerPhoneNumber: string | null;
+  customerSkype: string | null;
+  docstatus: number | null;
+  id: string;
+  idx: number | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  party: string | null;
+  scheduledTime: Date | null;
+  status: string | null;
+  updatedAt: Date;
+};

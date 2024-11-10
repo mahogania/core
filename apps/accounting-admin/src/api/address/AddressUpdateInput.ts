@@ -1,0 +1,24 @@
+export type AddressUpdateInput = {
+  addressLine1?: string | null;
+  addressLine2?: string | null;
+  addressTitle?: string | null;
+  addressType?: string | null;
+  city?: string | null;
+  country?: string | null;
+  county?: string | null;
+  creation?: Date | null;
+  disabled?: number | null;
+  docstatus?: number | null;
+  emailId?: string | null;
+  fax?: string | null;
+  idx?: number | null;
+  isPrimaryAddress?: number | null;
+  isShippingAddress?: number | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  owner?: string | null;
+  phone?: string | null;
+  pincode?: string | null;
+  state?: string | null;
+};

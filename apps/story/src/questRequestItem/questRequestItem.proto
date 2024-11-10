@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+                 package questRequestItem;
+service QuestRequestItemService {
+ rpc createQuestRequestItem (QuestRequestItemCreateInput) returns (QuestRequestItem) {}
+rpc questRequestItems (findManyParams) returns (stream QuestRequestItem) {}
+rpc questRequestItem (QuestRequestItemWhereUniqueInput) returns (QuestRequestItem) {}
+rpc updateQuestRequestItem (QuestRequestItemUpdateInput) returns (QuestRequestItem) {}
+rpc deleteQuestRequestItem (QuestRequestItemWhereUniqueInput) returns (QuestRequestItem) {}
+rpc findManyQuestRequestItem (QuestRequestItemWhereUniqueInput) returns (stream QuestRequestItemConditional) {}
+rpc updateQuestRequestItem (QuestRequestItemConditionalParams) returns (stream QuestRequestItemConditional) {}
+rpc connectQuestRequestItem (QuestRequestItemConditionalParams) returns (QuestRequestItemConditional) {}
+rpc disconnectQuestRequestItem (QuestRequestItemConditionalParams) returns (QuestRequestItemConditional) {}
+rpc findManyQuestRequestItem (QuestRequestItemWhereUniqueInput) returns (stream QuestRequestItemsLocale) {}
+rpc updateQuestRequestItem (QuestRequestItemsLocaleParams) returns (stream QuestRequestItemsLocale) {}
+rpc connectQuestRequestItem (QuestRequestItemsLocaleParams) returns (QuestRequestItemsLocale) {}
+rpc disconnectQuestRequestItem (QuestRequestItemsLocaleParams) returns (QuestRequestItemsLocale) {}
+rpc findManyQuestRequestItems (QuestRequestItemWhereUniqueInput) returns (stream QuestTemplate) {}
+rpc updateQuestRequestItems (QuestTemplateParams) returns (stream QuestTemplate) {}
+rpc connectQuestRequestItems (QuestTemplateParams) returns (QuestTemplate) {}
+rpc disconnectQuestRequestItems (QuestTemplateParams) returns (QuestTemplate) {} 
+ }
+message QuestRequestItemCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestRequestItemConditional questRequestItemConditionals = 3;
+repeated QuestRequestItemsLocale questRequestItemsLocales = 4;
+repeated QuestTemplate questTemplates = 5;
+string updatedAt = 6;
+};
+message QuestRequestItem {
+string createdAt = 1;
+string id = 2;
+repeated QuestRequestItemConditional questRequestItemConditionals = 3;
+repeated QuestRequestItemsLocale questRequestItemsLocales = 4;
+repeated QuestTemplate questTemplates = 5;
+string updatedAt = 6;
+};
+message QuestRequestItemWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestRequestItemConditional questRequestItemConditionals = 3;
+repeated QuestRequestItemsLocale questRequestItemsLocales = 4;
+repeated QuestTemplate questTemplates = 5;
+string updatedAt = 6;
+};
+message QuestRequestItemUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestRequestItemConditional questRequestItemConditionals = 3;
+repeated QuestRequestItemsLocale questRequestItemsLocales = 4;
+repeated QuestTemplate questTemplates = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message QuestRequestItemConditional {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRequestItemConditionalWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRequestItemConditionalParams {
+QuestRequestItemWhereUniqueInput questRequestItemWhereUniqueInput = 1;
+QuestRequestItemConditionalWhereUniqueInput questrequestitemconditionalWhereUniqueInput = 2;
+};
+message QuestRequestItemsLocale {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRequestItemsLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestRequestItemsLocaleParams {
+QuestRequestItemWhereUniqueInput questRequestItemWhereUniqueInput = 1;
+QuestRequestItemsLocaleWhereUniqueInput questrequestitemslocaleWhereUniqueInput = 2;
+};
+message QuestTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestTemplateParams {
+QuestRequestItemWhereUniqueInput questRequestItemWhereUniqueInput = 1;
+QuestTemplateWhereUniqueInput questtemplateWhereUniqueInput = 2;
+};

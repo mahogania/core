@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package locationProfile;
+service LocationProfileService {
+ rpc createLocationProfile (LocationProfileCreateInput) returns (LocationProfile) {}
+rpc locationProfiles (findManyParams) returns (stream LocationProfile) {}
+rpc locationProfile (LocationProfileWhereUniqueInput) returns (LocationProfile) {}
+rpc updateLocationProfile (LocationProfileUpdateInput) returns (LocationProfile) {}
+rpc deleteLocationProfile (LocationProfileWhereUniqueInput) returns (LocationProfile) {} 
+ }
+message LocationProfileCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LocationProfile {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LocationProfileWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LocationProfileUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

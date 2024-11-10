@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+                 package scenario;
+service ScenarioService {
+ rpc createScenario (ScenarioCreateInput) returns (Scenario) {}
+rpc scenarios (findManyParams) returns (stream Scenario) {}
+rpc scenario (ScenarioWhereUniqueInput) returns (Scenario) {}
+rpc updateScenario (ScenarioUpdateInput) returns (Scenario) {}
+rpc deleteScenario (ScenarioWhereUniqueInput) returns (Scenario) {}
+rpc findManyScenario (ScenarioWhereUniqueInput) returns (stream AreaScenarioTrigger) {}
+rpc updateScenario (AreaScenarioTriggerParams) returns (stream AreaScenarioTrigger) {}
+rpc connectScenario (AreaScenarioTriggerParams) returns (AreaScenarioTrigger) {}
+rpc disconnectScenario (AreaScenarioTriggerParams) returns (AreaScenarioTrigger) {} 
+ }
+message ScenarioCreateInput {
+repeated AreaScenarioTrigger areaScenarioTriggers = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message Scenario {
+repeated AreaScenarioTrigger areaScenarioTriggers = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message ScenarioWhereUniqueInput {
+repeated AreaScenarioTrigger areaScenarioTriggers = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message ScenarioUpdateInput {
+repeated AreaScenarioTrigger areaScenarioTriggers = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message AreaScenarioTrigger {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaScenarioTriggerWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaScenarioTriggerParams {
+ScenarioWhereUniqueInput scenarioWhereUniqueInput = 1;
+AreaScenarioTriggerWhereUniqueInput areascenariotriggerWhereUniqueInput = 2;
+};

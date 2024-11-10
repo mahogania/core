@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package address;
+service AddressService {
+ rpc createAddress (AddressCreateInput) returns (Address) {}
+rpc addresses (findManyParams) returns (stream Address) {}
+rpc address (AddressWhereUniqueInput) returns (Address) {}
+rpc updateAddress (AddressUpdateInput) returns (Address) {}
+rpc deleteAddress (AddressWhereUniqueInput) returns (Address) {}
+rpc findManyAddress (AddressWhereUniqueInput) returns (stream Unit) {}
+rpc updateAddress (UnitParams) returns (stream Unit) {}
+rpc connectAddress (UnitParams) returns (Unit) {}
+rpc disconnectAddress (UnitParams) returns (Unit) {} 
+ }
+message AddressCreateInput {
+repeated Unit competitorBusinessUnits = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message Address {
+repeated Unit competitorBusinessUnits = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message AddressWhereUniqueInput {
+repeated Unit competitorBusinessUnits = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message AddressUpdateInput {
+repeated Unit competitorBusinessUnits = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Unit {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message UnitWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message UnitParams {
+AddressWhereUniqueInput addressWhereUniqueInput = 1;
+UnitWhereUniqueInput unitWhereUniqueInput = 2;
+};
