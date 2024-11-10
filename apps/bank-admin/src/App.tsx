@@ -57,6 +57,22 @@ import { JournalEntryList } from "./journalEntry/JournalEntryList";
 import { JournalEntryCreate } from "./journalEntry/JournalEntryCreate";
 import { JournalEntryEdit } from "./journalEntry/JournalEntryEdit";
 import { JournalEntryShow } from "./journalEntry/JournalEntryShow";
+import { LedgerHealthMonitorCompanyList } from "./ledgerHealthMonitorCompany/LedgerHealthMonitorCompanyList";
+import { LedgerHealthMonitorCompanyCreate } from "./ledgerHealthMonitorCompany/LedgerHealthMonitorCompanyCreate";
+import { LedgerHealthMonitorCompanyEdit } from "./ledgerHealthMonitorCompany/LedgerHealthMonitorCompanyEdit";
+import { LedgerHealthMonitorCompanyShow } from "./ledgerHealthMonitorCompany/LedgerHealthMonitorCompanyShow";
+import { LedgerHealthList } from "./ledgerHealth/LedgerHealthList";
+import { LedgerHealthCreate } from "./ledgerHealth/LedgerHealthCreate";
+import { LedgerHealthEdit } from "./ledgerHealth/LedgerHealthEdit";
+import { LedgerHealthShow } from "./ledgerHealth/LedgerHealthShow";
+import { LedgerMergeAccountsList } from "./ledgerMergeAccounts/LedgerMergeAccountsList";
+import { LedgerMergeAccountsCreate } from "./ledgerMergeAccounts/LedgerMergeAccountsCreate";
+import { LedgerMergeAccountsEdit } from "./ledgerMergeAccounts/LedgerMergeAccountsEdit";
+import { LedgerMergeAccountsShow } from "./ledgerMergeAccounts/LedgerMergeAccountsShow";
+import { LedgerMergeList } from "./ledgerMerge/LedgerMergeList";
+import { LedgerMergeCreate } from "./ledgerMerge/LedgerMergeCreate";
+import { LedgerMergeEdit } from "./ledgerMerge/LedgerMergeEdit";
+import { LedgerMergeShow } from "./ledgerMerge/LedgerMergeShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -160,6 +176,34 @@ const App = (): React.ReactElement => {
           edit={JournalEntryEdit}
           create={JournalEntryCreate}
           show={JournalEntryShow}
+        />
+        <Resource
+          name="LedgerHealthMonitorCompany"
+          list={LedgerHealthMonitorCompanyList}
+          edit={LedgerHealthMonitorCompanyEdit}
+          create={LedgerHealthMonitorCompanyCreate}
+          show={LedgerHealthMonitorCompanyShow}
+        />
+        <Resource
+          name="LedgerHealth"
+          list={LedgerHealthList}
+          edit={LedgerHealthEdit}
+          create={LedgerHealthCreate}
+          show={LedgerHealthShow}
+        />
+        <Resource
+          name="LedgerMergeAccounts"
+          list={LedgerMergeAccountsList}
+          edit={LedgerMergeAccountsEdit}
+          create={LedgerMergeAccountsCreate}
+          show={LedgerMergeAccountsShow}
+        />
+        <Resource
+          name="LedgerMerge"
+          list={LedgerMergeList}
+          edit={LedgerMergeEdit}
+          create={LedgerMergeCreate}
+          show={LedgerMergeShow}
         />
       </Admin>
     </div>

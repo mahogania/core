@@ -346,3 +346,76 @@ model JournalEntry {
   writeOffAmount                    Float?
   writeOffBasedOn                   String?
 }
+
+model LedgerHealthMonitorCompany {
+  company     String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model LedgerHealth {
+  checkedOn                       DateTime?
+  createdAt                       DateTime  @default(now())
+  creation                        DateTime?
+  debitCreditMismatch             Int?
+  docstatus                       Int?
+  generalAndPaymentLedgerMismatch Int?
+  id                              String    @id @default(cuid())
+  idx                             Int?
+  modified                        DateTime?
+  modifiedBy                      String?
+  name                            Int?
+  owner                           String?
+  updatedAt                       DateTime  @updatedAt
+  voucherNo                       String?
+  voucherType                     String?
+}
+
+model LedgerMergeAccounts {
+  account     String?
+  accountName String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  merged      Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model LedgerMerge {
+  account     String?
+  accountName String?
+  company     String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  isGroup     Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  rootType    String?
+  status      String?
+  updatedAt   DateTime  @updatedAt
+}

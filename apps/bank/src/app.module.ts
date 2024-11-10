@@ -12,6 +12,10 @@ import { BankModule } from "./bank/bank.module";
 import { JournalEntryAccountModule } from "./journalEntryAccount/journalEntryAccount.module";
 import { JournalEntryTemplateModule } from "./journalEntryTemplate/journalEntryTemplate.module";
 import { JournalEntryModule } from "./journalEntry/journalEntry.module";
+import { LedgerHealthMonitorCompanyModule } from "./ledgerHealthMonitorCompany/ledgerHealthMonitorCompany.module";
+import { LedgerHealthModule } from "./ledgerHealth/ledgerHealth.module";
+import { LedgerMergeAccountsModule } from "./ledgerMergeAccounts/ledgerMergeAccounts.module";
+import { LedgerMergeModule } from "./ledgerMerge/ledgerMerge.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -37,6 +41,10 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     JournalEntryAccountModule,
     JournalEntryTemplateModule,
     JournalEntryModule,
+    LedgerHealthMonitorCompanyModule,
+    LedgerHealthModule,
+    LedgerMergeAccountsModule,
+    LedgerMergeModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
