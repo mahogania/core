@@ -182,3 +182,163 @@ model Employee {
   userId                     String?
   validUpto                  DateTime?
 }
+
+model HolidayList {
+  color           String?
+  country         String?
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  docstatus       Int?
+  fromDate        DateTime?
+  holidayListName String?
+  id              String    @id @default(cuid())
+  idx             Int?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  owner           String?
+  subdivision     String?
+  toDate          DateTime?
+  totalHolidays   Int?
+  updatedAt       DateTime  @updatedAt
+  weeklyOff       String?
+}
+
+model Holiday {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  description String?
+  docstatus   Int?
+  holidayDate DateTime?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentField String?
+  parentType  String?
+  updatedAt   DateTime  @updatedAt
+  weeklyOff   Int?
+}
+
+model JobCardItem {
+  allowAlternativeItem Int?
+  createdAt            DateTime  @default(now())
+  creation             DateTime?
+  description          String?
+  docstatus            Int?
+  id                   String    @id @default(cuid())
+  idx                  Int?
+  itemCode             String?
+  itemGroup            String?
+  itemName             String?
+  modified             DateTime?
+  modifiedBy           String?
+  name                 String?
+  owner                String?
+  parent               String?
+  parentfield          String?
+  parenttype           String?
+  requiredQty          Float?
+  sourceWarehouse      String?
+  stockUom             String?
+  transferredQty       Float?
+  uom                  String?
+  updatedAt            DateTime  @updatedAt
+}
+
+model JobCardOperation {
+  completedQty  Float?
+  completedTime String?
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  docstatus     Int?
+  id            String    @id @default(cuid())
+  idx           Int?
+  modified      DateTime?
+  modifiedBy    String?
+  name          String?
+  owner         String?
+  parent        String?
+  parentfield   String?
+  parenttype    String?
+  status        String?
+  subOperation  String?
+  updatedAt     DateTime  @updatedAt
+}
+
+model JobCardScheduledTime {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  fromTime    DateTime?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  timeInMins  Float?
+  toTime      DateTime?
+  updatedAt   DateTime  @updatedAt
+}
+
+model JobCard {
+  actualEndDate             DateTime?
+  actualStartDate           DateTime?
+  amendedFrom               String?
+  barcode                   String?
+  batchNo                   String?
+  bomNo                     String?
+  company                   String?
+  createdAt                 DateTime  @default(now())
+  creation                  DateTime?
+  currentTime               Int?
+  docstatus                 Int?
+  expectedEndDate           DateTime?
+  expectedStartDate         DateTime?
+  forJobCard                String?
+  forOperation              String?
+  forQuantity               Float?
+  hourRate                  Float?
+  id                        String    @id @default(cuid())
+  idx                       Int?
+  isCorrectiveJobCard       Int?
+  itemName                  String?
+  jobStarted                Int?
+  modified                  DateTime?
+  modifiedBy                String?
+  name                      String?
+  namingSeries              String?
+  operation                 String?
+  operationId               String?
+  operationRowNumber        String?
+  owner                     String?
+  postingDate               DateTime?
+  processLossQty            Float?
+  productionItem            String?
+  project                   String?
+  qualityInspection         String?
+  qualityInspectionTemplate String?
+  remarks                   String?
+  requestedQty              Float?
+  sequenceId                Int?
+  serialAndBatchBundle      String?
+  serialNo                  String?
+  startedTime               DateTime?
+  status                    String?
+  timeRequired              Float?
+  totalCompletedQty         Float?
+  totalTimeInMins           Float?
+  transferredQty            Float?
+  updatedAt                 DateTime  @updatedAt
+  wipWarehouse              String?
+  workOrder                 String?
+  workstation               String?
+  workstationType           String?
+}

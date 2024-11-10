@@ -12,7 +12,13 @@ export const grpcClientOptions: ClientOptions = {
       "employeegrouptable",
       "employeegroup",
       "employeeinternalworkhistory",
-      "employee"
+      "employee",
+      "holidaylist",
+      "holiday",
+      "jobcarditem",
+      "jobcardoperation",
+      "jobcardscheduledtime",
+      "jobcard"
     ],
     protoPath: [
       "src/employeeeducation/employeeeducation.proto",
@@ -20,7 +26,13 @@ export const grpcClientOptions: ClientOptions = {
       "src/employeegrouptable/employeegrouptable.proto",
       "src/employeegroup/employeegroup.proto",
       "src/employeeinternalworkhistory/employeeinternalworkhistory.proto",
-      "src/employee/employee.proto"
+      "src/employee/employee.proto",
+      "src/holidaylist/holidaylist.proto",
+      "src/holiday/holiday.proto",
+      "src/jobcarditem/jobcarditem.proto",
+      "src/jobcardoperation/jobcardoperation.proto",
+      "src/jobcardscheduledtime/jobcardscheduledtime.proto",
+      "src/jobcard/jobcard.proto"
     ],
     url: configService.get<string>("GRPC_CLIENT_URL_PATH"),
   },
