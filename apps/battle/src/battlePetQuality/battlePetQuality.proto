@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package battlePetQuality;
+service BattlePetQualityService {
+ rpc createBattlePetQuality (BattlePetQualityCreateInput) returns (BattlePetQuality) {}
+rpc battlePetQualities (findManyParams) returns (stream BattlePetQuality) {}
+rpc battlePetQuality (BattlePetQualityWhereUniqueInput) returns (BattlePetQuality) {}
+rpc updateBattlePetQuality (BattlePetQualityUpdateInput) returns (BattlePetQuality) {}
+rpc deleteBattlePetQuality (BattlePetQualityWhereUniqueInput) returns (BattlePetQuality) {} 
+ }
+message BattlePetQualityCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message BattlePetQuality {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message BattlePetQualityWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message BattlePetQualityUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

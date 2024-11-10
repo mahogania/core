@@ -1,5 +1,5 @@
 {
-  "name": "Action",
+  "name": "Battle",
   "dockerComposeFile": "docker-compose.devcontainer.yml",
   "service": "devcontainer",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
