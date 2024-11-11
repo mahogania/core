@@ -325,6 +325,14 @@ import { SubscriptionList } from "./subscription/SubscriptionList";
 import { SubscriptionCreate } from "./subscription/SubscriptionCreate";
 import { SubscriptionEdit } from "./subscription/SubscriptionEdit";
 import { SubscriptionShow } from "./subscription/SubscriptionShow";
+import { UnreconcilePaymentEntriesList } from "./unreconcilePaymentEntries/UnreconcilePaymentEntriesList";
+import { UnreconcilePaymentEntriesCreate } from "./unreconcilePaymentEntries/UnreconcilePaymentEntriesCreate";
+import { UnreconcilePaymentEntriesEdit } from "./unreconcilePaymentEntries/UnreconcilePaymentEntriesEdit";
+import { UnreconcilePaymentEntriesShow } from "./unreconcilePaymentEntries/UnreconcilePaymentEntriesShow";
+import { UnreconcilePaymentList } from "./unreconcilePayment/UnreconcilePaymentList";
+import { UnreconcilePaymentCreate } from "./unreconcilePayment/UnreconcilePaymentCreate";
+import { UnreconcilePaymentEdit } from "./unreconcilePayment/UnreconcilePaymentEdit";
+import { UnreconcilePaymentShow } from "./unreconcilePayment/UnreconcilePaymentShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -897,6 +905,20 @@ const App = (): React.ReactElement => {
           edit={SubscriptionEdit}
           create={SubscriptionCreate}
           show={SubscriptionShow}
+        />
+        <Resource
+          name="UnreconcilePaymentEntries"
+          list={UnreconcilePaymentEntriesList}
+          edit={UnreconcilePaymentEntriesEdit}
+          create={UnreconcilePaymentEntriesCreate}
+          show={UnreconcilePaymentEntriesShow}
+        />
+        <Resource
+          name="UnreconcilePayment"
+          list={UnreconcilePaymentList}
+          edit={UnreconcilePaymentEdit}
+          create={UnreconcilePaymentCreate}
+          show={UnreconcilePaymentShow}
         />
       </Admin>
     </div>

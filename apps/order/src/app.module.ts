@@ -79,6 +79,8 @@ import { SubscriptionInvoiceModule } from "./subscriptionInvoice/subscriptionInv
 import { SubscriptionPlanDetailModule } from "./subscriptionPlanDetail/subscriptionPlanDetail.module";
 import { SubscriptionPlanModule } from "./subscriptionPlan/subscriptionPlan.module";
 import { SubscriptionModule } from "./subscription/subscription.module";
+import { UnreconcilePaymentEntriesModule } from "./unreconcilePaymentEntries/unreconcilePaymentEntries.module";
+import { UnreconcilePaymentModule } from "./unreconcilePayment/unreconcilePayment.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -171,6 +173,8 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     SubscriptionPlanDetailModule,
     SubscriptionPlanModule,
     SubscriptionModule,
+    UnreconcilePaymentEntriesModule,
+    UnreconcilePaymentModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

@@ -2753,3 +2753,44 @@ model Subscription {
   id        String   @id @default(cuid())
   updatedAt DateTime @updatedAt
 }
+
+model UnreconcilePaymentEntries {
+  account          String?
+  accountCurrency  String?
+  allocatedAmount  Float?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  id               String    @id @default(cuid())
+  idx              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  parent           String?
+  parentfield      String?
+  parenttype       String?
+  party            String?
+  partyType        String?
+  referenceDoctype String?
+  referenceName    String?
+  unlinked         Int?
+  updatedAt        DateTime  @updatedAt
+}
+
+model UnreconcilePayment {
+  amendedFrom String?
+  company     String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  updatedAt   DateTime  @updatedAt
+  voucherNo   String?
+  voucherType String?
+}
