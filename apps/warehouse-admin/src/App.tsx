@@ -37,14 +37,6 @@ import { BomUpdateLogList } from "./bomUpdateLog/BomUpdateLogList";
 import { BomUpdateLogCreate } from "./bomUpdateLog/BomUpdateLogCreate";
 import { BomUpdateLogEdit } from "./bomUpdateLog/BomUpdateLogEdit";
 import { BomUpdateLogShow } from "./bomUpdateLog/BomUpdateLogShow";
-import { BomWebsiteItemList } from "./bomWebsiteItem/BomWebsiteItemList";
-import { BomWebsiteItemCreate } from "./bomWebsiteItem/BomWebsiteItemCreate";
-import { BomWebsiteItemEdit } from "./bomWebsiteItem/BomWebsiteItemEdit";
-import { BomWebsiteItemShow } from "./bomWebsiteItem/BomWebsiteItemShow";
-import { BomWebsiteOperationList } from "./bomWebsiteOperation/BomWebsiteOperationList";
-import { BomWebsiteOperationCreate } from "./bomWebsiteOperation/BomWebsiteOperationCreate";
-import { BomWebsiteOperationEdit } from "./bomWebsiteOperation/BomWebsiteOperationEdit";
-import { BomWebsiteOperationShow } from "./bomWebsiteOperation/BomWebsiteOperationShow";
 import { BomList } from "./bom/BomList";
 import { BomCreate } from "./bom/BomCreate";
 import { BomEdit } from "./bom/BomEdit";
@@ -197,6 +189,46 @@ import { SubcontractingBomList } from "./subcontractingBom/SubcontractingBomList
 import { SubcontractingBomCreate } from "./subcontractingBom/SubcontractingBomCreate";
 import { SubcontractingBomEdit } from "./subcontractingBom/SubcontractingBomEdit";
 import { SubcontractingBomShow } from "./subcontractingBom/SubcontractingBomShow";
+import { UomConversionDetailList } from "./uomConversionDetail/UomConversionDetailList";
+import { UomConversionDetailCreate } from "./uomConversionDetail/UomConversionDetailCreate";
+import { UomConversionDetailEdit } from "./uomConversionDetail/UomConversionDetailEdit";
+import { UomConversionDetailShow } from "./uomConversionDetail/UomConversionDetailShow";
+import { UomCategoryList } from "./uomCategory/UomCategoryList";
+import { UomCategoryCreate } from "./uomCategory/UomCategoryCreate";
+import { UomCategoryEdit } from "./uomCategory/UomCategoryEdit";
+import { UomCategoryShow } from "./uomCategory/UomCategoryShow";
+import { UomConversionFactorList } from "./uomConversionFactor/UomConversionFactorList";
+import { UomConversionFactorCreate } from "./uomConversionFactor/UomConversionFactorCreate";
+import { UomConversionFactorEdit } from "./uomConversionFactor/UomConversionFactorEdit";
+import { UomConversionFactorShow } from "./uomConversionFactor/UomConversionFactorShow";
+import { UomList } from "./uom/UomList";
+import { UomCreate } from "./uom/UomCreate";
+import { UomEdit } from "./uom/UomEdit";
+import { UomShow } from "./uom/UomShow";
+import { WarehouseList } from "./warehouse/WarehouseList";
+import { WarehouseCreate } from "./warehouse/WarehouseCreate";
+import { WarehouseEdit } from "./warehouse/WarehouseEdit";
+import { WarehouseShow } from "./warehouse/WarehouseShow";
+import { WorkOrderItemList } from "./workOrderItem/WorkOrderItemList";
+import { WorkOrderItemCreate } from "./workOrderItem/WorkOrderItemCreate";
+import { WorkOrderItemEdit } from "./workOrderItem/WorkOrderItemEdit";
+import { WorkOrderItemShow } from "./workOrderItem/WorkOrderItemShow";
+import { WarrantyClaimList } from "./warrantyClaim/WarrantyClaimList";
+import { WarrantyClaimCreate } from "./warrantyClaim/WarrantyClaimCreate";
+import { WarrantyClaimEdit } from "./warrantyClaim/WarrantyClaimEdit";
+import { WarrantyClaimShow } from "./warrantyClaim/WarrantyClaimShow";
+import { WarehouseTypeList } from "./warehouseType/WarehouseTypeList";
+import { WarehouseTypeCreate } from "./warehouseType/WarehouseTypeCreate";
+import { WarehouseTypeEdit } from "./warehouseType/WarehouseTypeEdit";
+import { WarehouseTypeShow } from "./warehouseType/WarehouseTypeShow";
+import { WorkOrderOperationList } from "./workOrderOperation/WorkOrderOperationList";
+import { WorkOrderOperationCreate } from "./workOrderOperation/WorkOrderOperationCreate";
+import { WorkOrderOperationEdit } from "./workOrderOperation/WorkOrderOperationEdit";
+import { WorkOrderOperationShow } from "./workOrderOperation/WorkOrderOperationShow";
+import { WorkOrderList } from "./workOrder/WorkOrderList";
+import { WorkOrderCreate } from "./workOrder/WorkOrderCreate";
+import { WorkOrderEdit } from "./workOrder/WorkOrderEdit";
+import { WorkOrderShow } from "./workOrder/WorkOrderShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -265,20 +297,6 @@ const App = (): React.ReactElement => {
           edit={BomUpdateLogEdit}
           create={BomUpdateLogCreate}
           show={BomUpdateLogShow}
-        />
-        <Resource
-          name="BomWebsiteItem"
-          list={BomWebsiteItemList}
-          edit={BomWebsiteItemEdit}
-          create={BomWebsiteItemCreate}
-          show={BomWebsiteItemShow}
-        />
-        <Resource
-          name="BomWebsiteOperation"
-          list={BomWebsiteOperationList}
-          edit={BomWebsiteOperationEdit}
-          create={BomWebsiteOperationCreate}
-          show={BomWebsiteOperationShow}
         />
         <Resource
           name="Bom"
@@ -545,6 +563,76 @@ const App = (): React.ReactElement => {
           edit={SubcontractingBomEdit}
           create={SubcontractingBomCreate}
           show={SubcontractingBomShow}
+        />
+        <Resource
+          name="UomConversionDetail"
+          list={UomConversionDetailList}
+          edit={UomConversionDetailEdit}
+          create={UomConversionDetailCreate}
+          show={UomConversionDetailShow}
+        />
+        <Resource
+          name="UomCategory"
+          list={UomCategoryList}
+          edit={UomCategoryEdit}
+          create={UomCategoryCreate}
+          show={UomCategoryShow}
+        />
+        <Resource
+          name="UomConversionFactor"
+          list={UomConversionFactorList}
+          edit={UomConversionFactorEdit}
+          create={UomConversionFactorCreate}
+          show={UomConversionFactorShow}
+        />
+        <Resource
+          name="Uom"
+          list={UomList}
+          edit={UomEdit}
+          create={UomCreate}
+          show={UomShow}
+        />
+        <Resource
+          name="Warehouse"
+          list={WarehouseList}
+          edit={WarehouseEdit}
+          create={WarehouseCreate}
+          show={WarehouseShow}
+        />
+        <Resource
+          name="WorkOrderItem"
+          list={WorkOrderItemList}
+          edit={WorkOrderItemEdit}
+          create={WorkOrderItemCreate}
+          show={WorkOrderItemShow}
+        />
+        <Resource
+          name="WarrantyClaim"
+          list={WarrantyClaimList}
+          edit={WarrantyClaimEdit}
+          create={WarrantyClaimCreate}
+          show={WarrantyClaimShow}
+        />
+        <Resource
+          name="WarehouseType"
+          list={WarehouseTypeList}
+          edit={WarehouseTypeEdit}
+          create={WarehouseTypeCreate}
+          show={WarehouseTypeShow}
+        />
+        <Resource
+          name="WorkOrderOperation"
+          list={WorkOrderOperationList}
+          edit={WorkOrderOperationEdit}
+          create={WorkOrderOperationCreate}
+          show={WorkOrderOperationShow}
+        />
+        <Resource
+          name="WorkOrder"
+          list={WorkOrderList}
+          edit={WorkOrderEdit}
+          create={WorkOrderCreate}
+          show={WorkOrderShow}
         />
       </Admin>
     </div>

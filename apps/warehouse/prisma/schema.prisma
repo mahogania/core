@@ -244,48 +244,6 @@ model BomUpdateLog {
   updatedAt     DateTime  @updatedAt
 }
 
-model BomWebsiteItem {
-  createdAt    DateTime  @default(now())
-  creation     DateTime?
-  description  String?
-  docstatus    Int?
-  id           String    @id @default(cuid())
-  idx          Int?
-  itemCode     String?
-  itemName     String?
-  modified     DateTime?
-  modifiedBy   String?
-  name         String?
-  owner        String?
-  parent       String?
-  parentfield  String?
-  parenttype   String?
-  qty          Float?
-  updatedAt    DateTime  @updatedAt
-  websiteImage String?
-}
-
-model BomWebsiteOperation {
-  createdAt    DateTime  @default(now())
-  creation     DateTime?
-  docstatus    Int?
-  id           String    @id @default(cuid())
-  idx          Int?
-  modified     DateTime?
-  modifiedBy   String?
-  name         String?
-  operation    String?
-  owner        String?
-  parent       String?
-  parentfield  String?
-  parenttype   String?
-  thumbnail    String?
-  timeInMins   Float?
-  updatedAt    DateTime  @updatedAt
-  websiteImage String?
-  workstation  String?
-}
-
 model Bom {
   allowAlternativeItem               Boolean?
   amendedFrom                        String?
@@ -1302,4 +1260,97 @@ model SubcontractingBom {
   serviceItemQty   Float?
   serviceItemUom   String?
   updatedAt        DateTime  @updatedAt
+}
+
+model UomConversionDetail {
+  conversionFactor Float?
+  createdAt        DateTime @default(now())
+  docstatus        Int?
+  id               String   @id @default(cuid())
+  idx              Int?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  parent           String?
+  parentfield      String?
+  parenttype       String?
+  uom              String?
+  updatedAt        DateTime @updatedAt
+}
+
+model UomCategory {
+  categoryName String?
+  createdAt    DateTime @default(now())
+  docstatus    Int?
+  id           String   @id @default(cuid())
+  idx          Int?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  updatedAt    DateTime @updatedAt
+}
+
+model UomConversionFactor {
+  category   String?
+  createdAt  DateTime @default(now())
+  docstatus  Int?
+  fromUom    String?
+  id         String   @id @default(cuid())
+  idx        Int?
+  modifiedBy String?
+  name       String?
+  owner      String?
+  toUom      String?
+  updatedAt  DateTime @updatedAt
+  value      Float?
+}
+
+model Uom {
+  createdAt         DateTime @default(now())
+  docstatus         Int?
+  enabled           Boolean?
+  id                String   @id @default(cuid())
+  idx               Int?
+  modifiedBy        String?
+  mustBeWholeNumber Boolean?
+  name              String?
+  owner             String?
+  uomName           String?
+  updatedAt         DateTime @updatedAt
+}
+
+model Warehouse {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model WorkOrderItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model WarrantyClaim {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model WarehouseType {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model WorkOrderOperation {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model WorkOrder {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
 }

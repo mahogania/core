@@ -7,8 +7,6 @@ import { BomOperationModule } from "./bomOperation/bomOperation.module";
 import { BomScrapItemModule } from "./bomScrapItem/bomScrapItem.module";
 import { BomUpdateBatchModule } from "./bomUpdateBatch/bomUpdateBatch.module";
 import { BomUpdateLogModule } from "./bomUpdateLog/bomUpdateLog.module";
-import { BomWebsiteItemModule } from "./bomWebsiteItem/bomWebsiteItem.module";
-import { BomWebsiteOperationModule } from "./bomWebsiteOperation/bomWebsiteOperation.module";
 import { BomModule } from "./bom/bom.module";
 import { BatchModule } from "./batch/batch.module";
 import { BinModule } from "./bin/bin.module";
@@ -47,6 +45,16 @@ import { StockReconciliationItemModule } from "./stockReconciliationItem/stockRe
 import { StockReservationEntryModule } from "./stockReservationEntry/stockReservationEntry.module";
 import { StockReconciliationModule } from "./stockReconciliation/stockReconciliation.module";
 import { SubcontractingBomModule } from "./subcontractingBom/subcontractingBom.module";
+import { UomConversionDetailModule } from "./uomConversionDetail/uomConversionDetail.module";
+import { UomCategoryModule } from "./uomCategory/uomCategory.module";
+import { UomConversionFactorModule } from "./uomConversionFactor/uomConversionFactor.module";
+import { UomModule } from "./uom/uom.module";
+import { WarehouseModule } from "./warehouse/warehouse.module";
+import { WorkOrderItemModule } from "./workOrderItem/workOrderItem.module";
+import { WarrantyClaimModule } from "./warrantyClaim/warrantyClaim.module";
+import { WarehouseTypeModule } from "./warehouseType/warehouseType.module";
+import { WorkOrderOperationModule } from "./workOrderOperation/workOrderOperation.module";
+import { WorkOrderModule } from "./workOrder/workOrder.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -67,8 +75,6 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     BomScrapItemModule,
     BomUpdateBatchModule,
     BomUpdateLogModule,
-    BomWebsiteItemModule,
-    BomWebsiteOperationModule,
     BomModule,
     BatchModule,
     BinModule,
@@ -107,6 +113,16 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     StockReservationEntryModule,
     StockReconciliationModule,
     SubcontractingBomModule,
+    UomConversionDetailModule,
+    UomCategoryModule,
+    UomConversionFactorModule,
+    UomModule,
+    WarehouseModule,
+    WorkOrderItemModule,
+    WarrantyClaimModule,
+    WarehouseTypeModule,
+    WorkOrderOperationModule,
+    WorkOrderModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
