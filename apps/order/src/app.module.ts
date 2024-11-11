@@ -68,6 +68,17 @@ import { SalesTeamModule } from "./salesTeam/salesTeam.module";
 import { SalesPartnerModule } from "./salesPartner/salesPartner.module";
 import { SalesStageModule } from "./salesStage/salesStage.module";
 import { SalesTaxesAndChargesModule } from "./salesTaxesAndCharges/salesTaxesAndCharges.module";
+import { SubcontractingOrderServiceItemModule } from "./subcontractingOrderServiceItem/subcontractingOrderServiceItem.module";
+import { SubcontractingOrderSuppliedItemModule } from "./subcontractingOrderSuppliedItem/subcontractingOrderSuppliedItem.module";
+import { SubcontractingOrderItemModule } from "./subcontractingOrderItem/subcontractingOrderItem.module";
+import { SubcontractingOrderModule } from "./subcontractingOrder/subcontractingOrder.module";
+import { SubcontractingReceiptItemModule } from "./subcontractingReceiptItem/subcontractingReceiptItem.module";
+import { SubcontractingReceiptSuppliedItemModule } from "./subcontractingReceiptSuppliedItem/subcontractingReceiptSuppliedItem.module";
+import { SubcontractingReceiptModule } from "./subcontractingReceipt/subcontractingReceipt.module";
+import { SubscriptionInvoiceModule } from "./subscriptionInvoice/subscriptionInvoice.module";
+import { SubscriptionPlanDetailModule } from "./subscriptionPlanDetail/subscriptionPlanDetail.module";
+import { SubscriptionPlanModule } from "./subscriptionPlan/subscriptionPlan.module";
+import { SubscriptionModule } from "./subscription/subscription.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -149,6 +160,17 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     SalesPartnerModule,
     SalesStageModule,
     SalesTaxesAndChargesModule,
+    SubcontractingOrderServiceItemModule,
+    SubcontractingOrderSuppliedItemModule,
+    SubcontractingOrderItemModule,
+    SubcontractingOrderModule,
+    SubcontractingReceiptItemModule,
+    SubcontractingReceiptSuppliedItemModule,
+    SubcontractingReceiptModule,
+    SubscriptionInvoiceModule,
+    SubscriptionPlanDetailModule,
+    SubscriptionPlanModule,
+    SubscriptionModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

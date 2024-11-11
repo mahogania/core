@@ -281,6 +281,50 @@ import { SalesTaxesAndChargesList } from "./salesTaxesAndCharges/SalesTaxesAndCh
 import { SalesTaxesAndChargesCreate } from "./salesTaxesAndCharges/SalesTaxesAndChargesCreate";
 import { SalesTaxesAndChargesEdit } from "./salesTaxesAndCharges/SalesTaxesAndChargesEdit";
 import { SalesTaxesAndChargesShow } from "./salesTaxesAndCharges/SalesTaxesAndChargesShow";
+import { SubcontractingOrderServiceItemList } from "./subcontractingOrderServiceItem/SubcontractingOrderServiceItemList";
+import { SubcontractingOrderServiceItemCreate } from "./subcontractingOrderServiceItem/SubcontractingOrderServiceItemCreate";
+import { SubcontractingOrderServiceItemEdit } from "./subcontractingOrderServiceItem/SubcontractingOrderServiceItemEdit";
+import { SubcontractingOrderServiceItemShow } from "./subcontractingOrderServiceItem/SubcontractingOrderServiceItemShow";
+import { SubcontractingOrderSuppliedItemList } from "./subcontractingOrderSuppliedItem/SubcontractingOrderSuppliedItemList";
+import { SubcontractingOrderSuppliedItemCreate } from "./subcontractingOrderSuppliedItem/SubcontractingOrderSuppliedItemCreate";
+import { SubcontractingOrderSuppliedItemEdit } from "./subcontractingOrderSuppliedItem/SubcontractingOrderSuppliedItemEdit";
+import { SubcontractingOrderSuppliedItemShow } from "./subcontractingOrderSuppliedItem/SubcontractingOrderSuppliedItemShow";
+import { SubcontractingOrderItemList } from "./subcontractingOrderItem/SubcontractingOrderItemList";
+import { SubcontractingOrderItemCreate } from "./subcontractingOrderItem/SubcontractingOrderItemCreate";
+import { SubcontractingOrderItemEdit } from "./subcontractingOrderItem/SubcontractingOrderItemEdit";
+import { SubcontractingOrderItemShow } from "./subcontractingOrderItem/SubcontractingOrderItemShow";
+import { SubcontractingOrderList } from "./subcontractingOrder/SubcontractingOrderList";
+import { SubcontractingOrderCreate } from "./subcontractingOrder/SubcontractingOrderCreate";
+import { SubcontractingOrderEdit } from "./subcontractingOrder/SubcontractingOrderEdit";
+import { SubcontractingOrderShow } from "./subcontractingOrder/SubcontractingOrderShow";
+import { SubcontractingReceiptItemList } from "./subcontractingReceiptItem/SubcontractingReceiptItemList";
+import { SubcontractingReceiptItemCreate } from "./subcontractingReceiptItem/SubcontractingReceiptItemCreate";
+import { SubcontractingReceiptItemEdit } from "./subcontractingReceiptItem/SubcontractingReceiptItemEdit";
+import { SubcontractingReceiptItemShow } from "./subcontractingReceiptItem/SubcontractingReceiptItemShow";
+import { SubcontractingReceiptSuppliedItemList } from "./subcontractingReceiptSuppliedItem/SubcontractingReceiptSuppliedItemList";
+import { SubcontractingReceiptSuppliedItemCreate } from "./subcontractingReceiptSuppliedItem/SubcontractingReceiptSuppliedItemCreate";
+import { SubcontractingReceiptSuppliedItemEdit } from "./subcontractingReceiptSuppliedItem/SubcontractingReceiptSuppliedItemEdit";
+import { SubcontractingReceiptSuppliedItemShow } from "./subcontractingReceiptSuppliedItem/SubcontractingReceiptSuppliedItemShow";
+import { SubcontractingReceiptList } from "./subcontractingReceipt/SubcontractingReceiptList";
+import { SubcontractingReceiptCreate } from "./subcontractingReceipt/SubcontractingReceiptCreate";
+import { SubcontractingReceiptEdit } from "./subcontractingReceipt/SubcontractingReceiptEdit";
+import { SubcontractingReceiptShow } from "./subcontractingReceipt/SubcontractingReceiptShow";
+import { SubscriptionInvoiceList } from "./subscriptionInvoice/SubscriptionInvoiceList";
+import { SubscriptionInvoiceCreate } from "./subscriptionInvoice/SubscriptionInvoiceCreate";
+import { SubscriptionInvoiceEdit } from "./subscriptionInvoice/SubscriptionInvoiceEdit";
+import { SubscriptionInvoiceShow } from "./subscriptionInvoice/SubscriptionInvoiceShow";
+import { SubscriptionPlanDetailList } from "./subscriptionPlanDetail/SubscriptionPlanDetailList";
+import { SubscriptionPlanDetailCreate } from "./subscriptionPlanDetail/SubscriptionPlanDetailCreate";
+import { SubscriptionPlanDetailEdit } from "./subscriptionPlanDetail/SubscriptionPlanDetailEdit";
+import { SubscriptionPlanDetailShow } from "./subscriptionPlanDetail/SubscriptionPlanDetailShow";
+import { SubscriptionPlanList } from "./subscriptionPlan/SubscriptionPlanList";
+import { SubscriptionPlanCreate } from "./subscriptionPlan/SubscriptionPlanCreate";
+import { SubscriptionPlanEdit } from "./subscriptionPlan/SubscriptionPlanEdit";
+import { SubscriptionPlanShow } from "./subscriptionPlan/SubscriptionPlanShow";
+import { SubscriptionList } from "./subscription/SubscriptionList";
+import { SubscriptionCreate } from "./subscription/SubscriptionCreate";
+import { SubscriptionEdit } from "./subscription/SubscriptionEdit";
+import { SubscriptionShow } from "./subscription/SubscriptionShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -776,6 +820,83 @@ const App = (): React.ReactElement => {
           edit={SalesTaxesAndChargesEdit}
           create={SalesTaxesAndChargesCreate}
           show={SalesTaxesAndChargesShow}
+        />
+        <Resource
+          name="SubcontractingOrderServiceItem"
+          list={SubcontractingOrderServiceItemList}
+          edit={SubcontractingOrderServiceItemEdit}
+          create={SubcontractingOrderServiceItemCreate}
+          show={SubcontractingOrderServiceItemShow}
+        />
+        <Resource
+          name="SubcontractingOrderSuppliedItem"
+          list={SubcontractingOrderSuppliedItemList}
+          edit={SubcontractingOrderSuppliedItemEdit}
+          create={SubcontractingOrderSuppliedItemCreate}
+          show={SubcontractingOrderSuppliedItemShow}
+        />
+        <Resource
+          name="SubcontractingOrderItem"
+          list={SubcontractingOrderItemList}
+          edit={SubcontractingOrderItemEdit}
+          create={SubcontractingOrderItemCreate}
+          show={SubcontractingOrderItemShow}
+        />
+        <Resource
+          name="SubcontractingOrder"
+          list={SubcontractingOrderList}
+          edit={SubcontractingOrderEdit}
+          create={SubcontractingOrderCreate}
+          show={SubcontractingOrderShow}
+        />
+        <Resource
+          name="SubcontractingReceiptItem"
+          list={SubcontractingReceiptItemList}
+          edit={SubcontractingReceiptItemEdit}
+          create={SubcontractingReceiptItemCreate}
+          show={SubcontractingReceiptItemShow}
+        />
+        <Resource
+          name="SubcontractingReceiptSuppliedItem"
+          list={SubcontractingReceiptSuppliedItemList}
+          edit={SubcontractingReceiptSuppliedItemEdit}
+          create={SubcontractingReceiptSuppliedItemCreate}
+          show={SubcontractingReceiptSuppliedItemShow}
+        />
+        <Resource
+          name="SubcontractingReceipt"
+          list={SubcontractingReceiptList}
+          edit={SubcontractingReceiptEdit}
+          create={SubcontractingReceiptCreate}
+          show={SubcontractingReceiptShow}
+        />
+        <Resource
+          name="SubscriptionInvoice"
+          list={SubscriptionInvoiceList}
+          edit={SubscriptionInvoiceEdit}
+          create={SubscriptionInvoiceCreate}
+          show={SubscriptionInvoiceShow}
+        />
+        <Resource
+          name="SubscriptionPlanDetail"
+          list={SubscriptionPlanDetailList}
+          edit={SubscriptionPlanDetailEdit}
+          create={SubscriptionPlanDetailCreate}
+          show={SubscriptionPlanDetailShow}
+        />
+        <Resource
+          name="SubscriptionPlan"
+          list={SubscriptionPlanList}
+          edit={SubscriptionPlanEdit}
+          create={SubscriptionPlanCreate}
+          show={SubscriptionPlanShow}
+        />
+        <Resource
+          name="Subscription"
+          list={SubscriptionList}
+          edit={SubscriptionEdit}
+          create={SubscriptionCreate}
+          show={SubscriptionShow}
         />
       </Admin>
     </div>
