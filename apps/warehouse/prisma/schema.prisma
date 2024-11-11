@@ -1060,3 +1060,246 @@ model SerialAndBatchBundle {
   voucherType       String?
   warehouse         String?
 }
+
+model StockEntryDetail {
+  actualQty                Float?
+  additionalCost           Float?
+  againstStockEntry        String?
+  allowAlternativeItem     Boolean?
+  allowZeroValuationRate   Boolean?
+  amount                   Float?
+  barcode                  String?
+  basicAmount              Float?
+  basicRate                Float?
+  batchNo                  String?
+  bomNo                    String?
+  conversionFactor         Float?
+  costCenter               String?
+  createdAt                DateTime  @default(now())
+  creation                 DateTime?
+  description              String?
+  docstatus                Int?
+  expenseAccount           String?
+  hasItemScanned           Boolean?
+  id                       String    @id @default(cuid())
+  idx                      Int?
+  image                    String?
+  isFinishedItem           Boolean?
+  isScrapItem              Boolean?
+  itemCode                 String?
+  itemGroup                String?
+  itemName                 String?
+  jobCardItem              String?
+  materialRequest          String?
+  materialRequestItem      String?
+  modified                 DateTime?
+  modifiedBy               String?
+  name                     String?
+  originalItem             String?
+  owner                    String?
+  parent                   String?
+  parentfield              String?
+  parenttype               String?
+  poDetail                 String?
+  project                  String?
+  putawayRule              String?
+  qty                      Float?
+  qualityInspection        String?
+  referencePurchaseReceipt String?
+  retainSample             Boolean?
+  sWarehouse               String?
+  sampleQuantity           Int?
+  scoRmDetail              String?
+  serialAndBatchBundle     String?
+  serialNo                 String?
+  setBasicRateManually     Boolean?
+  steDetail                String?
+  stockUom                 String?
+  subcontractedItem        String?
+  tWarehouse               String?
+  transferQty              Float?
+  transferredQty           Float?
+  uom                      String?
+  updatedAt                DateTime  @updatedAt
+  useSerialBatchFields     Boolean?
+  valuationRate            Float?
+}
+
+model StockEntryType {
+  addToTransit Boolean?
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  docstatus    Int?
+  id           String    @id @default(cuid())
+  idx          Int?
+  isStandard   Boolean?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  purpose      String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model StockLedgerEntry {
+  actualQty                       Float?
+  autoCreatedSerialAndBatchBundle Boolean?
+  batchNo                         String?
+  company                         String?
+  createdAt                       DateTime  @default(now())
+  creation                        DateTime?
+  dependantSleVoucherDetailNo     String?
+  docstatus                       Int?
+  fiscalYear                      String?
+  hasBatchNo                      Boolean?
+  hasSerialNo                     Boolean?
+  id                              String    @id @default(cuid())
+  idx                             Int?
+  incomingRate                    Float?
+  isAdjustmentEntry               Boolean?
+  isCancelled                     Boolean?
+  itemCode                        String?
+  modified                        DateTime?
+  modifiedBy                      String?
+  name                            String?
+  outgoingRate                    Float?
+  owner                           String?
+  postingDate                     DateTime?
+  postingDatetime                 DateTime?
+  postingTime                     DateTime?
+  project                         String?
+  qtyAfterTransaction             Float?
+  recalculateRate                 Boolean?
+  serialAndBatchBundle            String?
+  serialNo                        String?
+  stockQueue                      String?
+  stockUom                        String?
+  stockValue                      Float?
+  stockValueDifference            Float?
+  toRename                        Boolean?
+  updatedAt                       DateTime  @updatedAt
+  valuationRate                   Float?
+  voucherDetailNo                 String?
+  voucherNo                       String?
+  voucherType                     String?
+  warehouse                       String?
+}
+
+model StockReconciliationItem {
+  allowZeroValuationRate      Boolean?
+  amount                      Float?
+  amountDifference            Float?
+  barcode                     String?
+  batchNo                     String?
+  createdAt                   DateTime  @default(now())
+  creation                    DateTime?
+  currentAmount               Float?
+  currentQty                  Float?
+  currentSerialAndBatchBundle String?
+  currentSerialNo             String?
+  currentValuationRate        Float?
+  docstatus                   Int?
+  hasItemScanned              String?
+  id                          String    @id @default(cuid())
+  idx                         Int?
+  itemCode                    String?
+  itemGroup                   String?
+  itemName                    String?
+  modified                    DateTime?
+  modifiedBy                  String?
+  name                        String?
+  owner                       String?
+  parent                      String?
+  parentfield                 String?
+  parenttype                  String?
+  qty                         Float?
+  quantityDifference          String?
+  reconcileAllSerialBatch     Boolean?
+  serialAndBatchBundle        String?
+  serialNo                    String?
+  updatedAt                   DateTime  @updatedAt
+  useSerialBatchFields        Boolean?
+  valuationRate               Float?
+  warehouse                   String?
+}
+
+model StockReservationEntry {
+  amendedFrom         String?
+  availableQty        Float?
+  company             String?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  deliveredQty        Float?
+  docstatus           Int?
+  fromVoucherDetailNo String?
+  fromVoucherNo       String?
+  fromVoucherType     String?
+  hasBatchNo          Boolean?
+  hasSerialNo         Boolean?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  itemCode            String?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  owner               String?
+  project             String?
+  reservationBasedOn  String?
+  reservedQty         Float?
+  status              String?
+  stockUom            String?
+  updatedAt           DateTime  @updatedAt
+  voucherDetailNo     String?
+  voucherNo           String?
+  voucherQty          Float?
+  voucherType         String?
+  warehouse           String?
+}
+
+model StockReconciliation {
+  amendedFrom      String?
+  company          String?
+  costCenter       String?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  differenceAmount Float?
+  docstatus        Int?
+  expenseAccount   String?
+  id               String    @id @default(cuid())
+  idx              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  namingSeries     String?
+  owner            String?
+  postingDate      DateTime?
+  postingTime      DateTime?
+  purpose          String?
+  scanBarcode      String?
+  scanMode         Boolean?
+  setPostingTime   Boolean?
+  setWarehouse     String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model SubcontractingBom {
+  conversionFactor Float?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  finishedGood     String?
+  finishedGoodBom  String?
+  finishedGoodQty  Float?
+  finishedGoodUom  String?
+  id               String    @id @default(cuid())
+  idx              Int?
+  isActive         Boolean?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  serviceItem      String?
+  serviceItemQty   Float?
+  serviceItemUom   String?
+  updatedAt        DateTime  @updatedAt
+}

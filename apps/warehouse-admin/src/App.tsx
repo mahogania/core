@@ -169,6 +169,34 @@ import { SerialAndBatchBundleList } from "./serialAndBatchBundle/SerialAndBatchB
 import { SerialAndBatchBundleCreate } from "./serialAndBatchBundle/SerialAndBatchBundleCreate";
 import { SerialAndBatchBundleEdit } from "./serialAndBatchBundle/SerialAndBatchBundleEdit";
 import { SerialAndBatchBundleShow } from "./serialAndBatchBundle/SerialAndBatchBundleShow";
+import { StockEntryDetailList } from "./stockEntryDetail/StockEntryDetailList";
+import { StockEntryDetailCreate } from "./stockEntryDetail/StockEntryDetailCreate";
+import { StockEntryDetailEdit } from "./stockEntryDetail/StockEntryDetailEdit";
+import { StockEntryDetailShow } from "./stockEntryDetail/StockEntryDetailShow";
+import { StockEntryTypeList } from "./stockEntryType/StockEntryTypeList";
+import { StockEntryTypeCreate } from "./stockEntryType/StockEntryTypeCreate";
+import { StockEntryTypeEdit } from "./stockEntryType/StockEntryTypeEdit";
+import { StockEntryTypeShow } from "./stockEntryType/StockEntryTypeShow";
+import { StockLedgerEntryList } from "./stockLedgerEntry/StockLedgerEntryList";
+import { StockLedgerEntryCreate } from "./stockLedgerEntry/StockLedgerEntryCreate";
+import { StockLedgerEntryEdit } from "./stockLedgerEntry/StockLedgerEntryEdit";
+import { StockLedgerEntryShow } from "./stockLedgerEntry/StockLedgerEntryShow";
+import { StockReconciliationItemList } from "./stockReconciliationItem/StockReconciliationItemList";
+import { StockReconciliationItemCreate } from "./stockReconciliationItem/StockReconciliationItemCreate";
+import { StockReconciliationItemEdit } from "./stockReconciliationItem/StockReconciliationItemEdit";
+import { StockReconciliationItemShow } from "./stockReconciliationItem/StockReconciliationItemShow";
+import { StockReservationEntryList } from "./stockReservationEntry/StockReservationEntryList";
+import { StockReservationEntryCreate } from "./stockReservationEntry/StockReservationEntryCreate";
+import { StockReservationEntryEdit } from "./stockReservationEntry/StockReservationEntryEdit";
+import { StockReservationEntryShow } from "./stockReservationEntry/StockReservationEntryShow";
+import { StockReconciliationList } from "./stockReconciliation/StockReconciliationList";
+import { StockReconciliationCreate } from "./stockReconciliation/StockReconciliationCreate";
+import { StockReconciliationEdit } from "./stockReconciliation/StockReconciliationEdit";
+import { StockReconciliationShow } from "./stockReconciliation/StockReconciliationShow";
+import { SubcontractingBomList } from "./subcontractingBom/SubcontractingBomList";
+import { SubcontractingBomCreate } from "./subcontractingBom/SubcontractingBomCreate";
+import { SubcontractingBomEdit } from "./subcontractingBom/SubcontractingBomEdit";
+import { SubcontractingBomShow } from "./subcontractingBom/SubcontractingBomShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -468,6 +496,55 @@ const App = (): React.ReactElement => {
           edit={SerialAndBatchBundleEdit}
           create={SerialAndBatchBundleCreate}
           show={SerialAndBatchBundleShow}
+        />
+        <Resource
+          name="StockEntryDetail"
+          list={StockEntryDetailList}
+          edit={StockEntryDetailEdit}
+          create={StockEntryDetailCreate}
+          show={StockEntryDetailShow}
+        />
+        <Resource
+          name="StockEntryType"
+          list={StockEntryTypeList}
+          edit={StockEntryTypeEdit}
+          create={StockEntryTypeCreate}
+          show={StockEntryTypeShow}
+        />
+        <Resource
+          name="StockLedgerEntry"
+          list={StockLedgerEntryList}
+          edit={StockLedgerEntryEdit}
+          create={StockLedgerEntryCreate}
+          show={StockLedgerEntryShow}
+        />
+        <Resource
+          name="StockReconciliationItem"
+          list={StockReconciliationItemList}
+          edit={StockReconciliationItemEdit}
+          create={StockReconciliationItemCreate}
+          show={StockReconciliationItemShow}
+        />
+        <Resource
+          name="StockReservationEntry"
+          list={StockReservationEntryList}
+          edit={StockReservationEntryEdit}
+          create={StockReservationEntryCreate}
+          show={StockReservationEntryShow}
+        />
+        <Resource
+          name="StockReconciliation"
+          list={StockReconciliationList}
+          edit={StockReconciliationEdit}
+          create={StockReconciliationCreate}
+          show={StockReconciliationShow}
+        />
+        <Resource
+          name="SubcontractingBom"
+          list={SubcontractingBomList}
+          edit={SubcontractingBomEdit}
+          create={SubcontractingBomCreate}
+          show={SubcontractingBomShow}
         />
       </Admin>
     </div>

@@ -40,6 +40,13 @@ import { ProductionPlanModule } from "./productionPlan/productionPlan.module";
 import { SerialNoModule } from "./serialNo/serialNo.module";
 import { SerialAndBatchEntryModule } from "./serialAndBatchEntry/serialAndBatchEntry.module";
 import { SerialAndBatchBundleModule } from "./serialAndBatchBundle/serialAndBatchBundle.module";
+import { StockEntryDetailModule } from "./stockEntryDetail/stockEntryDetail.module";
+import { StockEntryTypeModule } from "./stockEntryType/stockEntryType.module";
+import { StockLedgerEntryModule } from "./stockLedgerEntry/stockLedgerEntry.module";
+import { StockReconciliationItemModule } from "./stockReconciliationItem/stockReconciliationItem.module";
+import { StockReservationEntryModule } from "./stockReservationEntry/stockReservationEntry.module";
+import { StockReconciliationModule } from "./stockReconciliation/stockReconciliation.module";
+import { SubcontractingBomModule } from "./subcontractingBom/subcontractingBom.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -93,6 +100,13 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     SerialNoModule,
     SerialAndBatchEntryModule,
     SerialAndBatchBundleModule,
+    StockEntryDetailModule,
+    StockEntryTypeModule,
+    StockLedgerEntryModule,
+    StockReconciliationItemModule,
+    StockReservationEntryModule,
+    StockReconciliationModule,
+    SubcontractingBomModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
