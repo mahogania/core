@@ -1,0 +1,35 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type SerialAndBatchBundleOrderByInput = {
+  amendedFrom?: SortOrder;
+  avgRate?: SortOrder;
+  company?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  docstatus?: SortOrder;
+  hasBatchNo?: SortOrder;
+  hasSerialNo?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  isCancelled?: SortOrder;
+  isRejected?: SortOrder;
+  itemCode?: SortOrder;
+  itemGroup?: SortOrder;
+  itemName?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  namingSeries?: SortOrder;
+  owner?: SortOrder;
+  postingDate?: SortOrder;
+  postingTime?: SortOrder;
+  returnedAgainst?: SortOrder;
+  totalAmount?: SortOrder;
+  totalQty?: SortOrder;
+  typeOfTransaction?: SortOrder;
+  updatedAt?: SortOrder;
+  voucherDetailNo?: SortOrder;
+  voucherNo?: SortOrder;
+  voucherType?: SortOrder;
+  warehouse?: SortOrder;
+};

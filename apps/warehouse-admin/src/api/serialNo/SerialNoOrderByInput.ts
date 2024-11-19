@@ -1,0 +1,35 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type SerialNoOrderByInput = {
+  amcExpiryDate?: SortOrder;
+  asset?: SortOrder;
+  assetStatus?: SortOrder;
+  batchNo?: SortOrder;
+  brand?: SortOrder;
+  company?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  description?: SortOrder;
+  docstatus?: SortOrder;
+  employee?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  itemCode?: SortOrder;
+  itemGroup?: SortOrder;
+  itemName?: SortOrder;
+  location?: SortOrder;
+  maintenanceStatus?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  owner?: SortOrder;
+  purchaseDocumentNo?: SortOrder;
+  purchaseRate?: SortOrder;
+  serialNo?: SortOrder;
+  status?: SortOrder;
+  updatedAt?: SortOrder;
+  warehouse?: SortOrder;
+  warrantyExpiryDate?: SortOrder;
+  warrantyPeriod?: SortOrder;
+  workOrder?: SortOrder;
+};

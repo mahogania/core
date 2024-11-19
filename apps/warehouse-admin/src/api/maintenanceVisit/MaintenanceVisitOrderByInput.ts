@@ -1,0 +1,35 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type MaintenanceVisitOrderByInput = {
+  addressDisplay?: SortOrder;
+  amendedFrom?: SortOrder;
+  company?: SortOrder;
+  completionStatus?: SortOrder;
+  contactDisplay?: SortOrder;
+  contactEmail?: SortOrder;
+  contactMobile?: SortOrder;
+  contactPerson?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  customer?: SortOrder;
+  customerAddress?: SortOrder;
+  customerFeedback?: SortOrder;
+  customerGroup?: SortOrder;
+  customerName?: SortOrder;
+  docstatus?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  maintenanceSchedule?: SortOrder;
+  maintenanceScheduleDetail?: SortOrder;
+  maintenanceType?: SortOrder;
+  mntcDate?: SortOrder;
+  mntcTime?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  namingSeries?: SortOrder;
+  owner?: SortOrder;
+  status?: SortOrder;
+  territory?: SortOrder;
+  updatedAt?: SortOrder;
+};

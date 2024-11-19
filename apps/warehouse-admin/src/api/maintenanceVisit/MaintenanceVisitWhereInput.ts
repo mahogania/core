@@ -1,0 +1,36 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type MaintenanceVisitWhereInput = {
+  addressDisplay?: StringNullableFilter;
+  amendedFrom?: StringNullableFilter;
+  company?: StringNullableFilter;
+  completionStatus?: StringNullableFilter;
+  contactDisplay?: StringNullableFilter;
+  contactEmail?: StringNullableFilter;
+  contactMobile?: StringNullableFilter;
+  contactPerson?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  customer?: StringNullableFilter;
+  customerAddress?: StringNullableFilter;
+  customerFeedback?: StringNullableFilter;
+  customerGroup?: StringNullableFilter;
+  customerName?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  maintenanceSchedule?: StringNullableFilter;
+  maintenanceScheduleDetail?: StringNullableFilter;
+  maintenanceType?: StringNullableFilter;
+  mntcDate?: DateTimeNullableFilter;
+  mntcTime?: DateTimeNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  namingSeries?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  status?: StringNullableFilter;
+  territory?: StringNullableFilter;
+};
