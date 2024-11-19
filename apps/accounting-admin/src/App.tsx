@@ -229,6 +229,34 @@ import { IndustryTypeList } from "./industryType/IndustryTypeList";
 import { IndustryTypeCreate } from "./industryType/IndustryTypeCreate";
 import { IndustryTypeEdit } from "./industryType/IndustryTypeEdit";
 import { IndustryTypeShow } from "./industryType/IndustryTypeShow";
+import { PaymentReconciliationLogAllocationList } from "./paymentReconciliationLogAllocation/PaymentReconciliationLogAllocationList";
+import { PaymentReconciliationLogAllocationCreate } from "./paymentReconciliationLogAllocation/PaymentReconciliationLogAllocationCreate";
+import { PaymentReconciliationLogAllocationEdit } from "./paymentReconciliationLogAllocation/PaymentReconciliationLogAllocationEdit";
+import { PaymentReconciliationLogAllocationShow } from "./paymentReconciliationLogAllocation/PaymentReconciliationLogAllocationShow";
+import { DeferredAccountingList } from "./deferredAccounting/DeferredAccountingList";
+import { DeferredAccountingCreate } from "./deferredAccounting/DeferredAccountingCreate";
+import { DeferredAccountingEdit } from "./deferredAccounting/DeferredAccountingEdit";
+import { DeferredAccountingShow } from "./deferredAccounting/DeferredAccountingShow";
+import { PaymentReconciliationLogList } from "./paymentReconciliationLog/PaymentReconciliationLogList";
+import { PaymentReconciliationLogCreate } from "./paymentReconciliationLog/PaymentReconciliationLogCreate";
+import { PaymentReconciliationLogEdit } from "./paymentReconciliationLog/PaymentReconciliationLogEdit";
+import { PaymentReconciliationLogShow } from "./paymentReconciliationLog/PaymentReconciliationLogShow";
+import { PaymentReconciliationList } from "./paymentReconciliation/PaymentReconciliationList";
+import { PaymentReconciliationCreate } from "./paymentReconciliation/PaymentReconciliationCreate";
+import { PaymentReconciliationEdit } from "./paymentReconciliation/PaymentReconciliationEdit";
+import { PaymentReconciliationShow } from "./paymentReconciliation/PaymentReconciliationShow";
+import { StatementOfAccountsCustomerList } from "./statementOfAccountsCustomer/StatementOfAccountsCustomerList";
+import { StatementOfAccountsCustomerCreate } from "./statementOfAccountsCustomer/StatementOfAccountsCustomerCreate";
+import { StatementOfAccountsCustomerEdit } from "./statementOfAccountsCustomer/StatementOfAccountsCustomerEdit";
+import { StatementOfAccountsCustomerShow } from "./statementOfAccountsCustomer/StatementOfAccountsCustomerShow";
+import { StatementOfAccountsList } from "./statementOfAccounts/StatementOfAccountsList";
+import { StatementOfAccountsCreate } from "./statementOfAccounts/StatementOfAccountsCreate";
+import { StatementOfAccountsEdit } from "./statementOfAccounts/StatementOfAccountsEdit";
+import { StatementOfAccountsShow } from "./statementOfAccounts/StatementOfAccountsShow";
+import { ProductBundleItemList } from "./productBundleItem/ProductBundleItemList";
+import { ProductBundleItemCreate } from "./productBundleItem/ProductBundleItemCreate";
+import { ProductBundleItemEdit } from "./productBundleItem/ProductBundleItemEdit";
+import { ProductBundleItemShow } from "./productBundleItem/ProductBundleItemShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -633,6 +661,55 @@ const App = (): React.ReactElement => {
           edit={IndustryTypeEdit}
           create={IndustryTypeCreate}
           show={IndustryTypeShow}
+        />
+        <Resource
+          name="PaymentReconciliationLogAllocation"
+          list={PaymentReconciliationLogAllocationList}
+          edit={PaymentReconciliationLogAllocationEdit}
+          create={PaymentReconciliationLogAllocationCreate}
+          show={PaymentReconciliationLogAllocationShow}
+        />
+        <Resource
+          name="DeferredAccounting"
+          list={DeferredAccountingList}
+          edit={DeferredAccountingEdit}
+          create={DeferredAccountingCreate}
+          show={DeferredAccountingShow}
+        />
+        <Resource
+          name="PaymentReconciliationLog"
+          list={PaymentReconciliationLogList}
+          edit={PaymentReconciliationLogEdit}
+          create={PaymentReconciliationLogCreate}
+          show={PaymentReconciliationLogShow}
+        />
+        <Resource
+          name="PaymentReconciliation"
+          list={PaymentReconciliationList}
+          edit={PaymentReconciliationEdit}
+          create={PaymentReconciliationCreate}
+          show={PaymentReconciliationShow}
+        />
+        <Resource
+          name="StatementOfAccountsCustomer"
+          list={StatementOfAccountsCustomerList}
+          edit={StatementOfAccountsCustomerEdit}
+          create={StatementOfAccountsCustomerCreate}
+          show={StatementOfAccountsCustomerShow}
+        />
+        <Resource
+          name="StatementOfAccounts"
+          list={StatementOfAccountsList}
+          edit={StatementOfAccountsEdit}
+          create={StatementOfAccountsCreate}
+          show={StatementOfAccountsShow}
+        />
+        <Resource
+          name="ProductBundleItem"
+          list={ProductBundleItemList}
+          edit={ProductBundleItemEdit}
+          create={ProductBundleItemCreate}
+          show={ProductBundleItemShow}
         />
       </Admin>
     </div>

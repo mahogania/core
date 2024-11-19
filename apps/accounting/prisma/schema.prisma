@@ -1269,3 +1269,175 @@ model IndustryType {
   owner      String?
   updatedAt  DateTime  @updatedAt
 }
+
+model PaymentReconciliationLogAllocation {
+  allocatedAmount    Float?
+  amount             Float?
+  createdAt          DateTime @default(now())
+  currency           String?
+  differenceAccount  String?
+  differenceAmount   Float?
+  docstatus          Int?
+  exchangeRate       Float?
+  id                 String   @id @default(cuid())
+  idx                Int?
+  invoiceNumber      String?
+  invoiceType        String?
+  isAdvance          String?
+  modifiedBy         String?
+  name               String?
+  owner              String?
+  parent             String?
+  parentfield        String?
+  parenttype         String?
+  reconciled         Int?
+  referenceName      String?
+  referenceRow       String?
+  referenceType      String?
+  unreconciledAmount Float?
+  updatedAt          DateTime @updatedAt
+}
+
+model DeferredAccounting {
+  account     String?
+  amendedFrom String?
+  company     String?
+  createdAt   DateTime  @default(now())
+  docstatus   Int?
+  endDate     DateTime?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  postingDate DateTime?
+  startDate   DateTime?
+  typeField   String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model PaymentReconciliationLog {
+  allocated         Int?
+  createdAt         DateTime @default(now())
+  docstatus         Int?
+  errorLog          String?
+  id                String   @id @default(cuid())
+  idx               Int?
+  modifiedBy        String?
+  name              String?
+  owner             String?
+  processPr         String?
+  reconciled        Int?
+  reconciledEntries Int?
+  status            String?
+  totalAllocations  Int?
+  updatedAt         DateTime @updatedAt
+}
+
+model PaymentReconciliation {
+  amendedFrom              String?
+  bankCashAccount          String?
+  company                  String?
+  costCenter               String?
+  createdAt                DateTime  @default(now())
+  defaultAdvanceAccount    String?
+  docstatus                Int?
+  errorLog                 String?
+  fromInvoiceDate          DateTime?
+  fromPaymentDate          DateTime?
+  id                       String    @id @default(cuid())
+  idx                      Int?
+  modifiedBy               String?
+  name                     String?
+  owner                    String?
+  party                    String?
+  partyType                String?
+  receivablePayableAccount String?
+  status                   String?
+  toInvoiceDate            DateTime?
+  toPaymentDate            DateTime?
+  updatedAt                DateTime  @updatedAt
+}
+
+model StatementOfAccountsCustomer {
+  billingEmail String?
+  createdAt    DateTime @default(now())
+  customer     String?
+  customerName String?
+  docstatus    Int?
+  id           String   @id @default(cuid())
+  idx          Int?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  parent       String?
+  parentfield  String?
+  parenttype   String?
+  primaryEmail String?
+  updatedAt    DateTime @updatedAt
+}
+
+model StatementOfAccounts {
+  account                               String?
+  ageingBasedOn                         String?
+  basedOnPaymentTerms                   Int?
+  body                                  String?
+  ccTo                                  String?
+  collectionName                        String?
+  company                               String?
+  createdAt                             DateTime  @default(now())
+  currency                              String?
+  customerCollection                    String?
+  docstatus                             Int?
+  enableAutoEmail                       Int?
+  filterDuration                        Int?
+  financeBook                           String?
+  frequency                             String?
+  fromDate                              DateTime?
+  groupBy                               String?
+  id                                    String    @id @default(cuid())
+  idx                                   Int?
+  ignoreCrDrNotes                       Int?
+  ignoreExchangeRateRevaluationJournals Int?
+  includeAgeing                         Int?
+  includeBreak                          Int?
+  letterHead                            String?
+  modifiedBy                            String?
+  name                                  String?
+  orientation                           String?
+  owner                                 String?
+  paymentTermsTemplate                  String?
+  pdfName                               String?
+  postingDate                           DateTime?
+  primaryMandatory                      Int?
+  report                                String?
+  salesPartner                          String?
+  salesPerson                           String?
+  sender                                String?
+  showNetValuesInPartyAccount           Int?
+  startDate                             DateTime?
+  subject                               String?
+  termsAndConditions                    String?
+  territory                             String?
+  toDate                                DateTime?
+  updatedAt                             DateTime  @updatedAt
+}
+
+model ProductBundleItem {
+  createdAt   DateTime @default(now())
+  description String?
+  docstatus   Int?
+  id          String   @id @default(cuid())
+  idx         Int?
+  itemCode    String?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  qty         Float?
+  rate        Float?
+  uom         String?
+  updatedAt   DateTime @updatedAt
+}

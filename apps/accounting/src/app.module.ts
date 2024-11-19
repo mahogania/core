@@ -55,6 +55,13 @@ import { FiscalYearCompanyModule } from "./fiscalYearCompany/fiscalYearCompany.m
 import { FinanceBookModule } from "./financeBook/financeBook.module";
 import { FiscalYearModule } from "./fiscalYear/fiscalYear.module";
 import { IndustryTypeModule } from "./industryType/industryType.module";
+import { PaymentReconciliationLogAllocationModule } from "./paymentReconciliationLogAllocation/paymentReconciliationLogAllocation.module";
+import { DeferredAccountingModule } from "./deferredAccounting/deferredAccounting.module";
+import { PaymentReconciliationLogModule } from "./paymentReconciliationLog/paymentReconciliationLog.module";
+import { PaymentReconciliationModule } from "./paymentReconciliation/paymentReconciliation.module";
+import { StatementOfAccountsCustomerModule } from "./statementOfAccountsCustomer/statementOfAccountsCustomer.module";
+import { StatementOfAccountsModule } from "./statementOfAccounts/statementOfAccounts.module";
+import { ProductBundleItemModule } from "./productBundleItem/productBundleItem.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -123,6 +130,13 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     FinanceBookModule,
     FiscalYearModule,
     IndustryTypeModule,
+    PaymentReconciliationLogAllocationModule,
+    DeferredAccountingModule,
+    PaymentReconciliationLogModule,
+    PaymentReconciliationModule,
+    StatementOfAccountsCustomerModule,
+    StatementOfAccountsModule,
+    ProductBundleItemModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
