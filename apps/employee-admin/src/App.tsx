@@ -29,6 +29,30 @@ import { EmployeeList } from "./employee/EmployeeList";
 import { EmployeeCreate } from "./employee/EmployeeCreate";
 import { EmployeeEdit } from "./employee/EmployeeEdit";
 import { EmployeeShow } from "./employee/EmployeeShow";
+import { HolidayListList } from "./holidayList/HolidayListList";
+import { HolidayListCreate } from "./holidayList/HolidayListCreate";
+import { HolidayListEdit } from "./holidayList/HolidayListEdit";
+import { HolidayListShow } from "./holidayList/HolidayListShow";
+import { HolidayList } from "./holiday/HolidayList";
+import { HolidayCreate } from "./holiday/HolidayCreate";
+import { HolidayEdit } from "./holiday/HolidayEdit";
+import { HolidayShow } from "./holiday/HolidayShow";
+import { JobCardItemList } from "./jobCardItem/JobCardItemList";
+import { JobCardItemCreate } from "./jobCardItem/JobCardItemCreate";
+import { JobCardItemEdit } from "./jobCardItem/JobCardItemEdit";
+import { JobCardItemShow } from "./jobCardItem/JobCardItemShow";
+import { JobCardOperationList } from "./jobCardOperation/JobCardOperationList";
+import { JobCardOperationCreate } from "./jobCardOperation/JobCardOperationCreate";
+import { JobCardOperationEdit } from "./jobCardOperation/JobCardOperationEdit";
+import { JobCardOperationShow } from "./jobCardOperation/JobCardOperationShow";
+import { JobCardScheduledTimeList } from "./jobCardScheduledTime/JobCardScheduledTimeList";
+import { JobCardScheduledTimeCreate } from "./jobCardScheduledTime/JobCardScheduledTimeCreate";
+import { JobCardScheduledTimeEdit } from "./jobCardScheduledTime/JobCardScheduledTimeEdit";
+import { JobCardScheduledTimeShow } from "./jobCardScheduledTime/JobCardScheduledTimeShow";
+import { JobCardList } from "./jobCard/JobCardList";
+import { JobCardCreate } from "./jobCard/JobCardCreate";
+import { JobCardEdit } from "./jobCard/JobCardEdit";
+import { JobCardShow } from "./jobCard/JobCardShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -83,6 +107,48 @@ const App = (): React.ReactElement => {
           edit={EmployeeEdit}
           create={EmployeeCreate}
           show={EmployeeShow}
+        />
+        <Resource
+          name="HolidayList"
+          list={HolidayListList}
+          edit={HolidayListEdit}
+          create={HolidayListCreate}
+          show={HolidayListShow}
+        />
+        <Resource
+          name="Holiday"
+          list={HolidayList}
+          edit={HolidayEdit}
+          create={HolidayCreate}
+          show={HolidayShow}
+        />
+        <Resource
+          name="JobCardItem"
+          list={JobCardItemList}
+          edit={JobCardItemEdit}
+          create={JobCardItemCreate}
+          show={JobCardItemShow}
+        />
+        <Resource
+          name="JobCardOperation"
+          list={JobCardOperationList}
+          edit={JobCardOperationEdit}
+          create={JobCardOperationCreate}
+          show={JobCardOperationShow}
+        />
+        <Resource
+          name="JobCardScheduledTime"
+          list={JobCardScheduledTimeList}
+          edit={JobCardScheduledTimeEdit}
+          create={JobCardScheduledTimeCreate}
+          show={JobCardScheduledTimeShow}
+        />
+        <Resource
+          name="JobCard"
+          list={JobCardList}
+          edit={JobCardEdit}
+          create={JobCardCreate}
+          show={JobCardShow}
         />
       </Admin>
     </div>

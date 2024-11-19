@@ -5,6 +5,12 @@ import { EmployeeGroupTableModule } from "./employeeGroupTable/employeeGroupTabl
 import { EmployeeGroupModule } from "./employeeGroup/employeeGroup.module";
 import { EmployeeInternalWorkHistoryModule } from "./employeeInternalWorkHistory/employeeInternalWorkHistory.module";
 import { EmployeeModule } from "./employee/employee.module";
+import { HolidayListModule } from "./holidayList/holidayList.module";
+import { HolidayModule } from "./holiday/holiday.module";
+import { JobCardItemModule } from "./jobCardItem/jobCardItem.module";
+import { JobCardOperationModule } from "./jobCardOperation/jobCardOperation.module";
+import { JobCardScheduledTimeModule } from "./jobCardScheduledTime/jobCardScheduledTime.module";
+import { JobCardModule } from "./jobCard/jobCard.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -27,6 +33,12 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
     EmployeeGroupModule,
     EmployeeInternalWorkHistoryModule,
     EmployeeModule,
+    HolidayListModule,
+    HolidayModule,
+    JobCardItemModule,
+    JobCardOperationModule,
+    JobCardScheduledTimeModule,
+    JobCardModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
