@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+                 package configuration;
+service ConfigurationService {
+ rpc createConfiguration (ConfigurationCreateInput) returns (Configuration) {}
+rpc configurations (findManyParams) returns (stream Configuration) {}
+rpc configuration (ConfigurationWhereUniqueInput) returns (Configuration) {}
+rpc updateConfiguration (ConfigurationUpdateInput) returns (Configuration) {}
+rpc deleteConfiguration (ConfigurationWhereUniqueInput) returns (Configuration) {}
+rpc findManyConfiguration (ConfigurationWhereUniqueInput) returns (stream Item) {}
+rpc updateConfiguration (ItemParams) returns (stream Item) {}
+rpc connectConfiguration (ItemParams) returns (Item) {}
+rpc disconnectConfiguration (ItemParams) returns (Item) {} 
+ }
+message ConfigurationCreateInput {
+Bundle bundle = 1;
+string createdAt = 2;
+string id = 3;
+repeated Item items = 4;
+string updatedAt = 5;
+};
+message Configuration {
+Bundle bundle = 1;
+string createdAt = 2;
+string id = 3;
+repeated Item items = 4;
+string updatedAt = 5;
+};
+message ConfigurationWhereUniqueInput {
+Bundle bundle = 1;
+string createdAt = 2;
+string id = 3;
+repeated Item items = 4;
+string updatedAt = 5;
+};
+message ConfigurationUpdateInput {
+Bundle bundle = 1;
+string createdAt = 2;
+string id = 3;
+repeated Item items = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
+message Item {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemParams {
+ConfigurationWhereUniqueInput configurationWhereUniqueInput = 1;
+ItemWhereUniqueInput itemWhereUniqueInput = 2;
+};

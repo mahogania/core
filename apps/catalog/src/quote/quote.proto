@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package quote;
+service QuoteService {
+ rpc createQuote (QuoteCreateInput) returns (Quote) {}
+rpc quotes (findManyParams) returns (stream Quote) {}
+rpc quote (QuoteWhereUniqueInput) returns (Quote) {}
+rpc updateQuote (QuoteUpdateInput) returns (Quote) {}
+rpc deleteQuote (QuoteWhereUniqueInput) returns (Quote) {}
+rpc findManyQuote (QuoteWhereUniqueInput) returns (stream Item) {}
+rpc updateQuote (ItemParams) returns (stream Item) {}
+rpc connectQuote (ItemParams) returns (Item) {}
+rpc disconnectQuote (ItemParams) returns (Item) {} 
+ }
+message QuoteCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Item lineItems = 3;
+string updatedAt = 4;
+};
+message Quote {
+string createdAt = 1;
+string id = 2;
+repeated Item lineItems = 3;
+string updatedAt = 4;
+};
+message QuoteWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Item lineItems = 3;
+string updatedAt = 4;
+};
+message QuoteUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Item lineItems = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Item {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemParams {
+QuoteWhereUniqueInput quoteWhereUniqueInput = 1;
+ItemWhereUniqueInput itemWhereUniqueInput = 2;
+};
