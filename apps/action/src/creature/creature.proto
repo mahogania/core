@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+                 package creature;
+service CreatureService {
+ rpc createCreature (CreatureCreateInput) returns (Creature) {}
+rpc creatures (findManyParams) returns (stream Creature) {}
+rpc creature (CreatureWhereUniqueInput) returns (Creature) {}
+rpc updateCreature (CreatureUpdateInput) returns (Creature) {}
+rpc deleteCreature (CreatureWhereUniqueInput) returns (Creature) {} 
+ }
+message CreatureCreateInput {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message Creature {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureWhereUniqueInput {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureUpdateInput {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message findManyParams {
+
+};

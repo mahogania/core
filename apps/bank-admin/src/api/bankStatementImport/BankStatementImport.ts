@@ -1,0 +1,27 @@
+export type BankStatementImport = {
+  bank: string | null;
+  bankAccount: string | null;
+  company: string | null;
+  createdAt: Date;
+  creation: Date | null;
+  customDelimiters: number | null;
+  delimiterOptions: string | null;
+  docstatus: number | null;
+  googleSheetsUrl: string | null;
+  id: string;
+  idx: number | null;
+  importFile: string | null;
+  importType: string | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  muteEmails: number | null;
+  name: string | null;
+  owner: string | null;
+  referenceDoctype: string | null;
+  showFailedLogs: number | null;
+  status: string | null;
+  submitAfterImport: number | null;
+  templateOptions: string | null;
+  templateWarnings: string | null;
+  updatedAt: Date;
+};

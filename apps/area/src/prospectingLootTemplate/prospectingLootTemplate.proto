@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package prospectingLootTemplate;
+service ProspectingLootTemplateService {
+ rpc createProspectingLootTemplate (ProspectingLootTemplateCreateInput) returns (ProspectingLootTemplate) {}
+rpc prospectingLootTemplates (findManyParams) returns (stream ProspectingLootTemplate) {}
+rpc prospectingLootTemplate (ProspectingLootTemplateWhereUniqueInput) returns (ProspectingLootTemplate) {}
+rpc updateProspectingLootTemplate (ProspectingLootTemplateUpdateInput) returns (ProspectingLootTemplate) {}
+rpc deleteProspectingLootTemplate (ProspectingLootTemplateWhereUniqueInput) returns (ProspectingLootTemplate) {} 
+ }
+message ProspectingLootTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ProspectingLootTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ProspectingLootTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ProspectingLootTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

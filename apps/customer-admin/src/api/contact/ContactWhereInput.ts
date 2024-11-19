@@ -1,0 +1,38 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
+
+export type ContactWhereInput = {
+  address?: StringNullableFilter;
+  companyName?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  department?: StringNullableFilter;
+  designation?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  emailId?: StringNullableFilter;
+  firstName?: StringNullableFilter;
+  fullName?: StringNullableFilter;
+  gender?: StringNullableFilter;
+  googleContacts?: StringNullableFilter;
+  googleContactsId?: StringNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  image?: StringNullableFilter;
+  isPrimaryContact?: BooleanNullableFilter;
+  lastName?: StringNullableFilter;
+  middleName?: StringNullableFilter;
+  mobileNo?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  phone?: StringNullableFilter;
+  pulledFromGoogleContacts?: BooleanNullableFilter;
+  salutation?: StringNullableFilter;
+  status?: StringNullableFilter;
+  syncWithGoogleContacts?: BooleanNullableFilter;
+  unsubscribed?: BooleanNullableFilter;
+  user?: StringNullableFilter;
+};

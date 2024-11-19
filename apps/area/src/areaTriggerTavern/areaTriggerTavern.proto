@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+                 package areaTriggerTavern;
+service AreaTriggerTavernService {
+ rpc createAreaTriggerTavern (AreaTriggerTavernCreateInput) returns (AreaTriggerTavern) {}
+rpc areaTriggerTaverns (findManyParams) returns (stream AreaTriggerTavern) {}
+rpc areaTriggerTavern (AreaTriggerTavernWhereUniqueInput) returns (AreaTriggerTavern) {}
+rpc updateAreaTriggerTavern (AreaTriggerTavernUpdateInput) returns (AreaTriggerTavern) {}
+rpc deleteAreaTriggerTavern (AreaTriggerTavernWhereUniqueInput) returns (AreaTriggerTavern) {} 
+ }
+message AreaTriggerTavernCreateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaTriggerTavern {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaTriggerTavernWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaTriggerTavernUpdateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};

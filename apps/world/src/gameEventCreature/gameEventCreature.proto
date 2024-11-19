@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+                 package gameEventCreature;
+service GameEventCreatureService {
+ rpc createGameEventCreature (GameEventCreatureCreateInput) returns (GameEventCreature) {}
+rpc gameEventCreatures (findManyParams) returns (stream GameEventCreature) {}
+rpc gameEventCreature (GameEventCreatureWhereUniqueInput) returns (GameEventCreature) {}
+rpc updateGameEventCreature (GameEventCreatureUpdateInput) returns (GameEventCreature) {}
+rpc deleteGameEventCreature (GameEventCreatureWhereUniqueInput) returns (GameEventCreature) {}
+rpc findManyGameEventCreatures (GameEventCreatureWhereUniqueInput) returns (stream GameEvent) {}
+rpc updateGameEventCreatures (GameEventParams) returns (stream GameEvent) {}
+rpc connectGameEventCreatures (GameEventParams) returns (GameEvent) {}
+rpc disconnectGameEventCreatures (GameEventParams) returns (GameEvent) {} 
+ }
+message GameEventCreatureCreateInput {
+string createdAt = 1;
+repeated GameEvent gameEvents = 2;
+string id = 3;
+string spawnerId = 4;
+string updatedAt = 5;
+};
+message GameEventCreature {
+string createdAt = 1;
+repeated GameEvent gameEvents = 2;
+string id = 3;
+string spawnerId = 4;
+string updatedAt = 5;
+};
+message GameEventCreatureWhereUniqueInput {
+string createdAt = 1;
+repeated GameEvent gameEvents = 2;
+string id = 3;
+string spawnerId = 4;
+string updatedAt = 5;
+};
+message GameEventCreatureUpdateInput {
+string createdAt = 1;
+repeated GameEvent gameEvents = 2;
+string id = 3;
+string spawnerId = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
+message GameEvent {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message GameEventWhereUniqueInput {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message GameEventParams {
+GameEventCreatureWhereUniqueInput gameEventCreatureWhereUniqueInput = 1;
+GameEventWhereUniqueInput gameeventWhereUniqueInput = 2;
+};

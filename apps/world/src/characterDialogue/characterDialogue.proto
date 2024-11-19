@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+                 package characterDialogue;
+service CharacterDialogueService {
+ rpc createCharacterDialogue (CharacterDialogueCreateInput) returns (CharacterDialogue) {}
+rpc characterDialogues (findManyParams) returns (stream CharacterDialogue) {}
+rpc characterDialogue (CharacterDialogueWhereUniqueInput) returns (CharacterDialogue) {}
+rpc updateCharacterDialogue (CharacterDialogueUpdateInput) returns (CharacterDialogue) {}
+rpc deleteCharacterDialogue (CharacterDialogueWhereUniqueInput) returns (CharacterDialogue) {}
+rpc findManyCharacterDialogues (CharacterDialogueWhereUniqueInput) returns (stream Character) {}
+rpc updateCharacterDialogues (CharacterParams) returns (stream Character) {}
+rpc connectCharacterDialogues (CharacterParams) returns (Character) {}
+rpc disconnectCharacterDialogues (CharacterParams) returns (Character) {}
+rpc findManyCharacterLines (CharacterDialogueWhereUniqueInput) returns (stream Paragraph) {}
+rpc updateCharacterLines (ParagraphParams) returns (stream Paragraph) {}
+rpc connectCharacterLines (ParagraphParams) returns (Paragraph) {}
+rpc disconnectCharacterLines (ParagraphParams) returns (Paragraph) {} 
+ }
+message CharacterDialogueCreateInput {
+repeated Character characters = 1;
+string createdAt = 2;
+string id = 3;
+repeated Paragraph paragraphs = 4;
+string updatedAt = 5;
+};
+message CharacterDialogue {
+repeated Character characters = 1;
+string createdAt = 2;
+string id = 3;
+repeated Paragraph paragraphs = 4;
+string updatedAt = 5;
+};
+message CharacterDialogueWhereUniqueInput {
+repeated Character characters = 1;
+string createdAt = 2;
+string id = 3;
+repeated Paragraph paragraphs = 4;
+string updatedAt = 5;
+};
+message CharacterDialogueUpdateInput {
+repeated Character characters = 1;
+string createdAt = 2;
+string id = 3;
+repeated Paragraph paragraphs = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
+message Character {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CharacterWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CharacterParams {
+CharacterDialogueWhereUniqueInput characterDialogueWhereUniqueInput = 1;
+CharacterWhereUniqueInput characterWhereUniqueInput = 2;
+};
+message Paragraph {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ParagraphWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ParagraphParams {
+CharacterDialogueWhereUniqueInput characterDialogueWhereUniqueInput = 1;
+ParagraphWhereUniqueInput paragraphWhereUniqueInput = 2;
+};

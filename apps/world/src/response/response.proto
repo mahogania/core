@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package response;
+service ResponseService {
+ rpc createResponse (ResponseCreateInput) returns (Response) {}
+rpc responses (findManyParams) returns (stream Response) {}
+rpc response (ResponseWhereUniqueInput) returns (Response) {}
+rpc updateResponse (ResponseUpdateInput) returns (Response) {}
+rpc deleteResponse (ResponseWhereUniqueInput) returns (Response) {} 
+ }
+message ResponseCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Response {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ResponseWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ResponseUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

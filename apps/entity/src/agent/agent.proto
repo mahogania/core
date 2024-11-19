@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+                 package agent;
+service AgentService {
+ rpc createAgent (AgentCreateInput) returns (Agent) {}
+rpc agents (findManyParams) returns (stream Agent) {}
+rpc agent (AgentWhereUniqueInput) returns (Agent) {}
+rpc updateAgent (AgentUpdateInput) returns (Agent) {}
+rpc deleteAgent (AgentWhereUniqueInput) returns (Agent) {}
+rpc findManyAgent (AgentWhereUniqueInput) returns (stream Entity) {}
+rpc updateAgent (EntityParams) returns (stream Entity) {}
+rpc connectAgent (EntityParams) returns (Entity) {}
+rpc disconnectAgent (EntityParams) returns (Entity) {} 
+ }
+message AgentCreateInput {
+string createdAt = 1;
+repeated Entity entities = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message Agent {
+string createdAt = 1;
+repeated Entity entities = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message AgentWhereUniqueInput {
+string createdAt = 1;
+repeated Entity entities = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message AgentUpdateInput {
+string createdAt = 1;
+repeated Entity entities = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Entity {
+string createdAt = 1;
+string description = 2;
+string displayName = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+string version = 7;
+};
+message EntityWhereUniqueInput {
+string createdAt = 1;
+string description = 2;
+string displayName = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+string version = 7;
+};
+message EntityParams {
+AgentWhereUniqueInput agentWhereUniqueInput = 1;
+EntityWhereUniqueInput entityWhereUniqueInput = 2;
+};

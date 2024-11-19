@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package itemTemplate;
+service ItemTemplateService {
+ rpc createItemTemplate (ItemTemplateCreateInput) returns (ItemTemplate) {}
+rpc itemTemplates (findManyParams) returns (stream ItemTemplate) {}
+rpc itemTemplate (ItemTemplateWhereUniqueInput) returns (ItemTemplate) {}
+rpc updateItemTemplate (ItemTemplateUpdateInput) returns (ItemTemplate) {}
+rpc deleteItemTemplate (ItemTemplateWhereUniqueInput) returns (ItemTemplate) {}
+rpc findManyItemTemplate (ItemTemplateWhereUniqueInput) returns (stream ItemRandomBonusListTemplate) {}
+rpc updateItemTemplate (ItemRandomBonusListTemplateParams) returns (stream ItemRandomBonusListTemplate) {}
+rpc connectItemTemplate (ItemRandomBonusListTemplateParams) returns (ItemRandomBonusListTemplate) {}
+rpc disconnectItemTemplate (ItemRandomBonusListTemplateParams) returns (ItemRandomBonusListTemplate) {} 
+ }
+message ItemTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated ItemRandomBonusListTemplate itemRandomBonusListTemplates = 3;
+string updatedAt = 4;
+};
+message ItemTemplate {
+string createdAt = 1;
+string id = 2;
+repeated ItemRandomBonusListTemplate itemRandomBonusListTemplates = 3;
+string updatedAt = 4;
+};
+message ItemTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated ItemRandomBonusListTemplate itemRandomBonusListTemplates = 3;
+string updatedAt = 4;
+};
+message ItemTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated ItemRandomBonusListTemplate itemRandomBonusListTemplates = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message ItemRandomBonusListTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemRandomBonusListTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemRandomBonusListTemplateParams {
+ItemTemplateWhereUniqueInput itemTemplateWhereUniqueInput = 1;
+ItemRandomBonusListTemplateWhereUniqueInput itemrandombonuslisttemplateWhereUniqueInput = 2;
+};

@@ -1,0 +1,24 @@
+export type AssetMaintenanceTaskUpdateInput = {
+  assignTo?: string | null;
+  assignToName?: string | null;
+  certificateRequired?: number | null;
+  creation?: Date | null;
+  description?: string | null;
+  docstatus?: number | null;
+  endDate?: Date | null;
+  idx?: number | null;
+  lastCompletionDate?: Date | null;
+  maintenanceStatus?: string | null;
+  maintenanceTask?: string | null;
+  maintenanceType?: string | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  nextDueDate?: Date | null;
+  owner?: string | null;
+  parent?: string | null;
+  parentField?: string | null;
+  parentType?: string | null;
+  periodicity?: string | null;
+  startDate?: Date | null;
+};

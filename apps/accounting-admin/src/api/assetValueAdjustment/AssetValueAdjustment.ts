@@ -1,0 +1,23 @@
+export type AssetValueAdjustment = {
+  amendedFrom: string | null;
+  asset: string | null;
+  assetCategory: string | null;
+  company: string | null;
+  costCenter: string | null;
+  createdAt: Date;
+  creation: Date | null;
+  currentAssetValue: number | null;
+  date: Date | null;
+  differenceAmount: number | null;
+  docstatus: number | null;
+  financeBook: string | null;
+  id: string;
+  idx: number | null;
+  journalEntry: string | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  newAssetValue: number | null;
+  owner: string | null;
+  updatedAt: Date;
+};

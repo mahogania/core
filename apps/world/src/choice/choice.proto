@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package choice;
+service ChoiceService {
+ rpc createChoice (ChoiceCreateInput) returns (Choice) {}
+rpc choices (findManyParams) returns (stream Choice) {}
+rpc choice (ChoiceWhereUniqueInput) returns (Choice) {}
+rpc updateChoice (ChoiceUpdateInput) returns (Choice) {}
+rpc deleteChoice (ChoiceWhereUniqueInput) returns (Choice) {} 
+ }
+message ChoiceCreateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+Response responses = 4;
+string updatedAt = 5;
+};
+message Choice {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+Response responses = 4;
+string updatedAt = 5;
+};
+message ChoiceWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+Response responses = 4;
+string updatedAt = 5;
+};
+message ChoiceUpdateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+Response responses = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

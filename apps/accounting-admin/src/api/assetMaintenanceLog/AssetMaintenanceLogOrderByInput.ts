@@ -1,0 +1,32 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type AssetMaintenanceLogOrderByInput = {
+  actionsPerformed?: SortOrder;
+  amendedFrom?: SortOrder;
+  assetMaintenance?: SortOrder;
+  assetName?: SortOrder;
+  assignToName?: SortOrder;
+  certificateAttachement?: SortOrder;
+  completionDate?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  description?: SortOrder;
+  docstatus?: SortOrder;
+  dueDate?: SortOrder;
+  hasCertificate?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  itemCode?: SortOrder;
+  itemName?: SortOrder;
+  maintenanceStatus?: SortOrder;
+  maintenanceType?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  namingSeries?: SortOrder;
+  owner?: SortOrder;
+  periodicity?: SortOrder;
+  task?: SortOrder;
+  taskName?: SortOrder;
+  updatedAt?: SortOrder;
+};

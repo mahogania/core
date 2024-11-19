@@ -1,0 +1,30 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type BankStatementImportWhereInput = {
+  bank?: StringNullableFilter;
+  bankAccount?: StringNullableFilter;
+  company?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  customDelimiters?: IntNullableFilter;
+  delimiterOptions?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  googleSheetsUrl?: StringNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  importFile?: StringNullableFilter;
+  importType?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  muteEmails?: IntNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  referenceDoctype?: StringNullableFilter;
+  showFailedLogs?: IntNullableFilter;
+  status?: StringNullableFilter;
+  submitAfterImport?: IntNullableFilter;
+  templateOptions?: StringNullableFilter;
+  templateWarnings?: StringNullableFilter;
+};

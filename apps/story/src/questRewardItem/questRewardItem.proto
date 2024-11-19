@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package questRewardItem;
+service QuestRewardItemService {
+ rpc createQuestRewardItem (QuestRewardItemCreateInput) returns (QuestRewardItem) {}
+rpc questRewardItems (findManyParams) returns (stream QuestRewardItem) {}
+rpc questRewardItem (QuestRewardItemWhereUniqueInput) returns (QuestRewardItem) {}
+rpc updateQuestRewardItem (QuestRewardItemUpdateInput) returns (QuestRewardItem) {}
+rpc deleteQuestRewardItem (QuestRewardItemWhereUniqueInput) returns (QuestRewardItem) {}
+rpc findManyQuestRewardItem (QuestRewardItemWhereUniqueInput) returns (stream QuestOfferReward) {}
+rpc updateQuestRewardItem (QuestOfferRewardParams) returns (stream QuestOfferReward) {}
+rpc connectQuestRewardItem (QuestOfferRewardParams) returns (QuestOfferReward) {}
+rpc disconnectQuestRewardItem (QuestOfferRewardParams) returns (QuestOfferReward) {} 
+ }
+message QuestRewardItemCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestOfferReward questOfferRewards = 3;
+string updatedAt = 4;
+};
+message QuestRewardItem {
+string createdAt = 1;
+string id = 2;
+repeated QuestOfferReward questOfferRewards = 3;
+string updatedAt = 4;
+};
+message QuestRewardItemWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestOfferReward questOfferRewards = 3;
+string updatedAt = 4;
+};
+message QuestRewardItemUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestOfferReward questOfferRewards = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message QuestOfferReward {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardParams {
+QuestRewardItemWhereUniqueInput questRewardItemWhereUniqueInput = 1;
+QuestOfferRewardWhereUniqueInput questofferrewardWhereUniqueInput = 2;
+};

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package playerFactionQuest;
+service PlayerFactionQuestService {
+ rpc createPlayerFactionQuest (PlayerFactionQuestCreateInput) returns (PlayerFactionQuest) {}
+rpc playerFactionQuests (findManyParams) returns (stream PlayerFactionQuest) {}
+rpc playerFactionQuest (PlayerFactionQuestWhereUniqueInput) returns (PlayerFactionQuest) {}
+rpc updatePlayerFactionQuest (PlayerFactionQuestUpdateInput) returns (PlayerFactionQuest) {}
+rpc deletePlayerFactionQuest (PlayerFactionQuestWhereUniqueInput) returns (PlayerFactionQuest) {} 
+ }
+message PlayerFactionQuestCreateInput {
+string createdAt = 1;
+string id = 2;
+string questId = 3;
+string state = 4;
+string updatedAt = 5;
+};
+message PlayerFactionQuest {
+string createdAt = 1;
+string id = 2;
+string questId = 3;
+string state = 4;
+string updatedAt = 5;
+};
+message PlayerFactionQuestWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string questId = 3;
+string state = 4;
+string updatedAt = 5;
+};
+message PlayerFactionQuestUpdateInput {
+string createdAt = 1;
+string id = 2;
+string questId = 3;
+string state = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
