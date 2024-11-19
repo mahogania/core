@@ -1,0 +1,38 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type PickListItemOrderByInput = {
+  batchNo?: SortOrder;
+  conversionFactor?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  description?: SortOrder;
+  docstatus?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  itemCode?: SortOrder;
+  itemGroup?: SortOrder;
+  itemName?: SortOrder;
+  materialRequest?: SortOrder;
+  materialRequestItem?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  owner?: SortOrder;
+  parent?: SortOrder;
+  parentfield?: SortOrder;
+  parenttype?: SortOrder;
+  pickedQty?: SortOrder;
+  productBundleItem?: SortOrder;
+  qty?: SortOrder;
+  salesOrder?: SortOrder;
+  salesOrderItem?: SortOrder;
+  serialAndBatchBundle?: SortOrder;
+  serialNo?: SortOrder;
+  stockQty?: SortOrder;
+  stockReservedQty?: SortOrder;
+  stockUom?: SortOrder;
+  uom?: SortOrder;
+  updatedAt?: SortOrder;
+  useSerialBatchFields?: SortOrder;
+  warehouse?: SortOrder;
+};

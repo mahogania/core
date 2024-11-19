@@ -1,0 +1,21 @@
+export type PosInvoiceMergeLog = {
+  amendedFrom: string | null;
+  consolidatedCreditNote: string | null;
+  consolidatedInvoice: string | null;
+  createdAt: Date;
+  creation: Date | null;
+  customer: string | null;
+  customerGroup: string | null;
+  docStatus: number | null;
+  id: string;
+  idx: number | null;
+  mergeInvoicesBasedOn: string | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  posClosingEntry: string | null;
+  postingDate: Date | null;
+  postingTime: Date | null;
+  updatedAt: Date;
+};

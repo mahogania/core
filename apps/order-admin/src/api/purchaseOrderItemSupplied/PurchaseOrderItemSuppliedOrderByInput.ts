@@ -1,0 +1,31 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type PurchaseOrderItemSuppliedOrderByInput = {
+  amount?: SortOrder;
+  bomDetailNo?: SortOrder;
+  consumedQty?: SortOrder;
+  conversionFactor?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  docstatus?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  mainItemCode?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  owner?: SortOrder;
+  parent?: SortOrder;
+  parentField?: SortOrder;
+  parentType?: SortOrder;
+  rate?: SortOrder;
+  referenceName?: SortOrder;
+  requiredQty?: SortOrder;
+  reserveWarehouse?: SortOrder;
+  returnedQty?: SortOrder;
+  rmItemCode?: SortOrder;
+  stockUom?: SortOrder;
+  suppliedQty?: SortOrder;
+  totalSuppliedQty?: SortOrder;
+  updatedAt?: SortOrder;
+};

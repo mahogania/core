@@ -1,0 +1,27 @@
+export type PickListUpdateInput = {
+  amendedFrom?: string | null;
+  company?: string | null;
+  considerRejectedWarehouses?: number | null;
+  creation?: Date | null;
+  customer?: string | null;
+  customerName?: string | null;
+  docstatus?: number | null;
+  forQty?: number | null;
+  groupSameItems?: number | null;
+  idx?: number | null;
+  ignorePricingRule?: number | null;
+  materialRequest?: string | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  namingSeries?: string | null;
+  owner?: string | null;
+  parentWarehouse?: string | null;
+  pickManually?: number | null;
+  promptQty?: number | null;
+  purpose?: string | null;
+  scanBarcode?: string | null;
+  scanMode?: number | null;
+  status?: string | null;
+  workOrder?: string | null;
+};
