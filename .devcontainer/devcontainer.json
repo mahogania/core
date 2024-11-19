@@ -1,5 +1,5 @@
 {
-  "name": "Supply",
+  "name": "Catalog",
   "dockerComposeFile": "docker-compose.devcontainer.yml",
   "service": "devcontainer",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",

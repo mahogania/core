@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package invoice;
+service InvoiceService {
+ rpc createInvoice (InvoiceCreateInput) returns (Invoice) {}
+rpc invoices (findManyParams) returns (stream Invoice) {}
+rpc invoice (InvoiceWhereUniqueInput) returns (Invoice) {}
+rpc updateInvoice (InvoiceUpdateInput) returns (Invoice) {}
+rpc deleteInvoice (InvoiceWhereUniqueInput) returns (Invoice) {} 
+ }
+message InvoiceCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Invoice {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message InvoiceWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message InvoiceUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};
