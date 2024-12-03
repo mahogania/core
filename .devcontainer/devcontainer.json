@@ -1,5 +1,5 @@
 {
-  "name": "Catalog",
+  "name": "Tax",
   "dockerComposeFile": "docker-compose.devcontainer.yml",
   "service": "devcontainer",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
