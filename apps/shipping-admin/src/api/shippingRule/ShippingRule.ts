@@ -1,0 +1,20 @@
+export type ShippingRule = {
+  account: string | null;
+  calculateBasedOn: string | null;
+  company: string | null;
+  costCenter: string | null;
+  createdAt: Date;
+  creation: Date | null;
+  disabled: number | null;
+  docstatus: number | null;
+  id: string;
+  idx: number | null;
+  label: string | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  shippingAmount: number | null;
+  shippingRuleType: string | null;
+  updatedAt: Date;
+};

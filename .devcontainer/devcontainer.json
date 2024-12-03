@@ -1,5 +1,5 @@
 {
-  "name": "Cargo",
+  "name": "Shipment",
   "dockerComposeFile": "docker-compose.devcontainer.yml",
   "service": "devcontainer",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",

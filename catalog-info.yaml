@@ -1,8 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-
-  name: Amplication-cargo
+  name: Amplication-shipment
   description: 
   labels:
     vendor: "amplication"
@@ -12,7 +11,7 @@ metadata:
   tags:
     - "Node.js"
   links:
-    - url: https://server.amplication.com/cm48heebx05vjv6hykmjcxjfc
+    - url: https://server.amplication.com/cm3o8j0ul0gky6p83s3armpvt
       title: Amplication Platform
 spec:
   type: service
