@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+                 package holiday;
+service HolidayService {
+ rpc createHoliday (HolidayCreateInput) returns (Holiday) {}
+rpc holidays (findManyParams) returns (stream Holiday) {}
+rpc holiday (HolidayWhereUniqueInput) returns (Holiday) {}
+rpc updateHoliday (HolidayUpdateInput) returns (Holiday) {}
+rpc deleteHoliday (HolidayWhereUniqueInput) returns (Holiday) {} 
+ }
+message HolidayCreateInput {
+string createdAt = 1;
+string creation = 2;
+string description = 3;
+int32 docstatus = 4;
+string holidayDate = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentField = 13;
+string parentType = 14;
+string updatedAt = 15;
+int32 weeklyOff = 16;
+};
+message Holiday {
+string createdAt = 1;
+string creation = 2;
+string description = 3;
+int32 docstatus = 4;
+string holidayDate = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentField = 13;
+string parentType = 14;
+string updatedAt = 15;
+int32 weeklyOff = 16;
+};
+message HolidayWhereUniqueInput {
+string createdAt = 1;
+string creation = 2;
+string description = 3;
+int32 docstatus = 4;
+string holidayDate = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentField = 13;
+string parentType = 14;
+string updatedAt = 15;
+int32 weeklyOff = 16;
+};
+message HolidayUpdateInput {
+string createdAt = 1;
+string creation = 2;
+string description = 3;
+int32 docstatus = 4;
+string holidayDate = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentField = 13;
+string parentType = 14;
+string updatedAt = 15;
+int32 weeklyOff = 16;
+};
+message findManyParams {
+
+};

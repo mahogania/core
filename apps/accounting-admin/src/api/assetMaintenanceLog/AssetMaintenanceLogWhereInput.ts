@@ -1,0 +1,33 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type AssetMaintenanceLogWhereInput = {
+  actionsPerformed?: StringNullableFilter;
+  amendedFrom?: StringNullableFilter;
+  assetMaintenance?: StringNullableFilter;
+  assetName?: StringNullableFilter;
+  assignToName?: StringNullableFilter;
+  certificateAttachement?: StringNullableFilter;
+  completionDate?: DateTimeNullableFilter;
+  creation?: DateTimeNullableFilter;
+  description?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  dueDate?: DateTimeNullableFilter;
+  hasCertificate?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  itemCode?: StringNullableFilter;
+  itemName?: StringNullableFilter;
+  maintenanceStatus?: StringNullableFilter;
+  maintenanceType?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  namingSeries?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  periodicity?: StringNullableFilter;
+  task?: StringNullableFilter;
+  taskName?: StringNullableFilter;
+};

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package gameObjectTemplateAddon;
+service GameObjectTemplateAddonService {
+ rpc createGameObjectTemplateAddon (GameObjectTemplateAddonCreateInput) returns (GameObjectTemplateAddon) {}
+rpc gameObjectTemplateAddons (findManyParams) returns (stream GameObjectTemplateAddon) {}
+rpc gameObjectTemplateAddon (GameObjectTemplateAddonWhereUniqueInput) returns (GameObjectTemplateAddon) {}
+rpc updateGameObjectTemplateAddon (GameObjectTemplateAddonUpdateInput) returns (GameObjectTemplateAddon) {}
+rpc deleteGameObjectTemplateAddon (GameObjectTemplateAddonWhereUniqueInput) returns (GameObjectTemplateAddon) {} 
+ }
+message GameObjectTemplateAddonCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectTemplateAddon {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectTemplateAddonWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectTemplateAddonUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

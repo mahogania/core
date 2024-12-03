@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+                 package gameObject;
+service GameObjectService {
+ rpc createGameObject (GameObjectCreateInput) returns (GameObject) {}
+rpc gameObjects (findManyParams) returns (stream GameObject) {}
+rpc gameObject (GameObjectWhereUniqueInput) returns (GameObject) {}
+rpc updateGameObject (GameObjectUpdateInput) returns (GameObject) {}
+rpc deleteGameObject (GameObjectWhereUniqueInput) returns (GameObject) {} 
+ }
+message GameObjectCreateInput {
+int32 areaId = 1;
+string createdAt = 2;
+string id = 3;
+int32 mapId = 4;
+int32 phaseGroupId = 5;
+int32 phaseId = 6;
+string script = 7;
+string spawnTime = 8;
+int32 state = 9;
+string stringId = 10;
+string transformId = 11;
+string updatedAt = 12;
+int32 version = 13;
+int32 zoneId = 14;
+};
+message GameObject {
+int32 areaId = 1;
+string createdAt = 2;
+string id = 3;
+int32 mapId = 4;
+int32 phaseGroupId = 5;
+int32 phaseId = 6;
+string script = 7;
+string spawnTime = 8;
+int32 state = 9;
+string stringId = 10;
+string transformId = 11;
+string updatedAt = 12;
+int32 version = 13;
+int32 zoneId = 14;
+};
+message GameObjectWhereUniqueInput {
+int32 areaId = 1;
+string createdAt = 2;
+string id = 3;
+int32 mapId = 4;
+int32 phaseGroupId = 5;
+int32 phaseId = 6;
+string script = 7;
+string spawnTime = 8;
+int32 state = 9;
+string stringId = 10;
+string transformId = 11;
+string updatedAt = 12;
+int32 version = 13;
+int32 zoneId = 14;
+};
+message GameObjectUpdateInput {
+int32 areaId = 1;
+string createdAt = 2;
+string id = 3;
+int32 mapId = 4;
+int32 phaseGroupId = 5;
+int32 phaseId = 6;
+string script = 7;
+string spawnTime = 8;
+int32 state = 9;
+string stringId = 10;
+string transformId = 11;
+string updatedAt = 12;
+int32 version = 13;
+int32 zoneId = 14;
+};
+message findManyParams {
+
+};

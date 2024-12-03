@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+                 package areaTriggerTemplateAction;
+service AreaTriggerTemplateActionService {
+ rpc createAreaTriggerTemplateAction (AreaTriggerTemplateActionCreateInput) returns (AreaTriggerTemplateAction) {}
+rpc areaTriggerTemplateActions (findManyParams) returns (stream AreaTriggerTemplateAction) {}
+rpc areaTriggerTemplateAction (AreaTriggerTemplateActionWhereUniqueInput) returns (AreaTriggerTemplateAction) {}
+rpc updateAreaTriggerTemplateAction (AreaTriggerTemplateActionUpdateInput) returns (AreaTriggerTemplateAction) {}
+rpc deleteAreaTriggerTemplateAction (AreaTriggerTemplateActionWhereUniqueInput) returns (AreaTriggerTemplateAction) {} 
+ }
+message AreaTriggerTemplateActionCreateInput {
+int32 actionParam = 1;
+int32 actionType = 2;
+int32 areaTriggerId = 3;
+string createdAt = 4;
+string id = 5;
+bool isCustom = 6;
+int32 targetType = 7;
+string updatedAt = 8;
+};
+message AreaTriggerTemplateAction {
+int32 actionParam = 1;
+int32 actionType = 2;
+int32 areaTriggerId = 3;
+string createdAt = 4;
+string id = 5;
+bool isCustom = 6;
+int32 targetType = 7;
+string updatedAt = 8;
+};
+message AreaTriggerTemplateActionWhereUniqueInput {
+int32 actionParam = 1;
+int32 actionType = 2;
+int32 areaTriggerId = 3;
+string createdAt = 4;
+string id = 5;
+bool isCustom = 6;
+int32 targetType = 7;
+string updatedAt = 8;
+};
+message AreaTriggerTemplateActionUpdateInput {
+int32 actionParam = 1;
+int32 actionType = 2;
+int32 areaTriggerId = 3;
+string createdAt = 4;
+string id = 5;
+bool isCustom = 6;
+int32 targetType = 7;
+string updatedAt = 8;
+};
+message findManyParams {
+
+};

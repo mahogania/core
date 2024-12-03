@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+                 package areaTriggerCreatePropertiesOrbit;
+service AreaTriggerCreatePropertiesOrbitService {
+ rpc createAreaTriggerCreatePropertiesOrbit (AreaTriggerCreatePropertiesOrbitCreateInput) returns (AreaTriggerCreatePropertiesOrbit) {}
+rpc areaTriggerCreatePropertiesOrbits (findManyParams) returns (stream AreaTriggerCreatePropertiesOrbit) {}
+rpc areaTriggerCreatePropertiesOrbit (AreaTriggerCreatePropertiesOrbitWhereUniqueInput) returns (AreaTriggerCreatePropertiesOrbit) {}
+rpc updateAreaTriggerCreatePropertiesOrbit (AreaTriggerCreatePropertiesOrbitUpdateInput) returns (AreaTriggerCreatePropertiesOrbit) {}
+rpc deleteAreaTriggerCreatePropertiesOrbit (AreaTriggerCreatePropertiesOrbitWhereUniqueInput) returns (AreaTriggerCreatePropertiesOrbit) {} 
+ }
+message AreaTriggerCreatePropertiesOrbitCreateInput {
+int32 areaTriggerCreatePropertiesId = 1;
+int32 blendFromRadius = 2;
+bool canLoop = 3;
+int32 circleRadius = 4;
+bool counterClockwise = 5;
+string createdAt = 6;
+string id = 7;
+int32 initialAngle = 8;
+bool isCustom = 9;
+int32 startDelay = 10;
+string updatedAt = 11;
+int32 verifiedBuild = 12;
+int32 zOffset = 13;
+};
+message AreaTriggerCreatePropertiesOrbit {
+int32 areaTriggerCreatePropertiesId = 1;
+int32 blendFromRadius = 2;
+bool canLoop = 3;
+int32 circleRadius = 4;
+bool counterClockwise = 5;
+string createdAt = 6;
+string id = 7;
+int32 initialAngle = 8;
+bool isCustom = 9;
+int32 startDelay = 10;
+string updatedAt = 11;
+int32 verifiedBuild = 12;
+int32 zOffset = 13;
+};
+message AreaTriggerCreatePropertiesOrbitWhereUniqueInput {
+int32 areaTriggerCreatePropertiesId = 1;
+int32 blendFromRadius = 2;
+bool canLoop = 3;
+int32 circleRadius = 4;
+bool counterClockwise = 5;
+string createdAt = 6;
+string id = 7;
+int32 initialAngle = 8;
+bool isCustom = 9;
+int32 startDelay = 10;
+string updatedAt = 11;
+int32 verifiedBuild = 12;
+int32 zOffset = 13;
+};
+message AreaTriggerCreatePropertiesOrbitUpdateInput {
+int32 areaTriggerCreatePropertiesId = 1;
+int32 blendFromRadius = 2;
+bool canLoop = 3;
+int32 circleRadius = 4;
+bool counterClockwise = 5;
+string createdAt = 6;
+string id = 7;
+int32 initialAngle = 8;
+bool isCustom = 9;
+int32 startDelay = 10;
+string updatedAt = 11;
+int32 verifiedBuild = 12;
+int32 zOffset = 13;
+};
+message findManyParams {
+
+};

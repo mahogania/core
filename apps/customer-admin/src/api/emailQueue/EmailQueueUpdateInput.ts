@@ -1,0 +1,27 @@
+export type EmailQueueUpdateInput = {
+  addUnsubscribeLink?: boolean | null;
+  attachments?: string | null;
+  communication?: string | null;
+  creation?: Date | null;
+  docstatus?: number | null;
+  emailAccount?: string | null;
+  errorField?: string | null;
+  exposeRecipients?: string | null;
+  idx?: number | null;
+  message?: string | null;
+  messageId?: string | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  owner?: string | null;
+  priority?: number | null;
+  referenceDoctype?: string | null;
+  referenceName?: string | null;
+  retry?: number | null;
+  sendAfter?: Date | null;
+  sender?: string | null;
+  showAsCc?: string | null;
+  status?: string | null;
+  unsubscribeMethod?: string | null;
+  unsubscribeParam?: string | null;
+};

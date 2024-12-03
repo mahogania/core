@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerRewardItem;
+service PlayerRewardItemService {
+ rpc createPlayerRewardItem (PlayerRewardItemCreateInput) returns (PlayerRewardItem) {}
+rpc playerRewardItems (findManyParams) returns (stream PlayerRewardItem) {}
+rpc playerRewardItem (PlayerRewardItemWhereUniqueInput) returns (PlayerRewardItem) {}
+rpc updatePlayerRewardItem (PlayerRewardItemUpdateInput) returns (PlayerRewardItem) {}
+rpc deletePlayerRewardItem (PlayerRewardItemWhereUniqueInput) returns (PlayerRewardItem) {} 
+ }
+message PlayerRewardItemCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerRewardItem {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerRewardItemWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerRewardItemUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

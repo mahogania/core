@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+                 package jobCardScheduledTime;
+service JobCardScheduledTimeService {
+ rpc createJobCardScheduledTime (JobCardScheduledTimeCreateInput) returns (JobCardScheduledTime) {}
+rpc jobCardScheduledTimes (findManyParams) returns (stream JobCardScheduledTime) {}
+rpc jobCardScheduledTime (JobCardScheduledTimeWhereUniqueInput) returns (JobCardScheduledTime) {}
+rpc updateJobCardScheduledTime (JobCardScheduledTimeUpdateInput) returns (JobCardScheduledTime) {}
+rpc deleteJobCardScheduledTime (JobCardScheduledTimeWhereUniqueInput) returns (JobCardScheduledTime) {} 
+ }
+message JobCardScheduledTimeCreateInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+string fromTime = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string parent = 11;
+string parentfield = 12;
+string parenttype = 13;
+int32 timeInMins = 14;
+string toTime = 15;
+string updatedAt = 16;
+};
+message JobCardScheduledTime {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+string fromTime = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string parent = 11;
+string parentfield = 12;
+string parenttype = 13;
+int32 timeInMins = 14;
+string toTime = 15;
+string updatedAt = 16;
+};
+message JobCardScheduledTimeWhereUniqueInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+string fromTime = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string parent = 11;
+string parentfield = 12;
+string parenttype = 13;
+int32 timeInMins = 14;
+string toTime = 15;
+string updatedAt = 16;
+};
+message JobCardScheduledTimeUpdateInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+string fromTime = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string parent = 11;
+string parentfield = 12;
+string parenttype = 13;
+int32 timeInMins = 14;
+string toTime = 15;
+string updatedAt = 16;
+};
+message findManyParams {
+
+};

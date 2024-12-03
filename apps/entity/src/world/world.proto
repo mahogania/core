@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package world;
+service WorldService {
+ rpc createWorld (WorldCreateInput) returns (World) {}
+rpc worlds (findManyParams) returns (stream World) {}
+rpc world (WorldWhereUniqueInput) returns (World) {}
+rpc updateWorld (WorldUpdateInput) returns (World) {}
+rpc deleteWorld (WorldWhereUniqueInput) returns (World) {}
+rpc findManyWorld (WorldWhereUniqueInput) returns (stream Realm) {}
+rpc updateWorld (RealmParams) returns (stream Realm) {}
+rpc connectWorld (RealmParams) returns (Realm) {}
+rpc disconnectWorld (RealmParams) returns (Realm) {} 
+ }
+message WorldCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Realm realms = 3;
+string updatedAt = 4;
+};
+message World {
+string createdAt = 1;
+string id = 2;
+repeated Realm realms = 3;
+string updatedAt = 4;
+};
+message WorldWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Realm realms = 3;
+string updatedAt = 4;
+};
+message WorldUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Realm realms = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Realm {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message RealmWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message RealmParams {
+WorldWhereUniqueInput worldWhereUniqueInput = 1;
+RealmWhereUniqueInput realmWhereUniqueInput = 2;
+};

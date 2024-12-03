@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package zone;
+service ZoneService {
+ rpc createZone (ZoneCreateInput) returns (Zone) {}
+rpc zones (findManyParams) returns (stream Zone) {}
+rpc zone (ZoneWhereUniqueInput) returns (Zone) {}
+rpc updateZone (ZoneUpdateInput) returns (Zone) {}
+rpc deleteZone (ZoneWhereUniqueInput) returns (Zone) {}
+rpc findManyZone (ZoneWhereUniqueInput) returns (stream Area) {}
+rpc updateZone (AreaParams) returns (stream Area) {}
+rpc connectZone (AreaParams) returns (Area) {}
+rpc disconnectZone (AreaParams) returns (Area) {} 
+ }
+message ZoneCreateInput {
+repeated Area areas = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message Zone {
+repeated Area areas = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message ZoneWhereUniqueInput {
+repeated Area areas = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message ZoneUpdateInput {
+repeated Area areas = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Area {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AreaWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AreaParams {
+ZoneWhereUniqueInput zoneWhereUniqueInput = 1;
+AreaWhereUniqueInput areaWhereUniqueInput = 2;
+};

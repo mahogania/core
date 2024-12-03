@@ -1,0 +1,33 @@
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type PurchaseOrderItemSuppliedWhereInput = {
+  amount?: FloatNullableFilter;
+  bomDetailNo?: StringNullableFilter;
+  consumedQty?: FloatNullableFilter;
+  conversionFactor?: FloatNullableFilter;
+  creation?: DateTimeNullableFilter;
+  docstatus?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  mainItemCode?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  parentField?: StringNullableFilter;
+  parentType?: StringNullableFilter;
+  rate?: FloatNullableFilter;
+  referenceName?: StringNullableFilter;
+  requiredQty?: FloatNullableFilter;
+  reserveWarehouse?: StringNullableFilter;
+  returnedQty?: FloatNullableFilter;
+  rmItemCode?: StringNullableFilter;
+  stockUom?: StringNullableFilter;
+  suppliedQty?: FloatNullableFilter;
+  totalSuppliedQty?: FloatNullableFilter;
+};

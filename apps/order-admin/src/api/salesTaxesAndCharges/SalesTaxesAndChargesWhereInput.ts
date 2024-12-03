@@ -1,0 +1,36 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type SalesTaxesAndChargesWhereInput = {
+  accountCurrency?: StringNullableFilter;
+  accountHead?: StringNullableFilter;
+  baseTaxAmount?: FloatNullableFilter;
+  baseTaxAmountAfterDiscountAmount?: FloatNullableFilter;
+  baseTotal?: FloatNullableFilter;
+  chargeType?: StringNullableFilter;
+  costCenter?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  description?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  dontRecomputeTax?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  includedInPaidAmount?: IntNullableFilter;
+  includedInPrintRate?: IntNullableFilter;
+  itemWiseTaxDetail?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  parentField?: StringNullableFilter;
+  parentType?: StringNullableFilter;
+  rate?: FloatNullableFilter;
+  rowId?: StringNullableFilter;
+  taxAmount?: FloatNullableFilter;
+  taxAmountAfterDiscountAmount?: FloatNullableFilter;
+  total?: FloatNullableFilter;
+};

@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+                 package creatureOnKillReputation;
+service CreatureOnKillReputationService {
+ rpc createCreatureOnKillReputation (CreatureOnKillReputationCreateInput) returns (CreatureOnKillReputation) {}
+rpc creatureOnKillReputations (findManyParams) returns (stream CreatureOnKillReputation) {}
+rpc creatureOnKillReputation (CreatureOnKillReputationWhereUniqueInput) returns (CreatureOnKillReputation) {}
+rpc updateCreatureOnKillReputation (CreatureOnKillReputationUpdateInput) returns (CreatureOnKillReputation) {}
+rpc deleteCreatureOnKillReputation (CreatureOnKillReputationWhereUniqueInput) returns (CreatureOnKillReputation) {} 
+ }
+message CreatureOnKillReputationCreateInput {
+string createdAt = 1;
+int32 creatureId = 2;
+string id = 3;
+int32 isTeamAward1 = 4;
+int32 isTeamAward2 = 5;
+int32 maxStanding1 = 6;
+int32 maxStanding2 = 7;
+int32 rewOnKillRepFaction1 = 8;
+int32 rewOnKillRepFaction2 = 9;
+int32 rewOnKillRepValue1 = 10;
+int32 rewOnKillRepValue2 = 11;
+int32 teamDependent = 12;
+string updatedAt = 13;
+};
+message CreatureOnKillReputation {
+string createdAt = 1;
+int32 creatureId = 2;
+string id = 3;
+int32 isTeamAward1 = 4;
+int32 isTeamAward2 = 5;
+int32 maxStanding1 = 6;
+int32 maxStanding2 = 7;
+int32 rewOnKillRepFaction1 = 8;
+int32 rewOnKillRepFaction2 = 9;
+int32 rewOnKillRepValue1 = 10;
+int32 rewOnKillRepValue2 = 11;
+int32 teamDependent = 12;
+string updatedAt = 13;
+};
+message CreatureOnKillReputationWhereUniqueInput {
+string createdAt = 1;
+int32 creatureId = 2;
+string id = 3;
+int32 isTeamAward1 = 4;
+int32 isTeamAward2 = 5;
+int32 maxStanding1 = 6;
+int32 maxStanding2 = 7;
+int32 rewOnKillRepFaction1 = 8;
+int32 rewOnKillRepFaction2 = 9;
+int32 rewOnKillRepValue1 = 10;
+int32 rewOnKillRepValue2 = 11;
+int32 teamDependent = 12;
+string updatedAt = 13;
+};
+message CreatureOnKillReputationUpdateInput {
+string createdAt = 1;
+int32 creatureId = 2;
+string id = 3;
+int32 isTeamAward1 = 4;
+int32 isTeamAward2 = 5;
+int32 maxStanding1 = 6;
+int32 maxStanding2 = 7;
+int32 rewOnKillRepFaction1 = 8;
+int32 rewOnKillRepFaction2 = 9;
+int32 rewOnKillRepValue1 = 10;
+int32 rewOnKillRepValue2 = 11;
+int32 teamDependent = 12;
+string updatedAt = 13;
+};
+message findManyParams {
+
+};

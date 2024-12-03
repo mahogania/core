@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package item;
+service ItemService {
+ rpc createItem (ItemCreateInput) returns (Item) {}
+rpc items (findManyParams) returns (stream Item) {}
+rpc item (ItemWhereUniqueInput) returns (Item) {}
+rpc updateItem (ItemUpdateInput) returns (Item) {}
+rpc deleteItem (ItemWhereUniqueInput) returns (Item) {} 
+ }
+message ItemCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message Item {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

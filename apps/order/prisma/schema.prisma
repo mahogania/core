@@ -119,22 +119,6 @@ model ItemAttributeValue {
   updatedAt      DateTime  @updatedAt
 }
 
-model ItemAttribute {
-  attributeName String?
-  createdAt     DateTime @default(now())
-  docstatus     Int?
-  fromRange     Float?
-  id            String   @id @default(cuid())
-  idx           Int?
-  increment     Float?
-  modifiedBy    String?
-  name          String?
-  numericValues Boolean?
-  owner         String?
-  toRange       Float?
-  updatedAt     DateTime @updatedAt
-}
-
 model ItemBarcode {
   barcode     String?
   barcodeType String?
@@ -150,6 +134,22 @@ model ItemBarcode {
   parenttype  String?
   uom         String?
   updatedAt   DateTime @updatedAt
+}
+
+model ItemAttribute {
+  attributeName String?
+  createdAt     DateTime @default(now())
+  docstatus     Int?
+  fromRange     Float?
+  id            String   @id @default(cuid())
+  idx           Int?
+  increment     Float?
+  modifiedBy    String?
+  name          String?
+  numericValues Boolean?
+  owner         String?
+  toRange       Float?
+  updatedAt     DateTime @updatedAt
 }
 
 model ItemCustomerDetail {
@@ -395,4 +395,2402 @@ model Item {
   stockUom             String?
   updatedAt            DateTime  @updatedAt
   valuationRate        Float?
+}
+
+model ModeOfPaymentAccount {
+  company        String?
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  defaultAccount String?
+  docStatus      Int?
+  id             String    @id @default(cuid())
+  idx            Int?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  parent         String?
+  parentField    String?
+  parentType     String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model ModeOfPayment {
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  docStatus     Int?
+  enabled       Int?
+  id            String    @id @default(cuid())
+  idx           Int?
+  modeOfPayment String?
+  modified      DateTime?
+  modifiedBy    String?
+  name          String?
+  owner         String?
+  typeField     String?
+  updatedAt     DateTime  @updatedAt
+}
+
+model PosClosingEntryDetail {
+  closingAmount  Float?
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  difference     Float?
+  docStatus      Int?
+  expectedAmount Float?
+  id             String    @id @default(cuid())
+  idx            Int?
+  modeOfPayment  String?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  openingAmount  Float?
+  owner          String?
+  parent         String?
+  parentField    String?
+  parentType     String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model PosClosingEntry {
+  amendedFrom     String?
+  company         String?
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  docStatus       Int?
+  errorMessage    String?
+  grandTotal      Float?
+  id              String    @id @default(cuid())
+  idx             Int?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  netTotal        Float?
+  owner           String?
+  periodEndDate   DateTime?
+  periodStartDate DateTime?
+  posOpeningEntry String?
+  posProfile      String?
+  postingDate     DateTime?
+  postingTime     DateTime?
+  status          String?
+  totalQuantity   Float?
+  updatedAt       DateTime  @updatedAt
+  user            String?
+}
+
+model PosClosingEntryTaxes {
+  accountHead String?
+  amount      Float?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docStatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentField String?
+  parentType  String?
+  rate        Float?
+  updatedAt   DateTime  @updatedAt
+}
+
+model PosInvoiceItem {
+  actualBatchQty         Float?
+  actualQty              Float?
+  allowZeroValuationRate Int?
+  amount                 Float?
+  asset                  String?
+  barcode                String?
+  baseAmount             Float?
+  baseNetAmount          Float?
+  baseNetRate            Float?
+  basePriceListRate      Float?
+  baseRate               Float?
+  baseRateWithMargin     Float?
+  batchNo                String?
+  brand                  String?
+  conversionFactor       Float?
+  costCenter             String?
+  createdAt              DateTime  @default(now())
+  creation               DateTime?
+  customerItemCode       String?
+  deferredRevenueAccount String?
+  deliveredBySupplier    Int?
+  deliveredQty           Float?
+  deliveryNote           String?
+  description            String?
+  discountAmount         Float?
+  discountPercentage     Float?
+  dnDetail               String?
+  docStatus              Int?
+  enableDeferredRevenue  Int?
+  expenseAccount         String?
+  financeBook            String?
+  grantCommission        Int?
+  hasItemScanned         Int?
+  id                     String    @id @default(cuid())
+  idx                    Int?
+  image                  String?
+  incomeAccount          String?
+  isFixedAsset           Int?
+  isFreeItem             Int?
+  itemCode               String?
+  itemGroup              String?
+  itemName               String?
+  itemTaxRate            String?
+  itemTaxTemplate        String?
+  marginRateOrAmount     Float?
+  marginType             String?
+  modified               DateTime?
+  modifiedBy             String?
+  name                   String?
+  netAmount              Float?
+  netRate                Float?
+  owner                  String?
+  pageBreak              Int?
+  parent                 String?
+  parentField            String?
+  parentType             String?
+  posInvoiceItem         String?
+  priceListRate          Float?
+  pricingRules           String?
+  project                String?
+  qty                    Float?
+  qualityInspection      String?
+  rate                   Float?
+  rateWithMargin         Float?
+  salesOrder             String?
+  serialAndBatchBundle   String?
+  serialNo               String?
+  serviceEndDate         DateTime?
+  serviceStartDate       DateTime?
+  serviceStopDate        DateTime?
+  soDetail               String?
+  stockQty               Float?
+  stockUom               String?
+  targetWarehouse        String?
+  totalWeight            Float?
+  uom                    String?
+  updatedAt              DateTime  @updatedAt
+  useSerialBatchFields   Int?
+  warehouse              String?
+  weightPerUnit          Float?
+  weightUom              String?
+}
+
+model PosField {
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  defaultValue String?
+  docStatus    Int?
+  fieldname    String?
+  fieldtype    String?
+  id           String    @id @default(cuid())
+  idx          Int?
+  label        String?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  options      String?
+  owner        String?
+  parent       String?
+  parentField  String?
+  parentType   String?
+  readOnly     Int?
+  reqd         Int?
+  updatedAt    DateTime  @updatedAt
+}
+
+model PosCustomerGroup {
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  customerGroup String?
+  docStatus     Int?
+  id            String    @id @default(cuid())
+  idx           Int?
+  modified      DateTime?
+  modifiedBy    String?
+  name          String?
+  owner         String?
+  parent        String?
+  parentField   String?
+  parentType    String?
+  updatedAt     DateTime  @updatedAt
+}
+
+model PosInvoice {
+  accountForChangeAmount                 String?
+  additionalDiscountPercentage           Float?
+  addressDisplay                         String?
+  againstIncomeAccount                   String?
+  allocateAdvancesAutomatically          Int?
+  amendedFrom                            String?
+  amountEligibleForCommission            Float?
+  applyDiscountOn                        String?
+  autoRepeat                             String?
+  baseChangeAmount                       Float?
+  baseDiscountAmount                     Float?
+  baseGrandTotal                         Float?
+  baseInWords                            String?
+  baseNetTotal                           Float?
+  basePaidAmount                         Float?
+  baseRoundedTotal                       Float?
+  baseRoundingAdjustment                 Float?
+  baseTotal                              Float?
+  baseTotalTaxesAndCharges               Float?
+  baseWriteOffAmount                     Float?
+  campaign                               String?
+  cashBankAccount                        String?
+  changeAmount                           Float?
+  commissionRate                         Float?
+  company                                String?
+  companyAddress                         String?
+  companyAddressDisplay                  String?
+  consolidatedInvoice                    String?
+  contactDisplay                         String?
+  contactEmail                           String?
+  contactMobile                          String?
+  contactPerson                          String?
+  conversionRate                         Float?
+  costCenter                             String?
+  couponCode                             String?
+  createdAt                              DateTime  @default(now())
+  creation                               DateTime?
+  currency                               String?
+  customer                               String?
+  customerAddress                        String?
+  customerGroup                          String?
+  customerName                           String?
+  debitTo                                String?
+  discountAmount                         Float?
+  docStatus                              Int?
+  dueDate                                DateTime?
+  fromDate                               DateTime?
+  grandTotal                             Float?
+  groupSameItems                         Int?
+  id                                     String    @id @default(cuid())
+  idx                                    Int?
+  ignorePricingRule                      Int?
+  inWords                                String?
+  interCompanyInvoiceReference           String?
+  isDiscounted                           Int?
+  isOpening                              String?
+  isPos                                  Int?
+  isReturn                               Int?
+  language                               String?
+  letterHead                             String?
+  loyaltyAmount                          Float?
+  loyaltyPoints                          Int?
+  loyaltyProgram                         String?
+  loyaltyRedemptionAccount               String?
+  loyaltyRedemptionCostCenter            String?
+  modified                               DateTime?
+  modifiedBy                             String?
+  name                                   String?
+  namingSeries                           String?
+  netTotal                               Float?
+  otherChargesCalculation                String?
+  outstandingAmount                      Float?
+  owner                                  String?
+  paidAmount                             Float?
+  partyAccountCurrency                   String?
+  paymentTermsTemplate                   String?
+  plcConversionRate                      Float?
+  poDate                                 DateTime?
+  poNo                                   String?
+  posProfile                             String?
+  postingDate                            DateTime?
+  postingTime                            DateTime?
+  priceListCurrency                      String?
+  project                                String?
+  redeemLoyaltyPoints                    Int?
+  remarks                                String?
+  returnAgainst                          String?
+  roundedTotal                           Float?
+  roundingAdjustment                     Float?
+  salesPartner                           String?
+  scanBarcode                            String?
+  selectPrintHeading                     String?
+  sellingPriceList                       String?
+  setPostingTime                         Int?
+  setWarehouse                           String?
+  shippingAddress                        String?
+  shippingAddressName                    String?
+  shippingRule                           String?
+  source                                 String?
+  status                                 String?
+  taxCategory                            String?
+  taxId                                  String?
+  taxesAndCharges                        String?
+  tcName                                 String?
+  terms                                  String?
+  territory                              String?
+  title                                  String?
+  toDate                                 DateTime?
+  total                                  Float?
+  totalAdvance                           Float?
+  totalBillingAmount                     Float?
+  totalCommission                        Float?
+  totalNetWeight                         Float?
+  totalQty                               Float?
+  totalTaxesAndCharges                   Float?
+  updateBilledAmountInDeliveryNote       Int?
+  updateBilledAmountInSalesOrder         Int?
+  updateStock                            Int?
+  updatedAt                              DateTime  @updatedAt
+  writeOffAccount                        String?
+  writeOffAmount                         Float?
+  writeOffCostCenter                     String?
+  writeOffOutstandingAmountAutomatically Int?
+}
+
+model PosInvoiceReference {
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  customer      String?
+  docStatus     Int?
+  grandTotal    Float?
+  id            String    @id @default(cuid())
+  idx           Int?
+  isReturn      Int?
+  modified      DateTime?
+  modifiedBy    String?
+  name          String?
+  owner         String?
+  parent        String?
+  parentField   String?
+  parentType    String?
+  posInvoice    String?
+  postingDate   DateTime?
+  returnAgainst String?
+  updatedAt     DateTime  @updatedAt
+}
+
+model PosInvoiceMergeLog {
+  amendedFrom            String?
+  consolidatedCreditNote String?
+  consolidatedInvoice    String?
+  createdAt              DateTime  @default(now())
+  creation               DateTime?
+  customer               String?
+  customerGroup          String?
+  docStatus              Int?
+  id                     String    @id @default(cuid())
+  idx                    Int?
+  mergeInvoicesBasedOn   String?
+  modified               DateTime?
+  modifiedBy             String?
+  name                   String?
+  owner                  String?
+  posClosingEntry        String?
+  postingDate            DateTime?
+  postingTime            DateTime?
+  updatedAt              DateTime  @updatedAt
+}
+
+model PosPaymentMethod {
+  allowInReturns Int?
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  defaultField   Int?
+  docStatus      Int?
+  id             String    @id @default(cuid())
+  idx            Int?
+  modeOfPayment  String?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  parent         String?
+  parentField    String?
+  parentType     String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model PosProfileUser {
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  defaultField Int?
+  docStatus    Int?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  parent       String?
+  parentField  String?
+  parentType   String?
+  updatedAt    DateTime  @updatedAt
+  user         String?
+}
+
+model PosProfile {
+  accountForChangeAmount String?
+  allowDiscountChange    Int?
+  allowRateChange        Int?
+  applyDiscountOn        String?
+  autoAddItemToCart      Int?
+  campaign               String?
+  company                String?
+  companyAddress         String?
+  costCenter             String?
+  country                String?
+  createdAt              DateTime  @default(now())
+  creation               DateTime?
+  currency               String?
+  customer               String?
+  disableRoundedTotal    Int?
+  disabled               Int?
+  docStatus              Int?
+  expenseAccount         String?
+  hideImages             Int?
+  hideUnavailableItems   Int?
+  id                     String    @id @default(cuid())
+  idx                    Int?
+  ignorePricingRule      Int?
+  incomeAccount          String?
+  letterHead             String?
+  modified               DateTime?
+  modifiedBy             String?
+  name                   String?
+  owner                  String?
+  printFormat            String?
+  selectPrintHeading     String?
+  sellingPriceList       String?
+  taxCategory            String?
+  taxesAndCharges        String?
+  tcName                 String?
+  updateStock            Int?
+  updatedAt              DateTime  @updatedAt
+  validateStockOnSave    Int?
+  warehouse              String?
+  writeOffAccount        String?
+  writeOffCostCenter     String?
+  writeOffLimit          Float?
+}
+
+model PosOpeningEntry {
+  amendedFrom     String?
+  company         String?
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  docStatus       Int?
+  id              String    @id @default(cuid())
+  idx             Int?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  owner           String?
+  periodEndDate   DateTime?
+  periodStartDate DateTime?
+  posClosingEntry String?
+  posProfile      String?
+  postingDate     DateTime?
+  setPostingDate  Int?
+  status          String?
+  updatedAt       DateTime  @updatedAt
+  user            String?
+}
+
+model PosOpeningEntryDetail {
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  docStatus     Int?
+  id            String    @id @default(cuid())
+  idx           Int?
+  modeOfPayment String?
+  modified      DateTime?
+  modifiedBy    String?
+  name          String?
+  openingAmount Float?
+  owner         String?
+  parent        String?
+  parentField   String?
+  parentType    String?
+  updatedAt     DateTime  @updatedAt
+}
+
+model PaymentEntryReference {
+  account           String?
+  accountType       String?
+  allocatedAmount   Float?
+  billNo            String?
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  docstatus         Int?
+  dueDate           DateTime?
+  exchangeGainLoss  Float?
+  exchangeRate      Float?
+  id                String    @id @default(cuid())
+  idx               Int?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  outstandingAmount Float?
+  owner             String?
+  parent            String?
+  parentfield       String?
+  parenttype        String?
+  paymentTerm       String?
+  paymentType       String?
+  referenceDoctype  String?
+  referenceName     String?
+  totalAmount       Float?
+  updatedAt         DateTime  @updatedAt
+}
+
+model PaymentEntryDeduction {
+  account     String?
+  amount      Float?
+  costCenter  String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  description String?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model PaymentRequest {
+  account               String?
+  amendedFrom           String?
+  bank                  String?
+  bankAccount           String?
+  bankAccountNo         String?
+  branchCode            String?
+  company               String?
+  costCenter            String?
+  createdAt             DateTime  @default(now())
+  creation              DateTime?
+  currency              String?
+  docstatus             Int?
+  emailTo               String?
+  grandTotal            Float?
+  iban                  String?
+  id                    String    @id @default(cuid())
+  idx                   Int?
+  isASubscription       Int?
+  makeSalesInvoice      Int?
+  message               String?
+  modeOfPayment         String?
+  modified              DateTime?
+  modifiedBy            String?
+  muteEmail             Int?
+  name                  String?
+  namingSeries          String?
+  owner                 String?
+  party                 String?
+  partyType             String?
+  paymentAccount        String?
+  paymentChannel        String?
+  paymentGateway        String?
+  paymentGatewayAccount String?
+  paymentOrder          String?
+  paymentRequestType    String?
+  paymentUrl            String?
+  printFormat           String?
+  project               String?
+  referenceDoctype      String?
+  referenceName         String?
+  status                String?
+  subject               String?
+  swiftNumber           String?
+  transactionDate       DateTime?
+  updatedAt             DateTime  @updatedAt
+}
+
+model PaymentEntry {
+  amendedFrom                               String?
+  applyTaxWithholdingAmount                 Int?
+  autoRepeat                                String?
+  bank                                      String?
+  bankAccount                               String?
+  bankAccountNo                             String?
+  baseInWords                               String?
+  basePaidAmount                            Float?
+  basePaidAmountAfterTax                    Float?
+  baseReceivedAmount                        Float?
+  baseReceivedAmountAfterTax                Float?
+  baseTotalAllocatedAmount                  Float?
+  baseTotalTaxesAndCharges                  Float?
+  bookAdvancePaymentsInSeparatePartyAccount Int?
+  clearanceDate                             DateTime?
+  company                                   String?
+  contactEmail                              String?
+  contactPerson                             String?
+  costCenter                                String?
+  createdAt                                 DateTime  @default(now())
+  creation                                  DateTime?
+  customRemarks                             Int?
+  differenceAmount                          Float?
+  docstatus                                 Int?
+  id                                        String    @id @default(cuid())
+  idx                                       Int?
+  inWords                                   String?
+  isOpening                                 String?
+  letterHead                                String?
+  modeOfPayment                             String?
+  modified                                  DateTime?
+  modifiedBy                                String?
+  name                                      String?
+  namingSeries                              String?
+  owner                                     String?
+  paidAmount                                Float?
+  paidAmountAfterTax                        Float?
+  paidFrom                                  String?
+  paidFromAccountBalance                    Float?
+  paidFromAccountCurrency                   String?
+  paidFromAccountType                       String?
+  paidTo                                    String?
+  paidToAccountBalance                      Float?
+  paidToAccountCurrency                     String?
+  paidToAccountType                         String?
+  party                                     String?
+  partyBalance                              Float?
+  partyBankAccount                          String?
+  partyName                                 String?
+  partyType                                 String?
+  paymentOrder                              String?
+  paymentOrderStatus                        String?
+  paymentType                               String?
+  postingDate                               DateTime?
+  printHeading                              String?
+  project                                   String?
+  purchaseTaxesAndChargesTemplate           String?
+  receivedAmount                            Float?
+  receivedAmountAfterTax                    Float?
+  reconcileOnAdvancePaymentDate             Int?
+  referenceDate                             DateTime?
+  referenceNo                               String?
+  remarks                                   String?
+  salesTaxesAndChargesTemplate              String?
+  sourceExchangeRate                        Float?
+  status                                    String?
+  targetExchangeRate                        Float?
+  taxWithholdingCategory                    String?
+  title                                     String?
+  totalAllocatedAmount                      Float?
+  totalTaxesAndCharges                      Float?
+  unallocatedAmount                         Float?
+  updatedAt                                 DateTime  @updatedAt
+}
+
+model PaymentLedgerEntry {
+  account                 String?
+  accountCurrency         String?
+  accountType             String?
+  againstVoucherNo        String?
+  againstVoucherType      String?
+  amount                  Float?
+  amountInAccountCurrency Float?
+  company                 String?
+  costCenter              String?
+  createdAt               DateTime  @default(now())
+  creation                DateTime?
+  delinked                Int?
+  docstatus               Int?
+  dueDate                 DateTime?
+  financeBook             String?
+  id                      String    @id @default(cuid())
+  idx                     Int?
+  modified                DateTime?
+  modifiedBy              String?
+  name                    String?
+  owner                   String?
+  party                   String?
+  partyType               String?
+  postingDate             DateTime?
+  remarks                 String?
+  updatedAt               DateTime  @updatedAt
+  voucherDetailNo         String?
+  voucherNo               String?
+  voucherType             String?
+}
+
+model PaymentGatewayAccount {
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  currency       String?
+  docstatus      Int?
+  id             String    @id @default(cuid())
+  idx            Int?
+  isDefault      Int?
+  message        String?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  paymentAccount String?
+  paymentChannel String?
+  paymentGateway String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model PaymentOrderReference {
+  account          String?
+  amount           Float?
+  bankAccount      String?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  id               String    @id @default(cuid())
+  idx              Int?
+  modeOfPayment    String?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  parent           String?
+  parentfield      String?
+  parenttype       String?
+  paymentReference String?
+  paymentRequest   String?
+  referenceDoctype String?
+  referenceName    String?
+  supplier         String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model PickListItem {
+  batchNo              String?
+  conversionFactor     Float?
+  createdAt            DateTime  @default(now())
+  creation             DateTime?
+  description          String?
+  docstatus            Int?
+  id                   String    @id @default(cuid())
+  idx                  Int?
+  itemCode             String?
+  itemGroup            String?
+  itemName             String?
+  materialRequest      String?
+  materialRequestItem  String?
+  modified             DateTime?
+  modifiedBy           String?
+  name                 String?
+  owner                String?
+  parent               String?
+  parentfield          String?
+  parenttype           String?
+  pickedQty            Float?
+  productBundleItem    String?
+  qty                  Float?
+  salesOrder           String?
+  salesOrderItem       String?
+  serialAndBatchBundle String?
+  serialNo             String?
+  stockQty             Float?
+  stockReservedQty     Float?
+  stockUom             String?
+  uom                  String?
+  updatedAt            DateTime  @updatedAt
+  useSerialBatchFields Int?
+  warehouse            String?
+}
+
+model PickList {
+  amendedFrom                String?
+  company                    String?
+  considerRejectedWarehouses Int?
+  createdAt                  DateTime  @default(now())
+  creation                   DateTime?
+  customer                   String?
+  customerName               String?
+  docstatus                  Int?
+  forQty                     Float?
+  groupSameItems             Int?
+  id                         String    @id @default(cuid())
+  idx                        Int?
+  ignorePricingRule          Int?
+  materialRequest            String?
+  modified                   DateTime?
+  modifiedBy                 String?
+  name                       String?
+  namingSeries               String?
+  owner                      String?
+  parentWarehouse            String?
+  pickManually               Int?
+  promptQty                  Int?
+  purpose                    String?
+  scanBarcode                String?
+  scanMode                   Int?
+  status                     String?
+  updatedAt                  DateTime  @updatedAt
+  workOrder                  String?
+}
+
+model PurchaseInvoiceAdvance {
+  advanceAmount    Float?
+  allocatedAmount  Float?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  exchangeGainLoss Float?
+  id               String    @id @default(cuid())
+  idx              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  parent           String?
+  parentField      String?
+  parentType       String?
+  refExchangeRate  Float?
+  referenceName    String?
+  referenceRow     String?
+  referenceType    String?
+  remarks          String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model PurchaseInvoiceItem {
+  allowZeroValuationRate       Int?
+  amount                       Float?
+  applyTds                     Int?
+  assetCategory                String?
+  assetLocation                String?
+  baseAmount                   Float?
+  baseNetAmount                Float?
+  baseNetRate                  Float?
+  basePriceListRate            Float?
+  baseRate                     Float?
+  baseRateWithMargin           Float?
+  batchNo                      String?
+  bom                          String?
+  brand                        String?
+  conversionFactor             Float?
+  costCenter                   String?
+  createdAt                    DateTime  @default(now())
+  creation                     DateTime?
+  deferredExpenseAccount       String?
+  description                  String?
+  discountAmount               Float?
+  discountPercentage           Float?
+  docstatus                    Int?
+  enableDeferredExpense        Int?
+  expenseAccount               String?
+  fromWarehouse                String?
+  id                           String    @id @default(cuid())
+  idx                          Int?
+  image                        String?
+  includeExplodedItems         Int?
+  isFixedAsset                 Int?
+  isFreeItem                   Int?
+  itemCode                     String?
+  itemGroup                    String?
+  itemName                     String?
+  itemTaxAmount                Float?
+  itemTaxRate                  String?
+  itemTaxTemplate              String?
+  landedCostVoucherAmount      Float?
+  manufacturer                 String?
+  manufacturerPartNo           String?
+  marginRateOrAmount           Float?
+  marginType                   String?
+  materialRequest              String?
+  materialRequestItem          String?
+  modified                     DateTime?
+  modifiedBy                   String?
+  name                         String?
+  netAmount                    Float?
+  netRate                      Float?
+  owner                        String?
+  pageBreak                    Int?
+  parent                       String?
+  parentField                  String?
+  parentType                   String?
+  poDetail                     String?
+  prDetail                     String?
+  priceListRate                Float?
+  pricingRules                 String?
+  productBundle                String?
+  project                      String?
+  purchaseInvoiceItem          String?
+  purchaseOrder                String?
+  purchaseReceipt              String?
+  qty                          Float?
+  qualityInspection            String?
+  rate                         Float?
+  rateWithMargin               Float?
+  receivedQty                  Float?
+  rejectedQty                  Float?
+  rejectedSerialAndBatchBundle String?
+  rejectedSerialNo             String?
+  rejectedWarehouse            String?
+  rmSuppCost                   Float?
+  salesIncomingRate            Float?
+  salesInvoiceItem             String?
+  serialAndBatchBundle         String?
+  serialNo                     String?
+  serviceEndDate               DateTime?
+  serviceStartDate             DateTime?
+  serviceStopDate              DateTime?
+  stockQty                     Float?
+  stockUom                     String?
+  stockUomRate                 Float?
+  totalWeight                  Float?
+  uom                          String?
+  updatedAt                    DateTime  @updatedAt
+  useSerialBatchFields         Int?
+  valuationRate                Float?
+  warehouse                    String?
+  weightPerUnit                Float?
+  weightUom                    String?
+  wipCompositeAsset            String?
+}
+
+model PurchaseInvoice {
+  additionalDiscountPercentage        Float?
+  addressDisplay                      String?
+  againstExpenseAccount               String?
+  allocateAdvancesAutomatically       Int?
+  amendedFrom                         String?
+  applyDiscountOn                     String?
+  applyTds                            Int?
+  autoRepeat                          String?
+  baseDiscountAmount                  Float?
+  baseGrandTotal                      Float?
+  baseInWords                         String?
+  baseNetTotal                        Float?
+  basePaidAmount                      Float?
+  baseRoundedTotal                    Float?
+  baseRoundingAdjustment              Float?
+  baseTaxWithholdingNetTotal          Float?
+  baseTaxesAndChargesAdded            Float?
+  baseTaxesAndChargesDeducted         Float?
+  baseTotal                           Float?
+  baseTotalTaxesAndCharges            Float?
+  baseWriteOffAmount                  Float?
+  billDate                            DateTime?
+  billNo                              String?
+  billingAddress                      String?
+  billingAddressDisplay               String?
+  buyingPriceList                     String?
+  cashBankAccount                     String?
+  clearanceDate                       DateTime?
+  company                             String?
+  contactDisplay                      String?
+  contactEmail                        String?
+  contactMobile                       String?
+  contactPerson                       String?
+  conversionRate                      Float?
+  costCenter                          String?
+  createdAt                           DateTime  @default(now())
+  creation                            DateTime?
+  creditTo                            String?
+  currency                            String?
+  disableRoundedTotal                 Int?
+  discountAmount                      Float?
+  docstatus                           Int?
+  dueDate                             DateTime?
+  fromDate                            DateTime?
+  grandTotal                          Float?
+  groupSameItems                      Int?
+  holdComment                         String?
+  id                                  String    @id @default(cuid())
+  idx                                 Int?
+  ignoreDefaultPaymentTermsTemplate   Int?
+  ignorePricingRule                   Int?
+  inWords                             String?
+  incoterm                            String?
+  interCompanyInvoiceReference        String?
+  isInternalSupplier                  Int?
+  isOldSubcontractingFlow             Int?
+  isOpening                           String?
+  isPaid                              Int?
+  isReturn                            Int?
+  isSubcontracted                     Int?
+  language                            String?
+  letterHead                          String?
+  modeOfPayment                       String?
+  modified                            DateTime?
+  modifiedBy                          String?
+  name                                String?
+  namedPlace                          String?
+  namingSeries                        String?
+  netTotal                            Float?
+  onHold                              Int?
+  onlyIncludeAllocatedPayments        Int?
+  otherChargesCalculation             String?
+  outstandingAmount                   Float?
+  owner                               String?
+  paidAmount                          Float?
+  partyAccountCurrency                String?
+  paymentTermsTemplate                String?
+  perReceived                         Float?
+  plcConversionRate                   Float?
+  postingDate                         DateTime?
+  postingTime                         String?
+  priceListCurrency                   String?
+  project                             String?
+  rejectedWarehouse                   String?
+  releaseDate                         DateTime?
+  remarks                             String?
+  representsCompany                   String?
+  returnAgainst                       String?
+  roundedTotal                        Float?
+  roundingAdjustment                  Float?
+  scanBarcode                         String?
+  selectPrintHeading                  String?
+  setFromWarehouse                    String?
+  setPostingTime                      Int?
+  setWarehouse                        String?
+  shippingAddress                     String?
+  shippingAddressDisplay              String?
+  shippingRule                        String?
+  status                              String?
+  subscription                        String?
+  supplier                            String?
+  supplierAddress                     String?
+  supplierGroup                       String?
+  supplierName                        String?
+  supplierWarehouse                   String?
+  taxCategory                         String?
+  taxId                               String?
+  taxWithholdingCategory              String?
+  taxWithholdingNetTotal              Float?
+  taxesAndCharges                     String?
+  taxesAndChargesAdded                Float?
+  taxesAndChargesDeducted             Float?
+  tcName                              String?
+  terms                               String?
+  title                               String?
+  toDate                              DateTime?
+  total                               Float?
+  totalAdvance                        Float?
+  totalNetWeight                      Float?
+  totalQty                            Float?
+  totalTaxesAndCharges                Float?
+  unrealizedProfitLossAccount         String?
+  updateBilledAmountInPurchaseOrder   Int?
+  updateBilledAmountInPurchaseReceipt Int?
+  updateOutstandingForSelf            Int?
+  updateStock                         Int?
+  updatedAt                           DateTime  @updatedAt
+  useCompanyRoundoffCostCenter        Int?
+  useTransactionDateExchangeRate      Int?
+  writeOffAccount                     String?
+  writeOffAmount                      Float?
+  writeOffCostCenter                  String?
+}
+
+model PurchaseOrderItemSupplied {
+  amount           Float?
+  bomDetailNo      String?
+  consumedQty      Float?
+  conversionFactor Float?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  id               String    @id @default(cuid())
+  idx              Int?
+  mainItemCode     String?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  parent           String?
+  parentField      String?
+  parentType       String?
+  rate             Float?
+  referenceName    String?
+  requiredQty      Float?
+  reserveWarehouse String?
+  returnedQty      Float?
+  rmItemCode       String?
+  stockUom         String?
+  suppliedQty      Float?
+  totalSuppliedQty Float?
+  updatedAt        DateTime  @updatedAt
+}
+
+model PurchaseOrderItem {
+  actualQty                     Float?
+  againstBlanketOrder           Int?
+  amount                        Float?
+  applyTds                      Int?
+  baseAmount                    Float?
+  baseNetAmount                 Float?
+  baseNetRate                   Float?
+  basePriceListRate             Float?
+  baseRate                      Float?
+  baseRateWithMargin            Float?
+  billedAmt                     Float?
+  blanketOrder                  String?
+  blanketOrderRate              Float?
+  bom                           String?
+  brand                         String?
+  companyTotalStock             Float?
+  conversionFactor              Float?
+  costCenter                    String?
+  createdAt                     DateTime  @default(now())
+  creation                      DateTime?
+  deliveredBySupplier           Int?
+  description                   String?
+  discountAmount                Float?
+  discountPercentage            Float?
+  docstatus                     Int?
+  expectedDeliveryDate          DateTime?
+  expenseAccount                String?
+  fgItem                        String?
+  fgItemQty                     Float?
+  fromWarehouse                 String?
+  id                            String    @id @default(cuid())
+  idx                           Int?
+  image                         String?
+  includeExplodedItems          Int?
+  isFixedAsset                  Int?
+  isFreeItem                    Int?
+  itemCode                      String?
+  itemGroup                     String?
+  itemName                      String?
+  itemTaxRate                   String?
+  itemTaxTemplate               String?
+  lastPurchaseRate              Float?
+  manufacturer                  String?
+  manufacturerPartNo            String?
+  marginRateOrAmount            Float?
+  marginType                    String?
+  materialRequest               String?
+  materialRequestItem           String?
+  modified                      DateTime?
+  modifiedBy                    String?
+  name                          String?
+  netAmount                     Float?
+  netRate                       Float?
+  owner                         String?
+  pageBreak                     Int?
+  parent                        String?
+  parentField                   String?
+  parentType                    String?
+  priceListRate                 Float?
+  pricingRules                  String?
+  productBundle                 String?
+  productionPlan                String?
+  productionPlanItem            String?
+  productionPlanSubAssemblyItem String?
+  project                       String?
+  qty                           Float?
+  rate                          Float?
+  rateWithMargin                Float?
+  receivedQty                   Float?
+  returnedQty                   Float?
+  salesOrder                    String?
+  salesOrderItem                String?
+  salesOrderPackedItem          String?
+  scheduleDate                  DateTime?
+  stockQty                      Float?
+  stockUom                      String?
+  stockUomRate                  Float?
+  supplierPartNo                String?
+  supplierQuotation             String?
+  supplierQuotationItem         String?
+  totalWeight                   Float?
+  uom                           String?
+  updatedAt                     DateTime  @updatedAt
+  warehouse                     String?
+  weightPerUnit                 Float?
+  weightUom                     String?
+  wipCompositeAsset             String?
+}
+
+model PurchaseOrder {
+  additionalDiscountPercentage Float?
+  addressDisplay               String?
+  advancePaid                  Float?
+  amendedFrom                  String?
+  applyDiscountOn              String?
+  applyTds                     Int?
+  autoRepeat                   String?
+  baseDiscountAmount           Float?
+  baseGrandTotal               Float?
+  baseInWords                  String?
+  baseNetTotal                 Float?
+  baseRoundedTotal             Float?
+  baseRoundingAdjustment       Float?
+  baseTaxWithholdingNetTotal   Float?
+  baseTaxesAndChargesAdded     Float?
+  baseTaxesAndChargesDeducted  Float?
+  baseTotal                    Float?
+  baseTotalTaxesAndCharges     Float?
+  billingAddress               String?
+  billingAddressDisplay        String?
+  buyingPriceList              String?
+  company                      String?
+  contactDisplay               String?
+  contactEmail                 String?
+  contactMobile                String?
+  contactPerson                String?
+  conversionRate               Float?
+  costCenter                   String?
+  createdAt                    DateTime  @default(now())
+  creation                     DateTime?
+  currency                     String?
+  customer                     String?
+  customerContactDisplay       String?
+  customerContactEmail         String?
+  customerContactMobile        String?
+  customerContactPerson        String?
+  customerName                 String?
+  disableRoundedTotal          Int?
+  discountAmount               Float?
+  docstatus                    Int?
+  fromDate                     DateTime?
+  grandTotal                   Float?
+  groupSameItems               Int?
+  id                           String    @id @default(cuid())
+  idx                          Int?
+  ignorePricingRule            Int?
+  inWords                      String?
+  incoterm                     String?
+  interCompanyOrderReference   String?
+  isInternalSupplier           Int?
+  isOldSubcontractingFlow      Int?
+  isSubcontracted              Int?
+  language                     String?
+  letterHead                   String?
+  modified                     DateTime?
+  modifiedBy                   String?
+  name                         String?
+  namedPlace                   String?
+  namingSeries                 String?
+  netTotal                     Float?
+  orderConfirmationDate        DateTime?
+  orderConfirmationNo          String?
+  otherChargesCalculation      String?
+  owner                        String?
+  partyAccountCurrency         String?
+  paymentTermsTemplate         String?
+  perBilled                    Float?
+  perReceived                  Float?
+  plcConversionRate            Float?
+  priceListCurrency            String?
+  project                      String?
+  refSq                        String?
+  representsCompany            String?
+  roundedTotal                 Float?
+  roundingAdjustment           Float?
+  scanBarcode                  String?
+  scheduleDate                 DateTime?
+  selectPrintHeading           String?
+  setFromWarehouse             String?
+  setReserveWarehouse          String?
+  setWarehouse                 String?
+  shippingAddress              String?
+  shippingAddressDisplay       String?
+  shippingRule                 String?
+  status                       String?
+  supplier                     String?
+  supplierAddress              String?
+  supplierName                 String?
+  supplierWarehouse            String?
+  taxCategory                  String?
+  taxWithholdingCategory       String?
+  taxWithholdingNetTotal       Float?
+  taxesAndCharges              String?
+  taxesAndChargesAdded         Float?
+  taxesAndChargesDeducted      Float?
+  tcName                       String?
+  terms                        String?
+  title                        String?
+  toDate                       DateTime?
+  total                        Float?
+  totalNetWeight               Float?
+  totalQty                     Float?
+  totalTaxesAndCharges         Float?
+  transactionDate              DateTime?
+  updatedAt                    DateTime  @updatedAt
+}
+
+model PurchaseReceiptItemSupplied {
+  amount           Float?
+  batchNo          String?
+  bomDetailNo      String?
+  consumedQty      Float?
+  conversionFactor Float?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  currentStock     Float?
+  description      String?
+  docstatus        Int?
+  id               String    @id @default(cuid())
+  idx              Int?
+  itemName         String?
+  mainItemCode     String?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  parent           String?
+  parentField      String?
+  parentType       String?
+  purchaseOrder    String?
+  rate             Float?
+  referenceName    String?
+  requiredQty      Float?
+  rmItemCode       String?
+  serialNo         String?
+  stockUom         String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model PurchaseReceiptItem {
+  allowZeroValuationRate            Int?
+  amount                            Float?
+  applyTds                          Int?
+  assetCategory                     String?
+  assetLocation                     String?
+  barcode                           String?
+  baseAmount                        Float?
+  baseNetAmount                     Float?
+  baseNetRate                       Float?
+  basePriceListRate                 Float?
+  baseRate                          Float?
+  baseRateWithMargin                Float?
+  batchNo                           String?
+  billedAmt                         Float?
+  bom                               String?
+  brand                             String?
+  conversionFactor                  Float?
+  costCenter                        String?
+  createdAt                         DateTime  @default(now())
+  creation                          DateTime?
+  deliveryNoteItem                  String?
+  description                       String?
+  discountAmount                    Float?
+  discountPercentage                Float?
+  docstatus                         Int?
+  expenseAccount                    String?
+  fromWarehouse                     String?
+  hasItemScanned                    Int?
+  id                                String    @id @default(cuid())
+  idx                               Int?
+  image                             String?
+  includeExplodedItems              Int?
+  isFixedAsset                      Int?
+  isFreeItem                        Int?
+  itemCode                          String?
+  itemGroup                         String?
+  itemName                          String?
+  itemTaxAmount                     Float?
+  itemTaxRate                       String?
+  itemTaxTemplate                   String?
+  landedCostVoucherAmount           Float?
+  manufacturer                      String?
+  manufacturerPartNo                String?
+  marginRateOrAmount                Float?
+  marginType                        String?
+  materialRequest                   String?
+  materialRequestItem               String?
+  modified                          DateTime?
+  modifiedBy                        String?
+  name                              String?
+  netAmount                         Float?
+  netRate                           Float?
+  owner                             String?
+  pageBreak                         Int?
+  parent                            String?
+  parentField                       String?
+  parentType                        String?
+  priceListRate                     Float?
+  pricingRules                      String?
+  productBundle                     String?
+  project                           String?
+  provisionalExpenseAccount         String?
+  purchaseInvoice                   String?
+  purchaseInvoiceItem               String?
+  purchaseOrder                     String?
+  purchaseOrderItem                 String?
+  purchaseReceiptItem               String?
+  putawayRule                       String?
+  qty                               Float?
+  qualityInspection                 String?
+  rate                              Float?
+  rateDifferenceWithPurchaseInvoice Float?
+  rateWithMargin                    Float?
+  receivedQty                       Float?
+  receivedStockQty                  Float?
+  rejectedQty                       Float?
+  rejectedSerialAndBatchBundle      String?
+  rejectedSerialNo                  String?
+  rejectedWarehouse                 String?
+  retainSample                      Int?
+  returnQtyFromRejectedWarehouse    Int?
+  returnedQty                       Float?
+  rmSuppCost                        Float?
+  salesIncomingRate                 Float?
+  salesOrder                        String?
+  salesOrderItem                    String?
+  sampleQuantity                    Int?
+  scheduleDate                      DateTime?
+  serialAndBatchBundle              String?
+  serialNo                          String?
+  stockQty                          Float?
+  stockUom                          String?
+  stockUomRate                      Float?
+  subcontractingReceiptItem         String?
+  supplierPartNo                    String?
+  totalWeight                       Float?
+  uom                               String?
+  updatedAt                         DateTime  @updatedAt
+  useSerialBatchFields              Int?
+  valuationRate                     Float?
+  warehouse                         String?
+  weightPerUnit                     Float?
+  weightUom                         String?
+  wipCompositeAsset                 String?
+}
+
+model PurchaseTaxesAndChargesTemplate {
+  company     String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  disabled    Int?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  isDefault   Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  taxCategory String?
+  title       String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model PurchaseTaxesAndCharges {
+  accountCurrency                  String?
+  accountHead                      String?
+  addDeductTax                     String?
+  baseTaxAmount                    Float?
+  baseTaxAmountAfterDiscountAmount Float?
+  baseTotal                        Float?
+  category                         String?
+  chargeType                       String?
+  costCenter                       String?
+  createdAt                        DateTime  @default(now())
+  creation                         DateTime?
+  description                      String?
+  docstatus                        Int?
+  id                               String    @id @default(cuid())
+  idx                              Int?
+  includedInPaidAmount             Int?
+  includedInPrintRate              Int?
+  isTaxWithholdingAccount          Int?
+  itemWiseTaxDetail                String?
+  modified                         DateTime?
+  modifiedBy                       String?
+  name                             String?
+  owner                            String?
+  parent                           String?
+  parentField                      String?
+  parentType                       String?
+  rate                             Float?
+  rowId                            String?
+  taxAmount                        Float?
+  taxAmountAfterDiscountAmount     Float?
+  total                            Float?
+  updatedAt                        DateTime  @updatedAt
+}
+
+model QuotationItem {
+  actualQty           Float?
+  additionalNotes     String?
+  againstBlanketOrder Int?
+  amount              Float?
+  baseAmount          Float?
+  baseNetAmount       Float?
+  baseNetRate         Float?
+  basePriceListRate   Float?
+  baseRate            Float?
+  baseRateWithMargin  Float?
+  blanketOrder        String?
+  blanketOrderRate    Float?
+  brand               String?
+  conversionFactor    Float?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  customerItemCode    String?
+  description         String?
+  discountAmount      Float?
+  discountPercentage  Float?
+  docstatus           Int?
+  grossProfit         Float?
+  hasAlternativeItem  Int?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  image               String?
+  isAlternative       Int?
+  isFreeItem          Int?
+  itemCode            String?
+  itemGroup           String?
+  itemName            String?
+  itemTaxRate         String?
+  itemTaxTemplate     String?
+  marginRateOrAmount  Float?
+  marginType          String?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  netAmount           Float?
+  netRate             Float?
+  owner               String?
+  pageBreak           Int?
+  parent              String?
+  parentField         String?
+  parentType          String?
+  prevdocDocname      String?
+  prevdocDoctype      String?
+  priceListRate       Float?
+  pricingRules        String?
+  projectedQty        Float?
+  qty                 Float?
+  rate                Float?
+  rateWithMargin      Float?
+  stockQty            Float?
+  stockUom            String?
+  stockUomRate        Float?
+  totalWeight         Float?
+  uom                 String?
+  updatedAt           DateTime  @updatedAt
+  valuationRate       Float?
+  warehouse           String?
+  weightPerUnit       Float?
+  weightUom           String?
+}
+
+model Quotation {
+  additionalDiscountPercentage Float?
+  addressDisplay               String?
+  amendedFrom                  String?
+  applyDiscountOn              String?
+  autoRepeat                   String?
+  baseDiscountAmount           Float?
+  baseGrandTotal               Float?
+  baseInWords                  String?
+  baseNetTotal                 Float?
+  baseRoundedTotal             Float?
+  baseRoundingAdjustment       Float?
+  baseTotal                    Float?
+  baseTotalTaxesAndCharges     Float?
+  campaign                     String?
+  company                      String?
+  companyAddress               String?
+  companyAddressDisplay        String?
+  contactDisplay               String?
+  contactEmail                 String?
+  contactMobile                String?
+  contactPerson                String?
+  conversionRate               Float?
+  couponCode                   String?
+  createdAt                    DateTime  @default(now())
+  creation                     DateTime?
+  currency                     String?
+  customerAddress              String?
+  customerGroup                String?
+  customerName                 String?
+  discountAmount               Float?
+  docstatus                    Int?
+  enqDet                       String?
+  grandTotal                   Float?
+  groupSameItems               Int?
+  id                           String    @id @default(cuid())
+  idx                          Int?
+  ignorePricingRule            Int?
+  inWords                      String?
+  incoterm                     String?
+  language                     String?
+  letterHead                   String?
+  modified                     DateTime?
+  modifiedBy                   String?
+  name                         String?
+  namedPlace                   String?
+  namingSeries                 String?
+  netTotal                     Float?
+  opportunity                  String?
+  orderLostReason              String?
+  orderType                    String?
+  otherChargesCalculation      String?
+  owner                        String?
+  partyName                    String?
+  paymentTermsTemplate         String?
+  plcConversionRate            Float?
+  priceListCurrency            String?
+  quotationTo                  String?
+  referralSalesPartner         String?
+  roundedTotal                 Float?
+  roundingAdjustment           Float?
+  scanBarcode                  String?
+  selectPrintHeading           String?
+  sellingPriceList             String?
+  shippingAddress              String?
+  shippingAddressName          String?
+  shippingRule                 String?
+  source                       String?
+  status                       String?
+  supplierQuotation            String?
+  taxCategory                  String?
+  taxesAndCharges              String?
+  tcName                       String?
+  terms                        String?
+  territory                    String?
+  title                        String?
+  total                        Float?
+  totalNetWeight               Float?
+  totalQty                     Float?
+  totalTaxesAndCharges         Float?
+  transactionDate              DateTime?
+  updatedAt                    DateTime  @updatedAt
+  validTill                    DateTime?
+}
+
+model QuotationLostReasonDetail {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  lostReason  String?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentField String?
+  parentType  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model SalesInvoiceItem {
+  actualBatchQty         Float?
+  actualQty              Float?
+  allowZeroValuationRate Int?
+  amount                 Float?
+  asset                  String?
+  barcode                String?
+  baseAmount             Float?
+  baseNetAmount          Float?
+  baseNetRate            Float?
+  basePriceListRate      Float?
+  baseRate               Float?
+  baseRateWithMargin     Float?
+  batchNo                String?
+  brand                  String?
+  conversionFactor       Float?
+  costCenter             String?
+  createdAt              DateTime  @default(now())
+  creation               DateTime?
+  customerItemCode       String?
+  deferredRevenueAccount String?
+  deliveredBySupplier    Int?
+  deliveredQty           Float?
+  deliveryNote           String?
+  description            String?
+  discountAccount        String?
+  discountAmount         Float?
+  discountPercentage     Float?
+  dnDetail               String?
+  docstatus              Int?
+  enableDeferredRevenue  Int?
+  expenseAccount         String?
+  financeBook            String?
+  grantCommission        Int?
+  hasItemScanned         Int?
+  id                     String    @id @default(cuid())
+  idx                    Int?
+  image                  String?
+  incomeAccount          String?
+  incomingRate           Float?
+  isFixedAsset           Int?
+  isFreeItem             Int?
+  itemCode               String?
+  itemGroup              String?
+  itemName               String?
+  itemTaxRate            String?
+  itemTaxTemplate        String?
+  marginRateOrAmount     Float?
+  marginType             String?
+  modified               DateTime?
+  modifiedBy             String?
+  name                   String?
+  netAmount              Float?
+  netRate                Float?
+  owner                  String?
+  pageBreak              Int?
+  parent                 String?
+  parentField            String?
+  parentType             String?
+  priceListRate          Float?
+  pricingRules           String?
+  project                String?
+  purchaseOrder          String?
+  purchaseOrderItem      String?
+  qty                    Float?
+  qualityInspection      String?
+  rate                   Float?
+  rateWithMargin         Float?
+  salesInvoiceItem       String?
+  salesOrder             String?
+  serialAndBatchBundle   String?
+  serialNo               String?
+  serviceEndDate         DateTime?
+  serviceStartDate       DateTime?
+  serviceStopDate        DateTime?
+  soDetail               String?
+  stockQty               Float?
+  stockUom               String?
+  stockUomRate           Float?
+  targetWarehouse        String?
+  totalWeight            Float?
+  uom                    String?
+  updatedAt              DateTime  @updatedAt
+  useSerialBatchFields   Int?
+  warehouse              String?
+  weightPerUnit          Float?
+  weightUom              String?
+}
+
+model SalesInvoiceAdvance {
+  advanceAmount    Float?
+  allocatedAmount  Float?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  exchangeGainLoss Float?
+  id               String    @id @default(cuid())
+  idx              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  parent           String?
+  parentField      String?
+  parentType       String?
+  refExchangeRate  Float?
+  referenceName    String?
+  referenceRow     String?
+  referenceType    String?
+  remarks          String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model SalesInvoiceTimesheet {
+  activityType    String?
+  billingAmount   Float?
+  billingHours    Float?
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  description     String?
+  docstatus       Int?
+  fromTime        DateTime?
+  id              String    @id @default(cuid())
+  idx             Int?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  owner           String?
+  parent          String?
+  parentField     String?
+  parentType      String?
+  projectName     String?
+  timeSheet       String?
+  timesheetDetail String?
+  toTime          DateTime?
+  updatedAt       DateTime  @updatedAt
+}
+
+model SalesInvoicePayment {
+  account       String?
+  amount        Float?
+  baseAmount    Float?
+  clearanceDate DateTime?
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  defaultField  Int?
+  docstatus     Int?
+  id            String    @id @default(cuid())
+  idx           Int?
+  modeOfPayment String?
+  modified      DateTime?
+  modifiedBy    String?
+  name          String?
+  owner         String?
+  parent        String?
+  parentField   String?
+  parentType    String?
+  referenceNo   String?
+  typeField     String?
+  updatedAt     DateTime  @updatedAt
+}
+
+model SalesOrderItem {
+  actualQty                             Float?
+  additionalNotes                       String?
+  againstBlanketOrder                   Int?
+  amount                                Float?
+  baseAmount                            Float?
+  baseNetAmount                         Float?
+  baseNetRate                           Float?
+  basePriceListRate                     Float?
+  baseRate                              Float?
+  baseRateWithMargin                    Float?
+  billedAmt                             Float?
+  blanketOrder                          String?
+  blanketOrderRate                      Float?
+  bomNo                                 String?
+  brand                                 String?
+  conversionFactor                      Float?
+  createdAt                             DateTime  @default(now())
+  creation                              DateTime?
+  customerItemCode                      String?
+  deliveredBySupplier                   Int?
+  deliveredQty                          Float?
+  deliveryDate                          DateTime?
+  description                           String?
+  discountAmount                        Float?
+  discountPercentage                    Float?
+  docstatus                             Int?
+  ensureDeliveryBasedOnProducedSerialNo Int?
+  grantCommission                       Int?
+  grossProfit                           Float?
+  id                                    String    @id @default(cuid())
+  idx                                   Int?
+  image                                 String?
+  isFreeItem                            Int?
+  isStockItem                           Int?
+  itemCode                              String?
+  itemGroup                             String?
+  itemName                              String?
+  itemTaxRate                           String?
+  itemTaxTemplate                       String?
+  marginRateOrAmount                    Float?
+  marginType                            String?
+  materialRequest                       String?
+  materialRequestItem                   String?
+  modified                              DateTime?
+  modifiedBy                            String?
+  name                                  String?
+  netAmount                             Float?
+  netRate                               Float?
+  orderedQty                            Float?
+  owner                                 String?
+  pageBreak                             Int?
+  parent                                String?
+  parentField                           String?
+  parentType                            String?
+  pickedQty                             Float?
+  plannedQty                            Float?
+  prevdocDocname                        String?
+  priceListRate                         Float?
+  pricingRules                          String?
+  producedQty                           Float?
+  productionPlanQty                     Float?
+  projectedQty                          Float?
+  purchaseOrder                         String?
+  purchaseOrderItem                     String?
+  qty                                   Float?
+  quotationItem                         String?
+  rate                                  Float?
+  rateWithMargin                        Float?
+  reserveStock                          Int?
+  returnedQty                           Float?
+  stockQty                              Float?
+  stockReservedQty                      Float?
+  stockUom                              String?
+  stockUomRate                          Float?
+  supplier                              String?
+  targetWarehouse                       String?
+  totalWeight                           Float?
+  transactionDate                       DateTime?
+  uom                                   String?
+  updatedAt                             DateTime  @updatedAt
+  valuationRate                         Float?
+  warehouse                             String?
+  weightPerUnit                         Float?
+  weightUom                             String?
+  workOrderQty                          Float?
+}
+
+model SalesInvoice {
+  accountForChangeAmount                 String?
+  additionalDiscountAccount              String?
+  additionalDiscountPercentage           Float?
+  addressDisplay                         String?
+  againstIncomeAccount                   String?
+  allocateAdvancesAutomatically          Int?
+  amendedFrom                            String?
+  amountEligibleForCommission            Float?
+  applyDiscountOn                        String?
+  autoRepeat                             String?
+  baseChangeAmount                       Float?
+  baseDiscountAmount                     Float?
+  baseGrandTotal                         Float?
+  baseInWords                            String?
+  baseNetTotal                           Float?
+  basePaidAmount                         Float?
+  baseRoundedTotal                       Float?
+  baseRoundingAdjustment                 Float?
+  baseTotal                              Float?
+  baseTotalTaxesAndCharges               Float?
+  baseWriteOffAmount                     Float?
+  campaign                               String?
+  cashBankAccount                        String?
+  changeAmount                           Float?
+  commissionRate                         Float?
+  company                                String?
+  companyAddress                         String?
+  companyAddressDisplay                  String?
+  companyTaxId                           String?
+  contactDisplay                         String?
+  contactEmail                           String?
+  contactMobile                          String?
+  contactPerson                          String?
+  conversionRate                         Float?
+  costCenter                             String?
+  createdAt                              DateTime  @default(now())
+  creation                               DateTime?
+  currency                               String?
+  customer                               String?
+  customerAddress                        String?
+  customerGroup                          String?
+  customerName                           String?
+  debitTo                                String?
+  disableRoundedTotal                    Int?
+  discountAmount                         Float?
+  dispatchAddress                        String?
+  dispatchAddressName                    String?
+  docstatus                              Int?
+  dueDate                                DateTime?
+  fromDate                               DateTime?
+  grandTotal                             Float?
+  groupSameItems                         Int?
+  id                                     String    @id @default(cuid())
+  idx                                    Int?
+  ignoreDefaultPaymentTermsTemplate      Int?
+  ignorePricingRule                      Int?
+  inWords                                String?
+  incoterm                               String?
+  interCompanyInvoiceReference           String?
+  isCashOrNonTradeDiscount               Int?
+  isConsolidated                         Int?
+  isDebitNote                            Int?
+  isDiscounted                           Int?
+  isInternalCustomer                     Int?
+  isOpening                              String?
+  isPos                                  Int?
+  isReturn                               Int?
+  language                               String?
+  letterHead                             String?
+  loyaltyAmount                          Float?
+  loyaltyPoints                          Int?
+  loyaltyProgram                         String?
+  loyaltyRedemptionAccount               String?
+  loyaltyRedemptionCostCenter            String?
+  modified                               DateTime?
+  modifiedBy                             String?
+  name                                   String?
+  namedPlace                             String?
+  namingSeries                           String?
+  netTotal                               Float?
+  onlyIncludeAllocatedPayments           Int?
+  otherChargesCalculation                String?
+  outstandingAmount                      Float?
+  owner                                  String?
+  paidAmount                             Float?
+  partyAccountCurrency                   String?
+  paymentTermsTemplate                   String?
+  plcConversionRate                      Float?
+  poDate                                 DateTime?
+  poNo                                   String?
+  posProfile                             String?
+  postingDate                            DateTime?
+  postingTime                            String?
+  priceListCurrency                      String?
+  project                                String?
+  redeemLoyaltyPoints                    Int?
+  remarks                                String?
+  representsCompany                      String?
+  returnAgainst                          String?
+  roundedTotal                           Float?
+  roundingAdjustment                     Float?
+  salesPartner                           String?
+  scanBarcode                            String?
+  selectPrintHeading                     String?
+  sellingPriceList                       String?
+  setPostingTime                         Int?
+  setTargetWarehouse                     String?
+  setWarehouse                           String?
+  shippingAddress                        String?
+  shippingAddressName                    String?
+  shippingRule                           String?
+  source                                 String?
+  status                                 String?
+  subscription                           String?
+  taxCategory                            String?
+  taxId                                  String?
+  taxesAndCharges                        String?
+  tcName                                 String?
+  terms                                  String?
+  territory                              String?
+  title                                  String?
+  toDate                                 DateTime?
+  total                                  Float?
+  totalAdvance                           Float?
+  totalBillingAmount                     Float?
+  totalBillingHours                      Float?
+  totalCommission                        Float?
+  totalNetWeight                         Float?
+  totalQty                               Float?
+  totalTaxesAndCharges                   Float?
+  unrealizedProfitLossAccount            String?
+  updateBilledAmountInDeliveryNote       Int?
+  updateBilledAmountInSalesOrder         Int?
+  updateOutstandingForSelf               Int?
+  updateStock                            Int?
+  updatedAt                              DateTime  @updatedAt
+  useCompanyRoundoffCostCenter           Int?
+  writeOffAccount                        String?
+  writeOffAmount                         Float?
+  writeOffCostCenter                     String?
+  writeOffOutstandingAmountAutomatically Int?
+}
+
+model SalesPartnerItem {
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  docstatus    Int?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  parent       String?
+  parentField  String?
+  parentType   String?
+  salesPartner String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model SalesOrder {
+  additionalDiscountPercentage Float?
+  addressDisplay               String?
+  advancePaid                  Float?
+  amendedFrom                  String?
+  amountEligibleForCommission  Float?
+  applyDiscountOn              String?
+  autoRepeat                   String?
+  baseDiscountAmount           Float?
+  baseGrandTotal               Float?
+  baseInWords                  String?
+  baseNetTotal                 Float?
+  baseRoundedTotal             Float?
+  baseRoundingAdjustment       Float?
+  baseTotal                    Float?
+  baseTotalTaxesAndCharges     Float?
+  billingStatus                String?
+  campaign                     String?
+  commissionRate               Float?
+  company                      String?
+  companyAddress               String?
+  companyAddressDisplay        String?
+  contactDisplay               String?
+  contactEmail                 String?
+  contactMobile                String?
+  contactPerson                String?
+  contactPhone                 String?
+  conversionRate               Float?
+  costCenter                   String?
+  couponCode                   String?
+  createdAt                    DateTime  @default(now())
+  creation                     DateTime?
+  currency                     String?
+  customer                     String?
+  customerAddress              String?
+  customerGroup                String?
+  customerName                 String?
+  deliveryDate                 DateTime?
+  deliveryStatus               String?
+  disableRoundedTotal          Int?
+  discountAmount               Float?
+  dispatchAddress              String?
+  dispatchAddressName          String?
+  docstatus                    Int?
+  fromDate                     DateTime?
+  grandTotal                   Float?
+  groupSameItems               Int?
+  id                           String    @id @default(cuid())
+  idx                          Int?
+  ignorePricingRule            Int?
+  inWords                      String?
+  incoterm                     String?
+  interCompanyOrderReference   String?
+  isInternalCustomer           Int?
+  language                     String?
+  letterHead                   String?
+  loyaltyAmount                Float?
+  loyaltyPoints                Int?
+  modified                     DateTime?
+  modifiedBy                   String?
+  name                         String?
+  namedPlace                   String?
+  namingSeries                 String?
+  netTotal                     Float?
+  orderType                    String?
+  otherChargesCalculation      String?
+  owner                        String?
+  partyAccountCurrency         String?
+  paymentTermsTemplate         String?
+  perBilled                    Float?
+  perDelivered                 Float?
+  perPicked                    Float?
+  plcConversionRate            Float?
+  poDate                       DateTime?
+  poNo                         String?
+  priceListCurrency            String?
+  project                      String?
+  representsCompany            String?
+  reserveStock                 Int?
+  roundedTotal                 Float?
+  roundingAdjustment           Float?
+  salesPartner                 String?
+  scanBarcode                  String?
+  selectPrintHeading           String?
+  sellingPriceList             String?
+  setWarehouse                 String?
+  shippingAddress              String?
+  shippingAddressName          String?
+  shippingRule                 String?
+  skipDeliveryNote             Int?
+  source                       String?
+  status                       String?
+  taxCategory                  String?
+  taxId                        String?
+  taxesAndCharges              String?
+  tcName                       String?
+  terms                        String?
+  territory                    String?
+  title                        String?
+  toDate                       DateTime?
+  total                        Float?
+  totalCommission              Float?
+  totalNetWeight               Float?
+  totalQty                     Float?
+  totalTaxesAndCharges         Float?
+  transactionDate              DateTime?
+  updatedAt                    DateTime  @updatedAt
+}
+
+model SalesTeam {
+  allocatedAmount     Float?
+  allocatedPercentage Float?
+  commissionRate      String?
+  contactNo           String?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  docstatus           Int?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  incentives          Float?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  owner               String?
+  parent              String?
+  parentField         String?
+  parentType          String?
+  salesPerson         String?
+  updatedAt           DateTime  @updatedAt
+}
+
+model SalesPartner {
+  commissionRate Float?
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  description    String?
+  docstatus      Int?
+  id             String    @id @default(cuid())
+  idx            Int?
+  introduction   String?
+  logo           String?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  partnerName    String?
+  partnerType    String?
+  partnerWebsite String?
+  referralCode   String?
+  route          String?
+  showInWebsite  Int?
+  territory      String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model SalesStage {
+  createdAt  DateTime  @default(now())
+  creation   DateTime?
+  docstatus  Int?
+  id         String    @id @default(cuid())
+  idx        Int?
+  modified   DateTime?
+  modifiedBy String?
+  name       String?
+  owner      String?
+  stageName  String?
+  updatedAt  DateTime  @updatedAt
+}
+
+model SalesTaxesAndCharges {
+  accountCurrency                  String?
+  accountHead                      String?
+  baseTaxAmount                    Float?
+  baseTaxAmountAfterDiscountAmount Float?
+  baseTotal                        Float?
+  chargeType                       String?
+  costCenter                       String?
+  createdAt                        DateTime  @default(now())
+  creation                         DateTime?
+  description                      String?
+  docstatus                        Int?
+  dontRecomputeTax                 Int?
+  id                               String    @id @default(cuid())
+  idx                              Int?
+  includedInPaidAmount             Int?
+  includedInPrintRate              Int?
+  itemWiseTaxDetail                String?
+  modified                         DateTime?
+  modifiedBy                       String?
+  name                             String?
+  owner                            String?
+  parent                           String?
+  parentField                      String?
+  parentType                       String?
+  rate                             Float?
+  rowId                            String?
+  taxAmount                        Float?
+  taxAmountAfterDiscountAmount     Float?
+  total                            Float?
+  updatedAt                        DateTime  @updatedAt
+}
+
+model SubcontractingOrderServiceItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model SubcontractingOrderSuppliedItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model SubcontractingOrderItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model SubcontractingOrder {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model SubcontractingReceiptItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model SubcontractingReceiptSuppliedItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model SubcontractingReceipt {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model SubscriptionInvoice {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model SubscriptionPlanDetail {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model SubscriptionPlan {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Subscription {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model UnreconcilePaymentEntries {
+  account          String?
+  accountCurrency  String?
+  allocatedAmount  Float?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  id               String    @id @default(cuid())
+  idx              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  parent           String?
+  parentfield      String?
+  parenttype       String?
+  party            String?
+  partyType        String?
+  referenceDoctype String?
+  referenceName    String?
+  unlinked         Int?
+  updatedAt        DateTime  @updatedAt
+}
+
+model UnreconcilePayment {
+  amendedFrom String?
+  company     String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  updatedAt   DateTime  @updatedAt
+  voucherNo   String?
+  voucherType String?
 }

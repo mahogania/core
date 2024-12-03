@@ -1,0 +1,23 @@
+export type SalesPartner = {
+  commissionRate: number | null;
+  createdAt: Date;
+  creation: Date | null;
+  description: string | null;
+  docstatus: number | null;
+  id: string;
+  idx: number | null;
+  introduction: string | null;
+  logo: string | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  partnerName: string | null;
+  partnerType: string | null;
+  partnerWebsite: string | null;
+  referralCode: string | null;
+  route: string | null;
+  showInWebsite: number | null;
+  territory: string | null;
+  updatedAt: Date;
+};

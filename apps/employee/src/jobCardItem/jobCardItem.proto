@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+                 package jobCardItem;
+service JobCardItemService {
+ rpc createJobCardItem (JobCardItemCreateInput) returns (JobCardItem) {}
+rpc jobCardItems (findManyParams) returns (stream JobCardItem) {}
+rpc jobCardItem (JobCardItemWhereUniqueInput) returns (JobCardItem) {}
+rpc updateJobCardItem (JobCardItemUpdateInput) returns (JobCardItem) {}
+rpc deleteJobCardItem (JobCardItemWhereUniqueInput) returns (JobCardItem) {} 
+ }
+message JobCardItemCreateInput {
+int32 allowAlternativeItem = 1;
+string createdAt = 2;
+string creation = 3;
+string description = 4;
+int32 docstatus = 5;
+string id = 6;
+int32 idx = 7;
+string itemCode = 8;
+string itemGroup = 9;
+string itemName = 10;
+string modified = 11;
+string modifiedBy = 12;
+string name = 13;
+string owner = 14;
+string parent = 15;
+string parentfield = 16;
+string parenttype = 17;
+int32 requiredQty = 18;
+string sourceWarehouse = 19;
+string stockUom = 20;
+int32 transferredQty = 21;
+string uom = 22;
+string updatedAt = 23;
+};
+message JobCardItem {
+int32 allowAlternativeItem = 1;
+string createdAt = 2;
+string creation = 3;
+string description = 4;
+int32 docstatus = 5;
+string id = 6;
+int32 idx = 7;
+string itemCode = 8;
+string itemGroup = 9;
+string itemName = 10;
+string modified = 11;
+string modifiedBy = 12;
+string name = 13;
+string owner = 14;
+string parent = 15;
+string parentfield = 16;
+string parenttype = 17;
+int32 requiredQty = 18;
+string sourceWarehouse = 19;
+string stockUom = 20;
+int32 transferredQty = 21;
+string uom = 22;
+string updatedAt = 23;
+};
+message JobCardItemWhereUniqueInput {
+int32 allowAlternativeItem = 1;
+string createdAt = 2;
+string creation = 3;
+string description = 4;
+int32 docstatus = 5;
+string id = 6;
+int32 idx = 7;
+string itemCode = 8;
+string itemGroup = 9;
+string itemName = 10;
+string modified = 11;
+string modifiedBy = 12;
+string name = 13;
+string owner = 14;
+string parent = 15;
+string parentfield = 16;
+string parenttype = 17;
+int32 requiredQty = 18;
+string sourceWarehouse = 19;
+string stockUom = 20;
+int32 transferredQty = 21;
+string uom = 22;
+string updatedAt = 23;
+};
+message JobCardItemUpdateInput {
+int32 allowAlternativeItem = 1;
+string createdAt = 2;
+string creation = 3;
+string description = 4;
+int32 docstatus = 5;
+string id = 6;
+int32 idx = 7;
+string itemCode = 8;
+string itemGroup = 9;
+string itemName = 10;
+string modified = 11;
+string modifiedBy = 12;
+string name = 13;
+string owner = 14;
+string parent = 15;
+string parentfield = 16;
+string parenttype = 17;
+int32 requiredQty = 18;
+string sourceWarehouse = 19;
+string stockUom = 20;
+int32 transferredQty = 21;
+string uom = 22;
+string updatedAt = 23;
+};
+message findManyParams {
+
+};

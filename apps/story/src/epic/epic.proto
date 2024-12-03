@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package epic;
+service EpicService {
+ rpc createEpic (EpicCreateInput) returns (Epic) {}
+rpc epics (findManyParams) returns (stream Epic) {}
+rpc epic (EpicWhereUniqueInput) returns (Epic) {}
+rpc updateEpic (EpicUpdateInput) returns (Epic) {}
+rpc deleteEpic (EpicWhereUniqueInput) returns (Epic) {}
+rpc findManyEpic (EpicWhereUniqueInput) returns (stream Quest) {}
+rpc updateEpic (QuestParams) returns (stream Quest) {}
+rpc connectEpic (QuestParams) returns (Quest) {}
+rpc disconnectEpic (QuestParams) returns (Quest) {} 
+ }
+message EpicCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Quest quests = 3;
+string updatedAt = 4;
+};
+message Epic {
+string createdAt = 1;
+string id = 2;
+repeated Quest quests = 3;
+string updatedAt = 4;
+};
+message EpicWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Quest quests = 3;
+string updatedAt = 4;
+};
+message EpicUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Quest quests = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Quest {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestParams {
+EpicWhereUniqueInput epicWhereUniqueInput = 1;
+QuestWhereUniqueInput questWhereUniqueInput = 2;
+};

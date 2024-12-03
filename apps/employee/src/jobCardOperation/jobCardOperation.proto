@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+                 package jobCardOperation;
+service JobCardOperationService {
+ rpc createJobCardOperation (JobCardOperationCreateInput) returns (JobCardOperation) {}
+rpc jobCardOperations (findManyParams) returns (stream JobCardOperation) {}
+rpc jobCardOperation (JobCardOperationWhereUniqueInput) returns (JobCardOperation) {}
+rpc updateJobCardOperation (JobCardOperationUpdateInput) returns (JobCardOperation) {}
+rpc deleteJobCardOperation (JobCardOperationWhereUniqueInput) returns (JobCardOperation) {} 
+ }
+message JobCardOperationCreateInput {
+int32 completedQty = 1;
+string completedTime = 2;
+string createdAt = 3;
+string creation = 4;
+int32 docstatus = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentfield = 13;
+string parenttype = 14;
+string status = 15;
+string subOperation = 16;
+string updatedAt = 17;
+};
+message JobCardOperation {
+int32 completedQty = 1;
+string completedTime = 2;
+string createdAt = 3;
+string creation = 4;
+int32 docstatus = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentfield = 13;
+string parenttype = 14;
+string status = 15;
+string subOperation = 16;
+string updatedAt = 17;
+};
+message JobCardOperationWhereUniqueInput {
+int32 completedQty = 1;
+string completedTime = 2;
+string createdAt = 3;
+string creation = 4;
+int32 docstatus = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentfield = 13;
+string parenttype = 14;
+string status = 15;
+string subOperation = 16;
+string updatedAt = 17;
+};
+message JobCardOperationUpdateInput {
+int32 completedQty = 1;
+string completedTime = 2;
+string createdAt = 3;
+string creation = 4;
+int32 docstatus = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentfield = 13;
+string parenttype = 14;
+string status = 15;
+string subOperation = 16;
+string updatedAt = 17;
+};
+message findManyParams {
+
+};

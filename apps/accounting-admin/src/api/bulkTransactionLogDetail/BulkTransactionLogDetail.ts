@@ -1,0 +1,20 @@
+export type BulkTransactionLogDetail = {
+  createdAt: Date;
+  creation: Date | null;
+  date: Date | null;
+  docstatus: number | null;
+  errorDescription: string | null;
+  fromDoctype: string | null;
+  id: string;
+  idx: number | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  retried: number | null;
+  time: Date | null;
+  toDoctype: string | null;
+  transactionName: string | null;
+  transactionStatus: string | null;
+  updatedAt: Date;
+};

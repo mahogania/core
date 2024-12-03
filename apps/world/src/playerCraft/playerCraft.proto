@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerCraft;
+service PlayerCraftService {
+ rpc createPlayerCraft (PlayerCraftCreateInput) returns (PlayerCraft) {}
+rpc playerCrafts (findManyParams) returns (stream PlayerCraft) {}
+rpc playerCraft (PlayerCraftWhereUniqueInput) returns (PlayerCraft) {}
+rpc updatePlayerCraft (PlayerCraftUpdateInput) returns (PlayerCraft) {}
+rpc deletePlayerCraft (PlayerCraftWhereUniqueInput) returns (PlayerCraft) {} 
+ }
+message PlayerCraftCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerCraft {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerCraftWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerCraftUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

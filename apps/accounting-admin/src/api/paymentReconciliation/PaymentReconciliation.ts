@@ -1,0 +1,24 @@
+export type PaymentReconciliation = {
+  amendedFrom: string | null;
+  bankCashAccount: string | null;
+  company: string | null;
+  costCenter: string | null;
+  createdAt: Date;
+  defaultAdvanceAccount: string | null;
+  docstatus: number | null;
+  errorLog: string | null;
+  fromInvoiceDate: Date | null;
+  fromPaymentDate: Date | null;
+  id: string;
+  idx: number | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  party: string | null;
+  partyType: string | null;
+  receivablePayableAccount: string | null;
+  status: string | null;
+  toInvoiceDate: Date | null;
+  toPaymentDate: Date | null;
+  updatedAt: Date;
+};
