@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+                 package cargoDeclarationTrailer;
+service CargoDeclarationTrailerService {
+ rpc createCargoDeclarationTrailer (CargoDeclarationTrailerCreateInput) returns (CargoDeclarationTrailer) {}
+rpc cargoDeclarationTrailers (findManyParams) returns (stream CargoDeclarationTrailer) {}
+rpc cargoDeclarationTrailer (CargoDeclarationTrailerWhereUniqueInput) returns (CargoDeclarationTrailer) {}
+rpc updateCargoDeclarationTrailer (CargoDeclarationTrailerUpdateInput) returns (CargoDeclarationTrailer) {}
+rpc deleteCargoDeclarationTrailer (CargoDeclarationTrailerWhereUniqueInput) returns (CargoDeclarationTrailer) {} 
+ }
+message CargoDeclarationTrailerCreateInput {
+string cagMgmtNo = 1;
+string chssNo = 2;
+string createdAt = 3;
+string delYn = 4;
+string frstRegstId = 5;
+string frstRgsrDttm = 6;
+string id = 7;
+string lastChgDttm = 8;
+string lastChprId = 9;
+string mrn = 10;
+int32 trlrSrno = 11;
+string trlrStsz = 12;
+string updatedAt = 13;
+string vhclRgsrNo = 14;
+};
+message CargoDeclarationTrailer {
+string cagMgmtNo = 1;
+string chssNo = 2;
+string createdAt = 3;
+string delYn = 4;
+string frstRegstId = 5;
+string frstRgsrDttm = 6;
+string id = 7;
+string lastChgDttm = 8;
+string lastChprId = 9;
+string mrn = 10;
+int32 trlrSrno = 11;
+string trlrStsz = 12;
+string updatedAt = 13;
+string vhclRgsrNo = 14;
+};
+message CargoDeclarationTrailerWhereUniqueInput {
+string cagMgmtNo = 1;
+string chssNo = 2;
+string createdAt = 3;
+string delYn = 4;
+string frstRegstId = 5;
+string frstRgsrDttm = 6;
+string id = 7;
+string lastChgDttm = 8;
+string lastChprId = 9;
+string mrn = 10;
+int32 trlrSrno = 11;
+string trlrStsz = 12;
+string updatedAt = 13;
+string vhclRgsrNo = 14;
+};
+message CargoDeclarationTrailerUpdateInput {
+string cagMgmtNo = 1;
+string chssNo = 2;
+string createdAt = 3;
+string delYn = 4;
+string frstRegstId = 5;
+string frstRgsrDttm = 6;
+string id = 7;
+string lastChgDttm = 8;
+string lastChprId = 9;
+string mrn = 10;
+int32 trlrSrno = 11;
+string trlrStsz = 12;
+string updatedAt = 13;
+string vhclRgsrNo = 14;
+};
+message findManyParams {
+
+};

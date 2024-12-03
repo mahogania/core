@@ -1,0 +1,21 @@
+export type CargoDeclarationVehicle = {
+  cagMgmtNo: string | null;
+  chssNo: string | null;
+  createdAt: Date;
+  delYn: string | null;
+  engnClndGcnt: number | null;
+  frstRegstId: string | null;
+  frstRgsrDttm: Date | null;
+  id: string;
+  lastChgDttm: Date | null;
+  lastChprId: string | null;
+  mrn: string | null;
+  updatedAt: Date;
+  vhclKndNm: string | null;
+  vhclMdlCd: string | null;
+  vhclMnfcYy: string | null;
+  vhclMnurCd: string | null;
+  vhclRgsrNo: string | null;
+  vhclSrno: number | null;
+  vhclTotlWght: number | null;
+};
