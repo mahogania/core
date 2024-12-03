@@ -1,0 +1,32 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type CustomDocPermOrderByInput = {
+  amend?: SortOrder;
+  cancel?: SortOrder;
+  create?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  deleteField?: SortOrder;
+  docstatus?: SortOrder;
+  email?: SortOrder;
+  exportField?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  ifOwner?: SortOrder;
+  importField?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  owner?: SortOrder;
+  parent?: SortOrder;
+  permlevel?: SortOrder;
+  print?: SortOrder;
+  read?: SortOrder;
+  report?: SortOrder;
+  role?: SortOrder;
+  selectField?: SortOrder;
+  share?: SortOrder;
+  submit?: SortOrder;
+  updatedAt?: SortOrder;
+  write?: SortOrder;
+};

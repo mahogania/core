@@ -1,0 +1,107 @@
+syntax = "proto3";
+
+                 package feature;
+service FeatureService {
+ rpc createFeature (FeatureCreateInput) returns (Feature) {}
+rpc features (findManyParams) returns (stream Feature) {}
+rpc feature (FeatureWhereUniqueInput) returns (Feature) {}
+rpc updateFeature (FeatureUpdateInput) returns (Feature) {}
+rpc deleteFeature (FeatureWhereUniqueInput) returns (Feature) {}
+rpc findManyFeature (FeatureWhereUniqueInput) returns (stream Option) {}
+rpc updateFeature (OptionParams) returns (stream Option) {}
+rpc connectFeature (OptionParams) returns (Option) {}
+rpc disconnectFeature (OptionParams) returns (Option) {}
+rpc findManyFeatures (FeatureWhereUniqueInput) returns (stream Strength) {}
+rpc updateFeatures (StrengthParams) returns (stream Strength) {}
+rpc connectFeatures (StrengthParams) returns (Strength) {}
+rpc disconnectFeatures (StrengthParams) returns (Strength) {}
+rpc findManyFeatures (FeatureWhereUniqueInput) returns (stream Weakness) {}
+rpc updateFeatures (WeaknessParams) returns (stream Weakness) {}
+rpc connectFeatures (WeaknessParams) returns (Weakness) {}
+rpc disconnectFeatures (WeaknessParams) returns (Weakness) {} 
+ }
+message FeatureCreateInput {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+repeated Option options = 5;
+repeated Strength strength = 6;
+string updatedAt = 7;
+repeated Weakness weaknesses = 8;
+};
+message Feature {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+repeated Option options = 5;
+repeated Strength strength = 6;
+string updatedAt = 7;
+repeated Weakness weaknesses = 8;
+};
+message FeatureWhereUniqueInput {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+repeated Option options = 5;
+repeated Strength strength = 6;
+string updatedAt = 7;
+repeated Weakness weaknesses = 8;
+};
+message FeatureUpdateInput {
+string createdAt = 1;
+string displayName = 2;
+string id = 3;
+string name = 4;
+repeated Option options = 5;
+repeated Strength strength = 6;
+string updatedAt = 7;
+repeated Weakness weaknesses = 8;
+};
+message findManyParams {
+
+};
+message Option {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OptionWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OptionParams {
+FeatureWhereUniqueInput featureWhereUniqueInput = 1;
+OptionWhereUniqueInput optionWhereUniqueInput = 2;
+};
+message Strength {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message StrengthWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message StrengthParams {
+FeatureWhereUniqueInput featureWhereUniqueInput = 1;
+StrengthWhereUniqueInput strengthWhereUniqueInput = 2;
+};
+message Weakness {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message WeaknessWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message WeaknessParams {
+FeatureWhereUniqueInput featureWhereUniqueInput = 1;
+WeaknessWhereUniqueInput weaknessWhereUniqueInput = 2;
+};

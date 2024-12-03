@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+                 package shippingRuleCountry;
+service ShippingRuleCountryService {
+ rpc createShippingRuleCountry (ShippingRuleCountryCreateInput) returns (ShippingRuleCountry) {}
+rpc shippingRuleCountries (findManyParams) returns (stream ShippingRuleCountry) {}
+rpc shippingRuleCountry (ShippingRuleCountryWhereUniqueInput) returns (ShippingRuleCountry) {}
+rpc updateShippingRuleCountry (ShippingRuleCountryUpdateInput) returns (ShippingRuleCountry) {}
+rpc deleteShippingRuleCountry (ShippingRuleCountryWhereUniqueInput) returns (ShippingRuleCountry) {} 
+ }
+message ShippingRuleCountryCreateInput {
+string country = 1;
+string createdAt = 2;
+string creation = 3;
+int32 docstatus = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string parent = 11;
+string parentfield = 12;
+string parenttype = 13;
+string updatedAt = 14;
+};
+message ShippingRuleCountry {
+string country = 1;
+string createdAt = 2;
+string creation = 3;
+int32 docstatus = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string parent = 11;
+string parentfield = 12;
+string parenttype = 13;
+string updatedAt = 14;
+};
+message ShippingRuleCountryWhereUniqueInput {
+string country = 1;
+string createdAt = 2;
+string creation = 3;
+int32 docstatus = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string parent = 11;
+string parentfield = 12;
+string parenttype = 13;
+string updatedAt = 14;
+};
+message ShippingRuleCountryUpdateInput {
+string country = 1;
+string createdAt = 2;
+string creation = 3;
+int32 docstatus = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string parent = 11;
+string parentfield = 12;
+string parenttype = 13;
+string updatedAt = 14;
+};
+message findManyParams {
+
+};

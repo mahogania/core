@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package opportunity;
+service OpportunityService {
+ rpc createOpportunity (OpportunityCreateInput) returns (Opportunity) {}
+rpc opportunities (findManyParams) returns (stream Opportunity) {}
+rpc opportunity (OpportunityWhereUniqueInput) returns (Opportunity) {}
+rpc updateOpportunity (OpportunityUpdateInput) returns (Opportunity) {}
+rpc deleteOpportunity (OpportunityWhereUniqueInput) returns (Opportunity) {}
+rpc findManyOpportunity (OpportunityWhereUniqueInput) returns (stream Proposal) {}
+rpc updateOpportunity (ProposalParams) returns (stream Proposal) {}
+rpc connectOpportunity (ProposalParams) returns (Proposal) {}
+rpc disconnectOpportunity (ProposalParams) returns (Proposal) {} 
+ }
+message OpportunityCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated Proposal proposals = 3;
+string updatedAt = 4;
+};
+message Opportunity {
+string createdAt = 1;
+string id = 2;
+repeated Proposal proposals = 3;
+string updatedAt = 4;
+};
+message OpportunityWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated Proposal proposals = 3;
+string updatedAt = 4;
+};
+message OpportunityUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated Proposal proposals = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Proposal {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ProposalWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ProposalParams {
+OpportunityWhereUniqueInput opportunityWhereUniqueInput = 1;
+ProposalWhereUniqueInput proposalWhereUniqueInput = 2;
+};

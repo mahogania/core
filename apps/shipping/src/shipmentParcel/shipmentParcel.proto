@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+                 package shipmentParcel;
+service ShipmentParcelService {
+ rpc createShipmentParcel (ShipmentParcelCreateInput) returns (ShipmentParcel) {}
+rpc shipmentParcels (findManyParams) returns (stream ShipmentParcel) {}
+rpc shipmentParcel (ShipmentParcelWhereUniqueInput) returns (ShipmentParcel) {}
+rpc updateShipmentParcel (ShipmentParcelUpdateInput) returns (ShipmentParcel) {}
+rpc deleteShipmentParcel (ShipmentParcelWhereUniqueInput) returns (ShipmentParcel) {} 
+ }
+message ShipmentParcelCreateInput {
+int32 count = 1;
+string createdAt = 2;
+string creation = 3;
+int32 docstatus = 4;
+int32 height = 5;
+string id = 6;
+int32 idx = 7;
+int32 length = 8;
+string modified = 9;
+string modifiedBy = 10;
+string name = 11;
+string owner = 12;
+string parent = 13;
+string parentfield = 14;
+string parenttype = 15;
+string updatedAt = 16;
+int32 weight = 17;
+int32 width = 18;
+};
+message ShipmentParcel {
+int32 count = 1;
+string createdAt = 2;
+string creation = 3;
+int32 docstatus = 4;
+int32 height = 5;
+string id = 6;
+int32 idx = 7;
+int32 length = 8;
+string modified = 9;
+string modifiedBy = 10;
+string name = 11;
+string owner = 12;
+string parent = 13;
+string parentfield = 14;
+string parenttype = 15;
+string updatedAt = 16;
+int32 weight = 17;
+int32 width = 18;
+};
+message ShipmentParcelWhereUniqueInput {
+int32 count = 1;
+string createdAt = 2;
+string creation = 3;
+int32 docstatus = 4;
+int32 height = 5;
+string id = 6;
+int32 idx = 7;
+int32 length = 8;
+string modified = 9;
+string modifiedBy = 10;
+string name = 11;
+string owner = 12;
+string parent = 13;
+string parentfield = 14;
+string parenttype = 15;
+string updatedAt = 16;
+int32 weight = 17;
+int32 width = 18;
+};
+message ShipmentParcelUpdateInput {
+int32 count = 1;
+string createdAt = 2;
+string creation = 3;
+int32 docstatus = 4;
+int32 height = 5;
+string id = 6;
+int32 idx = 7;
+int32 length = 8;
+string modified = 9;
+string modifiedBy = 10;
+string name = 11;
+string owner = 12;
+string parent = 13;
+string parentfield = 14;
+string parenttype = 15;
+string updatedAt = 16;
+int32 weight = 17;
+int32 width = 18;
+};
+message findManyParams {
+
+};

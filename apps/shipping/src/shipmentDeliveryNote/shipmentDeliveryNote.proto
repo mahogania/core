@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+                 package shipmentDeliveryNote;
+service ShipmentDeliveryNoteService {
+ rpc createShipmentDeliveryNote (ShipmentDeliveryNoteCreateInput) returns (ShipmentDeliveryNote) {}
+rpc shipmentDeliveryNotes (findManyParams) returns (stream ShipmentDeliveryNote) {}
+rpc shipmentDeliveryNote (ShipmentDeliveryNoteWhereUniqueInput) returns (ShipmentDeliveryNote) {}
+rpc updateShipmentDeliveryNote (ShipmentDeliveryNoteUpdateInput) returns (ShipmentDeliveryNote) {}
+rpc deleteShipmentDeliveryNote (ShipmentDeliveryNoteWhereUniqueInput) returns (ShipmentDeliveryNote) {} 
+ }
+message ShipmentDeliveryNoteCreateInput {
+string createdAt = 1;
+string creation = 2;
+string deliveryNote = 3;
+int32 docstatus = 4;
+int32 grandTotal = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentfield = 13;
+string parenttype = 14;
+string updatedAt = 15;
+};
+message ShipmentDeliveryNote {
+string createdAt = 1;
+string creation = 2;
+string deliveryNote = 3;
+int32 docstatus = 4;
+int32 grandTotal = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentfield = 13;
+string parenttype = 14;
+string updatedAt = 15;
+};
+message ShipmentDeliveryNoteWhereUniqueInput {
+string createdAt = 1;
+string creation = 2;
+string deliveryNote = 3;
+int32 docstatus = 4;
+int32 grandTotal = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentfield = 13;
+string parenttype = 14;
+string updatedAt = 15;
+};
+message ShipmentDeliveryNoteUpdateInput {
+string createdAt = 1;
+string creation = 2;
+string deliveryNote = 3;
+int32 docstatus = 4;
+int32 grandTotal = 5;
+string id = 6;
+int32 idx = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parent = 12;
+string parentfield = 13;
+string parenttype = 14;
+string updatedAt = 15;
+};
+message findManyParams {
+
+};

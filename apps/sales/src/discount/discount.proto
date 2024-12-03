@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+                 package discount;
+service DiscountService {
+ rpc createDiscount (DiscountCreateInput) returns (Discount) {}
+rpc discounts (findManyParams) returns (stream Discount) {}
+rpc discount (DiscountWhereUniqueInput) returns (Discount) {}
+rpc updateDiscount (DiscountUpdateInput) returns (Discount) {}
+rpc deleteDiscount (DiscountWhereUniqueInput) returns (Discount) {}
+rpc findManyDiscount (DiscountWhereUniqueInput) returns (stream Option) {}
+rpc updateDiscount (OptionParams) returns (stream Option) {}
+rpc connectDiscount (OptionParams) returns (Option) {}
+rpc disconnectDiscount (OptionParams) returns (Option) {} 
+ }
+message DiscountCreateInput {
+string createdAt = 1;
+string discountRuleUrl = 2;
+string id = 3;
+repeated Option options = 4;
+string updatedAt = 5;
+};
+message Discount {
+string createdAt = 1;
+string discountRuleUrl = 2;
+string id = 3;
+repeated Option options = 4;
+string updatedAt = 5;
+};
+message DiscountWhereUniqueInput {
+string createdAt = 1;
+string discountRuleUrl = 2;
+string id = 3;
+repeated Option options = 4;
+string updatedAt = 5;
+};
+message DiscountUpdateInput {
+string createdAt = 1;
+string discountRuleUrl = 2;
+string id = 3;
+repeated Option options = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
+message Option {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OptionWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message OptionParams {
+DiscountWhereUniqueInput discountWhereUniqueInput = 1;
+OptionWhereUniqueInput optionWhereUniqueInput = 2;
+};

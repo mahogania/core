@@ -1,0 +1,9 @@
+import { GameObjectTemplateAddonCreateNestedManyWithoutGameObjectTemplatesInput } from "./GameObjectTemplateAddonCreateNestedManyWithoutGameObjectTemplatesInput";
+import { GameObjectTemplateLocaleCreateNestedManyWithoutGameObjectTemplatesInput } from "./GameObjectTemplateLocaleCreateNestedManyWithoutGameObjectTemplatesInput";
+import { GameObjectCreateNestedManyWithoutGameObjectTemplatesInput } from "./GameObjectCreateNestedManyWithoutGameObjectTemplatesInput";
+
+export type GameObjectTemplateCreateInput = {
+  gameObjectTemplateAddons?: GameObjectTemplateAddonCreateNestedManyWithoutGameObjectTemplatesInput;
+  gameObjectTemplateLocales?: GameObjectTemplateLocaleCreateNestedManyWithoutGameObjectTemplatesInput;
+  gameObjects?: GameObjectCreateNestedManyWithoutGameObjectTemplatesInput;
+};

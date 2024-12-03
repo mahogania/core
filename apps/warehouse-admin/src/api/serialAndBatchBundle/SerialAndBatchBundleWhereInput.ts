@@ -1,0 +1,37 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type SerialAndBatchBundleWhereInput = {
+  amendedFrom?: StringNullableFilter;
+  avgRate?: FloatNullableFilter;
+  company?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  docstatus?: IntNullableFilter;
+  hasBatchNo?: IntNullableFilter;
+  hasSerialNo?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  isCancelled?: IntNullableFilter;
+  isRejected?: IntNullableFilter;
+  itemCode?: StringNullableFilter;
+  itemGroup?: StringNullableFilter;
+  itemName?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  namingSeries?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  postingDate?: DateTimeNullableFilter;
+  postingTime?: DateTimeNullableFilter;
+  returnedAgainst?: StringNullableFilter;
+  totalAmount?: FloatNullableFilter;
+  totalQty?: FloatNullableFilter;
+  typeOfTransaction?: StringNullableFilter;
+  voucherDetailNo?: StringNullableFilter;
+  voucherNo?: StringNullableFilter;
+  voucherType?: StringNullableFilter;
+  warehouse?: StringNullableFilter;
+};

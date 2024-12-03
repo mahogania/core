@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package skillDiscoveryTemplate;
+service SkillDiscoveryTemplateService {
+ rpc createSkillDiscoveryTemplate (SkillDiscoveryTemplateCreateInput) returns (SkillDiscoveryTemplate) {}
+rpc skillDiscoveryTemplates (findManyParams) returns (stream SkillDiscoveryTemplate) {}
+rpc skillDiscoveryTemplate (SkillDiscoveryTemplateWhereUniqueInput) returns (SkillDiscoveryTemplate) {}
+rpc updateSkillDiscoveryTemplate (SkillDiscoveryTemplateUpdateInput) returns (SkillDiscoveryTemplate) {}
+rpc deleteSkillDiscoveryTemplate (SkillDiscoveryTemplateWhereUniqueInput) returns (SkillDiscoveryTemplate) {} 
+ }
+message SkillDiscoveryTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillDiscoveryTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillDiscoveryTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillDiscoveryTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

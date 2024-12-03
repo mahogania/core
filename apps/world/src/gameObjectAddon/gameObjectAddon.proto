@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+                 package gameObjectAddon;
+service GameObjectAddonService {
+ rpc createGameObjectAddon (GameObjectAddonCreateInput) returns (GameObjectAddon) {}
+rpc gameObjectAddons (findManyParams) returns (stream GameObjectAddon) {}
+rpc gameObjectAddon (GameObjectAddonWhereUniqueInput) returns (GameObjectAddon) {}
+rpc updateGameObjectAddon (GameObjectAddonUpdateInput) returns (GameObjectAddon) {}
+rpc deleteGameObjectAddon (GameObjectAddonWhereUniqueInput) returns (GameObjectAddon) {} 
+ }
+message GameObjectAddonCreateInput {
+string aiAnimKitId = 1;
+string createdAt = 2;
+string id = 3;
+string transformId = 4;
+string updatedAt = 5;
+string worldEffectId = 6;
+};
+message GameObjectAddon {
+string aiAnimKitId = 1;
+string createdAt = 2;
+string id = 3;
+string transformId = 4;
+string updatedAt = 5;
+string worldEffectId = 6;
+};
+message GameObjectAddonWhereUniqueInput {
+string aiAnimKitId = 1;
+string createdAt = 2;
+string id = 3;
+string transformId = 4;
+string updatedAt = 5;
+string worldEffectId = 6;
+};
+message GameObjectAddonUpdateInput {
+string aiAnimKitId = 1;
+string createdAt = 2;
+string id = 3;
+string transformId = 4;
+string updatedAt = 5;
+string worldEffectId = 6;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,33 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type AccountClosingBalanceWhereInput = {
+  account?: StringNullableFilter;
+  accountCurrency?: StringNullableFilter;
+  assign?: StringNullableFilter;
+  closingDate?: DateTimeNullableFilter;
+  comments?: StringNullableFilter;
+  company?: StringNullableFilter;
+  costCenter?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  credit?: FloatNullableFilter;
+  creditInAccountCurrency?: FloatNullableFilter;
+  debit?: FloatNullableFilter;
+  debitInAccountCurrency?: FloatNullableFilter;
+  docstatus?: IntNullableFilter;
+  financeBook?: StringNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  isPeriodClosingVoucherEntry?: IntNullableFilter;
+  likedBy?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  periodClosingVoucher?: StringNullableFilter;
+  project?: StringNullableFilter;
+  userTags?: StringNullableFilter;
+};

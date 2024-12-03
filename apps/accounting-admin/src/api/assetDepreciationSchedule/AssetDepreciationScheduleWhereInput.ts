@@ -1,0 +1,34 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type AssetDepreciationScheduleWhereInput = {
+  amendedFrom?: StringNullableFilter;
+  asset?: StringNullableFilter;
+  company?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  dailyProrataBased?: IntNullableFilter;
+  depreciationMethod?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  expectedValueAfterUsefulLife?: FloatNullableFilter;
+  financeBook?: StringNullableFilter;
+  financeBookId?: IntNullableFilter;
+  frequencyOfDepreciation?: IntNullableFilter;
+  grossPurchaseAmount?: FloatNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  namingSeries?: StringNullableFilter;
+  notes?: StringNullableFilter;
+  openingAccumulatedDepreciation?: FloatNullableFilter;
+  openingNumberOfBookedDepreciations?: IntNullableFilter;
+  owner?: StringNullableFilter;
+  rateOfDepreciation?: FloatNullableFilter;
+  shiftBased?: IntNullableFilter;
+  status?: StringNullableFilter;
+  totalNumberOfDepreciations?: IntNullableFilter;
+};

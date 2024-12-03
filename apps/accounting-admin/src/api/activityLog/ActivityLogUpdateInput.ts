@@ -1,0 +1,24 @@
+export type ActivityLogUpdateInput = {
+  communicationDate?: Date | null;
+  content?: string | null;
+  creation?: Date | null;
+  docstatus?: number | null;
+  fullName?: string | null;
+  idx?: number | null;
+  ipAddress?: string | null;
+  linkDoctype?: string | null;
+  linkName?: string | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  operation?: string | null;
+  owner?: string | null;
+  referenceDoctype?: string | null;
+  referenceName?: string | null;
+  referenceOwner?: string | null;
+  status?: string | null;
+  subject?: string | null;
+  timelineDoctype?: string | null;
+  timelineName?: string | null;
+  user?: string | null;
+};

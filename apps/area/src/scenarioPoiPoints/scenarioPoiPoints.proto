@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package scenarioPoiPoints;
+service ScenarioPoiPointsService {
+ rpc createScenarioPoiPoints (ScenarioPoiPointsCreateInput) returns (ScenarioPoiPoints) {}
+rpc scenarioPoiPointsItems (findManyParams) returns (stream ScenarioPoiPoints) {}
+rpc scenarioPoiPoints (ScenarioPoiPointsWhereUniqueInput) returns (ScenarioPoiPoints) {}
+rpc updateScenarioPoiPoints (ScenarioPoiPointsUpdateInput) returns (ScenarioPoiPoints) {}
+rpc deleteScenarioPoiPoints (ScenarioPoiPointsWhereUniqueInput) returns (ScenarioPoiPoints) {} 
+ }
+message ScenarioPoiPointsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScenarioPoiPoints {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScenarioPoiPointsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ScenarioPoiPointsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

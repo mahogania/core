@@ -1,0 +1,20 @@
+export type DepreciationSchedule = {
+  accumulatedDepreciationAmount: number | null;
+  createdAt: Date;
+  creation: Date | null;
+  depreciationAmount: number | null;
+  docstatus: number | null;
+  id: string;
+  idx: number | null;
+  journalEntry: string | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  parent: string | null;
+  parentfield: string | null;
+  parenttype: string | null;
+  scheduleDate: Date | null;
+  shift: string | null;
+  updatedAt: Date;
+};

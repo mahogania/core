@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package questObjectiveLocale;
+service QuestObjectiveLocaleService {
+ rpc createQuestObjectiveLocale (QuestObjectiveLocaleCreateInput) returns (QuestObjectiveLocale) {}
+rpc questObjectiveLocales (findManyParams) returns (stream QuestObjectiveLocale) {}
+rpc questObjectiveLocale (QuestObjectiveLocaleWhereUniqueInput) returns (QuestObjectiveLocale) {}
+rpc updateQuestObjectiveLocale (QuestObjectiveLocaleUpdateInput) returns (QuestObjectiveLocale) {}
+rpc deleteQuestObjectiveLocale (QuestObjectiveLocaleWhereUniqueInput) returns (QuestObjectiveLocale) {}
+rpc findManyQuestObjectiveLocales (QuestObjectiveLocaleWhereUniqueInput) returns (stream QuestObjective) {}
+rpc updateQuestObjectiveLocales (QuestObjectiveParams) returns (stream QuestObjective) {}
+rpc connectQuestObjectiveLocales (QuestObjectiveParams) returns (QuestObjective) {}
+rpc disconnectQuestObjectiveLocales (QuestObjectiveParams) returns (QuestObjective) {} 
+ }
+message QuestObjectiveLocaleCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestObjective questObjectives = 3;
+string updatedAt = 4;
+};
+message QuestObjectiveLocale {
+string createdAt = 1;
+string id = 2;
+repeated QuestObjective questObjectives = 3;
+string updatedAt = 4;
+};
+message QuestObjectiveLocaleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestObjective questObjectives = 3;
+string updatedAt = 4;
+};
+message QuestObjectiveLocaleUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestObjective questObjectives = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message QuestObjective {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestObjectiveWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestObjectiveParams {
+QuestObjectiveLocaleWhereUniqueInput questObjectiveLocaleWhereUniqueInput = 1;
+QuestObjectiveWhereUniqueInput questobjectiveWhereUniqueInput = 2;
+};

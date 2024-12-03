@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerFactionTitle;
+service PlayerFactionTitleService {
+ rpc createPlayerFactionTitle (PlayerFactionTitleCreateInput) returns (PlayerFactionTitle) {}
+rpc playerFactionTitles (findManyParams) returns (stream PlayerFactionTitle) {}
+rpc playerFactionTitle (PlayerFactionTitleWhereUniqueInput) returns (PlayerFactionTitle) {}
+rpc updatePlayerFactionTitle (PlayerFactionTitleUpdateInput) returns (PlayerFactionTitle) {}
+rpc deletePlayerFactionTitle (PlayerFactionTitleWhereUniqueInput) returns (PlayerFactionTitle) {} 
+ }
+message PlayerFactionTitleCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionTitle {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionTitleWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionTitleUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

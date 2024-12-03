@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+                 package gameEventQuest;
+service GameEventQuestService {
+ rpc createGameEventQuest (GameEventQuestCreateInput) returns (GameEventQuest) {}
+rpc gameEventQuests (findManyParams) returns (stream GameEventQuest) {}
+rpc gameEventQuest (GameEventQuestWhereUniqueInput) returns (GameEventQuest) {}
+rpc updateGameEventQuest (GameEventQuestUpdateInput) returns (GameEventQuest) {}
+rpc deleteGameEventQuest (GameEventQuestWhereUniqueInput) returns (GameEventQuest) {}
+rpc findManyGameEventQuests (GameEventQuestWhereUniqueInput) returns (stream GameEvent) {}
+rpc updateGameEventQuests (GameEventParams) returns (stream GameEvent) {}
+rpc connectGameEventQuests (GameEventParams) returns (GameEvent) {}
+rpc disconnectGameEventQuests (GameEventParams) returns (GameEvent) {} 
+ }
+message GameEventQuestCreateInput {
+string createdAt = 1;
+string description = 2;
+repeated GameEvent gameEvents = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message GameEventQuest {
+string createdAt = 1;
+string description = 2;
+repeated GameEvent gameEvents = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message GameEventQuestWhereUniqueInput {
+string createdAt = 1;
+string description = 2;
+repeated GameEvent gameEvents = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message GameEventQuestUpdateInput {
+string createdAt = 1;
+string description = 2;
+repeated GameEvent gameEvents = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message GameEvent {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message GameEventWhereUniqueInput {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message GameEventParams {
+GameEventQuestWhereUniqueInput gameEventQuestWhereUniqueInput = 1;
+GameEventWhereUniqueInput gameeventWhereUniqueInput = 2;
+};

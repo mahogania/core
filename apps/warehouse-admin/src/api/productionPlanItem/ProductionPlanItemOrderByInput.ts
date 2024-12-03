@@ -1,0 +1,35 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type ProductionPlanItemOrderByInput = {
+  bomNo?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  description?: SortOrder;
+  docstatus?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  includeExplodedItems?: SortOrder;
+  itemCode?: SortOrder;
+  itemReference?: SortOrder;
+  materialRequest?: SortOrder;
+  materialRequestItem?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  orderedQty?: SortOrder;
+  owner?: SortOrder;
+  parent?: SortOrder;
+  parentfield?: SortOrder;
+  parenttype?: SortOrder;
+  pendingQty?: SortOrder;
+  plannedQty?: SortOrder;
+  plannedStartDate?: SortOrder;
+  producedQty?: SortOrder;
+  productBundleItem?: SortOrder;
+  salesOrder?: SortOrder;
+  salesOrderItem?: SortOrder;
+  stockUom?: SortOrder;
+  temporaryName?: SortOrder;
+  updatedAt?: SortOrder;
+  warehouse?: SortOrder;
+};

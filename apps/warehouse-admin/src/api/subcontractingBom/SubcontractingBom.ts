@@ -1,0 +1,21 @@
+export type SubcontractingBom = {
+  conversionFactor: number | null;
+  createdAt: Date;
+  creation: Date | null;
+  docstatus: number | null;
+  finishedGood: string | null;
+  finishedGoodBom: string | null;
+  finishedGoodQty: number | null;
+  finishedGoodUom: string | null;
+  id: string;
+  idx: number | null;
+  isActive: boolean | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  serviceItem: string | null;
+  serviceItemQty: number | null;
+  serviceItemUom: string | null;
+  updatedAt: Date;
+};

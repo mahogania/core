@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+                 package cargoDeclarationVehicle;
+service CargoDeclarationVehicleService {
+ rpc createCargoDeclarationVehicle (CargoDeclarationVehicleCreateInput) returns (CargoDeclarationVehicle) {}
+rpc cargoDeclarationVehicles (findManyParams) returns (stream CargoDeclarationVehicle) {}
+rpc cargoDeclarationVehicle (CargoDeclarationVehicleWhereUniqueInput) returns (CargoDeclarationVehicle) {}
+rpc updateCargoDeclarationVehicle (CargoDeclarationVehicleUpdateInput) returns (CargoDeclarationVehicle) {}
+rpc deleteCargoDeclarationVehicle (CargoDeclarationVehicleWhereUniqueInput) returns (CargoDeclarationVehicle) {} 
+ }
+message CargoDeclarationVehicleCreateInput {
+string cagMgmtNo = 1;
+string chssNo = 2;
+string createdAt = 3;
+string delYn = 4;
+int32 engnClndGcnt = 5;
+string frstRegstId = 6;
+string frstRgsrDttm = 7;
+string id = 8;
+string lastChgDttm = 9;
+string lastChprId = 10;
+string mrn = 11;
+string updatedAt = 12;
+string vhclKndNm = 13;
+string vhclMdlCd = 14;
+string vhclMnfcYy = 15;
+string vhclMnurCd = 16;
+string vhclRgsrNo = 17;
+int32 vhclSrno = 18;
+int32 vhclTotlWght = 19;
+};
+message CargoDeclarationVehicle {
+string cagMgmtNo = 1;
+string chssNo = 2;
+string createdAt = 3;
+string delYn = 4;
+int32 engnClndGcnt = 5;
+string frstRegstId = 6;
+string frstRgsrDttm = 7;
+string id = 8;
+string lastChgDttm = 9;
+string lastChprId = 10;
+string mrn = 11;
+string updatedAt = 12;
+string vhclKndNm = 13;
+string vhclMdlCd = 14;
+string vhclMnfcYy = 15;
+string vhclMnurCd = 16;
+string vhclRgsrNo = 17;
+int32 vhclSrno = 18;
+int32 vhclTotlWght = 19;
+};
+message CargoDeclarationVehicleWhereUniqueInput {
+string cagMgmtNo = 1;
+string chssNo = 2;
+string createdAt = 3;
+string delYn = 4;
+int32 engnClndGcnt = 5;
+string frstRegstId = 6;
+string frstRgsrDttm = 7;
+string id = 8;
+string lastChgDttm = 9;
+string lastChprId = 10;
+string mrn = 11;
+string updatedAt = 12;
+string vhclKndNm = 13;
+string vhclMdlCd = 14;
+string vhclMnfcYy = 15;
+string vhclMnurCd = 16;
+string vhclRgsrNo = 17;
+int32 vhclSrno = 18;
+int32 vhclTotlWght = 19;
+};
+message CargoDeclarationVehicleUpdateInput {
+string cagMgmtNo = 1;
+string chssNo = 2;
+string createdAt = 3;
+string delYn = 4;
+int32 engnClndGcnt = 5;
+string frstRegstId = 6;
+string frstRgsrDttm = 7;
+string id = 8;
+string lastChgDttm = 9;
+string lastChprId = 10;
+string mrn = 11;
+string updatedAt = 12;
+string vhclKndNm = 13;
+string vhclMdlCd = 14;
+string vhclMnfcYy = 15;
+string vhclMnurCd = 16;
+string vhclRgsrNo = 17;
+int32 vhclSrno = 18;
+int32 vhclTotlWght = 19;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+                 package gameEvent;
+service GameEventService {
+ rpc createGameEvent (GameEventCreateInput) returns (GameEvent) {}
+rpc gameEvents (findManyParams) returns (stream GameEvent) {}
+rpc gameEvent (GameEventWhereUniqueInput) returns (GameEvent) {}
+rpc updateGameEvent (GameEventUpdateInput) returns (GameEvent) {}
+rpc deleteGameEvent (GameEventWhereUniqueInput) returns (GameEvent) {} 
+ }
+message GameEventCreateInput {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message GameEvent {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message GameEventWhereUniqueInput {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message GameEventUpdateInput {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message findManyParams {
+
+};

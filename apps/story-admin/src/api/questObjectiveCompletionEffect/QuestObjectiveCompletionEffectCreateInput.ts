@@ -1,0 +1,5 @@
+import { QuestObjectiveCreateNestedManyWithoutQuestObjectiveCompletionEffectsInput } from "./QuestObjectiveCreateNestedManyWithoutQuestObjectiveCompletionEffectsInput";
+
+export type QuestObjectiveCompletionEffectCreateInput = {
+  questObjectives?: QuestObjectiveCreateNestedManyWithoutQuestObjectiveCompletionEffectsInput;
+};

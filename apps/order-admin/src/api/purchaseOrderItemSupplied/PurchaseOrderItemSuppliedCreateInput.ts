@@ -1,0 +1,26 @@
+export type PurchaseOrderItemSuppliedCreateInput = {
+  amount?: number | null;
+  bomDetailNo?: string | null;
+  consumedQty?: number | null;
+  conversionFactor?: number | null;
+  creation?: Date | null;
+  docstatus?: number | null;
+  idx?: number | null;
+  mainItemCode?: string | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  owner?: string | null;
+  parent?: string | null;
+  parentField?: string | null;
+  parentType?: string | null;
+  rate?: number | null;
+  referenceName?: string | null;
+  requiredQty?: number | null;
+  reserveWarehouse?: string | null;
+  returnedQty?: number | null;
+  rmItemCode?: string | null;
+  stockUom?: string | null;
+  suppliedQty?: number | null;
+  totalSuppliedQty?: number | null;
+};

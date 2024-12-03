@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+                 package areaTriggerTemplate;
+service AreaTriggerTemplateService {
+ rpc createAreaTriggerTemplate (AreaTriggerTemplateCreateInput) returns (AreaTriggerTemplate) {}
+rpc areaTriggerTemplates (findManyParams) returns (stream AreaTriggerTemplate) {}
+rpc areaTriggerTemplate (AreaTriggerTemplateWhereUniqueInput) returns (AreaTriggerTemplate) {}
+rpc updateAreaTriggerTemplate (AreaTriggerTemplateUpdateInput) returns (AreaTriggerTemplate) {}
+rpc deleteAreaTriggerTemplate (AreaTriggerTemplateWhereUniqueInput) returns (AreaTriggerTemplate) {} 
+ }
+message AreaTriggerTemplateCreateInput {
+string createdAt = 1;
+int32 flags = 2;
+string id = 3;
+bool isCustom = 4;
+string updatedAt = 5;
+int32 verifiedBuild = 6;
+};
+message AreaTriggerTemplate {
+string createdAt = 1;
+int32 flags = 2;
+string id = 3;
+bool isCustom = 4;
+string updatedAt = 5;
+int32 verifiedBuild = 6;
+};
+message AreaTriggerTemplateWhereUniqueInput {
+string createdAt = 1;
+int32 flags = 2;
+string id = 3;
+bool isCustom = 4;
+string updatedAt = 5;
+int32 verifiedBuild = 6;
+};
+message AreaTriggerTemplateUpdateInput {
+string createdAt = 1;
+int32 flags = 2;
+string id = 3;
+bool isCustom = 4;
+string updatedAt = 5;
+int32 verifiedBuild = 6;
+};
+message findManyParams {
+
+};

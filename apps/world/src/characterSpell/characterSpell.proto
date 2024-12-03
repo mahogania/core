@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package characterSpell;
+service CharacterSpellService {
+ rpc createCharacterSpell (CharacterSpellCreateInput) returns (CharacterSpell) {}
+rpc characterSpells (findManyParams) returns (stream CharacterSpell) {}
+rpc characterSpell (CharacterSpellWhereUniqueInput) returns (CharacterSpell) {}
+rpc updateCharacterSpell (CharacterSpellUpdateInput) returns (CharacterSpell) {}
+rpc deleteCharacterSpell (CharacterSpellWhereUniqueInput) returns (CharacterSpell) {}
+rpc findManyCharacterSpells (CharacterSpellWhereUniqueInput) returns (stream Character) {}
+rpc updateCharacterSpells (CharacterParams) returns (stream Character) {}
+rpc connectCharacterSpells (CharacterParams) returns (Character) {}
+rpc disconnectCharacterSpells (CharacterParams) returns (Character) {} 
+ }
+message CharacterSpellCreateInput {
+repeated Character characters = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message CharacterSpell {
+repeated Character characters = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message CharacterSpellWhereUniqueInput {
+repeated Character characters = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message CharacterSpellUpdateInput {
+repeated Character characters = 1;
+string createdAt = 2;
+string id = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message Character {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CharacterWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CharacterParams {
+CharacterSpellWhereUniqueInput characterSpellWhereUniqueInput = 1;
+CharacterWhereUniqueInput characterWhereUniqueInput = 2;
+};
