@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+                 package shipmentParcelTemplate;
+service ShipmentParcelTemplateService {
+ rpc createShipmentParcelTemplate (ShipmentParcelTemplateCreateInput) returns (ShipmentParcelTemplate) {}
+rpc shipmentParcelTemplates (findManyParams) returns (stream ShipmentParcelTemplate) {}
+rpc shipmentParcelTemplate (ShipmentParcelTemplateWhereUniqueInput) returns (ShipmentParcelTemplate) {}
+rpc updateShipmentParcelTemplate (ShipmentParcelTemplateUpdateInput) returns (ShipmentParcelTemplate) {}
+rpc deleteShipmentParcelTemplate (ShipmentParcelTemplateWhereUniqueInput) returns (ShipmentParcelTemplate) {} 
+ }
+message ShipmentParcelTemplateCreateInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+int32 height = 4;
+string id = 5;
+int32 idx = 6;
+int32 length = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parcelTemplateName = 12;
+string updatedAt = 13;
+int32 weight = 14;
+int32 width = 15;
+};
+message ShipmentParcelTemplate {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+int32 height = 4;
+string id = 5;
+int32 idx = 6;
+int32 length = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parcelTemplateName = 12;
+string updatedAt = 13;
+int32 weight = 14;
+int32 width = 15;
+};
+message ShipmentParcelTemplateWhereUniqueInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+int32 height = 4;
+string id = 5;
+int32 idx = 6;
+int32 length = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parcelTemplateName = 12;
+string updatedAt = 13;
+int32 weight = 14;
+int32 width = 15;
+};
+message ShipmentParcelTemplateUpdateInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+int32 height = 4;
+string id = 5;
+int32 idx = 6;
+int32 length = 7;
+string modified = 8;
+string modifiedBy = 9;
+string name = 10;
+string owner = 11;
+string parcelTemplateName = 12;
+string updatedAt = 13;
+int32 weight = 14;
+int32 width = 15;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+                 package shippingRuleCondition;
+service ShippingRuleConditionService {
+ rpc createShippingRuleCondition (ShippingRuleConditionCreateInput) returns (ShippingRuleCondition) {}
+rpc shippingRuleConditions (findManyParams) returns (stream ShippingRuleCondition) {}
+rpc shippingRuleCondition (ShippingRuleConditionWhereUniqueInput) returns (ShippingRuleCondition) {}
+rpc updateShippingRuleCondition (ShippingRuleConditionUpdateInput) returns (ShippingRuleCondition) {}
+rpc deleteShippingRuleCondition (ShippingRuleConditionWhereUniqueInput) returns (ShippingRuleCondition) {} 
+ }
+message ShippingRuleConditionCreateInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+int32 fromValue = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string parent = 11;
+string parentfield = 12;
+string parenttype = 13;
+int32 shippingAmount = 14;
+int32 toValue = 15;
+string updatedAt = 16;
+};
+message ShippingRuleCondition {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+int32 fromValue = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string parent = 11;
+string parentfield = 12;
+string parenttype = 13;
+int32 shippingAmount = 14;
+int32 toValue = 15;
+string updatedAt = 16;
+};
+message ShippingRuleConditionWhereUniqueInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+int32 fromValue = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string parent = 11;
+string parentfield = 12;
+string parenttype = 13;
+int32 shippingAmount = 14;
+int32 toValue = 15;
+string updatedAt = 16;
+};
+message ShippingRuleConditionUpdateInput {
+string createdAt = 1;
+string creation = 2;
+int32 docstatus = 3;
+int32 fromValue = 4;
+string id = 5;
+int32 idx = 6;
+string modified = 7;
+string modifiedBy = 8;
+string name = 9;
+string owner = 10;
+string parent = 11;
+string parentfield = 12;
+string parenttype = 13;
+int32 shippingAmount = 14;
+int32 toValue = 15;
+string updatedAt = 16;
+};
+message findManyParams {
+
+};

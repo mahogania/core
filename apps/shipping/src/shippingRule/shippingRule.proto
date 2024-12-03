@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+                 package shippingRule;
+service ShippingRuleService {
+ rpc createShippingRule (ShippingRuleCreateInput) returns (ShippingRule) {}
+rpc shippingRules (findManyParams) returns (stream ShippingRule) {}
+rpc shippingRule (ShippingRuleWhereUniqueInput) returns (ShippingRule) {}
+rpc updateShippingRule (ShippingRuleUpdateInput) returns (ShippingRule) {}
+rpc deleteShippingRule (ShippingRuleWhereUniqueInput) returns (ShippingRule) {} 
+ }
+message ShippingRuleCreateInput {
+string account = 1;
+string calculateBasedOn = 2;
+string company = 3;
+string costCenter = 4;
+string createdAt = 5;
+string creation = 6;
+int32 disabled = 7;
+int32 docstatus = 8;
+string id = 9;
+int32 idx = 10;
+string label = 11;
+string modified = 12;
+string modifiedBy = 13;
+string name = 14;
+string owner = 15;
+int32 shippingAmount = 16;
+string shippingRuleType = 17;
+string updatedAt = 18;
+};
+message ShippingRule {
+string account = 1;
+string calculateBasedOn = 2;
+string company = 3;
+string costCenter = 4;
+string createdAt = 5;
+string creation = 6;
+int32 disabled = 7;
+int32 docstatus = 8;
+string id = 9;
+int32 idx = 10;
+string label = 11;
+string modified = 12;
+string modifiedBy = 13;
+string name = 14;
+string owner = 15;
+int32 shippingAmount = 16;
+string shippingRuleType = 17;
+string updatedAt = 18;
+};
+message ShippingRuleWhereUniqueInput {
+string account = 1;
+string calculateBasedOn = 2;
+string company = 3;
+string costCenter = 4;
+string createdAt = 5;
+string creation = 6;
+int32 disabled = 7;
+int32 docstatus = 8;
+string id = 9;
+int32 idx = 10;
+string label = 11;
+string modified = 12;
+string modifiedBy = 13;
+string name = 14;
+string owner = 15;
+int32 shippingAmount = 16;
+string shippingRuleType = 17;
+string updatedAt = 18;
+};
+message ShippingRuleUpdateInput {
+string account = 1;
+string calculateBasedOn = 2;
+string company = 3;
+string costCenter = 4;
+string createdAt = 5;
+string creation = 6;
+int32 disabled = 7;
+int32 docstatus = 8;
+string id = 9;
+int32 idx = 10;
+string label = 11;
+string modified = 12;
+string modifiedBy = 13;
+string name = 14;
+string owner = 15;
+int32 shippingAmount = 16;
+string shippingRuleType = 17;
+string updatedAt = 18;
+};
+message findManyParams {
+
+};
