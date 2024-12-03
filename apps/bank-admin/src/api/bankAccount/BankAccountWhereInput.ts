@@ -1,0 +1,32 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type BankAccountWhereInput = {
+  account?: StringNullableFilter;
+  accountName?: StringNullableFilter;
+  accountSubtype?: StringNullableFilter;
+  accountType?: StringNullableFilter;
+  bank?: StringNullableFilter;
+  bankAccountNo?: StringNullableFilter;
+  branchCode?: StringNullableFilter;
+  company?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  disabled?: IntNullableFilter;
+  docstatus?: IntNullableFilter;
+  iban?: StringNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  integrationId?: StringNullableFilter;
+  isCompanyAccount?: IntNullableFilter;
+  isDefault?: IntNullableFilter;
+  lastIntegrationDate?: DateTimeNullableFilter;
+  mask?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  party?: StringNullableFilter;
+  partyType?: StringNullableFilter;
+};

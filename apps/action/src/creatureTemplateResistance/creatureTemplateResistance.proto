@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package creatureTemplateResistance;
+service CreatureTemplateResistanceService {
+ rpc createCreatureTemplateResistance (CreatureTemplateResistanceCreateInput) returns (CreatureTemplateResistance) {}
+rpc creatureTemplateResistances (findManyParams) returns (stream CreatureTemplateResistance) {}
+rpc creatureTemplateResistance (CreatureTemplateResistanceWhereUniqueInput) returns (CreatureTemplateResistance) {}
+rpc updateCreatureTemplateResistance (CreatureTemplateResistanceUpdateInput) returns (CreatureTemplateResistance) {}
+rpc deleteCreatureTemplateResistance (CreatureTemplateResistanceWhereUniqueInput) returns (CreatureTemplateResistance) {} 
+ }
+message CreatureTemplateResistanceCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateResistance {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateResistanceWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message CreatureTemplateResistanceUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

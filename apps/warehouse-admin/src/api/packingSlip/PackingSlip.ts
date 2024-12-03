@@ -1,0 +1,22 @@
+export type PackingSlip = {
+  amendedFrom: string | null;
+  createdAt: Date;
+  creation: Date | null;
+  deliveryNote: string | null;
+  docstatus: number | null;
+  fromCaseNo: number | null;
+  grossWeightPkg: number | null;
+  grossWeightUom: string | null;
+  id: string;
+  idx: number | null;
+  letterHead: string | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  namingSeries: string | null;
+  netWeightPkg: number | null;
+  netWeightUom: string | null;
+  owner: string | null;
+  toCaseNo: number | null;
+  updatedAt: Date;
+};

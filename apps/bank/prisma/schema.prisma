@@ -1,0 +1,421 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model BankAccountSubtype {
+  accountSubtype String?
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  docstatus      Int?
+  id             String    @id @default(cuid())
+  idx            Int?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model BankAccountType {
+  accountType String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model BankAccount {
+  account             String?
+  accountName         String?
+  accountSubtype      String?
+  accountType         String?
+  bank                String?
+  bankAccountNo       String?
+  branchCode          String?
+  company             String?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  disabled            Int?
+  docstatus           Int?
+  iban                String?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  integrationId       String?
+  isCompanyAccount    Int?
+  isDefault           Int?
+  lastIntegrationDate DateTime?
+  mask                String?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  owner               String?
+  party               String?
+  partyType           String?
+  updatedAt           DateTime  @updatedAt
+}
+
+model BankClearanceDetail {
+  againstAccount  String?
+  amount          String?
+  chequeDate      DateTime?
+  chequeNumber    String?
+  clearanceDate   DateTime?
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  docstatus       Int?
+  id              String    @id @default(cuid())
+  idx             Int?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  owner           String?
+  parent          String?
+  parentfield     String?
+  parenttype      String?
+  paymentDocument String?
+  paymentEntry    String?
+  postingDate     DateTime?
+  updatedAt       DateTime  @updatedAt
+}
+
+model BankGuarantee {
+  account             String?
+  amendedFrom         String?
+  amount              Float?
+  bank                String?
+  bankAccount         String?
+  bankAccountNo       String?
+  bankGuaranteeNumber String?
+  bgType              String?
+  branchCode          String?
+  charges             Float?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  customer            String?
+  docstatus           Int?
+  endDate             DateTime?
+  fixedDepositNumber  String?
+  iban                String?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  marginMoney         Float?
+  modified            DateTime?
+  modifiedBy          String?
+  moreInformation     String?
+  name                String?
+  nameOfBeneficiary   String?
+  owner               String?
+  project             String?
+  referenceDocname    String?
+  referenceDoctype    String?
+  startDate           DateTime?
+  supplier            String?
+  swiftNumber         String?
+  updatedAt           DateTime  @updatedAt
+  validity            Int?
+}
+
+model BankStatementImport {
+  bank              String?
+  bankAccount       String?
+  company           String?
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  customDelimiters  Int?
+  delimiterOptions  String?
+  docstatus         Int?
+  googleSheetsUrl   String?
+  id                String    @id @default(cuid())
+  idx               Int?
+  importFile        String?
+  importType        String?
+  modified          DateTime?
+  modifiedBy        String?
+  muteEmails        Int?
+  name              String?
+  owner             String?
+  referenceDoctype  String?
+  showFailedLogs    Int?
+  status            String?
+  submitAfterImport Int?
+  templateOptions   String?
+  templateWarnings  String?
+  updatedAt         DateTime  @updatedAt
+}
+
+model BankTransactionMapping {
+  bankTransactionField String?
+  createdAt            DateTime  @default(now())
+  creation             DateTime?
+  docstatus            Int?
+  fileField            String?
+  id                   String    @id @default(cuid())
+  idx                  Int?
+  modified             DateTime?
+  modifiedBy           String?
+  name                 String?
+  owner                String?
+  parent               String?
+  parentfield          String?
+  parenttype           String?
+  updatedAt            DateTime  @updatedAt
+}
+
+model BankTransactionPayments {
+  allocatedAmount Float?
+  clearanceDate   DateTime?
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  docstatus       Int?
+  id              String    @id @default(cuid())
+  idx             Int?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  owner           String?
+  parent          String?
+  parentfield     String?
+  parenttype      String?
+  paymentDocument String?
+  paymentEntry    String?
+  updatedAt       DateTime  @updatedAt
+}
+
+model BankTransaction {
+  allocatedAmount        Float?
+  amendedFrom            String?
+  bankAccount            String?
+  bankPartyAccountNumber String?
+  bankPartyIban          String?
+  bankPartyName          String?
+  company                String?
+  createdAt              DateTime  @default(now())
+  creation               DateTime?
+  currency               String?
+  date                   DateTime?
+  deposit                Float?
+  description            String?
+  docstatus              Int?
+  id                     String    @id @default(cuid())
+  idx                    Int?
+  modified               DateTime?
+  modifiedBy             String?
+  name                   String?
+  namingSeries           String?
+  owner                  String?
+  party                  String?
+  partyType              String?
+  referenceNumber        String?
+  status                 String?
+  transactionId          String?
+  transactionType        String?
+  unallocatedAmount      Float?
+  updatedAt              DateTime  @updatedAt
+  withdrawal             Float?
+}
+
+model Bank {
+  bankName         String?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  id               String    @id @default(cuid())
+  idx              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  plaidAccessToken String?
+  swiftNumber      String?
+  updatedAt        DateTime  @updatedAt
+  website          String?
+}
+
+model JournalEntryAccount {
+  account                 String?
+  accountCurrency         String?
+  accountType             String?
+  againstAccount          String?
+  bankAccount             String?
+  costCenter              String?
+  createdAt               DateTime  @default(now())
+  creation                DateTime?
+  credit                  Float?
+  creditInAccountCurrency Float?
+  debit                   Float?
+  debitInAccountCurrency  Float?
+  docstatus               Int?
+  exchangeRate            Float?
+  id                      String    @id @default(cuid())
+  idx                     Int?
+  isAdvance               String?
+  modified                DateTime?
+  modifiedBy              String?
+  owner                   String?
+  parent                  String?
+  parentfield             String?
+  parenttype              String?
+  party                   String?
+  partyType               String?
+  project                 String?
+  referenceDetailNo       String?
+  referenceDueDate        DateTime?
+  referenceName           String?
+  referenceType           String?
+  updatedAt               DateTime  @updatedAt
+  userRemark              String?
+}
+
+model JournalEntryTemplate {
+  company       String?
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  docstatus     Int?
+  id            String    @id @default(cuid())
+  idx           Int?
+  isOpening     String?
+  modified      DateTime?
+  modifiedBy    String?
+  multiCurrency Int?
+  namingSeries  String?
+  owner         String?
+  templateTitle String?
+  updatedAt     DateTime  @updatedAt
+  voucherType   String?
+}
+
+model JournalEntry {
+  amendedFrom                       String?
+  applyTds                          Int?
+  autoRepeat                        String?
+  billDate                          DateTime?
+  billNo                            String?
+  chequeDate                        DateTime?
+  chequeNo                          String?
+  clearanceDate                     DateTime?
+  company                           String?
+  createdAt                         DateTime  @default(now())
+  creation                          DateTime?
+  difference                        Float?
+  docstatus                         Int?
+  dueDate                           DateTime?
+  financeBook                       String?
+  fromTemplate                      String?
+  id                                String    @id @default(cuid())
+  idx                               Int?
+  interCompanyJournalEntryReference String?
+  isOpening                         String?
+  isSystemGenerated                 Int?
+  letterHead                        String?
+  modeOfPayment                     String?
+  modified                          DateTime?
+  modifiedBy                        String?
+  multiCurrency                     Int?
+  namingSeries                      String?
+  owner                             String?
+  paidLoan                          String?
+  payToRecdFrom                     String?
+  paymentOrder                      String?
+  postingDate                       DateTime?
+  processDeferredAccounting         String?
+  remark                            String?
+  reversalOf                        String?
+  selectPrintHeading                String?
+  stockEntry                        String?
+  taxWithholdingCategory            String?
+  title                             String?
+  totalAmount                       Float?
+  totalAmountCurrency               String?
+  totalAmountInWords                String?
+  totalCredit                       Float?
+  totalDebit                        Float?
+  updatedAt                         DateTime  @updatedAt
+  userRemark                        String?
+  voucherType                       String?
+  writeOffAmount                    Float?
+  writeOffBasedOn                   String?
+}
+
+model LedgerHealthMonitorCompany {
+  company     String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model LedgerHealth {
+  checkedOn                       DateTime?
+  createdAt                       DateTime  @default(now())
+  creation                        DateTime?
+  debitCreditMismatch             Int?
+  docstatus                       Int?
+  generalAndPaymentLedgerMismatch Int?
+  id                              String    @id @default(cuid())
+  idx                             Int?
+  modified                        DateTime?
+  modifiedBy                      String?
+  name                            Int?
+  owner                           String?
+  updatedAt                       DateTime  @updatedAt
+  voucherNo                       String?
+  voucherType                     String?
+}
+
+model LedgerMergeAccounts {
+  account     String?
+  accountName String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  merged      Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model LedgerMerge {
+  account     String?
+  accountName String?
+  company     String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  isGroup     Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  rootType    String?
+  status      String?
+  updatedAt   DateTime  @updatedAt
+}

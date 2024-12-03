@@ -1,0 +1,178 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Shipment {
+  amendedFrom          String?
+  awbNumber            String?
+  carrier              String?
+  carrierService       String?
+  createdAt            DateTime  @default(now())
+  creation             DateTime?
+  deliveryAddress      String?
+  deliveryAddressName  String?
+  deliveryCompany      String?
+  deliveryContact      String?
+  deliveryContactEmail String?
+  deliveryContactName  String?
+  deliveryCustomer     String?
+  deliverySupplier     String?
+  deliveryTo           String?
+  deliveryToType       String?
+  descriptionOfContent String?
+  docstatus            Int?
+  id                   String    @id @default(cuid())
+  idx                  Int?
+  incoterm             String?
+  likedBy              String?
+  modified             DateTime?
+  modifiedBy           String?
+  name                 String?
+  owner                String?
+  pallets              String?
+  parcelTemplate       String?
+  pickup               String?
+  pickupAddress        String?
+  pickupAddressName    String?
+  pickupCompany        String?
+  pickupContact        String?
+  pickupContactEmail   String?
+  pickupContactName    String?
+  pickupContactPerson  String?
+  pickupCustomer       String?
+  pickupDate           DateTime?
+  pickupFrom           DateTime?
+  pickupFromType       String?
+  pickupSupplier       String?
+  pickupTo             DateTime?
+  pickupType           String?
+  serviceProvider      String?
+  shipmentAmount       Float?
+  shipmentId           String?
+  shipmentType         String?
+  status               String?
+  trackingStatus       String?
+  trackingStatusInfo   String?
+  trackingUrl          String?
+  updatedAt            DateTime  @updatedAt
+  valueOfGoods         Float?
+}
+
+model ShipmentDeliveryNote {
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  deliveryNote String?
+  docstatus    Int?
+  grandTotal   Float?
+  id           String    @id @default(cuid())
+  idx          Int?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  parent       String?
+  parentfield  String?
+  parenttype   String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model ShipmentParcel {
+  count       Int?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  height      Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  length      Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+  weight      Float?
+  width       Int?
+}
+
+model ShipmentParcelTemplate {
+  createdAt          DateTime  @default(now())
+  creation           DateTime?
+  docstatus          Int?
+  height             Int?
+  id                 String    @id @default(cuid())
+  idx                Int?
+  length             Int?
+  modified           DateTime?
+  modifiedBy         String?
+  name               String?
+  owner              String?
+  parcelTemplateName String?
+  updatedAt          DateTime  @updatedAt
+  weight             Float?
+  width              Int?
+}
+
+model ShippingRule {
+  account          String?
+  calculateBasedOn String?
+  company          String?
+  costCenter       String?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  disabled         Int?
+  docstatus        Int?
+  id               String    @id @default(cuid())
+  idx              Int?
+  label            String?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  shippingAmount   Float?
+  shippingRuleType String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model ShippingRuleCondition {
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  docstatus      Int?
+  fromValue      Float?
+  id             String    @id @default(cuid())
+  idx            Int?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  parent         String?
+  parentfield    String?
+  parenttype     String?
+  shippingAmount Float?
+  toValue        Float?
+  updatedAt      DateTime  @updatedAt
+}
+
+model ShippingRuleCountry {
+  country     String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+}

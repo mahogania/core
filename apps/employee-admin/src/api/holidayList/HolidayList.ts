@@ -1,0 +1,20 @@
+export type HolidayList = {
+  color: string | null;
+  country: string | null;
+  createdAt: Date;
+  creation: Date | null;
+  docstatus: number | null;
+  fromDate: Date | null;
+  holidayListName: string | null;
+  id: string;
+  idx: number | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  subdivision: string | null;
+  toDate: Date | null;
+  totalHolidays: number | null;
+  updatedAt: Date;
+  weeklyOff: string | null;
+};

@@ -1,0 +1,36 @@
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type BankTransactionWhereInput = {
+  allocatedAmount?: FloatNullableFilter;
+  amendedFrom?: StringNullableFilter;
+  bankAccount?: StringNullableFilter;
+  bankPartyAccountNumber?: StringNullableFilter;
+  bankPartyIban?: StringNullableFilter;
+  bankPartyName?: StringNullableFilter;
+  company?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  currency?: StringNullableFilter;
+  date?: DateTimeNullableFilter;
+  deposit?: FloatNullableFilter;
+  description?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  namingSeries?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  party?: StringNullableFilter;
+  partyType?: StringNullableFilter;
+  referenceNumber?: StringNullableFilter;
+  status?: StringNullableFilter;
+  transactionId?: StringNullableFilter;
+  transactionType?: StringNullableFilter;
+  unallocatedAmount?: FloatNullableFilter;
+  withdrawal?: FloatNullableFilter;
+};

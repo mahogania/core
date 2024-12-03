@@ -1,0 +1,30 @@
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type PaymentReconciliationLogAllocationWhereInput = {
+  allocatedAmount?: FloatNullableFilter;
+  amount?: FloatNullableFilter;
+  currency?: StringNullableFilter;
+  differenceAccount?: StringNullableFilter;
+  differenceAmount?: FloatNullableFilter;
+  docstatus?: IntNullableFilter;
+  exchangeRate?: FloatNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  invoiceNumber?: StringNullableFilter;
+  invoiceType?: StringNullableFilter;
+  isAdvance?: StringNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  parentfield?: StringNullableFilter;
+  parenttype?: StringNullableFilter;
+  reconciled?: IntNullableFilter;
+  referenceName?: StringNullableFilter;
+  referenceRow?: StringNullableFilter;
+  referenceType?: StringNullableFilter;
+  unreconciledAmount?: FloatNullableFilter;
+};

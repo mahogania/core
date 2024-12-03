@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package playerFactionSpell;
+service PlayerFactionSpellService {
+ rpc createPlayerFactionSpell (PlayerFactionSpellCreateInput) returns (PlayerFactionSpell) {}
+rpc playerFactionSpells (findManyParams) returns (stream PlayerFactionSpell) {}
+rpc playerFactionSpell (PlayerFactionSpellWhereUniqueInput) returns (PlayerFactionSpell) {}
+rpc updatePlayerFactionSpell (PlayerFactionSpellUpdateInput) returns (PlayerFactionSpell) {}
+rpc deletePlayerFactionSpell (PlayerFactionSpellWhereUniqueInput) returns (PlayerFactionSpell) {} 
+ }
+message PlayerFactionSpellCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionSpell {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionSpellWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerFactionSpellUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

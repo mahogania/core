@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+                 package mailLootTemplate;
+service MailLootTemplateService {
+ rpc createMailLootTemplate (MailLootTemplateCreateInput) returns (MailLootTemplate) {}
+rpc mailLootTemplates (findManyParams) returns (stream MailLootTemplate) {}
+rpc mailLootTemplate (MailLootTemplateWhereUniqueInput) returns (MailLootTemplate) {}
+rpc updateMailLootTemplate (MailLootTemplateUpdateInput) returns (MailLootTemplate) {}
+rpc deleteMailLootTemplate (MailLootTemplateWhereUniqueInput) returns (MailLootTemplate) {} 
+ }
+message MailLootTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string sender = 3;
+string updatedAt = 4;
+};
+message MailLootTemplate {
+string createdAt = 1;
+string id = 2;
+string sender = 3;
+string updatedAt = 4;
+};
+message MailLootTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string sender = 3;
+string updatedAt = 4;
+};
+message MailLootTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string sender = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};

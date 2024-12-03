@@ -1,0 +1,33 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type DeliveryStopOrderByInput = {
+  address?: SortOrder;
+  contact?: SortOrder;
+  createdAt?: SortOrder;
+  creation?: SortOrder;
+  customer?: SortOrder;
+  customerAddress?: SortOrder;
+  customerContact?: SortOrder;
+  deliveryNote?: SortOrder;
+  details?: SortOrder;
+  distance?: SortOrder;
+  docstatus?: SortOrder;
+  emailSentTo?: SortOrder;
+  estimatedArrival?: SortOrder;
+  grandTotal?: SortOrder;
+  id?: SortOrder;
+  idx?: SortOrder;
+  lat?: SortOrder;
+  lng?: SortOrder;
+  locked?: SortOrder;
+  modified?: SortOrder;
+  modifiedBy?: SortOrder;
+  name?: SortOrder;
+  owner?: SortOrder;
+  parent?: SortOrder;
+  parentfield?: SortOrder;
+  parenttype?: SortOrder;
+  uom?: SortOrder;
+  updatedAt?: SortOrder;
+  visited?: SortOrder;
+};

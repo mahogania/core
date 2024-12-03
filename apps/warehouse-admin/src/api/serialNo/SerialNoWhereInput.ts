@@ -1,0 +1,37 @@
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+
+export type SerialNoWhereInput = {
+  amcExpiryDate?: DateTimeNullableFilter;
+  asset?: StringNullableFilter;
+  assetStatus?: StringNullableFilter;
+  batchNo?: StringNullableFilter;
+  brand?: StringNullableFilter;
+  company?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  description?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  employee?: StringNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  itemCode?: StringNullableFilter;
+  itemGroup?: StringNullableFilter;
+  itemName?: StringNullableFilter;
+  location?: StringNullableFilter;
+  maintenanceStatus?: StringNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  purchaseDocumentNo?: StringNullableFilter;
+  purchaseRate?: FloatNullableFilter;
+  serialNo?: StringNullableFilter;
+  status?: StringNullableFilter;
+  warehouse?: StringNullableFilter;
+  warrantyExpiryDate?: DateTimeNullableFilter;
+  warrantyPeriod?: IntNullableFilter;
+  workOrder?: StringNullableFilter;
+};

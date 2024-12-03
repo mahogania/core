@@ -1,0 +1,141 @@
+syntax = "proto3";
+
+                 package tbClreDedPrcDclrPdls;
+service TbClreDedPrcDclrPdlsService {
+ rpc createTbClreDedPrcDclrPdls (TbClreDedPrcDclrPdlsCreateInput) returns (TbClreDedPrcDclrPdls) {}
+rpc tbClreDedPrcDclrPdlsItems (findManyParams) returns (stream TbClreDedPrcDclrPdls) {}
+rpc tbClreDedPrcDclrPdls (TbClreDedPrcDclrPdlsWhereUniqueInput) returns (TbClreDedPrcDclrPdls) {}
+rpc updateTbClreDedPrcDclrPdls (TbClreDedPrcDclrPdlsUpdateInput) returns (TbClreDedPrcDclrPdls) {}
+rpc deleteTbClreDedPrcDclrPdls (TbClreDedPrcDclrPdlsWhereUniqueInput) returns (TbClreDedPrcDclrPdls) {} 
+ }
+message TbClreDedPrcDclrPdlsCreateInput {
+int32 brngTrnpCst = 1;
+int32 byerPymnCst = 2;
+string createdAt = 3;
+string delYn = 4;
+string frstRegstId = 5;
+string frstRgsrDttm = 6;
+string id = 7;
+int32 indrPymnTamt = 8;
+int32 infeeAmt = 9;
+string lastChgDttm = 10;
+string lastChprId = 11;
+int32 loadCstAmt = 12;
+int32 mdfyDgcnt = 13;
+string mdlStszNo = 14;
+int32 mdtnPcfeAmt = 15;
+int32 mnfuSrvc_1Amt = 16;
+int32 mnfuSrvc_2Amt = 17;
+int32 mnfuSrvc_3Amt = 18;
+int32 mnfuSrvc_4Amt = 19;
+int32 otcstAmt = 20;
+int32 pcfeAmt = 21;
+int32 pcfeLcneAmt = 22;
+int32 pckgAmt = 23;
+string pdlsNo = 24;
+int32 pyrTrifAmt = 25;
+string reffNo = 26;
+int32 resaleErnAmt = 27;
+int32 techSpptCst = 28;
+int32 trnpCstAmt = 29;
+string updatedAt = 30;
+};
+message TbClreDedPrcDclrPdls {
+int32 brngTrnpCst = 1;
+int32 byerPymnCst = 2;
+string createdAt = 3;
+string delYn = 4;
+string frstRegstId = 5;
+string frstRgsrDttm = 6;
+string id = 7;
+int32 indrPymnTamt = 8;
+int32 infeeAmt = 9;
+string lastChgDttm = 10;
+string lastChprId = 11;
+int32 loadCstAmt = 12;
+int32 mdfyDgcnt = 13;
+string mdlStszNo = 14;
+int32 mdtnPcfeAmt = 15;
+int32 mnfuSrvc_1Amt = 16;
+int32 mnfuSrvc_2Amt = 17;
+int32 mnfuSrvc_3Amt = 18;
+int32 mnfuSrvc_4Amt = 19;
+int32 otcstAmt = 20;
+int32 pcfeAmt = 21;
+int32 pcfeLcneAmt = 22;
+int32 pckgAmt = 23;
+string pdlsNo = 24;
+int32 pyrTrifAmt = 25;
+string reffNo = 26;
+int32 resaleErnAmt = 27;
+int32 techSpptCst = 28;
+int32 trnpCstAmt = 29;
+string updatedAt = 30;
+};
+message TbClreDedPrcDclrPdlsWhereUniqueInput {
+int32 brngTrnpCst = 1;
+int32 byerPymnCst = 2;
+string createdAt = 3;
+string delYn = 4;
+string frstRegstId = 5;
+string frstRgsrDttm = 6;
+string id = 7;
+int32 indrPymnTamt = 8;
+int32 infeeAmt = 9;
+string lastChgDttm = 10;
+string lastChprId = 11;
+int32 loadCstAmt = 12;
+int32 mdfyDgcnt = 13;
+string mdlStszNo = 14;
+int32 mdtnPcfeAmt = 15;
+int32 mnfuSrvc_1Amt = 16;
+int32 mnfuSrvc_2Amt = 17;
+int32 mnfuSrvc_3Amt = 18;
+int32 mnfuSrvc_4Amt = 19;
+int32 otcstAmt = 20;
+int32 pcfeAmt = 21;
+int32 pcfeLcneAmt = 22;
+int32 pckgAmt = 23;
+string pdlsNo = 24;
+int32 pyrTrifAmt = 25;
+string reffNo = 26;
+int32 resaleErnAmt = 27;
+int32 techSpptCst = 28;
+int32 trnpCstAmt = 29;
+string updatedAt = 30;
+};
+message TbClreDedPrcDclrPdlsUpdateInput {
+int32 brngTrnpCst = 1;
+int32 byerPymnCst = 2;
+string createdAt = 3;
+string delYn = 4;
+string frstRegstId = 5;
+string frstRgsrDttm = 6;
+string id = 7;
+int32 indrPymnTamt = 8;
+int32 infeeAmt = 9;
+string lastChgDttm = 10;
+string lastChprId = 11;
+int32 loadCstAmt = 12;
+int32 mdfyDgcnt = 13;
+string mdlStszNo = 14;
+int32 mdtnPcfeAmt = 15;
+int32 mnfuSrvc_1Amt = 16;
+int32 mnfuSrvc_2Amt = 17;
+int32 mnfuSrvc_3Amt = 18;
+int32 mnfuSrvc_4Amt = 19;
+int32 otcstAmt = 20;
+int32 pcfeAmt = 21;
+int32 pcfeLcneAmt = 22;
+int32 pckgAmt = 23;
+string pdlsNo = 24;
+int32 pyrTrifAmt = 25;
+string reffNo = 26;
+int32 resaleErnAmt = 27;
+int32 techSpptCst = 28;
+int32 trnpCstAmt = 29;
+string updatedAt = 30;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,24 @@
+export type MaintenanceScheduleUpdateInput = {
+  addressDisplay?: string | null;
+  amendedFrom?: string | null;
+  company?: string | null;
+  contactDisplay?: string | null;
+  contactEmail?: string | null;
+  contactMobile?: string | null;
+  contactPerson?: string | null;
+  creation?: Date | null;
+  customer?: string | null;
+  customerAddress?: string | null;
+  customerGroup?: string | null;
+  customerName?: string | null;
+  docstatus?: number | null;
+  idx?: number | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  namingSeries?: string | null;
+  owner?: string | null;
+  status?: string | null;
+  territory?: string | null;
+  transactionDate?: Date | null;
+};

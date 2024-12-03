@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+                 package gameObjectLootTemplate;
+service GameObjectLootTemplateService {
+ rpc createGameObjectLootTemplate (GameObjectLootTemplateCreateInput) returns (GameObjectLootTemplate) {}
+rpc gameObjectLootTemplates (findManyParams) returns (stream GameObjectLootTemplate) {}
+rpc gameObjectLootTemplate (GameObjectLootTemplateWhereUniqueInput) returns (GameObjectLootTemplate) {}
+rpc updateGameObjectLootTemplate (GameObjectLootTemplateUpdateInput) returns (GameObjectLootTemplate) {}
+rpc deleteGameObjectLootTemplate (GameObjectLootTemplateWhereUniqueInput) returns (GameObjectLootTemplate) {} 
+ }
+message GameObjectLootTemplateCreateInput {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+int32 groupId = 4;
+int32 id = 5;
+int32 itemId = 6;
+int32 lootMode = 7;
+int32 maxCount = 8;
+int32 minCount = 9;
+int32 questId = 10;
+string updatedAt = 11;
+};
+message GameObjectLootTemplate {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+int32 groupId = 4;
+int32 id = 5;
+int32 itemId = 6;
+int32 lootMode = 7;
+int32 maxCount = 8;
+int32 minCount = 9;
+int32 questId = 10;
+string updatedAt = 11;
+};
+message GameObjectLootTemplateWhereUniqueInput {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+int32 groupId = 4;
+int32 id = 5;
+int32 itemId = 6;
+int32 lootMode = 7;
+int32 maxCount = 8;
+int32 minCount = 9;
+int32 questId = 10;
+string updatedAt = 11;
+};
+message GameObjectLootTemplateUpdateInput {
+int32 chance = 1;
+string comment = 2;
+string createdAt = 3;
+int32 groupId = 4;
+int32 id = 5;
+int32 itemId = 6;
+int32 lootMode = 7;
+int32 maxCount = 8;
+int32 minCount = 9;
+int32 questId = 10;
+string updatedAt = 11;
+};
+message findManyParams {
+
+};

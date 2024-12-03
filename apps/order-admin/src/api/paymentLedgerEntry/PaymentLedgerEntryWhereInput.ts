@@ -1,0 +1,35 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type PaymentLedgerEntryWhereInput = {
+  account?: StringNullableFilter;
+  accountCurrency?: StringNullableFilter;
+  accountType?: StringNullableFilter;
+  againstVoucherNo?: StringNullableFilter;
+  againstVoucherType?: StringNullableFilter;
+  amount?: FloatNullableFilter;
+  amountInAccountCurrency?: FloatNullableFilter;
+  company?: StringNullableFilter;
+  costCenter?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  delinked?: IntNullableFilter;
+  docstatus?: IntNullableFilter;
+  dueDate?: DateTimeNullableFilter;
+  financeBook?: StringNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  party?: StringNullableFilter;
+  partyType?: StringNullableFilter;
+  postingDate?: DateTimeNullableFilter;
+  remarks?: StringNullableFilter;
+  voucherDetailNo?: StringNullableFilter;
+  voucherNo?: StringNullableFilter;
+  voucherType?: StringNullableFilter;
+};

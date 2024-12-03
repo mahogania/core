@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+                 package craft;
+service CraftService {
+ rpc createCraft (CraftCreateInput) returns (Craft) {}
+rpc crafts (findManyParams) returns (stream Craft) {}
+rpc craft (CraftWhereUniqueInput) returns (Craft) {}
+rpc updateCraft (CraftUpdateInput) returns (Craft) {}
+rpc deleteCraft (CraftWhereUniqueInput) returns (Craft) {}
+rpc findManyCraft (CraftWhereUniqueInput) returns (stream CraftLevelStat) {}
+rpc updateCraft (CraftLevelStatParams) returns (stream CraftLevelStat) {}
+rpc connectCraft (CraftLevelStatParams) returns (CraftLevelStat) {}
+rpc disconnectCraft (CraftLevelStatParams) returns (CraftLevelStat) {}
+rpc findManyCraft (CraftWhereUniqueInput) returns (stream PlayerCraft) {}
+rpc updateCraft (PlayerCraftParams) returns (stream PlayerCraft) {}
+rpc connectCraft (PlayerCraftParams) returns (PlayerCraft) {}
+rpc disconnectCraft (PlayerCraftParams) returns (PlayerCraft) {} 
+ }
+message CraftCreateInput {
+repeated CraftLevelStat craftLevelStats = 1;
+string createdAt = 2;
+string id = 3;
+repeated PlayerCraft playerCrafts = 4;
+string updatedAt = 5;
+};
+message Craft {
+repeated CraftLevelStat craftLevelStats = 1;
+string createdAt = 2;
+string id = 3;
+repeated PlayerCraft playerCrafts = 4;
+string updatedAt = 5;
+};
+message CraftWhereUniqueInput {
+repeated CraftLevelStat craftLevelStats = 1;
+string createdAt = 2;
+string id = 3;
+repeated PlayerCraft playerCrafts = 4;
+string updatedAt = 5;
+};
+message CraftUpdateInput {
+repeated CraftLevelStat craftLevelStats = 1;
+string createdAt = 2;
+string id = 3;
+repeated PlayerCraft playerCrafts = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
+message CraftLevelStat {
+string createdAt = 1;
+string id = 2;
+int32 level = 3;
+string stat = 4;
+string updatedAt = 5;
+string value = 6;
+};
+message CraftLevelStatWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+int32 level = 3;
+string stat = 4;
+string updatedAt = 5;
+string value = 6;
+};
+message CraftLevelStatParams {
+CraftWhereUniqueInput craftWhereUniqueInput = 1;
+CraftLevelStatWhereUniqueInput craftlevelstatWhereUniqueInput = 2;
+};
+message PlayerCraft {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerCraftWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PlayerCraftParams {
+CraftWhereUniqueInput craftWhereUniqueInput = 1;
+PlayerCraftWhereUniqueInput playercraftWhereUniqueInput = 2;
+};

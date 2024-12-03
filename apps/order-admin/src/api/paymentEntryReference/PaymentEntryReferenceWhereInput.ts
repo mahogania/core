@@ -1,0 +1,32 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type PaymentEntryReferenceWhereInput = {
+  account?: StringNullableFilter;
+  accountType?: StringNullableFilter;
+  allocatedAmount?: FloatNullableFilter;
+  billNo?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  docstatus?: IntNullableFilter;
+  dueDate?: DateTimeNullableFilter;
+  exchangeGainLoss?: FloatNullableFilter;
+  exchangeRate?: FloatNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  outstandingAmount?: FloatNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  parentfield?: StringNullableFilter;
+  parenttype?: StringNullableFilter;
+  paymentTerm?: StringNullableFilter;
+  paymentType?: StringNullableFilter;
+  referenceDoctype?: StringNullableFilter;
+  referenceName?: StringNullableFilter;
+  totalAmount?: FloatNullableFilter;
+};

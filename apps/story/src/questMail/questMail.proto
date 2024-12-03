@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+                 package questMail;
+service QuestMailService {
+ rpc createQuestMail (QuestMailCreateInput) returns (QuestMail) {}
+rpc questMails (findManyParams) returns (stream QuestMail) {}
+rpc questMail (QuestMailWhereUniqueInput) returns (QuestMail) {}
+rpc updateQuestMail (QuestMailUpdateInput) returns (QuestMail) {}
+rpc deleteQuestMail (QuestMailWhereUniqueInput) returns (QuestMail) {}
+rpc findManyQuestMails (QuestMailWhereUniqueInput) returns (stream QuestTemplate) {}
+rpc updateQuestMails (QuestTemplateParams) returns (stream QuestTemplate) {}
+rpc connectQuestMails (QuestTemplateParams) returns (QuestTemplate) {}
+rpc disconnectQuestMails (QuestTemplateParams) returns (QuestTemplate) {} 
+ }
+message QuestMailCreateInput {
+string createdAt = 1;
+string decription = 2;
+string id = 3;
+string name = 4;
+repeated QuestTemplate questTemplates = 5;
+string updatedAt = 6;
+};
+message QuestMail {
+string createdAt = 1;
+string decription = 2;
+string id = 3;
+string name = 4;
+repeated QuestTemplate questTemplates = 5;
+string updatedAt = 6;
+};
+message QuestMailWhereUniqueInput {
+string createdAt = 1;
+string decription = 2;
+string id = 3;
+string name = 4;
+repeated QuestTemplate questTemplates = 5;
+string updatedAt = 6;
+};
+message QuestMailUpdateInput {
+string createdAt = 1;
+string decription = 2;
+string id = 3;
+string name = 4;
+repeated QuestTemplate questTemplates = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message QuestTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestTemplateParams {
+QuestMailWhereUniqueInput questMailWhereUniqueInput = 1;
+QuestTemplateWhereUniqueInput questtemplateWhereUniqueInput = 2;
+};

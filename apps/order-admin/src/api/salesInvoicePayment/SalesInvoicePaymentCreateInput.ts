@@ -1,0 +1,20 @@
+export type SalesInvoicePaymentCreateInput = {
+  account?: string | null;
+  amount?: number | null;
+  baseAmount?: number | null;
+  clearanceDate?: Date | null;
+  creation?: Date | null;
+  defaultField?: number | null;
+  docstatus?: number | null;
+  idx?: number | null;
+  modeOfPayment?: string | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  owner?: string | null;
+  parent?: string | null;
+  parentField?: string | null;
+  parentType?: string | null;
+  referenceNo?: string | null;
+  typeField?: string | null;
+};

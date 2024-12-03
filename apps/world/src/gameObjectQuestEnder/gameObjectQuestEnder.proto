@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package gameObjectQuestEnder;
+service GameObjectQuestEnderService {
+ rpc createGameObjectQuestEnder (GameObjectQuestEnderCreateInput) returns (GameObjectQuestEnder) {}
+rpc gameObjectQuestEnders (findManyParams) returns (stream GameObjectQuestEnder) {}
+rpc gameObjectQuestEnder (GameObjectQuestEnderWhereUniqueInput) returns (GameObjectQuestEnder) {}
+rpc updateGameObjectQuestEnder (GameObjectQuestEnderUpdateInput) returns (GameObjectQuestEnder) {}
+rpc deleteGameObjectQuestEnder (GameObjectQuestEnderWhereUniqueInput) returns (GameObjectQuestEnder) {} 
+ }
+message GameObjectQuestEnderCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectQuestEnder {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectQuestEnderWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GameObjectQuestEnderUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

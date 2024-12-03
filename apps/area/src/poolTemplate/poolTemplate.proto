@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package poolTemplate;
+service PoolTemplateService {
+ rpc createPoolTemplate (PoolTemplateCreateInput) returns (PoolTemplate) {}
+rpc poolTemplates (findManyParams) returns (stream PoolTemplate) {}
+rpc poolTemplate (PoolTemplateWhereUniqueInput) returns (PoolTemplate) {}
+rpc updatePoolTemplate (PoolTemplateUpdateInput) returns (PoolTemplate) {}
+rpc deletePoolTemplate (PoolTemplateWhereUniqueInput) returns (PoolTemplate) {} 
+ }
+message PoolTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PoolTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PoolTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message PoolTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

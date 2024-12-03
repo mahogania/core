@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package questObjectiveCompletionEffect;
+service QuestObjectiveCompletionEffectService {
+ rpc createQuestObjectiveCompletionEffect (QuestObjectiveCompletionEffectCreateInput) returns (QuestObjectiveCompletionEffect) {}
+rpc questObjectiveCompletionEffects (findManyParams) returns (stream QuestObjectiveCompletionEffect) {}
+rpc questObjectiveCompletionEffect (QuestObjectiveCompletionEffectWhereUniqueInput) returns (QuestObjectiveCompletionEffect) {}
+rpc updateQuestObjectiveCompletionEffect (QuestObjectiveCompletionEffectUpdateInput) returns (QuestObjectiveCompletionEffect) {}
+rpc deleteQuestObjectiveCompletionEffect (QuestObjectiveCompletionEffectWhereUniqueInput) returns (QuestObjectiveCompletionEffect) {}
+rpc findManyQuestObjectiveCompletionEffects (QuestObjectiveCompletionEffectWhereUniqueInput) returns (stream QuestObjective) {}
+rpc updateQuestObjectiveCompletionEffects (QuestObjectiveParams) returns (stream QuestObjective) {}
+rpc connectQuestObjectiveCompletionEffects (QuestObjectiveParams) returns (QuestObjective) {}
+rpc disconnectQuestObjectiveCompletionEffects (QuestObjectiveParams) returns (QuestObjective) {} 
+ }
+message QuestObjectiveCompletionEffectCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestObjective questObjectives = 3;
+string updatedAt = 4;
+};
+message QuestObjectiveCompletionEffect {
+string createdAt = 1;
+string id = 2;
+repeated QuestObjective questObjectives = 3;
+string updatedAt = 4;
+};
+message QuestObjectiveCompletionEffectWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestObjective questObjectives = 3;
+string updatedAt = 4;
+};
+message QuestObjectiveCompletionEffectUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated QuestObjective questObjectives = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message QuestObjective {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestObjectiveWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestObjectiveParams {
+QuestObjectiveCompletionEffectWhereUniqueInput questObjectiveCompletionEffectWhereUniqueInput = 1;
+QuestObjectiveWhereUniqueInput questobjectiveWhereUniqueInput = 2;
+};

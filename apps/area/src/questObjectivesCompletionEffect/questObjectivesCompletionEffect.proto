@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questObjectivesCompletionEffect;
+service QuestObjectivesCompletionEffectService {
+ rpc createQuestObjectivesCompletionEffect (QuestObjectivesCompletionEffectCreateInput) returns (QuestObjectivesCompletionEffect) {}
+rpc questObjectivesCompletionEffects (findManyParams) returns (stream QuestObjectivesCompletionEffect) {}
+rpc questObjectivesCompletionEffect (QuestObjectivesCompletionEffectWhereUniqueInput) returns (QuestObjectivesCompletionEffect) {}
+rpc updateQuestObjectivesCompletionEffect (QuestObjectivesCompletionEffectUpdateInput) returns (QuestObjectivesCompletionEffect) {}
+rpc deleteQuestObjectivesCompletionEffect (QuestObjectivesCompletionEffectWhereUniqueInput) returns (QuestObjectivesCompletionEffect) {} 
+ }
+message QuestObjectivesCompletionEffectCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestObjectivesCompletionEffect {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestObjectivesCompletionEffectWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestObjectivesCompletionEffectUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

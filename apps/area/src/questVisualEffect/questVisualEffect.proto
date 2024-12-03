@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questVisualEffect;
+service QuestVisualEffectService {
+ rpc createQuestVisualEffect (QuestVisualEffectCreateInput) returns (QuestVisualEffect) {}
+rpc questVisualEffects (findManyParams) returns (stream QuestVisualEffect) {}
+rpc questVisualEffect (QuestVisualEffectWhereUniqueInput) returns (QuestVisualEffect) {}
+rpc updateQuestVisualEffect (QuestVisualEffectUpdateInput) returns (QuestVisualEffect) {}
+rpc deleteQuestVisualEffect (QuestVisualEffectWhereUniqueInput) returns (QuestVisualEffect) {} 
+ }
+message QuestVisualEffectCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestVisualEffect {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestVisualEffectWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestVisualEffectUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

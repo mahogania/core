@@ -1,0 +1,26 @@
+export type LandedCostItem = {
+  amount: number | null;
+  applicableCharges: number | null;
+  costCenter: string | null;
+  createdAt: Date;
+  creation: Date | null;
+  description: string | null;
+  docstatus: number | null;
+  id: string;
+  idx: number | null;
+  isFixedAsset: boolean | null;
+  itemCode: string | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  parent: string | null;
+  parentfield: string | null;
+  parenttype: string | null;
+  purchaseReceiptItem: string | null;
+  qty: number | null;
+  rate: number | null;
+  receiptDocument: string | null;
+  receiptDocumentType: string | null;
+  updatedAt: Date;
+};
