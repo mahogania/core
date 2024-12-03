@@ -1,0 +1,129 @@
+syntax = "proto3";
+
+                 package tbClreDedTax;
+service TbClreDedTaxService {
+ rpc createTbClreDedTax (TbClreDedTaxCreateInput) returns (TbClreDedTax) {}
+rpc tbClreDedTaxes (findManyParams) returns (stream TbClreDedTax) {}
+rpc tbClreDedTax (TbClreDedTaxWhereUniqueInput) returns (TbClreDedTax) {}
+rpc updateTbClreDedTax (TbClreDedTaxUpdateInput) returns (TbClreDedTax) {}
+rpc deleteTbClreDedTax (TbClreDedTaxWhereUniqueInput) returns (TbClreDedTax) {} 
+ }
+message TbClreDedTaxCreateInput {
+int32 bscsTaxAmt = 1;
+int32 bscsTxbsAmt = 2;
+int32 bscsTxrt = 3;
+string createdAt = 4;
+string delYn = 5;
+string frstRegstId = 6;
+string frstRgsrDttm = 7;
+string id = 8;
+string lastChgDttm = 9;
+string lastChprId = 10;
+int32 mdfyDgcnt = 11;
+int32 mgDscnAplyAmt = 12;
+string payKndCd = 13;
+int32 payTaxAmt = 14;
+string pdlsNo = 15;
+int32 rdexAmt = 16;
+int32 rdexBaseAmt = 17;
+string rdexCd = 18;
+string rdexPtCd = 19;
+int32 rdexTxrt = 20;
+string reffNo = 21;
+int32 taxAmt = 22;
+string taxCd = 23;
+string tfrtCtgyCd = 24;
+int32 txbsAmt = 25;
+int32 txrt = 26;
+string updatedAt = 27;
+};
+message TbClreDedTax {
+int32 bscsTaxAmt = 1;
+int32 bscsTxbsAmt = 2;
+int32 bscsTxrt = 3;
+string createdAt = 4;
+string delYn = 5;
+string frstRegstId = 6;
+string frstRgsrDttm = 7;
+string id = 8;
+string lastChgDttm = 9;
+string lastChprId = 10;
+int32 mdfyDgcnt = 11;
+int32 mgDscnAplyAmt = 12;
+string payKndCd = 13;
+int32 payTaxAmt = 14;
+string pdlsNo = 15;
+int32 rdexAmt = 16;
+int32 rdexBaseAmt = 17;
+string rdexCd = 18;
+string rdexPtCd = 19;
+int32 rdexTxrt = 20;
+string reffNo = 21;
+int32 taxAmt = 22;
+string taxCd = 23;
+string tfrtCtgyCd = 24;
+int32 txbsAmt = 25;
+int32 txrt = 26;
+string updatedAt = 27;
+};
+message TbClreDedTaxWhereUniqueInput {
+int32 bscsTaxAmt = 1;
+int32 bscsTxbsAmt = 2;
+int32 bscsTxrt = 3;
+string createdAt = 4;
+string delYn = 5;
+string frstRegstId = 6;
+string frstRgsrDttm = 7;
+string id = 8;
+string lastChgDttm = 9;
+string lastChprId = 10;
+int32 mdfyDgcnt = 11;
+int32 mgDscnAplyAmt = 12;
+string payKndCd = 13;
+int32 payTaxAmt = 14;
+string pdlsNo = 15;
+int32 rdexAmt = 16;
+int32 rdexBaseAmt = 17;
+string rdexCd = 18;
+string rdexPtCd = 19;
+int32 rdexTxrt = 20;
+string reffNo = 21;
+int32 taxAmt = 22;
+string taxCd = 23;
+string tfrtCtgyCd = 24;
+int32 txbsAmt = 25;
+int32 txrt = 26;
+string updatedAt = 27;
+};
+message TbClreDedTaxUpdateInput {
+int32 bscsTaxAmt = 1;
+int32 bscsTxbsAmt = 2;
+int32 bscsTxrt = 3;
+string createdAt = 4;
+string delYn = 5;
+string frstRegstId = 6;
+string frstRgsrDttm = 7;
+string id = 8;
+string lastChgDttm = 9;
+string lastChprId = 10;
+int32 mdfyDgcnt = 11;
+int32 mgDscnAplyAmt = 12;
+string payKndCd = 13;
+int32 payTaxAmt = 14;
+string pdlsNo = 15;
+int32 rdexAmt = 16;
+int32 rdexBaseAmt = 17;
+string rdexCd = 18;
+string rdexPtCd = 19;
+int32 rdexTxrt = 20;
+string reffNo = 21;
+int32 taxAmt = 22;
+string taxCd = 23;
+string tfrtCtgyCd = 24;
+int32 txbsAmt = 25;
+int32 txrt = 26;
+string updatedAt = 27;
+};
+message findManyParams {
+
+};

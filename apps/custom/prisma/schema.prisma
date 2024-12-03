@@ -1,0 +1,589 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model ClearanceDeclaration {
+  aditTxQty          Float?
+  aditTxQtyUtCd      String?
+  alNtwg             Float?
+  alTtwg             Float?
+  apcAtpmEndDt       String?
+  apcAtpmStrtDt      String?
+  apcCd              String?
+  arvlDt             String?
+  bfBnbnCmdtWrhsCd   String?
+  bfDtlDcshDt        String?
+  bfDtlDcshNo        String?
+  bfPdlsNo           String?
+  blDt               String?
+  blNo               String?
+  bnbnCmdtWrhsCd     String?
+  brndNm             String?
+  cagMgmtNo          String?
+  cmdtClsfSpelCd     String?
+  cmdtStgeLoctCd     String?
+  cntrCagYn          String?
+  cntrGcnt           Int?
+  createdAt          DateTime  @default(now())
+  csclPlnCd          String?
+  csmCntyCd          String?
+  dcerCd             String?
+  dcerWrteCn         String?
+  dclrCstmCd         String?
+  dclrPtCd           String?
+  dcrdYn             String?
+  dcshFmCd           String?
+  delYn              String?
+  deptCd             String?
+  disprCd            String?
+  divdCsclTpCd       String?
+  divdFfmnTpCd       String?
+  dlngCond1Cd        String?
+  dlngCond2Cd        String?
+  dlngPdlsNm         String?
+  dlngPymnMeanCd     String?
+  dlvrCondCd         String?
+  dlvrPlcCd          String?
+  dstnCntyCd         String?
+  dstnRegnCd         String?
+  dtlDcshNo          String?
+  epcCd              String?
+  expCntyCd          String?
+  exppnCmrcRegsNo    String?
+  exppnIdfyNo        String?
+  exppnIdfyNoTpCd    String?
+  frstDclrDt         String?
+  frstRegstId        String?
+  frstRgsrDttm       DateTime?
+  hsCd               String?
+  hsErrPvntVal       String?
+  hsExcpMtrCd        String?
+  id                 String    @id @default(cuid())
+  imppnCmrcRegsNo    String?
+  imppnIdfyNo        String?
+  imppnIdfyNoTpCd    String?
+  invcNo             String?
+  invcPblsDt         String?
+  lastChgDttm        DateTime?
+  lastChprId         String?
+  lastYn             String?
+  ldnpCd             String?
+  ldunDt             String?
+  mdfyDgcnt          Int?
+  mdfyRsnCd          String?
+  mdfyRsnCn          String?
+  mgDscnApreNo       String?
+  nwprScarCmdtCd     String?
+  oilTankNo          String?
+  orcyCntyCd         String?
+  owhsPrcEvYn        String?
+  pckgDesc           String?
+  pckgShmrMarkNo     String?
+  pckgTgcnt          Int?
+  pdlsClsfBfhnJdgnPn String?
+  pdlsGcnt           Int?
+  pdlsNm             String?
+  pdlsNo             String?
+  pdlsNtwg           Float?
+  pdlsPckgGcnt       Int?
+  pdlsPckgUtCd       String?
+  pdlsTtwg           Float?
+  prcDcshWrteYn      String?
+  prcDtrmMeanCd      String?
+  prhbCmdtCd         String?
+  prmsntDt           String?
+  prmsntSttsCd       String?
+  prvlCd             String?
+  psmgtFfmnXpirPrid  Int?
+  psnrPrcsCn         String?
+  psnrReffNo         String?
+  pymnAcNo           String?
+  pymnBnkBrnhCd      String?
+  pymnBnkCd          String?
+  pymnMeanCd         String?
+  qtaApreNo          String?
+  qty                Float?
+  qtyUtCd            String?
+  refNo              String?
+  reffNo             String?
+  regmRqstCd         String?
+  rethink            Int?
+  rlbrCstmCd         String?
+  rqstDt             String?
+  shipNm             String?
+  sysUseSs           Int?
+  trdeDlngCntyCd     String?
+  trifBaseVal        String?
+  trnpMethIdfyNo     String?
+  trnpMethKndCd      String?
+  trnpMethNatCd      String?
+  txprCmrcRegsNo     String?
+  txprIdfyNo         String?
+  updatedAt          DateTime  @updatedAt
+  uprPdlsNo          String?
+  vhclYn             String?
+  wkngPtCd           String?
+}
+
+model TbClreDedPdls {
+  aditTxQty          Float?
+  aditTxQtyUtCd      String?
+  apcAtpmEndDt       String?
+  apcAtpmStrtDt      String?
+  apcCd              String?
+  bfDtlDcshDt        String?
+  bfDtlDcshNo        String?
+  bfPdlsNo           String?
+  brndNm             String?
+  cmdtClsfSpelCd     String?
+  createdAt          DateTime  @default(now())
+  delYn              String?
+  divdFfmnTpCd       String?
+  dlngPdlsNm         String?
+  frstRegstId        String?
+  frstRgsrDttm       DateTime?
+  hsCd               String?
+  hsErrPvntVal       String?
+  hsExcpMtrCd        String?
+  id                 String    @id @default(cuid())
+  lastChgDttm        DateTime?
+  lastChprId         String?
+  mdfyDgcnt          Int?
+  mgDscnApreNo       String?
+  nwprScarCmdtCd     String?
+  oilTankNo          String?
+  orcyCntyCd         String?
+  pckgDesc           String?
+  pckgShmrMarkNo     String?
+  pdlsClsfBfhnJdgnPn String?
+  pdlsNm             String?
+  pdlsNo             String?
+  pdlsNtwg           Float?
+  pdlsPckgGcnt       Int?
+  pdlsPckgUtCd       String?
+  pdlsTtwg           Float?
+  prcDtrmMeanCd      String?
+  prhbCmdtCd         String?
+  prvlCd             String?
+  psmgtFfmnXpirPrid  Int?
+  qtaApreNo          String?
+  qty                Float?
+  qtyUtCd            String?
+  reffNo             String?
+  regmRqstCd         String?
+  trifBaseVal        String?
+  updatedAt          DateTime  @updatedAt
+  uprPdlsNo          String?
+  vhclYn             String?
+}
+
+model TbClreDedMdlStsz {
+  cachAmt      Float?
+  cachCurrCd   String?
+  cachFxrt     Float?
+  cachNcyAmt   Float?
+  createdAt    DateTime  @default(now())
+  ddctAmt      Float?
+  ddctCurrCd   String?
+  ddctFxrt     Float?
+  ddctNcyAmt   Float?
+  ddctRt       Float?
+  delYn        String?
+  frstRegstId  String?
+  frstRgsrDttm DateTime?
+  id           String    @id @default(cuid())
+  indrPymnTamt Float?
+  infeeAmt     Float?
+  infeeCurrCd  String?
+  infeeFxrt    Float?
+  infeeNcyAmt  Float?
+  ingrNm       String?
+  invcAmt      Float?
+  invcCurrCd   String?
+  invcFxrt     Float?
+  invcNcyAmt   Float?
+  invcUsdAmt   Float?
+  lastChgDttm  DateTime?
+  lastChprId   String?
+  mdfyDgcnt    Int?
+  mdlStszNm    String?
+  mdlStszNo    String?
+  otcstAmt     Float?
+  otcstCurrCd  String?
+  otcstFxrt    Float?
+  otcstNcyAmt  Float?
+  pdlsNo       String?
+  qty          Float?
+  qtyUtCd      String?
+  reffNo       String?
+  ttxbsNcyAmt  Float?
+  ttxbsUsdAmt  Float?
+  tvlutNcyAmt  Float?
+  tvlutUsdAmt  Float?
+  updatedAt    DateTime  @updatedAt
+  utPrc        Float?
+}
+
+model TbClreDedVlutComn {
+  cachAmt      Float?
+  cachCurrCd   String?
+  cachFxrt     Float?
+  cachNcyAmt   Float?
+  createdAt    DateTime  @default(now())
+  ddctAmt      Float?
+  ddctCurrCd   String?
+  ddctFxrt     Float?
+  ddctNcyAmt   Float?
+  ddctRt       Float?
+  delYn        String?
+  frstRegstId  String?
+  frstRgsrDttm DateTime?
+  id           String    @id @default(cuid())
+  infeeAmt     Float?
+  infeeCurrCd  String?
+  infeeFxrt    Float?
+  infeeNcyAmt  Float?
+  invcAmt      Float?
+  invcCurrCd   String?
+  invcFxrt     Float?
+  invcNcyAmt   Float?
+  invcUsdAmt   Float?
+  lastChgDttm  DateTime?
+  lastChprId   String?
+  mdfyDgcnt    Int?
+  otcstAmt     Float?
+  otcstCurrCd  String?
+  otcstFxrt    Float?
+  otcstNcyAmt  Float?
+  reffNo       String?
+  ttxbsNcyAmt  Float?
+  ttxbsUsdAmt  Float?
+  tvlutNcyAmt  Float?
+  tvlutUsdAmt  Float?
+  updatedAt    DateTime  @updatedAt
+}
+
+model TbClreDedVlutPdls {
+  createdAt       DateTime  @default(now())
+  delYn           String?
+  frstRegstId     String?
+  frstRgsrDttm    DateTime?
+  id              String    @id @default(cuid())
+  lastChgDttm     DateTime?
+  lastChprId      String?
+  mdfyDgcnt       Int?
+  pdlsCachAmt     Float?
+  pdlsCachCurrCd  String?
+  pdlsCachFxrt    Float?
+  pdlsCachNcyAmt  Float?
+  pdlsDdctAmt     Float?
+  pdlsDdctCurrCd  String?
+  pdlsDdctFxrt    Float?
+  pdlsDdctNcyAmt  Float?
+  pdlsInfeeAmt    Float?
+  pdlsInfeeCurrCd String?
+  pdlsInfeeFxrt   Float?
+  pdlsInfeeNcyAmt Float?
+  pdlsInvcAmt     Float?
+  pdlsInvcCurrCd  String?
+  pdlsInvcFxrt    Float?
+  pdlsInvcNcyAmt  Float?
+  pdlsInvcUsdAmt  Float?
+  pdlsMprcBaseVal Float?
+  pdlsMprcCurrCd  String?
+  pdlsMprcNcyAmt  Float?
+  pdlsMprcTpCd    String?
+  pdlsMprcUsdAmt  Float?
+  pdlsMprcUtAmt   Float?
+  pdlsNo          String?
+  pdlsOtcstAmt    Float?
+  pdlsOtcstCurrCd String?
+  pdlsOtcstFxrt   Float?
+  pdlsOtcstNcyAmt Float?
+  pdlsTxbsNcyAmt  Float?
+  pdlsTxbsUsdAmt  Float?
+  pdlsVlutNcyAmt  Float?
+  pdlsVlutUsdAmt  Float?
+  reffNo          String?
+  updatedAt       DateTime  @updatedAt
+}
+
+model TbClreDedCntr {
+  cntrNo         String?
+  cntrSrno       Int?
+  cntrStfnSttsCd String?
+  cntrTpCd       String?
+  createdAt      DateTime  @default(now())
+  delYn          String?
+  frstRegstId    String?
+  frstRgsrDttm   DateTime?
+  id             String    @id @default(cuid())
+  inscTrgtYn     String?
+  lastChgDttm    DateTime?
+  lastChprId     String?
+  mdfyDgcnt      Int?
+  reffNo         String?
+  sealChpn1      String?
+  sealChpn2      String?
+  sealChpn3      String?
+  sealChpnCd     String?
+  sealNo1        String?
+  sealNo2        String?
+  sealNo3        String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model TbClreDedCo {
+  createdAt    DateTime  @default(now())
+  dcerAddr     String?
+  dcerCoNm     String?
+  delYn        String?
+  exppnAddr    String?
+  exppnCoNm    String?
+  exppnEml     String?
+  frstRegstId  String?
+  frstRgsrDttm DateTime?
+  id           String    @id @default(cuid())
+  imppnAddr    String?
+  imppnCoNm    String?
+  lastChgDttm  DateTime?
+  lastChprId   String?
+  mdfyDgcnt    Int?
+  reffNo       String?
+  txprAddr     String?
+  txprCoNm     String?
+  txprEml      String?
+  txprTlphNo   String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model TbClreDedMg {
+  createdAt    DateTime  @default(now())
+  delYn        String?
+  frstRegstId  String?
+  frstRgsrDttm DateTime?
+  id           String    @id @default(cuid())
+  lastChgDttm  DateTime?
+  lastChprId   String?
+  mdfyDgcnt    Int?
+  mgAcNo       String?
+  mgTpCd       String?
+  reffNo       String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model TbClreDedPrcDclr {
+  adcstBrkgAmt         Float?
+  adcstCnsmCmdtCst     Float?
+  adcstCtnrPckgCst     Float?
+  adcstImpPortInfeeAmt Float?
+  adcstImpPortOtcst    Float?
+  adcstImpPortTrcgAmt  Float?
+  adcstMtrlCmpsFtorCst Float?
+  adcstPrcsCst         Float?
+  adcstPuchCmisYn      String?
+  adcstRyltCst         Float?
+  adcstSaleCmisYn      String?
+  adcstSelrRvrsAmt     Float?
+  adcstTechDgnOtcst    Float?
+  adcstToolOtcst       Float?
+  adcstTrnpCst         Float?
+  aditOpinCn           String?
+  adtnCstSumAmt        Float?
+  bfhnDtrmOfdcNo       String?
+  bfhnDtrmOfdcPblsDt   String?
+  byerIdfyNo           String?
+  cputBssDlngPrc       Float?
+  cputBssIndrAmt       Float?
+  cputBssSumAmt        Float?
+  createdAt            DateTime  @default(now())
+  cvntDt               String?
+  cvntNo               String?
+  dcerNm               String?
+  dclrDt               String?
+  dclrPlcNm            String?
+  dclrTxPrc            Float?
+  ddctExpCntyTrifAmt   Float?
+  ddctOtcst            Float?
+  ddctOthsApmtAmt      Float?
+  ddctSumAmt           Float?
+  ddctTrnpCst          Float?
+  delYn                String?
+  dlvrCondCd           String?
+  frstRegstId          String?
+  frstRgsrDttm         DateTime?
+  id                   String    @id @default(cuid())
+  invcNo               String?
+  invcPblsDt           String?
+  lastChgDttm          DateTime?
+  lastChprId           String?
+  mdfyDgcnt            Int?
+  othsDesc             String?
+  quesRspn_1Yn         String?
+  quesRspn_2Yn         String?
+  quesRspn_3Yn         String?
+  quesRspn_4Yn         String?
+  quesRspn_5Yn         String?
+  quesRspn_6Yn         String?
+  quesRspn_7Yn         String?
+  quesRspn_8Yn         String?
+  reffNo               String?
+  rstcMtrCn            String?
+  selrNo               String?
+  updatedAt            DateTime  @updatedAt
+}
+
+model TbClreDedPrcDclrPdls {
+  brngTrnpCst   Float?
+  byerPymnCst   Float?
+  createdAt     DateTime  @default(now())
+  delYn         String?
+  frstRegstId   String?
+  frstRgsrDttm  DateTime?
+  id            String    @id @default(cuid())
+  indrPymnTamt  Float?
+  infeeAmt      Float?
+  lastChgDttm   DateTime?
+  lastChprId    String?
+  loadCstAmt    Float?
+  mdfyDgcnt     Int?
+  mdlStszNo     String?
+  mdtnPcfeAmt   Float?
+  mnfuSrvc_1Amt Float?
+  mnfuSrvc_2Amt Float?
+  mnfuSrvc_3Amt Float?
+  mnfuSrvc_4Amt Float?
+  otcstAmt      Float?
+  pcfeAmt       Float?
+  pcfeLcneAmt   Float?
+  pckgAmt       Float?
+  pdlsNo        String?
+  pyrTrifAmt    Float?
+  reffNo        String?
+  resaleErnAmt  Float?
+  techSpptCst   Float?
+  trnpCstAmt    Float?
+  updatedAt     DateTime  @updatedAt
+}
+
+model TbClreDedRwms {
+  bfCmdtClsfSpelCd String?
+  bfDtlDcshNo      String?
+  bfHsCd           String?
+  bfPdlsNo         String?
+  createdAt        DateTime  @default(now())
+  delYn            String?
+  divdFfmnTpCd     String?
+  frstRegstId      String?
+  frstRgsrDttm     DateTime?
+  id               String    @id @default(cuid())
+  lastChgDttm      DateTime?
+  lastChprId       String?
+  mdfyDgcnt        Int?
+  ntwg             Float?
+  pdlsNo           String?
+  qty              Float?
+  qtyUtCd          String?
+  reffNo           String?
+  rwmsSrno         Int?
+  updatedAt        DateTime  @updatedAt
+}
+
+model TbClreDedTax {
+  bscsTaxAmt    Float?
+  bscsTxbsAmt   Float?
+  bscsTxrt      Float?
+  createdAt     DateTime  @default(now())
+  delYn         String?
+  frstRegstId   String?
+  frstRgsrDttm  DateTime?
+  id            String    @id @default(cuid())
+  lastChgDttm   DateTime?
+  lastChprId    String?
+  mdfyDgcnt     Int?
+  mgDscnAplyAmt Float?
+  payKndCd      String?
+  payTaxAmt     Float?
+  pdlsNo        String?
+  rdexAmt       Float?
+  rdexBaseAmt   Float?
+  rdexCd        String?
+  rdexPtCd      String?
+  rdexTxrt      Float?
+  reffNo        String?
+  taxAmt        Float?
+  taxCd         String?
+  tfrtCtgyCd    String?
+  txbsAmt       Float?
+  txrt          Float?
+  updatedAt     DateTime  @updatedAt
+}
+
+model TbClreDedVhcl {
+  caboNm         String?
+  carRgsrNo      String?
+  chssNo         String?
+  clrNm          String?
+  createdAt      DateTime  @default(now())
+  delYn          String?
+  dpcmtCn        String?
+  drvrAddr       String?
+  drvrNm         String?
+  drvrPostNo     String?
+  flKndNm        String?
+  frstOpraDt     String?
+  frstRegstId    String?
+  frstRgsrDttm   DateTime?
+  id             String    @id @default(cuid())
+  impPtNm        String?
+  lastChgDttm    DateTime?
+  lastChprId     String?
+  loadWghtCn     String?
+  mdfyDgcnt      Int?
+  mdlStszNo      String?
+  mkngYy         String?
+  otptCn         String?
+  pdlsNo         String?
+  reffNo         String?
+  stcnt          Int?
+  tpdMgmtNo      String?
+  trsfNnprEndDt  String?
+  trsfNnprStrtDt String?
+  trsfNnprYn     String?
+  updatedAt      DateTime  @updatedAt
+  vhclKndCd      String?
+  vhclKndNm      String?
+  vhclMdlCd      String?
+  vhclMnurCd     String?
+  vhclReleDt     String?
+  vhclWghtCn     String?
+}
+
+model TbClreDedRimexPrngPdls {
+  cmdtClsfSpelCd String?
+  createdAt      DateTime  @default(now())
+  delYn          String?
+  dlngPdlsNm     String?
+  frstRegstId    String?
+  frstRgsrDttm   DateTime?
+  hsCd           String?
+  hsErrPvntVal   String?
+  id             String    @id @default(cuid())
+  lastChgDttm    DateTime?
+  lastChprId     String?
+  mdfyDgcnt      Int?
+  orcyCntyCd     String?
+  pdlsNm         String?
+  pdlsNtwg       Float?
+  pdlsTtwg       Float?
+  prngPdlsNo     String?
+  qty            Float?
+  qtyUtCd        String?
+  reffNo         String?
+  updatedAt      DateTime  @updatedAt
+}

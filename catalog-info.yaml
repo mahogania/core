@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: Amplication-catalog
+  name: Amplication-custom
   description: 
   labels:
     vendor: "amplication"
@@ -11,7 +11,7 @@ metadata:
   tags:
     - "Node.js"
   links:
-    - url: https://server.amplication.com/cm2lpdum1035n14cwagt53drt
+    - url: https://server.amplication.com/cm48bo3y605uu14n7k59afnuv
       title: Amplication Platform
 spec:
   type: service
