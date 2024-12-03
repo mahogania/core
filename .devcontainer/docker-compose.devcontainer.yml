@@ -1,5 +1,5 @@
 include:
-  - .././apps/shipping/docker-compose.yml
+  - .././apps/fund/docker-compose.yml
 version: "3"
 services:
   devcontainer:
