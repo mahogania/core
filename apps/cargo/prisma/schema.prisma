@@ -1,0 +1,215 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model CargoDeclaration {
+  abrdFrwrAddrNm     String?
+  abrdFrwrEml        String?
+  abrdFrwrNm         String?
+  abrdFrwrTlphNo     String?
+  alBlGcnt           Int?
+  alCntrGcnt         Int?
+  alEcntrCnt         Int?
+  alHblGcnt          Int?
+  alNtwg             Float?
+  alPckgGcnt         Int?
+  alTtwg             Float?
+  alVhclGcnt         Int?
+  apreYnCd           String?
+  arvlDttm           DateTime?
+  atchFileId         String?
+  audtOpinCn         String?
+  bfCagMgmtNo        String?
+  blMdfyTpCd         String?
+  blNo               String?
+  blPblsDt           String?
+  blPtCd             String?
+  blTpCd             String?
+  cagChrcCd          String?
+  cagDcshRgsrMgmtNo  String?
+  cagMgmtNo          String?
+  cagRqstTpCd        String?
+  cagTpCd            String?
+  carrAddrNm         String?
+  carrCd             String?
+  casNo              String?
+  cbmVol             Float?
+  cherAddrNm         String?
+  cherGvnmNm         String?
+  cherYn             String?
+  cmdtAmt            Float?
+  cmdtAmtCurrCd      String?
+  cmdtKndCd          String?
+  cnsiAddrNm         String?
+  cnsiEml            String?
+  cnsiNm             String?
+  cnsiTlphNo         String?
+  cnsiTxprIdfyNo     String?
+  cnsiTxprIdfyNoNin  String?
+  cntrGcnt           Int?
+  coRqstNo           String?
+  coatTrnpYn         String?
+  createdAt          DateTime  @default(now())
+  delYn              String?
+  dptrDttm           DateTime?
+  dptrPortCd         String?
+  drvrNm             String?
+  ecntrWght          Float?
+  eurFxrt            Float?
+  exppnAddrNm        String?
+  exppnEml           String?
+  exppnNm            String?
+  exppnTlphNo        String?
+  exppnTxprIdfyNo    String?
+  exppnTxprIdfyNoNin String?
+  frstRegstId        String?
+  frstRgsrDttm       DateTime?
+  frwrCd             String?
+  hblNo              String?
+  hdcbTpCd           String?
+  hsCd               String?
+  hsn                String?
+  ibobzCd            String?
+  id                 String    @id @default(cuid())
+  imoNo              String?
+  jrsdOrgnCd         String?
+  lastChgDttm        DateTime?
+  lastChprId         String?
+  lastLdunDt         String?
+  lastThrgPortCd     String?
+  ldunBlGcnt         Int?
+  ldunPortCd         String?
+  ldunRegnCd         String?
+  ldunYn             String?
+  lirVol             Float?
+  loadRegnCd         String?
+  ltspYn             String?
+  mrn                String?
+  msgPrcsSttsCd      String?
+  msn                String?
+  ntprAddrNm         String?
+  ntprEml            String?
+  ntprNm             String?
+  ntprTlphNo         String?
+  ntwg               Float?
+  pckgGcnt           Int?
+  pckgUtCd           String?
+  pdlsNm             String?
+  prpmDfpmCachTpCd   String?
+  realArvlDttm       DateTime?
+  rmrkCn             String?
+  selcTrgtYn         String?
+  sendWay            String?
+  shipNttn           Float?
+  shipTtn            Float?
+  shmrCn             String?
+  stvdCd             String?
+  trnhRegnCd         String?
+  trnpMeanCd         String?
+  trnpMethIdfyNo     String?
+  trnpMethLoctNm     String?
+  trnpMethNatCd      String?
+  trnpMethNm         String?
+  trnpMethRgsrDt     String?
+  trnpRferNo         String?
+  trsnCoCd           String?
+  trsnDttm           DateTime?
+  ttwg               Float?
+  undgGdCd           String?
+  undgId             String?
+  updatedAt          DateTime  @updatedAt
+  usdFxrt            Float?
+  vhclGcnt           Int?
+}
+
+model CargoDeclarationContainer {
+  cagMgmtNo    String?
+  cntrNo       String?
+  cntrSrno     Int?
+  cntrTpCd     String?
+  createdAt    DateTime  @default(now())
+  delYn        String?
+  ecntrWght    Float?
+  frstRegstId  String?
+  frstRgsrDttm DateTime?
+  id           String    @id @default(cuid())
+  lastChgDttm  DateTime?
+  lastChprId   String?
+  mrn          String?
+  pckgGcnt     Int?
+  pckgUtCd     String?
+  sealChpn1    String?
+  sealChpn2    String?
+  sealChpn3    String?
+  sealNo1      String?
+  sealNo2      String?
+  sealNo3      String?
+  ttwg         Float?
+  updatedAt    DateTime  @updatedAt
+}
+
+model CargoDeclarationTrailer {
+  cagMgmtNo    String?
+  chssNo       String?
+  createdAt    DateTime  @default(now())
+  delYn        String?
+  frstRegstId  String?
+  frstRgsrDttm DateTime?
+  id           String    @id @default(cuid())
+  lastChgDttm  DateTime?
+  lastChprId   String?
+  mrn          String?
+  trlrSrno     Int?
+  trlrStsz     String?
+  updatedAt    DateTime  @updatedAt
+  vhclRgsrNo   String?
+}
+
+model CargoDeclarationVehicle {
+  cagMgmtNo    String?
+  chssNo       String?
+  createdAt    DateTime  @default(now())
+  delYn        String?
+  engnClndGcnt Int?
+  frstRegstId  String?
+  frstRgsrDttm DateTime?
+  id           String    @id @default(cuid())
+  lastChgDttm  DateTime?
+  lastChprId   String?
+  mrn          String?
+  updatedAt    DateTime  @updatedAt
+  vhclKndNm    String?
+  vhclMdlCd    String?
+  vhclMnfcYy   String?
+  vhclMnurCd   String?
+  vhclRgsrNo   String?
+  vhclSrno     Int?
+  vhclTotlWght Float?
+}
+
+model CargoDeclarationTransport {
+  chssNo        String?
+  createdAt     DateTime  @default(now())
+  delYn         String?
+  drvrNm        String?
+  drvrPsprNo    String?
+  frstRegstId   String?
+  frstRgsrDttm  DateTime?
+  id            String    @id @default(cuid())
+  lastChgDttm   DateTime?
+  lastChprId    String?
+  mrn           String?
+  trnpMethNatCd String?
+  updatedAt     DateTime  @updatedAt
+  vhclMnurCd    String?
+  vhclNttn      Float?
+  vhclPtCd      String?
+  vhclRgsrNo    String?
+  vhclSrno      Int?
+  vhclTtn       Float?
+}

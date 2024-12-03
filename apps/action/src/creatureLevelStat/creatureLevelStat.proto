@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+                 package creatureLevelStat;
+service CreatureLevelStatService {
+ rpc createCreatureLevelStat (CreatureLevelStatCreateInput) returns (CreatureLevelStat) {}
+rpc creatureLevelStats (findManyParams) returns (stream CreatureLevelStat) {}
+rpc creatureLevelStat (CreatureLevelStatWhereUniqueInput) returns (CreatureLevelStat) {}
+rpc updateCreatureLevelStat (CreatureLevelStatUpdateInput) returns (CreatureLevelStat) {}
+rpc deleteCreatureLevelStat (CreatureLevelStatWhereUniqueInput) returns (CreatureLevelStat) {}
+rpc findManyCreatureLevelStats (CreatureLevelStatWhereUniqueInput) returns (stream Creature) {}
+rpc updateCreatureLevelStats (CreatureParams) returns (stream Creature) {}
+rpc connectCreatureLevelStats (CreatureParams) returns (Creature) {}
+rpc disconnectCreatureLevelStats (CreatureParams) returns (Creature) {} 
+ }
+message CreatureLevelStatCreateInput {
+int32 Prana = 1;
+string comment = 2;
+string createdAt = 3;
+repeated Creature creatures = 4;
+string id = 5;
+int32 kind = 6;
+int32 level = 7;
+int32 power = 8;
+string updatedAt = 9;
+};
+message CreatureLevelStat {
+int32 Prana = 1;
+string comment = 2;
+string createdAt = 3;
+repeated Creature creatures = 4;
+string id = 5;
+int32 kind = 6;
+int32 level = 7;
+int32 power = 8;
+string updatedAt = 9;
+};
+message CreatureLevelStatWhereUniqueInput {
+int32 Prana = 1;
+string comment = 2;
+string createdAt = 3;
+repeated Creature creatures = 4;
+string id = 5;
+int32 kind = 6;
+int32 level = 7;
+int32 power = 8;
+string updatedAt = 9;
+};
+message CreatureLevelStatUpdateInput {
+int32 Prana = 1;
+string comment = 2;
+string createdAt = 3;
+repeated Creature creatures = 4;
+string id = 5;
+int32 kind = 6;
+int32 level = 7;
+int32 power = 8;
+string updatedAt = 9;
+};
+message findManyParams {
+
+};
+message Creature {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureWhereUniqueInput {
+int32 areaId = 1;
+string behaviourName = 2;
+string createdAt = 3;
+string id = 4;
+int32 mapId = 5;
+int32 modelId = 6;
+string name = 7;
+int32 realmId = 8;
+string transformId = 9;
+string updatedAt = 10;
+int32 zoneId = 11;
+};
+message CreatureParams {
+CreatureLevelStatWhereUniqueInput creatureLevelStatWhereUniqueInput = 1;
+CreatureWhereUniqueInput creatureWhereUniqueInput = 2;
+};

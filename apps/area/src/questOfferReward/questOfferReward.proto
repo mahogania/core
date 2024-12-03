@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package questOfferReward;
+service QuestOfferRewardService {
+ rpc createQuestOfferReward (QuestOfferRewardCreateInput) returns (QuestOfferReward) {}
+rpc questOfferRewards (findManyParams) returns (stream QuestOfferReward) {}
+rpc questOfferReward (QuestOfferRewardWhereUniqueInput) returns (QuestOfferReward) {}
+rpc updateQuestOfferReward (QuestOfferRewardUpdateInput) returns (QuestOfferReward) {}
+rpc deleteQuestOfferReward (QuestOfferRewardWhereUniqueInput) returns (QuestOfferReward) {} 
+ }
+message QuestOfferRewardCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferReward {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message QuestOfferRewardUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

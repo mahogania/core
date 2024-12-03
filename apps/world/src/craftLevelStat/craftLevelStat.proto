@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+                 package craftLevelStat;
+service CraftLevelStatService {
+ rpc createCraftLevelStat (CraftLevelStatCreateInput) returns (CraftLevelStat) {}
+rpc craftLevelStats (findManyParams) returns (stream CraftLevelStat) {}
+rpc craftLevelStat (CraftLevelStatWhereUniqueInput) returns (CraftLevelStat) {}
+rpc updateCraftLevelStat (CraftLevelStatUpdateInput) returns (CraftLevelStat) {}
+rpc deleteCraftLevelStat (CraftLevelStatWhereUniqueInput) returns (CraftLevelStat) {} 
+ }
+message CraftLevelStatCreateInput {
+string createdAt = 1;
+string id = 2;
+int32 level = 3;
+string stat = 4;
+string updatedAt = 5;
+string value = 6;
+};
+message CraftLevelStat {
+string createdAt = 1;
+string id = 2;
+int32 level = 3;
+string stat = 4;
+string updatedAt = 5;
+string value = 6;
+};
+message CraftLevelStatWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+int32 level = 3;
+string stat = 4;
+string updatedAt = 5;
+string value = 6;
+};
+message CraftLevelStatUpdateInput {
+string createdAt = 1;
+string id = 2;
+int32 level = 3;
+string stat = 4;
+string updatedAt = 5;
+string value = 6;
+};
+message findManyParams {
+
+};

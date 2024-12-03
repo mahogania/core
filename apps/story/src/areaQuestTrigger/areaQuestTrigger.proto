@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package areaQuestTrigger;
+service AreaQuestTriggerService {
+ rpc createAreaQuestTrigger (AreaQuestTriggerCreateInput) returns (AreaQuestTrigger) {}
+rpc areaQuestTriggers (findManyParams) returns (stream AreaQuestTrigger) {}
+rpc areaQuestTrigger (AreaQuestTriggerWhereUniqueInput) returns (AreaQuestTrigger) {}
+rpc updateAreaQuestTrigger (AreaQuestTriggerUpdateInput) returns (AreaQuestTrigger) {}
+rpc deleteAreaQuestTrigger (AreaQuestTriggerWhereUniqueInput) returns (AreaQuestTrigger) {} 
+ }
+message AreaQuestTriggerCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AreaQuestTrigger {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AreaQuestTriggerWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message AreaQuestTriggerUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

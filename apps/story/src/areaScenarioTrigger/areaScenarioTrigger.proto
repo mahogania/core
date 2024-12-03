@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+                 package areaScenarioTrigger;
+service AreaScenarioTriggerService {
+ rpc createAreaScenarioTrigger (AreaScenarioTriggerCreateInput) returns (AreaScenarioTrigger) {}
+rpc areaScenarioTriggers (findManyParams) returns (stream AreaScenarioTrigger) {}
+rpc areaScenarioTrigger (AreaScenarioTriggerWhereUniqueInput) returns (AreaScenarioTrigger) {}
+rpc updateAreaScenarioTrigger (AreaScenarioTriggerUpdateInput) returns (AreaScenarioTrigger) {}
+rpc deleteAreaScenarioTrigger (AreaScenarioTriggerWhereUniqueInput) returns (AreaScenarioTrigger) {} 
+ }
+message AreaScenarioTriggerCreateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaScenarioTrigger {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaScenarioTriggerWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message AreaScenarioTriggerUpdateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};

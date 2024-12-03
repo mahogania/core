@@ -1,0 +1,22 @@
+export type PosOpeningEntry = {
+  amendedFrom: string | null;
+  company: string | null;
+  createdAt: Date;
+  creation: Date | null;
+  docStatus: number | null;
+  id: string;
+  idx: number | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  periodEndDate: Date | null;
+  periodStartDate: Date | null;
+  posClosingEntry: string | null;
+  posProfile: string | null;
+  postingDate: Date | null;
+  setPostingDate: number | null;
+  status: string | null;
+  updatedAt: Date;
+  user: string | null;
+};

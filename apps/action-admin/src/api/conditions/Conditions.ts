@@ -1,0 +1,21 @@
+export type Conditions = {
+  comment: string | null;
+  conditionStringValue1: string | null;
+  conditionTarget: number | null;
+  conditionTypeOrReference: number | null;
+  conditionValue1: number | null;
+  conditionValue2: number | null;
+  conditionValue3: number | null;
+  createdAt: Date;
+  elseGroup: number | null;
+  errorTextId: number | null;
+  errorType: number | null;
+  id: string;
+  negativeCondition: number | null;
+  scriptName: string | null;
+  sourceEntry: number | null;
+  sourceGroup: number | null;
+  sourceId: number | null;
+  sourceTypeOrReferenceId: number | null;
+  updatedAt: Date;
+};

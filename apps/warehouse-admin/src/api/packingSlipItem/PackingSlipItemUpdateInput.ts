@@ -1,0 +1,23 @@
+export type PackingSlipItemUpdateInput = {
+  batchNo?: string | null;
+  creation?: Date | null;
+  description?: string | null;
+  dnDetail?: string | null;
+  docstatus?: number | null;
+  idx?: number | null;
+  itemCode?: string | null;
+  itemName?: string | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  netWeight?: number | null;
+  owner?: string | null;
+  pageBreak?: number | null;
+  parent?: string | null;
+  parentfield?: string | null;
+  parenttype?: string | null;
+  piDetail?: string | null;
+  qty?: number | null;
+  stockUom?: string | null;
+  weightUom?: string | null;
+};

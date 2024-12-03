@@ -1,0 +1,1356 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model BomCreatorItem {
+  amount            Float?
+  baseAmount        Float?
+  baseRate          Float?
+  bomCreated        Boolean?
+  conversionFactor  Float?
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  description       String?
+  doNotExplode      Boolean?
+  docstatus         Int?
+  fgItem            String?
+  fgReferenceId     String?
+  id                String    @id @default(cuid())
+  idx               Int?
+  instruction       String?
+  isExpandable      Boolean?
+  itemCode          String?
+  itemGroup         String?
+  itemName          String?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  owner             String?
+  parent            String?
+  parentRowNo       String?
+  parentfield       String?
+  parenttype        String?
+  qty               Float?
+  rate              Float?
+  sourceWarehouse   String?
+  sourcedBySupplier Boolean?
+  stockQty          Float?
+  stockUom          String?
+  uom               String?
+  updatedAt         DateTime  @updatedAt
+}
+
+model BomCreator {
+  amendedFrom             String?
+  buyingPriceList         String?
+  company                 String?
+  conversionRate          Float?
+  createdAt               DateTime  @default(now())
+  creation                DateTime?
+  currency                String?
+  defaultWarehouse        String?
+  docstatus               Int?
+  errorLog                String?
+  id                      String    @id @default(cuid())
+  idx                     Int?
+  itemCode                String?
+  itemGroup               String?
+  itemName                String?
+  modified                DateTime?
+  modifiedBy              String?
+  name                    String?
+  owner                   String?
+  plcConversionRate       Float?
+  priceListCurrency       String?
+  project                 String?
+  qty                     Float?
+  rawMaterialCost         Float?
+  remarks                 String?
+  rmCostAsPer             String?
+  setRateBasedOnWarehouse Boolean?
+  status                  String?
+  uom                     String?
+  updatedAt               DateTime  @updatedAt
+}
+
+model BomExplosionItem {
+  amount                     Float?
+  createdAt                  DateTime  @default(now())
+  creation                   DateTime?
+  description                String?
+  docstatus                  Int?
+  id                         String    @id @default(cuid())
+  idx                        Int?
+  image                      String?
+  includeItemInManufacturing Boolean?
+  itemCode                   String?
+  itemName                   String?
+  modified                   DateTime?
+  modifiedBy                 String?
+  name                       String?
+  operation                  String?
+  owner                      String?
+  parent                     String?
+  parentfield                String?
+  parenttype                 String?
+  qtyConsumedPerUnit         Float?
+  rate                       Float?
+  sourceWarehouse            String?
+  sourcedBySupplier          Boolean?
+  stockQty                   Float?
+  stockUom                   String?
+  updatedAt                  DateTime  @updatedAt
+}
+
+model BomItem {
+  allowAlternativeItem       Boolean?
+  amount                     Float?
+  baseAmount                 Float?
+  baseRate                   Float?
+  bomNo                      String?
+  conversionFactor           Float?
+  createdAt                  DateTime  @default(now())
+  creation                   DateTime?
+  description                String?
+  doNotExplode               Boolean?
+  docstatus                  Int?
+  hasVariants                Boolean?
+  id                         String    @id @default(cuid())
+  idx                        Int?
+  image                      String?
+  includeItemInManufacturing Boolean?
+  isStockItem                Boolean?
+  itemCode                   String?
+  itemName                   String?
+  modified                   DateTime?
+  modifiedBy                 String?
+  name                       String?
+  operation                  String?
+  originalItem               String?
+  owner                      String?
+  parent                     String?
+  parentfield                String?
+  parenttype                 String?
+  qty                        Float?
+  qtyConsumedPerUnit         Float?
+  rate                       Float?
+  sourceWarehouse            String?
+  sourcedBySupplier          Boolean?
+  stockQty                   Float?
+  stockUom                   String?
+  uom                        String?
+  updatedAt                  DateTime  @updatedAt
+}
+
+model BomOperation {
+  baseCostPerUnit      Float?
+  baseHourRate         Float?
+  baseOperatingCost    Float?
+  batchSize            Int?
+  costPerUnit          Float?
+  createdAt            DateTime  @default(now())
+  creation             DateTime?
+  description          String?
+  docstatus            Int?
+  fixedTime            Boolean?
+  hourRate             Float?
+  id                   String    @id @default(cuid())
+  idx                  Int?
+  image                String?
+  modified             DateTime?
+  modifiedBy           String?
+  name                 String?
+  operatingCost        Float?
+  operation            String?
+  owner                String?
+  parent               String?
+  parentfield          String?
+  parenttype           String?
+  sequenceId           Int?
+  setCostBasedOnBomQty Boolean?
+  timeInMins           Float?
+  updatedAt            DateTime  @updatedAt
+  workstation          String?
+  workstationType      String?
+}
+
+model BomScrapItem {
+  amount      Float?
+  baseAmount  Float?
+  baseRate    Float?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  itemCode    String?
+  itemName    String?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  rate        Float?
+  stockQty    Float?
+  stockUom    String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model BomUpdateBatch {
+  batchNo     Int?
+  bomsUpdated String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  level       Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  status      String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model BomUpdateLog {
+  amendedFrom   String?
+  createdAt     DateTime  @default(now())
+  creation      DateTime?
+  currentBom    String?
+  currentLevel  Int?
+  docstatus     Int?
+  errorLog      String?
+  id            String    @id @default(cuid())
+  idx           Int?
+  modified      DateTime?
+  modifiedBy    String?
+  name          String?
+  newBom        String?
+  owner         String?
+  processedBoms String?
+  status        String?
+  updateType    String?
+  updatedAt     DateTime  @updatedAt
+}
+
+model Bom {
+  allowAlternativeItem               Boolean?
+  amendedFrom                        String?
+  baseOperatingCost                  Float?
+  baseRawMaterialCost                Float?
+  baseScrapMaterialCost              Float?
+  baseTotalCost                      Float?
+  bomCreator                         String?
+  bomCreatorItem                     String?
+  buyingPriceList                    String?
+  company                            String?
+  conversionRate                     Float?
+  createdAt                          DateTime  @default(now())
+  creation                           DateTime?
+  currency                           String?
+  description                        String?
+  docstatus                          Int?
+  fgBasedOperatingCost               Boolean?
+  hasVariants                        Boolean?
+  id                                 String    @id @default(cuid())
+  idx                                Int?
+  image                              String?
+  inspectionRequired                 Boolean?
+  isActive                           Boolean?
+  isDefault                          Boolean?
+  item                               String?
+  itemName                           String?
+  modified                           DateTime?
+  modifiedBy                         String?
+  name                               String?
+  operatingCost                      Float?
+  operatingCostPerBomQuantity        Float?
+  owner                              String?
+  plcConversionRate                  Float?
+  priceListCurrency                  String?
+  processLossPercentage              Float?
+  processLossQty                     Float?
+  project                            String?
+  qualityInspectionTemplate          String?
+  quantity                           Float?
+  rawMaterialCost                    Float?
+  rmCostAsPer                        String?
+  route                              String?
+  routing                            String?
+  scrapMaterialCost                  Float?
+  setRateOfSubAssemblyItemBasedOnBom Boolean?
+  showInWebsite                      Boolean?
+  showItems                          Boolean?
+  showOperations                     Boolean?
+  thumbnail                          String?
+  totalCost                          Float?
+  transferMaterialAgainst            String?
+  uom                                String?
+  updatedAt                          DateTime  @updatedAt
+  webLongDescription                 String?
+  websiteImage                       String?
+  withOperations                     Boolean?
+}
+
+model Batch {
+  batchId               String?
+  batchQty              Float?
+  createdAt             DateTime  @default(now())
+  description           String?
+  disabled              Int?
+  docstatus             Int?
+  expiryDate            DateTime?
+  id                    String    @id @default(cuid())
+  idx                   Int?
+  image                 String?
+  item                  String?
+  itemName              String?
+  manufacturingDate     DateTime?
+  owner                 String?
+  parentBatch           String?
+  producedQty           Float?
+  qtyToProduce          Float?
+  referenceDoctype      String?
+  referenceName         String?
+  stockUom              String?
+  supplier              String?
+  updatedAt             DateTime  @updatedAt
+  useBatchwiseValuation Int?
+}
+
+model Bin {
+  actualQty                    Float?
+  createdAt                    DateTime  @default(now())
+  creation                     DateTime?
+  docstatus                    Int?
+  id                           String    @id @default(cuid())
+  idx                          Int?
+  indentedQty                  Float?
+  itemCode                     String?
+  modified                     DateTime?
+  modifiedBy                   String?
+  orderedQty                   Float?
+  owner                        String?
+  plannedQty                   Float?
+  projectedQty                 Float?
+  reservedQty                  Float?
+  reservedQtyForProduction     Float?
+  reservedQtyForProductionPlan Float?
+  reservedQtyForSubContract    Float?
+  reservedStock                Float?
+  stockUom                     String?
+  stockValue                   Float?
+  updatedAt                    DateTime  @updatedAt
+  valuationRate                Float?
+  warehouse                    String?
+}
+
+model InstallationNoteItem {
+  createdAt            DateTime @default(now())
+  description          String?
+  docstatus            Int?
+  id                   String   @id @default(cuid())
+  idx                  Int?
+  itemCode             String?
+  name                 String?
+  owner                String?
+  parent               String?
+  parentfield          String?
+  parenttype           String?
+  prevdocDetailDocname String?
+  prevdocDocname       String?
+  prevdocDoctype       String?
+  qty                  Float?
+  serialAndBatchBundle String?
+  serialNo             String?
+  updatedAt            DateTime @updatedAt
+}
+
+model InventoryDimension {
+  applyToAllDoctypes    Int?
+  condition             String?
+  createdAt             DateTime  @default(now())
+  creation              DateTime?
+  dimensionName         String?
+  disabled              Int?
+  docstatus             Int?
+  documentType          String?
+  fetchFromParent       String?
+  id                    String    @id @default(cuid())
+  idx                   Int?
+  isttable              Int?
+  mandatoryDependsOn    String?
+  modified              DateTime?
+  modifiedBy            String?
+  name                  String?
+  owner                 String?
+  referenceDocument     String?
+  reqd                  Int?
+  sourceFieldname       String?
+  targetFieldname       String?
+  typeOfTransaction     String?
+  updatedAt             DateTime  @updatedAt
+  validateNegativeStock Int?
+}
+
+model LandedCostItem {
+  amount              Float?
+  applicableCharges   Float?
+  costCenter          String?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  description         String?
+  docstatus           Int?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  isFixedAsset        Boolean?
+  itemCode            String?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  owner               String?
+  parent              String?
+  parentfield         String?
+  parenttype          String?
+  purchaseReceiptItem String?
+  qty                 Float?
+  rate                Float?
+  receiptDocument     String?
+  receiptDocumentType String?
+  updatedAt           DateTime  @updatedAt
+}
+
+model LandedCostTaxesAndCharges {
+  accountCurrency String?
+  amount          Float?
+  baseAmount      Float?
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  description     String?
+  docstatus       Int?
+  exchangeRate    Float?
+  expenseAccount  String?
+  id              String    @id @default(cuid())
+  idx             Int?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  owner           String?
+  parent          String?
+  parentfield     String?
+  parenttype      String?
+  updatedAt       DateTime  @updatedAt
+}
+
+model LandedCostPurchaseReceipt {
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  docstatus           Int?
+  grandTotal          Float?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  owner               String?
+  parent              String?
+  parentfield         String?
+  parenttype          String?
+  postingDate         DateTime?
+  receiptDocument     String?
+  receiptDocumentType String?
+  supplier            String?
+  updatedAt           DateTime  @updatedAt
+}
+
+model LandedCostVoucher {
+  amendedFrom              String?
+  company                  String?
+  createdAt                DateTime  @default(now())
+  creation                 DateTime?
+  distributeChargesBasedOn String?
+  docstatus                Int?
+  id                       String    @id @default(cuid())
+  idx                      Int?
+  modified                 DateTime?
+  modifiedBy               String?
+  name                     String?
+  namingSeries             String?
+  owner                    String?
+  postingDate              DateTime?
+  totalTaxesAndCharges     Float?
+  updatedAt                DateTime  @updatedAt
+}
+
+model MaintenanceScheduleItem {
+  createdAt            DateTime  @default(now())
+  creation             DateTime?
+  description          String?
+  docstatus            Int?
+  endDate              DateTime?
+  id                   String    @id @default(cuid())
+  idx                  Int?
+  itemCode             String?
+  itemName             String?
+  modified             DateTime?
+  modifiedBy           String?
+  name                 String?
+  noOfVisits           Int?
+  owner                String?
+  parent               String?
+  parentfield          String?
+  parenttype           String?
+  periodicity          String?
+  salesOrder           String?
+  salesPerson          String?
+  serialAndBatchBundle String?
+  serialNo             String?
+  startDate            DateTime?
+  updatedAt            DateTime  @updatedAt
+}
+
+model MaintenanceSchedule {
+  addressDisplay  String?
+  amendedFrom     String?
+  company         String?
+  contactDisplay  String?
+  contactEmail    String?
+  contactMobile   String?
+  contactPerson   String?
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  customer        String?
+  customerAddress String?
+  customerGroup   String?
+  customerName    String?
+  docstatus       Int?
+  id              String    @id @default(cuid())
+  idx             Int?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  namingSeries    String?
+  owner           String?
+  status          String?
+  territory       String?
+  transactionDate DateTime?
+  updatedAt       DateTime  @updatedAt
+}
+
+model MaintenanceTeamMember {
+  createdAt       DateTime  @default(now())
+  creation        DateTime?
+  docstatus       Int?
+  fullName        String?
+  id              String    @id @default(cuid())
+  idx             Int?
+  maintenanceRole String?
+  modified        DateTime?
+  modifiedBy      String?
+  name            String?
+  owner           String?
+  parent          String?
+  parentfield     String?
+  parenttype      String?
+  teamMember      String?
+  updatedAt       DateTime  @updatedAt
+}
+
+model MaintenanceVisitPurpose {
+  createdAt                 DateTime  @default(now())
+  creation                  DateTime?
+  description               String?
+  docstatus                 Int?
+  id                        String    @id @default(cuid())
+  idx                       Int?
+  itemCode                  String?
+  itemName                  String?
+  maintenanceScheduleDetail String?
+  modified                  DateTime?
+  modifiedBy                String?
+  name                      String?
+  owner                     String?
+  parent                    String?
+  parentfield               String?
+  parenttype                String?
+  prevdocDocname            String?
+  prevdocDoctype            String?
+  serialNo                  String?
+  servicePerson             String?
+  updatedAt                 DateTime  @updatedAt
+  workDone                  String?
+}
+
+model MaintenanceVisit {
+  addressDisplay            String?
+  amendedFrom               String?
+  company                   String?
+  completionStatus          String?
+  contactDisplay            String?
+  contactEmail              String?
+  contactMobile             String?
+  contactPerson             String?
+  createdAt                 DateTime  @default(now())
+  creation                  DateTime?
+  customer                  String?
+  customerAddress           String?
+  customerFeedback          String?
+  customerGroup             String?
+  customerName              String?
+  docstatus                 Int?
+  id                        String    @id @default(cuid())
+  idx                       Int?
+  maintenanceSchedule       String?
+  maintenanceScheduleDetail String?
+  maintenanceType           String?
+  mntcDate                  DateTime?
+  mntcTime                  DateTime?
+  modified                  DateTime?
+  modifiedBy                String?
+  name                      String?
+  namingSeries              String?
+  owner                     String?
+  status                    String?
+  territory                 String?
+  updatedAt                 DateTime  @updatedAt
+}
+
+model MaterialRequestItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Manufacturer {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model MaterialRequestPlanItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model MaterialRequest {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model PackedItem {
+  actualBatchQty       Float?
+  actualQty            Float?
+  batchNo              String?
+  conversionFactor     Float?
+  createdAt            DateTime  @default(now())
+  creation             DateTime?
+  description          String?
+  docstatus            Int?
+  id                   String    @id @default(cuid())
+  idx                  Int?
+  incomingRate         Float?
+  itemCode             String?
+  itemName             String?
+  modified             DateTime?
+  modifiedBy           String?
+  name                 String?
+  orderedQty           Float?
+  owner                String?
+  packedQty            Float?
+  pageBreak            Int?
+  parent               String?
+  parentDetailDocname  String?
+  parentItem           String?
+  parentfield          String?
+  parenttype           String?
+  pickedQty            Float?
+  prevdocDoctype       String?
+  projectedQty         Float?
+  qty                  Float?
+  rate                 Float?
+  serialAndBatchBundle String?
+  serialNo             String?
+  targetWarehouse      String?
+  uom                  String?
+  updatedAt            DateTime  @updatedAt
+  useSerialBatchFields Int?
+  warehouse            String?
+}
+
+model PackingSlipItem {
+  batchNo     String?
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  description String?
+  dnDetail    String?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  itemCode    String?
+  itemName    String?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  netWeight   Float?
+  owner       String?
+  pageBreak   Int?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  piDetail    String?
+  qty         Float?
+  stockUom    String?
+  updatedAt   DateTime  @updatedAt
+  weightUom   String?
+}
+
+model PackingSlip {
+  amendedFrom    String?
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  deliveryNote   String?
+  docstatus      Int?
+  fromCaseNo     Int?
+  grossWeightPkg Float?
+  grossWeightUom String?
+  id             String    @id @default(cuid())
+  idx            Int?
+  letterHead     String?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  namingSeries   String?
+  netWeightPkg   Float?
+  netWeightUom   String?
+  owner          String?
+  toCaseNo       Int?
+  updatedAt      DateTime  @updatedAt
+}
+
+model ProductionPlanItemReference {
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  docstatus      Int?
+  id             String    @id @default(cuid())
+  idx            Int?
+  itemReference  String?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  parent         String?
+  parentfield    String?
+  parenttype     String?
+  qty            String?
+  salesOrder     String?
+  salesOrderItem String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model ProductionPlanMaterialRequestWarehouse {
+  createdAt   DateTime  @default(now())
+  creation    DateTime?
+  docstatus   Int?
+  id          String    @id @default(cuid())
+  idx         Int?
+  modified    DateTime?
+  modifiedBy  String?
+  name        String?
+  owner       String?
+  parent      String?
+  parentfield String?
+  parenttype  String?
+  updatedAt   DateTime  @updatedAt
+  warehouse   String?
+}
+
+model ProductionPlanSubAssemblyItem {
+  actualQty           Float?
+  bomLevel            Int?
+  bomNo               String?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  description         String?
+  docstatus           Int?
+  fgWarehouse         String?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  indent              Int?
+  itemName            String?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  owner               String?
+  parent              String?
+  parentItemCode      String?
+  parentfield         String?
+  parenttype          String?
+  productionItem      String?
+  productionPlanItem  String?
+  projectedQty        Float?
+  purchaseOrder       String?
+  qty                 Float?
+  receivedQty         Float?
+  scheduleDate        DateTime?
+  stockUom            String?
+  supplier            String?
+  typeOfManufacturing String?
+  uom                 String?
+  updatedAt           DateTime  @updatedAt
+  woProducedQty       Float?
+}
+
+model ProductionPlanMaterialRequest {
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  docstatus           Int?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  materialRequest     String?
+  materialRequestDate DateTime?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  owner               String?
+  parent              String?
+  parentfield         String?
+  parenttype          String?
+  updatedAt           DateTime  @updatedAt
+}
+
+model ProductionPlanItem {
+  bomNo                String?
+  createdAt            DateTime  @default(now())
+  creation             DateTime?
+  description          String?
+  docstatus            Int?
+  id                   String    @id @default(cuid())
+  idx                  Int?
+  includeExplodedItems Int?
+  itemCode             String?
+  itemReference        String?
+  materialRequest      String?
+  materialRequestItem  String?
+  modified             DateTime?
+  modifiedBy           String?
+  name                 String?
+  orderedQty           Float?
+  owner                String?
+  parent               String?
+  parentfield          String?
+  parenttype           String?
+  pendingQty           Float?
+  plannedQty           Float?
+  plannedStartDate     DateTime?
+  producedQty          Float?
+  productBundleItem    String?
+  salesOrder           String?
+  salesOrderItem       String?
+  stockUom             String?
+  temporaryName        String?
+  updatedAt            DateTime  @updatedAt
+  warehouse            String?
+}
+
+model ProductionPlanSalesOrder {
+  createdAt      DateTime  @default(now())
+  creation       DateTime?
+  customer       String?
+  docstatus      Int?
+  grandTotal     Float?
+  id             String    @id @default(cuid())
+  idx            Int?
+  modified       DateTime?
+  modifiedBy     String?
+  name           String?
+  owner          String?
+  parent         String?
+  parentfield    String?
+  parenttype     String?
+  salesOrder     String?
+  salesOrderDate DateTime?
+  updatedAt      DateTime  @updatedAt
+}
+
+model ProductionPlan {
+  amendedFrom                  String?
+  combineItems                 Int?
+  combineSubItems              Int?
+  company                      String?
+  considerMinimumOrderQty      Int?
+  createdAt                    DateTime  @default(now())
+  creation                     DateTime?
+  customer                     String?
+  docstatus                    Int?
+  forWarehouse                 String?
+  fromDate                     DateTime?
+  fromDeliveryDate             DateTime?
+  getItemsFrom                 String?
+  id                           String    @id @default(cuid())
+  idx                          Int?
+  ignoreExistingOrderedQty     Int?
+  includeNonStockItems         Int?
+  includeSafetyStock           Int?
+  includeSubcontractedItems    Int?
+  itemCode                     String?
+  modified                     DateTime?
+  modifiedBy                   String?
+  name                         String?
+  namingSeries                 String?
+  owner                        String?
+  postingDate                  DateTime?
+  project                      String?
+  salesOrderStatus             String?
+  skipAvailableSubAssemblyItem Int?
+  status                       String?
+  subAssemblyWarehouse         String?
+  toDate                       DateTime?
+  toDeliveryDate               DateTime?
+  totalPlannedQty              Float?
+  totalProducedQty             Float?
+  updatedAt                    DateTime  @updatedAt
+  warehouse                    String?
+}
+
+model SerialNo {
+  amcExpiryDate      DateTime?
+  asset              String?
+  assetStatus        String?
+  batchNo            String?
+  brand              String?
+  company            String?
+  createdAt          DateTime  @default(now())
+  creation           DateTime?
+  description        String?
+  docstatus          Int?
+  employee           String?
+  id                 String    @id @default(cuid())
+  idx                Int?
+  itemCode           String?
+  itemGroup          String?
+  itemName           String?
+  location           String?
+  maintenanceStatus  String?
+  modified           DateTime?
+  modifiedBy         String?
+  name               String?
+  owner              String?
+  purchaseDocumentNo String?
+  purchaseRate       Float?
+  serialNo           String?
+  status             String?
+  updatedAt          DateTime  @updatedAt
+  warehouse          String?
+  warrantyExpiryDate DateTime?
+  warrantyPeriod     Int?
+  workOrder          String?
+}
+
+model SerialAndBatchEntry {
+  batchNo              String?
+  createdAt            DateTime  @default(now())
+  creation             DateTime?
+  deliveredQty         Float?
+  docstatus            Int?
+  id                   String    @id @default(cuid())
+  idx                  Int?
+  incomingRate         Float?
+  isOutward            Int?
+  modified             DateTime?
+  modifiedBy           String?
+  name                 String?
+  outgoingRate         Float?
+  owner                String?
+  parent               String?
+  parentfield          String?
+  parenttype           String?
+  qty                  Float?
+  serialNo             String?
+  stockQueue           String?
+  stockValueDifference Float?
+  updatedAt            DateTime  @updatedAt
+  warehouse            String?
+}
+
+model SerialAndBatchBundle {
+  amendedFrom       String?
+  avgRate           Float?
+  company           String?
+  createdAt         DateTime  @default(now())
+  creation          DateTime?
+  docstatus         Int?
+  hasBatchNo        Int?
+  hasSerialNo       Int?
+  id                String    @id @default(cuid())
+  idx               Int?
+  isCancelled       Int?
+  isRejected        Int?
+  itemCode          String?
+  itemGroup         String?
+  itemName          String?
+  modified          DateTime?
+  modifiedBy        String?
+  name              String?
+  namingSeries      String?
+  owner             String?
+  postingDate       DateTime?
+  postingTime       DateTime?
+  returnedAgainst   String?
+  totalAmount       Float?
+  totalQty          Float?
+  typeOfTransaction String?
+  updatedAt         DateTime  @updatedAt
+  voucherDetailNo   String?
+  voucherNo         String?
+  voucherType       String?
+  warehouse         String?
+}
+
+model StockEntryDetail {
+  actualQty                Float?
+  additionalCost           Float?
+  againstStockEntry        String?
+  allowAlternativeItem     Boolean?
+  allowZeroValuationRate   Boolean?
+  amount                   Float?
+  barcode                  String?
+  basicAmount              Float?
+  basicRate                Float?
+  batchNo                  String?
+  bomNo                    String?
+  conversionFactor         Float?
+  costCenter               String?
+  createdAt                DateTime  @default(now())
+  creation                 DateTime?
+  description              String?
+  docstatus                Int?
+  expenseAccount           String?
+  hasItemScanned           Boolean?
+  id                       String    @id @default(cuid())
+  idx                      Int?
+  image                    String?
+  isFinishedItem           Boolean?
+  isScrapItem              Boolean?
+  itemCode                 String?
+  itemGroup                String?
+  itemName                 String?
+  jobCardItem              String?
+  materialRequest          String?
+  materialRequestItem      String?
+  modified                 DateTime?
+  modifiedBy               String?
+  name                     String?
+  originalItem             String?
+  owner                    String?
+  parent                   String?
+  parentfield              String?
+  parenttype               String?
+  poDetail                 String?
+  project                  String?
+  putawayRule              String?
+  qty                      Float?
+  qualityInspection        String?
+  referencePurchaseReceipt String?
+  retainSample             Boolean?
+  sWarehouse               String?
+  sampleQuantity           Int?
+  scoRmDetail              String?
+  serialAndBatchBundle     String?
+  serialNo                 String?
+  setBasicRateManually     Boolean?
+  steDetail                String?
+  stockUom                 String?
+  subcontractedItem        String?
+  tWarehouse               String?
+  transferQty              Float?
+  transferredQty           Float?
+  uom                      String?
+  updatedAt                DateTime  @updatedAt
+  useSerialBatchFields     Boolean?
+  valuationRate            Float?
+}
+
+model StockEntryType {
+  addToTransit Boolean?
+  createdAt    DateTime  @default(now())
+  creation     DateTime?
+  docstatus    Int?
+  id           String    @id @default(cuid())
+  idx          Int?
+  isStandard   Boolean?
+  modified     DateTime?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  purpose      String?
+  updatedAt    DateTime  @updatedAt
+}
+
+model StockLedgerEntry {
+  actualQty                       Float?
+  autoCreatedSerialAndBatchBundle Boolean?
+  batchNo                         String?
+  company                         String?
+  createdAt                       DateTime  @default(now())
+  creation                        DateTime?
+  dependantSleVoucherDetailNo     String?
+  docstatus                       Int?
+  fiscalYear                      String?
+  hasBatchNo                      Boolean?
+  hasSerialNo                     Boolean?
+  id                              String    @id @default(cuid())
+  idx                             Int?
+  incomingRate                    Float?
+  isAdjustmentEntry               Boolean?
+  isCancelled                     Boolean?
+  itemCode                        String?
+  modified                        DateTime?
+  modifiedBy                      String?
+  name                            String?
+  outgoingRate                    Float?
+  owner                           String?
+  postingDate                     DateTime?
+  postingDatetime                 DateTime?
+  postingTime                     DateTime?
+  project                         String?
+  qtyAfterTransaction             Float?
+  recalculateRate                 Boolean?
+  serialAndBatchBundle            String?
+  serialNo                        String?
+  stockQueue                      String?
+  stockUom                        String?
+  stockValue                      Float?
+  stockValueDifference            Float?
+  toRename                        Boolean?
+  updatedAt                       DateTime  @updatedAt
+  valuationRate                   Float?
+  voucherDetailNo                 String?
+  voucherNo                       String?
+  voucherType                     String?
+  warehouse                       String?
+}
+
+model StockReconciliationItem {
+  allowZeroValuationRate      Boolean?
+  amount                      Float?
+  amountDifference            Float?
+  barcode                     String?
+  batchNo                     String?
+  createdAt                   DateTime  @default(now())
+  creation                    DateTime?
+  currentAmount               Float?
+  currentQty                  Float?
+  currentSerialAndBatchBundle String?
+  currentSerialNo             String?
+  currentValuationRate        Float?
+  docstatus                   Int?
+  hasItemScanned              String?
+  id                          String    @id @default(cuid())
+  idx                         Int?
+  itemCode                    String?
+  itemGroup                   String?
+  itemName                    String?
+  modified                    DateTime?
+  modifiedBy                  String?
+  name                        String?
+  owner                       String?
+  parent                      String?
+  parentfield                 String?
+  parenttype                  String?
+  qty                         Float?
+  quantityDifference          String?
+  reconcileAllSerialBatch     Boolean?
+  serialAndBatchBundle        String?
+  serialNo                    String?
+  updatedAt                   DateTime  @updatedAt
+  useSerialBatchFields        Boolean?
+  valuationRate               Float?
+  warehouse                   String?
+}
+
+model StockReservationEntry {
+  amendedFrom         String?
+  availableQty        Float?
+  company             String?
+  createdAt           DateTime  @default(now())
+  creation            DateTime?
+  deliveredQty        Float?
+  docstatus           Int?
+  fromVoucherDetailNo String?
+  fromVoucherNo       String?
+  fromVoucherType     String?
+  hasBatchNo          Boolean?
+  hasSerialNo         Boolean?
+  id                  String    @id @default(cuid())
+  idx                 Int?
+  itemCode            String?
+  modified            DateTime?
+  modifiedBy          String?
+  name                String?
+  owner               String?
+  project             String?
+  reservationBasedOn  String?
+  reservedQty         Float?
+  status              String?
+  stockUom            String?
+  updatedAt           DateTime  @updatedAt
+  voucherDetailNo     String?
+  voucherNo           String?
+  voucherQty          Float?
+  voucherType         String?
+  warehouse           String?
+}
+
+model StockReconciliation {
+  amendedFrom      String?
+  company          String?
+  costCenter       String?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  differenceAmount Float?
+  docstatus        Int?
+  expenseAccount   String?
+  id               String    @id @default(cuid())
+  idx              Int?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  namingSeries     String?
+  owner            String?
+  postingDate      DateTime?
+  postingTime      DateTime?
+  purpose          String?
+  scanBarcode      String?
+  scanMode         Boolean?
+  setPostingTime   Boolean?
+  setWarehouse     String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model SubcontractingBom {
+  conversionFactor Float?
+  createdAt        DateTime  @default(now())
+  creation         DateTime?
+  docstatus        Int?
+  finishedGood     String?
+  finishedGoodBom  String?
+  finishedGoodQty  Float?
+  finishedGoodUom  String?
+  id               String    @id @default(cuid())
+  idx              Int?
+  isActive         Boolean?
+  modified         DateTime?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  serviceItem      String?
+  serviceItemQty   Float?
+  serviceItemUom   String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model UomConversionDetail {
+  conversionFactor Float?
+  createdAt        DateTime @default(now())
+  docstatus        Int?
+  id               String   @id @default(cuid())
+  idx              Int?
+  modifiedBy       String?
+  name             String?
+  owner            String?
+  parent           String?
+  parentfield      String?
+  parenttype       String?
+  uom              String?
+  updatedAt        DateTime @updatedAt
+}
+
+model UomCategory {
+  categoryName String?
+  createdAt    DateTime @default(now())
+  docstatus    Int?
+  id           String   @id @default(cuid())
+  idx          Int?
+  modifiedBy   String?
+  name         String?
+  owner        String?
+  updatedAt    DateTime @updatedAt
+}
+
+model UomConversionFactor {
+  category   String?
+  createdAt  DateTime @default(now())
+  docstatus  Int?
+  fromUom    String?
+  id         String   @id @default(cuid())
+  idx        Int?
+  modifiedBy String?
+  name       String?
+  owner      String?
+  toUom      String?
+  updatedAt  DateTime @updatedAt
+  value      Float?
+}
+
+model Uom {
+  createdAt         DateTime @default(now())
+  docstatus         Int?
+  enabled           Boolean?
+  id                String   @id @default(cuid())
+  idx               Int?
+  modifiedBy        String?
+  mustBeWholeNumber Boolean?
+  name              String?
+  owner             String?
+  uomName           String?
+  updatedAt         DateTime @updatedAt
+}
+
+model Warehouse {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model WorkOrderItem {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model WarrantyClaim {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model WarehouseType {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model WorkOrderOperation {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model WorkOrder {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}

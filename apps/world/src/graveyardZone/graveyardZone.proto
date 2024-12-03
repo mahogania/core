@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package graveyardZone;
+service GraveyardZoneService {
+ rpc createGraveyardZone (GraveyardZoneCreateInput) returns (GraveyardZone) {}
+rpc graveyardZones (findManyParams) returns (stream GraveyardZone) {}
+rpc graveyardZone (GraveyardZoneWhereUniqueInput) returns (GraveyardZone) {}
+rpc updateGraveyardZone (GraveyardZoneUpdateInput) returns (GraveyardZone) {}
+rpc deleteGraveyardZone (GraveyardZoneWhereUniqueInput) returns (GraveyardZone) {} 
+ }
+message GraveyardZoneCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GraveyardZone {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GraveyardZoneWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message GraveyardZoneUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

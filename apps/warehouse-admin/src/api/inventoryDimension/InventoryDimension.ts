@@ -1,0 +1,26 @@
+export type InventoryDimension = {
+  applyToAllDoctypes: number | null;
+  condition: string | null;
+  createdAt: Date;
+  creation: Date | null;
+  dimensionName: string | null;
+  disabled: number | null;
+  docstatus: number | null;
+  documentType: string | null;
+  fetchFromParent: string | null;
+  id: string;
+  idx: number | null;
+  isttable: number | null;
+  mandatoryDependsOn: string | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  owner: string | null;
+  referenceDocument: string | null;
+  reqd: number | null;
+  sourceFieldname: string | null;
+  targetFieldname: string | null;
+  typeOfTransaction: string | null;
+  updatedAt: Date;
+  validateNegativeStock: number | null;
+};

@@ -1,0 +1,22 @@
+export type TbClreDedRwms = {
+  bfCmdtClsfSpelCd: string | null;
+  bfDtlDcshNo: string | null;
+  bfHsCd: string | null;
+  bfPdlsNo: string | null;
+  createdAt: Date;
+  delYn: string | null;
+  divdFfmnTpCd: string | null;
+  frstRegstId: string | null;
+  frstRgsrDttm: Date | null;
+  id: string;
+  lastChgDttm: Date | null;
+  lastChprId: string | null;
+  mdfyDgcnt: number | null;
+  ntwg: number | null;
+  pdlsNo: string | null;
+  qty: number | null;
+  qtyUtCd: string | null;
+  reffNo: string | null;
+  rwmsSrno: number | null;
+  updatedAt: Date;
+};

@@ -1,0 +1,22 @@
+export type SerialAndBatchEntryUpdateInput = {
+  batchNo?: string | null;
+  creation?: Date | null;
+  deliveredQty?: number | null;
+  docstatus?: number | null;
+  idx?: number | null;
+  incomingRate?: number | null;
+  isOutward?: number | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  outgoingRate?: number | null;
+  owner?: string | null;
+  parent?: string | null;
+  parentfield?: string | null;
+  parenttype?: string | null;
+  qty?: number | null;
+  serialNo?: string | null;
+  stockQueue?: string | null;
+  stockValueDifference?: number | null;
+  warehouse?: string | null;
+};

@@ -1,0 +1,34 @@
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+
+export type CustomDocPermWhereInput = {
+  amend?: BooleanNullableFilter;
+  cancel?: BooleanNullableFilter;
+  create?: BooleanNullableFilter;
+  creation?: DateTimeNullableFilter;
+  deleteField?: BooleanNullableFilter;
+  docstatus?: IntNullableFilter;
+  email?: BooleanNullableFilter;
+  exportField?: BooleanNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  ifOwner?: BooleanNullableFilter;
+  importField?: BooleanNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  permlevel?: IntNullableFilter;
+  print?: BooleanNullableFilter;
+  read?: BooleanNullableFilter;
+  report?: BooleanNullableFilter;
+  role?: StringNullableFilter;
+  selectField?: BooleanNullableFilter;
+  share?: BooleanNullableFilter;
+  submit?: BooleanNullableFilter;
+  write?: BooleanNullableFilter;
+};

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package skillExtraItemTemplate;
+service SkillExtraItemTemplateService {
+ rpc createSkillExtraItemTemplate (SkillExtraItemTemplateCreateInput) returns (SkillExtraItemTemplate) {}
+rpc skillExtraItemTemplates (findManyParams) returns (stream SkillExtraItemTemplate) {}
+rpc skillExtraItemTemplate (SkillExtraItemTemplateWhereUniqueInput) returns (SkillExtraItemTemplate) {}
+rpc updateSkillExtraItemTemplate (SkillExtraItemTemplateUpdateInput) returns (SkillExtraItemTemplate) {}
+rpc deleteSkillExtraItemTemplate (SkillExtraItemTemplateWhereUniqueInput) returns (SkillExtraItemTemplate) {} 
+ }
+message SkillExtraItemTemplateCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillExtraItemTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillExtraItemTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message SkillExtraItemTemplateUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

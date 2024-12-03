@@ -1,0 +1,25 @@
+export type PaymentEntryReferenceUpdateInput = {
+  account?: string | null;
+  accountType?: string | null;
+  allocatedAmount?: number | null;
+  billNo?: string | null;
+  creation?: Date | null;
+  docstatus?: number | null;
+  dueDate?: Date | null;
+  exchangeGainLoss?: number | null;
+  exchangeRate?: number | null;
+  idx?: number | null;
+  modified?: Date | null;
+  modifiedBy?: string | null;
+  name?: string | null;
+  outstandingAmount?: number | null;
+  owner?: string | null;
+  parent?: string | null;
+  parentfield?: string | null;
+  parenttype?: string | null;
+  paymentTerm?: string | null;
+  paymentType?: string | null;
+  referenceDoctype?: string | null;
+  referenceName?: string | null;
+  totalAmount?: number | null;
+};

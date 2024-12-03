@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+                 package gameEventCondition;
+service GameEventConditionService {
+ rpc createGameEventCondition (GameEventConditionCreateInput) returns (GameEventCondition) {}
+rpc gameEventConditions (findManyParams) returns (stream GameEventCondition) {}
+rpc gameEventCondition (GameEventConditionWhereUniqueInput) returns (GameEventCondition) {}
+rpc updateGameEventCondition (GameEventConditionUpdateInput) returns (GameEventCondition) {}
+rpc deleteGameEventCondition (GameEventConditionWhereUniqueInput) returns (GameEventCondition) {}
+rpc findManyGameEventConditions (GameEventConditionWhereUniqueInput) returns (stream GameEvent) {}
+rpc updateGameEventConditions (GameEventParams) returns (stream GameEvent) {}
+rpc connectGameEventConditions (GameEventParams) returns (GameEvent) {}
+rpc disconnectGameEventConditions (GameEventParams) returns (GameEvent) {} 
+ }
+message GameEventConditionCreateInput {
+string createdAt = 1;
+string description = 2;
+repeated GameEvent gameEvents = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message GameEventCondition {
+string createdAt = 1;
+string description = 2;
+repeated GameEvent gameEvents = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message GameEventConditionWhereUniqueInput {
+string createdAt = 1;
+string description = 2;
+repeated GameEvent gameEvents = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message GameEventConditionUpdateInput {
+string createdAt = 1;
+string description = 2;
+repeated GameEvent gameEvents = 3;
+string id = 4;
+string name = 5;
+string updatedAt = 6;
+};
+message findManyParams {
+
+};
+message GameEvent {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message GameEventWhereUniqueInput {
+string announce = 1;
+string createdAt = 2;
+string description = 3;
+string endTime = 4;
+string id = 5;
+string startTime = 6;
+string updatedAt = 7;
+};
+message GameEventParams {
+GameEventConditionWhereUniqueInput gameEventConditionWhereUniqueInput = 1;
+GameEventWhereUniqueInput gameeventWhereUniqueInput = 2;
+};

@@ -1,0 +1,30 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
+
+export type StockReconciliationWhereInput = {
+  amendedFrom?: StringNullableFilter;
+  company?: StringNullableFilter;
+  costCenter?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  differenceAmount?: FloatNullableFilter;
+  docstatus?: IntNullableFilter;
+  expenseAccount?: StringNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  namingSeries?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  postingDate?: DateTimeNullableFilter;
+  postingTime?: DateTimeNullableFilter;
+  purpose?: StringNullableFilter;
+  scanBarcode?: StringNullableFilter;
+  scanMode?: BooleanNullableFilter;
+  setPostingTime?: BooleanNullableFilter;
+  setWarehouse?: StringNullableFilter;
+};

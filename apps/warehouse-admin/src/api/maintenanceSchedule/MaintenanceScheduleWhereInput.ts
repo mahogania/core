@@ -1,0 +1,30 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+
+export type MaintenanceScheduleWhereInput = {
+  addressDisplay?: StringNullableFilter;
+  amendedFrom?: StringNullableFilter;
+  company?: StringNullableFilter;
+  contactDisplay?: StringNullableFilter;
+  contactEmail?: StringNullableFilter;
+  contactMobile?: StringNullableFilter;
+  contactPerson?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  customer?: StringNullableFilter;
+  customerAddress?: StringNullableFilter;
+  customerGroup?: StringNullableFilter;
+  customerName?: StringNullableFilter;
+  docstatus?: IntNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  namingSeries?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  status?: StringNullableFilter;
+  territory?: StringNullableFilter;
+  transactionDate?: DateTimeNullableFilter;
+};

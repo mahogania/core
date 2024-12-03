@@ -1,0 +1,27 @@
+export type MaintenanceSchedule = {
+  addressDisplay: string | null;
+  amendedFrom: string | null;
+  company: string | null;
+  contactDisplay: string | null;
+  contactEmail: string | null;
+  contactMobile: string | null;
+  contactPerson: string | null;
+  createdAt: Date;
+  creation: Date | null;
+  customer: string | null;
+  customerAddress: string | null;
+  customerGroup: string | null;
+  customerName: string | null;
+  docstatus: number | null;
+  id: string;
+  idx: number | null;
+  modified: Date | null;
+  modifiedBy: string | null;
+  name: string | null;
+  namingSeries: string | null;
+  owner: string | null;
+  status: string | null;
+  territory: string | null;
+  transactionDate: Date | null;
+  updatedAt: Date;
+};

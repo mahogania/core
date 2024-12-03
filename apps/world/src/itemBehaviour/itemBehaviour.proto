@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+                 package itemBehaviour;
+service ItemBehaviourService {
+ rpc createItemBehaviour (ItemBehaviourCreateInput) returns (ItemBehaviour) {}
+rpc itemBehaviours (findManyParams) returns (stream ItemBehaviour) {}
+rpc itemBehaviour (ItemBehaviourWhereUniqueInput) returns (ItemBehaviour) {}
+rpc updateItemBehaviour (ItemBehaviourUpdateInput) returns (ItemBehaviour) {}
+rpc deleteItemBehaviour (ItemBehaviourWhereUniqueInput) returns (ItemBehaviour) {}
+rpc findManyItemBehaviour (ItemBehaviourWhereUniqueInput) returns (stream ItemTemplate) {}
+rpc updateItemBehaviour (ItemTemplateParams) returns (stream ItemTemplate) {}
+rpc connectItemBehaviour (ItemTemplateParams) returns (ItemTemplate) {}
+rpc disconnectItemBehaviour (ItemTemplateParams) returns (ItemTemplate) {} 
+ }
+message ItemBehaviourCreateInput {
+string createdAt = 1;
+string id = 2;
+repeated ItemTemplate itemTemplates = 3;
+string updatedAt = 4;
+};
+message ItemBehaviour {
+string createdAt = 1;
+string id = 2;
+repeated ItemTemplate itemTemplates = 3;
+string updatedAt = 4;
+};
+message ItemBehaviourWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated ItemTemplate itemTemplates = 3;
+string updatedAt = 4;
+};
+message ItemBehaviourUpdateInput {
+string createdAt = 1;
+string id = 2;
+repeated ItemTemplate itemTemplates = 3;
+string updatedAt = 4;
+};
+message findManyParams {
+
+};
+message ItemTemplate {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemTemplateWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message ItemTemplateParams {
+ItemBehaviourWhereUniqueInput itemBehaviourWhereUniqueInput = 1;
+ItemTemplateWhereUniqueInput itemtemplateWhereUniqueInput = 2;
+};

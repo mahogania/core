@@ -1,0 +1,36 @@
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
+
+export type DeliveryStopWhereInput = {
+  address?: StringNullableFilter;
+  contact?: StringNullableFilter;
+  creation?: DateTimeNullableFilter;
+  customer?: StringNullableFilter;
+  customerAddress?: StringNullableFilter;
+  customerContact?: StringNullableFilter;
+  deliveryNote?: StringNullableFilter;
+  details?: StringNullableFilter;
+  distance?: FloatNullableFilter;
+  docstatus?: IntNullableFilter;
+  emailSentTo?: StringNullableFilter;
+  estimatedArrival?: DateTimeNullableFilter;
+  grandTotal?: FloatNullableFilter;
+  id?: StringFilter;
+  idx?: IntNullableFilter;
+  lat?: FloatNullableFilter;
+  lng?: FloatNullableFilter;
+  locked?: BooleanNullableFilter;
+  modified?: DateTimeNullableFilter;
+  modifiedBy?: StringNullableFilter;
+  name?: StringNullableFilter;
+  owner?: StringNullableFilter;
+  parent?: StringNullableFilter;
+  parentfield?: StringNullableFilter;
+  parenttype?: StringNullableFilter;
+  uom?: StringNullableFilter;
+  visited?: BooleanNullableFilter;
+};

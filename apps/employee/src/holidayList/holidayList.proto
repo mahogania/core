@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+                 package holidayList;
+service HolidayListService {
+ rpc createHolidayList (HolidayListCreateInput) returns (HolidayList) {}
+rpc holidayLists (findManyParams) returns (stream HolidayList) {}
+rpc holidayList (HolidayListWhereUniqueInput) returns (HolidayList) {}
+rpc updateHolidayList (HolidayListUpdateInput) returns (HolidayList) {}
+rpc deleteHolidayList (HolidayListWhereUniqueInput) returns (HolidayList) {} 
+ }
+message HolidayListCreateInput {
+string color = 1;
+string country = 2;
+string createdAt = 3;
+string creation = 4;
+int32 docstatus = 5;
+string fromDate = 6;
+string holidayListName = 7;
+string id = 8;
+int32 idx = 9;
+string modified = 10;
+string modifiedBy = 11;
+string name = 12;
+string owner = 13;
+string subdivision = 14;
+string toDate = 15;
+int32 totalHolidays = 16;
+string updatedAt = 17;
+string weeklyOff = 18;
+};
+message HolidayList {
+string color = 1;
+string country = 2;
+string createdAt = 3;
+string creation = 4;
+int32 docstatus = 5;
+string fromDate = 6;
+string holidayListName = 7;
+string id = 8;
+int32 idx = 9;
+string modified = 10;
+string modifiedBy = 11;
+string name = 12;
+string owner = 13;
+string subdivision = 14;
+string toDate = 15;
+int32 totalHolidays = 16;
+string updatedAt = 17;
+string weeklyOff = 18;
+};
+message HolidayListWhereUniqueInput {
+string color = 1;
+string country = 2;
+string createdAt = 3;
+string creation = 4;
+int32 docstatus = 5;
+string fromDate = 6;
+string holidayListName = 7;
+string id = 8;
+int32 idx = 9;
+string modified = 10;
+string modifiedBy = 11;
+string name = 12;
+string owner = 13;
+string subdivision = 14;
+string toDate = 15;
+int32 totalHolidays = 16;
+string updatedAt = 17;
+string weeklyOff = 18;
+};
+message HolidayListUpdateInput {
+string color = 1;
+string country = 2;
+string createdAt = 3;
+string creation = 4;
+int32 docstatus = 5;
+string fromDate = 6;
+string holidayListName = 7;
+string id = 8;
+int32 idx = 9;
+string modified = 10;
+string modifiedBy = 11;
+string name = 12;
+string owner = 13;
+string subdivision = 14;
+string toDate = 15;
+int32 totalHolidays = 16;
+string updatedAt = 17;
+string weeklyOff = 18;
+};
+message findManyParams {
+
+};

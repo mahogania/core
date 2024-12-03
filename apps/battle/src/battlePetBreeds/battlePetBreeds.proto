@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package battlePetBreeds;
+service BattlePetBreedsService {
+ rpc createBattlePetBreeds (BattlePetBreedsCreateInput) returns (BattlePetBreeds) {}
+rpc battlePetBreedsItems (findManyParams) returns (stream BattlePetBreeds) {}
+rpc battlePetBreeds (BattlePetBreedsWhereUniqueInput) returns (BattlePetBreeds) {}
+rpc updateBattlePetBreeds (BattlePetBreedsUpdateInput) returns (BattlePetBreeds) {}
+rpc deleteBattlePetBreeds (BattlePetBreedsWhereUniqueInput) returns (BattlePetBreeds) {} 
+ }
+message BattlePetBreedsCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message BattlePetBreeds {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message BattlePetBreedsWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message BattlePetBreedsUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};
