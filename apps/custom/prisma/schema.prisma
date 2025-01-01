@@ -313,7 +313,7 @@ model TbClreDedVlutPdls {
   updatedAt       DateTime  @updatedAt
 }
 
-model TbClreDedCntr {
+model ClearanceDeclarationContainer {
   cntrNo         String?
   cntrSrno       Int?
   cntrStfnSttsCd String?

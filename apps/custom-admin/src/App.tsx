@@ -25,10 +25,10 @@ import { TbClreDedVlutPdlsList } from "./tbClreDedVlutPdls/TbClreDedVlutPdlsList
 import { TbClreDedVlutPdlsCreate } from "./tbClreDedVlutPdls/TbClreDedVlutPdlsCreate";
 import { TbClreDedVlutPdlsEdit } from "./tbClreDedVlutPdls/TbClreDedVlutPdlsEdit";
 import { TbClreDedVlutPdlsShow } from "./tbClreDedVlutPdls/TbClreDedVlutPdlsShow";
-import { TbClreDedCntrList } from "./tbClreDedCntr/TbClreDedCntrList";
-import { TbClreDedCntrCreate } from "./tbClreDedCntr/TbClreDedCntrCreate";
-import { TbClreDedCntrEdit } from "./tbClreDedCntr/TbClreDedCntrEdit";
-import { TbClreDedCntrShow } from "./tbClreDedCntr/TbClreDedCntrShow";
+import { ClearanceDeclarationContainerList } from "./clearanceDeclarationContainer/ClearanceDeclarationContainerList";
+import { ClearanceDeclarationContainerCreate } from "./clearanceDeclarationContainer/ClearanceDeclarationContainerCreate";
+import { ClearanceDeclarationContainerEdit } from "./clearanceDeclarationContainer/ClearanceDeclarationContainerEdit";
+import { ClearanceDeclarationContainerShow } from "./clearanceDeclarationContainer/ClearanceDeclarationContainerShow";
 import { TbClreDedCoList } from "./tbClreDedCo/TbClreDedCoList";
 import { TbClreDedCoCreate } from "./tbClreDedCo/TbClreDedCoCreate";
 import { TbClreDedCoEdit } from "./tbClreDedCo/TbClreDedCoEdit";
@@ -110,11 +110,11 @@ const App = (): React.ReactElement => {
           show={TbClreDedVlutPdlsShow}
         />
         <Resource
-          name="TbClreDedCntr"
-          list={TbClreDedCntrList}
-          edit={TbClreDedCntrEdit}
-          create={TbClreDedCntrCreate}
-          show={TbClreDedCntrShow}
+          name="ClearanceDeclarationContainer"
+          list={ClearanceDeclarationContainerList}
+          edit={ClearanceDeclarationContainerEdit}
+          create={ClearanceDeclarationContainerCreate}
+          show={ClearanceDeclarationContainerShow}
         />
         <Resource
           name="TbClreDedCo"

@@ -20,7 +20,7 @@ import { TbClreDedPdlsModule } from "./tbClreDedPdls/tbClreDedPdls.module";
 import { TbClreDedMdlStszModule } from "./tbClreDedMdlStsz/tbClreDedMdlStsz.module";
 import { TbClreDedVlutComnModule } from "./tbClreDedVlutComn/tbClreDedVlutComn.module";
 import { TbClreDedVlutPdlsModule } from "./tbClreDedVlutPdls/tbClreDedVlutPdls.module";
-import { TbClreDedCntrModule } from "./tbClreDedCntr/tbClreDedCntr.module";
+import { ClearanceDeclarationContainerModule } from "./clearanceDeclarationContainer/clearanceDeclarationContainer.module";
 import { TbClreDedCoModule } from "./tbClreDedCo/tbClreDedCo.module";
 import { TbClreDedMgModule } from "./tbClreDedMg/tbClreDedMg.module";
 import { TbClreDedPrcDclrModule } from "./tbClreDedPrcDclr/tbClreDedPrcDclr.module";
@@ -53,7 +53,7 @@ import { LoggerModule } from "./logger/logger.module";
     TbClreDedMdlStszModule,
     TbClreDedVlutComnModule,
     TbClreDedVlutPdlsModule,
-    TbClreDedCntrModule,
+    ClearanceDeclarationContainerModule,
     TbClreDedCoModule,
     TbClreDedMgModule,
     TbClreDedPrcDclrModule,
