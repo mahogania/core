@@ -1,0 +1,95 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model CariCagDcshBlCntr {
+  cagMgmtNo    String?
+  cntrNo       String?
+  cntrSrno     Int?
+  cntrTpCd     String?
+  createdAt    DateTime  @default(now())
+  delYn        String?
+  ecntrWght    Float?
+  frstRegstId  String?
+  frstRgsrDttm DateTime?
+  id           String    @id @default(cuid())
+  lastChgDttm  DateTime?
+  lastChprId   String?
+  mrn          String?
+  pckgGcnt     Int?
+  pckgUtCd     String?
+  sealChpn1    String?
+  sealChpn2    String?
+  sealChpn3    String?
+  sealNo1      String?
+  sealNo2      String?
+  sealNo3      String?
+  ttwg         Float?
+  updatedAt    DateTime  @updatedAt
+}
+
+model CariCagDcshBlTrlr {
+  cagMgmtNo    String?
+  chssNo       String?
+  createdAt    DateTime  @default(now())
+  delYn        String?
+  frstRegstId  String?
+  frstRgsrDttm DateTime?
+  id           String    @id @default(cuid())
+  lastChgDttm  DateTime?
+  lastChprId   String?
+  mrn          String?
+  trlrSrno     Int?
+  trlrStsz     String?
+  updatedAt    DateTime  @updatedAt
+  vhclRgsrNo   String?
+}
+
+model CariCagDcshBlVhcl {
+  cagMgmtNo    String?
+  chssNo       String?
+  createdAt    DateTime  @default(now())
+  delYn        String?
+  engnClndGcnt Int?
+  frstRegstId  String?
+  frstRgsrDttm DateTime?
+  id           String    @id @default(cuid())
+  lastChgDttm  DateTime?
+  lastChprId   String?
+  mrn          String?
+  updatedAt    DateTime  @updatedAt
+  vhclKndNm    String?
+  vhclMdlCd    String?
+  vhclMnfcYy   String?
+  vhclMnurCd   String?
+  vhclRgsrNo   String?
+  vhclSrno     Int?
+  vhclTotlWght Float?
+}
+
+model CariCagDcshBlTrnp {
+  chssNo        String?
+  createdAt     DateTime  @default(now())
+  delYn         String?
+  drvrNm        String?
+  drvrPsprNo    String?
+  frstRegstId   String?
+  frstRgsrDttm  DateTime?
+  id            String    @id @default(cuid())
+  lastChgDttm   DateTime?
+  lastChprId    String?
+  mrn           String?
+  trnpMethNatCd String?
+  updatedAt     DateTime  @updatedAt
+  vhclMnurCd    String?
+  vhclNttn      Float?
+  vhclPtCd      String?
+  vhclRgsrNo    String?
+  vhclSrno      Int?
+  vhclTtn       Float?
+}

@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+                 package cariCagDcshBlTrnp;
+service CariCagDcshBlTrnpService {
+ rpc createCariCagDcshBlTrnp (CariCagDcshBlTrnpCreateInput) returns (CariCagDcshBlTrnp) {}
+rpc cariCagDcshBlTrnps (findManyParams) returns (stream CariCagDcshBlTrnp) {}
+rpc cariCagDcshBlTrnp (CariCagDcshBlTrnpWhereUniqueInput) returns (CariCagDcshBlTrnp) {}
+rpc updateCariCagDcshBlTrnp (CariCagDcshBlTrnpUpdateInput) returns (CariCagDcshBlTrnp) {}
+rpc deleteCariCagDcshBlTrnp (CariCagDcshBlTrnpWhereUniqueInput) returns (CariCagDcshBlTrnp) {} 
+ }
+message CariCagDcshBlTrnpCreateInput {
+string chssNo = 1;
+string createdAt = 2;
+string delYn = 3;
+string drvrNm = 4;
+string drvrPsprNo = 5;
+string frstRegstId = 6;
+string frstRgsrDttm = 7;
+string id = 8;
+string lastChgDttm = 9;
+string lastChprId = 10;
+string mrn = 11;
+string trnpMethNatCd = 12;
+string updatedAt = 13;
+string vhclMnurCd = 14;
+int32 vhclNttn = 15;
+string vhclPtCd = 16;
+string vhclRgsrNo = 17;
+int32 vhclSrno = 18;
+int32 vhclTtn = 19;
+};
+message CariCagDcshBlTrnp {
+string chssNo = 1;
+string createdAt = 2;
+string delYn = 3;
+string drvrNm = 4;
+string drvrPsprNo = 5;
+string frstRegstId = 6;
+string frstRgsrDttm = 7;
+string id = 8;
+string lastChgDttm = 9;
+string lastChprId = 10;
+string mrn = 11;
+string trnpMethNatCd = 12;
+string updatedAt = 13;
+string vhclMnurCd = 14;
+int32 vhclNttn = 15;
+string vhclPtCd = 16;
+string vhclRgsrNo = 17;
+int32 vhclSrno = 18;
+int32 vhclTtn = 19;
+};
+message CariCagDcshBlTrnpWhereUniqueInput {
+string chssNo = 1;
+string createdAt = 2;
+string delYn = 3;
+string drvrNm = 4;
+string drvrPsprNo = 5;
+string frstRegstId = 6;
+string frstRgsrDttm = 7;
+string id = 8;
+string lastChgDttm = 9;
+string lastChprId = 10;
+string mrn = 11;
+string trnpMethNatCd = 12;
+string updatedAt = 13;
+string vhclMnurCd = 14;
+int32 vhclNttn = 15;
+string vhclPtCd = 16;
+string vhclRgsrNo = 17;
+int32 vhclSrno = 18;
+int32 vhclTtn = 19;
+};
+message CariCagDcshBlTrnpUpdateInput {
+string chssNo = 1;
+string createdAt = 2;
+string delYn = 3;
+string drvrNm = 4;
+string drvrPsprNo = 5;
+string frstRegstId = 6;
+string frstRgsrDttm = 7;
+string id = 8;
+string lastChgDttm = 9;
+string lastChprId = 10;
+string mrn = 11;
+string trnpMethNatCd = 12;
+string updatedAt = 13;
+string vhclMnurCd = 14;
+int32 vhclNttn = 15;
+string vhclPtCd = 16;
+string vhclRgsrNo = 17;
+int32 vhclSrno = 18;
+int32 vhclTtn = 19;
+};
+message findManyParams {
+
+};

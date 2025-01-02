@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+                 package cariCagDcshBlCntr;
+service CariCagDcshBlCntrService {
+ rpc createCariCagDcshBlCntr (CariCagDcshBlCntrCreateInput) returns (CariCagDcshBlCntr) {}
+rpc cariCagDcshBlCntrs (findManyParams) returns (stream CariCagDcshBlCntr) {}
+rpc cariCagDcshBlCntr (CariCagDcshBlCntrWhereUniqueInput) returns (CariCagDcshBlCntr) {}
+rpc updateCariCagDcshBlCntr (CariCagDcshBlCntrUpdateInput) returns (CariCagDcshBlCntr) {}
+rpc deleteCariCagDcshBlCntr (CariCagDcshBlCntrWhereUniqueInput) returns (CariCagDcshBlCntr) {} 
+ }
+message CariCagDcshBlCntrCreateInput {
+string cagMgmtNo = 1;
+string cntrNo = 2;
+int32 cntrSrno = 3;
+string cntrTpCd = 4;
+string createdAt = 5;
+string delYn = 6;
+int32 ecntrWght = 7;
+string frstRegstId = 8;
+string frstRgsrDttm = 9;
+string id = 10;
+string lastChgDttm = 11;
+string lastChprId = 12;
+string mrn = 13;
+int32 pckgGcnt = 14;
+string pckgUtCd = 15;
+string sealChpn1 = 16;
+string sealChpn2 = 17;
+string sealChpn3 = 18;
+string sealNo1 = 19;
+string sealNo2 = 20;
+string sealNo3 = 21;
+int32 ttwg = 22;
+string updatedAt = 23;
+};
+message CariCagDcshBlCntr {
+string cagMgmtNo = 1;
+string cntrNo = 2;
+int32 cntrSrno = 3;
+string cntrTpCd = 4;
+string createdAt = 5;
+string delYn = 6;
+int32 ecntrWght = 7;
+string frstRegstId = 8;
+string frstRgsrDttm = 9;
+string id = 10;
+string lastChgDttm = 11;
+string lastChprId = 12;
+string mrn = 13;
+int32 pckgGcnt = 14;
+string pckgUtCd = 15;
+string sealChpn1 = 16;
+string sealChpn2 = 17;
+string sealChpn3 = 18;
+string sealNo1 = 19;
+string sealNo2 = 20;
+string sealNo3 = 21;
+int32 ttwg = 22;
+string updatedAt = 23;
+};
+message CariCagDcshBlCntrWhereUniqueInput {
+string cagMgmtNo = 1;
+string cntrNo = 2;
+int32 cntrSrno = 3;
+string cntrTpCd = 4;
+string createdAt = 5;
+string delYn = 6;
+int32 ecntrWght = 7;
+string frstRegstId = 8;
+string frstRgsrDttm = 9;
+string id = 10;
+string lastChgDttm = 11;
+string lastChprId = 12;
+string mrn = 13;
+int32 pckgGcnt = 14;
+string pckgUtCd = 15;
+string sealChpn1 = 16;
+string sealChpn2 = 17;
+string sealChpn3 = 18;
+string sealNo1 = 19;
+string sealNo2 = 20;
+string sealNo3 = 21;
+int32 ttwg = 22;
+string updatedAt = 23;
+};
+message CariCagDcshBlCntrUpdateInput {
+string cagMgmtNo = 1;
+string cntrNo = 2;
+int32 cntrSrno = 3;
+string cntrTpCd = 4;
+string createdAt = 5;
+string delYn = 6;
+int32 ecntrWght = 7;
+string frstRegstId = 8;
+string frstRgsrDttm = 9;
+string id = 10;
+string lastChgDttm = 11;
+string lastChprId = 12;
+string mrn = 13;
+int32 pckgGcnt = 14;
+string pckgUtCd = 15;
+string sealChpn1 = 16;
+string sealChpn2 = 17;
+string sealChpn3 = 18;
+string sealNo1 = 19;
+string sealNo2 = 20;
+string sealNo3 = 21;
+int32 ttwg = 22;
+string updatedAt = 23;
+};
+message findManyParams {
+
+};

@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+                 package cariCagDcshBlTrlr;
+service CariCagDcshBlTrlrService {
+ rpc createCariCagDcshBlTrlr (CariCagDcshBlTrlrCreateInput) returns (CariCagDcshBlTrlr) {}
+rpc cariCagDcshBlTrlrs (findManyParams) returns (stream CariCagDcshBlTrlr) {}
+rpc cariCagDcshBlTrlr (CariCagDcshBlTrlrWhereUniqueInput) returns (CariCagDcshBlTrlr) {}
+rpc updateCariCagDcshBlTrlr (CariCagDcshBlTrlrUpdateInput) returns (CariCagDcshBlTrlr) {}
+rpc deleteCariCagDcshBlTrlr (CariCagDcshBlTrlrWhereUniqueInput) returns (CariCagDcshBlTrlr) {} 
+ }
+message CariCagDcshBlTrlrCreateInput {
+string cagMgmtNo = 1;
+string chssNo = 2;
+string createdAt = 3;
+string delYn = 4;
+string frstRegstId = 5;
+string frstRgsrDttm = 6;
+string id = 7;
+string lastChgDttm = 8;
+string lastChprId = 9;
+string mrn = 10;
+int32 trlrSrno = 11;
+string trlrStsz = 12;
+string updatedAt = 13;
+string vhclRgsrNo = 14;
+};
+message CariCagDcshBlTrlr {
+string cagMgmtNo = 1;
+string chssNo = 2;
+string createdAt = 3;
+string delYn = 4;
+string frstRegstId = 5;
+string frstRgsrDttm = 6;
+string id = 7;
+string lastChgDttm = 8;
+string lastChprId = 9;
+string mrn = 10;
+int32 trlrSrno = 11;
+string trlrStsz = 12;
+string updatedAt = 13;
+string vhclRgsrNo = 14;
+};
+message CariCagDcshBlTrlrWhereUniqueInput {
+string cagMgmtNo = 1;
+string chssNo = 2;
+string createdAt = 3;
+string delYn = 4;
+string frstRegstId = 5;
+string frstRgsrDttm = 6;
+string id = 7;
+string lastChgDttm = 8;
+string lastChprId = 9;
+string mrn = 10;
+int32 trlrSrno = 11;
+string trlrStsz = 12;
+string updatedAt = 13;
+string vhclRgsrNo = 14;
+};
+message CariCagDcshBlTrlrUpdateInput {
+string cagMgmtNo = 1;
+string chssNo = 2;
+string createdAt = 3;
+string delYn = 4;
+string frstRegstId = 5;
+string frstRgsrDttm = 6;
+string id = 7;
+string lastChgDttm = 8;
+string lastChprId = 9;
+string mrn = 10;
+int32 trlrSrno = 11;
+string trlrStsz = 12;
+string updatedAt = 13;
+string vhclRgsrNo = 14;
+};
+message findManyParams {
+
+};
