@@ -1,0 +1,24 @@
+export type ClreDedCntr = {
+  cntrNo: string | null;
+  cntrSrno: number | null;
+  cntrStfnSttsCd: string | null;
+  cntrTpCd: string | null;
+  createdAt: Date;
+  delYn: string | null;
+  frstRegstId: string | null;
+  frstRgsrDttm: Date | null;
+  id: string;
+  inscTrgtYn: string | null;
+  lastChgDttm: Date | null;
+  lastChprId: string | null;
+  mdfyDgcnt: number | null;
+  reffNo: string | null;
+  sealChpn1: string | null;
+  sealChpn2: string | null;
+  sealChpn3: string | null;
+  sealChpnCd: string | null;
+  sealNo1: string | null;
+  sealNo2: string | null;
+  sealNo3: string | null;
+  updatedAt: Date;
+};

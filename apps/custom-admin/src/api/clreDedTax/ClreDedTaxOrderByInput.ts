@@ -1,0 +1,31 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type ClreDedTaxOrderByInput = {
+  bscsTaxAmt?: SortOrder;
+  bscsTxbsAmt?: SortOrder;
+  bscsTxrt?: SortOrder;
+  createdAt?: SortOrder;
+  delYn?: SortOrder;
+  frstRegstId?: SortOrder;
+  frstRgsrDttm?: SortOrder;
+  id?: SortOrder;
+  lastChgDttm?: SortOrder;
+  lastChprId?: SortOrder;
+  mdfyDgcnt?: SortOrder;
+  mgDscnAplyAmt?: SortOrder;
+  payKndCd?: SortOrder;
+  payTaxAmt?: SortOrder;
+  pdlsNo?: SortOrder;
+  rdexAmt?: SortOrder;
+  rdexBaseAmt?: SortOrder;
+  rdexCd?: SortOrder;
+  rdexPtCd?: SortOrder;
+  rdexTxrt?: SortOrder;
+  reffNo?: SortOrder;
+  taxAmt?: SortOrder;
+  taxCd?: SortOrder;
+  tfrtCtgyCd?: SortOrder;
+  txbsAmt?: SortOrder;
+  txrt?: SortOrder;
+  updatedAt?: SortOrder;
+};

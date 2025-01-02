@@ -15,20 +15,20 @@ import { BatchSpanProcessor } from "@opentelemetry/sdk-trace-node";
 import { CacheModule } from "@nestjs/cache-manager";
 import { redisStore } from "cache-manager-ioredis-yet";
 import { RedisModule } from "./redis/redis.module";
-import { ClearanceDeclarationModule } from "./clearanceDeclaration/clearanceDeclaration.module";
-import { TbClreDedPdlsModule } from "./tbClreDedPdls/tbClreDedPdls.module";
-import { TbClreDedMdlStszModule } from "./tbClreDedMdlStsz/tbClreDedMdlStsz.module";
-import { TbClreDedVlutComnModule } from "./tbClreDedVlutComn/tbClreDedVlutComn.module";
-import { TbClreDedVlutPdlsModule } from "./tbClreDedVlutPdls/tbClreDedVlutPdls.module";
-import { ClearanceDeclarationContainerModule } from "./clearanceDeclarationContainer/clearanceDeclarationContainer.module";
-import { TbClreDedCoModule } from "./tbClreDedCo/tbClreDedCo.module";
-import { TbClreDedMgModule } from "./tbClreDedMg/tbClreDedMg.module";
-import { TbClreDedPrcDclrModule } from "./tbClreDedPrcDclr/tbClreDedPrcDclr.module";
-import { TbClreDedPrcDclrPdlsModule } from "./tbClreDedPrcDclrPdls/tbClreDedPrcDclrPdls.module";
-import { TbClreDedRwmsModule } from "./tbClreDedRwms/tbClreDedRwms.module";
-import { TbClreDedTaxModule } from "./tbClreDedTax/tbClreDedTax.module";
-import { TbClreDedVhclModule } from "./tbClreDedVhcl/tbClreDedVhcl.module";
-import { TbClreDedRimexPrngPdlsModule } from "./tbClreDedRimexPrngPdls/tbClreDedRimexPrngPdls.module";
+import { ClreDedComnModule } from "./clreDedComn/clreDedComn.module";
+import { ClreDedPdlsModule } from "./clreDedPdls/clreDedPdls.module";
+import { ClreDedMdlStszModule } from "./clreDedMdlStsz/clreDedMdlStsz.module";
+import { ClreDedVlutComnModule } from "./clreDedVlutComn/clreDedVlutComn.module";
+import { ClreDedVlutPdlModule } from "./clreDedVlutPdl/clreDedVlutPdl.module";
+import { ClreDedCntrModule } from "./clreDedCntr/clreDedCntr.module";
+import { ClreDedCoModule } from "./clreDedCo/clreDedCo.module";
+import { ClreDedMgModule } from "./clreDedMg/clreDedMg.module";
+import { ClreDedPrcDclrModule } from "./clreDedPrcDclr/clreDedPrcDclr.module";
+import { ClreDedPrcDclrPdlModule } from "./clreDedPrcDclrPdl/clreDedPrcDclrPdl.module";
+import { ClreDedRwmModule } from "./clreDedRwm/clreDedRwm.module";
+import { ClreDedTaxModule } from "./clreDedTax/clreDedTax.module";
+import { ClreDedVhclModule } from "./clreDedVhcl/clreDedVhcl.module";
+import { ClreDedRimexPrngPdlModule } from "./clreDedRimexPrngPdl/clreDedRimexPrngPdl.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -48,20 +48,20 @@ import { LoggerModule } from "./logger/logger.module";
     StorageModule,
     KafkaModule,
     LoggerModule,
-    ClearanceDeclarationModule,
-    TbClreDedPdlsModule,
-    TbClreDedMdlStszModule,
-    TbClreDedVlutComnModule,
-    TbClreDedVlutPdlsModule,
-    ClearanceDeclarationContainerModule,
-    TbClreDedCoModule,
-    TbClreDedMgModule,
-    TbClreDedPrcDclrModule,
-    TbClreDedPrcDclrPdlsModule,
-    TbClreDedRwmsModule,
-    TbClreDedTaxModule,
-    TbClreDedVhclModule,
-    TbClreDedRimexPrngPdlsModule,
+    ClreDedComnModule,
+    ClreDedPdlsModule,
+    ClreDedMdlStszModule,
+    ClreDedVlutComnModule,
+    ClreDedVlutPdlModule,
+    ClreDedCntrModule,
+    ClreDedCoModule,
+    ClreDedMgModule,
+    ClreDedPrcDclrModule,
+    ClreDedPrcDclrPdlModule,
+    ClreDedRwmModule,
+    ClreDedTaxModule,
+    ClreDedVhclModule,
+    ClreDedRimexPrngPdlModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
