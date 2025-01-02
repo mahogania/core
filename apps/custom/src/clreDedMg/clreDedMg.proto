@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+                 package clreDedMg;
+service ClreDedMgService {
+ rpc createClreDedMg (ClreDedMgCreateInput) returns (ClreDedMg) {}
+rpc clreDedMgs (findManyParams) returns (stream ClreDedMg) {}
+rpc clreDedMg (ClreDedMgWhereUniqueInput) returns (ClreDedMg) {}
+rpc updateClreDedMg (ClreDedMgUpdateInput) returns (ClreDedMg) {}
+rpc deleteClreDedMg (ClreDedMgWhereUniqueInput) returns (ClreDedMg) {} 
+ }
+message ClreDedMgCreateInput {
+string createdAt = 1;
+string delYn = 2;
+string frstRegstId = 3;
+string frstRgsrDttm = 4;
+string id = 5;
+string lastChgDttm = 6;
+string lastChprId = 7;
+int32 mdfyDgcnt = 8;
+string mgAcNo = 9;
+string mgTpCd = 10;
+string reffNo = 11;
+string updatedAt = 12;
+};
+message ClreDedMg {
+string createdAt = 1;
+string delYn = 2;
+string frstRegstId = 3;
+string frstRgsrDttm = 4;
+string id = 5;
+string lastChgDttm = 6;
+string lastChprId = 7;
+int32 mdfyDgcnt = 8;
+string mgAcNo = 9;
+string mgTpCd = 10;
+string reffNo = 11;
+string updatedAt = 12;
+};
+message ClreDedMgWhereUniqueInput {
+string createdAt = 1;
+string delYn = 2;
+string frstRegstId = 3;
+string frstRgsrDttm = 4;
+string id = 5;
+string lastChgDttm = 6;
+string lastChprId = 7;
+int32 mdfyDgcnt = 8;
+string mgAcNo = 9;
+string mgTpCd = 10;
+string reffNo = 11;
+string updatedAt = 12;
+};
+message ClreDedMgUpdateInput {
+string createdAt = 1;
+string delYn = 2;
+string frstRegstId = 3;
+string frstRgsrDttm = 4;
+string id = 5;
+string lastChgDttm = 6;
+string lastChprId = 7;
+int32 mdfyDgcnt = 8;
+string mgAcNo = 9;
+string mgTpCd = 10;
+string reffNo = 11;
+string updatedAt = 12;
+};
+message findManyParams {
+
+};

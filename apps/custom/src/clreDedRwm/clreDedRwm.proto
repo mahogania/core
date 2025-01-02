@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+                 package clreDedRwm;
+service ClreDedRwmService {
+ rpc createClreDedRwm (ClreDedRwmCreateInput) returns (ClreDedRwm) {}
+rpc clreDedRwms (findManyParams) returns (stream ClreDedRwm) {}
+rpc clreDedRwm (ClreDedRwmWhereUniqueInput) returns (ClreDedRwm) {}
+rpc updateClreDedRwm (ClreDedRwmUpdateInput) returns (ClreDedRwm) {}
+rpc deleteClreDedRwm (ClreDedRwmWhereUniqueInput) returns (ClreDedRwm) {} 
+ }
+message ClreDedRwmCreateInput {
+string bfCmdtClsfSpelCd = 1;
+string bfDtlDcshNo = 2;
+string bfHsCd = 3;
+string bfPdlsNo = 4;
+string createdAt = 5;
+string delYn = 6;
+string divdFfmnTpCd = 7;
+string frstRegstId = 8;
+string frstRgsrDttm = 9;
+string id = 10;
+string lastChgDttm = 11;
+string lastChprId = 12;
+int32 mdfyDgcnt = 13;
+int32 ntwg = 14;
+string pdlsNo = 15;
+int32 qty = 16;
+string qtyUtCd = 17;
+string reffNo = 18;
+int32 rwmsSrno = 19;
+string updatedAt = 20;
+};
+message ClreDedRwm {
+string bfCmdtClsfSpelCd = 1;
+string bfDtlDcshNo = 2;
+string bfHsCd = 3;
+string bfPdlsNo = 4;
+string createdAt = 5;
+string delYn = 6;
+string divdFfmnTpCd = 7;
+string frstRegstId = 8;
+string frstRgsrDttm = 9;
+string id = 10;
+string lastChgDttm = 11;
+string lastChprId = 12;
+int32 mdfyDgcnt = 13;
+int32 ntwg = 14;
+string pdlsNo = 15;
+int32 qty = 16;
+string qtyUtCd = 17;
+string reffNo = 18;
+int32 rwmsSrno = 19;
+string updatedAt = 20;
+};
+message ClreDedRwmWhereUniqueInput {
+string bfCmdtClsfSpelCd = 1;
+string bfDtlDcshNo = 2;
+string bfHsCd = 3;
+string bfPdlsNo = 4;
+string createdAt = 5;
+string delYn = 6;
+string divdFfmnTpCd = 7;
+string frstRegstId = 8;
+string frstRgsrDttm = 9;
+string id = 10;
+string lastChgDttm = 11;
+string lastChprId = 12;
+int32 mdfyDgcnt = 13;
+int32 ntwg = 14;
+string pdlsNo = 15;
+int32 qty = 16;
+string qtyUtCd = 17;
+string reffNo = 18;
+int32 rwmsSrno = 19;
+string updatedAt = 20;
+};
+message ClreDedRwmUpdateInput {
+string bfCmdtClsfSpelCd = 1;
+string bfDtlDcshNo = 2;
+string bfHsCd = 3;
+string bfPdlsNo = 4;
+string createdAt = 5;
+string delYn = 6;
+string divdFfmnTpCd = 7;
+string frstRegstId = 8;
+string frstRgsrDttm = 9;
+string id = 10;
+string lastChgDttm = 11;
+string lastChprId = 12;
+int32 mdfyDgcnt = 13;
+int32 ntwg = 14;
+string pdlsNo = 15;
+int32 qty = 16;
+string qtyUtCd = 17;
+string reffNo = 18;
+int32 rwmsSrno = 19;
+string updatedAt = 20;
+};
+message findManyParams {
+
+};

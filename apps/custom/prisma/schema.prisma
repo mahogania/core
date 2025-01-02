@@ -7,7 +7,7 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model ClearanceDeclaration {
+model ClreDedComn {
   aditTxQty          Float?
   aditTxQtyUtCd      String?
   alNtwg             Float?
@@ -130,7 +130,7 @@ model ClearanceDeclaration {
   wkngPtCd           String?
 }
 
-model TbClreDedPdls {
+model ClreDedPdls {
   aditTxQty          Float?
   aditTxQtyUtCd      String?
   apcAtpmEndDt       String?
@@ -182,7 +182,7 @@ model TbClreDedPdls {
   vhclYn             String?
 }
 
-model TbClreDedMdlStsz {
+model ClreDedMdlStsz {
   cachAmt      Float?
   cachCurrCd   String?
   cachFxrt     Float?
@@ -229,7 +229,7 @@ model TbClreDedMdlStsz {
   utPrc        Float?
 }
 
-model TbClreDedVlutComn {
+model ClreDedVlutComn {
   cachAmt      Float?
   cachCurrCd   String?
   cachFxrt     Float?
@@ -268,7 +268,7 @@ model TbClreDedVlutComn {
   updatedAt    DateTime  @updatedAt
 }
 
-model TbClreDedVlutPdls {
+model ClreDedVlutPdl {
   createdAt       DateTime  @default(now())
   delYn           String?
   frstRegstId     String?
@@ -313,7 +313,7 @@ model TbClreDedVlutPdls {
   updatedAt       DateTime  @updatedAt
 }
 
-model TbClreDedCntr {
+model ClreDedCntr {
   cntrNo         String?
   cntrSrno       Int?
   cntrStfnSttsCd String?
@@ -338,7 +338,7 @@ model TbClreDedCntr {
   updatedAt      DateTime  @updatedAt
 }
 
-model TbClreDedCo {
+model ClreDedCo {
   createdAt    DateTime  @default(now())
   dcerAddr     String?
   dcerCoNm     String?
@@ -362,7 +362,7 @@ model TbClreDedCo {
   updatedAt    DateTime  @updatedAt
 }
 
-model TbClreDedMg {
+model ClreDedMg {
   createdAt    DateTime  @default(now())
   delYn        String?
   frstRegstId  String?
@@ -377,7 +377,7 @@ model TbClreDedMg {
   updatedAt    DateTime  @updatedAt
 }
 
-model TbClreDedPrcDclr {
+model ClreDedPrcDclr {
   adcstBrkgAmt         Float?
   adcstCnsmCmdtCst     Float?
   adcstCtnrPckgCst     Float?
@@ -438,7 +438,7 @@ model TbClreDedPrcDclr {
   updatedAt            DateTime  @updatedAt
 }
 
-model TbClreDedPrcDclrPdls {
+model ClreDedPrcDclrPdl {
   brngTrnpCst   Float?
   byerPymnCst   Float?
   createdAt     DateTime  @default(now())
@@ -471,7 +471,7 @@ model TbClreDedPrcDclrPdls {
   updatedAt     DateTime  @updatedAt
 }
 
-model TbClreDedRwms {
+model ClreDedRwm {
   bfCmdtClsfSpelCd String?
   bfDtlDcshNo      String?
   bfHsCd           String?
@@ -494,7 +494,7 @@ model TbClreDedRwms {
   updatedAt        DateTime  @updatedAt
 }
 
-model TbClreDedTax {
+model ClreDedTax {
   bscsTaxAmt    Float?
   bscsTxbsAmt   Float?
   bscsTxrt      Float?
@@ -524,7 +524,7 @@ model TbClreDedTax {
   updatedAt     DateTime  @updatedAt
 }
 
-model TbClreDedVhcl {
+model ClreDedVhcl {
   caboNm         String?
   carRgsrNo      String?
   chssNo         String?
@@ -564,7 +564,7 @@ model TbClreDedVhcl {
   vhclWghtCn     String?
 }
 
-model TbClreDedRimexPrngPdls {
+model ClreDedRimexPrngPdl {
   cmdtClsfSpelCd String?
   createdAt      DateTime  @default(now())
   delYn          String?

@@ -1,0 +1,34 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type ClreDedPrcDclrPdlOrderByInput = {
+  brngTrnpCst?: SortOrder;
+  byerPymnCst?: SortOrder;
+  createdAt?: SortOrder;
+  delYn?: SortOrder;
+  frstRegstId?: SortOrder;
+  frstRgsrDttm?: SortOrder;
+  id?: SortOrder;
+  indrPymnTamt?: SortOrder;
+  infeeAmt?: SortOrder;
+  lastChgDttm?: SortOrder;
+  lastChprId?: SortOrder;
+  loadCstAmt?: SortOrder;
+  mdfyDgcnt?: SortOrder;
+  mdlStszNo?: SortOrder;
+  mdtnPcfeAmt?: SortOrder;
+  mnfuSrvc_1Amt?: SortOrder;
+  mnfuSrvc_2Amt?: SortOrder;
+  mnfuSrvc_3Amt?: SortOrder;
+  mnfuSrvc_4Amt?: SortOrder;
+  otcstAmt?: SortOrder;
+  pcfeAmt?: SortOrder;
+  pcfeLcneAmt?: SortOrder;
+  pckgAmt?: SortOrder;
+  pdlsNo?: SortOrder;
+  pyrTrifAmt?: SortOrder;
+  reffNo?: SortOrder;
+  resaleErnAmt?: SortOrder;
+  techSpptCst?: SortOrder;
+  trnpCstAmt?: SortOrder;
+  updatedAt?: SortOrder;
+};

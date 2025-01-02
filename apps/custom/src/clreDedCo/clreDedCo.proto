@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+                 package clreDedCo;
+service ClreDedCoService {
+ rpc createClreDedCo (ClreDedCoCreateInput) returns (ClreDedCo) {}
+rpc clreDedCos (findManyParams) returns (stream ClreDedCo) {}
+rpc clreDedCo (ClreDedCoWhereUniqueInput) returns (ClreDedCo) {}
+rpc updateClreDedCo (ClreDedCoUpdateInput) returns (ClreDedCo) {}
+rpc deleteClreDedCo (ClreDedCoWhereUniqueInput) returns (ClreDedCo) {} 
+ }
+message ClreDedCoCreateInput {
+string createdAt = 1;
+string dcerAddr = 2;
+string dcerCoNm = 3;
+string delYn = 4;
+string exppnAddr = 5;
+string exppnCoNm = 6;
+string exppnEml = 7;
+string frstRegstId = 8;
+string frstRgsrDttm = 9;
+string id = 10;
+string imppnAddr = 11;
+string imppnCoNm = 12;
+string lastChgDttm = 13;
+string lastChprId = 14;
+int32 mdfyDgcnt = 15;
+string reffNo = 16;
+string txprAddr = 17;
+string txprCoNm = 18;
+string txprEml = 19;
+string txprTlphNo = 20;
+string updatedAt = 21;
+};
+message ClreDedCo {
+string createdAt = 1;
+string dcerAddr = 2;
+string dcerCoNm = 3;
+string delYn = 4;
+string exppnAddr = 5;
+string exppnCoNm = 6;
+string exppnEml = 7;
+string frstRegstId = 8;
+string frstRgsrDttm = 9;
+string id = 10;
+string imppnAddr = 11;
+string imppnCoNm = 12;
+string lastChgDttm = 13;
+string lastChprId = 14;
+int32 mdfyDgcnt = 15;
+string reffNo = 16;
+string txprAddr = 17;
+string txprCoNm = 18;
+string txprEml = 19;
+string txprTlphNo = 20;
+string updatedAt = 21;
+};
+message ClreDedCoWhereUniqueInput {
+string createdAt = 1;
+string dcerAddr = 2;
+string dcerCoNm = 3;
+string delYn = 4;
+string exppnAddr = 5;
+string exppnCoNm = 6;
+string exppnEml = 7;
+string frstRegstId = 8;
+string frstRgsrDttm = 9;
+string id = 10;
+string imppnAddr = 11;
+string imppnCoNm = 12;
+string lastChgDttm = 13;
+string lastChprId = 14;
+int32 mdfyDgcnt = 15;
+string reffNo = 16;
+string txprAddr = 17;
+string txprCoNm = 18;
+string txprEml = 19;
+string txprTlphNo = 20;
+string updatedAt = 21;
+};
+message ClreDedCoUpdateInput {
+string createdAt = 1;
+string dcerAddr = 2;
+string dcerCoNm = 3;
+string delYn = 4;
+string exppnAddr = 5;
+string exppnCoNm = 6;
+string exppnEml = 7;
+string frstRegstId = 8;
+string frstRgsrDttm = 9;
+string id = 10;
+string imppnAddr = 11;
+string imppnCoNm = 12;
+string lastChgDttm = 13;
+string lastChprId = 14;
+int32 mdfyDgcnt = 15;
+string reffNo = 16;
+string txprAddr = 17;
+string txprCoNm = 18;
+string txprEml = 19;
+string txprTlphNo = 20;
+string updatedAt = 21;
+};
+message findManyParams {
+
+};

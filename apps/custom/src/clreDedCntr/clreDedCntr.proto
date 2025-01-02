@@ -1,0 +1,109 @@
+syntax = "proto3";
+
+                 package clreDedCntr;
+service ClreDedCntrService {
+ rpc createClreDedCntr (ClreDedCntrCreateInput) returns (ClreDedCntr) {}
+rpc clreDedCntrs (findManyParams) returns (stream ClreDedCntr) {}
+rpc clreDedCntr (ClreDedCntrWhereUniqueInput) returns (ClreDedCntr) {}
+rpc updateClreDedCntr (ClreDedCntrUpdateInput) returns (ClreDedCntr) {}
+rpc deleteClreDedCntr (ClreDedCntrWhereUniqueInput) returns (ClreDedCntr) {} 
+ }
+message ClreDedCntrCreateInput {
+string cntrNo = 1;
+int32 cntrSrno = 2;
+string cntrStfnSttsCd = 3;
+string cntrTpCd = 4;
+string createdAt = 5;
+string delYn = 6;
+string frstRegstId = 7;
+string frstRgsrDttm = 8;
+string id = 9;
+string inscTrgtYn = 10;
+string lastChgDttm = 11;
+string lastChprId = 12;
+int32 mdfyDgcnt = 13;
+string reffNo = 14;
+string sealChpn1 = 15;
+string sealChpn2 = 16;
+string sealChpn3 = 17;
+string sealChpnCd = 18;
+string sealNo1 = 19;
+string sealNo2 = 20;
+string sealNo3 = 21;
+string updatedAt = 22;
+};
+message ClreDedCntr {
+string cntrNo = 1;
+int32 cntrSrno = 2;
+string cntrStfnSttsCd = 3;
+string cntrTpCd = 4;
+string createdAt = 5;
+string delYn = 6;
+string frstRegstId = 7;
+string frstRgsrDttm = 8;
+string id = 9;
+string inscTrgtYn = 10;
+string lastChgDttm = 11;
+string lastChprId = 12;
+int32 mdfyDgcnt = 13;
+string reffNo = 14;
+string sealChpn1 = 15;
+string sealChpn2 = 16;
+string sealChpn3 = 17;
+string sealChpnCd = 18;
+string sealNo1 = 19;
+string sealNo2 = 20;
+string sealNo3 = 21;
+string updatedAt = 22;
+};
+message ClreDedCntrWhereUniqueInput {
+string cntrNo = 1;
+int32 cntrSrno = 2;
+string cntrStfnSttsCd = 3;
+string cntrTpCd = 4;
+string createdAt = 5;
+string delYn = 6;
+string frstRegstId = 7;
+string frstRgsrDttm = 8;
+string id = 9;
+string inscTrgtYn = 10;
+string lastChgDttm = 11;
+string lastChprId = 12;
+int32 mdfyDgcnt = 13;
+string reffNo = 14;
+string sealChpn1 = 15;
+string sealChpn2 = 16;
+string sealChpn3 = 17;
+string sealChpnCd = 18;
+string sealNo1 = 19;
+string sealNo2 = 20;
+string sealNo3 = 21;
+string updatedAt = 22;
+};
+message ClreDedCntrUpdateInput {
+string cntrNo = 1;
+int32 cntrSrno = 2;
+string cntrStfnSttsCd = 3;
+string cntrTpCd = 4;
+string createdAt = 5;
+string delYn = 6;
+string frstRegstId = 7;
+string frstRgsrDttm = 8;
+string id = 9;
+string inscTrgtYn = 10;
+string lastChgDttm = 11;
+string lastChprId = 12;
+int32 mdfyDgcnt = 13;
+string reffNo = 14;
+string sealChpn1 = 15;
+string sealChpn2 = 16;
+string sealChpn3 = 17;
+string sealChpnCd = 18;
+string sealNo1 = 19;
+string sealNo2 = 20;
+string sealNo3 = 21;
+string updatedAt = 22;
+};
+message findManyParams {
+
+};

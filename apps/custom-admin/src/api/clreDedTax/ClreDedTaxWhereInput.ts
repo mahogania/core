@@ -1,0 +1,33 @@
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { StringFilter } from "../../util/StringFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+
+export type ClreDedTaxWhereInput = {
+  bscsTaxAmt?: FloatNullableFilter;
+  bscsTxbsAmt?: FloatNullableFilter;
+  bscsTxrt?: FloatNullableFilter;
+  delYn?: StringNullableFilter;
+  frstRegstId?: StringNullableFilter;
+  frstRgsrDttm?: DateTimeNullableFilter;
+  id?: StringFilter;
+  lastChgDttm?: DateTimeNullableFilter;
+  lastChprId?: StringNullableFilter;
+  mdfyDgcnt?: IntNullableFilter;
+  mgDscnAplyAmt?: FloatNullableFilter;
+  payKndCd?: StringNullableFilter;
+  payTaxAmt?: FloatNullableFilter;
+  pdlsNo?: StringNullableFilter;
+  rdexAmt?: FloatNullableFilter;
+  rdexBaseAmt?: FloatNullableFilter;
+  rdexCd?: StringNullableFilter;
+  rdexPtCd?: StringNullableFilter;
+  rdexTxrt?: FloatNullableFilter;
+  reffNo?: StringNullableFilter;
+  taxAmt?: FloatNullableFilter;
+  taxCd?: StringNullableFilter;
+  tfrtCtgyCd?: StringNullableFilter;
+  txbsAmt?: FloatNullableFilter;
+  txrt?: FloatNullableFilter;
+};
